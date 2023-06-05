@@ -10,11 +10,16 @@ Future<void> main(List<String> arguments) async {
     print(data);
   });
 
+  var bundleName="Bunch";
+  await loadAllBundles(bundleName);
+  exit(0);
+}
+
+Future<void> loadAllBundles(String bundleName) async {
   await perform(
       dio,
       {"module": "bundles", "action": "loadAllBundles", "regionId": "default"},
-      {"bundleName": "Bunch"}, (data) {
+      {"bundleName": bundleName}, (data) {
     prettyPrint(data);
   });
-  exit(0);
 }

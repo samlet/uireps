@@ -3,10 +3,8 @@ import 'dart:io';
 import 'package:xcsapi/xcsapi.dart';
 
 Future<void> main(List<String> arguments) async {
-  await perform(dio, {"module": "fixtures", "action": "fixtureGroup"},
-      {"group": "dropship"}, (data) {
-    print(data);
-  });
+  var grp="dropship";
+  await fixtureGroup(grp);
 
   await perform(
       dio,

@@ -9,7 +9,20 @@ environment:
 dependencies:
   dio: ^5.1.2
   path: ^1.8.0
+  equatable: ^2.0.5
+  recase: ^4.0.0
+  slugid: ^1.1.0
+  tuple: ^2.0.0
+  decimal: ^2.2.0
+  duration: ^3.0.11
+  intl: ^0.17.0
+  validators: ^3.0.0
+  power_extensions: ^0.2.2
+  get_it: ^7.2.0
+  dart_jsonwebtoken: ^2.6.2
+  rxdart: ^0.27.5
 
 dev_dependencies:
   pedantic: ^1.10.0
   test: ^1.16.0
+
