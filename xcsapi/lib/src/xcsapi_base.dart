@@ -34,6 +34,10 @@ Future<void> apply(
   return invokeApi(dio, '/master-doc', null, payload, onSucc);
 }
 
+Future<void> applyDocs(Map<String, Object> payload){
+  return apply(dio, payload, (data){print(data);});
+}
+
 void printResp(Response<dynamic> response) {
   if (response.statusCode == 200) {
     print("response(${response.statusCode}): ${response.data}");
