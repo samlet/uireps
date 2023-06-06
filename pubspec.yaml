@@ -31,6 +31,14 @@ dependencies:
   flutter:
     sdk: flutter
 
+  bloc: ^8.1.1
+  equatable: ^2.0.5
+  flutter_bloc: ^8.1.1
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+  formz: ^0.6.0
+
   dio: ^5.1.2
   xcsapi:
     path: ./xcsapi
@@ -43,6 +51,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  bloc_test: ^9.1.0
+  mockingjay: ^0.3.0
+  mocktail: ^0.3.0
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
