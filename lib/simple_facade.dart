@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'form_2.dart';
 import 'form_ctl.dart';
+import 'simple_dlgs.dart';
 import 'simple_form.dart';
 import 'test_forms.dart';
+
 void main() => runApp(FacadeNamedApp());
 
 // class SimpleFacadeApp extends StatelessWidget {
@@ -31,6 +33,7 @@ class FacadeHomePage extends StatefulWidget {
 
 class _FacadeHomePageState extends State<FacadeHomePage> {
   int _counter = 0;
+  String _resp = "_unk_";
 
   void _incrementCounter() {
     setState(() {
@@ -124,6 +127,18 @@ class _FacadeHomePageState extends State<FacadeHomePage> {
                 );
               },
             ),
+
+            TextButton(child: const Text("=> Ask Dialog"), onPressed: () async{
+              var resp=await askedToLead(context);
+              setState(() {
+                _resp=resp;
+              });
+            }),
+            Text(
+              _resp,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+
           ],
         ),
       ),
@@ -135,7 +150,6 @@ class _FacadeHomePageState extends State<FacadeHomePage> {
     );
   }
 }
-
 
 class FacadeNamedApp extends StatelessWidget {
   @override
@@ -172,7 +186,7 @@ class NewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //获取路由参数
-    var args=ModalRoute.of(context)?.settings.arguments;
+    var args = ModalRoute.of(context)?.settings.arguments;
     print("route args: $args");
 
     return Scaffold(
@@ -186,10 +200,8 @@ class NewRoute extends StatelessWidget {
   }
 }
 
-
 /*
 facade input keywords:
 1. route: 将控件用Scaffold包装, 构成Route.
 2. nav-button: 路由到表单的按钮.
  */
-
