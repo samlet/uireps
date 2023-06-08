@@ -8,7 +8,7 @@ part of 'model.dart';
 
 class DataAdapter extends TypeAdapter<Data> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   Data read(BinaryReader reader) {
@@ -42,3 +42,17 @@ class DataAdapter extends TypeAdapter<Data> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Data _$DataFromJson(Map<String, dynamic> json) => Data(
+      title: json['title'] as String,
+      description: json['description'] as String,
+    );
+
+Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+      'title': instance.title,
+      'description': instance.description,
+    };

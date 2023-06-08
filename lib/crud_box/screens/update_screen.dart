@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-import '../model/model.dart';
-import 'read_screen.dart';
+import '../models/model.dart';
 
 class UpdateScreen extends StatefulWidget {
   final int index;
@@ -85,12 +84,13 @@ class _UpdateScreenState extends State<UpdateScreen> {
           ElevatedButton(
             onPressed: () {
               _updateData();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ReadScreen(),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const ReadScreen(),
+              //   ),
+              // );
+              Navigator.of(context).pop();
             },
             child: const Text('UPDATE DATA'),
           ),

@@ -12,4 +12,5 @@ class Todo extends HiveObject {
 
   @HiveField(2)
   bool done = false;
+
 }

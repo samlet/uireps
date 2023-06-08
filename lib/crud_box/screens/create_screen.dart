@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'read_screen.dart';
 
-import '../model/model.dart';
+import '../models/model.dart';
 
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
@@ -12,10 +11,10 @@ class CreateScreen extends StatefulWidget {
 }
 
 class _CreateScreenState extends State<CreateScreen> {
-  late final Box dataBox;
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-
+  late final Box dataBox;
   @override
   void initState() {
     super.initState();
@@ -70,12 +69,13 @@ class _CreateScreenState extends State<CreateScreen> {
           ElevatedButton(
             onPressed: () {
               _createData();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ReadScreen(),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const ReadScreen(),
+              //   ),
+              // );
+              Navigator.of(context).pop();
             },
             child: const Text('ADD DATA'),
           )

@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart' as intl;
 
-class FormWidgetsDemo extends StatefulWidget {
-  const FormWidgetsDemo({super.key});
+import '../models/model.dart';
+
+class UpdateScreen2 extends StatefulWidget {
+  final int index;
+
+  const UpdateScreen2({
+    super.key,
+    required this.index,
+  });
 
   @override
-  State<FormWidgetsDemo> createState() => _FormWidgetsDemoState();
+  State<UpdateScreen2> createState() => _UpdateScreen2State();
 }
 
-class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
+class _UpdateScreen2State extends State<UpdateScreen2> {
   final _formKey = GlobalKey<FormState>();
+  late final Box dataBox;
 
   String title = '';
   String description = '';
@@ -17,6 +26,24 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   double maxValue = 0;
   bool? brushedTeeth = false;
   bool enableFeature = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    dataBox = Hive.box('data_box');
+    var data = dataBox.getAt(widget.index) as Data;
+    title = data.title;
+    description = data.description;
+  }
+
+  _updateData() {
+    Data newData = Data(
+      title: title,
+      description: description,
+    );
+    dataBox.putAt(widget.index, newData);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +58,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
             alignment: Alignment.topCenter,
             child: Card(
               child: SingleChildScrollView(
+                primary: true,
                 padding: const EdgeInsets.all(16),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 400),
@@ -45,7 +73,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             hintText: 'Enter a title...',
                             labelText: 'Title',
                           ),
-                          // initialValue: '',
+                          initialValue: title,
                           onChanged: (value) {
                             setState(() {
                               title = value;
@@ -59,6 +87,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             hintText: 'Enter a description...',
                             labelText: 'Description',
                           ),
+                          initialValue: description,
                           onChanged: (value) {
                             description = value;
                           },
@@ -135,6 +164,13 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                               },
                             ),
                           ],
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            _updateData();
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('UPDATE DATA'),
                         ),
                       ].expand(
                         (widget) => [

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:uireps/form_util.dart';
-import 'model/model.dart';
+import 'models/model.dart';
 
-// import 'model/model.g.dart';
-
-import 'screens/read_screen.dart';
+import 'note_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,31 +12,23 @@ void main() async {
 
   await Hive.initFlutter();
 
+  var appDir = await getApplicationDocumentsDirectory();
+  print('app dir: $appDir');
+
   Hive.registerAdapter(DataAdapter());
   await Hive.openBox('data_box');
 
-  runApp(const MyApp());
+  runApp(const CrudApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CrudApp extends StatelessWidget {
+  const CrudApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: NoteHomePage(),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: ReadScreen()),
     );
   }
 }

@@ -4,6 +4,6 @@ targets:
 #      built_value_generator|built_value:
 #        generate_for:
 #          - lib/built_value/*.dart
-      json_serializable|json_serializable:
-        generate_for:
-          - lib/edit_forms/sign_in_http.dart
+#      json_serializable|json_serializable:
+#        generate_for:
+#          - lib/edit_forms/sign_in_http.dart

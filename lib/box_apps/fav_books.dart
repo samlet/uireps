@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
 
   Widget getIcon(int index) {
     if (favoriteBooksBox.containsKey(index)) {
-      return Icon(Icons.favorite, color: Colors.red);
+      return const Icon(Icons.favorite, color: Colors.red);
     }
     return Icon(Icons.favorite_border);
   }

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart' as intl;
 
-class FormWidgetsDemo extends StatefulWidget {
-  const FormWidgetsDemo({super.key});
+import '../models/model.dart';
+
+class CreateScreen2 extends StatefulWidget {
+  const CreateScreen2({super.key});
 
   @override
-  State<FormWidgetsDemo> createState() => _FormWidgetsDemoState();
+  State<CreateScreen2> createState() => _CreateScreen2State();
 }
 
-class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
+class _CreateScreen2State extends State<CreateScreen2> {
   final _formKey = GlobalKey<FormState>();
 
   String title = '';
@@ -17,6 +20,22 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
   double maxValue = 0;
   bool? brushedTeeth = false;
   bool enableFeature = false;
+  late final Box dataBox;
+
+  @override
+  void initState() {
+    super.initState();
+    dataBox = Hive.box('data_box');
+  }
+
+  _createData() {
+    Data newData = Data(
+      title: title,
+      description: description,
+    );
+
+    dataBox.add(newData);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +50,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
             alignment: Alignment.topCenter,
             child: Card(
               child: SingleChildScrollView(
+                primary: true,
                 padding: const EdgeInsets.all(16),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 400),
@@ -136,6 +156,13 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
                             ),
                           ],
                         ),
+                        ElevatedButton(
+                          onPressed: () {
+                            _createData();
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('ADD DATA'),
+                        )
                       ].expand(
                         (widget) => [
                           widget,

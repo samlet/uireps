@@ -26,6 +26,7 @@ class _AutofillDemoState extends State<AutofillDemo> {
         key: _formKey,
         child: Scrollbar(
           child: SingleChildScrollView(
+            primary: true,
             padding: const EdgeInsets.all(16),
             child: AutofillGroup(
               child: Column(

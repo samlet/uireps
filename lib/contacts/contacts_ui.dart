@@ -50,13 +50,13 @@ class MyApp extends StatelessWidget {
       title: 'Contacts App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Contacts App with Hive'),
+          title: const Text('Contacts App with Hive'),
         ),
         body: ValueListenableBuilder(
           valueListenable: Hive.box<Contact>(contactsBoxName).listenable(),
           builder: (context, Box<Contact> box, _) {
             if (box.values.isEmpty)
-              return Center(
+              return const Center(
                 child: Text("No contacts"),
               );
             return ListView.builder(
@@ -75,11 +75,11 @@ class MyApp extends StatelessWidget {
                         ),
                         actions: <Widget>[
                           TextButton(
-                            child: Text("No"),
+                            child: const Text("No"),
                             onPressed: () => Navigator.of(context).pop(),
                           ),
                           TextButton(
-                            child: Text("Yes"),
+                            child: const Text("Yes"),
                             onPressed: () async {
                               Navigator.of(context).pop();
                               await box.deleteAt(index);
@@ -116,7 +116,7 @@ class MyApp extends StatelessWidget {
         floatingActionButton: Builder(
           builder: (context) {
             return FloatingActionButton(
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => AddContact()),
@@ -206,7 +206,7 @@ class _AddContactState extends State<AddContact> {
                   );
                 }).toList(),
                 value: relationship,
-                hint: Text("Relationship"),
+                hint: const Text("Relationship"),
                 onChanged: (value) {
                   setState(() {
                     relationship = value!;
@@ -214,7 +214,7 @@ class _AddContactState extends State<AddContact> {
                 },
               ),
               OutlinedButton(
-                child: Text("Submit"),
+                child: const Text("Submit"),
                 onPressed: onFormSubmit,
               ),
             ],

@@ -1,19 +1,14 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:window_size/window_size.dart';
 
 import 'edit_forms/autofill.dart';
 import 'edit_forms/form_widgets.dart';
-import 'form_util.dart';
-import 'http/mock_client.dart';
 import 'edit_forms/sign_in_http.dart';
 import 'edit_forms/validation.dart';
+import 'http/mock_client.dart';
 
 void main() {
-  setupWindow();
+  // setupWindow();
   runApp(const FormApp());
 }
 

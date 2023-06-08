@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'create_screen2.dart';
+import 'update_screen2.dart';
 import 'create_screen.dart';
 import 'update_screen.dart';
 
@@ -34,7 +36,8 @@ class _ReadScreenState extends State<ReadScreen> {
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CreateScreen(),
+                // builder: (context) => const CreateScreen(),
+                builder: (context) => const CreateScreen2(),
               ),
             ),
             icon: const Icon(Icons.add),
@@ -61,11 +64,14 @@ class _ReadScreenState extends State<ReadScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UpdateScreen(
+                          // builder: (context) => UpdateScreen(
+                          //   index: index,
+                          //   data: getData,
+                          //   titleController: getData.title,
+                          //   descriptionController: getData.description,
+                          // ),
+                          builder: (context) => UpdateScreen2(
                             index: index,
-                            data: getData,
-                            titleController: getData.title,
-                            descriptionController: getData.description,
                           ),
                         ),
                       );
