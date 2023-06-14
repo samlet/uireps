@@ -31,4 +31,11 @@ void main(List<String> arguments) {
   // print(tod.toProto3Json());
 
   print(nowDateTime());
+
+  print("epoch ..");
+  var now = DateTime.now();
+  int days = epochDays(now);
+  print('${now} days $days');
+  // days 19522 = (java) LocalDate.toEpochDay()
 }
+

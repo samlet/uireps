@@ -101,6 +101,8 @@ class SectionsApp extends StatelessWidget {
 }
 
 class BooksSectionEditorPage extends StatefulWidget {
+  const BooksSectionEditorPage({super.key});
+
   @override
   State<BooksSectionEditorPage> createState() => _BooksSectionEditorPageState();
 }

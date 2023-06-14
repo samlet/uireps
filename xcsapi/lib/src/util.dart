@@ -41,3 +41,9 @@ String nowDateTime(){
   return dt.toIso8601String();
 }
 
+final epoch=DateTime.fromMicrosecondsSinceEpoch(0);
+int epochDays(DateTime dt) {
+  var diff = dt.difference(epoch);
+  var days=diff.inDays;
+  return days;
+}
