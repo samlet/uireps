@@ -1,0 +1,10 @@
+{
+  "@@locale" : "en",
+  "price": "Price {price}",
+  "loading": "Loading",
+  "@loading": {
+    "description": "Indicates the loading process."
+  },
+  "@price" : {},
+  "deselect": "Deselect"
+}

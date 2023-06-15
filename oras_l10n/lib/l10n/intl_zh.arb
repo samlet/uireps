@@ -1,0 +1,6 @@
+{
+  "@@locale" : "zh",
+  "price": "价格 {price}",
+  "loading": "正在加载",
+  "deselect": "取消选择"
+}

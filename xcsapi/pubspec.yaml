@@ -19,12 +19,17 @@ dependencies:
   intl: ^0.18.0
   validators: ^3.0.0
   power_extensions: ^0.2.2
-  get_it: ^7.2.0
+  get_it: ^7.6.0
   dart_jsonwebtoken: ^2.6.2
   rxdart: ^0.27.5
+  hive: ^2.2.3
+  json_annotation: ^4.8.1
 
 dev_dependencies:
   pedantic: ^1.10.0
   test: ^1.16.0
+  json_serializable: ^6.2.0
+  build_runner: ^2.1.8
+  hive_generator: any
 
 
