@@ -13,3 +13,8 @@ Future<void> main(List<String> arguments) async {
   }
   exit(0);
 }
+
+/*
+在/opt/app/assets目录下启用http.
+ */
+

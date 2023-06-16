@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:uireps/edit_forms/autofill_meta.dart';
+import 'package:xcsapi/xcsapi.dart';
 
 import 'edit_forms/autofill.dart';
 import 'edit_forms/form_widgets.dart';
@@ -25,6 +27,11 @@ final demos = [
     name: 'Autofill',
     route: 'autofill',
     builder: (context) => const AutofillDemo(),
+  ),
+  Demo(
+    name: 'Autofill with Meta',
+    route: 'autofill_with_meta',
+    builder: (context) => AutofillWithMeta(bundleMeta: bundleProfiles['Note']!),
   ),
   Demo(
     name: 'Form widgets',
