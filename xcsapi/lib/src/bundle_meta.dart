@@ -32,6 +32,7 @@ class EntityMeta {
   List<FieldMeta> get uiFields => fields
       .where((element) => !_excludeFieldsFromUi.contains(element.name))
       .toList();
+
 }
 
 class BundleMeta {
@@ -39,8 +40,15 @@ class BundleMeta {
   final EntityMeta ent;
   final Map<String, EntityMeta> atts;
 
-  BundleMeta(this.name, this.ent, this.atts);
+  final Function cast;
+  final Function list;
+  BundleMeta(this.name, this.ent, this.atts,
+      {required this.cast, required this.list});
+
   String get label => ReCase(name).titleCase;
+
+  T toObject<T>(o) => cast(o??{});
+  List<T> toList<T>(rs) => list(rs??[]);
 }
 
 String getPkValue(BundleMeta profile, Map d) {

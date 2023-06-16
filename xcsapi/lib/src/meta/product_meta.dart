@@ -1,4 +1,6 @@
 import '../bundle_meta.dart';
+import '../ent/product.dart';
+
 
 final productProfile = BundleMeta(
     'Product',
@@ -79,7 +81,11 @@ final productProfile = BundleMeta(
           FieldMeta("createdTxStamp", "date-time"),
           FieldMeta("tenantId", "id"),
         ],
-        'productId'),
-    {});
+        'productId',
+    ),
+    {},    
+    cast: (json) => Product.fromJson(json),
+    list: (List rs) => rs.map((e) => Product.fromJson(e)).toList()
+);
 
 

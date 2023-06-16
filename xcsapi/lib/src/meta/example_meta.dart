@@ -1,4 +1,6 @@
 import '../bundle_meta.dart';
+import '../ent/example.dart';
+
 
 final exampleProfile = BundleMeta(
     'Example',
@@ -20,7 +22,11 @@ final exampleProfile = BundleMeta(
           FieldMeta("createdTxStamp", "date-time"),
           FieldMeta("tenantId", "id"),
         ],
-        'exampleId'),
-    {});
+        'exampleId',
+    ),
+    {},    
+    cast: (json) => Example.fromJson(json),
+    list: (List rs) => rs.map((e) => Example.fromJson(e)).toList()
+);
 
 

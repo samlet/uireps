@@ -1,4 +1,6 @@
 import '../bundle_meta.dart';
+import '../ent/note.dart';
+
 
 final noteProfile = BundleMeta(
     'Note',
@@ -17,7 +19,11 @@ final noteProfile = BundleMeta(
           FieldMeta("moreInfoItemName", "value"),
           FieldMeta("tenantId", "id"),
         ],
-        'noteId'),
-    {});
+        'noteId',
+    ),
+    {},    
+    cast: (json) => Note.fromJson(json),
+    list: (List rs) => rs.map((e) => Note.fromJson(e)).toList()
+);
 
 

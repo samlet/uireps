@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:xcsapi/xcsapi.dart';
 
-// Demonstrates how to use autofill hints. The full list of hints is here:
-// https://github.com/flutter/engine/blob/master/lib/web_ui/lib/src/engine/text_editing/autofill_hint.dart
 class AutofillWithMeta extends StatefulWidget {
   final BundleMeta bundleMeta;
-  final Map<String, Object> initValues;
+  final Map<String, dynamic> initValues;
 
   const AutofillWithMeta(
       {super.key, required this.bundleMeta, this.initValues = const {}});
@@ -16,7 +14,7 @@ class AutofillWithMeta extends StatefulWidget {
 
 class _AutofillWithMetaState extends State<AutofillWithMeta> {
   final _formKey = GlobalKey<FormState>();
-  Map<String, Object> _fldValues = {};
+  Map<String, dynamic> _fldValues = {};
 
   @override
   void initState() {
@@ -42,7 +40,7 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
                   ...buildFields(),
                   TextButton(child: const Text('Submit'), onPressed: () {
                     onSubmit();
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pop(_fldValues);
                   }),
                   const SizedBox(
                     height: 24,
@@ -56,19 +54,26 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
     );
   }
 
-  TextField countryCodeInput() {
-    return const TextField(
+  Widget countryCodeInput(FieldMeta fld) {
+    return TextFormField(
+      initialValue: fld.asString(_fldValues),
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         hintText: '1',
-        labelText: 'Country Code',
+        labelText: fld.label,
       ),
       autofillHints: [AutofillHints.countryCode],
+      onChanged: (value) {
+        setState(() {
+          _fldValues[fld.name] = value;
+        });
+      },
     );
   }
 
-  TextField countryNameInput(FieldMeta fld) {
-    return TextField(
+  Widget countryNameInput(FieldMeta fld) {
+    return TextFormField(
+      initialValue: fld.asString(_fldValues),
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         hintText: 'United States',
@@ -87,6 +92,11 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
         labelText: fld.label,
       ),
       autofillHints: [AutofillHints.postalCode],
+      onChanged: (value) {
+        setState(() {
+          _fldValues[fld.name] = value;
+        });
+      },
     );
   }
 
@@ -99,6 +109,11 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
         labelText: fld.label,
       ),
       autofillHints: [AutofillHints.streetAddressLine1],
+      onChanged: (value) {
+        setState(() {
+          _fldValues[fld.name] = value;
+        });
+      },
     );
   }
 
@@ -111,11 +126,17 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
         labelText: fld.label,
       ),
       autofillHints: [AutofillHints.telephoneNumber],
+      onChanged: (value) {
+        setState(() {
+          _fldValues[fld.name] = value;
+        });
+      },
     );
   }
 
-  TextField emailInput(FieldMeta fld) {
-    return TextField(
+  Widget emailInput(FieldMeta fld) {
+    return TextFormField(
+      initialValue: fld.asString(_fldValues),
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -123,23 +144,17 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
         labelText: fld.label,
       ),
       autofillHints: [AutofillHints.email],
-    );
-  }
-
-  Widget buildFieldControl() {
-    return TextFormField(
-      autofocus: true,
-      textInputAction: TextInputAction.next,
-      decoration: const InputDecoration(
-        hintText: 'Jane',
-        labelText: 'First Name',
-      ),
-      autofillHints: const [AutofillHints.givenName],
+      onChanged: (value) {
+        setState(() {
+          _fldValues[fld.name] = value;
+        });
+      },
     );
   }
 
   TextFormField idenInput(FieldMeta fld) {
     return TextFormField(
+      initialValue: fld.asString(_fldValues),
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         filled: true,
@@ -157,6 +172,7 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
 
   TextFormField generalTextInput(FieldMeta fld) {
     return TextFormField(
+      initialValue: fld.asString(_fldValues),
       decoration: InputDecoration(
         // filled: true,
         hintText: 'Enter value for ${fld.label} ...',
@@ -173,6 +189,7 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
 
   TextFormField nameInput(FieldMeta fld) {
     return TextFormField(
+      initialValue: fld.asString(_fldValues),
       textInputAction: TextInputAction.next,
       decoration: const InputDecoration(
         hintText: 'Doe',
@@ -199,6 +216,8 @@ class _AutofillWithMetaState extends State<AutofillWithMeta> {
               return idenInput(fld);
             case 'name':
               return nameInput(fld);
+            case 'email':
+              return emailInput(fld);
             default:
               return generalTextInput(fld);
           }

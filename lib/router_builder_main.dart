@@ -31,7 +31,10 @@ final demos = [
   Demo(
     name: 'Autofill with Meta',
     route: 'autofill_with_meta',
-    builder: (context) => AutofillWithMeta(bundleMeta: bundleProfiles['Note']!),
+    builder: (context) => AutofillWithMeta(
+      bundleMeta: bundleProfiles['Note']!,
+      initValues: {'noteId': slugId()},
+    ),
   ),
   Demo(
     name: 'Form widgets',
