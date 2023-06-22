@@ -1,0 +1,6 @@
+b:
+    dart run build_runner build -v
+
+w:
+    # flutter pub run build_runner watch --delete-conflicting-outputs
+    dart run build_runner watch --delete-conflicting-outputs

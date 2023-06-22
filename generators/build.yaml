@@ -1,0 +1,65 @@
+#targets:
+#  $default:
+#    builders:
+#      generators|annotations:
+#        enabled: true
+
+builders:
+#  generators:
+##    target: ":generators"
+#    import: "package:generators/builder.dart"
+#    builder_factories: ["generateSubclass", "generateExtension"]
+##    build_extensions: { ".dart": [".g.dart"] }
+#    build_extensions: { ".dart": ["generators.g.dart"] }
+#    auto_apply: dependents
+#    build_to: cache
+##    build_to: source
+#    applies_builders: ["source_gen|combining_builder"]
+
+  subclass:
+    import: "package:generators/builder.dart"
+#    builder_factories: [ "generateSubclass" ]
+    builder_factories: ["generateSubclass", "generateExtension"]
+    build_extensions: { ".dart": [ "subclass.g.part" ] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: [ "source_gen|combining_builder" ]
+
+#  statistics_builder:
+#    import: "package:generators/builder.dart"
+#    builder_factories: ["statisticsBuilder"]
+#    build_extensions: {"$package$": [".md"]}
+#    auto_apply: dependents
+#    build_to: source
+
+  sql_builder:
+    target: ':sql_builder'
+    import: 'package:generators/builder.dart'
+    builder_factories: ['sqlBuilder']
+    build_extensions: { '.dart': ['.part.sql'] }
+    auto_apply: dependents
+#    build_to: cache
+    build_to: source
+
+# op
+  # name of the builder
+  member_count:
+    # library URI containing the builder - maps to `lib/member_count_library_generator.dart`
+    import: "package:generators/builder.dart"
+    # Name of the function in the above library to call.
+    builder_factories: ["metadataLibraryBuilder"]
+    # The mapping from the source extension to the generated file extension
+    build_extensions: {".dart": [".info.dart"]}
+    # Will automatically run on any package that depends on it
+    auto_apply: dependents
+    # Generate the output directly into the package, not to a hidden cache dir
+    build_to: source
+
+  property_multiply:
+    import: "package:generators/builder.dart"
+    builder_factories: ["multiplyBuilder"]
+    build_extensions: {".dart": ["multiply.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+
