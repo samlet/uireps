@@ -36,23 +36,32 @@ dependencies:
   equatable: ^2.0.5
   provider: ^6.0.0
   flutter_bloc: ^8.1.1
-
   flutter_localizations:
     sdk: flutter
   intl: ^0.18.0
   flutter_localized_locales: ^2.0.4
-
   formz: ^0.6.0
   json_annotation: ^4.8.1
-
   dio: ^5.1.2
   go_router: ^7.0.0
+  url_launcher: ^6.0.0
+
+  flutter_typeahead: any
+  table_calendar: any
+  badges: any
+  video_player: any
+  flutter_spinbox: any
+  flutter_staggered_grid_view: any
+
+  # sub modules
   window_size:
     path: ./flutter-desktop-embedding/plugins/window_size
   model_editors:
     path: ./flutter-model-editors
   xcsapi:
     path: ./xcsapi
+  common_github_search:
+    path: ./common_github_search
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -95,6 +104,21 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    # badges assets
+    - assets/getman.jpeg
+    - assets/twitter.png
+    - assets/instagram.png
+    # video_player assets
+    - assets/flutter-mark-square-64.png
+    - assets/Butterfly-209.mp4
+    - assets/Butterfly-209.webm
+    - assets/bumble_bee_captions.srt
+    - assets/bumble_bee_captions.vtt
+    - assets/Audio.mp3
+    # plant shop
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

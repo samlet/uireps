@@ -6,6 +6,10 @@ import '../util.dart';
 part 'shopping_cart.g.dart';
 
 
+List<ShoppingCart> asShoppingCarts(List rs){
+  return rs.map((e) => ShoppingCart.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class ShoppingCart {
   ShoppingCart();

@@ -1,9 +1,9 @@
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
 
-import 'src/extension_generator.dart';
+import 'src/subclass/extension_generator.dart';
 import 'src/sql/sql_builder.dart';
-import 'src/subclass_generator.dart';
+import 'src/subclass/subclass_generator.dart';
 import 'src/op/op_gen.dart';
 
 Builder generateExtension(BuilderOptions options) =>

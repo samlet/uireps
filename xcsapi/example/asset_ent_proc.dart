@@ -27,3 +27,7 @@ void procSingle(String bundleName, Response<dynamic> resp) {
     print('- ${o.noteId}: ${o.toJson()}');
   }
 }
+
+/*
+在/opt/app/assets目录下启用http.
+ */

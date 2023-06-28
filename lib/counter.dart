@@ -178,4 +178,8 @@ class TipRoute extends StatelessWidget {
 
 /*
 https://book.flutterchina.club/chapter2/first_flutter_app.html
+
++ l10n support
++ navigator
  */
+

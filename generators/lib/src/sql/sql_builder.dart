@@ -87,11 +87,11 @@ class SQLBuilder extends Builder {
   DatabaseColumn fromDartObj(DartObject obj) {
     var reader = ConstantReader(obj);
     var all = DatabaseColumn("", "")
-        .toMap()
+        .toJson()
         .keys
         .map((key) => Tuple2(key, reader.read(key).literalValue));
 
-    return DatabaseColumn.fromMap(
+    return DatabaseColumn.fromJson(
         Map.fromIterable(all, key: (e) => e.item1, value: (e) => e.item2));
   }
 

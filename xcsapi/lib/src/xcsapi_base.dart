@@ -8,6 +8,16 @@ Future<void> performAndPrint(Dio dio, Map<String, String> queryString,
   printResp(response);
 }
 
+Future<List<T>> performList<T>(Dio dio, Map<String, String> queryString,
+    Map<String, Object> payload, Function conv) async {
+  var response =
+  await dio.post('/perform', queryParameters: queryString, data: payload);
+  if(response.statusCode==200) {
+    return conv(response.data);
+  }
+  return [];
+}
+
 Future<void> invokeApi(Dio dio, String path, Map<String, String>? queryString,
     Map<String, Object> payload, Function onSucc) async {
   var response =

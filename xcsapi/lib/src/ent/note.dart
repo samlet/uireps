@@ -6,6 +6,10 @@ import '../util.dart';
 part 'note.g.dart';
 
 
+List<Note> asNotes(List rs){
+  return rs.map((e) => Note.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Note {
   Note();

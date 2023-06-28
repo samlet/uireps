@@ -6,6 +6,10 @@ import '../util.dart';
 part 'product.g.dart';
 
 
+List<Product> asProducts(List rs){
+  return rs.map((e) => Product.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Product {
   Product();

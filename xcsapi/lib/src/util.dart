@@ -20,9 +20,9 @@ void clearNulls(Map<dynamic, dynamic> map){
 num sumList(List<num> xs) =>
     xs.fold(0, (num acc, num x) => acc + x);
 
-void printLines(Iterable<String?> list) {
+void printLines(Iterable<dynamic> list) {
   for (var value in list) {
-    print(value);
+    print(value?.toString());
   }
 }
 

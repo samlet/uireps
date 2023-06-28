@@ -224,3 +224,8 @@ class _AddContactState extends State<AddContact> {
     );
   }
 }
+
+
+/*
+source: hive examples
+ */

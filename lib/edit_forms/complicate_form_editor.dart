@@ -208,3 +208,9 @@ class BookEditor extends StatelessWidget {
     );
   }
 }
+
+/*
+⊕ [A flutter package provides controllers and editors for complex models and lists](https://flutterawesome.com/a-flutter-package-provides-controllers-and-editors-for-complex-models-and-lists/)
+⊕ [alexeyinkin/flutter-model-editors](https://github.com/alexeyinkin/flutter-model-editors/tree/main)
+ */
+

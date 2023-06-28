@@ -6,6 +6,10 @@ import '../util.dart';
 part 'party.g.dart';
 
 
+List<Party> asParties(List rs){
+  return rs.map((e) => Party.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Party {
   Party();

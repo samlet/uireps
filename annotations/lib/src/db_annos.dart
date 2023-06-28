@@ -1,3 +1,5 @@
+import 'package:json_annotation/json_annotation.dart';
+part 'db_annos.g.dart';
 // Will be used as: @DatabaseTable("table_name")
 class DatabaseTable {
   final String name;
@@ -5,6 +7,7 @@ class DatabaseTable {
 }
 
 // Will be used as: @DatabaseColumn("col_name", "TEXT", isRequired: true)
+@JsonSerializable()
 class DatabaseColumn {
   final String name;
   final String type;
@@ -19,27 +22,51 @@ class DatabaseColumn {
         this.isUnique = false,
         this.defaultValue});
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'name': this.name,
-      'type': this.type,
-      'isRequired': this.isRequired,
-      'isNotNull': this.isNotNull,
-      'isUnique': this.isUnique,
-      'defaultValue': this.defaultValue,
-    };
+  // Map<String, dynamic> toMap() {
+  //   return <String, dynamic>{
+  //     'name': this.name,
+  //     'type': this.type,
+  //     'isRequired': this.isRequired,
+  //     'isNotNull': this.isNotNull,
+  //     'isUnique': this.isUnique,
+  //     'defaultValue': this.defaultValue,
+  //   };
+  // }
+  //
+  // factory DatabaseColumn.fromMap(Map<String, dynamic> map) {
+  //   return DatabaseColumn(
+  //     map['name'] as String,
+  //     map['type'] as String,
+  //     isRequired: map['isRequired'] as bool,
+  //     isNotNull: map['isNotNull'] as bool,
+  //     isUnique: map['isUnique'] as bool,
+  //     defaultValue: (map['defaultValue']??'') as String,
+  //   );
+  // }
+
+  factory DatabaseColumn.fromJson(Map<String, dynamic> json) => _$DatabaseColumnFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DatabaseColumnToJson(this);
+
+  @override
+  String toString() {
+    var params = ['$name ${type}'];
+    if (isRequired) {
+      params.add('REQUIRED');
+    }
+    if (isNotNull) {
+      params.add('NOT NULL');
+    }
+    if (isUnique) {
+      params.add("UNIQUE");
+    }
+    if (defaultValue != null) {
+      params.add("DEFAULT '$defaultValue'");
+    }
+
+    return params.join(" ");
   }
 
-  factory DatabaseColumn.fromMap(Map<String, dynamic> map) {
-    return DatabaseColumn(
-      map['name'] as String,
-      map['type'] as String,
-      isRequired: map['isRequired'] as bool,
-      isNotNull: map['isNotNull'] as bool,
-      isUnique: map['isUnique'] as bool,
-      defaultValue: (map['defaultValue']??'') as String,
-    );
-  }
 }
 
 /*

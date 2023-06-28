@@ -21,3 +21,8 @@ final demos = [
     builder: (context) => BundlesViewPage(viewProfile: noteViewProfile),
   ),
 ];
+
+/*
+facade for: crud_box/bundles_view_page
+ */
+

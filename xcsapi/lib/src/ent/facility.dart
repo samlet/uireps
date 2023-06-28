@@ -6,6 +6,10 @@ import '../util.dart';
 part 'facility.g.dart';
 
 
+List<Facility> asFacilities(List rs){
+  return rs.map((e) => Facility.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Facility {
   Facility();

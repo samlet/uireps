@@ -6,6 +6,10 @@ import '../util.dart';
 part 'billboard.g.dart';
 
 
+List<Billboard> asBillboards(List rs){
+  return rs.map((e) => Billboard.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Billboard {
   Billboard();

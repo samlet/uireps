@@ -113,3 +113,8 @@ class _BundleReadScreenState extends State<BundleReadScreen> {
     );
   }
 }
+
+/*
+hive box + Navigator.push/pop传递值.
+ */
+

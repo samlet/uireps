@@ -6,6 +6,10 @@ import '../util.dart';
 part 'example.g.dart';
 
 
+List<Example> asExamples(List rs){
+  return rs.map((e) => Example.fromJson(e)).toList();
+}
+
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Example {
   Example();
