@@ -30,7 +30,8 @@ Future<List<Product>> queryProducts() async {
   return await performList(
       dio,
       {"module": "bundles", "action": "loadAllBundles", "regionId": "default"},
-      {"bundleName": "Product"}, asProducts);
+      {"bundleName": "Product"},
+      asProducts);
 }
 
 Future<void> processWithRaw() async {
@@ -46,5 +47,3 @@ Future<void> processWithRaw() async {
     });
   });
 }
-
-

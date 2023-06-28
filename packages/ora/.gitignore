@@ -1,0 +1,14 @@
+# https://dart.dev/guides/libraries/private-files
+# Created by `dart pub`
+.dart_tool/
+
+# Avoid committing pubspec.lock for library packages; see
+# https://dart.dev/guides/libraries/private-files#pubspeclock.
+pubspec.lock
+/example/libisar.dylib
+/lib/src/bundles/*
+/lib/src/ora/*
+/lib/ora_bundles.dart
+/lib/ora_models.dart
+/lib/src/*.g.dart
+
