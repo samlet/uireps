@@ -1,0 +1,443 @@
+import 'dart:async';
+import 'dart:io' show Platform;
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+
+import 'services.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isCupertino = !kIsWeb && Platform.isIOS;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!isCupertino) {
+      return MaterialApp(
+        title: 'flutter_typeahead demo',
+        scrollBehavior: const MaterialScrollBehavior().copyWith(
+            dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch}),
+        home: DefaultTabController(
+          length: 4,
+          child: Scaffold(
+              appBar: AppBar(
+                leading: IconButton(
+                  icon: const Icon(Icons.phone_iphone),
+                  onPressed: () => setState(() {
+                    isCupertino = true;
+                  }),
+                ),
+                title: const TabBar(tabs: [
+                  Tab(text: 'Example 1: Navigation'),
+                  Tab(text: 'Example 2: Form'),
+                  Tab(text: 'Example 3: Scroll'),
+                  Tab(text: '4: Alternative Layout')
+                ]),
+              ),
+              body: GestureDetector(
+                onTap: () => FocusScope.of(context).unfocus(),
+                child: TabBarView(children: [
+                  NavigationExample(),
+                  FormExample(),
+                  ScrollExample(),
+                  AlternativeLayoutArchitecture(),
+                ]),
+              )),
+        ),
+      );
+    } else {
+      return CupertinoApp(
+        title: 'Cupertino demo',
+        home: Scaffold(
+          appBar: CupertinoNavigationBar(
+            leading: IconButton(
+              icon: const Icon(Icons.android),
+              onPressed: () => setState(() {
+                isCupertino = false;
+              }),
+            ),
+            middle: const Text('Cupertino demo'),
+          ),
+          body: CupertinoPageScaffold(
+            child: FavoriteCitiesPage(),
+          ),
+        ), //MyHomePage(),
+      );
+    }
+  }
+}
+
+class NavigationExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
+      child: Column(
+        children: <Widget>[
+          const SizedBox(
+            height: 10.0,
+          ),
+          TypeAheadField(
+            textFieldConfiguration: TextFieldConfiguration(
+              autofillHints: ["AutoFillHints 1", "AutoFillHints 2"],
+              autofocus: true,
+              style: DefaultTextStyle.of(context)
+                  .style
+                  .copyWith(fontStyle: FontStyle.italic),
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'What are you looking for?'),
+            ),
+            suggestionsCallback: (pattern) async {
+              return await BackendService.getSuggestions(pattern);
+            },
+            itemBuilder: (context, Map<String, String> suggestion) {
+              return ListTile(
+                leading: const Icon(Icons.shopping_cart),
+                title: Text(suggestion['name']!),
+                subtitle: Text('\$${suggestion['price']}'),
+              );
+            },
+            itemSeparatorBuilder: (context, index) {
+              return const Divider();
+            },
+            onSuggestionSelected: (Map<String, String> suggestion) {
+              Navigator.of(context).push<void>(MaterialPageRoute(
+                  builder: (context) => ProductPage(product: suggestion)));
+            },
+            suggestionsBoxDecoration: SuggestionsBoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              elevation: 8.0,
+              color: Theme.of(context).cardColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FormExample extends StatefulWidget {
+  const FormExample({super.key});
+
+  @override
+  _FormExampleState createState() => _FormExampleState();
+}
+
+class _FormExampleState extends State<FormExample> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _typeAheadController = TextEditingController();
+
+  String? _selectedCity;
+
+  SuggestionsBoxController suggestionBoxController = SuggestionsBoxController();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      // close the suggestions box when the user taps outside of it
+      onTap: () {
+        suggestionBoxController.close();
+      },
+      child: Container(
+        // Add zero opacity to make the gesture detector work
+        color: Colors.amber.withOpacity(0),
+        // Create the form for the user to enter their favorite city
+        child: Form(
+          key: this._formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              children: <Widget>[
+                const Text('What is your favorite city?'),
+                TypeAheadFormField(
+                  textFieldConfiguration: TextFieldConfiguration(
+                    decoration: const InputDecoration(labelText: 'City'),
+                    controller: this._typeAheadController,
+                  ),
+                  suggestionsCallback: (pattern) {
+                    return CitiesService.getSuggestions(pattern);
+                  },
+                  itemBuilder: (context, String suggestion) {
+                    return ListTile(
+                      title: Text(suggestion),
+                    );
+                  },
+                  itemSeparatorBuilder: (context, index) {
+                    return const Divider();
+                  },
+                  transitionBuilder: (context, suggestionsBox, controller) {
+                    return suggestionsBox;
+                  },
+                  onSuggestionSelected: (String suggestion) {
+                    this._typeAheadController.text = suggestion;
+                  },
+                  suggestionsBoxController: suggestionBoxController,
+                  validator: (value) =>
+                  value!.isEmpty ? 'Please select a city' : null,
+                  onSaved: (value) => this._selectedCity = value,
+                ),
+                const Spacer(),
+                ElevatedButton(
+                  child: const Text('Submit'),
+                  onPressed: () {
+                    if (this._formKey.currentState!.validate()) {
+                      this._formKey.currentState!.save();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                              'Your Favorite City is ${this._selectedCity}'),
+                        ),
+                      );
+                    }
+                  },
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProductPage extends StatelessWidget {
+  final Map<String, String> product;
+
+  ProductPage({required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: Column(
+          children: [
+            Text(
+              this.product['name']!,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            Text(
+              this.product['price']! + ' USD',
+              style: Theme.of(context).textTheme.titleMedium,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// This example shows how to use the [TypeAheadField] in a [ListView] that
+/// scrolls. The [TypeAheadField] will resize to fit the suggestions box when
+/// scrolling.
+class ScrollExample extends StatelessWidget {
+  final List<String> items = List.generate(50, (index) => "Item $index");
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(children: [
+      const Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text("Suggestion box will resize when scrolling"),
+        ),
+      ),
+      const SizedBox(height: 200),
+      TypeAheadField<String>(
+        getImmediateSuggestions: true,
+        textFieldConfiguration: const TextFieldConfiguration(
+          decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'What are you looking for?'),
+        ),
+        suggestionsCallback: (String pattern) async {
+          return items
+              .where((item) =>
+              item.toLowerCase().startsWith(pattern.toLowerCase()))
+              .toList();
+        },
+        itemBuilder: (context, String suggestion) {
+          return ListTile(
+            title: Text(suggestion),
+          );
+        },
+        itemSeparatorBuilder: (context, index) {
+          return const Divider();
+        },
+        onSuggestionSelected: (String suggestion) {
+          print("Suggestion selected");
+        },
+      ),
+      const SizedBox(height: 500),
+    ]);
+  }
+}
+
+class FavoriteCitiesPage extends StatefulWidget {
+  @override
+  _FavoriteCitiesPage createState() => _FavoriteCitiesPage();
+}
+
+class _FavoriteCitiesPage extends State<FavoriteCitiesPage> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _typeAheadController = TextEditingController();
+  CupertinoSuggestionsBoxController _suggestionsBoxController =
+  CupertinoSuggestionsBoxController();
+  String favoriteCity = 'Unavailable';
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _suggestionsBoxController.close(),
+      child: Container(
+        color: Colors.amber.withOpacity(0),
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              children: <Widget>[
+                const SizedBox(
+                  height: 100.0,
+                ),
+                const Text('What is your favorite city?'),
+                CupertinoTypeAheadFormField(
+                  getImmediateSuggestions: true,
+                  suggestionsBoxController: _suggestionsBoxController,
+                  suggestionsBoxDecoration: CupertinoSuggestionsBoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  textFieldConfiguration: CupertinoTextFieldConfiguration(
+                    controller: _typeAheadController,
+                  ),
+                  suggestionsCallback: (pattern) {
+                    return Future.delayed(
+                      const Duration(seconds: 1),
+                          () => CitiesService.getSuggestions(pattern),
+                    );
+                  },
+                  itemBuilder: (context, String suggestion) {
+                    return Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Text(
+                        suggestion,
+                      ),
+                    );
+                  },
+                  itemSeparatorBuilder: (context, index) {
+                    return const Divider();
+                  },
+                  onSuggestionSelected: (String suggestion) {
+                    _typeAheadController.text = suggestion;
+                  },
+                  validator: (value) =>
+                  value!.isEmpty ? 'Please select a city' : null,
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                CupertinoButton(
+                  child: const Text('Submit'),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      setState(() {
+                        favoriteCity = _typeAheadController.text;
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Text(
+                  'Your favorite city is $favoriteCity!',
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AlternativeLayoutArchitecture extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
+      child: Column(
+        children: <Widget>[
+          const SizedBox(
+            height: 10.0,
+          ),
+          TypeAheadField(
+            textFieldConfiguration: TextFieldConfiguration(
+              autofocus: true,
+              style: DefaultTextStyle.of(context)
+                  .style
+                  .copyWith(fontStyle: FontStyle.italic),
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'What are you looking for?'),
+            ),
+            suggestionsCallback: (pattern) async {
+              return await BackendService.getSuggestions(pattern);
+            },
+            itemBuilder: (context, Map<String, String> suggestion) {
+              return ListTile(
+                tileColor: Theme.of(context).colorScheme.secondaryContainer,
+                leading: const Icon(Icons.shopping_cart),
+                title: Text(suggestion['name']!),
+                subtitle: Text('\$${suggestion['price']}'),
+              );
+            },
+            layoutArchitecture: (items, scrollContoller) {
+              return ListView(
+                  controller: scrollContoller,
+                  shrinkWrap: true,
+                  children: [
+                    GridView.count(
+                      physics: const ScrollPhysics(),
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
+                      childAspectRatio: 5 / 5,
+                      shrinkWrap: true,
+                      children: items.toList(),
+                    ),
+                  ]);
+            },
+            onSuggestionSelected: (Map<String, String> suggestion) {
+              Navigator.of(context).push<void>(MaterialPageRoute(
+                  builder: (context) => ProductPage(product: suggestion)));
+            },
+            suggestionsBoxDecoration: SuggestionsBoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              elevation: 8.0,
+              color: Theme.of(context).cardColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/*
+* https://github.com/AbdulRahmanAlHamali/flutter_typeahead/blob/master/example/lib/main.dart
+* https://pub.dev/packages/flutter_typeahead
+            (动态搜索+下拉列表: typeahead)
+ */

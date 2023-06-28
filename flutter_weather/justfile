@@ -1,0 +1,3 @@
+app:
+	open build/macos/Build/Products/Debug/flutter_weather.app/
+
