@@ -31,7 +31,7 @@ Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) =>
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storeBundleHash() => r'33fb6a8151d0ae80fa49a223f4b2c6bc11be0ff2';
+String _$storeBundleHash() => r'a3b66581de55d178b01bd7e75361b62920ce32e7';
 
 /// Copied from Dart SDK
 class _SystemHash {
