@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'package:dio/dio.dart';
+import 'common/exceptions/http_exception.dart';
 
 Future<void> performAndPrint(Dio dio, Map<String, String> queryString,
     Map<String, Object> payload) async {
@@ -75,4 +75,12 @@ Dio createDio() {
 
 Dio dio = createDio();
 
-
+void catchErr(Response<dynamic> response) {
+  if (response.data == null || response.statusCode != 200) {
+    throw HttpException(
+      title: 'Http Error!',
+      statusCode: response.statusCode,
+      message: response.statusMessage,
+    );
+  }
+}

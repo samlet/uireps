@@ -29,6 +29,7 @@ dependencies:
   # https://docs-v2.riverpod.dev/zh-Hans/docs/getting_started
   riverpod: ^2.3.6
   riverpod_annotation: ^2.1.1
+  clock: any
 
 dev_dependencies:
   pedantic: ^1.10.0
