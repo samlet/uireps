@@ -110,7 +110,7 @@ class LoadPromoCodeProvider extends AutoDisposeFutureProvider<PromoCode> {
   }
 }
 
-String _$loadPromoCodeListHash() => r'0b0edb04227f7a6ced6ecda041941eaa84a5745d';
+String _$loadPromoCodeListHash() => r'07ec0607c83b850c7aa83fc3cc1c2a11fa980952';
 typedef LoadPromoCodeListRef = AutoDisposeFutureProviderRef<List<PromoCode>>;
 
 /// See also [loadPromoCodeList].
@@ -129,6 +129,7 @@ class LoadPromoCodeListFamily extends Family<AsyncValue<List<PromoCode>>> {
     String tenant = 'default',
     String sortFld = 'lastUpdatedTxStamp',
     String sortOrder = 'desc',
+    Map<String, String> extra = const {},
   }) {
     return LoadPromoCodeListProvider(
       pageSize: pageSize,
@@ -136,6 +137,7 @@ class LoadPromoCodeListFamily extends Family<AsyncValue<List<PromoCode>>> {
       tenant: tenant,
       sortFld: sortFld,
       sortOrder: sortOrder,
+      extra: extra,
     );
   }
 
@@ -149,6 +151,7 @@ class LoadPromoCodeListFamily extends Family<AsyncValue<List<PromoCode>>> {
       tenant: provider.tenant,
       sortFld: provider.sortFld,
       sortOrder: provider.sortOrder,
+      extra: provider.extra,
     );
   }
 
@@ -177,6 +180,7 @@ class LoadPromoCodeListProvider
     this.tenant = 'default',
     this.sortFld = 'lastUpdatedTxStamp',
     this.sortOrder = 'desc',
+    this.extra = const {},
   }) : super.internal(
           (ref) => loadPromoCodeList(
             ref,
@@ -185,6 +189,7 @@ class LoadPromoCodeListProvider
             tenant: tenant,
             sortFld: sortFld,
             sortOrder: sortOrder,
+            extra: extra,
           ),
           from: loadPromoCodeListProvider,
           name: r'loadPromoCodeListProvider',
@@ -202,10 +207,131 @@ class LoadPromoCodeListProvider
   final String tenant;
   final String sortFld;
   final String sortOrder;
+  final Map<String, String> extra;
 
   @override
   bool operator ==(Object other) {
     return other is LoadPromoCodeListProvider &&
+        other.pageSize == pageSize &&
+        other.page == page &&
+        other.tenant == tenant &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, tenant.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$loadPromoCodePageHash() => r'51880b4ac4ce927008fa957a96dba5086673992a';
+typedef LoadPromoCodePageRef
+    = AutoDisposeFutureProviderRef<PaginatedResponse<PromoCode>>;
+
+/// See also [loadPromoCodePage].
+@ProviderFor(loadPromoCodePage)
+const loadPromoCodePageProvider = LoadPromoCodePageFamily();
+
+/// See also [loadPromoCodePage].
+class LoadPromoCodePageFamily
+    extends Family<AsyncValue<PaginatedResponse<PromoCode>>> {
+  /// See also [loadPromoCodePage].
+  const LoadPromoCodePageFamily();
+
+  /// See also [loadPromoCodePage].
+  LoadPromoCodePageProvider call({
+    int pageSize = 10,
+    int page = 0,
+    String tenant = 'default',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+  }) {
+    return LoadPromoCodePageProvider(
+      pageSize: pageSize,
+      page: page,
+      tenant: tenant,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+    );
+  }
+
+  @override
+  LoadPromoCodePageProvider getProviderOverride(
+    covariant LoadPromoCodePageProvider provider,
+  ) {
+    return call(
+      pageSize: provider.pageSize,
+      page: provider.page,
+      tenant: provider.tenant,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadPromoCodePageProvider';
+}
+
+/// See also [loadPromoCodePage].
+class LoadPromoCodePageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse<PromoCode>> {
+  /// See also [loadPromoCodePage].
+  LoadPromoCodePageProvider({
+    this.pageSize = 10,
+    this.page = 0,
+    this.tenant = 'default',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+  }) : super.internal(
+          (ref) => loadPromoCodePage(
+            ref,
+            pageSize: pageSize,
+            page: page,
+            tenant: tenant,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+          ),
+          from: loadPromoCodePageProvider,
+          name: r'loadPromoCodePageProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$loadPromoCodePageHash,
+          dependencies: LoadPromoCodePageFamily._dependencies,
+          allTransitiveDependencies:
+              LoadPromoCodePageFamily._allTransitiveDependencies,
+        );
+
+  final int pageSize;
+  final int page;
+  final String tenant;
+  final String sortFld;
+  final String sortOrder;
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadPromoCodePageProvider &&
         other.pageSize == pageSize &&
         other.page == page &&
         other.tenant == tenant &&
@@ -221,6 +347,98 @@ class LoadPromoCodeListProvider
     hash = _SystemHash.combine(hash, tenant.hashCode);
     hash = _SystemHash.combine(hash, sortFld.hashCode);
     hash = _SystemHash.combine(hash, sortOrder.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fetchPromoCodesHash() => r'd3bda49c2ed7db3385e41869e016f33c976fbc17';
+typedef FetchPromoCodesRef = AutoDisposeFutureProviderRef<List<PromoCode>>;
+
+/// See also [fetchPromoCodes].
+@ProviderFor(fetchPromoCodes)
+const fetchPromoCodesProvider = FetchPromoCodesFamily();
+
+/// See also [fetchPromoCodes].
+class FetchPromoCodesFamily extends Family<AsyncValue<List<PromoCode>>> {
+  /// See also [fetchPromoCodes].
+  const FetchPromoCodesFamily();
+
+  /// See also [fetchPromoCodes].
+  FetchPromoCodesProvider call({
+    required List<String> ids,
+    String regionId = 'default',
+  }) {
+    return FetchPromoCodesProvider(
+      ids: ids,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  FetchPromoCodesProvider getProviderOverride(
+    covariant FetchPromoCodesProvider provider,
+  ) {
+    return call(
+      ids: provider.ids,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchPromoCodesProvider';
+}
+
+/// See also [fetchPromoCodes].
+class FetchPromoCodesProvider
+    extends AutoDisposeFutureProvider<List<PromoCode>> {
+  /// See also [fetchPromoCodes].
+  FetchPromoCodesProvider({
+    required this.ids,
+    this.regionId = 'default',
+  }) : super.internal(
+          (ref) => fetchPromoCodes(
+            ref,
+            ids: ids,
+            regionId: regionId,
+          ),
+          from: fetchPromoCodesProvider,
+          name: r'fetchPromoCodesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchPromoCodesHash,
+          dependencies: FetchPromoCodesFamily._dependencies,
+          allTransitiveDependencies:
+              FetchPromoCodesFamily._allTransitiveDependencies,
+        );
+
+  final List<String> ids;
+  final String regionId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchPromoCodesProvider &&
+        other.ids == ids &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, ids.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
 
     return _SystemHash.finish(hash);
   }

@@ -110,7 +110,7 @@ class LoadBillboardProvider extends AutoDisposeFutureProvider<Billboard> {
   }
 }
 
-String _$loadBillboardListHash() => r'9eadd7170a20afa9008eb76353cab93575d95441';
+String _$loadBillboardListHash() => r'43e6ccbbfa9ecf26fbd2018a21c7e0f58763d4af';
 typedef LoadBillboardListRef = AutoDisposeFutureProviderRef<List<Billboard>>;
 
 /// See also [loadBillboardList].
@@ -129,6 +129,7 @@ class LoadBillboardListFamily extends Family<AsyncValue<List<Billboard>>> {
     String tenant = 'default',
     String sortFld = 'lastUpdatedTxStamp',
     String sortOrder = 'desc',
+    Map<String, String> extra = const {},
   }) {
     return LoadBillboardListProvider(
       pageSize: pageSize,
@@ -136,6 +137,7 @@ class LoadBillboardListFamily extends Family<AsyncValue<List<Billboard>>> {
       tenant: tenant,
       sortFld: sortFld,
       sortOrder: sortOrder,
+      extra: extra,
     );
   }
 
@@ -149,6 +151,7 @@ class LoadBillboardListFamily extends Family<AsyncValue<List<Billboard>>> {
       tenant: provider.tenant,
       sortFld: provider.sortFld,
       sortOrder: provider.sortOrder,
+      extra: provider.extra,
     );
   }
 
@@ -177,6 +180,7 @@ class LoadBillboardListProvider
     this.tenant = 'default',
     this.sortFld = 'lastUpdatedTxStamp',
     this.sortOrder = 'desc',
+    this.extra = const {},
   }) : super.internal(
           (ref) => loadBillboardList(
             ref,
@@ -185,6 +189,7 @@ class LoadBillboardListProvider
             tenant: tenant,
             sortFld: sortFld,
             sortOrder: sortOrder,
+            extra: extra,
           ),
           from: loadBillboardListProvider,
           name: r'loadBillboardListProvider',
@@ -202,10 +207,131 @@ class LoadBillboardListProvider
   final String tenant;
   final String sortFld;
   final String sortOrder;
+  final Map<String, String> extra;
 
   @override
   bool operator ==(Object other) {
     return other is LoadBillboardListProvider &&
+        other.pageSize == pageSize &&
+        other.page == page &&
+        other.tenant == tenant &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, tenant.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$loadBillboardPageHash() => r'eeea11cbb5e4d73f1c319cf14cfccb62d23d3707';
+typedef LoadBillboardPageRef
+    = AutoDisposeFutureProviderRef<PaginatedResponse<Billboard>>;
+
+/// See also [loadBillboardPage].
+@ProviderFor(loadBillboardPage)
+const loadBillboardPageProvider = LoadBillboardPageFamily();
+
+/// See also [loadBillboardPage].
+class LoadBillboardPageFamily
+    extends Family<AsyncValue<PaginatedResponse<Billboard>>> {
+  /// See also [loadBillboardPage].
+  const LoadBillboardPageFamily();
+
+  /// See also [loadBillboardPage].
+  LoadBillboardPageProvider call({
+    int pageSize = 10,
+    int page = 0,
+    String tenant = 'default',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+  }) {
+    return LoadBillboardPageProvider(
+      pageSize: pageSize,
+      page: page,
+      tenant: tenant,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+    );
+  }
+
+  @override
+  LoadBillboardPageProvider getProviderOverride(
+    covariant LoadBillboardPageProvider provider,
+  ) {
+    return call(
+      pageSize: provider.pageSize,
+      page: provider.page,
+      tenant: provider.tenant,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadBillboardPageProvider';
+}
+
+/// See also [loadBillboardPage].
+class LoadBillboardPageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse<Billboard>> {
+  /// See also [loadBillboardPage].
+  LoadBillboardPageProvider({
+    this.pageSize = 10,
+    this.page = 0,
+    this.tenant = 'default',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+  }) : super.internal(
+          (ref) => loadBillboardPage(
+            ref,
+            pageSize: pageSize,
+            page: page,
+            tenant: tenant,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+          ),
+          from: loadBillboardPageProvider,
+          name: r'loadBillboardPageProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$loadBillboardPageHash,
+          dependencies: LoadBillboardPageFamily._dependencies,
+          allTransitiveDependencies:
+              LoadBillboardPageFamily._allTransitiveDependencies,
+        );
+
+  final int pageSize;
+  final int page;
+  final String tenant;
+  final String sortFld;
+  final String sortOrder;
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadBillboardPageProvider &&
         other.pageSize == pageSize &&
         other.page == page &&
         other.tenant == tenant &&
@@ -221,6 +347,98 @@ class LoadBillboardListProvider
     hash = _SystemHash.combine(hash, tenant.hashCode);
     hash = _SystemHash.combine(hash, sortFld.hashCode);
     hash = _SystemHash.combine(hash, sortOrder.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fetchBillboardsHash() => r'4000994b8358e567a04a842b8b1e3da789451cc9';
+typedef FetchBillboardsRef = AutoDisposeFutureProviderRef<List<Billboard>>;
+
+/// See also [fetchBillboards].
+@ProviderFor(fetchBillboards)
+const fetchBillboardsProvider = FetchBillboardsFamily();
+
+/// See also [fetchBillboards].
+class FetchBillboardsFamily extends Family<AsyncValue<List<Billboard>>> {
+  /// See also [fetchBillboards].
+  const FetchBillboardsFamily();
+
+  /// See also [fetchBillboards].
+  FetchBillboardsProvider call({
+    required List<String> ids,
+    String regionId = 'default',
+  }) {
+    return FetchBillboardsProvider(
+      ids: ids,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  FetchBillboardsProvider getProviderOverride(
+    covariant FetchBillboardsProvider provider,
+  ) {
+    return call(
+      ids: provider.ids,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchBillboardsProvider';
+}
+
+/// See also [fetchBillboards].
+class FetchBillboardsProvider
+    extends AutoDisposeFutureProvider<List<Billboard>> {
+  /// See also [fetchBillboards].
+  FetchBillboardsProvider({
+    required this.ids,
+    this.regionId = 'default',
+  }) : super.internal(
+          (ref) => fetchBillboards(
+            ref,
+            ids: ids,
+            regionId: regionId,
+          ),
+          from: fetchBillboardsProvider,
+          name: r'fetchBillboardsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchBillboardsHash,
+          dependencies: FetchBillboardsFamily._dependencies,
+          allTransitiveDependencies:
+              FetchBillboardsFamily._allTransitiveDependencies,
+        );
+
+  final List<String> ids;
+  final String regionId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchBillboardsProvider &&
+        other.ids == ids &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, ids.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
 
     return _SystemHash.finish(hash);
   }

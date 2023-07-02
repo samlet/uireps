@@ -75,6 +75,11 @@ dependencies:
   file_picker: ^5.3.1
   path_provider: ^2.0.15
 
+  freezed_annotation: ^2.2.0
+  flutter_riverpod: any
+  riverpod: any
+  riverpod_annotation: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -85,6 +90,11 @@ dev_dependencies:
   json_serializable: ^6.2.0
   build_runner: ^2.1.8
   hive_generator: any
+
+  custom_lint: ^0.4.0
+  freezed: ^2.3.2
+  riverpod_generator: any
+  riverpod_lint: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

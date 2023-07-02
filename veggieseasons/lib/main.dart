@@ -39,7 +39,8 @@ void main() {
 }
 
 const double windowWidth = 480;
-const double windowHeight = 854;
+// const double windowHeight = 854;
+const double windowHeight = 754;
 
 void setupWindow() {
   if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {

@@ -110,7 +110,7 @@ class LoadInventoryProvider extends AutoDisposeFutureProvider<Inventory> {
   }
 }
 
-String _$loadInventoryListHash() => r'8499c4d1cfbbb6c7c4826cae07df425f910d77fb';
+String _$loadInventoryListHash() => r'35a30cd9fac45f783d52d20ed983ebbece511ec9';
 typedef LoadInventoryListRef = AutoDisposeFutureProviderRef<List<Inventory>>;
 
 /// See also [loadInventoryList].
@@ -129,6 +129,7 @@ class LoadInventoryListFamily extends Family<AsyncValue<List<Inventory>>> {
     String tenant = 'default',
     String sortFld = 'lastUpdatedTxStamp',
     String sortOrder = 'desc',
+    Map<String, String> extra = const {},
   }) {
     return LoadInventoryListProvider(
       pageSize: pageSize,
@@ -136,6 +137,7 @@ class LoadInventoryListFamily extends Family<AsyncValue<List<Inventory>>> {
       tenant: tenant,
       sortFld: sortFld,
       sortOrder: sortOrder,
+      extra: extra,
     );
   }
 
@@ -149,6 +151,7 @@ class LoadInventoryListFamily extends Family<AsyncValue<List<Inventory>>> {
       tenant: provider.tenant,
       sortFld: provider.sortFld,
       sortOrder: provider.sortOrder,
+      extra: provider.extra,
     );
   }
 
@@ -177,6 +180,7 @@ class LoadInventoryListProvider
     this.tenant = 'default',
     this.sortFld = 'lastUpdatedTxStamp',
     this.sortOrder = 'desc',
+    this.extra = const {},
   }) : super.internal(
           (ref) => loadInventoryList(
             ref,
@@ -185,6 +189,7 @@ class LoadInventoryListProvider
             tenant: tenant,
             sortFld: sortFld,
             sortOrder: sortOrder,
+            extra: extra,
           ),
           from: loadInventoryListProvider,
           name: r'loadInventoryListProvider',
@@ -202,10 +207,131 @@ class LoadInventoryListProvider
   final String tenant;
   final String sortFld;
   final String sortOrder;
+  final Map<String, String> extra;
 
   @override
   bool operator ==(Object other) {
     return other is LoadInventoryListProvider &&
+        other.pageSize == pageSize &&
+        other.page == page &&
+        other.tenant == tenant &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, tenant.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$loadInventoryPageHash() => r'a33c549a1bf5a37c681ec078621c420a098068af';
+typedef LoadInventoryPageRef
+    = AutoDisposeFutureProviderRef<PaginatedResponse<Inventory>>;
+
+/// See also [loadInventoryPage].
+@ProviderFor(loadInventoryPage)
+const loadInventoryPageProvider = LoadInventoryPageFamily();
+
+/// See also [loadInventoryPage].
+class LoadInventoryPageFamily
+    extends Family<AsyncValue<PaginatedResponse<Inventory>>> {
+  /// See also [loadInventoryPage].
+  const LoadInventoryPageFamily();
+
+  /// See also [loadInventoryPage].
+  LoadInventoryPageProvider call({
+    int pageSize = 10,
+    int page = 0,
+    String tenant = 'default',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+  }) {
+    return LoadInventoryPageProvider(
+      pageSize: pageSize,
+      page: page,
+      tenant: tenant,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+    );
+  }
+
+  @override
+  LoadInventoryPageProvider getProviderOverride(
+    covariant LoadInventoryPageProvider provider,
+  ) {
+    return call(
+      pageSize: provider.pageSize,
+      page: provider.page,
+      tenant: provider.tenant,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadInventoryPageProvider';
+}
+
+/// See also [loadInventoryPage].
+class LoadInventoryPageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse<Inventory>> {
+  /// See also [loadInventoryPage].
+  LoadInventoryPageProvider({
+    this.pageSize = 10,
+    this.page = 0,
+    this.tenant = 'default',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+  }) : super.internal(
+          (ref) => loadInventoryPage(
+            ref,
+            pageSize: pageSize,
+            page: page,
+            tenant: tenant,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+          ),
+          from: loadInventoryPageProvider,
+          name: r'loadInventoryPageProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$loadInventoryPageHash,
+          dependencies: LoadInventoryPageFamily._dependencies,
+          allTransitiveDependencies:
+              LoadInventoryPageFamily._allTransitiveDependencies,
+        );
+
+  final int pageSize;
+  final int page;
+  final String tenant;
+  final String sortFld;
+  final String sortOrder;
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadInventoryPageProvider &&
         other.pageSize == pageSize &&
         other.page == page &&
         other.tenant == tenant &&
@@ -221,6 +347,98 @@ class LoadInventoryListProvider
     hash = _SystemHash.combine(hash, tenant.hashCode);
     hash = _SystemHash.combine(hash, sortFld.hashCode);
     hash = _SystemHash.combine(hash, sortOrder.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fetchInventoriesHash() => r'65335d96df13c80ea0e697c61464f053ffe9dcf2';
+typedef FetchInventoriesRef = AutoDisposeFutureProviderRef<List<Inventory>>;
+
+/// See also [fetchInventories].
+@ProviderFor(fetchInventories)
+const fetchInventoriesProvider = FetchInventoriesFamily();
+
+/// See also [fetchInventories].
+class FetchInventoriesFamily extends Family<AsyncValue<List<Inventory>>> {
+  /// See also [fetchInventories].
+  const FetchInventoriesFamily();
+
+  /// See also [fetchInventories].
+  FetchInventoriesProvider call({
+    required List<String> ids,
+    String regionId = 'default',
+  }) {
+    return FetchInventoriesProvider(
+      ids: ids,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  FetchInventoriesProvider getProviderOverride(
+    covariant FetchInventoriesProvider provider,
+  ) {
+    return call(
+      ids: provider.ids,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchInventoriesProvider';
+}
+
+/// See also [fetchInventories].
+class FetchInventoriesProvider
+    extends AutoDisposeFutureProvider<List<Inventory>> {
+  /// See also [fetchInventories].
+  FetchInventoriesProvider({
+    required this.ids,
+    this.regionId = 'default',
+  }) : super.internal(
+          (ref) => fetchInventories(
+            ref,
+            ids: ids,
+            regionId: regionId,
+          ),
+          from: fetchInventoriesProvider,
+          name: r'fetchInventoriesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchInventoriesHash,
+          dependencies: FetchInventoriesFamily._dependencies,
+          allTransitiveDependencies:
+              FetchInventoriesFamily._allTransitiveDependencies,
+        );
+
+  final List<String> ids;
+  final String regionId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchInventoriesProvider &&
+        other.ids == ids &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, ids.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
 
     return _SystemHash.finish(hash);
   }

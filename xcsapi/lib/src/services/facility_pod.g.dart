@@ -110,7 +110,7 @@ class LoadFacilityProvider extends AutoDisposeFutureProvider<Facility> {
   }
 }
 
-String _$loadFacilityListHash() => r'760192bdc31e378f8b0424d4dff3d9035c31b42e';
+String _$loadFacilityListHash() => r'ed71169be0caebc376d4209d89e2404fd85d36ca';
 typedef LoadFacilityListRef = AutoDisposeFutureProviderRef<List<Facility>>;
 
 /// See also [loadFacilityList].
@@ -129,6 +129,7 @@ class LoadFacilityListFamily extends Family<AsyncValue<List<Facility>>> {
     String tenant = 'default',
     String sortFld = 'lastUpdatedTxStamp',
     String sortOrder = 'desc',
+    Map<String, String> extra = const {},
   }) {
     return LoadFacilityListProvider(
       pageSize: pageSize,
@@ -136,6 +137,7 @@ class LoadFacilityListFamily extends Family<AsyncValue<List<Facility>>> {
       tenant: tenant,
       sortFld: sortFld,
       sortOrder: sortOrder,
+      extra: extra,
     );
   }
 
@@ -149,6 +151,7 @@ class LoadFacilityListFamily extends Family<AsyncValue<List<Facility>>> {
       tenant: provider.tenant,
       sortFld: provider.sortFld,
       sortOrder: provider.sortOrder,
+      extra: provider.extra,
     );
   }
 
@@ -177,6 +180,7 @@ class LoadFacilityListProvider
     this.tenant = 'default',
     this.sortFld = 'lastUpdatedTxStamp',
     this.sortOrder = 'desc',
+    this.extra = const {},
   }) : super.internal(
           (ref) => loadFacilityList(
             ref,
@@ -185,6 +189,7 @@ class LoadFacilityListProvider
             tenant: tenant,
             sortFld: sortFld,
             sortOrder: sortOrder,
+            extra: extra,
           ),
           from: loadFacilityListProvider,
           name: r'loadFacilityListProvider',
@@ -202,10 +207,131 @@ class LoadFacilityListProvider
   final String tenant;
   final String sortFld;
   final String sortOrder;
+  final Map<String, String> extra;
 
   @override
   bool operator ==(Object other) {
     return other is LoadFacilityListProvider &&
+        other.pageSize == pageSize &&
+        other.page == page &&
+        other.tenant == tenant &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, tenant.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$loadFacilityPageHash() => r'b9ac8e63413b9c8ed5db25b57c40f4015ba080be';
+typedef LoadFacilityPageRef
+    = AutoDisposeFutureProviderRef<PaginatedResponse<Facility>>;
+
+/// See also [loadFacilityPage].
+@ProviderFor(loadFacilityPage)
+const loadFacilityPageProvider = LoadFacilityPageFamily();
+
+/// See also [loadFacilityPage].
+class LoadFacilityPageFamily
+    extends Family<AsyncValue<PaginatedResponse<Facility>>> {
+  /// See also [loadFacilityPage].
+  const LoadFacilityPageFamily();
+
+  /// See also [loadFacilityPage].
+  LoadFacilityPageProvider call({
+    int pageSize = 10,
+    int page = 0,
+    String tenant = 'default',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+  }) {
+    return LoadFacilityPageProvider(
+      pageSize: pageSize,
+      page: page,
+      tenant: tenant,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+    );
+  }
+
+  @override
+  LoadFacilityPageProvider getProviderOverride(
+    covariant LoadFacilityPageProvider provider,
+  ) {
+    return call(
+      pageSize: provider.pageSize,
+      page: provider.page,
+      tenant: provider.tenant,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadFacilityPageProvider';
+}
+
+/// See also [loadFacilityPage].
+class LoadFacilityPageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse<Facility>> {
+  /// See also [loadFacilityPage].
+  LoadFacilityPageProvider({
+    this.pageSize = 10,
+    this.page = 0,
+    this.tenant = 'default',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+  }) : super.internal(
+          (ref) => loadFacilityPage(
+            ref,
+            pageSize: pageSize,
+            page: page,
+            tenant: tenant,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+          ),
+          from: loadFacilityPageProvider,
+          name: r'loadFacilityPageProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$loadFacilityPageHash,
+          dependencies: LoadFacilityPageFamily._dependencies,
+          allTransitiveDependencies:
+              LoadFacilityPageFamily._allTransitiveDependencies,
+        );
+
+  final int pageSize;
+  final int page;
+  final String tenant;
+  final String sortFld;
+  final String sortOrder;
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadFacilityPageProvider &&
         other.pageSize == pageSize &&
         other.page == page &&
         other.tenant == tenant &&
@@ -221,6 +347,98 @@ class LoadFacilityListProvider
     hash = _SystemHash.combine(hash, tenant.hashCode);
     hash = _SystemHash.combine(hash, sortFld.hashCode);
     hash = _SystemHash.combine(hash, sortOrder.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fetchFacilitiesHash() => r'0ab17d81f0f57280b47195eaededc9035a3a6b1b';
+typedef FetchFacilitiesRef = AutoDisposeFutureProviderRef<List<Facility>>;
+
+/// See also [fetchFacilities].
+@ProviderFor(fetchFacilities)
+const fetchFacilitiesProvider = FetchFacilitiesFamily();
+
+/// See also [fetchFacilities].
+class FetchFacilitiesFamily extends Family<AsyncValue<List<Facility>>> {
+  /// See also [fetchFacilities].
+  const FetchFacilitiesFamily();
+
+  /// See also [fetchFacilities].
+  FetchFacilitiesProvider call({
+    required List<String> ids,
+    String regionId = 'default',
+  }) {
+    return FetchFacilitiesProvider(
+      ids: ids,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  FetchFacilitiesProvider getProviderOverride(
+    covariant FetchFacilitiesProvider provider,
+  ) {
+    return call(
+      ids: provider.ids,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchFacilitiesProvider';
+}
+
+/// See also [fetchFacilities].
+class FetchFacilitiesProvider
+    extends AutoDisposeFutureProvider<List<Facility>> {
+  /// See also [fetchFacilities].
+  FetchFacilitiesProvider({
+    required this.ids,
+    this.regionId = 'default',
+  }) : super.internal(
+          (ref) => fetchFacilities(
+            ref,
+            ids: ids,
+            regionId: regionId,
+          ),
+          from: fetchFacilitiesProvider,
+          name: r'fetchFacilitiesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchFacilitiesHash,
+          dependencies: FetchFacilitiesFamily._dependencies,
+          allTransitiveDependencies:
+              FetchFacilitiesFamily._allTransitiveDependencies,
+        );
+
+  final List<String> ids;
+  final String regionId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchFacilitiesProvider &&
+        other.ids == ids &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, ids.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
 
     return _SystemHash.finish(hash);
   }

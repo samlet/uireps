@@ -111,7 +111,7 @@ class LoadContactMechProvider extends AutoDisposeFutureProvider<ContactMech> {
 }
 
 String _$loadContactMechListHash() =>
-    r'5a00ff7b3a0974274b41a618d7dac4a582e4e013';
+    r'b6484fc0eeef206f36539026e411f8b06f5aad42';
 typedef LoadContactMechListRef
     = AutoDisposeFutureProviderRef<List<ContactMech>>;
 
@@ -131,6 +131,7 @@ class LoadContactMechListFamily extends Family<AsyncValue<List<ContactMech>>> {
     String tenant = 'default',
     String sortFld = 'lastUpdatedTxStamp',
     String sortOrder = 'desc',
+    Map<String, String> extra = const {},
   }) {
     return LoadContactMechListProvider(
       pageSize: pageSize,
@@ -138,6 +139,7 @@ class LoadContactMechListFamily extends Family<AsyncValue<List<ContactMech>>> {
       tenant: tenant,
       sortFld: sortFld,
       sortOrder: sortOrder,
+      extra: extra,
     );
   }
 
@@ -151,6 +153,7 @@ class LoadContactMechListFamily extends Family<AsyncValue<List<ContactMech>>> {
       tenant: provider.tenant,
       sortFld: provider.sortFld,
       sortOrder: provider.sortOrder,
+      extra: provider.extra,
     );
   }
 
@@ -179,6 +182,7 @@ class LoadContactMechListProvider
     this.tenant = 'default',
     this.sortFld = 'lastUpdatedTxStamp',
     this.sortOrder = 'desc',
+    this.extra = const {},
   }) : super.internal(
           (ref) => loadContactMechList(
             ref,
@@ -187,6 +191,7 @@ class LoadContactMechListProvider
             tenant: tenant,
             sortFld: sortFld,
             sortOrder: sortOrder,
+            extra: extra,
           ),
           from: loadContactMechListProvider,
           name: r'loadContactMechListProvider',
@@ -204,10 +209,132 @@ class LoadContactMechListProvider
   final String tenant;
   final String sortFld;
   final String sortOrder;
+  final Map<String, String> extra;
 
   @override
   bool operator ==(Object other) {
     return other is LoadContactMechListProvider &&
+        other.pageSize == pageSize &&
+        other.page == page &&
+        other.tenant == tenant &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, tenant.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$loadContactMechPageHash() =>
+    r'39ba49ed2dba13d2e937a81c61f3a840bbaae9f8';
+typedef LoadContactMechPageRef
+    = AutoDisposeFutureProviderRef<PaginatedResponse<ContactMech>>;
+
+/// See also [loadContactMechPage].
+@ProviderFor(loadContactMechPage)
+const loadContactMechPageProvider = LoadContactMechPageFamily();
+
+/// See also [loadContactMechPage].
+class LoadContactMechPageFamily
+    extends Family<AsyncValue<PaginatedResponse<ContactMech>>> {
+  /// See also [loadContactMechPage].
+  const LoadContactMechPageFamily();
+
+  /// See also [loadContactMechPage].
+  LoadContactMechPageProvider call({
+    int pageSize = 10,
+    int page = 0,
+    String tenant = 'default',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+  }) {
+    return LoadContactMechPageProvider(
+      pageSize: pageSize,
+      page: page,
+      tenant: tenant,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+    );
+  }
+
+  @override
+  LoadContactMechPageProvider getProviderOverride(
+    covariant LoadContactMechPageProvider provider,
+  ) {
+    return call(
+      pageSize: provider.pageSize,
+      page: provider.page,
+      tenant: provider.tenant,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadContactMechPageProvider';
+}
+
+/// See also [loadContactMechPage].
+class LoadContactMechPageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse<ContactMech>> {
+  /// See also [loadContactMechPage].
+  LoadContactMechPageProvider({
+    this.pageSize = 10,
+    this.page = 0,
+    this.tenant = 'default',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+  }) : super.internal(
+          (ref) => loadContactMechPage(
+            ref,
+            pageSize: pageSize,
+            page: page,
+            tenant: tenant,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+          ),
+          from: loadContactMechPageProvider,
+          name: r'loadContactMechPageProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$loadContactMechPageHash,
+          dependencies: LoadContactMechPageFamily._dependencies,
+          allTransitiveDependencies:
+              LoadContactMechPageFamily._allTransitiveDependencies,
+        );
+
+  final int pageSize;
+  final int page;
+  final String tenant;
+  final String sortFld;
+  final String sortOrder;
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadContactMechPageProvider &&
         other.pageSize == pageSize &&
         other.page == page &&
         other.tenant == tenant &&
@@ -223,6 +350,99 @@ class LoadContactMechListProvider
     hash = _SystemHash.combine(hash, tenant.hashCode);
     hash = _SystemHash.combine(hash, sortFld.hashCode);
     hash = _SystemHash.combine(hash, sortOrder.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fetchContactMechesHash() =>
+    r'5b326447f5a23b231895172dff1d573d2736d3a7';
+typedef FetchContactMechesRef = AutoDisposeFutureProviderRef<List<ContactMech>>;
+
+/// See also [fetchContactMeches].
+@ProviderFor(fetchContactMeches)
+const fetchContactMechesProvider = FetchContactMechesFamily();
+
+/// See also [fetchContactMeches].
+class FetchContactMechesFamily extends Family<AsyncValue<List<ContactMech>>> {
+  /// See also [fetchContactMeches].
+  const FetchContactMechesFamily();
+
+  /// See also [fetchContactMeches].
+  FetchContactMechesProvider call({
+    required List<String> ids,
+    String regionId = 'default',
+  }) {
+    return FetchContactMechesProvider(
+      ids: ids,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  FetchContactMechesProvider getProviderOverride(
+    covariant FetchContactMechesProvider provider,
+  ) {
+    return call(
+      ids: provider.ids,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchContactMechesProvider';
+}
+
+/// See also [fetchContactMeches].
+class FetchContactMechesProvider
+    extends AutoDisposeFutureProvider<List<ContactMech>> {
+  /// See also [fetchContactMeches].
+  FetchContactMechesProvider({
+    required this.ids,
+    this.regionId = 'default',
+  }) : super.internal(
+          (ref) => fetchContactMeches(
+            ref,
+            ids: ids,
+            regionId: regionId,
+          ),
+          from: fetchContactMechesProvider,
+          name: r'fetchContactMechesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchContactMechesHash,
+          dependencies: FetchContactMechesFamily._dependencies,
+          allTransitiveDependencies:
+              FetchContactMechesFamily._allTransitiveDependencies,
+        );
+
+  final List<String> ids;
+  final String regionId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchContactMechesProvider &&
+        other.ids == ids &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, ids.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
 
     return _SystemHash.finish(hash);
   }

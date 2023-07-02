@@ -109,7 +109,7 @@ class LoadStoreProvider extends AutoDisposeFutureProvider<Store> {
   }
 }
 
-String _$loadStoreListHash() => r'0c9f2b33e31787c9011a1628d2c1a414ac41878f';
+String _$loadStoreListHash() => r'74346b4d2af102c50c74e21078b2cc20144bb4ef';
 typedef LoadStoreListRef = AutoDisposeFutureProviderRef<List<Store>>;
 
 /// See also [loadStoreList].
@@ -128,6 +128,7 @@ class LoadStoreListFamily extends Family<AsyncValue<List<Store>>> {
     String tenant = 'default',
     String sortFld = 'lastUpdatedTxStamp',
     String sortOrder = 'desc',
+    Map<String, String> extra = const {},
   }) {
     return LoadStoreListProvider(
       pageSize: pageSize,
@@ -135,6 +136,7 @@ class LoadStoreListFamily extends Family<AsyncValue<List<Store>>> {
       tenant: tenant,
       sortFld: sortFld,
       sortOrder: sortOrder,
+      extra: extra,
     );
   }
 
@@ -148,6 +150,7 @@ class LoadStoreListFamily extends Family<AsyncValue<List<Store>>> {
       tenant: provider.tenant,
       sortFld: provider.sortFld,
       sortOrder: provider.sortOrder,
+      extra: provider.extra,
     );
   }
 
@@ -175,6 +178,7 @@ class LoadStoreListProvider extends AutoDisposeFutureProvider<List<Store>> {
     this.tenant = 'default',
     this.sortFld = 'lastUpdatedTxStamp',
     this.sortOrder = 'desc',
+    this.extra = const {},
   }) : super.internal(
           (ref) => loadStoreList(
             ref,
@@ -183,6 +187,7 @@ class LoadStoreListProvider extends AutoDisposeFutureProvider<List<Store>> {
             tenant: tenant,
             sortFld: sortFld,
             sortOrder: sortOrder,
+            extra: extra,
           ),
           from: loadStoreListProvider,
           name: r'loadStoreListProvider',
@@ -200,10 +205,130 @@ class LoadStoreListProvider extends AutoDisposeFutureProvider<List<Store>> {
   final String tenant;
   final String sortFld;
   final String sortOrder;
+  final Map<String, String> extra;
 
   @override
   bool operator ==(Object other) {
     return other is LoadStoreListProvider &&
+        other.pageSize == pageSize &&
+        other.page == page &&
+        other.tenant == tenant &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, tenant.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$loadStorePageHash() => r'8170e6bba62f265ea90ee8b3ea0f4ef394660169';
+typedef LoadStorePageRef
+    = AutoDisposeFutureProviderRef<PaginatedResponse<Store>>;
+
+/// See also [loadStorePage].
+@ProviderFor(loadStorePage)
+const loadStorePageProvider = LoadStorePageFamily();
+
+/// See also [loadStorePage].
+class LoadStorePageFamily extends Family<AsyncValue<PaginatedResponse<Store>>> {
+  /// See also [loadStorePage].
+  const LoadStorePageFamily();
+
+  /// See also [loadStorePage].
+  LoadStorePageProvider call({
+    int pageSize = 10,
+    int page = 0,
+    String tenant = 'default',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+  }) {
+    return LoadStorePageProvider(
+      pageSize: pageSize,
+      page: page,
+      tenant: tenant,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+    );
+  }
+
+  @override
+  LoadStorePageProvider getProviderOverride(
+    covariant LoadStorePageProvider provider,
+  ) {
+    return call(
+      pageSize: provider.pageSize,
+      page: provider.page,
+      tenant: provider.tenant,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'loadStorePageProvider';
+}
+
+/// See also [loadStorePage].
+class LoadStorePageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse<Store>> {
+  /// See also [loadStorePage].
+  LoadStorePageProvider({
+    this.pageSize = 10,
+    this.page = 0,
+    this.tenant = 'default',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+  }) : super.internal(
+          (ref) => loadStorePage(
+            ref,
+            pageSize: pageSize,
+            page: page,
+            tenant: tenant,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+          ),
+          from: loadStorePageProvider,
+          name: r'loadStorePageProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$loadStorePageHash,
+          dependencies: LoadStorePageFamily._dependencies,
+          allTransitiveDependencies:
+              LoadStorePageFamily._allTransitiveDependencies,
+        );
+
+  final int pageSize;
+  final int page;
+  final String tenant;
+  final String sortFld;
+  final String sortOrder;
+
+  @override
+  bool operator ==(Object other) {
+    return other is LoadStorePageProvider &&
         other.pageSize == pageSize &&
         other.page == page &&
         other.tenant == tenant &&
@@ -219,6 +344,220 @@ class LoadStoreListProvider extends AutoDisposeFutureProvider<List<Store>> {
     hash = _SystemHash.combine(hash, tenant.hashCode);
     hash = _SystemHash.combine(hash, sortFld.hashCode);
     hash = _SystemHash.combine(hash, sortOrder.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fetchStoresHash() => r'3ed026393a6609e8e27c926d6d0e48de09c5435e';
+typedef FetchStoresRef = AutoDisposeFutureProviderRef<List<Store>>;
+
+/// See also [fetchStores].
+@ProviderFor(fetchStores)
+const fetchStoresProvider = FetchStoresFamily();
+
+/// See also [fetchStores].
+class FetchStoresFamily extends Family<AsyncValue<List<Store>>> {
+  /// See also [fetchStores].
+  const FetchStoresFamily();
+
+  /// See also [fetchStores].
+  FetchStoresProvider call({
+    required List<String> ids,
+    String regionId = 'default',
+  }) {
+    return FetchStoresProvider(
+      ids: ids,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  FetchStoresProvider getProviderOverride(
+    covariant FetchStoresProvider provider,
+  ) {
+    return call(
+      ids: provider.ids,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchStoresProvider';
+}
+
+/// See also [fetchStores].
+class FetchStoresProvider extends AutoDisposeFutureProvider<List<Store>> {
+  /// See also [fetchStores].
+  FetchStoresProvider({
+    required this.ids,
+    this.regionId = 'default',
+  }) : super.internal(
+          (ref) => fetchStores(
+            ref,
+            ids: ids,
+            regionId: regionId,
+          ),
+          from: fetchStoresProvider,
+          name: r'fetchStoresProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchStoresHash,
+          dependencies: FetchStoresFamily._dependencies,
+          allTransitiveDependencies:
+              FetchStoresFamily._allTransitiveDependencies,
+        );
+
+  final List<String> ids;
+  final String regionId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchStoresProvider &&
+        other.ids == ids &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, ids.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$searchStoreHash() => r'7315ad7dfefa1ed55d758d452544fb70abd75d47';
+typedef SearchStoreRef = AutoDisposeFutureProviderRef<List<Store>>;
+
+/// See also [searchStore].
+@ProviderFor(searchStore)
+const searchStoreProvider = SearchStoreFamily();
+
+/// See also [searchStore].
+class SearchStoreFamily extends Family<AsyncValue<List<Store>>> {
+  /// See also [searchStore].
+  const SearchStoreFamily();
+
+  /// See also [searchStore].
+  SearchStoreProvider call({
+    required String expr,
+    int start = 0,
+    int limit = 10,
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+    Map<String, String> extra = const {},
+  }) {
+    return SearchStoreProvider(
+      expr: expr,
+      start: start,
+      limit: limit,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+      extra: extra,
+    );
+  }
+
+  @override
+  SearchStoreProvider getProviderOverride(
+    covariant SearchStoreProvider provider,
+  ) {
+    return call(
+      expr: provider.expr,
+      start: provider.start,
+      limit: provider.limit,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+      extra: provider.extra,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'searchStoreProvider';
+}
+
+/// See also [searchStore].
+class SearchStoreProvider extends AutoDisposeFutureProvider<List<Store>> {
+  /// See also [searchStore].
+  SearchStoreProvider({
+    required this.expr,
+    this.start = 0,
+    this.limit = 10,
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+    this.extra = const {},
+  }) : super.internal(
+          (ref) => searchStore(
+            ref,
+            expr: expr,
+            start: start,
+            limit: limit,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+            extra: extra,
+          ),
+          from: searchStoreProvider,
+          name: r'searchStoreProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$searchStoreHash,
+          dependencies: SearchStoreFamily._dependencies,
+          allTransitiveDependencies:
+              SearchStoreFamily._allTransitiveDependencies,
+        );
+
+  final String expr;
+  final int start;
+  final int limit;
+  final String sortFld;
+  final String sortOrder;
+  final Map<String, String> extra;
+
+  @override
+  bool operator ==(Object other) {
+    return other is SearchStoreProvider &&
+        other.expr == expr &&
+        other.start == start &&
+        other.limit == limit &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, expr.hashCode);
+    hash = _SystemHash.combine(hash, start.hashCode);
+    hash = _SystemHash.combine(hash, limit.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
 
     return _SystemHash.finish(hash);
   }

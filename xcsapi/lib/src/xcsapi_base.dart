@@ -8,6 +8,14 @@ Future<void> performAndPrint(Dio dio, Map<String, String> queryString,
   printResp(response);
 }
 
+Future<dynamic> performQuery(Dio dio, Map<String, String> queryString,
+    Map<String, Object> payload) async {
+  var response =
+  await dio.post('/perform', queryParameters: queryString, data: payload);
+  catchErr(response);
+  return response.data;
+}
+
 Future<Map<String, dynamic>?> applyResource(Dio dio,
     {required Map<String, Object> payload, String regionId = 'default'}) async {
   final response = await dio.put<Map<String, dynamic>>('/resource',
