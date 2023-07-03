@@ -5,4 +5,6 @@ build:
 l10n:
     flutter gen-l10n
 
+app:
+	open "build/macos/Build/Products/Debug/uireps.app/"
 

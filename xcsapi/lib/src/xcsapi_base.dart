@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'common/exceptions/http_exception.dart';
 
+class AbortedException implements Exception {}
+
 Future<void> performAndPrint(Dio dio, Map<String, String> queryString,
     Map<String, Object> payload) async {
   var response =
@@ -12,6 +14,15 @@ Future<dynamic> performQuery(Dio dio, Map<String, String> queryString,
     Map<String, Object> payload) async {
   var response =
   await dio.post('/perform', queryParameters: queryString, data: payload);
+  catchErr(response);
+  return response.data;
+}
+
+Future<dynamic> retrieve(Dio dio, Map<String, String> queryString, {
+  CancelToken? cancelToken,
+}) async {
+  var response =
+  await dio.get('/get', queryParameters: queryString, cancelToken: cancelToken);
   catchErr(response);
   return response.data;
 }

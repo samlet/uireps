@@ -16,15 +16,26 @@ class SimpleInfoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Product Info',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Product Info'),
-        ),
-        body: InfoWrapper(bundleId: 'product_2'),
-      ),
+      home: ProductInfoPage(bundleId: 'product_2'),
     );
   }
 }
+
+class ProductInfoPage extends StatelessWidget {
+  final String bundleId;
+  const ProductInfoPage({Key? key, required this.bundleId}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Product Info'),
+      ),
+      body: InfoWrapper(bundleId: bundleId),
+    );
+  }
+}
+
 
 class InfoWrapper extends ConsumerWidget {
   final String bundleId;

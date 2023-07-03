@@ -564,4 +564,145 @@ class SearchProductProvider extends AutoDisposeFutureProvider<List<Product>> {
     return _SystemHash.finish(hash);
   }
 }
+
+String _$publicSearchProductHash() =>
+    r'f9d89cad2594f0f43c29fd3197930c0f75a8a88c';
+typedef PublicSearchProductRef = AutoDisposeFutureProviderRef<List<Product>>;
+
+/// See also [publicSearchProduct].
+@ProviderFor(publicSearchProduct)
+const publicSearchProductProvider = PublicSearchProductFamily();
+
+/// See also [publicSearchProduct].
+class PublicSearchProductFamily extends Family<AsyncValue<List<Product>>> {
+  /// See also [publicSearchProduct].
+  const PublicSearchProductFamily();
+
+  /// See also [publicSearchProduct].
+  PublicSearchProductProvider call({
+    String expr = '',
+    int page = 0,
+    int pageSize = 10,
+    String tenantId = 'public',
+    String sortFld = 'lastUpdatedTxStamp',
+    String sortOrder = 'desc',
+    Map<String, String>? extra,
+    bool cancellable = true,
+  }) {
+    return PublicSearchProductProvider(
+      expr: expr,
+      page: page,
+      pageSize: pageSize,
+      tenantId: tenantId,
+      sortFld: sortFld,
+      sortOrder: sortOrder,
+      extra: extra,
+      cancellable: cancellable,
+    );
+  }
+
+  @override
+  PublicSearchProductProvider getProviderOverride(
+    covariant PublicSearchProductProvider provider,
+  ) {
+    return call(
+      expr: provider.expr,
+      page: provider.page,
+      pageSize: provider.pageSize,
+      tenantId: provider.tenantId,
+      sortFld: provider.sortFld,
+      sortOrder: provider.sortOrder,
+      extra: provider.extra,
+      cancellable: provider.cancellable,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'publicSearchProductProvider';
+}
+
+/// See also [publicSearchProduct].
+class PublicSearchProductProvider
+    extends AutoDisposeFutureProvider<List<Product>> {
+  /// See also [publicSearchProduct].
+  PublicSearchProductProvider({
+    this.expr = '',
+    this.page = 0,
+    this.pageSize = 10,
+    this.tenantId = 'public',
+    this.sortFld = 'lastUpdatedTxStamp',
+    this.sortOrder = 'desc',
+    this.extra,
+    this.cancellable = true,
+  }) : super.internal(
+          (ref) => publicSearchProduct(
+            ref,
+            expr: expr,
+            page: page,
+            pageSize: pageSize,
+            tenantId: tenantId,
+            sortFld: sortFld,
+            sortOrder: sortOrder,
+            extra: extra,
+            cancellable: cancellable,
+          ),
+          from: publicSearchProductProvider,
+          name: r'publicSearchProductProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$publicSearchProductHash,
+          dependencies: PublicSearchProductFamily._dependencies,
+          allTransitiveDependencies:
+              PublicSearchProductFamily._allTransitiveDependencies,
+        );
+
+  final String expr;
+  final int page;
+  final int pageSize;
+  final String tenantId;
+  final String sortFld;
+  final String sortOrder;
+  final Map<String, String>? extra;
+  final bool cancellable;
+
+  @override
+  bool operator ==(Object other) {
+    return other is PublicSearchProductProvider &&
+        other.expr == expr &&
+        other.page == page &&
+        other.pageSize == pageSize &&
+        other.tenantId == tenantId &&
+        other.sortFld == sortFld &&
+        other.sortOrder == sortOrder &&
+        other.extra == extra &&
+        other.cancellable == cancellable;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, expr.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, pageSize.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+    hash = _SystemHash.combine(hash, sortFld.hashCode);
+    hash = _SystemHash.combine(hash, sortOrder.hashCode);
+    hash = _SystemHash.combine(hash, extra.hashCode);
+    hash = _SystemHash.combine(hash, cancellable.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
