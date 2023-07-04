@@ -22,6 +22,8 @@ environment:
 #  sdk: '>=2.19.6 <3.0.0'
   sdk: ">=3.0.0 <4.0.0"
 
+isar_version: &isar_version 3.0.5 # define the version to be used
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -84,6 +86,11 @@ dependencies:
   shimmer: any
   flutter_svg: any
 
+  copy_with_extension: ^4.0.3
+  isar: *isar_version
+  isar_flutter_libs: *isar_version
+  timeago: ^3.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -99,6 +106,7 @@ dev_dependencies:
   freezed: ^2.3.2
   riverpod_generator: any
   riverpod_lint: any
+  isar_generator: *isar_version
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -13,9 +13,9 @@ Dio createAssetDio() {
 
 Dio assetDio = createAssetDio();
 
-Future<Response<dynamic>> bundleAssets(String bundleName) async {
+Future<Response<dynamic>> bundleAssets(String bundleName, {Dio? dio}) async {
   var resp =
-  await assetDio.get('http://localhost:8000/oras/${bundleName}.json');
+  await (dio??assetDio).get('http://localhost:8000/oras/${bundleName}.json');
   return resp;
 }
 

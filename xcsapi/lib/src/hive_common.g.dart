@@ -12,12 +12,29 @@ class TimeOfDayAdapter extends TypeAdapter<TimeOfDay> {
 
   @override
   TimeOfDay read(BinaryReader reader) {
-    return TimeOfDay();
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return TimeOfDay()
+      ..hours = fields[0] as int?
+      ..minutes = fields[1] as int?
+      ..seconds = fields[2] as int?
+      ..nanos = fields[3] as int?;
   }
 
   @override
   void write(BinaryWriter writer, TimeOfDay obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.hours)
+      ..writeByte(1)
+      ..write(obj.minutes)
+      ..writeByte(2)
+      ..write(obj.seconds)
+      ..writeByte(3)
+      ..write(obj.nanos);
   }
 
   @override
@@ -37,12 +54,32 @@ class TableOraAdapter extends TypeAdapter<TableOra> {
 
   @override
   TableOra read(BinaryReader reader) {
-    return TableOra();
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return TableOra()
+      ..rows = (fields[0] as List?)?.cast<RowOra>()
+      ..cols = (fields[1] as List?)?.cast<ColOra>()
+      ..pageToken = fields[2] as String?
+      ..tableType = fields[3] as String?
+      ..extra = (fields[4] as List?)?.cast<ExtraOra>();
   }
 
   @override
   void write(BinaryWriter writer, TableOra obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(5)
+      ..writeByte(0)
+      ..write(obj.rows)
+      ..writeByte(1)
+      ..write(obj.cols)
+      ..writeByte(2)
+      ..write(obj.pageToken)
+      ..writeByte(3)
+      ..write(obj.tableType)
+      ..writeByte(4)
+      ..write(obj.extra);
   }
 
   @override
@@ -62,12 +99,23 @@ class RowOraAdapter extends TypeAdapter<RowOra> {
 
   @override
   RowOra read(BinaryReader reader) {
-    return RowOra();
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return RowOra()
+      ..key = fields[0] as String?
+      ..cells = (fields[1] as List?)?.cast<String?>();
   }
 
   @override
   void write(BinaryWriter writer, RowOra obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.key)
+      ..writeByte(1)
+      ..write(obj.cells);
   }
 
   @override
@@ -87,12 +135,23 @@ class ColOraAdapter extends TypeAdapter<ColOra> {
 
   @override
   ColOra read(BinaryReader reader) {
-    return ColOra();
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ColOra()
+      ..colName = fields[0] as String?
+      ..colType = fields[1] as String?;
   }
 
   @override
   void write(BinaryWriter writer, ColOra obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.colName)
+      ..writeByte(1)
+      ..write(obj.colType);
   }
 
   @override
@@ -112,12 +171,23 @@ class ExtraOraAdapter extends TypeAdapter<ExtraOra> {
 
   @override
   ExtraOra read(BinaryReader reader) {
-    return ExtraOra();
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ExtraOra()
+      ..key = fields[0] as String?
+      ..value = fields[1] as String?;
   }
 
   @override
   void write(BinaryWriter writer, ExtraOra obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(2)
+      ..writeByte(0)
+      ..write(obj.key)
+      ..writeByte(1)
+      ..write(obj.value);
   }
 
   @override
@@ -336,11 +406,11 @@ TableOra _$TableOraFromJson(Map<String, dynamic> json) => TableOra()
       .toList();
 
 Map<String, dynamic> _$TableOraToJson(TableOra instance) => <String, dynamic>{
-      'rows': instance.rows?.map((e) => e.toJson()).toList(),
-      'cols': instance.cols?.map((e) => e.toJson()).toList(),
+      'rows': instance.rows,
+      'cols': instance.cols,
       'pageToken': instance.pageToken,
       'tableType': instance.tableType,
-      'extra': instance.extra?.map((e) => e.toJson()).toList(),
+      'extra': instance.extra,
     };
 
 RowOra _$RowOraFromJson(Map<String, dynamic> json) => RowOra()

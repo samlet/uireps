@@ -72,23 +72,32 @@ class TimeOfDay{
   Map<String, dynamic> toJson() => _$TimeOfDayToJson(this);
   TimeOfDay();
 
+  @HiveField(0)
   int? hours;
+  @HiveField(1)
   int? minutes;
+  @HiveField(2)
   int? seconds;
+  @HiveField(3)
   int? nanos;
 }
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 @HiveType(typeId: 3)
 class TableOra{
   factory TableOra.fromJson(Map<String, dynamic> json) => _$TableOraFromJson(json);
   Map<String, dynamic> toJson() => _$TableOraToJson(this);
   TableOra();
 
+  @HiveField(0)
   List<RowOra>? rows;
+  @HiveField(1)
   List<ColOra>? cols;
+  @HiveField(2)
   String? pageToken;
+  @HiveField(3)
   String? tableType;
+  @HiveField(4)
   List<ExtraOra>? extra;
 }
 
@@ -99,7 +108,9 @@ class RowOra{
   Map<String, dynamic> toJson() => _$RowOraToJson(this);
   RowOra();
 
+  @HiveField(0)
   String? key;
+  @HiveField(1)
   List<String?>? cells;
 }
 
@@ -110,7 +121,9 @@ class ColOra{
   Map<String, dynamic> toJson() => _$ColOraToJson(this);
   ColOra();
 
+  @HiveField(0)
   String? colName;
+  @HiveField(1)
   String? colType;
 }
 
@@ -121,7 +134,9 @@ class ExtraOra{
   Map<String, dynamic> toJson() => _$ExtraOraToJson(this);
   ExtraOra();
 
+  @HiveField(0)
   String? key;
+  @HiveField(1)
   String? value;
 }
 

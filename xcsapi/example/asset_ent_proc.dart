@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:xcsapi/src/bundle_assets.dart';
 import 'package:xcsapi/src/ent/note.dart';
 import 'package:xcsapi/src/meta/all_meta.dart';
+// import 'package:xcsapi/xcsapi.dart';
 
 Future<void> main(List<String> arguments) async {
   var bundleName = "Note";

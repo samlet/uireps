@@ -1,0 +1,2 @@
+app:
+	open "build/macos/Build/Products/Debug/isar_pub.app/"
