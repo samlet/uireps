@@ -77,6 +77,7 @@ class _MyAppState extends State<MyApp> {
               itemBuilder: (context, listIndex) {
                 return ListTile(
                   title: Text(books[listIndex]),
+                  onTap: (){print('hit.');},
                   trailing: IconButton(
                     icon: getIcon(listIndex),
                     onPressed: () => onFavoritePress(listIndex),

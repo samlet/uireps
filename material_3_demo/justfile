@@ -1,0 +1,2 @@
+app:
+	open "build/macos/Build/Products/Debug/material_3_demo.app/"
