@@ -35,6 +35,7 @@ dependencies:
   copy_with_extension: ^4.0.3
   isar: *isar_version
   timeago: ^3.3.0
+  mqtt_client: any
 
 dev_dependencies:
   pedantic: ^1.10.0

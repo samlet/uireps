@@ -14,6 +14,7 @@ part 'cart_pod_proc.g.dart';
 Future<void> main(List<String> arguments) async {
   final container = ProviderContainer();
 
+  // init a cart
   var newCart = SmartCart(assetRef: 'cart_store_1', storeId: 'store_1');
   final isar = await container.read(isarPod.future);
   await isar.writeTxn(() async {
@@ -21,9 +22,31 @@ Future<void> main(List<String> arguments) async {
     await isar.smartCarts.put(newCart);
   });
 
-  final cart=await container.read(cartPod('cart_store_1').future);
-  print('cart => ${cart.id}: ${cart.storeId}');
-  exit(0);
+  // final cart=await container.read(cartPod('cart_store_1').future);
+  // print('cart => ${cart.id}: ${cart.storeId}');
+
+  // cart change event
+  container.listen(cartPod('cart_store_1'), (_, v){
+    var cart=v.value;
+    print('cart => ${cart?.id}: ${cart?.storeId} (${cart?.comment})');
+  });
+
+  // update
+  final assetRef='cart_store_1';
+  await updateCart(isar, assetRef);
+
+  await Future.delayed(Duration(seconds: 2), (){
+    container.dispose();
+    exit(0);
+  });
+}
+
+Future<void> updateCart(Isar isar, String assetRef) async {
+  var cartUpd=await isar.smartCarts.filter().assetRefEqualTo(assetRef).findFirst();
+  cartUpd!.comment='upd';
+  await isar.writeTxn(() async {
+    await isar.smartCarts.put(cartUpd);
+  });
 }
 
 final isarPod = FutureProvider((ref) async {
