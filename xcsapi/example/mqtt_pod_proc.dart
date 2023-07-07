@@ -114,5 +114,8 @@ class MQTTClientManager {
 /*
 mqtt cli =>
   » pub test 'just hello'
+
+refs:
+- https://betterprogramming.pub/streaming-flutter-events-with-mosquitto-mqtt-broker-28998a3b81c2
  */
 
