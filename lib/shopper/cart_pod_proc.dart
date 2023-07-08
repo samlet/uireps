@@ -284,3 +284,5 @@ class SmartCartItem {
 
   Map<String, dynamic> toJson() => _$SmartCartItemToJson(this);
 }
+
+

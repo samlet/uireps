@@ -20,11 +20,28 @@ Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) =>
       'contacts': instance.contacts,
     };
 
+PartyTokens _$PartyTokensFromJson(Map<String, dynamic> json) => PartyTokens(
+      partyId: json['partyId'] as String,
+      acc: json['acc'] as String,
+      moneyBal: (json['moneyBal'] as num).toDouble(),
+      coupons: Map<String, int>.from(json['coupons'] as Map),
+      giftPoints: json['giftPoints'] as int,
+    );
+
+Map<String, dynamic> _$PartyTokensToJson(PartyTokens instance) =>
+    <String, dynamic>{
+      'partyId': instance.partyId,
+      'acc': instance.acc,
+      'moneyBal': instance.moneyBal,
+      'coupons': instance.coupons,
+      'giftPoints': instance.giftPoints,
+    };
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$partyBundleHash() => r'68e5c4162f8785c999f44cb9f185e0e806f4a01a';
+String _$partyBundleHash() => r'f2950f37405075137f5274b1134dd50d97cf3f8e';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -60,10 +77,10 @@ class PartyBundleFamily extends Family<AsyncValue<PartyBundle>> {
 
   /// See also [partyBundle].
   PartyBundleProvider call({
-    required String bundleId,
+    required String partyId,
   }) {
     return PartyBundleProvider(
-      bundleId: bundleId,
+      partyId: partyId,
     );
   }
 
@@ -72,7 +89,7 @@ class PartyBundleFamily extends Family<AsyncValue<PartyBundle>> {
     covariant PartyBundleProvider provider,
   ) {
     return call(
-      bundleId: provider.bundleId,
+      partyId: provider.partyId,
     );
   }
 
@@ -95,11 +112,11 @@ class PartyBundleFamily extends Family<AsyncValue<PartyBundle>> {
 class PartyBundleProvider extends AutoDisposeFutureProvider<PartyBundle> {
   /// See also [partyBundle].
   PartyBundleProvider({
-    required this.bundleId,
+    required this.partyId,
   }) : super.internal(
           (ref) => partyBundle(
             ref,
-            bundleId: bundleId,
+            partyId: partyId,
           ),
           from: partyBundleProvider,
           name: r'partyBundleProvider',
@@ -112,17 +129,99 @@ class PartyBundleProvider extends AutoDisposeFutureProvider<PartyBundle> {
               PartyBundleFamily._allTransitiveDependencies,
         );
 
-  final String bundleId;
+  final String partyId;
 
   @override
   bool operator ==(Object other) {
-    return other is PartyBundleProvider && other.bundleId == bundleId;
+    return other is PartyBundleProvider && other.partyId == partyId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, bundleId.hashCode);
+    hash = _SystemHash.combine(hash, partyId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$partyTokensHash() => r'ac089a2217e050fdcb0fcf0ca41c903ae61bfa23';
+typedef PartyTokensRef = AutoDisposeFutureProviderRef<PartyTokens>;
+
+/// See also [partyTokens].
+@ProviderFor(partyTokens)
+const partyTokensProvider = PartyTokensFamily();
+
+/// See also [partyTokens].
+class PartyTokensFamily extends Family<AsyncValue<PartyTokens>> {
+  /// See also [partyTokens].
+  const PartyTokensFamily();
+
+  /// See also [partyTokens].
+  PartyTokensProvider call({
+    required String partyId,
+  }) {
+    return PartyTokensProvider(
+      partyId: partyId,
+    );
+  }
+
+  @override
+  PartyTokensProvider getProviderOverride(
+    covariant PartyTokensProvider provider,
+  ) {
+    return call(
+      partyId: provider.partyId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'partyTokensProvider';
+}
+
+/// See also [partyTokens].
+class PartyTokensProvider extends AutoDisposeFutureProvider<PartyTokens> {
+  /// See also [partyTokens].
+  PartyTokensProvider({
+    required this.partyId,
+  }) : super.internal(
+          (ref) => partyTokens(
+            ref,
+            partyId: partyId,
+          ),
+          from: partyTokensProvider,
+          name: r'partyTokensProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$partyTokensHash,
+          dependencies: PartyTokensFamily._dependencies,
+          allTransitiveDependencies:
+              PartyTokensFamily._allTransitiveDependencies,
+        );
+
+  final String partyId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is PartyTokensProvider && other.partyId == partyId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, partyId.hashCode);
 
     return _SystemHash.finish(hash);
   }
