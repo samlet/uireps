@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 void main() => runApp(CounterApp());
@@ -16,12 +16,12 @@ class CounterApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // localize
-      localizationsDelegates: const [
-        ...GalleryLocalizations.localizationsDelegates,
-        LocaleNamesLocalizationsDelegate()
-      ],
-      locale: const Locale('zh'),
-      supportedLocales: GalleryLocalizations.supportedLocales,
+      // localizationsDelegates: const [
+      //   ...GalleryLocalizations.localizationsDelegates,
+      //   LocaleNamesLocalizationsDelegate()
+      // ],
+      // locale: const Locale('zh'),
+      // supportedLocales: GalleryLocalizations.supportedLocales,
 
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context)!;
+    // final localizations = GalleryLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            Text(localizations.price(_counter)),
+            // Text(localizations.price(_counter)),
 
             // 打开新的路由页面
             TextButton(

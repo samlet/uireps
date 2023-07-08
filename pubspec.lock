@@ -224,6 +224,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.4"
+  copy_with_extension_gen:
+    dependency: "direct dev"
+    description:
+      name: copy_with_extension_gen
+      sha256: "19ab5e5095a9047315b42a6c2bb7ddf59a85cd23a75278500661ced4299165e9"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.4"
   coverage:
     dependency: transitive
     description:
@@ -360,6 +368,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.5"
+  event_bus:
+    dependency: transitive
+    description:
+      name: event_bus
+      sha256: "44baa799834f4c803921873e7446a2add0f3efa45e101a054b1f0ab9b95f8edc"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -835,6 +851,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.0"
+  mqtt_client:
+    dependency: transitive
+    description:
+      name: mqtt_client
+      sha256: "873c124f6485c17b5ca085047880068f3c5acc9db54317995d752a3253f95a72"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "10.0.0"
   nested:
     dependency: transitive
     description:

@@ -38,14 +38,17 @@ Future<void> loadApiStore(ProviderContainer container) async {
 
 @JsonSerializable()
 class TradeItem {
+  String storeId;
   String productId;
   String name;
   String description;
   String tokenId;
-  double quantity;
+  int quantity;
   double price;
 
-  TradeItem({this.productId = '',
+  TradeItem({
+    required this.storeId,
+    required this.productId,
     this.name = '',
     this.description = '',
     this.tokenId = '',
@@ -64,11 +67,12 @@ Future<List<TradeItem>> loadTradeItems(LoadTradeItemsRef ref,
   var rs = store.products.map((e) {
     var inv = store.getInventoryForProduct(e.productId!);
     return TradeItem(
+      storeId: storeId,
       productId: e.productId!,
       name: e.productName!,
       description: e.description ?? '',
       tokenId: inv?.inventoryItemId ?? '',
-      quantity: inv?.accountingQuantityTotal ?? 0,
+      quantity: (inv?.accountingQuantityTotal ?? 0.0).toInt(),
       price: getProductPrice(e) ?? 0,
     );
   }).toList();

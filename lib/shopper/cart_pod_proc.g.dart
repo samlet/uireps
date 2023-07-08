@@ -3,6 +3,116 @@
 part of 'cart_pod_proc.dart';
 
 // **************************************************************************
+// CopyWithGenerator
+// **************************************************************************
+
+abstract class _$SmartCartItemCWProxy {
+  SmartCartItem description(String description);
+
+  SmartCartItem name(String name);
+
+  SmartCartItem price(double price);
+
+  SmartCartItem productId(String productId);
+
+  SmartCartItem quantity(int quantity);
+
+  SmartCartItem tokenId(String tokenId);
+
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `SmartCartItem(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  ///
+  /// Usage
+  /// ```dart
+  /// SmartCartItem(...).copyWith(id: 12, name: "My name")
+  /// ````
+  SmartCartItem call({
+    String? description,
+    String? name,
+    double? price,
+    String? productId,
+    int? quantity,
+    String? tokenId,
+  });
+}
+
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfSmartCartItem.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfSmartCartItem.copyWith.fieldName(...)`
+class _$SmartCartItemCWProxyImpl implements _$SmartCartItemCWProxy {
+  final SmartCartItem _value;
+
+  const _$SmartCartItemCWProxyImpl(this._value);
+
+  @override
+  SmartCartItem description(String description) =>
+      this(description: description);
+
+  @override
+  SmartCartItem name(String name) => this(name: name);
+
+  @override
+  SmartCartItem price(double price) => this(price: price);
+
+  @override
+  SmartCartItem productId(String productId) => this(productId: productId);
+
+  @override
+  SmartCartItem quantity(int quantity) => this(quantity: quantity);
+
+  @override
+  SmartCartItem tokenId(String tokenId) => this(tokenId: tokenId);
+
+  @override
+
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `SmartCartItem(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  ///
+  /// Usage
+  /// ```dart
+  /// SmartCartItem(...).copyWith(id: 12, name: "My name")
+  /// ````
+  SmartCartItem call({
+    Object? description = const $CopyWithPlaceholder(),
+    Object? name = const $CopyWithPlaceholder(),
+    Object? price = const $CopyWithPlaceholder(),
+    Object? productId = const $CopyWithPlaceholder(),
+    Object? quantity = const $CopyWithPlaceholder(),
+    Object? tokenId = const $CopyWithPlaceholder(),
+  }) {
+    return SmartCartItem(
+      description:
+          description == const $CopyWithPlaceholder() || description == null
+              ? _value.description
+              // ignore: cast_nullable_to_non_nullable
+              : description as String,
+      name: name == const $CopyWithPlaceholder() || name == null
+          ? _value.name
+          // ignore: cast_nullable_to_non_nullable
+          : name as String,
+      price: price == const $CopyWithPlaceholder() || price == null
+          ? _value.price
+          // ignore: cast_nullable_to_non_nullable
+          : price as double,
+      productId: productId == const $CopyWithPlaceholder() || productId == null
+          ? _value.productId
+          // ignore: cast_nullable_to_non_nullable
+          : productId as String,
+      quantity: quantity == const $CopyWithPlaceholder() || quantity == null
+          ? _value.quantity
+          // ignore: cast_nullable_to_non_nullable
+          : quantity as int,
+      tokenId: tokenId == const $CopyWithPlaceholder() || tokenId == null
+          ? _value.tokenId
+          // ignore: cast_nullable_to_non_nullable
+          : tokenId as String,
+    );
+  }
+}
+
+extension $SmartCartItemCopyWith on SmartCartItem {
+  /// Returns a callable class that can be used as follows: `instanceOfSmartCartItem.copyWith(...)` or like so:`instanceOfSmartCartItem.copyWith.fieldName(...)`.
+  // ignore: library_private_types_in_public_api
+  _$SmartCartItemCWProxy get copyWith => _$SmartCartItemCWProxyImpl(this);
+}
+
+// **************************************************************************
 // IsarCollectionGenerator
 // **************************************************************************
 
@@ -2072,3 +2182,291 @@ Map<String, dynamic> _$SmartCartItemToJson(SmartCartItem instance) =>
       'quantity': instance.quantity,
       'price': instance.price,
     };
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$isInCartHash() => r'bdf8434cd67675e106dc4e28a3810e7a7174b663';
+
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
+
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
+
+typedef IsInCartRef = AutoDisposeFutureProviderRef<bool>;
+
+/// See also [isInCart].
+@ProviderFor(isInCart)
+const isInCartProvider = IsInCartFamily();
+
+/// See also [isInCart].
+class IsInCartFamily extends Family<AsyncValue<bool>> {
+  /// See also [isInCart].
+  const IsInCartFamily();
+
+  /// See also [isInCart].
+  IsInCartProvider call({
+    required String storeRef,
+    required String tokenId,
+  }) {
+    return IsInCartProvider(
+      storeRef: storeRef,
+      tokenId: tokenId,
+    );
+  }
+
+  @override
+  IsInCartProvider getProviderOverride(
+    covariant IsInCartProvider provider,
+  ) {
+    return call(
+      storeRef: provider.storeRef,
+      tokenId: provider.tokenId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'isInCartProvider';
+}
+
+/// See also [isInCart].
+class IsInCartProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [isInCart].
+  IsInCartProvider({
+    required this.storeRef,
+    required this.tokenId,
+  }) : super.internal(
+          (ref) => isInCart(
+            ref,
+            storeRef: storeRef,
+            tokenId: tokenId,
+          ),
+          from: isInCartProvider,
+          name: r'isInCartProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$isInCartHash,
+          dependencies: IsInCartFamily._dependencies,
+          allTransitiveDependencies: IsInCartFamily._allTransitiveDependencies,
+        );
+
+  final String storeRef;
+  final String tokenId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is IsInCartProvider &&
+        other.storeRef == storeRef &&
+        other.tokenId == tokenId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, storeRef.hashCode);
+    hash = _SystemHash.combine(hash, tokenId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$cartItemHash() => r'77bcddf11d334447168225a2e30cf77f5f71c2c6';
+typedef CartItemRef = AutoDisposeFutureProviderRef<SmartCartItem?>;
+
+/// See also [cartItem].
+@ProviderFor(cartItem)
+const cartItemProvider = CartItemFamily();
+
+/// See also [cartItem].
+class CartItemFamily extends Family<AsyncValue<SmartCartItem?>> {
+  /// See also [cartItem].
+  const CartItemFamily();
+
+  /// See also [cartItem].
+  CartItemProvider call({
+    required String storeRef,
+    required String tokenId,
+  }) {
+    return CartItemProvider(
+      storeRef: storeRef,
+      tokenId: tokenId,
+    );
+  }
+
+  @override
+  CartItemProvider getProviderOverride(
+    covariant CartItemProvider provider,
+  ) {
+    return call(
+      storeRef: provider.storeRef,
+      tokenId: provider.tokenId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'cartItemProvider';
+}
+
+/// See also [cartItem].
+class CartItemProvider extends AutoDisposeFutureProvider<SmartCartItem?> {
+  /// See also [cartItem].
+  CartItemProvider({
+    required this.storeRef,
+    required this.tokenId,
+  }) : super.internal(
+          (ref) => cartItem(
+            ref,
+            storeRef: storeRef,
+            tokenId: tokenId,
+          ),
+          from: cartItemProvider,
+          name: r'cartItemProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$cartItemHash,
+          dependencies: CartItemFamily._dependencies,
+          allTransitiveDependencies: CartItemFamily._allTransitiveDependencies,
+        );
+
+  final String storeRef;
+  final String tokenId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is CartItemProvider &&
+        other.storeRef == storeRef &&
+        other.tokenId == tokenId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, storeRef.hashCode);
+    hash = _SystemHash.combine(hash, tokenId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$cartItemsHash() => r'7e5af52abb03219c48fefe9ca0ab1aa463514212';
+typedef CartItemsRef = AutoDisposeFutureProviderRef<List<SmartCartItem>>;
+
+/// See also [cartItems].
+@ProviderFor(cartItems)
+const cartItemsProvider = CartItemsFamily();
+
+/// See also [cartItems].
+class CartItemsFamily extends Family<AsyncValue<List<SmartCartItem>>> {
+  /// See also [cartItems].
+  const CartItemsFamily();
+
+  /// See also [cartItems].
+  CartItemsProvider call({
+    required String storeRef,
+  }) {
+    return CartItemsProvider(
+      storeRef: storeRef,
+    );
+  }
+
+  @override
+  CartItemsProvider getProviderOverride(
+    covariant CartItemsProvider provider,
+  ) {
+    return call(
+      storeRef: provider.storeRef,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'cartItemsProvider';
+}
+
+/// See also [cartItems].
+class CartItemsProvider extends AutoDisposeFutureProvider<List<SmartCartItem>> {
+  /// See also [cartItems].
+  CartItemsProvider({
+    required this.storeRef,
+  }) : super.internal(
+          (ref) => cartItems(
+            ref,
+            storeRef: storeRef,
+          ),
+          from: cartItemsProvider,
+          name: r'cartItemsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$cartItemsHash,
+          dependencies: CartItemsFamily._dependencies,
+          allTransitiveDependencies: CartItemsFamily._allTransitiveDependencies,
+        );
+
+  final String storeRef;
+
+  @override
+  bool operator ==(Object other) {
+    return other is CartItemsProvider && other.storeRef == storeRef;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, storeRef.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

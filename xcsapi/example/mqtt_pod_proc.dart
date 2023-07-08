@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -10,6 +11,17 @@ Future<void> main(List<String> arguments) async {
   mqtt.publishMessage("test", "hello");
   container.listen(mqttSubProvider, (_, evt) {
     print('receive => ${evt.value?.payload}');
+  });
+
+  // 仅在发生变动时
+  container.listen(totalMsgProvider, (_, evt) {
+    print('current total-msg => $evt');
+  });
+
+  // 定期执行
+  final timer = Timer.periodic(const Duration(seconds: 2), (tid){
+    final t=container.read(totalMsgProvider);
+    print('total msg: $t');
   });
   // exit(0);
 }
@@ -25,6 +37,8 @@ class EventMsg {
   EventMsg(this.topic, this.payload);
 }
 
+final totalMsgProvider = StateProvider<int>((ref) => 0);
+
 final mqttSubProvider = StreamProvider<EventMsg>((ref) async* {
   final mqtt = await ref.watch(mqttProvider.future);
   await for (final c in mqtt.getMessagesStream()!) {
@@ -34,6 +48,7 @@ final mqttSubProvider = StreamProvider<EventMsg>((ref) async* {
         final pt =
             MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
         print('received on topic: <${msg.topic}> is $pt\n');
+        ref.read(totalMsgProvider.notifier).update((state) => state+1);
         yield EventMsg(msg.topic, pt);
       }
     }

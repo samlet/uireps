@@ -107,6 +107,7 @@ dev_dependencies:
   riverpod_generator: any
   riverpod_lint: any
   isar_generator: *isar_version
+  copy_with_extension_gen: ^4.0.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
