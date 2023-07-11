@@ -11,7 +11,6 @@ class TestRec{
   double? numFld;
   Map<String, double>? numMap;
   List<double>? nums;
-
   TestRec({
     this.stringFld,
     this.numFld,
