@@ -36,6 +36,8 @@ dependencies:
   isar: *isar_version
   timeago: ^3.3.0
   mqtt_client: any
+  xcsproto:
+    path: ../xcsproto
 
 dev_dependencies:
   pedantic: ^1.10.0

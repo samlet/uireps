@@ -1,7 +1,7 @@
 library xcsapi;
 
 export 'package:dio/dio.dart';
-export 'src/util.dart';
+export 'util.dart';
 export 'src/xcsapi_base.dart';
 export 'src/routines.dart';
 
