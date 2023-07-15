@@ -9,7 +9,7 @@ Future<void> main(List<String> arguments) async {
   container.listen(fixtureObjectsPodProvider(), (previous, next) {
     print('(has-err: ${next.hasError}) $previous => $next');
   });
-  var rc = container.read(fixtureObjectsPodProvider(regionId: 'default').notifier);
+  var rc = container.read(fixtureObjectsPodProvider(origin: 'default').notifier);
   await rc.oneNote();
   // exit(0);
   container.dispose();

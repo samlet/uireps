@@ -12,3 +12,6 @@ export 'src/ent/contact_mech.dart';
 export 'src/ent/promo_code.dart';
 export 'src/ent/product_promo.dart';
 export 'src/ent/work_effort.dart';
+export 'src/ent/digital_store.dart';
+export 'src/ent/digital_asset_trade.dart';
+export 'src/ent/digital_asset.dart';
