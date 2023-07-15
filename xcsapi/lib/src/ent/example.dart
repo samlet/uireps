@@ -17,6 +17,11 @@ class Example {
   factory Example.fromJson(Map<String, dynamic> json) => _$ExampleFromJson(json);
   Map<String, dynamic> toJson() => _$ExampleToJson(this);
 
+  @override
+  String toString() {
+    return 'Example(exampleId: $exampleId)';
+  }
+
   int get hashId => fastHash(exampleId!);
    
   String? exampleId;

@@ -17,6 +17,11 @@ class ShoppingCart {
   factory ShoppingCart.fromJson(Map<String, dynamic> json) => _$ShoppingCartFromJson(json);
   Map<String, dynamic> toJson() => _$ShoppingCartToJson(this);
 
+  @override
+  String toString() {
+    return 'ShoppingCart(shoppingCartId: $shoppingCartId)';
+  }
+
   int get hashId => fastHash(shoppingCartId!);
    
   String? storeId;

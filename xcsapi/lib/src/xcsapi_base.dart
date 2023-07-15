@@ -18,13 +18,13 @@ Future<dynamic> postQuery(Dio dio, String path, Map<String, String> queryString,
   return response.data;
 }
 
-Future<dynamic> requestBytes(Dio dio, String path, Map<String, String> queryString,
-    Map<String, Object> payload) async {
+Future<List<int>> requestBytes(Dio dio, Map<String, String> queryString,
+    Map<String, Object> payload, {String path='/call'}) async {
   var response =
   await dio.post(path, queryParameters: queryString, data: payload,
     options: Options(responseType: ResponseType.bytes),);
   catchErr(response);
-  return response.data;
+  return response.data as List<int>;
 }
 
 Future<dynamic> performQuery(Dio dio, Map<String, String> queryString,

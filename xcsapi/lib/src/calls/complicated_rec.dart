@@ -1,6 +1,7 @@
 part of 'calls.dart';
 
 @JsonSerializable()
+@OffsetDateTimeConverter()
 class ComplicatedRec{
   String? poster;
   TestRec? data;
@@ -14,5 +15,6 @@ class ComplicatedRec{
 
   Map<String, dynamic> toJson() => _$ComplicatedRecToJson(this);
 }
+
 
 

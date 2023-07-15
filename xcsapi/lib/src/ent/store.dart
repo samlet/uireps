@@ -17,6 +17,11 @@ class Store {
   factory Store.fromJson(Map<String, dynamic> json) => _$StoreFromJson(json);
   Map<String, dynamic> toJson() => _$StoreToJson(this);
 
+  @override
+  String toString() {
+    return 'Store(productStoreId: $productStoreId)';
+  }
+
   int get hashId => fastHash(productStoreId!);
    
   String? productStoreId;

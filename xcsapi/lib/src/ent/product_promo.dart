@@ -17,6 +17,11 @@ class ProductPromo {
   factory ProductPromo.fromJson(Map<String, dynamic> json) => _$ProductPromoFromJson(json);
   Map<String, dynamic> toJson() => _$ProductPromoToJson(this);
 
+  @override
+  String toString() {
+    return 'ProductPromo(productPromoId: $productPromoId)';
+  }
+
   int get hashId => fastHash(productPromoId!);
    
   String? productPromoId;

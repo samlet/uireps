@@ -1,6 +1,7 @@
 part of 'calls.dart';
 
 @JsonSerializable()
+@OffsetDateTimeConverter()
 class TestRec{
   String? stringFld;
   double? numFld;
@@ -18,5 +19,6 @@ class TestRec{
 
   Map<String, dynamic> toJson() => _$TestRecToJson(this);
 }
+
 
 

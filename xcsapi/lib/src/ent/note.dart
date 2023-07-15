@@ -17,6 +17,11 @@ class Note {
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
   Map<String, dynamic> toJson() => _$NoteToJson(this);
 
+  @override
+  String toString() {
+    return 'Note(noteId: $noteId)';
+  }
+
   int get hashId => fastHash(noteId!);
    
   String? noteId;

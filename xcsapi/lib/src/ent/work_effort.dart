@@ -17,6 +17,11 @@ class WorkEffort {
   factory WorkEffort.fromJson(Map<String, dynamic> json) => _$WorkEffortFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortToJson(this);
 
+  @override
+  String toString() {
+    return 'WorkEffort(workEffortId: $workEffortId)';
+  }
+
   int get hashId => fastHash(workEffortId!);
    
   String? workEffortId;

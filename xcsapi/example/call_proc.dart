@@ -3,14 +3,17 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:xcsapi/src/ent/note.dart';
 import 'package:xcsapi/src/ent/work_effort.dart';
 import 'package:xcsapi/src/xcsapi_base.dart';
+import 'package:xcsapi/util.dart';
+
 part 'call_proc.g.dart';
 
 @JsonSerializable()
-class TestRec{
+class TestRec {
   String? stringFld;
   double? numFld;
   Map<String, double>? numMap;
   List<double>? nums;
+
   TestRec({
     this.stringFld,
     this.numFld,
@@ -25,7 +28,7 @@ class TestRec{
 }
 
 @JsonSerializable()
-class ComplicatedRec{
+class ComplicatedRec {
   String? poster;
   TestRec? data;
 
@@ -76,14 +79,12 @@ Future<void> main(List<String> arguments) async {
     "call-type": "slab"
   }, {
     "rec": ComplicatedRec(
-      poster: "samlet",
-      data: TestRec(
-        stringFld: "string val",
-        numFld: 5.5,
-        numMap: {"f1": 6, "f2": 5},
-        nums: [7, 8.9]
-      )
-    )
+        poster: "samlet",
+        data: TestRec(
+            stringFld: "string val",
+            numFld: 5.5,
+            numMap: {"f1": 6, "f2": 5},
+            nums: [7, 8.9]))
   });
   print('createTestAsset (rec) - resp: $resp');
 
@@ -99,7 +100,7 @@ Future<void> main(List<String> arguments) async {
     "numMap": {"f1": 6, "f2": 5},
     "nums": [7, 8.9]
   });
-  var rec=TestRec.fromJson(resp);
+  var rec = TestRec.fromJson(resp);
   print('makeTestRec (rec) - resp: ${rec.toJson()}');
 
   // response: list<sync>
@@ -111,8 +112,8 @@ Future<void> main(List<String> arguments) async {
     "author": "admin"
   });
   print('resp: $resp');
-  var notes=asNotes(resp as List);
-  notes.forEach((e){
+  var notes = asNotes(resp as List);
+  notes.forEach((e) {
     print('- ${e.noteId}: ${e.noteName}');
   });
 
@@ -128,7 +129,7 @@ Future<void> main(List<String> arguments) async {
     "actualStartDt": "2001-05-13T12:00+08:00",
     "actualEndDt": "2001-05-14T12:00+08:00"
   });
-  var workEff=WorkEffort.fromJson(resp);
+  var workEff = WorkEffort.fromJson(resp);
   print('resp: ${workEff.toJson()}');
 
   // param: bytes
@@ -142,18 +143,18 @@ Future<void> main(List<String> arguments) async {
         "IMCISP6KIGEIDAn6sDKgwI1fiwpQYQwIX9qgIyDAjV+LClBhDAhf2qAjo"
         "FYWRtaW5CHnd3dy54bi0tLXhuLS03cjFhLWtuNXc2NjN0LmNvbVoHZGVmYXVsdA=="
   });
-  var note=Note.fromJson(resp);
+  var note = Note.fromJson(resp);
   print('resp: ${note.toJson()}');
 
   // response: bytes
-  resp = await requestBytes(dio, '/call', {
+  resp = await requestBytes(dio, {
     "module": "fixtureObjects",
     "action": "getNoteSlotData",
     "call-type": "slab"
   }, {
     "noteId": "note_1"
   });
-  print('resp: ${resp as List<int>}');
+  print('resp: $resp');
 
   // param: proto
   // response: proto
@@ -185,7 +186,7 @@ Future<void> main(List<String> arguments) async {
   });
   print('resp: $resp');
 
-  // param & response: map
+  // param & response: object-map
   resp = await performCall(dio, {
     "module": "fixtureObjects",
     "action": "echo",
@@ -194,6 +195,65 @@ Future<void> main(List<String> arguments) async {
     "input": {"title": "test", "numVal": 5}
   });
   print('resp: $resp');
+  // var map = (resp as Map).map((key, value) => MapEntry(key as String, value));
+  var map=asTypedMap(resp);
+  print('resp keys => ${map.keys} .. ${map.values}');
+
+  // param & response: decimal-map
+  {
+    resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "echoDecimalMap",
+      "call-type": "slab"
+    }, {
+      "input": {"f1": 8.5, "f2": 5}
+    });
+    print('resp: $resp');
+    Map<String, double> decimalMap = asTypedMap<double>(resp);
+    print('resp keys => ${decimalMap.keys} .. ${decimalMap.values}');
+  }
+  {
+    resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "echoIntMap",
+      "call-type": "slab"
+    }, {
+      "input": {"f1": 8, "f2": 5}
+    });
+    print('resp: $resp');
+    // var intMap = (resp as Map)
+    //     .map((key, value) => MapEntry(key as String, value as int));
+    var intMap=asTypedMap<int>(resp);
+    print('resp keys => ${intMap.keys} .. ${intMap.values}');
+  }
+  {
+    resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "echoBoolMap",
+      "call-type": "slab"
+    }, {
+      "input": {"f1": false, "f2": true}
+    });
+    print('resp: $resp');
+    // var boolMap = (resp as Map)
+    //     .map((key, value) => MapEntry(key as String, value as bool));
+    var boolMap=asTypedMap<bool>(resp);
+    print('resp keys => ${boolMap.keys} .. ${boolMap.values}');
+  }
+
+  // response: rec list
+  resp = await performCall(dio, {
+    "module": "fixtureObjects",
+    "action": "makeSomeRecs",
+    "call-type": "slab"
+  }, {
+    "total": 3
+  });
+  // var list = (resp as List).map((e) => TestRec.fromJson(e)).toList();
+  var list=convList(resp, TestRec.fromJson);
+  list.forEach((element) {
+    print('- ${element.toJson()}');
+  });
 
   exit(0);
 }

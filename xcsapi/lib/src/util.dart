@@ -91,3 +91,28 @@ int fastHash(String string) {
 
   return hash;
 }
+
+
+Map<String, double> asDecimalMap(dynamic resp) {
+  return asTypedMap<double>(resp);
+}
+
+Map<String, T> asTypedMap<T>(dynamic resp) {
+  var decimalMap = (resp as Map)
+      .map((key, value) => MapEntry(key as String, value as T));
+  return decimalMap;
+}
+
+Map<String, T> convMap<T>(dynamic resp, T Function(dynamic) conv) {
+  var decimalMap = (resp as Map)
+      .map((key, value) => MapEntry(key as String, conv(value)));
+  return decimalMap;
+}
+
+List<T> convList<T>(resp, T Function(Map<String, dynamic>) conv){
+  return (resp as List).map((e) => conv(e)).toList();
+}
+
+List<T> convScalars<T>(resp, T Function(dynamic) conv){
+  return (resp as List).map((e) => conv(e)).toList();
+}

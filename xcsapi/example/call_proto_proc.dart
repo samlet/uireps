@@ -1,30 +1,33 @@
 import 'dart:io';
-import 'package:fixnum/fixnum.dart';
+
+import 'package:dio/dio.dart';
 import 'package:xcsapi/src/xcsapi_base.dart';
 import 'package:xcsproto/xcsproto.dart';
 
-extension IntEx on int {
-  FixedPoint get fp => FixedPoint(value: Int64(this));
-}
+class FixtureObjectsRepository {
+  FixtureObjectsRepository(this.dio);
 
-Future<IntMap> protoInput(
-    {required Strings strings,
+  final Dio dio;
+
+  Future<IntMap> protoInput({
+    required Strings strings,
     required Decimals decimals,
     required Timestamps timestamps,
     required StringMap stringMap,
     required DecimalMap decimalMap}) async {
-  var resp = await performCall(dio, {
-    "module": "fixtureObjects",
-    "action": "protoInput",
-    "call-type": "slab"
-  }, {
-    "strings": strings.toProto3Json()!,
-    "decimals": decimals.toProto3Json()!,
-    "timestamps": timestamps.toProto3Json()!,
-    "stringMap": stringMap.toProto3Json()!,
-    "decimalMap": decimalMap.toProto3Json()!,
-  });
-  return IntMap()..mergeFromProto3Json(resp);
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "protoInput",
+      "call-type": "slab"
+    }, {
+      "strings": strings.toProto3Json()!,
+      "decimals": decimals.toProto3Json()!,
+      "timestamps": timestamps.toProto3Json()!,
+      "stringMap": stringMap.toProto3Json()!,
+      "decimalMap": decimalMap.toProto3Json()!,
+    });
+    return IntMap()..mergeFromProto3Json(resp);
+  }
 }
 
 Future<void> main(List<String> arguments) async {
@@ -36,7 +39,7 @@ Future<void> main(List<String> arguments) async {
   print('decimal-map: ${decimalMap.toProto3Json()}');
 
   // ...
-  var resultSet = await protoInput(
+  var resultSet = await FixtureObjectsRepository(dio).protoInput(
       strings: Strings(value: ["t1", "t2"]),
       decimals: Decimals(value: [1.fp, 2.fp]),
       timestamps: Timestamps(value: [Timestamp.fromDateTime(DateTime.now())]),

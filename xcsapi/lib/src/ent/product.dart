@@ -17,6 +17,11 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
   Map<String, dynamic> toJson() => _$ProductToJson(this);
 
+  @override
+  String toString() {
+    return 'Product(productId: $productId)';
+  }
+
   int get hashId => fastHash(productId!);
    
   String? productId;

@@ -17,6 +17,11 @@ class Facility {
   factory Facility.fromJson(Map<String, dynamic> json) => _$FacilityFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityToJson(this);
 
+  @override
+  String toString() {
+    return 'Facility(facilityId: $facilityId)';
+  }
+
   int get hashId => fastHash(facilityId!);
    
   String? facilityId;

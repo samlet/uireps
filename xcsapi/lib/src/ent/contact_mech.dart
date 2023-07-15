@@ -17,6 +17,11 @@ class ContactMech {
   factory ContactMech.fromJson(Map<String, dynamic> json) => _$ContactMechFromJson(json);
   Map<String, dynamic> toJson() => _$ContactMechToJson(this);
 
+  @override
+  String toString() {
+    return 'ContactMech(contactMechId: $contactMechId)';
+  }
+
   int get hashId => fastHash(contactMechId!);
    
   String? contactMechId;

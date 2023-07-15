@@ -17,6 +17,11 @@ class Party {
   factory Party.fromJson(Map<String, dynamic> json) => _$PartyFromJson(json);
   Map<String, dynamic> toJson() => _$PartyToJson(this);
 
+  @override
+  String toString() {
+    return 'Party(partyId: $partyId)';
+  }
+
   int get hashId => fastHash(partyId!);
    
   String? partyId;

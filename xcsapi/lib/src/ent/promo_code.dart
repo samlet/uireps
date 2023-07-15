@@ -17,6 +17,11 @@ class PromoCode {
   factory PromoCode.fromJson(Map<String, dynamic> json) => _$PromoCodeFromJson(json);
   Map<String, dynamic> toJson() => _$PromoCodeToJson(this);
 
+  @override
+  String toString() {
+    return 'PromoCode(productPromoCodeId: $productPromoCodeId)';
+  }
+
   int get hashId => fastHash(productPromoCodeId!);
    
   String? productPromoCodeId;

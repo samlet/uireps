@@ -11,7 +11,7 @@ class HttpConnector {
   HttpConnector(this.dio);
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 HttpConnector httpConnector(HttpConnectorRef ref) {
   return HttpConnector(createDio());
 }

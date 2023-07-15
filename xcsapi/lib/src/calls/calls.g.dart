@@ -6,20 +6,6 @@ part of 'calls.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ComplicatedRec _$ComplicatedRecFromJson(Map<String, dynamic> json) =>
-    ComplicatedRec(
-      poster: json['poster'] as String?,
-      data: json['data'] == null
-          ? null
-          : TestRec.fromJson(json['data'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$ComplicatedRecToJson(ComplicatedRec instance) =>
-    <String, dynamic>{
-      'poster': instance.poster,
-      'data': instance.data,
-    };
-
 TestRec _$TestRecFromJson(Map<String, dynamic> json) => TestRec(
       stringFld: json['stringFld'] as String?,
       numFld: (json['numFld'] as num?)?.toDouble(),
@@ -36,4 +22,18 @@ Map<String, dynamic> _$TestRecToJson(TestRec instance) => <String, dynamic>{
       'numFld': instance.numFld,
       'numMap': instance.numMap,
       'nums': instance.nums,
+    };
+
+ComplicatedRec _$ComplicatedRecFromJson(Map<String, dynamic> json) =>
+    ComplicatedRec(
+      poster: json['poster'] as String?,
+      data: json['data'] == null
+          ? null
+          : TestRec.fromJson(json['data'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ComplicatedRecToJson(ComplicatedRec instance) =>
+    <String, dynamic>{
+      'poster': instance.poster,
+      'data': instance.data,
     };

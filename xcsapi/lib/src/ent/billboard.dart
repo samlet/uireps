@@ -17,6 +17,11 @@ class Billboard {
   factory Billboard.fromJson(Map<String, dynamic> json) => _$BillboardFromJson(json);
   Map<String, dynamic> toJson() => _$BillboardToJson(this);
 
+  @override
+  String toString() {
+    return 'Billboard(billboardId: $billboardId)';
+  }
+
   int get hashId => fastHash(billboardId!);
    
   String? escrowId;
