@@ -206,6 +206,96 @@ class PostTextProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+String _$postFetchHash() => r'faa72f148cd7a41bbf52b80dcc3dc22deb3582b7';
+typedef PostFetchRef = AutoDisposeFutureProviderRef<PostBundle>;
+
+/// See also [postFetch].
+@ProviderFor(postFetch)
+const postFetchProvider = PostFetchFamily();
+
+/// See also [postFetch].
+class PostFetchFamily extends Family<AsyncValue<PostBundle>> {
+  /// See also [postFetch].
+  const PostFetchFamily();
+
+  /// See also [postFetch].
+  PostFetchProvider call({
+    String origin = 'default',
+    required String id,
+  }) {
+    return PostFetchProvider(
+      origin: origin,
+      id: id,
+    );
+  }
+
+  @override
+  PostFetchProvider getProviderOverride(
+    covariant PostFetchProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'postFetchProvider';
+}
+
+/// See also [postFetch].
+class PostFetchProvider extends AutoDisposeFutureProvider<PostBundle> {
+  /// See also [postFetch].
+  PostFetchProvider({
+    this.origin = 'default',
+    required this.id,
+  }) : super.internal(
+          (ref) => postFetch(
+            ref,
+            origin: origin,
+            id: id,
+          ),
+          from: postFetchProvider,
+          name: r'postFetchProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$postFetchHash,
+          dependencies: PostFetchFamily._dependencies,
+          allTransitiveDependencies: PostFetchFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+
+  @override
+  bool operator ==(Object other) {
+    return other is PostFetchProvider &&
+        other.origin == origin &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
 String _$postGetStatsHash() => r'1d6254be4f503a0fec37f54755049d09b8d553d3';
 typedef PostGetStatsRef = AutoDisposeFutureProviderRef<Map<String, double>>;
 
@@ -375,96 +465,6 @@ class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
   @override
   bool operator ==(Object other) {
     return other is PostIsFeaturedProvider &&
-        other.origin == origin &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-String _$postFetchHash() => r'faa72f148cd7a41bbf52b80dcc3dc22deb3582b7';
-typedef PostFetchRef = AutoDisposeFutureProviderRef<PostBundle>;
-
-/// See also [postFetch].
-@ProviderFor(postFetch)
-const postFetchProvider = PostFetchFamily();
-
-/// See also [postFetch].
-class PostFetchFamily extends Family<AsyncValue<PostBundle>> {
-  /// See also [postFetch].
-  const PostFetchFamily();
-
-  /// See also [postFetch].
-  PostFetchProvider call({
-    String origin = 'default',
-    required String id,
-  }) {
-    return PostFetchProvider(
-      origin: origin,
-      id: id,
-    );
-  }
-
-  @override
-  PostFetchProvider getProviderOverride(
-    covariant PostFetchProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'postFetchProvider';
-}
-
-/// See also [postFetch].
-class PostFetchProvider extends AutoDisposeFutureProvider<PostBundle> {
-  /// See also [postFetch].
-  PostFetchProvider({
-    this.origin = 'default',
-    required this.id,
-  }) : super.internal(
-          (ref) => postFetch(
-            ref,
-            origin: origin,
-            id: id,
-          ),
-          from: postFetchProvider,
-          name: r'postFetchProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$postFetchHash,
-          dependencies: PostFetchFamily._dependencies,
-          allTransitiveDependencies: PostFetchFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String id;
-
-  @override
-  bool operator ==(Object other) {
-    return other is PostFetchProvider &&
         other.origin == origin &&
         other.id == id;
   }
@@ -1142,7 +1142,7 @@ class PostHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
-String _$postPalPodHash() => r'14678a4b95fc180eaaf13c318a10219965ed3f2d';
+String _$postPalPodHash() => r'ffa41600a5877643867e728960aeb4108f567a82';
 
 abstract class _$PostPalPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String origin;

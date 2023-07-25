@@ -29,44 +29,17 @@ class PostPalRepository {
   }
    
   // Query
-  Future<Map<String, double>> getStats() async { 
+  Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "getStats",
+      "action": "fetch",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, { 
     });
     
-    return asTypedMap<double>(resp);
-  }
-   
-  // Query
-  Future<bool> isFeatured() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "isFeatured",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, { 
-    });
-    
-    return bool.parse(resp as String);
-  }
-   
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "featured",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, { 
-    });
-    
+    return PostBundle.fromJson(resp);
   }
    
   // Mutation
@@ -105,32 +78,45 @@ class PostPalRepository {
     
   }
    
-  // Query
-  Future<PostBundle> fetch() async { 
+  // Mutation
+  Future<void> featured() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "fetch",
+      "action": "featured",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, { 
     });
     
-    return PostBundle.fromJson(resp);
   }
    
   // Query
-  Future<List<Comment>> getCommentSyncs() async { 
+  Future<Map<String, double>> getStats() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "getCommentSyncs",
+      "action": "getStats",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, { 
     });
     
-    return convList(resp, Comment.fromJson);
+    return asTypedMap<double>(resp);
+  }
+   
+  // Query
+  Future<bool> isFeatured() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "isFeatured",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return bool.parse(resp as String);
   }
    
   // Mutation
@@ -174,6 +160,20 @@ class PostPalRepository {
     });
     
     return resp as String;
+  }
+   
+  // Query
+  Future<List<Comment>> getCommentSyncs() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "getCommentSyncs",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Comment.fromJson);
   }
    
   // Query

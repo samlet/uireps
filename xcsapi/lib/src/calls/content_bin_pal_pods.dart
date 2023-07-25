@@ -59,6 +59,16 @@ class ContentBinPalPod extends _$ContentBinPalPod {
 
 
 @riverpod
+Future<ContentBinCubeData> cntBinFetch(CntBinFetchRef ref, {
+  String origin='default',
+  required String id,
+}) async {
+  var pod=ref.watch(contentBinPalProvider(origin: origin, id: id));
+  return await pod.fetch(
+  );
+}
+
+@riverpod
 Future<bool> cntBinIsCharged(CntBinIsChargedRef ref, {
   String origin='default',
   required String id,
@@ -69,16 +79,6 @@ Future<bool> cntBinIsCharged(CntBinIsChargedRef ref, {
   var pod=ref.watch(contentBinPalProvider(origin: origin, id: id));
   return await pod.isCharged(
       postId: postId,
-  );
-}
-
-@riverpod
-Future<ContentBinCubeData> cntBinFetch(CntBinFetchRef ref, {
-  String origin='default',
-  required String id,
-}) async {
-  var pod=ref.watch(contentBinPalProvider(origin: origin, id: id));
-  return await pod.fetch(
   );
 }
 

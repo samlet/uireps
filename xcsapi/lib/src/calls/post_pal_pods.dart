@@ -29,14 +29,6 @@ class PostPalPod extends _$PostPalPod {
   }
 
   
-  Future<bool> featured() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(origin: origin, id: id)).featured(
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> setCharge({
     
     required double fee, 
@@ -59,6 +51,14 @@ class PostPalPod extends _$PostPalPod {
     state = await AsyncValue.guard(
         () => ref.read(postPalProvider(origin: origin, id: id)).updateText(
               text: text,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(origin: origin, id: id)).featured(
             ));
     return state.hasError == false;
   }
@@ -135,6 +135,16 @@ Future<String> postText(PostTextRef ref, {
 }
 
 @riverpod
+Future<PostBundle> postFetch(PostFetchRef ref, {
+  String origin='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(origin: origin, id: id));
+  return await pod.fetch(
+  );
+}
+
+@riverpod
 Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
   String origin='default',
   required String id,
@@ -151,16 +161,6 @@ Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(origin: origin, id: id));
   return await pod.isFeatured(
-  );
-}
-
-@riverpod
-Future<PostBundle> postFetch(PostFetchRef ref, {
-  String origin='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(origin: origin, id: id));
-  return await pod.fetch(
   );
 }
 

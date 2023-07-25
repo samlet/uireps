@@ -31,6 +31,103 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
+  Future<String> createProductConfigItemWithTwoOptions({
+    
+    required String itemType,
+    required String itemName,
+    required String description,
+    required String opt1Desc,
+    required String opt2Desc, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createProductConfigItemWithTwoOptions",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "itemType": itemType,
+      "itemName": itemName,
+      "description": description,
+      "opt1Desc": opt1Desc,
+      "opt2Desc": opt2Desc, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createProductFeatureCategory({
+    
+    required String description, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createProductFeatureCategory",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "description": description, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createFixedAssetWithStdCost({
+    
+    required String name,
+    required String fixedAssetTypeId,
+    required String partyId,
+    required String roleTypeId,
+    required String fixedAssetStdCostTypeId,
+    required double amount,
+    required double meterValue,
+    required String productMeterTypeId,
+    required String registrationNumber, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createFixedAssetWithStdCost",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "name": name,
+      "fixedAssetTypeId": fixedAssetTypeId,
+      "partyId": partyId,
+      "roleTypeId": roleTypeId,
+      "fixedAssetStdCostTypeId": fixedAssetStdCostTypeId,
+      "amount": amount,
+      "meterValue": meterValue,
+      "productMeterTypeId": productMeterTypeId,
+      "registrationNumber": registrationNumber, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<void> changeBillboardAnnouncement({
+    
+    required String bundleId,
+    required String announcement, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "changeBillboardAnnouncement",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "announcement": announcement, 
+    });
+    
+  }
+   
+  // Mutation
   Future<String> createGood({
     
     required String name,
@@ -996,103 +1093,6 @@ class BundlesOnChainRepository {
     }, {
       "bundleId": bundleId,
       "info": info, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<String> createProductConfigItemWithTwoOptions({
-    
-    required String itemType,
-    required String itemName,
-    required String description,
-    required String opt1Desc,
-    required String opt2Desc, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createProductConfigItemWithTwoOptions",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "itemType": itemType,
-      "itemName": itemName,
-      "description": description,
-      "opt1Desc": opt1Desc,
-      "opt2Desc": opt2Desc, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createProductFeatureCategory({
-    
-    required String description, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createProductFeatureCategory",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "description": description, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createFixedAssetWithStdCost({
-    
-    required String name,
-    required String fixedAssetTypeId,
-    required String partyId,
-    required String roleTypeId,
-    required String fixedAssetStdCostTypeId,
-    required double amount,
-    required double meterValue,
-    required String productMeterTypeId,
-    required String registrationNumber, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createFixedAssetWithStdCost",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "name": name,
-      "fixedAssetTypeId": fixedAssetTypeId,
-      "partyId": partyId,
-      "roleTypeId": roleTypeId,
-      "fixedAssetStdCostTypeId": fixedAssetStdCostTypeId,
-      "amount": amount,
-      "meterValue": meterValue,
-      "productMeterTypeId": productMeterTypeId,
-      "registrationNumber": registrationNumber, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<void> changeBillboardAnnouncement({
-    
-    required String bundleId,
-    required String announcement, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "changeBillboardAnnouncement",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "announcement": announcement, 
     });
     
   }

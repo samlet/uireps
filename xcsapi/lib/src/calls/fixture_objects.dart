@@ -13,73 +13,6 @@ class FixtureObjectsRepository {
 
    
   // Mutation
-  Future<Strings> someStores({
-    
-    required int total, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "someStores",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "total": total, 
-    });
-    
-    return Strings()..mergeFromProto3Json(resp);
-  }
-   
-  // Mutation
-  Future<Strings> someNotes({
-    
-    required int total, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "someNotes",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "total": total, 
-    });
-    
-    return Strings()..mergeFromProto3Json(resp);
-  }
-   
-  // Mutation
-  Future<Note> oneNote() async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "oneNote",
-      "call-type": "slab",
-      "regionId": origin,
-    }, { 
-    });
-    
-    return Note.fromJson(resp);
-  }
-   
-  // Query
-  Future<String> ping({
-    
-    required String req, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "ping",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "req": req, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
   Future<Store> oneStore() async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
@@ -90,6 +23,25 @@ class FixtureObjectsRepository {
     });
     
     return Store.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "touch",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
   }
    
   // Mutation
@@ -186,37 +138,67 @@ class FixtureObjectsRepository {
   }
    
   // Mutation
-  Future<void> touch({
+  Future<Strings> someStores({
     
-    required String bundleName,
-    required String bundleId, 
+    required int total, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "touch",
+      "action": "someStores",
       "call-type": "slab",
       "regionId": origin,
     }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
+      "total": total, 
     });
     
+    return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<Strings> someNotes({
+    
+    required int total, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "someNotes",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "total": total, 
+    });
+    
+    return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<Note> oneNote() async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "oneNote",
+      "call-type": "slab",
+      "regionId": origin,
+    }, { 
+    });
+    
+    return Note.fromJson(resp);
   }
    
   // Query
-  Future<String> getNoteProto({
+  Future<String> ping({
     
-    required String noteId, 
+    required String req, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "getNoteProto",
+      "action": "ping",
       "call-type": "slab",
       "regionId": origin,
     }, {
-      "noteId": noteId, 
+      "req": req, 
     });
     
     return resp as String;
@@ -470,6 +452,24 @@ class FixtureObjectsRepository {
       "call-type": "slab",
       "regionId": origin,
     }, { 
+    });
+    
+    return resp as String;
+  }
+   
+  // Query
+  Future<String> getNoteProto({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "getNoteProto",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "noteId": noteId, 
     });
     
     return resp as String;

@@ -27,6 +27,50 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
   }
 
   
+  Future<bool> oneStore() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(origin: origin)).oneStore(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(origin: origin)).touch(
+              bundleName: bundleName,
+              bundleId: bundleId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> oneProduct() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(origin: origin)).oneProduct(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> someTodos({
+    
+    required int total, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(origin: origin)).someTodos(
+              total: total,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> someStores({
     
     required int total, 
@@ -57,50 +101,6 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(fixtureObjectsProvider(origin: origin)).oneNote(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> oneStore() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(origin: origin)).oneStore(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> oneProduct() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(origin: origin)).oneProduct(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> someTodos({
-    
-    required int total, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(origin: origin)).someTodos(
-              total: total,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(origin: origin)).touch(
-              bundleName: bundleName,
-              bundleId: bundleId,
             ));
     return state.hasError == false;
   }
@@ -201,19 +201,6 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
 
 
 @riverpod
-Future<String> fixturesPing(FixturesPingRef ref, {
-  String origin='default',
-  
-    required String req, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(origin: origin));
-  return await pod.ping(
-      req: req,
-  );
-}
-
-@riverpod
 Future<Map<String, Object>> fixturesEcho(FixturesEchoRef ref, {
   String origin='default',
   
@@ -261,15 +248,15 @@ Future<IntMap> fixturesProtoInput(FixturesProtoInputRef ref, {
 }
 
 @riverpod
-Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
+Future<String> fixturesPing(FixturesPingRef ref, {
   String origin='default',
   
-    required String noteId, 
+    required String req, 
 
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(origin: origin));
-  return await pod.getNoteProto(
-      noteId: noteId,
+  return await pod.ping(
+      req: req,
   );
 }
 
@@ -380,6 +367,19 @@ Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
   var pod=ref.watch(fixtureObjectsProvider(origin: origin));
   return await pod.publicNotes(
       author: author,
+  );
+}
+
+@riverpod
+Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
+  String origin='default',
+  
+    required String noteId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(origin: origin));
+  return await pod.getNoteProto(
+      noteId: noteId,
   );
 }
 

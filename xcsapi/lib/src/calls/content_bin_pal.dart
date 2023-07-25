@@ -33,6 +33,20 @@ class ContentBinPalRepository {
     return Content.fromJson(resp);
   }
    
+  // Query
+  Future<ContentBinCubeData> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": "contentBinPal",
+      "action": "fetch",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return ContentBinCubeData.fromJson(resp);
+  }
+   
   // Mutation
   Future<void> charge({
     
@@ -68,20 +82,6 @@ class ContentBinPalRepository {
     });
     
     return bool.parse(resp as String);
-  }
-   
-  // Query
-  Future<ContentBinCubeData> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": "contentBinPal",
-      "action": "fetch",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, { 
-    });
-    
-    return ContentBinCubeData.fromJson(resp);
   }
    
   // Query

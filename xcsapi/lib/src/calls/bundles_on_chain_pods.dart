@@ -40,6 +40,84 @@ class BundlesOnChainPod extends _$BundlesOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> createProductConfigItemWithTwoOptions({
+    
+    required String itemType,
+    required String itemName,
+    required String description,
+    required String opt1Desc,
+    required String opt2Desc, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).createProductConfigItemWithTwoOptions(
+              itemType: itemType,
+              itemName: itemName,
+              description: description,
+              opt1Desc: opt1Desc,
+              opt2Desc: opt2Desc,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> createProductFeatureCategory({
+    
+    required String description, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).createProductFeatureCategory(
+              description: description,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> createFixedAssetWithStdCost({
+    
+    required String name,
+    required String fixedAssetTypeId,
+    required String partyId,
+    required String roleTypeId,
+    required String fixedAssetStdCostTypeId,
+    required double amount,
+    required double meterValue,
+    required String productMeterTypeId,
+    required String registrationNumber, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).createFixedAssetWithStdCost(
+              name: name,
+              fixedAssetTypeId: fixedAssetTypeId,
+              partyId: partyId,
+              roleTypeId: roleTypeId,
+              fixedAssetStdCostTypeId: fixedAssetStdCostTypeId,
+              amount: amount,
+              meterValue: meterValue,
+              productMeterTypeId: productMeterTypeId,
+              registrationNumber: registrationNumber,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> changeBillboardAnnouncement({
+    
+    required String bundleId,
+    required String announcement, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).changeBillboardAnnouncement(
+              bundleId: bundleId,
+              announcement: announcement,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> createGood({
     
     required String name,
@@ -789,84 +867,6 @@ class BundlesOnChainPod extends _$BundlesOnChainPod {
         () => ref.read(bundlesOnChainProvider(origin: origin)).updateCartInfo(
               bundleId: bundleId,
               info: info,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> createProductConfigItemWithTwoOptions({
-    
-    required String itemType,
-    required String itemName,
-    required String description,
-    required String opt1Desc,
-    required String opt2Desc, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).createProductConfigItemWithTwoOptions(
-              itemType: itemType,
-              itemName: itemName,
-              description: description,
-              opt1Desc: opt1Desc,
-              opt2Desc: opt2Desc,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> createProductFeatureCategory({
-    
-    required String description, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).createProductFeatureCategory(
-              description: description,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> createFixedAssetWithStdCost({
-    
-    required String name,
-    required String fixedAssetTypeId,
-    required String partyId,
-    required String roleTypeId,
-    required String fixedAssetStdCostTypeId,
-    required double amount,
-    required double meterValue,
-    required String productMeterTypeId,
-    required String registrationNumber, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).createFixedAssetWithStdCost(
-              name: name,
-              fixedAssetTypeId: fixedAssetTypeId,
-              partyId: partyId,
-              roleTypeId: roleTypeId,
-              fixedAssetStdCostTypeId: fixedAssetStdCostTypeId,
-              amount: amount,
-              meterValue: meterValue,
-              productMeterTypeId: productMeterTypeId,
-              registrationNumber: registrationNumber,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> changeBillboardAnnouncement({
-    
-    required String bundleId,
-    required String announcement, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).changeBillboardAnnouncement(
-              bundleId: bundleId,
-              announcement: announcement,
             ));
     return state.hasError == false;
   }

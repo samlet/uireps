@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bundles_on_chain_pods.dart';
+part of 'auth_pods.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bundlesOnChainHash() => r'a58171f31c01dfd3d1aa1efc4f077f04f92b32c3';
+String _$authHash() => r'62232aed4afd567fda483f6b8abd397208e87787';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,29 +29,29 @@ class _SystemHash {
   }
 }
 
-typedef BundlesOnChainRef = ProviderRef<BundlesOnChainRepository>;
+typedef AuthRef = ProviderRef<AuthRepository>;
 
-/// See also [bundlesOnChain].
-@ProviderFor(bundlesOnChain)
-const bundlesOnChainProvider = BundlesOnChainFamily();
+/// See also [auth].
+@ProviderFor(auth)
+const authProvider = AuthFamily();
 
-/// See also [bundlesOnChain].
-class BundlesOnChainFamily extends Family<BundlesOnChainRepository> {
-  /// See also [bundlesOnChain].
-  const BundlesOnChainFamily();
+/// See also [auth].
+class AuthFamily extends Family<AuthRepository> {
+  /// See also [auth].
+  const AuthFamily();
 
-  /// See also [bundlesOnChain].
-  BundlesOnChainProvider call({
+  /// See also [auth].
+  AuthProvider call({
     String origin = 'default',
   }) {
-    return BundlesOnChainProvider(
+    return AuthProvider(
       origin: origin,
     );
   }
 
   @override
-  BundlesOnChainProvider getProviderOverride(
-    covariant BundlesOnChainProvider provider,
+  AuthProvider getProviderOverride(
+    covariant AuthProvider provider,
   ) {
     return call(
       origin: provider.origin,
@@ -70,35 +70,32 @@ class BundlesOnChainFamily extends Family<BundlesOnChainRepository> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'bundlesOnChainProvider';
+  String? get name => r'authProvider';
 }
 
-/// See also [bundlesOnChain].
-class BundlesOnChainProvider extends Provider<BundlesOnChainRepository> {
-  /// See also [bundlesOnChain].
-  BundlesOnChainProvider({
+/// See also [auth].
+class AuthProvider extends Provider<AuthRepository> {
+  /// See also [auth].
+  AuthProvider({
     this.origin = 'default',
   }) : super.internal(
-          (ref) => bundlesOnChain(
+          (ref) => auth(
             ref,
             origin: origin,
           ),
-          from: bundlesOnChainProvider,
-          name: r'bundlesOnChainProvider',
+          from: authProvider,
+          name: r'authProvider',
           debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$bundlesOnChainHash,
-          dependencies: BundlesOnChainFamily._dependencies,
-          allTransitiveDependencies:
-              BundlesOnChainFamily._allTransitiveDependencies,
+              const bool.fromEnvironment('dart.vm.product') ? null : _$authHash,
+          dependencies: AuthFamily._dependencies,
+          allTransitiveDependencies: AuthFamily._allTransitiveDependencies,
         );
 
   final String origin;
 
   @override
   bool operator ==(Object other) {
-    return other is BundlesOnChainProvider && other.origin == origin;
+    return other is AuthProvider && other.origin == origin;
   }
 
   @override
@@ -110,10 +107,9 @@ class BundlesOnChainProvider extends Provider<BundlesOnChainRepository> {
   }
 }
 
-String _$bundlesOnChainPodHash() => r'2e1a4837f72fe592dd8a21f082cd82662b945aa0';
+String _$authPodHash() => r'd08586b30bd178f9d462ac35349d79de06c5ed80';
 
-abstract class _$BundlesOnChainPod
-    extends BuildlessAutoDisposeAsyncNotifier<void> {
+abstract class _$AuthPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String origin;
 
   FutureOr<void> build({
@@ -121,27 +117,27 @@ abstract class _$BundlesOnChainPod
   });
 }
 
-/// See also [BundlesOnChainPod].
-@ProviderFor(BundlesOnChainPod)
-const bundlesOnChainPodProvider = BundlesOnChainPodFamily();
+/// See also [AuthPod].
+@ProviderFor(AuthPod)
+const authPodProvider = AuthPodFamily();
 
-/// See also [BundlesOnChainPod].
-class BundlesOnChainPodFamily extends Family<AsyncValue<void>> {
-  /// See also [BundlesOnChainPod].
-  const BundlesOnChainPodFamily();
+/// See also [AuthPod].
+class AuthPodFamily extends Family<AsyncValue<void>> {
+  /// See also [AuthPod].
+  const AuthPodFamily();
 
-  /// See also [BundlesOnChainPod].
-  BundlesOnChainPodProvider call({
+  /// See also [AuthPod].
+  AuthPodProvider call({
     String origin = 'default',
   }) {
-    return BundlesOnChainPodProvider(
+    return AuthPodProvider(
       origin: origin,
     );
   }
 
   @override
-  BundlesOnChainPodProvider getProviderOverride(
-    covariant BundlesOnChainPodProvider provider,
+  AuthPodProvider getProviderOverride(
+    covariant AuthPodProvider provider,
   ) {
     return call(
       origin: provider.origin,
@@ -160,33 +156,32 @@ class BundlesOnChainPodFamily extends Family<AsyncValue<void>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'bundlesOnChainPodProvider';
+  String? get name => r'authPodProvider';
 }
 
-/// See also [BundlesOnChainPod].
-class BundlesOnChainPodProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<BundlesOnChainPod, void> {
-  /// See also [BundlesOnChainPod].
-  BundlesOnChainPodProvider({
+/// See also [AuthPod].
+class AuthPodProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<AuthPod, void> {
+  /// See also [AuthPod].
+  AuthPodProvider({
     this.origin = 'default',
   }) : super.internal(
-          () => BundlesOnChainPod()..origin = origin,
-          from: bundlesOnChainPodProvider,
-          name: r'bundlesOnChainPodProvider',
+          () => AuthPod()..origin = origin,
+          from: authPodProvider,
+          name: r'authPodProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$bundlesOnChainPodHash,
-          dependencies: BundlesOnChainPodFamily._dependencies,
-          allTransitiveDependencies:
-              BundlesOnChainPodFamily._allTransitiveDependencies,
+                  : _$authPodHash,
+          dependencies: AuthPodFamily._dependencies,
+          allTransitiveDependencies: AuthPodFamily._allTransitiveDependencies,
         );
 
   final String origin;
 
   @override
   bool operator ==(Object other) {
-    return other is BundlesOnChainPodProvider && other.origin == origin;
+    return other is AuthPodProvider && other.origin == origin;
   }
 
   @override
@@ -199,7 +194,7 @@ class BundlesOnChainPodProvider
 
   @override
   FutureOr<void> runNotifierBuild(
-    covariant BundlesOnChainPod notifier,
+    covariant AuthPod notifier,
   ) {
     return notifier.build(
       origin: origin,

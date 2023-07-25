@@ -11,9 +11,9 @@ Future<void> performAndPrint(Dio dio, Map<String, String> queryString,
 }
 
 Future<dynamic> postQuery(Dio dio, String path, Map<String, String> queryString,
-    Map<String, Object> payload) async {
+    Map<String, Object> payload, {Options? options}) async {
   var response =
-  await dio.post(path, queryParameters: queryString, data: payload);
+  await dio.post(path, queryParameters: queryString, data: payload, options: options);
   catchErr(response);
   return response.data;
 }
@@ -28,13 +28,13 @@ Future<List<int>> requestBytes(Dio dio, Map<String, String> queryString,
 }
 
 Future<dynamic> performQuery(Dio dio, Map<String, String> queryString,
-    Map<String, Object> payload) async {
-  return postQuery(dio, '/perform', queryString, payload);
+    Map<String, Object> payload, {Options? options}) async {
+  return postQuery(dio, '/perform', queryString, payload, options: options);
 }
 
 Future<dynamic> performCall(Dio dio, Map<String, String> queryString,
-    Map<String, Object> payload) async {
-  return postQuery(dio, '/call', queryString, payload);
+    Map<String, Object> payload, {Options? options}) async {
+  return postQuery(dio, '/call', queryString, payload, options: options);
 }
 
 Future<dynamic> retrieve(Dio dio, Map<String, String> queryString, {

@@ -120,6 +120,98 @@ class ContentBinPalProvider
   }
 }
 
+String _$cntBinFetchHash() => r'c8d3e3e9c1e659824122d62d2da94c4881aadebc';
+typedef CntBinFetchRef = AutoDisposeFutureProviderRef<ContentBinCubeData>;
+
+/// See also [cntBinFetch].
+@ProviderFor(cntBinFetch)
+const cntBinFetchProvider = CntBinFetchFamily();
+
+/// See also [cntBinFetch].
+class CntBinFetchFamily extends Family<AsyncValue<ContentBinCubeData>> {
+  /// See also [cntBinFetch].
+  const CntBinFetchFamily();
+
+  /// See also [cntBinFetch].
+  CntBinFetchProvider call({
+    String origin = 'default',
+    required String id,
+  }) {
+    return CntBinFetchProvider(
+      origin: origin,
+      id: id,
+    );
+  }
+
+  @override
+  CntBinFetchProvider getProviderOverride(
+    covariant CntBinFetchProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'cntBinFetchProvider';
+}
+
+/// See also [cntBinFetch].
+class CntBinFetchProvider
+    extends AutoDisposeFutureProvider<ContentBinCubeData> {
+  /// See also [cntBinFetch].
+  CntBinFetchProvider({
+    this.origin = 'default',
+    required this.id,
+  }) : super.internal(
+          (ref) => cntBinFetch(
+            ref,
+            origin: origin,
+            id: id,
+          ),
+          from: cntBinFetchProvider,
+          name: r'cntBinFetchProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$cntBinFetchHash,
+          dependencies: CntBinFetchFamily._dependencies,
+          allTransitiveDependencies:
+              CntBinFetchFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+
+  @override
+  bool operator ==(Object other) {
+    return other is CntBinFetchProvider &&
+        other.origin == origin &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
 String _$cntBinIsChargedHash() => r'bd78930adaa7f90d08bcfe8a10c92cd51539bb05';
 typedef CntBinIsChargedRef = AutoDisposeFutureProviderRef<bool>;
 
@@ -214,98 +306,6 @@ class CntBinIsChargedProvider extends AutoDisposeFutureProvider<bool> {
     hash = _SystemHash.combine(hash, origin.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
     hash = _SystemHash.combine(hash, postId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-String _$cntBinFetchHash() => r'c8d3e3e9c1e659824122d62d2da94c4881aadebc';
-typedef CntBinFetchRef = AutoDisposeFutureProviderRef<ContentBinCubeData>;
-
-/// See also [cntBinFetch].
-@ProviderFor(cntBinFetch)
-const cntBinFetchProvider = CntBinFetchFamily();
-
-/// See also [cntBinFetch].
-class CntBinFetchFamily extends Family<AsyncValue<ContentBinCubeData>> {
-  /// See also [cntBinFetch].
-  const CntBinFetchFamily();
-
-  /// See also [cntBinFetch].
-  CntBinFetchProvider call({
-    String origin = 'default',
-    required String id,
-  }) {
-    return CntBinFetchProvider(
-      origin: origin,
-      id: id,
-    );
-  }
-
-  @override
-  CntBinFetchProvider getProviderOverride(
-    covariant CntBinFetchProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'cntBinFetchProvider';
-}
-
-/// See also [cntBinFetch].
-class CntBinFetchProvider
-    extends AutoDisposeFutureProvider<ContentBinCubeData> {
-  /// See also [cntBinFetch].
-  CntBinFetchProvider({
-    this.origin = 'default',
-    required this.id,
-  }) : super.internal(
-          (ref) => cntBinFetch(
-            ref,
-            origin: origin,
-            id: id,
-          ),
-          from: cntBinFetchProvider,
-          name: r'cntBinFetchProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$cntBinFetchHash,
-          dependencies: CntBinFetchFamily._dependencies,
-          allTransitiveDependencies:
-              CntBinFetchFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String id;
-
-  @override
-  bool operator ==(Object other) {
-    return other is CntBinFetchProvider &&
-        other.origin == origin &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
   }
