@@ -7,8 +7,7 @@ import 'calls.dart';
 import 'digital_store_pal.dart';
 
 part 'digital_store_pal_pods.g.dart';
-
-@Riverpod(keepAlive: true)
+@riverpod
 DigitalStorePalRepository digitalStorePal(DigitalStorePalRef ref, {
   String origin='default',
   required String id,
@@ -189,7 +188,7 @@ class DigitalStorePalPod extends _$DigitalStorePalPod {
             ));
     return state.hasError == false;
   }
-  
+    
 }
 
 

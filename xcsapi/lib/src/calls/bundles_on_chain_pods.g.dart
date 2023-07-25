@@ -110,7 +110,7 @@ class BundlesOnChainProvider extends Provider<BundlesOnChainRepository> {
   }
 }
 
-String _$bundlesOnChainPodHash() => r'358c832f6a84e1adce4c09028ff772418c1db0af';
+String _$bundlesOnChainPodHash() => r'00d128d02b183b252c17bfa94a450d47e1a6160f';
 
 abstract class _$BundlesOnChainPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

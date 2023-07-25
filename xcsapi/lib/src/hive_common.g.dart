@@ -413,6 +413,23 @@ Map<String, dynamic> _$TableOraToJson(TableOra instance) => <String, dynamic>{
       'extra': instance.extra,
     };
 
+MultimapOra _$MultimapOraFromJson(Map<String, dynamic> json) => MultimapOra()
+  ..entries = (json['entries'] as Map<String, dynamic>).map(
+    (k, e) => MapEntry(k, MapValues.fromJson(e as Map<String, dynamic>)),
+  );
+
+Map<String, dynamic> _$MultimapOraToJson(MultimapOra instance) =>
+    <String, dynamic>{
+      'entries': instance.entries,
+    };
+
+MapValues _$MapValuesFromJson(Map<String, dynamic> json) => MapValues()
+  ..value = (json['value'] as List<dynamic>).map((e) => e as String).toList();
+
+Map<String, dynamic> _$MapValuesToJson(MapValues instance) => <String, dynamic>{
+      'value': instance.value,
+    };
+
 RowOra _$RowOraFromJson(Map<String, dynamic> json) => RowOra()
   ..key = json['key'] as String?
   ..cells =

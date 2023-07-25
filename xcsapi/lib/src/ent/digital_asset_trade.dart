@@ -73,6 +73,7 @@ class DigitalAssetTrade {
 
 
   // rel: one (no public-types)
+  DigitalAssetTradeType? digitalAssetTradeType;
   
 
   // rel: many
@@ -80,6 +81,32 @@ class DigitalAssetTrade {
   
 }
 
+
+// entity: DigitalAssetTradeType
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class DigitalAssetTradeType {
+  DigitalAssetTradeType();
+
+  factory DigitalAssetTradeType.fromJson(Map<String, dynamic> json) => _$DigitalAssetTradeTypeFromJson(json);
+  Map<String, dynamic> toJson() => _$DigitalAssetTradeTypeToJson(this);
+
+   
+  String? digitalAssetTradeTypeId;
+
+   
+  String? parentTypeId;
+
+   
+  String? description;
+
+   
+  DateTime? lastUpdatedTxStamp;
+
+   
+  DateTime? createdTxStamp;
+
+  
+}
 
 // entity: DigitalAssetTradeSlot
 @JsonSerializable(explicitToJson: true, includeIfNull: false)

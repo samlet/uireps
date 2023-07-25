@@ -15,4 +15,9 @@ class HttpException implements Exception {
 
   /// Exception http response code
   final int? statusCode;
+
+  @override
+  String toString() {
+    return 'HttpException{title: $title, message: $message, statusCode: $statusCode}';
+  }
 }

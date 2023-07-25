@@ -7,7 +7,6 @@ import 'calls.dart';
 import 'fixture_objects.dart';
 
 part 'fixture_objects_pods.g.dart';
-
 @Riverpod(keepAlive: true)
 FixtureObjectsRepository fixtureObjects(FixtureObjectsRef ref, {
   String origin='default',
@@ -54,21 +53,6 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
     return state.hasError == false;
   }
   
-  Future<bool> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(origin: origin)).touch(
-              bundleName: bundleName,
-              bundleId: bundleId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> oneNote() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
@@ -102,6 +86,21 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
     state = await AsyncValue.guard(
         () => ref.read(fixtureObjectsProvider(origin: origin)).someTodos(
               total: total,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(origin: origin)).touch(
+              bundleName: bundleName,
+              bundleId: bundleId,
             ));
     return state.hasError == false;
   }
@@ -171,6 +170,14 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
     return state.hasError == false;
   }
   
+  Future<bool> createPostWithComments() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(origin: origin)).createPostWithComments(
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> createEvent({
     
     required String eventName,
@@ -189,7 +196,7 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
             ));
     return state.hasError == false;
   }
-  
+    
 }
 
 
@@ -254,6 +261,45 @@ Future<IntMap> fixturesProtoInput(FixturesProtoInputRef ref, {
 }
 
 @riverpod
+Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
+  String origin='default',
+  
+    required String noteId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(origin: origin));
+  return await pod.getNoteProto(
+      noteId: noteId,
+  );
+}
+
+@riverpod
+Future<PartyBundle> fixturesPartyBundle(FixturesPartyBundleRef ref, {
+  String origin='default',
+  
+    required String partyId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(origin: origin));
+  return await pod.partyBundle(
+      partyId: partyId,
+  );
+}
+
+@riverpod
+Future<StoreBundle> fixturesStoreBundle(FixturesStoreBundleRef ref, {
+  String origin='default',
+  
+    required String storeId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(origin: origin));
+  return await pod.storeBundle(
+      storeId: storeId,
+  );
+}
+
+@riverpod
 Future<Map<String, double>> fixturesEchoDecimalMap(FixturesEchoDecimalMapRef ref, {
   String origin='default',
   
@@ -288,19 +334,6 @@ Future<List<int>> fixturesGetNoteSlotData(FixturesGetNoteSlotDataRef ref, {
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(origin: origin));
   return await pod.getNoteSlotData(
-      noteId: noteId,
-  );
-}
-
-@riverpod
-Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
-  String origin='default',
-  
-    required String noteId, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(origin: origin));
-  return await pod.getNoteProto(
       noteId: noteId,
   );
 }

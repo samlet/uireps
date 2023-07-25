@@ -7,8 +7,7 @@ import 'calls.dart';
 import 'note_co.dart';
 
 part 'note_co_pods.g.dart';
-
-@Riverpod(keepAlive: true)
+@riverpod
 NoteCoRepository noteCo(NoteCoRef ref, {
   String origin='default',
   required String id,
@@ -102,7 +101,7 @@ class NoteCoPod extends _$NoteCoPod {
             ));
     return state.hasError == false;
   }
-  
+    
 }
 
 

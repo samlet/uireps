@@ -49,25 +49,6 @@ class FixtureObjectsRepository {
   }
    
   // Mutation
-  Future<void> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "touch",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-  }
-   
-  // Mutation
   Future<Note> oneNote() async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
@@ -205,6 +186,43 @@ class FixtureObjectsRepository {
   }
    
   // Mutation
+  Future<void> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "touch",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
+  }
+   
+  // Query
+  Future<String> getNoteProto({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "getNoteProto",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "noteId": noteId, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
   Future<Strings> someProducts({
     
     required int total, 
@@ -220,6 +238,42 @@ class FixtureObjectsRepository {
     });
     
     return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<PartyBundle> partyBundle({
+    
+    required String partyId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "partyBundle",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "partyId": partyId, 
+    });
+    
+    return PartyBundle.fromJson(resp);
+  }
+   
+  // Query
+  Future<StoreBundle> storeBundle({
+    
+    required String storeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "storeBundle",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "storeId": storeId, 
+    });
+    
+    return StoreBundle.fromJson(resp);
   }
    
   // Mutation
@@ -331,24 +385,6 @@ class FixtureObjectsRepository {
   }
    
   // Query
-  Future<String> getNoteProto({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "getNoteProto",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "noteId": noteId, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Query
   Future<TestRec> makeTestRec({
     
     required String stringFld,
@@ -408,6 +444,37 @@ class FixtureObjectsRepository {
     return resp as String;
   }
    
+  // Query
+  Future<List<Note>> publicNotes({
+    
+    required String author, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "publicNotes",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "author": author, 
+    });
+    
+    return convList(resp, Note.fromJson);
+  }
+   
+  // Mutation
+  Future<String> createPostWithComments() async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "createPostWithComments",
+      "call-type": "slab",
+      "regionId": origin,
+    }, { 
+    });
+    
+    return resp as String;
+  }
+   
   // Mutation
   Future<WorkEffort> createEvent({
     
@@ -430,24 +497,6 @@ class FixtureObjectsRepository {
     });
     
     return WorkEffort.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<Note>> publicNotes({
-    
-    required String author, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "publicNotes",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "author": author, 
-    });
-    
-    return convList(resp, Note.fromJson);
   }
   
 }

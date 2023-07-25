@@ -28,6 +28,10 @@ DigitalAssetTrade _$DigitalAssetTradeFromJson(Map<String, dynamic> json) =>
       ..digitalAssetTradeTypeId = json['digitalAssetTradeTypeId'] as String?
       ..statusId = json['statusId'] as String?
       ..digitalStoreId = json['digitalStoreId'] as String?
+      ..digitalAssetTradeType = json['digitalAssetTradeType'] == null
+          ? null
+          : DigitalAssetTradeType.fromJson(
+              json['digitalAssetTradeType'] as Map<String, dynamic>)
       ..digitalAssetTradeSlot = (json['digitalAssetTradeSlot']
               as List<dynamic>?)
           ?.map(
@@ -60,8 +64,42 @@ Map<String, dynamic> _$DigitalAssetTradeToJson(DigitalAssetTrade instance) {
   writeNotNull('digitalAssetTradeTypeId', instance.digitalAssetTradeTypeId);
   writeNotNull('statusId', instance.statusId);
   writeNotNull('digitalStoreId', instance.digitalStoreId);
+  writeNotNull(
+      'digitalAssetTradeType', instance.digitalAssetTradeType?.toJson());
   writeNotNull('digitalAssetTradeSlot',
       instance.digitalAssetTradeSlot?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+DigitalAssetTradeType _$DigitalAssetTradeTypeFromJson(
+        Map<String, dynamic> json) =>
+    DigitalAssetTradeType()
+      ..digitalAssetTradeTypeId = json['digitalAssetTradeTypeId'] as String?
+      ..parentTypeId = json['parentTypeId'] as String?
+      ..description = json['description'] as String?
+      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
+      ..createdTxStamp = json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String);
+
+Map<String, dynamic> _$DigitalAssetTradeTypeToJson(
+    DigitalAssetTradeType instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('digitalAssetTradeTypeId', instance.digitalAssetTradeTypeId);
+  writeNotNull('parentTypeId', instance.parentTypeId);
+  writeNotNull('description', instance.description);
+  writeNotNull(
+      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
+  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   return val;
 }
 

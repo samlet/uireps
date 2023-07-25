@@ -6,7 +6,7 @@ part of 'note_co_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteCoHash() => r'a1c1bd36ae5856c99734855d276ae37ee1a5717f';
+String _$noteCoHash() => r'eac600ecad453087a2f8211b18f7c9b74f695e99';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-typedef NoteCoRef = ProviderRef<NoteCoRepository>;
+typedef NoteCoRef = AutoDisposeProviderRef<NoteCoRepository>;
 
 /// See also [noteCo].
 @ProviderFor(noteCo)
@@ -77,7 +77,7 @@ class NoteCoFamily extends Family<NoteCoRepository> {
 }
 
 /// See also [noteCo].
-class NoteCoProvider extends Provider<NoteCoRepository> {
+class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
   /// See also [noteCo].
   NoteCoProvider({
     this.origin = 'default',

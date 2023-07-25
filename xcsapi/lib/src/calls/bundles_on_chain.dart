@@ -164,120 +164,6 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<void> updateNoteContent({
-    
-    required String bundleId,
-    required String content, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateNoteContent",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "content": content, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateProductDescription({
-    
-    required String bundleId,
-    required String description, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateProductDescription",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "description": description, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateTicketData({
-    
-    required String bundleId,
-    required List<int> data, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateTicketData",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "data": data, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> changeBillboardFromDate({
-    
-    required String bundleId,
-    required DateTime fromDate, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "changeBillboardFromDate",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "fromDate": fromDate, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateCartName({
-    
-    required String bundleId,
-    required String name, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateCartName",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "name": name, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateCartInfo({
-    
-    required String bundleId,
-    required String info, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateCartInfo",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "info": info, 
-    });
-    
-  }
-   
-  // Mutation
   Future<String> createContent({
     
     required String contentName,
@@ -944,30 +830,6 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<String> createComment({
-    
-    required String resourceId,
-    required String resourceType,
-    required String review,
-    required String userLoginId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createComment",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "resourceId": resourceId,
-      "resourceType": resourceType,
-      "review": review,
-      "userLoginId": userLoginId, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
   Future<String> createBillboard({
     
     required String name,
@@ -1020,6 +882,120 @@ class BundlesOnChainRepository {
     }, {
       "bundleId": bundleId,
       "nickName": nickName, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateNoteContent({
+    
+    required String bundleId,
+    required String content, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateNoteContent",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "content": content, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateProductDescription({
+    
+    required String bundleId,
+    required String description, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateProductDescription",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "description": description, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateTicketData({
+    
+    required String bundleId,
+    required List<int> data, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateTicketData",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "data": data, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> changeBillboardFromDate({
+    
+    required String bundleId,
+    required DateTime fromDate, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "changeBillboardFromDate",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "fromDate": fromDate, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateCartName({
+    
+    required String bundleId,
+    required String name, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateCartName",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "name": name, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateCartInfo({
+    
+    required String bundleId,
+    required String info, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateCartInfo",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "info": info, 
     });
     
   }
@@ -1119,6 +1095,30 @@ class BundlesOnChainRepository {
       "announcement": announcement, 
     });
     
+  }
+   
+  // Mutation
+  Future<String> createComment({
+    
+    required String resourceId,
+    required String resourceType,
+    required String review,
+    required String userLoginId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createComment",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "resourceId": resourceId,
+      "resourceType": resourceType,
+      "review": review,
+      "userLoginId": userLoginId, 
+    });
+    
+    return resp as String;
   }
   
 }

@@ -7,7 +7,6 @@ import 'calls.dart';
 import 'bundles_on_chain.dart';
 
 part 'bundles_on_chain_pods.g.dart';
-
 @Riverpod(keepAlive: true)
 BundlesOnChainRepository bundlesOnChain(BundlesOnChainRef ref, {
   String origin='default',
@@ -141,96 +140,6 @@ class BundlesOnChainPod extends _$BundlesOnChainPod {
               bundleId: bundleId,
               content: content,
               author: author,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> updateNoteContent({
-    
-    required String bundleId,
-    required String content, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).updateNoteContent(
-              bundleId: bundleId,
-              content: content,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> updateProductDescription({
-    
-    required String bundleId,
-    required String description, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).updateProductDescription(
-              bundleId: bundleId,
-              description: description,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> updateTicketData({
-    
-    required String bundleId,
-    required List<int> data, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).updateTicketData(
-              bundleId: bundleId,
-              data: data,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> changeBillboardFromDate({
-    
-    required String bundleId,
-    required DateTime fromDate, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).changeBillboardFromDate(
-              bundleId: bundleId,
-              fromDate: fromDate,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> updateCartName({
-    
-    required String bundleId,
-    required String name, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).updateCartName(
-              bundleId: bundleId,
-              name: name,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> updateCartInfo({
-    
-    required String bundleId,
-    required String info, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).updateCartInfo(
-              bundleId: bundleId,
-              info: info,
             ));
     return state.hasError == false;
   }
@@ -751,25 +660,6 @@ class BundlesOnChainPod extends _$BundlesOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> createComment({
-    
-    required String resourceId,
-    required String resourceType,
-    required String review,
-    required String userLoginId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(bundlesOnChainProvider(origin: origin)).createComment(
-              resourceId: resourceId,
-              resourceType: resourceType,
-              review: review,
-              userLoginId: userLoginId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> createBillboard({
     
     required String name,
@@ -809,6 +699,96 @@ class BundlesOnChainPod extends _$BundlesOnChainPod {
         () => ref.read(bundlesOnChainProvider(origin: origin)).updateAccount(
               bundleId: bundleId,
               nickName: nickName,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateNoteContent({
+    
+    required String bundleId,
+    required String content, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).updateNoteContent(
+              bundleId: bundleId,
+              content: content,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateProductDescription({
+    
+    required String bundleId,
+    required String description, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).updateProductDescription(
+              bundleId: bundleId,
+              description: description,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateTicketData({
+    
+    required String bundleId,
+    required List<int> data, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).updateTicketData(
+              bundleId: bundleId,
+              data: data,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> changeBillboardFromDate({
+    
+    required String bundleId,
+    required DateTime fromDate, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).changeBillboardFromDate(
+              bundleId: bundleId,
+              fromDate: fromDate,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateCartName({
+    
+    required String bundleId,
+    required String name, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).updateCartName(
+              bundleId: bundleId,
+              name: name,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateCartInfo({
+    
+    required String bundleId,
+    required String info, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).updateCartInfo(
+              bundleId: bundleId,
+              info: info,
             ));
     return state.hasError == false;
   }
@@ -891,6 +871,25 @@ class BundlesOnChainPod extends _$BundlesOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> createComment({
+    
+    required String resourceId,
+    required String resourceType,
+    required String review,
+    required String userLoginId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(bundlesOnChainProvider(origin: origin)).createComment(
+              resourceId: resourceId,
+              resourceType: resourceType,
+              review: review,
+              userLoginId: userLoginId,
+            ));
+    return state.hasError == false;
+  }
+    
 }
 
 

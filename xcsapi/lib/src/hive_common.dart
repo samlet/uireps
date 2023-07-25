@@ -101,6 +101,24 @@ class TableOra{
   List<ExtraOra>? extra;
 }
 
+@JsonSerializable()
+class MultimapOra{
+  factory MultimapOra.fromJson(Map<String, dynamic> json) =>
+      _$MultimapOraFromJson(json);
+  MultimapOra();
+  Map<String, dynamic> toJson() => _$MultimapOraToJson(this);
+  Map<String, MapValues> entries={};
+}
+
+@JsonSerializable()
+class MapValues{
+  factory MapValues.fromJson(Map<String, dynamic> json) =>
+      _$MapValuesFromJson(json);
+  MapValues();
+  Map<String, dynamic> toJson() => _$MapValuesToJson(this);
+  List<String> value=[];
+}
+
 @JsonSerializable(explicitToJson: true)
 @HiveType(typeId: 4)
 class RowOra{

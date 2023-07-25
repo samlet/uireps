@@ -138,8 +138,8 @@ Dio createDio() {
 Dio dio = createDio();
 
 void catchErr(Response<dynamic> response) {
-  if (response.data == null || response.statusCode != 200) {
-  // if (response.statusCode != 200) {
+  // if (response.data == null || response.statusCode != 200) {
+  if (response.statusCode != 200) {
     print('err: $response');
     throw HttpException(
       title: 'Http Error!',

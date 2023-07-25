@@ -6,7 +6,7 @@ part of 'digital_store_pal_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$digitalStorePalHash() => r'be88e3c17920e5bdbcdb90236be2406dc5994dc9';
+String _$digitalStorePalHash() => r'e4519a59275c8ac32ae6845e530d3086cc125e7d';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-typedef DigitalStorePalRef = ProviderRef<DigitalStorePalRepository>;
+typedef DigitalStorePalRef = AutoDisposeProviderRef<DigitalStorePalRepository>;
 
 /// See also [digitalStorePal].
 @ProviderFor(digitalStorePal)
@@ -77,7 +77,8 @@ class DigitalStorePalFamily extends Family<DigitalStorePalRepository> {
 }
 
 /// See also [digitalStorePal].
-class DigitalStorePalProvider extends Provider<DigitalStorePalRepository> {
+class DigitalStorePalProvider
+    extends AutoDisposeProvider<DigitalStorePalRepository> {
   /// See also [digitalStorePal].
   DigitalStorePalProvider({
     this.origin = 'default',

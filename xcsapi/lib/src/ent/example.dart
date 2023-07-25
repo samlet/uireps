@@ -99,22 +99,28 @@ class Example {
   List<String?>? extraBuffers;
 
    
-  List<double?>? measures;
+  Map<String, double>? measures;
 
    
-  List<int?>? series;
+  Map<String, int>? series;
 
    
-  List<String?>? describes;
+  Map<String, String>? describes;
 
    
-  List<String?>? refs;
+  Map<String, String>? refs;
 
    
-  List<bool?>? options;
+  Map<String, bool>? options;
 
    
-  List<String?>? mediaLinks;
+  Map<String, String>? mediaLinks;
+
+   
+  MultimapOra? bookmarks;
+
+   
+  MultimapOra? symbols;
 
    
   TableOra? detail;

@@ -55,17 +55,30 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example()
   ..extraBuffers = (json['extraBuffers'] as List<dynamic>?)
       ?.map((e) => e as String?)
       .toList()
-  ..measures = (json['measures'] as List<dynamic>?)
-      ?.map((e) => (e as num?)?.toDouble())
-      .toList()
-  ..series = (json['series'] as List<dynamic>?)?.map((e) => e as int?).toList()
-  ..describes =
-      (json['describes'] as List<dynamic>?)?.map((e) => e as String?).toList()
-  ..refs = (json['refs'] as List<dynamic>?)?.map((e) => e as String?).toList()
-  ..options =
-      (json['options'] as List<dynamic>?)?.map((e) => e as bool?).toList()
-  ..mediaLinks =
-      (json['mediaLinks'] as List<dynamic>?)?.map((e) => e as String?).toList()
+  ..measures = (json['measures'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, (e as num).toDouble()),
+  )
+  ..series = (json['series'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as int),
+  )
+  ..describes = (json['describes'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  )
+  ..refs = (json['refs'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  )
+  ..options = (json['options'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as bool),
+  )
+  ..mediaLinks = (json['mediaLinks'] as Map<String, dynamic>?)?.map(
+    (k, e) => MapEntry(k, e as String),
+  )
+  ..bookmarks = json['bookmarks'] == null
+      ? null
+      : MultimapOra.fromJson(json['bookmarks'] as Map<String, dynamic>)
+  ..symbols = json['symbols'] == null
+      ? null
+      : MultimapOra.fromJson(json['symbols'] as Map<String, dynamic>)
   ..detail = json['detail'] == null
       ? null
       : TableOra.fromJson(json['detail'] as Map<String, dynamic>)
@@ -128,6 +141,8 @@ Map<String, dynamic> _$ExampleToJson(Example instance) {
   writeNotNull('refs', instance.refs);
   writeNotNull('options', instance.options);
   writeNotNull('mediaLinks', instance.mediaLinks);
+  writeNotNull('bookmarks', instance.bookmarks?.toJson());
+  writeNotNull('symbols', instance.symbols?.toJson());
   writeNotNull('detail', instance.detail?.toJson());
   writeNotNull('metadata', instance.metadata);
   writeNotNull('slotId', instance.slotId);

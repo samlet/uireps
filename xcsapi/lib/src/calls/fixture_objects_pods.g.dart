@@ -510,6 +510,284 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   }
 }
 
+String _$fixturesGetNoteProtoHash() =>
+    r'c6ab5fb76ea4430ddbccc66fc3c0b0c59965bdd2';
+typedef FixturesGetNoteProtoRef = AutoDisposeFutureProviderRef<String>;
+
+/// See also [fixturesGetNoteProto].
+@ProviderFor(fixturesGetNoteProto)
+const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
+
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetNoteProto].
+  const FixturesGetNoteProtoFamily();
+
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider call({
+    String origin = 'default',
+    required String noteId,
+  }) {
+    return FixturesGetNoteProtoProvider(
+      origin: origin,
+      noteId: noteId,
+    );
+  }
+
+  @override
+  FixturesGetNoteProtoProvider getProviderOverride(
+    covariant FixturesGetNoteProtoProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      noteId: provider.noteId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetNoteProtoProvider';
+}
+
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider({
+    this.origin = 'default',
+    required this.noteId,
+  }) : super.internal(
+          (ref) => fixturesGetNoteProto(
+            ref,
+            origin: origin,
+            noteId: noteId,
+          ),
+          from: fixturesGetNoteProtoProvider,
+          name: r'fixturesGetNoteProtoProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetNoteProtoHash,
+          dependencies: FixturesGetNoteProtoFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetNoteProtoFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String noteId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetNoteProtoProvider &&
+        other.origin == origin &&
+        other.noteId == noteId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, noteId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fixturesPartyBundleHash() =>
+    r'3eed3a97b5a717fe0656b248cc74882910ee28a2';
+typedef FixturesPartyBundleRef = AutoDisposeFutureProviderRef<PartyBundle>;
+
+/// See also [fixturesPartyBundle].
+@ProviderFor(fixturesPartyBundle)
+const fixturesPartyBundleProvider = FixturesPartyBundleFamily();
+
+/// See also [fixturesPartyBundle].
+class FixturesPartyBundleFamily extends Family<AsyncValue<PartyBundle>> {
+  /// See also [fixturesPartyBundle].
+  const FixturesPartyBundleFamily();
+
+  /// See also [fixturesPartyBundle].
+  FixturesPartyBundleProvider call({
+    String origin = 'default',
+    required String partyId,
+  }) {
+    return FixturesPartyBundleProvider(
+      origin: origin,
+      partyId: partyId,
+    );
+  }
+
+  @override
+  FixturesPartyBundleProvider getProviderOverride(
+    covariant FixturesPartyBundleProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      partyId: provider.partyId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesPartyBundleProvider';
+}
+
+/// See also [fixturesPartyBundle].
+class FixturesPartyBundleProvider
+    extends AutoDisposeFutureProvider<PartyBundle> {
+  /// See also [fixturesPartyBundle].
+  FixturesPartyBundleProvider({
+    this.origin = 'default',
+    required this.partyId,
+  }) : super.internal(
+          (ref) => fixturesPartyBundle(
+            ref,
+            origin: origin,
+            partyId: partyId,
+          ),
+          from: fixturesPartyBundleProvider,
+          name: r'fixturesPartyBundleProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesPartyBundleHash,
+          dependencies: FixturesPartyBundleFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesPartyBundleFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String partyId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesPartyBundleProvider &&
+        other.origin == origin &&
+        other.partyId == partyId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, partyId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fixturesStoreBundleHash() =>
+    r'7c8b8bf8c42caf7e8a2d71ca5016d66b9376c3e3';
+typedef FixturesStoreBundleRef = AutoDisposeFutureProviderRef<StoreBundle>;
+
+/// See also [fixturesStoreBundle].
+@ProviderFor(fixturesStoreBundle)
+const fixturesStoreBundleProvider = FixturesStoreBundleFamily();
+
+/// See also [fixturesStoreBundle].
+class FixturesStoreBundleFamily extends Family<AsyncValue<StoreBundle>> {
+  /// See also [fixturesStoreBundle].
+  const FixturesStoreBundleFamily();
+
+  /// See also [fixturesStoreBundle].
+  FixturesStoreBundleProvider call({
+    String origin = 'default',
+    required String storeId,
+  }) {
+    return FixturesStoreBundleProvider(
+      origin: origin,
+      storeId: storeId,
+    );
+  }
+
+  @override
+  FixturesStoreBundleProvider getProviderOverride(
+    covariant FixturesStoreBundleProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      storeId: provider.storeId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesStoreBundleProvider';
+}
+
+/// See also [fixturesStoreBundle].
+class FixturesStoreBundleProvider
+    extends AutoDisposeFutureProvider<StoreBundle> {
+  /// See also [fixturesStoreBundle].
+  FixturesStoreBundleProvider({
+    this.origin = 'default',
+    required this.storeId,
+  }) : super.internal(
+          (ref) => fixturesStoreBundle(
+            ref,
+            origin: origin,
+            storeId: storeId,
+          ),
+          from: fixturesStoreBundleProvider,
+          name: r'fixturesStoreBundleProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesStoreBundleHash,
+          dependencies: FixturesStoreBundleFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesStoreBundleFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String storeId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesStoreBundleProvider &&
+        other.origin == origin &&
+        other.storeId == storeId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, storeId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
 String _$fixturesEchoDecimalMapHash() =>
     r'c356bfc5c1dedc32057cd64531900c23f17da427';
 typedef FixturesEchoDecimalMapRef
@@ -778,98 +1056,6 @@ class FixturesGetNoteSlotDataProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesGetNoteSlotDataProvider &&
-        other.origin == origin &&
-        other.noteId == noteId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, noteId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-String _$fixturesGetNoteProtoHash() =>
-    r'c6ab5fb76ea4430ddbccc66fc3c0b0c59965bdd2';
-typedef FixturesGetNoteProtoRef = AutoDisposeFutureProviderRef<String>;
-
-/// See also [fixturesGetNoteProto].
-@ProviderFor(fixturesGetNoteProto)
-const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
-
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
-  /// See also [fixturesGetNoteProto].
-  const FixturesGetNoteProtoFamily();
-
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider call({
-    String origin = 'default',
-    required String noteId,
-  }) {
-    return FixturesGetNoteProtoProvider(
-      origin: origin,
-      noteId: noteId,
-    );
-  }
-
-  @override
-  FixturesGetNoteProtoProvider getProviderOverride(
-    covariant FixturesGetNoteProtoProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      noteId: provider.noteId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesGetNoteProtoProvider';
-}
-
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider({
-    this.origin = 'default',
-    required this.noteId,
-  }) : super.internal(
-          (ref) => fixturesGetNoteProto(
-            ref,
-            origin: origin,
-            noteId: noteId,
-          ),
-          from: fixturesGetNoteProtoProvider,
-          name: r'fixturesGetNoteProtoProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesGetNoteProtoHash,
-          dependencies: FixturesGetNoteProtoFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesGetNoteProtoFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String noteId;
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesGetNoteProtoProvider &&
         other.origin == origin &&
         other.noteId == noteId;
   }
@@ -1186,7 +1372,7 @@ class FixturesPublicNotesProvider
   }
 }
 
-String _$fixtureObjectsPodHash() => r'54607fb10370508c12ee7a25edd6d9c8fa0c4d27';
+String _$fixtureObjectsPodHash() => r'409c196eb4607eae98fce2fc44ff30a80159f39d';
 
 abstract class _$FixtureObjectsPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

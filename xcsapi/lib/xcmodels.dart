@@ -15,3 +15,8 @@ export 'src/ent/work_effort.dart';
 export 'src/ent/digital_store.dart';
 export 'src/ent/digital_asset_trade.dart';
 export 'src/ent/digital_asset.dart';
+export 'src/ent/comment.dart';
+export 'src/ent/content.dart';
+export 'src/ent/data_resource.dart';
+export 'src/ent/content_bin.dart';
+export 'src/ent/web_site.dart';
