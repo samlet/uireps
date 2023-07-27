@@ -42,15 +42,15 @@ class NoteCoPod extends _$NoteCoPod {
     return state.hasError == false;
   }
   
-  Future<bool> attachToParty({
+  Future<bool> setContentComp({
     
-    required String partyId, 
+    required String cnt, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(origin: origin, id: id)).attachToParty(
-              partyId: partyId,
+        () => ref.read(noteCoProvider(origin: origin, id: id)).setContentComp(
+              cnt: cnt,
             ));
     return state.hasError == false;
   }
@@ -68,15 +68,15 @@ class NoteCoPod extends _$NoteCoPod {
     return state.hasError == false;
   }
   
-  Future<bool> setContentComp({
+  Future<bool> attachToParty({
     
-    required String cnt, 
+    required String partyId, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(origin: origin, id: id)).setContentComp(
-              cnt: cnt,
+        () => ref.read(noteCoProvider(origin: origin, id: id)).attachToParty(
+              partyId: partyId,
             ));
     return state.hasError == false;
   }

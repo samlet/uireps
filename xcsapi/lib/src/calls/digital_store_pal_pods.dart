@@ -82,23 +82,6 @@ class DigitalStorePalPod extends _$DigitalStorePalPod {
     return state.hasError == false;
   }
   
-  Future<bool> executeTrade({
-    
-    required String pl,
-    required String buyer,
-    required String tradeId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(digitalStorePalProvider(origin: origin, id: id)).executeTrade(
-              pl: pl,
-              buyer: buyer,
-              tradeId: tradeId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> executeTradeWithPrice({
     
     required String pl,
@@ -114,6 +97,23 @@ class DigitalStorePalPod extends _$DigitalStorePalPod {
               buyer: buyer,
               tradeId: tradeId,
               price: price,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> executeTrade({
+    
+    required String pl,
+    required String buyer,
+    required String tradeId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(digitalStorePalProvider(origin: origin, id: id)).executeTrade(
+              pl: pl,
+              buyer: buyer,
+              tradeId: tradeId,
             ));
     return state.hasError == false;
   }

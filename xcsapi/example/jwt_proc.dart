@@ -1,6 +1,6 @@
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
-import 'package:json_annotation/json_annotation.dart';
-part 'jwt_proc.g.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:xcsapi/src/common/services/general_pods.dart';
 
 final binOwnerToken =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvd25lciI6InBlcnNvbl8xMCIs"
@@ -10,7 +10,15 @@ final binOwnerToken =
     "LCJpYXQiOjE2OTAyODQ3MDksImp0aSI6ImFoN2lyZTJETUNUejhJdllKMlc3QmcifQ"
     ".y1_m0F7e0-ennnaHFO-8JY377jaWske0uy_SFW_hVLc";
 
-void main(List<String> arguments) {
+final anonymousToken=
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvd25lciI6ImF4N2lzQ3MtNFYw"
+    "aG1xY0pnNS1mWFEiLCJ6b25lIjoiZGVmYXVsdCIsImlzcyI6ImJsdWVjYyIsIkB"
+    "0b2tlblR5cGUiOiJ1c2VyVG9rZW4iLCJleHAiOjE2OTI4OTIxMTAsInJlZ2lvbiI"
+    "6ImRlZmF1bHQiLCJsb2dpbiI6ImFub255bW91cyIsIkBjb250ZXh0IjoiaHR0cHM"
+    "6Ly9ibHVlY2MuY29tLyIsImlhdCI6MTY5MDMwMDExMCwianRpIjoiYXg3aXNDcy"
+    "02eUZSbXFjSmc1LWZYUSJ9.wcerU75oGTQ8lfgE_M3sElZYZl-ANtZNksrkHjXYMXU";
+
+Future<void> main(List<String> arguments) async{
   final jwt = JWT.verify(binOwnerToken, SecretKey('secret'));
   print('Payload: ${jwt.payload}');
   // Payload: {owner: person_10, zone: default, iss: bluecc,
@@ -20,44 +28,10 @@ void main(List<String> arguments) {
 
   var auth=AuthToken.fromJson(jwt.payload);
   print('login: ${auth.login}, party: ${auth.owner}');
-}
+  var ut=UserAuth(isLogin: true, tokenString: binOwnerToken, auth: auth);
 
-@JsonSerializable()
-class AuthToken {
-  final String owner;
-  final String zone;
-  final String iss;
-  final int exp;
-  final String region;
-  final String login;
-  final int iat;
-  final String jti;
-
-  AuthToken(
-      {required this.owner,
-      this.zone = 'default',
-      required this.iss,
-      required this.exp,
-      this.region = 'default',
-      required this.login,
-      required this.iat,
-      required this.jti});
-
-  factory AuthToken.fromJson(Map<String, dynamic> json) =>
-      _$AuthTokenFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AuthTokenToJson(this);
-}
-
-@JsonSerializable()
-class UserAuth {
-  final String tokenString;
-  final AuthToken auth;
-
-  UserAuth(this.tokenString, this.auth);
-
-  factory UserAuth.fromJson(Map<String, dynamic> json) =>
-      _$UserAuthFromJson(json);
-
-  Map<String, dynamic> toJson() => _$UserAuthToJson(this);
+  // with riverpod
+  final container = ProviderContainer();
+  final result = container.read(userAuthProvider);
+  print('login: ${result.auth?.login}, party: ${result.auth?.owner}');
 }

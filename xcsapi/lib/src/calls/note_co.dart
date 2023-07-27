@@ -75,19 +75,19 @@ class NoteCoRepository {
   }
    
   // Mutation
-  Future<void> attachToParty({
+  Future<void> setContentComp({
     
-    required String partyId, 
+    required String cnt, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "noteCo",
-      "action": "attachToParty",
+      "action": "setContentComp",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, {
-      "partyId": partyId, 
+      "cnt": cnt, 
     });
     
   }
@@ -111,19 +111,19 @@ class NoteCoRepository {
   }
    
   // Mutation
-  Future<void> setContentComp({
+  Future<void> attachToParty({
     
-    required String cnt, 
+    required String partyId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "noteCo",
-      "action": "setContentComp",
+      "action": "attachToParty",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, {
-      "cnt": cnt, 
+      "partyId": partyId, 
     });
     
   }

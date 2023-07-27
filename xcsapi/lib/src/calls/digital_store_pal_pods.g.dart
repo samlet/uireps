@@ -706,7 +706,7 @@ class DaStoreHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
 }
 
 String _$digitalStorePalPodHash() =>
-    r'506d1ea1da99fac21103d6b21247853ad894ce03';
+    r'96f14748fd3f5bbb54bd7c52348391f543ed8d56';
 
 abstract class _$DigitalStorePalPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

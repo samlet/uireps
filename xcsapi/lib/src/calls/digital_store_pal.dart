@@ -100,23 +100,25 @@ class DigitalStorePalRepository {
   }
    
   // Mutation
-  Future<bool> executeTrade({
+  Future<bool> executeTradeWithPrice({
     
     required String pl,
     required String buyer,
-    required String tradeId, 
+    required String tradeId,
+    required double price, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "digitalStorePal",
-      "action": "executeTrade",
+      "action": "executeTradeWithPrice",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, {
       "pl": pl,
       "buyer": buyer,
-      "tradeId": tradeId, 
+      "tradeId": tradeId,
+      "price": price, 
     });
     
     return bool.parse(resp as String);
@@ -142,25 +144,23 @@ class DigitalStorePalRepository {
   }
    
   // Mutation
-  Future<bool> executeTradeWithPrice({
+  Future<bool> executeTrade({
     
     required String pl,
     required String buyer,
-    required String tradeId,
-    required double price, 
+    required String tradeId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "digitalStorePal",
-      "action": "executeTradeWithPrice",
+      "action": "executeTrade",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, {
       "pl": pl,
       "buyer": buyer,
-      "tradeId": tradeId,
-      "price": price, 
+      "tradeId": tradeId, 
     });
     
     return bool.parse(resp as String);

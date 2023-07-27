@@ -1,6 +1,6 @@
 part of 'calls.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 class ContentBinCubeData{
   ContentBin? bin;

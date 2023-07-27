@@ -31,13 +31,13 @@ class NoteCoCube extends _$NoteCoCube {
     ref.invalidateSelf();
   }
   
-  Future<void> attachToParty({
+  Future<void> setContentComp({
     
-    required String partyId, 
+    required String cnt, 
 
   }) async { 
-    await ref.read(noteCoProvider(origin: origin, id: id)).attachToParty(
-      partyId: partyId,
+    await ref.read(noteCoProvider(origin: origin, id: id)).setContentComp(
+      cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();
@@ -55,13 +55,13 @@ class NoteCoCube extends _$NoteCoCube {
     ref.invalidateSelf();
   }
   
-  Future<void> setContentComp({
+  Future<void> attachToParty({
     
-    required String cnt, 
+    required String partyId, 
 
   }) async { 
-    await ref.read(noteCoProvider(origin: origin, id: id)).setContentComp(
-      cnt: cnt,
+    await ref.read(noteCoProvider(origin: origin, id: id)).attachToParty(
+      partyId: partyId,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();

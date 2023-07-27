@@ -23,6 +23,12 @@ class PostPalCube extends _$PostPalCube {
   } 
 
   
+  Future<void> featured() async { 
+    await ref.read(postPalProvider(origin: origin, id: id)).featured(
+    );
+    ref.invalidateSelf();
+  }
+  
   Future<void> setCharge({
     
     required double fee, 
@@ -45,23 +51,6 @@ class PostPalCube extends _$PostPalCube {
     ref.invalidateSelf();
   }
   
-  Future<void> featured() async { 
-    await ref.read(postPalProvider(origin: origin, id: id)).featured(
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    await ref.read(postPalProvider(origin: origin, id: id)).addToContentBin(
-      binId: binId,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> postComment({
     
     required String subject,
@@ -75,6 +64,17 @@ class PostPalCube extends _$PostPalCube {
       review: review,
       rating: rating,
       reward: reward,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
+    await ref.read(postPalProvider(origin: origin, id: id)).addToContentBin(
+      binId: binId,
     );
     ref.invalidateSelf();
   }

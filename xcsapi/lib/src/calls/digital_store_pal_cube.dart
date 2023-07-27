@@ -69,22 +69,6 @@ class DigitalStorePalCube extends _$DigitalStorePalCube {
     ref.invalidateSelf();
   }
   
-  Future<void> executeTrade({
-    
-    required String pl,
-    required String buyer,
-    required String tradeId, 
-
-  }) async { 
-    await ref.read(digitalStorePalProvider(origin: origin, id: id)).executeTrade(
-      pl: pl,
-      buyer: buyer,
-      tradeId: tradeId,
-    );
-    ref.invalidate(loadDigitalStoreProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
   Future<void> executeTradeWithPrice({
     
     required String pl,
@@ -98,6 +82,22 @@ class DigitalStorePalCube extends _$DigitalStorePalCube {
       buyer: buyer,
       tradeId: tradeId,
       price: price,
+    );
+    ref.invalidate(loadDigitalStoreProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> executeTrade({
+    
+    required String pl,
+    required String buyer,
+    required String tradeId, 
+
+  }) async { 
+    await ref.read(digitalStorePalProvider(origin: origin, id: id)).executeTrade(
+      pl: pl,
+      buyer: buyer,
+      tradeId: tradeId,
     );
     ref.invalidate(loadDigitalStoreProvider(bundleId: id));
     ref.invalidateSelf();

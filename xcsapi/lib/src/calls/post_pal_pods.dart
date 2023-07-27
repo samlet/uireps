@@ -29,6 +29,14 @@ class PostPalPod extends _$PostPalPod {
   }
 
   
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(origin: origin, id: id)).featured(
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> setCharge({
     
     required double fee, 
@@ -55,27 +63,6 @@ class PostPalPod extends _$PostPalPod {
     return state.hasError == false;
   }
   
-  Future<bool> featured() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(origin: origin, id: id)).featured(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> addToContentBin({
-    
-    required String binId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(origin: origin, id: id)).addToContentBin(
-              binId: binId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> postComment({
     
     required String subject,
@@ -91,6 +78,19 @@ class PostPalPod extends _$PostPalPod {
               review: review,
               rating: rating,
               reward: reward,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addToContentBin({
+    
+    required String binId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(origin: origin, id: id)).addToContentBin(
+              binId: binId,
             ));
     return state.hasError == false;
   }
@@ -135,16 +135,6 @@ Future<String> postText(PostTextRef ref, {
 }
 
 @riverpod
-Future<PostBundle> postFetch(PostFetchRef ref, {
-  String origin='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(origin: origin, id: id));
-  return await pod.fetch(
-  );
-}
-
-@riverpod
 Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
   String origin='default',
   required String id,
@@ -165,22 +155,22 @@ Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
 }
 
 @riverpod
+Future<PostBundle> postFetch(PostFetchRef ref, {
+  String origin='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(origin: origin, id: id));
+  return await pod.fetch(
+  );
+}
+
+@riverpod
 Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
   String origin='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(origin: origin, id: id));
   return await pod.getCommentSyncs(
-  );
-}
-
-@riverpod
-Future<Map<String, bool>> postPersistSlotsExistent(PostPersistSlotsExistentRef ref, {
-  String origin='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(origin: origin, id: id));
-  return await pod.persistSlotsExistent(
   );
 }
 
@@ -201,6 +191,16 @@ Future<BuffersMap> postPersistSlotValues(PostPersistSlotValuesRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(origin: origin, id: id));
   return await pod.persistSlotValues(
+  );
+}
+
+@riverpod
+Future<Map<String, bool>> postPersistSlotsExistent(PostPersistSlotsExistentRef ref, {
+  String origin='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(origin: origin, id: id));
+  return await pod.persistSlotsExistent(
   );
 }
 
