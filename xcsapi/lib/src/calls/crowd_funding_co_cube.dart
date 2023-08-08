@@ -57,18 +57,6 @@ class CrowdFundingCoCube extends _$CrowdFundingCoCube {
     ref.invalidateSelf();
   }
   
-  Future<void> checkGoalReached({
-    
-    required String campaignId, 
-
-  }) async { 
-    await ref.read(crowdFundingCoProvider(origin: origin, id: id)).checkGoalReached(
-      campaignId: campaignId,
-    );
-    ref.invalidate(loadCrowdFundingProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
   Future<void> newCampaign({
     
     required String beneficiary,
@@ -78,6 +66,18 @@ class CrowdFundingCoCube extends _$CrowdFundingCoCube {
     await ref.read(crowdFundingCoProvider(origin: origin, id: id)).newCampaign(
       beneficiary: beneficiary,
       goal: goal,
+    );
+    ref.invalidate(loadCrowdFundingProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> checkGoalReached({
+    
+    required String campaignId, 
+
+  }) async { 
+    await ref.read(crowdFundingCoProvider(origin: origin, id: id)).checkGoalReached(
+      campaignId: campaignId,
     );
     ref.invalidate(loadCrowdFundingProvider(bundleId: id));
     ref.invalidateSelf();

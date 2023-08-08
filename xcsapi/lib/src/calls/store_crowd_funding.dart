@@ -55,14 +55,14 @@ class StoreCrowdFundingRepository {
   }
    
   // Mutation
-  Future<void> addSubscriber({
+  Future<void> removeSubscriber({
     
     required String partyId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "storeCrowdFunding",
-      "action": "addSubscriber",
+      "action": "removeSubscriber",
       "call-type": "co",
       "regionId": origin,
       "id": id,
@@ -73,14 +73,14 @@ class StoreCrowdFundingRepository {
   }
    
   // Mutation
-  Future<void> removeSubscriber({
+  Future<void> addSubscriber({
     
     required String partyId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "storeCrowdFunding",
-      "action": "removeSubscriber",
+      "action": "addSubscriber",
       "call-type": "co",
       "regionId": origin,
       "id": id,

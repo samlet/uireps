@@ -118,34 +118,6 @@ class DigitalStorePalPod extends _$DigitalStorePalPod {
     return state.hasError == false;
   }
   
-  Future<bool> buyerConfirm({
-    
-    required String pl,
-    required String walletId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(digitalStorePalProvider(origin: origin, id: id)).buyerConfirm(
-              pl: pl,
-              walletId: walletId,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> setStoreData({
-    
-    required List<int> blob, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(digitalStorePalProvider(origin: origin, id: id)).setStoreData(
-              blob: blob,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> executeTradeSaga({
     
     required String buyer,
@@ -172,6 +144,34 @@ class DigitalStorePalPod extends _$DigitalStorePalPod {
         () => ref.read(digitalStorePalProvider(origin: origin, id: id)).cancelTrade(
               caller: caller,
               tradeId: tradeId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> setStoreData({
+    
+    required List<int> blob, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(digitalStorePalProvider(origin: origin, id: id)).setStoreData(
+              blob: blob,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> buyerConfirm({
+    
+    required String pl,
+    required String walletId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(digitalStorePalProvider(origin: origin, id: id)).buyerConfirm(
+              pl: pl,
+              walletId: walletId,
             ));
     return state.hasError == false;
   }
@@ -241,20 +241,6 @@ Future<DecimalMap> daStoreGetDecimals(DaStoreGetDecimalsRef ref, {
 }
 
 @riverpod
-Future<ValueData> daStoreGetSlotValue(DaStoreGetSlotValueRef ref, {
-  String origin='default',
-  required String id,
-  
-    required String slotName, 
-
-}) async {
-  var pod=ref.watch(digitalStorePalProvider(origin: origin, id: id));
-  return await pod.getSlotValue(
-      slotName: slotName,
-  );
-}
-
-@riverpod
 Future<bool> daStoreHasSlotValue(DaStoreHasSlotValueRef ref, {
   String origin='default',
   required String id,
@@ -264,6 +250,20 @@ Future<bool> daStoreHasSlotValue(DaStoreHasSlotValueRef ref, {
 }) async {
   var pod=ref.watch(digitalStorePalProvider(origin: origin, id: id));
   return await pod.hasSlotValue(
+      slotName: slotName,
+  );
+}
+
+@riverpod
+Future<ValueData> daStoreGetSlotValue(DaStoreGetSlotValueRef ref, {
+  String origin='default',
+  required String id,
+  
+    required String slotName, 
+
+}) async {
+  var pod=ref.watch(digitalStorePalProvider(origin: origin, id: id));
+  return await pod.getSlotValue(
       slotName: slotName,
   );
 }

@@ -7,7 +7,7 @@ part of 'crowdsource_carriers_cube.dart';
 // **************************************************************************
 
 String _$crowdsourceCarriersCubeHash() =>
-    r'4e686c0ae2093a97f3d2c3578d2a1030c710aae2';
+    r'11ad622cfd3a3743b2cd0a7832773be5ec59facf';
 
 /// Copied from Dart SDK
 class _SystemHash {

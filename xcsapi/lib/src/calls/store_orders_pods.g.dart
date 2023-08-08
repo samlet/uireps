@@ -304,7 +304,7 @@ class StoreOrdersGetDecimalsProvider
   }
 }
 
-String _$storeOrdersPodHash() => r'64ce33a511b26550e77d79cf71fcea4f8f6fad81';
+String _$storeOrdersPodHash() => r'978fee83405cfd2970bf8e5cf7738285a429fef8';
 
 abstract class _$StoreOrdersPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

@@ -311,7 +311,7 @@ class ScfGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
 }
 
 String _$storeCrowdFundingPodHash() =>
-    r'98616d66f6880130b2100ddac48291bcda5a0ee9';
+    r'5ccf4edd444bfb77de6f0dca7f55d6963d6440d5';
 
 abstract class _$StoreCrowdFundingPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

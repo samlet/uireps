@@ -505,106 +505,6 @@ class DaStoreGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
-String _$daStoreGetSlotValueHash() =>
-    r'9c1fe4cdd0705f0b5ef3fd44ebef69d15e379b62';
-typedef DaStoreGetSlotValueRef = AutoDisposeFutureProviderRef<ValueData>;
-
-/// See also [daStoreGetSlotValue].
-@ProviderFor(daStoreGetSlotValue)
-const daStoreGetSlotValueProvider = DaStoreGetSlotValueFamily();
-
-/// See also [daStoreGetSlotValue].
-class DaStoreGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
-  /// See also [daStoreGetSlotValue].
-  const DaStoreGetSlotValueFamily();
-
-  /// See also [daStoreGetSlotValue].
-  DaStoreGetSlotValueProvider call({
-    String origin = 'default',
-    required String id,
-    required String slotName,
-  }) {
-    return DaStoreGetSlotValueProvider(
-      origin: origin,
-      id: id,
-      slotName: slotName,
-    );
-  }
-
-  @override
-  DaStoreGetSlotValueProvider getProviderOverride(
-    covariant DaStoreGetSlotValueProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      id: provider.id,
-      slotName: provider.slotName,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'daStoreGetSlotValueProvider';
-}
-
-/// See also [daStoreGetSlotValue].
-class DaStoreGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
-  /// See also [daStoreGetSlotValue].
-  DaStoreGetSlotValueProvider({
-    this.origin = 'default',
-    required this.id,
-    required this.slotName,
-  }) : super.internal(
-          (ref) => daStoreGetSlotValue(
-            ref,
-            origin: origin,
-            id: id,
-            slotName: slotName,
-          ),
-          from: daStoreGetSlotValueProvider,
-          name: r'daStoreGetSlotValueProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$daStoreGetSlotValueHash,
-          dependencies: DaStoreGetSlotValueFamily._dependencies,
-          allTransitiveDependencies:
-              DaStoreGetSlotValueFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String id;
-  final String slotName;
-
-  @override
-  bool operator ==(Object other) {
-    return other is DaStoreGetSlotValueProvider &&
-        other.origin == origin &&
-        other.id == id &&
-        other.slotName == slotName;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-    hash = _SystemHash.combine(hash, slotName.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
 String _$daStoreHasSlotValueHash() =>
     r'7f23a6a13950e434dfe42c97d464c7d6d15c108e';
 typedef DaStoreHasSlotValueRef = AutoDisposeFutureProviderRef<bool>;
@@ -705,8 +605,108 @@ class DaStoreHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+String _$daStoreGetSlotValueHash() =>
+    r'9c1fe4cdd0705f0b5ef3fd44ebef69d15e379b62';
+typedef DaStoreGetSlotValueRef = AutoDisposeFutureProviderRef<ValueData>;
+
+/// See also [daStoreGetSlotValue].
+@ProviderFor(daStoreGetSlotValue)
+const daStoreGetSlotValueProvider = DaStoreGetSlotValueFamily();
+
+/// See also [daStoreGetSlotValue].
+class DaStoreGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
+  /// See also [daStoreGetSlotValue].
+  const DaStoreGetSlotValueFamily();
+
+  /// See also [daStoreGetSlotValue].
+  DaStoreGetSlotValueProvider call({
+    String origin = 'default',
+    required String id,
+    required String slotName,
+  }) {
+    return DaStoreGetSlotValueProvider(
+      origin: origin,
+      id: id,
+      slotName: slotName,
+    );
+  }
+
+  @override
+  DaStoreGetSlotValueProvider getProviderOverride(
+    covariant DaStoreGetSlotValueProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+      slotName: provider.slotName,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'daStoreGetSlotValueProvider';
+}
+
+/// See also [daStoreGetSlotValue].
+class DaStoreGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
+  /// See also [daStoreGetSlotValue].
+  DaStoreGetSlotValueProvider({
+    this.origin = 'default',
+    required this.id,
+    required this.slotName,
+  }) : super.internal(
+          (ref) => daStoreGetSlotValue(
+            ref,
+            origin: origin,
+            id: id,
+            slotName: slotName,
+          ),
+          from: daStoreGetSlotValueProvider,
+          name: r'daStoreGetSlotValueProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$daStoreGetSlotValueHash,
+          dependencies: DaStoreGetSlotValueFamily._dependencies,
+          allTransitiveDependencies:
+              DaStoreGetSlotValueFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+  final String slotName;
+
+  @override
+  bool operator ==(Object other) {
+    return other is DaStoreGetSlotValueProvider &&
+        other.origin == origin &&
+        other.id == id &&
+        other.slotName == slotName;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, slotName.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
 String _$digitalStorePalPodHash() =>
-    r'96f14748fd3f5bbb54bd7c52348391f543ed8d56';
+    r'f23e661cfdfbab1a06a05442678dbdd1b01865e3';
 
 abstract class _$DigitalStorePalPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

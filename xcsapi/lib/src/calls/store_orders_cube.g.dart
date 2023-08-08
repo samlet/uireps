@@ -6,7 +6,7 @@ part of 'store_orders_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storeOrdersCubeHash() => r'5d0aca75e4a25ff1d45226254af0de8c223a38cd';
+String _$storeOrdersCubeHash() => r'd1debc02294b78b615428e783a16d1b4a7116f1e';
 
 /// Copied from Dart SDK
 class _SystemHash {

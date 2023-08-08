@@ -104,9 +104,21 @@ Map<String, T> asTypedMap<T>(dynamic resp) {
 }
 
 Map<String, T> convMap<T>(dynamic resp, T Function(dynamic) conv) {
-  var decimalMap = (resp as Map)
+  var typedMap = (resp as Map)
       .map((key, value) => MapEntry(key as String, conv(value)));
-  return decimalMap;
+  return typedMap;
+}
+
+Map<String, List<T>> asMultimap<T>(dynamic resp) {
+  return convMap(resp, (e) {
+    return (e as List).map((e) => e as T).toList();
+  });
+}
+
+Map<String, List<T>> convMultimap<T>(dynamic resp, T Function(dynamic) conv) {
+  return convMap(resp, (e) {
+    return (e as List).map((e) => conv(e)).toList();
+  });
 }
 
 List<T> convList<T>(resp, T Function(Map<String, dynamic>) conv){

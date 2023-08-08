@@ -63,6 +63,35 @@ class PostPalPod extends _$PostPalPod {
     return state.hasError == false;
   }
   
+  Future<bool> like() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(origin: origin, id: id)).like(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> unlike() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(origin: origin, id: id)).unlike(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addToContentBin({
+    
+    required String binId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(origin: origin, id: id)).addToContentBin(
+              binId: binId,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> postComment({
     
     required String subject,
@@ -78,19 +107,6 @@ class PostPalPod extends _$PostPalPod {
               review: review,
               rating: rating,
               reward: reward,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> addToContentBin({
-    
-    required String binId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(origin: origin, id: id)).addToContentBin(
-              binId: binId,
             ));
     return state.hasError == false;
   }
@@ -155,6 +171,26 @@ Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
 }
 
 @riverpod
+Future<bool> postIsLiked(PostIsLikedRef ref, {
+  String origin='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(origin: origin, id: id));
+  return await pod.isLiked(
+  );
+}
+
+@riverpod
+Future<double> postLikes(PostLikesRef ref, {
+  String origin='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(origin: origin, id: id));
+  return await pod.likes(
+  );
+}
+
+@riverpod
 Future<PostBundle> postFetch(PostFetchRef ref, {
   String origin='default',
   required String id,
@@ -175,12 +211,12 @@ Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
 }
 
 @riverpod
-Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
+Future<Map<String, bool>> postPersistSlotsExistent(PostPersistSlotsExistentRef ref, {
   String origin='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(origin: origin, id: id));
-  return await pod.getContentSlot(
+  return await pod.persistSlotsExistent(
   );
 }
 
@@ -195,12 +231,12 @@ Future<BuffersMap> postPersistSlotValues(PostPersistSlotValuesRef ref, {
 }
 
 @riverpod
-Future<Map<String, bool>> postPersistSlotsExistent(PostPersistSlotsExistentRef ref, {
+Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
   String origin='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(origin: origin, id: id));
-  return await pod.persistSlotsExistent(
+  return await pod.getContentSlot(
   );
 }
 
@@ -215,20 +251,6 @@ Future<DecimalMap> postGetDecimals(PostGetDecimalsRef ref, {
 }
 
 @riverpod
-Future<ValueData> postGetSlotValue(PostGetSlotValueRef ref, {
-  String origin='default',
-  required String id,
-  
-    required String slotName, 
-
-}) async {
-  var pod=ref.watch(postPalProvider(origin: origin, id: id));
-  return await pod.getSlotValue(
-      slotName: slotName,
-  );
-}
-
-@riverpod
 Future<bool> postHasSlotValue(PostHasSlotValueRef ref, {
   String origin='default',
   required String id,
@@ -238,6 +260,20 @@ Future<bool> postHasSlotValue(PostHasSlotValueRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(origin: origin, id: id));
   return await pod.hasSlotValue(
+      slotName: slotName,
+  );
+}
+
+@riverpod
+Future<ValueData> postGetSlotValue(PostGetSlotValueRef ref, {
+  String origin='default',
+  required String id,
+  
+    required String slotName, 
+
+}) async {
+  var pod=ref.watch(postPalProvider(origin: origin, id: id));
+  return await pod.getSlotValue(
       slotName: slotName,
   );
 }

@@ -478,105 +478,6 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
-String _$noteGetSlotValueHash() => r'eefc73bfed5abcee730340fee44363502ff17d30';
-typedef NoteGetSlotValueRef = AutoDisposeFutureProviderRef<ValueData>;
-
-/// See also [noteGetSlotValue].
-@ProviderFor(noteGetSlotValue)
-const noteGetSlotValueProvider = NoteGetSlotValueFamily();
-
-/// See also [noteGetSlotValue].
-class NoteGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
-  /// See also [noteGetSlotValue].
-  const NoteGetSlotValueFamily();
-
-  /// See also [noteGetSlotValue].
-  NoteGetSlotValueProvider call({
-    String origin = 'default',
-    required String id,
-    required String slotName,
-  }) {
-    return NoteGetSlotValueProvider(
-      origin: origin,
-      id: id,
-      slotName: slotName,
-    );
-  }
-
-  @override
-  NoteGetSlotValueProvider getProviderOverride(
-    covariant NoteGetSlotValueProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      id: provider.id,
-      slotName: provider.slotName,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'noteGetSlotValueProvider';
-}
-
-/// See also [noteGetSlotValue].
-class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
-  /// See also [noteGetSlotValue].
-  NoteGetSlotValueProvider({
-    this.origin = 'default',
-    required this.id,
-    required this.slotName,
-  }) : super.internal(
-          (ref) => noteGetSlotValue(
-            ref,
-            origin: origin,
-            id: id,
-            slotName: slotName,
-          ),
-          from: noteGetSlotValueProvider,
-          name: r'noteGetSlotValueProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$noteGetSlotValueHash,
-          dependencies: NoteGetSlotValueFamily._dependencies,
-          allTransitiveDependencies:
-              NoteGetSlotValueFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String id;
-  final String slotName;
-
-  @override
-  bool operator ==(Object other) {
-    return other is NoteGetSlotValueProvider &&
-        other.origin == origin &&
-        other.id == id &&
-        other.slotName == slotName;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-    hash = _SystemHash.combine(hash, slotName.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
 String _$noteHasSlotValueHash() => r'132f5a30ffa9323814ecf945f6436503cbf1f944';
 typedef NoteHasSlotValueRef = AutoDisposeFutureProviderRef<bool>;
 
@@ -676,7 +577,106 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
-String _$noteCoPodHash() => r'0edb40edf8d106101309f64d30cfa6199f43c440';
+String _$noteGetSlotValueHash() => r'eefc73bfed5abcee730340fee44363502ff17d30';
+typedef NoteGetSlotValueRef = AutoDisposeFutureProviderRef<ValueData>;
+
+/// See also [noteGetSlotValue].
+@ProviderFor(noteGetSlotValue)
+const noteGetSlotValueProvider = NoteGetSlotValueFamily();
+
+/// See also [noteGetSlotValue].
+class NoteGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
+  /// See also [noteGetSlotValue].
+  const NoteGetSlotValueFamily();
+
+  /// See also [noteGetSlotValue].
+  NoteGetSlotValueProvider call({
+    String origin = 'default',
+    required String id,
+    required String slotName,
+  }) {
+    return NoteGetSlotValueProvider(
+      origin: origin,
+      id: id,
+      slotName: slotName,
+    );
+  }
+
+  @override
+  NoteGetSlotValueProvider getProviderOverride(
+    covariant NoteGetSlotValueProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+      slotName: provider.slotName,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'noteGetSlotValueProvider';
+}
+
+/// See also [noteGetSlotValue].
+class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
+  /// See also [noteGetSlotValue].
+  NoteGetSlotValueProvider({
+    this.origin = 'default',
+    required this.id,
+    required this.slotName,
+  }) : super.internal(
+          (ref) => noteGetSlotValue(
+            ref,
+            origin: origin,
+            id: id,
+            slotName: slotName,
+          ),
+          from: noteGetSlotValueProvider,
+          name: r'noteGetSlotValueProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$noteGetSlotValueHash,
+          dependencies: NoteGetSlotValueFamily._dependencies,
+          allTransitiveDependencies:
+              NoteGetSlotValueFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+  final String slotName;
+
+  @override
+  bool operator ==(Object other) {
+    return other is NoteGetSlotValueProvider &&
+        other.origin == origin &&
+        other.id == id &&
+        other.slotName == slotName;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, slotName.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$noteCoPodHash() => r'5e14cffa44c52c9543a3914afcc80b9dc3e173eb';
 
 abstract class _$NoteCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String origin;

@@ -1,0 +1,6 @@
+b:
+	dart run build_runner build
+
+w:
+    dart run build_runner watch --delete-conflicting-outputs
+

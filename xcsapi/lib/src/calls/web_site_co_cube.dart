@@ -23,19 +23,6 @@ class WebSiteCoCube extends _$WebSiteCoCube {
   } 
 
   
-  Future<void> updateHttpUrl({
-    
-    required String host,
-    required int port, 
-
-  }) async { 
-    await ref.read(webSiteCoProvider(origin: origin, id: id)).updateHttpUrl(
-      host: host,
-      port: port,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> updateHttpsUrl({
     
     required String host,
@@ -56,6 +43,19 @@ class WebSiteCoCube extends _$WebSiteCoCube {
   }) async { 
     await ref.read(webSiteCoProvider(origin: origin, id: id)).updateSiteName(
       name: name,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> updateHttpUrl({
+    
+    required String host,
+    required int port, 
+
+  }) async { 
+    await ref.read(webSiteCoProvider(origin: origin, id: id)).updateHttpUrl(
+      host: host,
+      port: port,
     );
     ref.invalidateSelf();
   }

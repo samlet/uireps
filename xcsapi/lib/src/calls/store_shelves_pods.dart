@@ -42,19 +42,6 @@ class StoreShelvesPod extends _$StoreShelvesPod {
     return state.hasError == false;
   }
   
-  Future<bool> addSubscriber({
-    
-    required String partyId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(storeShelvesProvider(origin: origin, id: id)).addSubscriber(
-              partyId: partyId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> removeSubscriber({
     
     required String partyId, 
@@ -63,6 +50,19 @@ class StoreShelvesPod extends _$StoreShelvesPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(storeShelvesProvider(origin: origin, id: id)).removeSubscriber(
+              partyId: partyId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addSubscriber({
+    
+    required String partyId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(storeShelvesProvider(origin: origin, id: id)).addSubscriber(
               partyId: partyId,
             ));
     return state.hasError == false;

@@ -69,19 +69,6 @@ class CrowdFundingCoPod extends _$CrowdFundingCoPod {
     return state.hasError == false;
   }
   
-  Future<bool> checkGoalReached({
-    
-    required String campaignId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(crowdFundingCoProvider(origin: origin, id: id)).checkGoalReached(
-              campaignId: campaignId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> newCampaign({
     
     required String beneficiary,
@@ -93,6 +80,19 @@ class CrowdFundingCoPod extends _$CrowdFundingCoPod {
         () => ref.read(crowdFundingCoProvider(origin: origin, id: id)).newCampaign(
               beneficiary: beneficiary,
               goal: goal,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> checkGoalReached({
+    
+    required String campaignId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(crowdFundingCoProvider(origin: origin, id: id)).checkGoalReached(
+              campaignId: campaignId,
             ));
     return state.hasError == false;
   }

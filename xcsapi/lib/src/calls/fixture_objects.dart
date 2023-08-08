@@ -12,6 +12,55 @@ class FixtureObjectsRepository {
   final String origin;
 
    
+  // Mutation
+  Future<Strings> someStores({
+    
+    required int total, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "someStores",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "total": total, 
+    });
+    
+    return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<Strings> someNotes({
+    
+    required int total, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "someNotes",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "total": total, 
+    });
+    
+    return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<Note> oneNote() async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "oneNote",
+      "call-type": "slab",
+      "regionId": origin,
+    }, { 
+    });
+    
+    return Note.fromJson(resp);
+  }
+   
   // Query
   Future<String> ping({
     
@@ -137,55 +186,6 @@ class FixtureObjectsRepository {
   }
    
   // Mutation
-  Future<Strings> someNotes({
-    
-    required int total, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "someNotes",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "total": total, 
-    });
-    
-    return Strings()..mergeFromProto3Json(resp);
-  }
-   
-  // Mutation
-  Future<Note> oneNote() async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "oneNote",
-      "call-type": "slab",
-      "regionId": origin,
-    }, { 
-    });
-    
-    return Note.fromJson(resp);
-  }
-   
-  // Mutation
-  Future<Strings> someStores({
-    
-    required int total, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "someStores",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "total": total, 
-    });
-    
-    return Strings()..mergeFromProto3Json(resp);
-  }
-   
-  // Mutation
   Future<void> touch({
     
     required String bundleName,
@@ -204,82 +204,58 @@ class FixtureObjectsRepository {
     
   }
    
-  // Query
-  Future<String> getNoteProto({
+  // Mutation
+  Future<Strings> someShipments({
     
-    required String noteId, 
+    required int total, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "getNoteProto",
+      "action": "someShipments",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "total": total, 
+    });
+    
+    return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<List<int>> getNoteSlotData({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await requestBytes(dio, {
+      "module": "fixtureObjects",
+      "action": "getNoteSlotData",
       "call-type": "slab",
       "regionId": origin,
     }, {
       "noteId": noteId, 
     });
     
-    return resp as String;
+    return resp;
   }
    
   // Query
-  Future<List<Note>> publicNotes({
+  Future<Map<String, double>> echoDecimalMap({
     
-    required String author, 
+    required Map<String, double> input, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "publicNotes",
+      "action": "echoDecimalMap",
       "call-type": "slab",
       "regionId": origin,
     }, {
-      "author": author, 
+      "input": input, 
     });
     
-    return convList(resp, Note.fromJson);
-  }
-   
-  // Query
-  Future<TestRec> makeTestRec({
-    
-    required String stringFld,
-    required double numFld,
-    required Map<String, double> numMap,
-    List<double>? nums, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "makeTestRec",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "stringFld": stringFld,
-      "numFld": numFld,
-      "numMap": numMap,
-      if(nums!=null) "nums": nums, 
-    });
-    
-    return TestRec.fromJson(resp);
-  }
-   
-  // Mutation
-  Future<Note> oneNoteWithData({
-    
-    required List<int> data, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "oneNoteWithData",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "data": data, 
-    });
-    
-    return Note.fromJson(resp);
+    return asTypedMap<double>(resp);
   }
    
   // Query
@@ -313,42 +289,6 @@ class FixtureObjectsRepository {
     return resp as String;
   }
    
-  // Query
-  Future<List<TestRec>> makeSomeRecs({
-    
-    int? total=5, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "fixtureObjects",
-      "action": "makeSomeRecs",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      if(total!=null) "total": total, 
-    });
-    
-    return convList(resp, TestRec.fromJson);
-  }
-   
-  // Query
-  Future<List<int>> getNoteSlotData({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await requestBytes(dio, {
-      "module": "fixtureObjects",
-      "action": "getNoteSlotData",
-      "call-type": "slab",
-      "regionId": origin,
-    }, {
-      "noteId": noteId, 
-    });
-    
-    return resp;
-  }
-   
   // Mutation
   Future<Strings> someFacilities({
     
@@ -367,22 +307,22 @@ class FixtureObjectsRepository {
     return Strings()..mergeFromProto3Json(resp);
   }
    
-  // Query
-  Future<Map<String, double>> echoDecimalMap({
+  // Mutation
+  Future<Note> oneNoteWithData({
     
-    required Map<String, double> input, 
+    required List<int> data, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "echoDecimalMap",
+      "action": "oneNoteWithData",
       "call-type": "slab",
       "regionId": origin,
     }, {
-      "input": input, 
+      "data": data, 
     });
     
-    return asTypedMap<double>(resp);
+    return Note.fromJson(resp);
   }
    
   // Mutation
@@ -403,22 +343,46 @@ class FixtureObjectsRepository {
     return resp as String;
   }
    
-  // Mutation
-  Future<Strings> someShipments({
+  // Query
+  Future<List<TestRec>> makeSomeRecs({
     
-    required int total, 
+    int? total=5, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "someShipments",
+      "action": "makeSomeRecs",
       "call-type": "slab",
       "regionId": origin,
     }, {
-      "total": total, 
+      if(total!=null) "total": total, 
     });
     
-    return Strings()..mergeFromProto3Json(resp);
+    return convList(resp, TestRec.fromJson);
+  }
+   
+  // Query
+  Future<TestRec> makeTestRec({
+    
+    required String stringFld,
+    required double numFld,
+    required Map<String, double> numMap,
+    List<double>? nums, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "makeTestRec",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "stringFld": stringFld,
+      "numFld": numFld,
+      "numMap": numMap,
+      if(nums!=null) "nums": nums, 
+    });
+    
+    return TestRec.fromJson(resp);
   }
    
   // Query
@@ -440,21 +404,39 @@ class FixtureObjectsRepository {
   }
    
   // Query
-  Future<PartyBundle> partyBundle({
+  Future<Map<String, List<String>>> echoStringMultiMap({
     
-    required String partyId, 
+    required Map<String, List<String>> input, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "fixtureObjects",
-      "action": "partyBundle",
+      "action": "echoStringMultiMap",
       "call-type": "slab",
       "regionId": origin,
     }, {
-      "partyId": partyId, 
+      "input": input, 
     });
     
-    return PartyBundle.fromJson(resp);
+    return asMultimap<String>(resp);
+  }
+   
+  // Query
+  Future<List<Note>> publicNotes({
+    
+    required String author, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "publicNotes",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "author": author, 
+    });
+    
+    return convList(resp, Note.fromJson);
   }
    
   // Mutation
@@ -473,6 +455,42 @@ class FixtureObjectsRepository {
     });
     
     return Strings()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<String> getNoteProto({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "getNoteProto",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "noteId": noteId, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Query
+  Future<PartyBundle> partyBundle({
+    
+    required String partyId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "fixtureObjects",
+      "action": "partyBundle",
+      "call-type": "slab",
+      "regionId": origin,
+    }, {
+      "partyId": partyId, 
+    });
+    
+    return PartyBundle.fromJson(resp);
   }
    
   // Mutation

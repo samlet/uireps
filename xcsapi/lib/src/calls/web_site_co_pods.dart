@@ -29,21 +29,6 @@ class WebSiteCoPod extends _$WebSiteCoPod {
   }
 
   
-  Future<bool> updateHttpUrl({
-    
-    required String host,
-    required int port, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(webSiteCoProvider(origin: origin, id: id)).updateHttpUrl(
-              host: host,
-              port: port,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> updateHttpsUrl({
     
     required String host,
@@ -68,6 +53,21 @@ class WebSiteCoPod extends _$WebSiteCoPod {
     state = await AsyncValue.guard(
         () => ref.read(webSiteCoProvider(origin: origin, id: id)).updateSiteName(
               name: name,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateHttpUrl({
+    
+    required String host,
+    required int port, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(webSiteCoProvider(origin: origin, id: id)).updateHttpUrl(
+              host: host,
+              port: port,
             ));
     return state.hasError == false;
   }

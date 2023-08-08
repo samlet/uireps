@@ -311,7 +311,7 @@ class StoreShelvesGetDecimalsProvider
   }
 }
 
-String _$storeShelvesPodHash() => r'7c61213725f808d15fd871a603449c9cd63d0159';
+String _$storeShelvesPodHash() => r'8da5b54330735eba806ca56d29fa871b35547168';
 
 abstract class _$StoreShelvesPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

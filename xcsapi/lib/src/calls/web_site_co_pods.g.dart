@@ -389,7 +389,7 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
-String _$webSiteCoPodHash() => r'2f919366b85800284915fa9eb218947740b41657';
+String _$webSiteCoPodHash() => r'856c7d09d47277057c51286237ef82b610a5adc5';
 
 abstract class _$WebSiteCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String origin;

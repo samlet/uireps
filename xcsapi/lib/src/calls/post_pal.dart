@@ -69,6 +69,20 @@ class PostPalRepository {
     
   }
    
+  // Query
+  Future<bool> isLiked() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "isLiked",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return bool.parse(resp as String);
+  }
+   
   // Mutation
   Future<void> setCharge({
     
@@ -105,6 +119,33 @@ class PostPalRepository {
     
   }
    
+  // Mutation
+  Future<void> like() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "like",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+  }
+   
+  // Query
+  Future<double> likes() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "likes",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return double.parse(resp as String);
+  }
+   
   // Query
   Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
@@ -119,18 +160,35 @@ class PostPalRepository {
     return PostBundle.fromJson(resp);
   }
    
-  // Query
-  Future<List<Comment>> getCommentSyncs() async { 
+  // Mutation
+  Future<void> unlike() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "getCommentSyncs",
+      "action": "unlike",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, { 
     });
     
-    return convList(resp, Comment.fromJson);
+  }
+   
+  // Mutation
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "addToContentBin",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "binId": binId, 
+    });
+    
   }
    
   // Mutation
@@ -158,36 +216,46 @@ class PostPalRepository {
     return resp as String;
   }
    
-  // Mutation
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "addToContentBin",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "binId": binId, 
-    });
-    
-  }
-   
   // Query
-  Future<BuffersData> getContentSlot() async { 
+  Future<List<Comment>> getCommentSyncs() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "getContentSlot",
+      "action": "getCommentSyncs",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, { 
     });
     
-    return BuffersData()..mergeFromProto3Json(resp);
+    return convList(resp, Comment.fromJson);
+  }
+   
+  // Query
+  Future<Map<String, bool>> persistSlotsExistent() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "persistSlotsExistent",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return asTypedMap<bool>(resp);
+  }
+   
+  // Query
+  Future<BuffersMap> persistSlotValues() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "persistSlotValues",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, { 
+    });
+    
+    return BuffersMap()..mergeFromProto3Json(resp);
   }
    
   // Mutation
@@ -209,31 +277,17 @@ class PostPalRepository {
   }
    
   // Query
-  Future<BuffersMap> persistSlotValues() async { 
+  Future<BuffersData> getContentSlot() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "persistSlotValues",
+      "action": "getContentSlot",
       "call-type": "co",
       "regionId": origin,
       "id": id,
     }, { 
     });
     
-    return BuffersMap()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<Map<String, bool>> persistSlotsExistent() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "persistSlotsExistent",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, { 
-    });
-    
-    return asTypedMap<bool>(resp);
+    return BuffersData()..mergeFromProto3Json(resp);
   }
    
   // Query
@@ -269,25 +323,6 @@ class PostPalRepository {
   }
    
   // Query
-  Future<ValueData> getSlotValue({
-    
-    required String slotName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "getSlotValue",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "slotName": slotName, 
-    });
-    
-    return ValueData()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
   Future<bool> hasSlotValue({
     
     required String slotName, 
@@ -304,6 +339,25 @@ class PostPalRepository {
     });
     
     return bool.parse(resp as String);
+  }
+   
+  // Query
+  Future<ValueData> getSlotValue({
+    
+    required String slotName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "getSlotValue",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "slotName": slotName, 
+    });
+    
+    return ValueData()..mergeFromProto3Json(resp);
   }
   
 }

@@ -510,33 +510,33 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   }
 }
 
-String _$fixturesGetNoteProtoHash() =>
-    r'c6ab5fb76ea4430ddbccc66fc3c0b0c59965bdd2';
-typedef FixturesGetNoteProtoRef = AutoDisposeFutureProviderRef<String>;
+String _$fixturesGetNoteSlotDataHash() =>
+    r'507334e35df66c80dd105386ae3c8a14cf17291d';
+typedef FixturesGetNoteSlotDataRef = AutoDisposeFutureProviderRef<List<int>>;
 
-/// See also [fixturesGetNoteProto].
-@ProviderFor(fixturesGetNoteProto)
-const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
+/// See also [fixturesGetNoteSlotData].
+@ProviderFor(fixturesGetNoteSlotData)
+const fixturesGetNoteSlotDataProvider = FixturesGetNoteSlotDataFamily();
 
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
-  /// See also [fixturesGetNoteProto].
-  const FixturesGetNoteProtoFamily();
+/// See also [fixturesGetNoteSlotData].
+class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
+  /// See also [fixturesGetNoteSlotData].
+  const FixturesGetNoteSlotDataFamily();
 
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider call({
+  /// See also [fixturesGetNoteSlotData].
+  FixturesGetNoteSlotDataProvider call({
     String origin = 'default',
     required String noteId,
   }) {
-    return FixturesGetNoteProtoProvider(
+    return FixturesGetNoteSlotDataProvider(
       origin: origin,
       noteId: noteId,
     );
   }
 
   @override
-  FixturesGetNoteProtoProvider getProviderOverride(
-    covariant FixturesGetNoteProtoProvider provider,
+  FixturesGetNoteSlotDataProvider getProviderOverride(
+    covariant FixturesGetNoteSlotDataProvider provider,
   ) {
     return call(
       origin: provider.origin,
@@ -556,30 +556,31 @@ class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fixturesGetNoteProtoProvider';
+  String? get name => r'fixturesGetNoteSlotDataProvider';
 }
 
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider({
+/// See also [fixturesGetNoteSlotData].
+class FixturesGetNoteSlotDataProvider
+    extends AutoDisposeFutureProvider<List<int>> {
+  /// See also [fixturesGetNoteSlotData].
+  FixturesGetNoteSlotDataProvider({
     this.origin = 'default',
     required this.noteId,
   }) : super.internal(
-          (ref) => fixturesGetNoteProto(
+          (ref) => fixturesGetNoteSlotData(
             ref,
             origin: origin,
             noteId: noteId,
           ),
-          from: fixturesGetNoteProtoProvider,
-          name: r'fixturesGetNoteProtoProvider',
+          from: fixturesGetNoteSlotDataProvider,
+          name: r'fixturesGetNoteSlotDataProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fixturesGetNoteProtoHash,
-          dependencies: FixturesGetNoteProtoFamily._dependencies,
+                  : _$fixturesGetNoteSlotDataHash,
+          dependencies: FixturesGetNoteSlotDataFamily._dependencies,
           allTransitiveDependencies:
-              FixturesGetNoteProtoFamily._allTransitiveDependencies,
+              FixturesGetNoteSlotDataFamily._allTransitiveDependencies,
         );
 
   final String origin;
@@ -587,7 +588,7 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
 
   @override
   bool operator ==(Object other) {
-    return other is FixturesGetNoteProtoProvider &&
+    return other is FixturesGetNoteSlotDataProvider &&
         other.origin == origin &&
         other.noteId == noteId;
   }
@@ -602,37 +603,39 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
-String _$fixturesPublicNotesHash() =>
-    r'dde4dc51353dd1622697245b624019d03be45297';
-typedef FixturesPublicNotesRef = AutoDisposeFutureProviderRef<List<Note>>;
+String _$fixturesEchoDecimalMapHash() =>
+    r'c356bfc5c1dedc32057cd64531900c23f17da427';
+typedef FixturesEchoDecimalMapRef
+    = AutoDisposeFutureProviderRef<Map<String, double>>;
 
-/// See also [fixturesPublicNotes].
-@ProviderFor(fixturesPublicNotes)
-const fixturesPublicNotesProvider = FixturesPublicNotesFamily();
+/// See also [fixturesEchoDecimalMap].
+@ProviderFor(fixturesEchoDecimalMap)
+const fixturesEchoDecimalMapProvider = FixturesEchoDecimalMapFamily();
 
-/// See also [fixturesPublicNotes].
-class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
-  /// See also [fixturesPublicNotes].
-  const FixturesPublicNotesFamily();
+/// See also [fixturesEchoDecimalMap].
+class FixturesEchoDecimalMapFamily
+    extends Family<AsyncValue<Map<String, double>>> {
+  /// See also [fixturesEchoDecimalMap].
+  const FixturesEchoDecimalMapFamily();
 
-  /// See also [fixturesPublicNotes].
-  FixturesPublicNotesProvider call({
+  /// See also [fixturesEchoDecimalMap].
+  FixturesEchoDecimalMapProvider call({
     String origin = 'default',
-    required String author,
+    required Map<String, double> input,
   }) {
-    return FixturesPublicNotesProvider(
+    return FixturesEchoDecimalMapProvider(
       origin: origin,
-      author: author,
+      input: input,
     );
   }
 
   @override
-  FixturesPublicNotesProvider getProviderOverride(
-    covariant FixturesPublicNotesProvider provider,
+  FixturesEchoDecimalMapProvider getProviderOverride(
+    covariant FixturesEchoDecimalMapProvider provider,
   ) {
     return call(
       origin: provider.origin,
-      author: provider.author,
+      input: provider.input,
     );
   }
 
@@ -648,164 +651,48 @@ class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fixturesPublicNotesProvider';
+  String? get name => r'fixturesEchoDecimalMapProvider';
 }
 
-/// See also [fixturesPublicNotes].
-class FixturesPublicNotesProvider
-    extends AutoDisposeFutureProvider<List<Note>> {
-  /// See also [fixturesPublicNotes].
-  FixturesPublicNotesProvider({
+/// See also [fixturesEchoDecimalMap].
+class FixturesEchoDecimalMapProvider
+    extends AutoDisposeFutureProvider<Map<String, double>> {
+  /// See also [fixturesEchoDecimalMap].
+  FixturesEchoDecimalMapProvider({
     this.origin = 'default',
-    required this.author,
+    required this.input,
   }) : super.internal(
-          (ref) => fixturesPublicNotes(
+          (ref) => fixturesEchoDecimalMap(
             ref,
             origin: origin,
-            author: author,
+            input: input,
           ),
-          from: fixturesPublicNotesProvider,
-          name: r'fixturesPublicNotesProvider',
+          from: fixturesEchoDecimalMapProvider,
+          name: r'fixturesEchoDecimalMapProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fixturesPublicNotesHash,
-          dependencies: FixturesPublicNotesFamily._dependencies,
+                  : _$fixturesEchoDecimalMapHash,
+          dependencies: FixturesEchoDecimalMapFamily._dependencies,
           allTransitiveDependencies:
-              FixturesPublicNotesFamily._allTransitiveDependencies,
+              FixturesEchoDecimalMapFamily._allTransitiveDependencies,
         );
 
   final String origin;
-  final String author;
+  final Map<String, double> input;
 
   @override
   bool operator ==(Object other) {
-    return other is FixturesPublicNotesProvider &&
+    return other is FixturesEchoDecimalMapProvider &&
         other.origin == origin &&
-        other.author == author;
+        other.input == input;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, author.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-String _$fixturesMakeTestRecHash() =>
-    r'fc193aced2716543c3bac2ff1b65a30539ae8c1d';
-typedef FixturesMakeTestRecRef = AutoDisposeFutureProviderRef<TestRec>;
-
-/// See also [fixturesMakeTestRec].
-@ProviderFor(fixturesMakeTestRec)
-const fixturesMakeTestRecProvider = FixturesMakeTestRecFamily();
-
-/// See also [fixturesMakeTestRec].
-class FixturesMakeTestRecFamily extends Family<AsyncValue<TestRec>> {
-  /// See also [fixturesMakeTestRec].
-  const FixturesMakeTestRecFamily();
-
-  /// See also [fixturesMakeTestRec].
-  FixturesMakeTestRecProvider call({
-    String origin = 'default',
-    required String stringFld,
-    required double numFld,
-    required Map<String, double> numMap,
-    List<double>? nums,
-  }) {
-    return FixturesMakeTestRecProvider(
-      origin: origin,
-      stringFld: stringFld,
-      numFld: numFld,
-      numMap: numMap,
-      nums: nums,
-    );
-  }
-
-  @override
-  FixturesMakeTestRecProvider getProviderOverride(
-    covariant FixturesMakeTestRecProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      stringFld: provider.stringFld,
-      numFld: provider.numFld,
-      numMap: provider.numMap,
-      nums: provider.nums,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesMakeTestRecProvider';
-}
-
-/// See also [fixturesMakeTestRec].
-class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
-  /// See also [fixturesMakeTestRec].
-  FixturesMakeTestRecProvider({
-    this.origin = 'default',
-    required this.stringFld,
-    required this.numFld,
-    required this.numMap,
-    this.nums,
-  }) : super.internal(
-          (ref) => fixturesMakeTestRec(
-            ref,
-            origin: origin,
-            stringFld: stringFld,
-            numFld: numFld,
-            numMap: numMap,
-            nums: nums,
-          ),
-          from: fixturesMakeTestRecProvider,
-          name: r'fixturesMakeTestRecProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesMakeTestRecHash,
-          dependencies: FixturesMakeTestRecFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesMakeTestRecFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String stringFld;
-  final double numFld;
-  final Map<String, double> numMap;
-  final List<double>? nums;
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesMakeTestRecProvider &&
-        other.origin == origin &&
-        other.stringFld == stringFld &&
-        other.numFld == numFld &&
-        other.numMap == numMap &&
-        other.nums == nums;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, stringFld.hashCode);
-    hash = _SystemHash.combine(hash, numFld.hashCode);
-    hash = _SystemHash.combine(hash, numMap.hashCode);
-    hash = _SystemHash.combine(hash, nums.hashCode);
+    hash = _SystemHash.combine(hash, input.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -997,37 +884,46 @@ class FixturesMakeSomeRecsProvider
   }
 }
 
-String _$fixturesGetNoteSlotDataHash() =>
-    r'507334e35df66c80dd105386ae3c8a14cf17291d';
-typedef FixturesGetNoteSlotDataRef = AutoDisposeFutureProviderRef<List<int>>;
+String _$fixturesMakeTestRecHash() =>
+    r'fc193aced2716543c3bac2ff1b65a30539ae8c1d';
+typedef FixturesMakeTestRecRef = AutoDisposeFutureProviderRef<TestRec>;
 
-/// See also [fixturesGetNoteSlotData].
-@ProviderFor(fixturesGetNoteSlotData)
-const fixturesGetNoteSlotDataProvider = FixturesGetNoteSlotDataFamily();
+/// See also [fixturesMakeTestRec].
+@ProviderFor(fixturesMakeTestRec)
+const fixturesMakeTestRecProvider = FixturesMakeTestRecFamily();
 
-/// See also [fixturesGetNoteSlotData].
-class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
-  /// See also [fixturesGetNoteSlotData].
-  const FixturesGetNoteSlotDataFamily();
+/// See also [fixturesMakeTestRec].
+class FixturesMakeTestRecFamily extends Family<AsyncValue<TestRec>> {
+  /// See also [fixturesMakeTestRec].
+  const FixturesMakeTestRecFamily();
 
-  /// See also [fixturesGetNoteSlotData].
-  FixturesGetNoteSlotDataProvider call({
+  /// See also [fixturesMakeTestRec].
+  FixturesMakeTestRecProvider call({
     String origin = 'default',
-    required String noteId,
+    required String stringFld,
+    required double numFld,
+    required Map<String, double> numMap,
+    List<double>? nums,
   }) {
-    return FixturesGetNoteSlotDataProvider(
+    return FixturesMakeTestRecProvider(
       origin: origin,
-      noteId: noteId,
+      stringFld: stringFld,
+      numFld: numFld,
+      numMap: numMap,
+      nums: nums,
     );
   }
 
   @override
-  FixturesGetNoteSlotDataProvider getProviderOverride(
-    covariant FixturesGetNoteSlotDataProvider provider,
+  FixturesMakeTestRecProvider getProviderOverride(
+    covariant FixturesMakeTestRecProvider provider,
   ) {
     return call(
       origin: provider.origin,
-      noteId: provider.noteId,
+      stringFld: provider.stringFld,
+      numFld: provider.numFld,
+      numMap: provider.numMap,
+      nums: provider.nums,
     );
   }
 
@@ -1043,143 +939,62 @@ class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fixturesGetNoteSlotDataProvider';
+  String? get name => r'fixturesMakeTestRecProvider';
 }
 
-/// See also [fixturesGetNoteSlotData].
-class FixturesGetNoteSlotDataProvider
-    extends AutoDisposeFutureProvider<List<int>> {
-  /// See also [fixturesGetNoteSlotData].
-  FixturesGetNoteSlotDataProvider({
+/// See also [fixturesMakeTestRec].
+class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
+  /// See also [fixturesMakeTestRec].
+  FixturesMakeTestRecProvider({
     this.origin = 'default',
-    required this.noteId,
+    required this.stringFld,
+    required this.numFld,
+    required this.numMap,
+    this.nums,
   }) : super.internal(
-          (ref) => fixturesGetNoteSlotData(
+          (ref) => fixturesMakeTestRec(
             ref,
             origin: origin,
-            noteId: noteId,
+            stringFld: stringFld,
+            numFld: numFld,
+            numMap: numMap,
+            nums: nums,
           ),
-          from: fixturesGetNoteSlotDataProvider,
-          name: r'fixturesGetNoteSlotDataProvider',
+          from: fixturesMakeTestRecProvider,
+          name: r'fixturesMakeTestRecProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fixturesGetNoteSlotDataHash,
-          dependencies: FixturesGetNoteSlotDataFamily._dependencies,
+                  : _$fixturesMakeTestRecHash,
+          dependencies: FixturesMakeTestRecFamily._dependencies,
           allTransitiveDependencies:
-              FixturesGetNoteSlotDataFamily._allTransitiveDependencies,
+              FixturesMakeTestRecFamily._allTransitiveDependencies,
         );
 
   final String origin;
-  final String noteId;
+  final String stringFld;
+  final double numFld;
+  final Map<String, double> numMap;
+  final List<double>? nums;
 
   @override
   bool operator ==(Object other) {
-    return other is FixturesGetNoteSlotDataProvider &&
+    return other is FixturesMakeTestRecProvider &&
         other.origin == origin &&
-        other.noteId == noteId;
+        other.stringFld == stringFld &&
+        other.numFld == numFld &&
+        other.numMap == numMap &&
+        other.nums == nums;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, noteId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-String _$fixturesEchoDecimalMapHash() =>
-    r'c356bfc5c1dedc32057cd64531900c23f17da427';
-typedef FixturesEchoDecimalMapRef
-    = AutoDisposeFutureProviderRef<Map<String, double>>;
-
-/// See also [fixturesEchoDecimalMap].
-@ProviderFor(fixturesEchoDecimalMap)
-const fixturesEchoDecimalMapProvider = FixturesEchoDecimalMapFamily();
-
-/// See also [fixturesEchoDecimalMap].
-class FixturesEchoDecimalMapFamily
-    extends Family<AsyncValue<Map<String, double>>> {
-  /// See also [fixturesEchoDecimalMap].
-  const FixturesEchoDecimalMapFamily();
-
-  /// See also [fixturesEchoDecimalMap].
-  FixturesEchoDecimalMapProvider call({
-    String origin = 'default',
-    required Map<String, double> input,
-  }) {
-    return FixturesEchoDecimalMapProvider(
-      origin: origin,
-      input: input,
-    );
-  }
-
-  @override
-  FixturesEchoDecimalMapProvider getProviderOverride(
-    covariant FixturesEchoDecimalMapProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      input: provider.input,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesEchoDecimalMapProvider';
-}
-
-/// See also [fixturesEchoDecimalMap].
-class FixturesEchoDecimalMapProvider
-    extends AutoDisposeFutureProvider<Map<String, double>> {
-  /// See also [fixturesEchoDecimalMap].
-  FixturesEchoDecimalMapProvider({
-    this.origin = 'default',
-    required this.input,
-  }) : super.internal(
-          (ref) => fixturesEchoDecimalMap(
-            ref,
-            origin: origin,
-            input: input,
-          ),
-          from: fixturesEchoDecimalMapProvider,
-          name: r'fixturesEchoDecimalMapProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesEchoDecimalMapHash,
-          dependencies: FixturesEchoDecimalMapFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesEchoDecimalMapFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final Map<String, double> input;
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesEchoDecimalMapProvider &&
-        other.origin == origin &&
-        other.input == input;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, input.hashCode);
+    hash = _SystemHash.combine(hash, stringFld.hashCode);
+    hash = _SystemHash.combine(hash, numFld.hashCode);
+    hash = _SystemHash.combine(hash, numMap.hashCode);
+    hash = _SystemHash.combine(hash, nums.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -1279,6 +1094,286 @@ class FixturesEchoBoolMapProvider
   }
 }
 
+String _$fixturesEchoStringMultiMapHash() =>
+    r'b2c3e1cd54f677d5a78becbb88f48b080f3306ca';
+typedef FixturesEchoStringMultiMapRef
+    = AutoDisposeFutureProviderRef<Map<String, List<String>>>;
+
+/// See also [fixturesEchoStringMultiMap].
+@ProviderFor(fixturesEchoStringMultiMap)
+const fixturesEchoStringMultiMapProvider = FixturesEchoStringMultiMapFamily();
+
+/// See also [fixturesEchoStringMultiMap].
+class FixturesEchoStringMultiMapFamily
+    extends Family<AsyncValue<Map<String, List<String>>>> {
+  /// See also [fixturesEchoStringMultiMap].
+  const FixturesEchoStringMultiMapFamily();
+
+  /// See also [fixturesEchoStringMultiMap].
+  FixturesEchoStringMultiMapProvider call({
+    String origin = 'default',
+    required Map<String, List<String>> input,
+  }) {
+    return FixturesEchoStringMultiMapProvider(
+      origin: origin,
+      input: input,
+    );
+  }
+
+  @override
+  FixturesEchoStringMultiMapProvider getProviderOverride(
+    covariant FixturesEchoStringMultiMapProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      input: provider.input,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesEchoStringMultiMapProvider';
+}
+
+/// See also [fixturesEchoStringMultiMap].
+class FixturesEchoStringMultiMapProvider
+    extends AutoDisposeFutureProvider<Map<String, List<String>>> {
+  /// See also [fixturesEchoStringMultiMap].
+  FixturesEchoStringMultiMapProvider({
+    this.origin = 'default',
+    required this.input,
+  }) : super.internal(
+          (ref) => fixturesEchoStringMultiMap(
+            ref,
+            origin: origin,
+            input: input,
+          ),
+          from: fixturesEchoStringMultiMapProvider,
+          name: r'fixturesEchoStringMultiMapProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesEchoStringMultiMapHash,
+          dependencies: FixturesEchoStringMultiMapFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesEchoStringMultiMapFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final Map<String, List<String>> input;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesEchoStringMultiMapProvider &&
+        other.origin == origin &&
+        other.input == input;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, input.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fixturesPublicNotesHash() =>
+    r'dde4dc51353dd1622697245b624019d03be45297';
+typedef FixturesPublicNotesRef = AutoDisposeFutureProviderRef<List<Note>>;
+
+/// See also [fixturesPublicNotes].
+@ProviderFor(fixturesPublicNotes)
+const fixturesPublicNotesProvider = FixturesPublicNotesFamily();
+
+/// See also [fixturesPublicNotes].
+class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
+  /// See also [fixturesPublicNotes].
+  const FixturesPublicNotesFamily();
+
+  /// See also [fixturesPublicNotes].
+  FixturesPublicNotesProvider call({
+    String origin = 'default',
+    required String author,
+  }) {
+    return FixturesPublicNotesProvider(
+      origin: origin,
+      author: author,
+    );
+  }
+
+  @override
+  FixturesPublicNotesProvider getProviderOverride(
+    covariant FixturesPublicNotesProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      author: provider.author,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesPublicNotesProvider';
+}
+
+/// See also [fixturesPublicNotes].
+class FixturesPublicNotesProvider
+    extends AutoDisposeFutureProvider<List<Note>> {
+  /// See also [fixturesPublicNotes].
+  FixturesPublicNotesProvider({
+    this.origin = 'default',
+    required this.author,
+  }) : super.internal(
+          (ref) => fixturesPublicNotes(
+            ref,
+            origin: origin,
+            author: author,
+          ),
+          from: fixturesPublicNotesProvider,
+          name: r'fixturesPublicNotesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesPublicNotesHash,
+          dependencies: FixturesPublicNotesFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesPublicNotesFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String author;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesPublicNotesProvider &&
+        other.origin == origin &&
+        other.author == author;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, author.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$fixturesGetNoteProtoHash() =>
+    r'c6ab5fb76ea4430ddbccc66fc3c0b0c59965bdd2';
+typedef FixturesGetNoteProtoRef = AutoDisposeFutureProviderRef<String>;
+
+/// See also [fixturesGetNoteProto].
+@ProviderFor(fixturesGetNoteProto)
+const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
+
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetNoteProto].
+  const FixturesGetNoteProtoFamily();
+
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider call({
+    String origin = 'default',
+    required String noteId,
+  }) {
+    return FixturesGetNoteProtoProvider(
+      origin: origin,
+      noteId: noteId,
+    );
+  }
+
+  @override
+  FixturesGetNoteProtoProvider getProviderOverride(
+    covariant FixturesGetNoteProtoProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      noteId: provider.noteId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetNoteProtoProvider';
+}
+
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider({
+    this.origin = 'default',
+    required this.noteId,
+  }) : super.internal(
+          (ref) => fixturesGetNoteProto(
+            ref,
+            origin: origin,
+            noteId: noteId,
+          ),
+          from: fixturesGetNoteProtoProvider,
+          name: r'fixturesGetNoteProtoProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetNoteProtoHash,
+          dependencies: FixturesGetNoteProtoFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetNoteProtoFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String noteId;
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetNoteProtoProvider &&
+        other.origin == origin &&
+        other.noteId == noteId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, noteId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
 String _$fixturesPartyBundleHash() =>
     r'3eed3a97b5a717fe0656b248cc74882910ee28a2';
 typedef FixturesPartyBundleRef = AutoDisposeFutureProviderRef<PartyBundle>;
@@ -1372,7 +1467,7 @@ class FixturesPartyBundleProvider
   }
 }
 
-String _$fixtureObjectsPodHash() => r'9db7e208c813f4b7b199a5651f9105a45ad6fd47';
+String _$fixtureObjectsPodHash() => r'861e5e5c900dfdd1a420b8773d9a15f27fd4422e';
 
 abstract class _$FixtureObjectsPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

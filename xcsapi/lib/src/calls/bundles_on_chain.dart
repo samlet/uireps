@@ -128,27 +128,6 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<void> updateNote({
-    
-    required String bundleId,
-    required String content,
-    required String author, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateNote",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "content": content,
-      "author": author, 
-    });
-    
-  }
-   
-  // Mutation
   Future<String> createGood({
     
     required String name,
@@ -261,20 +240,153 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<String> createBillboard({
+  Future<void> updateNote({
     
-    required String name,
-    required String escrowId, 
+    required String bundleId,
+    required String content,
+    required String author, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "bundlesOnChain",
-      "action": "createBillboard",
+      "action": "updateNote",
       "call-type": "chain",
       "regionId": origin,
     }, {
-      "name": name,
-      "escrowId": escrowId, 
+      "bundleId": bundleId,
+      "content": content,
+      "author": author, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateCartName({
+    
+    required String bundleId,
+    required String name, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateCartName",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "name": name, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> changeBillboardFromDate({
+    
+    required String bundleId,
+    required DateTime fromDate, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "changeBillboardFromDate",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "fromDate": fromDate, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateNoteContent({
+    
+    required String bundleId,
+    required String content, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateNoteContent",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "content": content, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateCartInfo({
+    
+    required String bundleId,
+    required String info, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateCartInfo",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "info": info, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateTicketData({
+    
+    required String bundleId,
+    required List<int> data, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateTicketData",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "data": data, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateProductDescription({
+    
+    required String bundleId,
+    required String description, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateProductDescription",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "description": description, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<String> createRealm({
+    
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createRealm",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      if(regionId!=null) "regionId": regionId, 
     });
     
     return resp as String;
@@ -298,6 +410,45 @@ class BundlesOnChainRepository {
     });
     
     return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createPipeline({
+    
+    required List<int> metadata,
+    required String tag, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createPipeline",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "metadata": metadata,
+      "tag": tag, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<void> updateAccount({
+    
+    required String bundleId,
+    required String nickName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "updateAccount",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "bundleId": bundleId,
+      "nickName": nickName, 
+    });
+    
   }
    
   // Mutation
@@ -343,18 +494,116 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<String> createRealm({
+  Future<String> createWarehouse({
     
-    String? regionId='default', 
+    required String name, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": "bundlesOnChain",
-      "action": "createRealm",
+      "action": "createWarehouse",
       "call-type": "chain",
       "regionId": origin,
     }, {
-      if(regionId!=null) "regionId": regionId, 
+      "name": name, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createReference({
+    
+    required String xid,
+    required String comment, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createReference",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "xid": xid,
+      "comment": comment, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createCatalog({
+    
+    required String name, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createCatalog",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "name": name, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createQuickCart({
+    
+    required String walletId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createQuickCart",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "walletId": walletId, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createAccount({
+    
+    required String ercType,
+    required String ercId,
+    required String nickName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createAccount",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "ercType": ercType,
+      "ercId": ercId,
+      "nickName": nickName, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createBillboard({
+    
+    required String name,
+    required String escrowId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createBillboard",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "name": name,
+      "escrowId": escrowId, 
     });
     
     return resp as String;
@@ -403,42 +652,6 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<String> createWarehouse({
-    
-    required String name, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createWarehouse",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "name": name, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createCatalog({
-    
-    required String name, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createCatalog",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "name": name, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
   Future<String> createService({
     
     required String primCat,
@@ -461,507 +674,6 @@ class BundlesOnChainRepository {
       "login": login,
       "defaultPrice": defaultPrice,
       "listPrice": listPrice, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createSurvey({
-    
-    required String surveyName,
-    required String description,
-    required String submitCaption, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createSurvey",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "surveyName": surveyName,
-      "description": description,
-      "submitCaption": submitCaption, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createNonSerialInventory({
-    
-    required String facilityId,
-    required String productId,
-    required String owner,
-    required double unitCost,
-    required double quantity, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createNonSerialInventory",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "facilityId": facilityId,
-      "productId": productId,
-      "owner": owner,
-      "unitCost": unitCost,
-      "quantity": quantity, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createConfigurableProduct({
-    
-    required String name,
-    required String description,
-    required String login,
-    required String configItemId,
-    required double defaultPrice,
-    required double listPrice, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createConfigurableProduct",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "name": name,
-      "description": description,
-      "login": login,
-      "configItemId": configItemId,
-      "defaultPrice": defaultPrice,
-      "listPrice": listPrice, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createPerson({
-    
-    required String firstName,
-    required String lastName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createPerson",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "firstName": firstName,
-      "lastName": lastName, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<void> updateAccount({
-    
-    required String bundleId,
-    required String nickName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateAccount",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "nickName": nickName, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<String> createQuickCart({
-    
-    required String walletId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createQuickCart",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "walletId": walletId, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createReference({
-    
-    required String xid,
-    required String comment, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createReference",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "xid": xid,
-      "comment": comment, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createPipeline({
-    
-    required List<int> metadata,
-    required String tag, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createPipeline",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "metadata": metadata,
-      "tag": tag, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createStoreCorp({
-    
-    required String groupName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createStoreCorp",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "groupName": groupName, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createFacility({
-    
-    required String type,
-    required String name, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createFacility",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "type": type,
-      "name": name, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createAccount({
-    
-    required String ercType,
-    required String ercId,
-    required String nickName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createAccount",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "ercType": ercType,
-      "ercId": ercId,
-      "nickName": nickName, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<void> changeBillboardFromDate({
-    
-    required String bundleId,
-    required DateTime fromDate, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "changeBillboardFromDate",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "fromDate": fromDate, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateTicketData({
-    
-    required String bundleId,
-    required List<int> data, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateTicketData",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "data": data, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateCartName({
-    
-    required String bundleId,
-    required String name, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateCartName",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "name": name, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateCartInfo({
-    
-    required String bundleId,
-    required String info, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateCartInfo",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "info": info, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateProductDescription({
-    
-    required String bundleId,
-    required String description, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateProductDescription",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "description": description, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateNoteContent({
-    
-    required String bundleId,
-    required String content, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "updateNoteContent",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "bundleId": bundleId,
-      "content": content, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<String> createContent({
-    
-    required String contentName,
-    required String contentTypeId,
-    required String poster, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createContent",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "contentName": contentName,
-      "contentTypeId": contentTypeId,
-      "poster": poster, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createProductStore({
-    
-    required String name,
-    required String companyName,
-    required String title,
-    required String subtitle,
-    required String payTo,
-    required String inventoryFacilityId,
-    required String mailSubject,
-    required String mail,
-    required String facilityId,
-    required String salesRep,
-    required String keyword,
-    required String catalog, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createProductStore",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "name": name,
-      "companyName": companyName,
-      "title": title,
-      "subtitle": subtitle,
-      "payTo": payTo,
-      "inventoryFacilityId": inventoryFacilityId,
-      "mailSubject": mailSubject,
-      "mail": mail,
-      "facilityId": facilityId,
-      "salesRep": salesRep,
-      "keyword": keyword,
-      "catalog": catalog, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createProductConfigItem({
-    
-    required String itemType,
-    required String itemName,
-    required String description, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createProductConfigItem",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "itemType": itemType,
-      "itemName": itemName,
-      "description": description, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createFixedAsset({
-    
-    required String fixedAssetName,
-    required double productionCapacity, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createFixedAsset",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "fixedAssetName": fixedAssetName,
-      "productionCapacity": productionCapacity, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createProduct({
-    
-    required String type,
-    required String name,
-    required String description,
-    required double defaultPrice,
-    required double listPrice, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createProduct",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "type": type,
-      "name": name,
-      "description": description,
-      "defaultPrice": defaultPrice,
-      "listPrice": listPrice, 
-    });
-    
-    return resp as String;
-  }
-   
-  // Mutation
-  Future<String> createInteractBox({
-    
-    required List<int> content,
-    required String assigner,
-    required String responser,
-    required DateTime dueTime, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "bundlesOnChain",
-      "action": "createInteractBox",
-      "call-type": "chain",
-      "regionId": origin,
-    }, {
-      "content": content,
-      "assigner": assigner,
-      "responser": responser,
-      "dueTime": dueTime, 
     });
     
     return resp as String;
@@ -1032,6 +744,160 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
+  Future<String> createProductStore({
+    
+    required String name,
+    required String companyName,
+    required String title,
+    required String subtitle,
+    required String payTo,
+    required String inventoryFacilityId,
+    required String mailSubject,
+    required String mail,
+    required String facilityId,
+    required String salesRep,
+    required String keyword,
+    required String catalog, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createProductStore",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "name": name,
+      "companyName": companyName,
+      "title": title,
+      "subtitle": subtitle,
+      "payTo": payTo,
+      "inventoryFacilityId": inventoryFacilityId,
+      "mailSubject": mailSubject,
+      "mail": mail,
+      "facilityId": facilityId,
+      "salesRep": salesRep,
+      "keyword": keyword,
+      "catalog": catalog, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createInteractBox({
+    
+    required List<int> content,
+    required String assigner,
+    required String responser,
+    required DateTime dueTime, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createInteractBox",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "content": content,
+      "assigner": assigner,
+      "responser": responser,
+      "dueTime": dueTime, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createContent({
+    
+    required String contentName,
+    required String contentTypeId,
+    required String poster, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createContent",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "contentName": contentName,
+      "contentTypeId": contentTypeId,
+      "poster": poster, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createFixedAsset({
+    
+    required String fixedAssetName,
+    required double productionCapacity, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createFixedAsset",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "fixedAssetName": fixedAssetName,
+      "productionCapacity": productionCapacity, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createProductConfigItem({
+    
+    required String itemType,
+    required String itemName,
+    required String description, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createProductConfigItem",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "itemType": itemType,
+      "itemName": itemName,
+      "description": description, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createProduct({
+    
+    required String type,
+    required String name,
+    required String description,
+    required double defaultPrice,
+    required double listPrice, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createProduct",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "type": type,
+      "name": name,
+      "description": description,
+      "defaultPrice": defaultPrice,
+      "listPrice": listPrice, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
   Future<String> createCategory({
     
     required String description,
@@ -1048,6 +914,26 @@ class BundlesOnChainRepository {
       "description": description,
       "longDescription": longDescription,
       "parentCat": parentCat, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createCustomer({
+    
+    required String firstName,
+    required String lastName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createCustomer",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "firstName": firstName,
+      "lastName": lastName, 
     });
     
     return resp as String;
@@ -1078,7 +964,121 @@ class BundlesOnChainRepository {
   }
    
   // Mutation
-  Future<String> createCustomer({
+  Future<String> createConfigurableProduct({
+    
+    required String name,
+    required String description,
+    required String login,
+    required String configItemId,
+    required double defaultPrice,
+    required double listPrice, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createConfigurableProduct",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "name": name,
+      "description": description,
+      "login": login,
+      "configItemId": configItemId,
+      "defaultPrice": defaultPrice,
+      "listPrice": listPrice, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createStoreCorp({
+    
+    required String groupName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createStoreCorp",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "groupName": groupName, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createSurvey({
+    
+    required String surveyName,
+    required String description,
+    required String submitCaption, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createSurvey",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "surveyName": surveyName,
+      "description": description,
+      "submitCaption": submitCaption, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createNonSerialInventory({
+    
+    required String facilityId,
+    required String productId,
+    required String owner,
+    required double unitCost,
+    required double quantity, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createNonSerialInventory",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "facilityId": facilityId,
+      "productId": productId,
+      "owner": owner,
+      "unitCost": unitCost,
+      "quantity": quantity, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createFacility({
+    
+    required String type,
+    required String name, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "bundlesOnChain",
+      "action": "createFacility",
+      "call-type": "chain",
+      "regionId": origin,
+    }, {
+      "type": type,
+      "name": name, 
+    });
+    
+    return resp as String;
+  }
+   
+  // Mutation
+  Future<String> createPerson({
     
     required String firstName,
     required String lastName, 
@@ -1086,7 +1086,7 @@ class BundlesOnChainRepository {
   }) async { 
     var resp = await performCall(dio, {
       "module": "bundlesOnChain",
-      "action": "createCustomer",
+      "action": "createPerson",
       "call-type": "chain",
       "regionId": origin,
     }, {

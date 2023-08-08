@@ -7,7 +7,7 @@ part of 'store_crowd_funding_cube.dart';
 // **************************************************************************
 
 String _$storeCrowdFundingCubeHash() =>
-    r'8952ef58e570f3cb4ea6778ef82a2e203edac012';
+    r'5f3028ad5564c40041791af2b84153ac9e602064';
 
 /// Copied from Dart SDK
 class _SystemHash {

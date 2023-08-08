@@ -17,6 +17,7 @@ dependencies:
   recase: ^4.0.0
   slugid: ^1.1.0
   tuple: ^2.0.0
+  quiver: ^3.2.1
   decimal: ^2.2.0
   duration: ^3.0.11
   intl: ^0.18.0

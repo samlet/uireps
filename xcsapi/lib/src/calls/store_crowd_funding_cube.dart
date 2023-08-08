@@ -38,23 +38,23 @@ class StoreCrowdFundingCube extends _$StoreCrowdFundingCube {
     ref.invalidateSelf();
   }
   
-  Future<void> addSubscriber({
-    
-    required String partyId, 
-
-  }) async { 
-    await ref.read(storeCrowdFundingProvider(origin: origin, id: id)).addSubscriber(
-      partyId: partyId,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> removeSubscriber({
     
     required String partyId, 
 
   }) async { 
     await ref.read(storeCrowdFundingProvider(origin: origin, id: id)).removeSubscriber(
+      partyId: partyId,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addSubscriber({
+    
+    required String partyId, 
+
+  }) async { 
+    await ref.read(storeCrowdFundingProvider(origin: origin, id: id)).addSubscriber(
       partyId: partyId,
     );
     ref.invalidateSelf();

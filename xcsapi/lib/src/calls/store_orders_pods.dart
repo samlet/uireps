@@ -55,19 +55,6 @@ class StoreOrdersPod extends _$StoreOrdersPod {
     return state.hasError == false;
   }
   
-  Future<bool> addSubscriber({
-    
-    required String partyId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(storeOrdersProvider(origin: origin, id: id)).addSubscriber(
-              partyId: partyId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> removeSubscriber({
     
     required String partyId, 
@@ -76,6 +63,19 @@ class StoreOrdersPod extends _$StoreOrdersPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(storeOrdersProvider(origin: origin, id: id)).removeSubscriber(
+              partyId: partyId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addSubscriber({
+    
+    required String partyId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(storeOrdersProvider(origin: origin, id: id)).addSubscriber(
               partyId: partyId,
             ));
     return state.hasError == false;

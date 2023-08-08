@@ -64,23 +64,23 @@ class CrowdsourceCarriersCube extends _$CrowdsourceCarriersCube {
     ref.invalidateSelf();
   }
   
-  Future<void> addSubscriber({
-    
-    required String partyId, 
-
-  }) async { 
-    await ref.read(crowdsourceCarriersProvider(origin: origin, id: id)).addSubscriber(
-      partyId: partyId,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> removeSubscriber({
     
     required String partyId, 
 
   }) async { 
     await ref.read(crowdsourceCarriersProvider(origin: origin, id: id)).removeSubscriber(
+      partyId: partyId,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addSubscriber({
+    
+    required String partyId, 
+
+  }) async { 
+    await ref.read(crowdsourceCarriersProvider(origin: origin, id: id)).addSubscriber(
       partyId: partyId,
     );
     ref.invalidateSelf();

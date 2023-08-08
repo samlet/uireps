@@ -103,32 +103,6 @@ class DigitalStorePalCube extends _$DigitalStorePalCube {
     ref.invalidateSelf();
   }
   
-  Future<void> buyerConfirm({
-    
-    required String pl,
-    required String walletId, 
-
-  }) async { 
-    await ref.read(digitalStorePalProvider(origin: origin, id: id)).buyerConfirm(
-      pl: pl,
-      walletId: walletId,
-    );
-    ref.invalidate(loadDigitalStoreProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> setStoreData({
-    
-    required List<int> blob, 
-
-  }) async { 
-    await ref.read(digitalStorePalProvider(origin: origin, id: id)).setStoreData(
-      blob: blob,
-    );
-    ref.invalidate(loadDigitalStoreProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
   Future<void> executeTradeSaga({
     
     required String buyer,
@@ -152,6 +126,32 @@ class DigitalStorePalCube extends _$DigitalStorePalCube {
     await ref.read(digitalStorePalProvider(origin: origin, id: id)).cancelTrade(
       caller: caller,
       tradeId: tradeId,
+    );
+    ref.invalidate(loadDigitalStoreProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> setStoreData({
+    
+    required List<int> blob, 
+
+  }) async { 
+    await ref.read(digitalStorePalProvider(origin: origin, id: id)).setStoreData(
+      blob: blob,
+    );
+    ref.invalidate(loadDigitalStoreProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> buyerConfirm({
+    
+    required String pl,
+    required String walletId, 
+
+  }) async { 
+    await ref.read(digitalStorePalProvider(origin: origin, id: id)).buyerConfirm(
+      pl: pl,
+      walletId: walletId,
     );
     ref.invalidate(loadDigitalStoreProvider(bundleId: id));
     ref.invalidateSelf();

@@ -42,19 +42,6 @@ class NoteCoPod extends _$NoteCoPod {
     return state.hasError == false;
   }
   
-  Future<bool> setContentComp({
-    
-    required String cnt, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(origin: origin, id: id)).setContentComp(
-              cnt: cnt,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> attachToWorkEffort({
     
     required String workEffId, 
@@ -77,6 +64,19 @@ class NoteCoPod extends _$NoteCoPod {
     state = await AsyncValue.guard(
         () => ref.read(noteCoProvider(origin: origin, id: id)).attachToParty(
               partyId: partyId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> setContentComp({
+    
+    required String cnt, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(noteCoProvider(origin: origin, id: id)).setContentComp(
+              cnt: cnt,
             ));
     return state.hasError == false;
   }
@@ -146,20 +146,6 @@ Future<DecimalMap> noteGetDecimals(NoteGetDecimalsRef ref, {
 }
 
 @riverpod
-Future<ValueData> noteGetSlotValue(NoteGetSlotValueRef ref, {
-  String origin='default',
-  required String id,
-  
-    required String slotName, 
-
-}) async {
-  var pod=ref.watch(noteCoProvider(origin: origin, id: id));
-  return await pod.getSlotValue(
-      slotName: slotName,
-  );
-}
-
-@riverpod
 Future<bool> noteHasSlotValue(NoteHasSlotValueRef ref, {
   String origin='default',
   required String id,
@@ -169,6 +155,20 @@ Future<bool> noteHasSlotValue(NoteHasSlotValueRef ref, {
 }) async {
   var pod=ref.watch(noteCoProvider(origin: origin, id: id));
   return await pod.hasSlotValue(
+      slotName: slotName,
+  );
+}
+
+@riverpod
+Future<ValueData> noteGetSlotValue(NoteGetSlotValueRef ref, {
+  String origin='default',
+  required String id,
+  
+    required String slotName, 
+
+}) async {
+  var pod=ref.watch(noteCoProvider(origin: origin, id: id));
+  return await pod.getSlotValue(
       slotName: slotName,
   );
 }

@@ -7,7 +7,7 @@ part of 'digital_store_pal_cube.dart';
 // **************************************************************************
 
 String _$digitalStorePalCubeHash() =>
-    r'6b5ad2925a4427fec77e33d0cb37e0930c11cb56';
+    r'6bbcb669189b1f9e69a880355090e8cdb64b15f8';
 
 /// Copied from Dart SDK
 class _SystemHash {

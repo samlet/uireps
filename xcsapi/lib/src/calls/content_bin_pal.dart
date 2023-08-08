@@ -1,6 +1,8 @@
 import 'package:xcsproto/xcsproto.dart';
-import '../../xcmodels.dart';
-import '../../xcsapi.dart';
+// import '../../xcmodels.dart';
+// import '../../xcsapi.dart';
+import 'package:xcsapi/xcmodels.dart';
+import 'package:xcsapi/xcsapi.dart';
 import 'calls.dart';
 
 class ContentBinPalRepository {
@@ -33,24 +35,6 @@ class ContentBinPalRepository {
     return Content.fromJson(resp);
   }
    
-  // Mutation
-  Future<void> charge({
-    
-    required String post, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "contentBinPal",
-      "action": "charge",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "post": post, 
-    });
-    
-  }
-   
   // Query
   Future<bool> isCharged({
     
@@ -68,6 +52,24 @@ class ContentBinPalRepository {
     });
     
     return bool.parse(resp as String);
+  }
+   
+  // Mutation
+  Future<void> charge({
+    
+    required String post, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "contentBinPal",
+      "action": "charge",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "post": post, 
+    });
+    
   }
    
   // Query

@@ -504,7 +504,7 @@ class CrowdFundingCoGetDecimalsProvider
   }
 }
 
-String _$crowdFundingCoPodHash() => r'99eaa94a0e5eadc741ba5ea0984c273999e8fe4b';
+String _$crowdFundingCoPodHash() => r'b5ee1c0acedb8d5bef426b1153a930ab7d6397ce';
 
 abstract class _$CrowdFundingCoPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

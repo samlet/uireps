@@ -43,26 +43,6 @@ class WebSiteCoRepository {
   }
    
   // Mutation
-  Future<void> updateHttpUrl({
-    
-    required String host,
-    required int port, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "webSiteCo",
-      "action": "updateHttpUrl",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "host": host,
-      "port": port, 
-    });
-    
-  }
-   
-  // Mutation
   Future<void> updateHttpsUrl({
     
     required String host,
@@ -96,6 +76,26 @@ class WebSiteCoRepository {
       "id": id,
     }, {
       "name": name, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> updateHttpUrl({
+    
+    required String host,
+    required int port, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "webSiteCo",
+      "action": "updateHttpUrl",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "host": host,
+      "port": port, 
     });
     
   }

@@ -99,6 +99,25 @@ class DigitalStorePalRepository {
     return bool.parse(resp as String);
   }
    
+  // Query
+  Future<DigitalAssetTrade> getTradeSync({
+    
+    required String tradeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "digitalStorePal",
+      "action": "getTradeSync",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "tradeId": tradeId, 
+    });
+    
+    return DigitalAssetTrade.fromJson(resp);
+  }
+   
   // Mutation
   Future<bool> executeTradeWithPrice({
     
@@ -124,25 +143,6 @@ class DigitalStorePalRepository {
     return bool.parse(resp as String);
   }
    
-  // Query
-  Future<DigitalAssetTrade> getTradeSync({
-    
-    required String tradeId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "digitalStorePal",
-      "action": "getTradeSync",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "tradeId": tradeId, 
-    });
-    
-    return DigitalAssetTrade.fromJson(resp);
-  }
-   
   // Mutation
   Future<bool> executeTrade({
     
@@ -161,63 +161,6 @@ class DigitalStorePalRepository {
       "pl": pl,
       "buyer": buyer,
       "tradeId": tradeId, 
-    });
-    
-    return bool.parse(resp as String);
-  }
-   
-  // Mutation
-  Future<void> buyerConfirm({
-    
-    required String pl,
-    required String walletId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "digitalStorePal",
-      "action": "buyerConfirm",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "pl": pl,
-      "walletId": walletId, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> setStoreData({
-    
-    required List<int> blob, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "digitalStorePal",
-      "action": "setStoreData",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "blob": blob, 
-    });
-    
-  }
-   
-  // Query
-  Future<bool> reviewConfirm({
-    
-    required String pl, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "digitalStorePal",
-      "action": "reviewConfirm",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "pl": pl, 
     });
     
     return bool.parse(resp as String);
@@ -264,6 +207,63 @@ class DigitalStorePalRepository {
     
   }
    
+  // Mutation
+  Future<void> setStoreData({
+    
+    required List<int> blob, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "digitalStorePal",
+      "action": "setStoreData",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "blob": blob, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> buyerConfirm({
+    
+    required String pl,
+    required String walletId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "digitalStorePal",
+      "action": "buyerConfirm",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "pl": pl,
+      "walletId": walletId, 
+    });
+    
+  }
+   
+  // Query
+  Future<bool> reviewConfirm({
+    
+    required String pl, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "digitalStorePal",
+      "action": "reviewConfirm",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "pl": pl, 
+    });
+    
+    return bool.parse(resp as String);
+  }
+   
   // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
@@ -297,25 +297,6 @@ class DigitalStorePalRepository {
   }
    
   // Query
-  Future<ValueData> getSlotValue({
-    
-    required String slotName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "digitalStorePal",
-      "action": "getSlotValue",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "slotName": slotName, 
-    });
-    
-    return ValueData()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
   Future<bool> hasSlotValue({
     
     required String slotName, 
@@ -332,6 +313,25 @@ class DigitalStorePalRepository {
     });
     
     return bool.parse(resp as String);
+  }
+   
+  // Query
+  Future<ValueData> getSlotValue({
+    
+    required String slotName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "digitalStorePal",
+      "action": "getSlotValue",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "slotName": slotName, 
+    });
+    
+    return ValueData()..mergeFromProto3Json(resp);
   }
   
 }

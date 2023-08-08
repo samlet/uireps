@@ -74,19 +74,6 @@ class CrowdsourceCarriersPod extends _$CrowdsourceCarriersPod {
     return state.hasError == false;
   }
   
-  Future<bool> addSubscriber({
-    
-    required String partyId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(crowdsourceCarriersProvider(origin: origin, id: id)).addSubscriber(
-              partyId: partyId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> removeSubscriber({
     
     required String partyId, 
@@ -95,6 +82,19 @@ class CrowdsourceCarriersPod extends _$CrowdsourceCarriersPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(crowdsourceCarriersProvider(origin: origin, id: id)).removeSubscriber(
+              partyId: partyId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addSubscriber({
+    
+    required String partyId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(crowdsourceCarriersProvider(origin: origin, id: id)).addSubscriber(
               partyId: partyId,
             ));
     return state.hasError == false;

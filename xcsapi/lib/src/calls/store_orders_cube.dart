@@ -45,23 +45,23 @@ class StoreOrdersCube extends _$StoreOrdersCube {
     ref.invalidateSelf();
   }
   
-  Future<void> addSubscriber({
-    
-    required String partyId, 
-
-  }) async { 
-    await ref.read(storeOrdersProvider(origin: origin, id: id)).addSubscriber(
-      partyId: partyId,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> removeSubscriber({
     
     required String partyId, 
 
   }) async { 
     await ref.read(storeOrdersProvider(origin: origin, id: id)).removeSubscriber(
+      partyId: partyId,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addSubscriber({
+    
+    required String partyId, 
+
+  }) async { 
+    await ref.read(storeOrdersProvider(origin: origin, id: id)).addSubscriber(
       partyId: partyId,
     );
     ref.invalidateSelf();

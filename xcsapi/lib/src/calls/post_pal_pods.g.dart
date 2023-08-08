@@ -389,6 +389,187 @@ class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+String _$postIsLikedHash() => r'5984cc916c0183c6ed3d0b56eb99fe0ad15c8835';
+typedef PostIsLikedRef = AutoDisposeFutureProviderRef<bool>;
+
+/// See also [postIsLiked].
+@ProviderFor(postIsLiked)
+const postIsLikedProvider = PostIsLikedFamily();
+
+/// See also [postIsLiked].
+class PostIsLikedFamily extends Family<AsyncValue<bool>> {
+  /// See also [postIsLiked].
+  const PostIsLikedFamily();
+
+  /// See also [postIsLiked].
+  PostIsLikedProvider call({
+    String origin = 'default',
+    required String id,
+  }) {
+    return PostIsLikedProvider(
+      origin: origin,
+      id: id,
+    );
+  }
+
+  @override
+  PostIsLikedProvider getProviderOverride(
+    covariant PostIsLikedProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'postIsLikedProvider';
+}
+
+/// See also [postIsLiked].
+class PostIsLikedProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [postIsLiked].
+  PostIsLikedProvider({
+    this.origin = 'default',
+    required this.id,
+  }) : super.internal(
+          (ref) => postIsLiked(
+            ref,
+            origin: origin,
+            id: id,
+          ),
+          from: postIsLikedProvider,
+          name: r'postIsLikedProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$postIsLikedHash,
+          dependencies: PostIsLikedFamily._dependencies,
+          allTransitiveDependencies:
+              PostIsLikedFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+
+  @override
+  bool operator ==(Object other) {
+    return other is PostIsLikedProvider &&
+        other.origin == origin &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$postLikesHash() => r'f93798f4bb1a475944f56b029b6c64f59d361450';
+typedef PostLikesRef = AutoDisposeFutureProviderRef<double>;
+
+/// See also [postLikes].
+@ProviderFor(postLikes)
+const postLikesProvider = PostLikesFamily();
+
+/// See also [postLikes].
+class PostLikesFamily extends Family<AsyncValue<double>> {
+  /// See also [postLikes].
+  const PostLikesFamily();
+
+  /// See also [postLikes].
+  PostLikesProvider call({
+    String origin = 'default',
+    required String id,
+  }) {
+    return PostLikesProvider(
+      origin: origin,
+      id: id,
+    );
+  }
+
+  @override
+  PostLikesProvider getProviderOverride(
+    covariant PostLikesProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'postLikesProvider';
+}
+
+/// See also [postLikes].
+class PostLikesProvider extends AutoDisposeFutureProvider<double> {
+  /// See also [postLikes].
+  PostLikesProvider({
+    this.origin = 'default',
+    required this.id,
+  }) : super.internal(
+          (ref) => postLikes(
+            ref,
+            origin: origin,
+            id: id,
+          ),
+          from: postLikesProvider,
+          name: r'postLikesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$postLikesHash,
+          dependencies: PostLikesFamily._dependencies,
+          allTransitiveDependencies: PostLikesFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+
+  @override
+  bool operator ==(Object other) {
+    return other is PostLikesProvider &&
+        other.origin == origin &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
 String _$postFetchHash() => r'faa72f148cd7a41bbf52b80dcc3dc22deb3582b7';
 typedef PostFetchRef = AutoDisposeFutureProviderRef<PostBundle>;
 
@@ -572,33 +753,35 @@ class PostGetCommentSyncsProvider
   }
 }
 
-String _$postGetContentSlotHash() =>
-    r'abebdb926fad0bf7bc55e3647945b4c6c7ec4807';
-typedef PostGetContentSlotRef = AutoDisposeFutureProviderRef<BuffersData>;
+String _$postPersistSlotsExistentHash() =>
+    r'b4b6b43b23d1703e4999f6f37589f54de24b08f5';
+typedef PostPersistSlotsExistentRef
+    = AutoDisposeFutureProviderRef<Map<String, bool>>;
 
-/// See also [postGetContentSlot].
-@ProviderFor(postGetContentSlot)
-const postGetContentSlotProvider = PostGetContentSlotFamily();
+/// See also [postPersistSlotsExistent].
+@ProviderFor(postPersistSlotsExistent)
+const postPersistSlotsExistentProvider = PostPersistSlotsExistentFamily();
 
-/// See also [postGetContentSlot].
-class PostGetContentSlotFamily extends Family<AsyncValue<BuffersData>> {
-  /// See also [postGetContentSlot].
-  const PostGetContentSlotFamily();
+/// See also [postPersistSlotsExistent].
+class PostPersistSlotsExistentFamily
+    extends Family<AsyncValue<Map<String, bool>>> {
+  /// See also [postPersistSlotsExistent].
+  const PostPersistSlotsExistentFamily();
 
-  /// See also [postGetContentSlot].
-  PostGetContentSlotProvider call({
+  /// See also [postPersistSlotsExistent].
+  PostPersistSlotsExistentProvider call({
     String origin = 'default',
     required String id,
   }) {
-    return PostGetContentSlotProvider(
+    return PostPersistSlotsExistentProvider(
       origin: origin,
       id: id,
     );
   }
 
   @override
-  PostGetContentSlotProvider getProviderOverride(
-    covariant PostGetContentSlotProvider provider,
+  PostPersistSlotsExistentProvider getProviderOverride(
+    covariant PostPersistSlotsExistentProvider provider,
   ) {
     return call(
       origin: provider.origin,
@@ -618,31 +801,31 @@ class PostGetContentSlotFamily extends Family<AsyncValue<BuffersData>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postGetContentSlotProvider';
+  String? get name => r'postPersistSlotsExistentProvider';
 }
 
-/// See also [postGetContentSlot].
-class PostGetContentSlotProvider
-    extends AutoDisposeFutureProvider<BuffersData> {
-  /// See also [postGetContentSlot].
-  PostGetContentSlotProvider({
+/// See also [postPersistSlotsExistent].
+class PostPersistSlotsExistentProvider
+    extends AutoDisposeFutureProvider<Map<String, bool>> {
+  /// See also [postPersistSlotsExistent].
+  PostPersistSlotsExistentProvider({
     this.origin = 'default',
     required this.id,
   }) : super.internal(
-          (ref) => postGetContentSlot(
+          (ref) => postPersistSlotsExistent(
             ref,
             origin: origin,
             id: id,
           ),
-          from: postGetContentSlotProvider,
-          name: r'postGetContentSlotProvider',
+          from: postPersistSlotsExistentProvider,
+          name: r'postPersistSlotsExistentProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postGetContentSlotHash,
-          dependencies: PostGetContentSlotFamily._dependencies,
+                  : _$postPersistSlotsExistentHash,
+          dependencies: PostPersistSlotsExistentFamily._dependencies,
           allTransitiveDependencies:
-              PostGetContentSlotFamily._allTransitiveDependencies,
+              PostPersistSlotsExistentFamily._allTransitiveDependencies,
         );
 
   final String origin;
@@ -650,7 +833,7 @@ class PostGetContentSlotProvider
 
   @override
   bool operator ==(Object other) {
-    return other is PostGetContentSlotProvider &&
+    return other is PostPersistSlotsExistentProvider &&
         other.origin == origin &&
         other.id == id;
   }
@@ -758,35 +941,33 @@ class PostPersistSlotValuesProvider
   }
 }
 
-String _$postPersistSlotsExistentHash() =>
-    r'b4b6b43b23d1703e4999f6f37589f54de24b08f5';
-typedef PostPersistSlotsExistentRef
-    = AutoDisposeFutureProviderRef<Map<String, bool>>;
+String _$postGetContentSlotHash() =>
+    r'abebdb926fad0bf7bc55e3647945b4c6c7ec4807';
+typedef PostGetContentSlotRef = AutoDisposeFutureProviderRef<BuffersData>;
 
-/// See also [postPersistSlotsExistent].
-@ProviderFor(postPersistSlotsExistent)
-const postPersistSlotsExistentProvider = PostPersistSlotsExistentFamily();
+/// See also [postGetContentSlot].
+@ProviderFor(postGetContentSlot)
+const postGetContentSlotProvider = PostGetContentSlotFamily();
 
-/// See also [postPersistSlotsExistent].
-class PostPersistSlotsExistentFamily
-    extends Family<AsyncValue<Map<String, bool>>> {
-  /// See also [postPersistSlotsExistent].
-  const PostPersistSlotsExistentFamily();
+/// See also [postGetContentSlot].
+class PostGetContentSlotFamily extends Family<AsyncValue<BuffersData>> {
+  /// See also [postGetContentSlot].
+  const PostGetContentSlotFamily();
 
-  /// See also [postPersistSlotsExistent].
-  PostPersistSlotsExistentProvider call({
+  /// See also [postGetContentSlot].
+  PostGetContentSlotProvider call({
     String origin = 'default',
     required String id,
   }) {
-    return PostPersistSlotsExistentProvider(
+    return PostGetContentSlotProvider(
       origin: origin,
       id: id,
     );
   }
 
   @override
-  PostPersistSlotsExistentProvider getProviderOverride(
-    covariant PostPersistSlotsExistentProvider provider,
+  PostGetContentSlotProvider getProviderOverride(
+    covariant PostGetContentSlotProvider provider,
   ) {
     return call(
       origin: provider.origin,
@@ -806,31 +987,31 @@ class PostPersistSlotsExistentFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postPersistSlotsExistentProvider';
+  String? get name => r'postGetContentSlotProvider';
 }
 
-/// See also [postPersistSlotsExistent].
-class PostPersistSlotsExistentProvider
-    extends AutoDisposeFutureProvider<Map<String, bool>> {
-  /// See also [postPersistSlotsExistent].
-  PostPersistSlotsExistentProvider({
+/// See also [postGetContentSlot].
+class PostGetContentSlotProvider
+    extends AutoDisposeFutureProvider<BuffersData> {
+  /// See also [postGetContentSlot].
+  PostGetContentSlotProvider({
     this.origin = 'default',
     required this.id,
   }) : super.internal(
-          (ref) => postPersistSlotsExistent(
+          (ref) => postGetContentSlot(
             ref,
             origin: origin,
             id: id,
           ),
-          from: postPersistSlotsExistentProvider,
-          name: r'postPersistSlotsExistentProvider',
+          from: postGetContentSlotProvider,
+          name: r'postGetContentSlotProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postPersistSlotsExistentHash,
-          dependencies: PostPersistSlotsExistentFamily._dependencies,
+                  : _$postGetContentSlotHash,
+          dependencies: PostGetContentSlotFamily._dependencies,
           allTransitiveDependencies:
-              PostPersistSlotsExistentFamily._allTransitiveDependencies,
+              PostGetContentSlotFamily._allTransitiveDependencies,
         );
 
   final String origin;
@@ -838,7 +1019,7 @@ class PostPersistSlotsExistentProvider
 
   @override
   bool operator ==(Object other) {
-    return other is PostPersistSlotsExistentProvider &&
+    return other is PostGetContentSlotProvider &&
         other.origin == origin &&
         other.id == id;
   }
@@ -944,105 +1125,6 @@ class PostGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
-String _$postGetSlotValueHash() => r'd53383e2da02ab516df3bad703a1230e9b28dca2';
-typedef PostGetSlotValueRef = AutoDisposeFutureProviderRef<ValueData>;
-
-/// See also [postGetSlotValue].
-@ProviderFor(postGetSlotValue)
-const postGetSlotValueProvider = PostGetSlotValueFamily();
-
-/// See also [postGetSlotValue].
-class PostGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
-  /// See also [postGetSlotValue].
-  const PostGetSlotValueFamily();
-
-  /// See also [postGetSlotValue].
-  PostGetSlotValueProvider call({
-    String origin = 'default',
-    required String id,
-    required String slotName,
-  }) {
-    return PostGetSlotValueProvider(
-      origin: origin,
-      id: id,
-      slotName: slotName,
-    );
-  }
-
-  @override
-  PostGetSlotValueProvider getProviderOverride(
-    covariant PostGetSlotValueProvider provider,
-  ) {
-    return call(
-      origin: provider.origin,
-      id: provider.id,
-      slotName: provider.slotName,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'postGetSlotValueProvider';
-}
-
-/// See also [postGetSlotValue].
-class PostGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
-  /// See also [postGetSlotValue].
-  PostGetSlotValueProvider({
-    this.origin = 'default',
-    required this.id,
-    required this.slotName,
-  }) : super.internal(
-          (ref) => postGetSlotValue(
-            ref,
-            origin: origin,
-            id: id,
-            slotName: slotName,
-          ),
-          from: postGetSlotValueProvider,
-          name: r'postGetSlotValueProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$postGetSlotValueHash,
-          dependencies: PostGetSlotValueFamily._dependencies,
-          allTransitiveDependencies:
-              PostGetSlotValueFamily._allTransitiveDependencies,
-        );
-
-  final String origin;
-  final String id;
-  final String slotName;
-
-  @override
-  bool operator ==(Object other) {
-    return other is PostGetSlotValueProvider &&
-        other.origin == origin &&
-        other.id == id &&
-        other.slotName == slotName;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, origin.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-    hash = _SystemHash.combine(hash, slotName.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
 String _$postHasSlotValueHash() => r'be2384698c5796d4572b71d5f494a623c4cb6c73';
 typedef PostHasSlotValueRef = AutoDisposeFutureProviderRef<bool>;
 
@@ -1142,7 +1224,106 @@ class PostHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
-String _$postPalPodHash() => r'4eaa9ce1414bb1813475e6f65122549f3442e4a3';
+String _$postGetSlotValueHash() => r'd53383e2da02ab516df3bad703a1230e9b28dca2';
+typedef PostGetSlotValueRef = AutoDisposeFutureProviderRef<ValueData>;
+
+/// See also [postGetSlotValue].
+@ProviderFor(postGetSlotValue)
+const postGetSlotValueProvider = PostGetSlotValueFamily();
+
+/// See also [postGetSlotValue].
+class PostGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
+  /// See also [postGetSlotValue].
+  const PostGetSlotValueFamily();
+
+  /// See also [postGetSlotValue].
+  PostGetSlotValueProvider call({
+    String origin = 'default',
+    required String id,
+    required String slotName,
+  }) {
+    return PostGetSlotValueProvider(
+      origin: origin,
+      id: id,
+      slotName: slotName,
+    );
+  }
+
+  @override
+  PostGetSlotValueProvider getProviderOverride(
+    covariant PostGetSlotValueProvider provider,
+  ) {
+    return call(
+      origin: provider.origin,
+      id: provider.id,
+      slotName: provider.slotName,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'postGetSlotValueProvider';
+}
+
+/// See also [postGetSlotValue].
+class PostGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
+  /// See also [postGetSlotValue].
+  PostGetSlotValueProvider({
+    this.origin = 'default',
+    required this.id,
+    required this.slotName,
+  }) : super.internal(
+          (ref) => postGetSlotValue(
+            ref,
+            origin: origin,
+            id: id,
+            slotName: slotName,
+          ),
+          from: postGetSlotValueProvider,
+          name: r'postGetSlotValueProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$postGetSlotValueHash,
+          dependencies: PostGetSlotValueFamily._dependencies,
+          allTransitiveDependencies:
+              PostGetSlotValueFamily._allTransitiveDependencies,
+        );
+
+  final String origin;
+  final String id;
+  final String slotName;
+
+  @override
+  bool operator ==(Object other) {
+    return other is PostGetSlotValueProvider &&
+        other.origin == origin &&
+        other.id == id &&
+        other.slotName == slotName;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, origin.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, slotName.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+String _$postPalPodHash() => r'46b5f1cc3a73bdf4e036bb9f5ca871c981b4551a';
 
 abstract class _$PostPalPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String origin;

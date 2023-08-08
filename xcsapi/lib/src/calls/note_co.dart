@@ -75,24 +75,6 @@ class NoteCoRepository {
   }
    
   // Mutation
-  Future<void> setContentComp({
-    
-    required String cnt, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "noteCo",
-      "action": "setContentComp",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "cnt": cnt, 
-    });
-    
-  }
-   
-  // Mutation
   Future<void> attachToWorkEffort({
     
     required String workEffId, 
@@ -124,6 +106,24 @@ class NoteCoRepository {
       "id": id,
     }, {
       "partyId": partyId, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> setContentComp({
+    
+    required String cnt, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "noteCo",
+      "action": "setContentComp",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "cnt": cnt, 
     });
     
   }
@@ -174,25 +174,6 @@ class NoteCoRepository {
   }
    
   // Query
-  Future<ValueData> getSlotValue({
-    
-    required String slotName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "noteCo",
-      "action": "getSlotValue",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "slotName": slotName, 
-    });
-    
-    return ValueData()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
   Future<bool> hasSlotValue({
     
     required String slotName, 
@@ -209,6 +190,25 @@ class NoteCoRepository {
     });
     
     return bool.parse(resp as String);
+  }
+   
+  // Query
+  Future<ValueData> getSlotValue({
+    
+    required String slotName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "noteCo",
+      "action": "getSlotValue",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "slotName": slotName, 
+    });
+    
+    return ValueData()..mergeFromProto3Json(resp);
   }
   
 }

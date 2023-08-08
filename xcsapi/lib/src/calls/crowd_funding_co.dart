@@ -118,25 +118,6 @@ class CrowdFundingCoRepository {
   }
    
   // Mutation
-  Future<bool> checkGoalReached({
-    
-    required String campaignId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "crowdFundingCo",
-      "action": "checkGoalReached",
-      "call-type": "co",
-      "regionId": origin,
-      "id": id,
-    }, {
-      "campaignId": campaignId, 
-    });
-    
-    return bool.parse(resp as String);
-  }
-   
-  // Mutation
   Future<String> newCampaign({
     
     required String beneficiary,
@@ -155,6 +136,25 @@ class CrowdFundingCoRepository {
     });
     
     return resp as String;
+  }
+   
+  // Mutation
+  Future<bool> checkGoalReached({
+    
+    required String campaignId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "crowdFundingCo",
+      "action": "checkGoalReached",
+      "call-type": "co",
+      "regionId": origin,
+      "id": id,
+    }, {
+      "campaignId": campaignId, 
+    });
+    
+    return bool.parse(resp as String);
   }
    
   // Query
