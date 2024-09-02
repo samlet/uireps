@@ -14,7 +14,7 @@ dependencies:
   equatable: ^2.0.5
   recase: ^4.0.0
   slugid: ^1.1.0
-  intl: ^0.18.0
+  intl: ^0.19.0
   validators: ^3.0.0
   power_extensions: ^0.2.2
   get_it: ^7.6.0
