@@ -1,31 +1,68 @@
-name: oras_l10n
-description: Oras l10n packge
+name: xcsmachine
+description: "xcs-machine package project."
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.0.3 <4.0.0'
+  sdk: ^3.5.1
   flutter: ">=1.17.0"
+
+isar_version: &isar_version 3.0.5 # define the version to be used
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+  crypto: ^3.0.0
+  dio: ^5.1.2
+  path: ^1.8.0
+  equatable: ^2.0.5
+  recase: ^4.0.0
+  slugid: ^1.1.0
+  tuple: ^2.0.0
+  quiver: ^3.2.1
+  decimal: ^2.2.0
+  duration: ^3.0.11
   intl: ^0.19.0
-  flutter_localized_locales: ^2.0.4
+  validators: ^3.0.0
+  power_extensions: ^0.2.2
+  get_it: ^7.6.0
+  dart_jsonwebtoken: ^2.6.2
+  rxdart: ^0.27.5
+  hive: ^2.2.3
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.0.0
+  # https://docs-v2.riverpod.dev/zh-Hans/docs/getting_started
+  riverpod: ^2.3.6
+  riverpod_annotation: ^2.1.1
+  clock: any
+  copy_with_extension: ^4.0.3
+  isar: *isar_version
+  timeago: ^3.3.0
+  mqtt_client: any
+  xcsproto:
+    path: ../xcsproto
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
+  pedantic: ^1.10.0
+  test: ^1.16.0
+  json_serializable: ^6.2.0
+  build_runner: ^2.1.8
+  hive_generator: any
+  freezed: ^2.1.0+1
+  # https://docs-v2.riverpod.dev/zh-Hans/docs/getting_started
+  custom_lint:
+  riverpod_generator:
+  riverpod_lint:
+  isar_generator: *isar_version
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-  generate: true # Enables generation of localized strings from arb files
 
   # To add assets to your package, add an assets section, like this:
   # assets:
@@ -33,10 +70,10 @@ flutter:
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see
-  # https://flutter.dev/assets-and-images/#from-packages
+  # https://flutter.dev/to/asset-from-package
   #
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
+  # https://flutter.dev/to/resolution-aware-images
 
   # To add custom fonts to your package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
@@ -56,6 +93,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts in packages, see
-  # https://flutter.dev/custom-fonts/#from-packages
-flutter_intl:
-  enabled: true
+  # https://flutter.dev/to/font-from-package
