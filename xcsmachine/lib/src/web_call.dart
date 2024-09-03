@@ -19,9 +19,10 @@ Dio createAuthDio(String token){
   return createDio(headers: headers);
 }
 
-Future<Response<dynamic>> webCall(String url, Map<String, Object?> payload, {Dio? authDio, String? token}) async {
+Future<Response<dynamic>> webCall(String url, Map<String, Object?> payload,
+    {Dio? authDio, String? token, Options? options}) async {
   var dio = authDio??createAuthDio(token!);
-  var resp = await dio.post(url, data: payload);
+  var resp = await dio.post(url, data: payload, options: options);
   catchErr(resp);
   return resp;
 }
@@ -38,3 +39,11 @@ void catchErr(Response<dynamic> response) {
     );
   }
 }
+
+
+Future<Response<dynamic>> palletDisp(Map<String, Object?> payload, {Dio? authDio, Options? options}) async {
+  const url = "/palletDisp";
+  Response<dynamic> resp = await webCall(url, payload, authDio: authDio, options: options);
+  return resp;
+}
+
