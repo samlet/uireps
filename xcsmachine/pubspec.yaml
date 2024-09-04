@@ -7,8 +7,8 @@ environment:
   sdk: ^3.5.1
   flutter: ">=1.17.0"
 
-isar_version: &isar_version 3.0.5 # define the version to be used
-
+#isar_version: &isar_version 3.0.5 # define the version to be used
+#isar_version: &isar_version 3.1.0+1
 dependencies:
   flutter:
     sdk: flutter
@@ -36,7 +36,7 @@ dependencies:
   riverpod_annotation: ^2.1.1
   clock: any
   copy_with_extension: ^4.0.3
-  isar: *isar_version
+#  isar: *isar_version
   timeago: ^3.3.0
   mqtt_client: any
   xcsproto:
@@ -45,18 +45,23 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
-  pedantic: ^1.10.0
-  test: ^1.16.0
-  json_serializable: ^6.2.0
-  build_runner: ^2.1.8
+  flutter_lints:
+  pedantic:
+  test:
+  json_serializable:
+  build_runner:
   hive_generator: any
-  freezed: ^2.1.0+1
+  freezed:
   # https://docs-v2.riverpod.dev/zh-Hans/docs/getting_started
   custom_lint:
   riverpod_generator:
   riverpod_lint:
-  isar_generator: *isar_version
+#  isar_generator: *isar_version
+#  analyzer: ^6.8.0
+
+# https://github.com/dart-lang/sdk/blob/main/docs/Flutter-Pinned-Packages.md
+#dependency_overrides:
+#  collection: ^1.19.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

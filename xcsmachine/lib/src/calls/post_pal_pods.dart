@@ -1,0 +1,286 @@
+import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:xcsproto/xcsproto.dart';
+import '../../xcmodels.dart';
+// import 'package:xcsapi/xcmodels.dart';
+// import '../common/services/general_pods.dart';
+// import 'package:xcsapi/generic_srv.dart';
+import '../../generic_srv.dart';
+import 'calls.dart';
+import 'post_pal.dart';
+
+part 'post_pal_pods.g.dart';
+@riverpod
+PostPalRepository postPal(PostPalRef ref, {
+  String regionId='default',
+  required String id,
+}) {
+  var conn = ref.watch(httpConnectorProvider);
+  
+  return PostPalRepository(conn.dio, regionId: regionId, id: id);
+  
+}
+
+@riverpod
+class PostPalPod extends _$PostPalPod {
+  @override
+  FutureOr<void> build({
+    String regionId = 'default',
+    required String id,
+  }) async {
+    // ok to leave this empty if the return type is FutureOr<void>
+  }
+
+  
+  Future<bool> addToContentBin({
+    
+    required String binId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
+              binId: binId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> like() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).like(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> unlike() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).unlike(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).featured(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> setCharge({
+    
+    required double fee, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).setCharge(
+              fee: fee,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> updateText({
+    
+    required String text, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).updateText(
+              text: text,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> postComment({
+    
+    required String subject,
+    required String review,
+    required double rating,
+    required double reward, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).postComment(
+              subject: subject,
+              review: review,
+              rating: rating,
+              reward: reward,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> setContentSlot({
+    
+    required BuffersData data, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).setContentSlot(
+              data: data,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> doneSlot({
+    
+    required String slotName, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).doneSlot(
+              slotName: slotName,
+            ));
+    return state.hasError == false;
+  }
+    
+}
+
+
+@riverpod
+Future<String> postText(PostTextRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.text(
+  );
+}
+
+@riverpod
+Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getCommentSyncs(
+  );
+}
+
+@riverpod
+Future<double> postLikes(PostLikesRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.likes(
+  );
+}
+
+@riverpod
+Future<PostBundle> postFetch(PostFetchRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.fetch(
+  );
+}
+
+@riverpod
+Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getStats(
+  );
+}
+
+@riverpod
+Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.isFeatured(
+  );
+}
+
+@riverpod
+Future<bool> postIsLiked(PostIsLikedRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.isLiked(
+  );
+}
+
+@riverpod
+Future<Map<String, bool>> postPersistSlotsExistent(PostPersistSlotsExistentRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.persistSlotsExistent(
+  );
+}
+
+@riverpod
+Future<BuffersMap> postPersistSlotValues(PostPersistSlotValuesRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.persistSlotValues(
+  );
+}
+
+@riverpod
+Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getContentSlot(
+  );
+}
+
+@riverpod
+Future<DecimalMap> postGetDecimals(PostGetDecimalsRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getDecimals(
+  );
+}
+
+@riverpod
+Future<ValueData> postGetSlotValue(PostGetSlotValueRef ref, {
+  String regionId='default',
+  required String id,
+  
+    required String slotName, 
+
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getSlotValue(
+      slotName: slotName,
+  );
+}
+
+@riverpod
+Future<bool> postHasSlotValue(PostHasSlotValueRef ref, {
+  String regionId='default',
+  required String id,
+  
+    required String slotName, 
+
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.hasSlotValue(
+      slotName: slotName,
+  );
+}
+
+
+
+

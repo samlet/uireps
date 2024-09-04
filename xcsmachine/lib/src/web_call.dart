@@ -47,3 +47,19 @@ Future<Response<dynamic>> palletDisp(Map<String, Object?> payload, {Dio? authDio
   return resp;
 }
 
+
+Future<dynamic> performCall(Dio dio, Map<String, Object?> ctx,
+    Map<String, Object> inputParams) async{
+  final payload = {
+    "bundleName" : ctx['bundleName'], // new param
+    "bundleId" : ctx['id'],
+    "palletName" : ctx['module'],
+    "methodName" : ctx['action'],
+    "req" : {
+      "input" : inputParams
+    },
+    "resultConv" : "json"
+  };
+  Response<dynamic> resp = await palletDisp(payload, authDio: dio);
+  return resp.data;
+}
