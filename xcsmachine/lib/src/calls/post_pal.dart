@@ -3,7 +3,10 @@ import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
 // import 'package:xcsapi/xcsapi.dart';
-import 'calls.dart';class PostPalRepository {
+import 'calls.dart';
+
+
+class PostPalRepository {
   PostPalRepository(this.dio, {
     this.regionId='default',
     required this.id,
@@ -19,6 +22,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "text",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -28,43 +32,12 @@ import 'calls.dart';class PostPalRepository {
     return resp as String;
   }
    
-  // Query
-  Future<List<Comment>> getCommentSyncs() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "getCommentSyncs",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Comment.fromJson);
-  }
-   
-  // Mutation
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "addToContentBin",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, {
-      "binId": binId, 
-    });
-    
-  }
-   
   // Mutation
   Future<void> like() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "like",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -78,6 +51,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "likes",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -92,6 +66,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "unlike",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -105,6 +80,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "fetch",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -119,6 +95,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "getStats",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -133,6 +110,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "isFeatured",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -147,6 +125,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "featured",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -160,6 +139,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "isLiked",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -178,6 +158,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "setCharge",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -196,6 +177,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "updateText",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -217,6 +199,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "postComment",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -231,31 +214,37 @@ import 'calls.dart';class PostPalRepository {
   }
    
   // Query
-  Future<Map<String, bool>> persistSlotsExistent() async { 
+  Future<List<Comment>> getCommentSyncs() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "persistSlotsExistent",
+      "action": "getCommentSyncs",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
     }, { 
     });
     
-    return asTypedMap<bool>(resp);
+    return convList(resp, Comment.fromJson);
   }
    
-  // Query
-  Future<BuffersMap> persistSlotValues() async { 
+  // Mutation
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": "postPal",
-      "action": "persistSlotValues",
+      "action": "addToContentBin",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
-    }, { 
+    }, {
+      "binId": binId, 
     });
     
-    return BuffersMap()..mergeFromProto3Json(resp);
   }
    
   // Mutation
@@ -267,6 +256,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "setContentSlot",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -281,6 +271,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "getContentSlot",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -291,10 +282,41 @@ import 'calls.dart';class PostPalRepository {
   }
    
   // Query
+  Future<Map<String, bool>> persistSlotsExistent() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "persistSlotsExistent",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
+    return asTypedMap<bool>(resp);
+  }
+   
+  // Query
+  Future<BuffersMap> persistSlotValues() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "persistSlotValues",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
+    return BuffersMap()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "getDecimals",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -313,6 +335,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "doneSlot",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -331,6 +354,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "getSlotValue",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -350,6 +374,7 @@ import 'calls.dart';class PostPalRepository {
     var resp = await performCall(dio, {
       "module": "postPal",
       "action": "hasSlotValue",
+      "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,

@@ -3,7 +3,10 @@ import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
 // import 'package:xcsapi/xcsapi.dart';
-import 'calls.dart';class NoteCoRepository {
+import 'calls.dart';
+
+
+class NoteCoRepository {
   NoteCoRepository(this.dio, {
     this.regionId='default',
     required this.id,
@@ -19,6 +22,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "name",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -33,6 +37,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "size",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -47,6 +52,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "getContent",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -54,24 +60,6 @@ import 'calls.dart';class NoteCoRepository {
     });
     
     return resp as String;
-  }
-   
-  // Mutation
-  Future<void> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "noteCo",
-      "action": "attachToWorkEffort",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, {
-      "workEffId": workEffId, 
-    });
-    
   }
    
   // Mutation
@@ -83,6 +71,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "setContent",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -101,6 +90,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "attachToParty",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -119,6 +109,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "setContentComp",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -133,10 +124,30 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "revokeContent",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
     }, { 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": "noteCo",
+      "action": "attachToWorkEffort",
+      "bundleName" : "Note",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, {
+      "workEffId": workEffId, 
     });
     
   }
@@ -146,6 +157,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "getDecimals",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -164,6 +176,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "doneSlot",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -182,6 +195,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "getSlotValue",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
@@ -201,6 +215,7 @@ import 'calls.dart';class NoteCoRepository {
     var resp = await performCall(dio, {
       "module": "noteCo",
       "action": "hasSlotValue",
+      "bundleName" : "Note",
       "call-type": "co",
       "regionId": regionId,
       "id": id,

@@ -10,6 +10,7 @@ import 'calls.dart';
 import 'note_co.dart';
 
 part 'note_co_pods.g.dart';
+
 @riverpod
 NoteCoRepository noteCo(NoteCoRef ref, {
   String regionId='default',
@@ -31,19 +32,6 @@ class NoteCoPod extends _$NoteCoPod {
     // ok to leave this empty if the return type is FutureOr<void>
   }
 
-  
-  Future<bool> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
-              workEffId: workEffId,
-            ));
-    return state.hasError == false;
-  }
   
   Future<bool> setContent({
     
@@ -88,6 +76,19 @@ class NoteCoPod extends _$NoteCoPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(noteCoProvider(regionId: regionId, id: id)).revokeContent(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
+              workEffId: workEffId,
             ));
     return state.hasError == false;
   }

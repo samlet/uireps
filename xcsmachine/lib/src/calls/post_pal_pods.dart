@@ -10,6 +10,7 @@ import 'calls.dart';
 import 'post_pal.dart';
 
 part 'post_pal_pods.g.dart';
+
 @riverpod
 PostPalRepository postPal(PostPalRef ref, {
   String regionId='default',
@@ -31,19 +32,6 @@ class PostPalPod extends _$PostPalPod {
     // ok to leave this empty if the return type is FutureOr<void>
   }
 
-  
-  Future<bool> addToContentBin({
-    
-    required String binId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
-              binId: binId,
-            ));
-    return state.hasError == false;
-  }
   
   Future<bool> like() async {
     state = const AsyncLoading();
@@ -114,6 +102,19 @@ class PostPalPod extends _$PostPalPod {
     return state.hasError == false;
   }
   
+  Future<bool> addToContentBin({
+    
+    required String binId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
+              binId: binId,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> setContentSlot({
     
     required BuffersData data, 
@@ -150,16 +151,6 @@ Future<String> postText(PostTextRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
   return await pod.text(
-  );
-}
-
-@riverpod
-Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
-  String regionId='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.getCommentSyncs(
   );
 }
 
@@ -214,6 +205,26 @@ Future<bool> postIsLiked(PostIsLikedRef ref, {
 }
 
 @riverpod
+Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getCommentSyncs(
+  );
+}
+
+@riverpod
+Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getContentSlot(
+  );
+}
+
+@riverpod
 Future<Map<String, bool>> postPersistSlotsExistent(PostPersistSlotsExistentRef ref, {
   String regionId='default',
   required String id,
@@ -230,16 +241,6 @@ Future<BuffersMap> postPersistSlotValues(PostPersistSlotValuesRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
   return await pod.persistSlotValues(
-  );
-}
-
-@riverpod
-Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
-  String regionId='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.getContentSlot(
   );
 }
 

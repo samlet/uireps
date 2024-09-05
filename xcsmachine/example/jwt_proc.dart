@@ -25,6 +25,13 @@ const samletToken="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvd25lciI6InNhb"
     "WF0IjoxNzI1MjkxNDIxLCJqdGkiOiJhQjcybEJNbjQzblQ5dmRqczRVU1BRIn0."
     "Aeh4CYkpeZQCK3NZw73iOT82uAKCB5w2EWOYYDKFS7M";
 
+const buyer1Token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvd25lciI6InBlcnN"
+    "vbl84Iiwiem9uZSI6ImRlZmF1bHQiLCJpc3MiOiJibHVlY2MiLCJAdG9rZW5UeXBlIjoidX"
+    "NlclRva2VuIiwiZXhwIjoxNzI3OTkwMjYwLCJyZWdpb24iOiJkZWZhdWx0IiwibG9naW4"
+    "iOiJidXllcjEiLCJAY29udGV4dCI6Imh0dHBzOi8vYmx1ZWNjLmNvbS8iLCJpYXQiOjE3"
+    "MjUzOTgyNjAsImp0aSI6ImFoNzJvNTgxNmZSakh4OHgzZlBtVkEifQ.V9314KRirp9BGfkh"
+    "DorUwPTq6IMgzyyTSHAMzq07P6A";
+
 Future<void> main(List<String> arguments) async{
   final jwt = JWT.verify(binOwnerToken, SecretKey('secret'));
   print('Payload: ${jwt.payload}');

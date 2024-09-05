@@ -8,7 +8,10 @@ import '../services/note_pod.dart';
 import 'note_co.dart';
 import 'note_co_pods.dart';
 
-part 'note_co_cube.g.dart';@riverpod
+part 'note_co_cube.g.dart';
+
+
+@riverpod
 class NoteCoCube extends _$NoteCoCube {
   @override
   FutureOr<Note> build({String regionId='default', required String id}) async {
@@ -17,18 +20,6 @@ class NoteCoCube extends _$NoteCoCube {
   }
    
 
-  
-  Future<void> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
-      workEffId: workEffId,
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
   
   Future<void> setContent({
     
@@ -68,6 +59,18 @@ class NoteCoCube extends _$NoteCoCube {
   
   Future<void> revokeContent() async { 
     await ref.read(noteCoProvider(regionId: regionId, id: id)).revokeContent(
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
+      workEffId: workEffId,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();

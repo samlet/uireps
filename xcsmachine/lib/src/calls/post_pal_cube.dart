@@ -7,7 +7,10 @@ import 'calls.dart';
 import 'post_pal.dart';
 import 'post_pal_pods.dart';
 
-part 'post_pal_cube.g.dart';@riverpod
+part 'post_pal_cube.g.dart';
+
+
+@riverpod
 class PostPalCube extends _$PostPalCube {
   @override
   FutureOr<PostBundle> build({
@@ -21,17 +24,6 @@ class PostPalCube extends _$PostPalCube {
     return data;
   } 
 
-  
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
-      binId: binId,
-    );
-    ref.invalidateSelf();
-  }
   
   Future<void> like() async { 
     await ref.read(postPalProvider(regionId: regionId, id: id)).like(
@@ -86,6 +78,17 @@ class PostPalCube extends _$PostPalCube {
       review: review,
       rating: rating,
       reward: reward,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
+    await ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
+      binId: binId,
     );
     ref.invalidateSelf();
   }
