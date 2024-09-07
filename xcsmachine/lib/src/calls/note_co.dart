@@ -29,7 +29,7 @@ class NoteCoRepository {
     }, { 
     });
     
-    return resp as String;
+    return ResultConv.asString(resp);
   }
    
   // Query
@@ -44,7 +44,7 @@ class NoteCoRepository {
     }, { 
     });
     
-    return int.parse(resp as String);
+    return ResultConv.asInt(resp);
   }
    
   // Query
@@ -59,7 +59,7 @@ class NoteCoRepository {
     }, { 
     });
     
-    return resp as String;
+    return ResultConv.asString(resp);
   }
    
   // Mutation
@@ -223,7 +223,7 @@ class NoteCoRepository {
       "slotName": slotName, 
     });
     
-    return bool.parse(resp as String);
+    return ResultConv.asBool(resp);
   }
   
 }

@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'package:xcsmachine/src/web_call.dart';
+import 'package:xcsmachine/util.dart';
 
 import 'jwt_proc.dart';
 
-var dio=createAuthDio(samletToken);
+var dio=createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {
   await getContentProc();
   await sizeProc();
@@ -115,15 +117,9 @@ class NoteCoRepository {
     });
 
     // return int.parse(resp as String);
-    return asInt(resp);
+    return ResultConv.asInt(resp);
   }
 
-  int asInt(dynamic o){
-    if(o is String){
-      return int.parse(o);
-    }
-    return o as int;
-  }
 
   // Mutation
   Future<void> setContent({

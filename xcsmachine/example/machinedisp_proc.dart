@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'package:xcsmachine/xcsapi.dart';
 
 import 'jwt_proc.dart';
 
 // var dio=createAuthDio(samletToken);
-var dio = createAuthDio(buyer1Token);
+var dio = createAuthDioWithToken(buyer1Token);
 
 Future<void> main(List<String> arguments) async {
   var resp = await machineDisp({

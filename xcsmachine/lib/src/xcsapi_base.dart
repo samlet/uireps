@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'web_call.dart';
 
 export 'web_call.dart';
@@ -6,7 +7,7 @@ export 'web_call.dart';
 class AbortedException implements Exception {}
 
 /// Default dio instance
-Dio dio = createAuthDio(anonymousToken);
+Dio dio = createAuthDioWithToken(anonymousToken);
 
 Future<dynamic> performQuery(Dio dio, Map<String, String> queryString,
     Map<String, Object> payload, {Options? options}) async {

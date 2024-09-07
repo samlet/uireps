@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'package:xcsmachine/src/web_call.dart';
 
 import 'jwt_proc.dart';
 
-var dio=createAuthDio(samletToken);
+var dio=createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {
   final payload = {"name": "samlet", "pingTs": 1690449917899};
   var token = samletToken;

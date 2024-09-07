@@ -44,3 +44,27 @@ Map<String, dynamic> _$PostBundleToJson(PostBundle instance) {
   writeNotNull('featured', instance.featured);
   return val;
 }
+
+WebSiteCubeData _$WebSiteCubeDataFromJson(Map<String, dynamic> json) =>
+    WebSiteCubeData(
+      site: json['site'] == null
+          ? null
+          : WebSite.fromJson(json['site'] as Map<String, dynamic>),
+      httpUrl: json['httpUrl'] as String?,
+      httpsUrl: json['httpsUrl'] as String?,
+    );
+
+Map<String, dynamic> _$WebSiteCubeDataToJson(WebSiteCubeData instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('site', instance.site?.toJson());
+  writeNotNull('httpUrl', instance.httpUrl);
+  writeNotNull('httpsUrl', instance.httpsUrl);
+  return val;
+}

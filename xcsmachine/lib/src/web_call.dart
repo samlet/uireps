@@ -1,27 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:xcsmachine/src/common/services/srv_base.dart';
 
 import 'common/exceptions/http_exception.dart';
 
-Dio createDio({Map<String, String>? headers}) {
-  final options = BaseOptions(
-      baseUrl: 'http://127.0.0.1:9080',
-      contentType: 'application/json',
-      // responseType: ResponseType.plain,
-      connectTimeout: const Duration(seconds: 5),
-      receiveTimeout: const Duration(seconds: 3),
-      headers: headers);
-  final dio = Dio(options);
-  return dio;
-}
-
-Dio createAuthDio(String token) {
-  final headers = {"Authorization": "Bearer $token"};
-  return createDio(headers: headers);
-}
-
 Future<Response<dynamic>> webCall(String url, Map<String, Object?> payload,
     {Dio? authDio, String? token, Options? options}) async {
-  var dio = authDio ?? createAuthDio(token!);
+  var dio = authDio ?? createAuthDioWithToken(token!);
   var resp = await dio.post(url, data: payload, options: options);
   catchErr(resp);
   return resp;
@@ -72,7 +56,7 @@ Future<dynamic> performCall(
   return resp.data;
 }
 
-// Adapters
+// Adapters --------------
 
 class AdapterResult {
   final String url;
@@ -99,7 +83,7 @@ AdapterResult dispatchAdapter(
   if (conv == null) {
     throw ArgumentError("No adapter for call-type $callType");
   }
-  return conv(ctx, inputParams) as AdapterResult;
+  return conv(ctx, inputParams);
 }
 
 AdapterResult machineAdapter(

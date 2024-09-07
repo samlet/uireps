@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_pal_cube.dart';
+part of 'product_co_cube.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postPalCubeHash() => r'ec9cc59d25a0b7baea22986b98a27c642b554f47';
+String _$productCoCubeHash() => r'46cf0562889043ab42cc387702c5cd0b31fd84f9';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,40 +29,40 @@ class _SystemHash {
   }
 }
 
-abstract class _$PostPalCube
-    extends BuildlessAutoDisposeAsyncNotifier<PostBundle> {
+abstract class _$ProductCoCube
+    extends BuildlessAutoDisposeAsyncNotifier<Product> {
   late final String regionId;
   late final String id;
 
-  FutureOr<PostBundle> build({
+  FutureOr<Product> build({
     String regionId = 'default',
     required String id,
   });
 }
 
-/// See also [PostPalCube].
-@ProviderFor(PostPalCube)
-const postPalCubeProvider = PostPalCubeFamily();
+/// See also [ProductCoCube].
+@ProviderFor(ProductCoCube)
+const productCoCubeProvider = ProductCoCubeFamily();
 
-/// See also [PostPalCube].
-class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
-  /// See also [PostPalCube].
-  const PostPalCubeFamily();
+/// See also [ProductCoCube].
+class ProductCoCubeFamily extends Family<AsyncValue<Product>> {
+  /// See also [ProductCoCube].
+  const ProductCoCubeFamily();
 
-  /// See also [PostPalCube].
-  PostPalCubeProvider call({
+  /// See also [ProductCoCube].
+  ProductCoCubeProvider call({
     String regionId = 'default',
     required String id,
   }) {
-    return PostPalCubeProvider(
+    return ProductCoCubeProvider(
       regionId: regionId,
       id: id,
     );
   }
 
   @override
-  PostPalCubeProvider getProviderOverride(
-    covariant PostPalCubeProvider provider,
+  ProductCoCubeProvider getProviderOverride(
+    covariant ProductCoCubeProvider provider,
   ) {
     return call(
       regionId: provider.regionId,
@@ -82,34 +82,34 @@ class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postPalCubeProvider';
+  String? get name => r'productCoCubeProvider';
 }
 
-/// See also [PostPalCube].
-class PostPalCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<PostPalCube, PostBundle> {
-  /// See also [PostPalCube].
-  PostPalCubeProvider({
+/// See also [ProductCoCube].
+class ProductCoCubeProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<ProductCoCube, Product> {
+  /// See also [ProductCoCube].
+  ProductCoCubeProvider({
     String regionId = 'default',
     required String id,
   }) : this._internal(
-          () => PostPalCube()
+          () => ProductCoCube()
             ..regionId = regionId
             ..id = id,
-          from: postPalCubeProvider,
-          name: r'postPalCubeProvider',
+          from: productCoCubeProvider,
+          name: r'productCoCubeProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postPalCubeHash,
-          dependencies: PostPalCubeFamily._dependencies,
+                  : _$productCoCubeHash,
+          dependencies: ProductCoCubeFamily._dependencies,
           allTransitiveDependencies:
-              PostPalCubeFamily._allTransitiveDependencies,
+              ProductCoCubeFamily._allTransitiveDependencies,
           regionId: regionId,
           id: id,
         );
 
-  PostPalCubeProvider._internal(
+  ProductCoCubeProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -124,8 +124,8 @@ class PostPalCubeProvider
   final String id;
 
   @override
-  FutureOr<PostBundle> runNotifierBuild(
-    covariant PostPalCube notifier,
+  FutureOr<Product> runNotifierBuild(
+    covariant ProductCoCube notifier,
   ) {
     return notifier.build(
       regionId: regionId,
@@ -134,10 +134,10 @@ class PostPalCubeProvider
   }
 
   @override
-  Override overrideWith(PostPalCube Function() create) {
+  Override overrideWith(ProductCoCube Function() create) {
     return ProviderOverride(
       origin: this,
-      override: PostPalCubeProvider._internal(
+      override: ProductCoCubeProvider._internal(
         () => create()
           ..regionId = regionId
           ..id = id,
@@ -153,14 +153,14 @@ class PostPalCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
+  AutoDisposeAsyncNotifierProviderElement<ProductCoCube, Product>
       createElement() {
-    return _PostPalCubeProviderElement(this);
+    return _ProductCoCubeProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PostPalCubeProvider &&
+    return other is ProductCoCubeProvider &&
         other.regionId == regionId &&
         other.id == id;
   }
@@ -175,7 +175,7 @@ class PostPalCubeProvider
   }
 }
 
-mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
+mixin ProductCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Product> {
   /// The parameter `regionId` of this provider.
   String get regionId;
 
@@ -183,15 +183,15 @@ mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
   String get id;
 }
 
-class _PostPalCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
-    with PostPalCubeRef {
-  _PostPalCubeProviderElement(super.provider);
+class _ProductCoCubeProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<ProductCoCube, Product>
+    with ProductCoCubeRef {
+  _ProductCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as PostPalCubeProvider).regionId;
+  String get regionId => (origin as ProductCoCubeProvider).regionId;
   @override
-  String get id => (origin as PostPalCubeProvider).id;
+  String get id => (origin as ProductCoCubeProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

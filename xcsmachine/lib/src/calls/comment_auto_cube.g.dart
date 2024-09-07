@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_pal_cube.dart';
+part of 'comment_auto_cube.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postPalCubeHash() => r'ec9cc59d25a0b7baea22986b98a27c642b554f47';
+String _$commentAutoCubeHash() => r'29e7c8d440f16e4f9e0a5e3ba3f80fbd6b60b9b0';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,40 +29,40 @@ class _SystemHash {
   }
 }
 
-abstract class _$PostPalCube
-    extends BuildlessAutoDisposeAsyncNotifier<PostBundle> {
+abstract class _$CommentAutoCube
+    extends BuildlessAutoDisposeAsyncNotifier<Comment> {
   late final String regionId;
   late final String id;
 
-  FutureOr<PostBundle> build({
+  FutureOr<Comment> build({
     String regionId = 'default',
     required String id,
   });
 }
 
-/// See also [PostPalCube].
-@ProviderFor(PostPalCube)
-const postPalCubeProvider = PostPalCubeFamily();
+/// See also [CommentAutoCube].
+@ProviderFor(CommentAutoCube)
+const commentAutoCubeProvider = CommentAutoCubeFamily();
 
-/// See also [PostPalCube].
-class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
-  /// See also [PostPalCube].
-  const PostPalCubeFamily();
+/// See also [CommentAutoCube].
+class CommentAutoCubeFamily extends Family<AsyncValue<Comment>> {
+  /// See also [CommentAutoCube].
+  const CommentAutoCubeFamily();
 
-  /// See also [PostPalCube].
-  PostPalCubeProvider call({
+  /// See also [CommentAutoCube].
+  CommentAutoCubeProvider call({
     String regionId = 'default',
     required String id,
   }) {
-    return PostPalCubeProvider(
+    return CommentAutoCubeProvider(
       regionId: regionId,
       id: id,
     );
   }
 
   @override
-  PostPalCubeProvider getProviderOverride(
-    covariant PostPalCubeProvider provider,
+  CommentAutoCubeProvider getProviderOverride(
+    covariant CommentAutoCubeProvider provider,
   ) {
     return call(
       regionId: provider.regionId,
@@ -82,34 +82,34 @@ class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postPalCubeProvider';
+  String? get name => r'commentAutoCubeProvider';
 }
 
-/// See also [PostPalCube].
-class PostPalCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<PostPalCube, PostBundle> {
-  /// See also [PostPalCube].
-  PostPalCubeProvider({
+/// See also [CommentAutoCube].
+class CommentAutoCubeProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<CommentAutoCube, Comment> {
+  /// See also [CommentAutoCube].
+  CommentAutoCubeProvider({
     String regionId = 'default',
     required String id,
   }) : this._internal(
-          () => PostPalCube()
+          () => CommentAutoCube()
             ..regionId = regionId
             ..id = id,
-          from: postPalCubeProvider,
-          name: r'postPalCubeProvider',
+          from: commentAutoCubeProvider,
+          name: r'commentAutoCubeProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postPalCubeHash,
-          dependencies: PostPalCubeFamily._dependencies,
+                  : _$commentAutoCubeHash,
+          dependencies: CommentAutoCubeFamily._dependencies,
           allTransitiveDependencies:
-              PostPalCubeFamily._allTransitiveDependencies,
+              CommentAutoCubeFamily._allTransitiveDependencies,
           regionId: regionId,
           id: id,
         );
 
-  PostPalCubeProvider._internal(
+  CommentAutoCubeProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -124,8 +124,8 @@ class PostPalCubeProvider
   final String id;
 
   @override
-  FutureOr<PostBundle> runNotifierBuild(
-    covariant PostPalCube notifier,
+  FutureOr<Comment> runNotifierBuild(
+    covariant CommentAutoCube notifier,
   ) {
     return notifier.build(
       regionId: regionId,
@@ -134,10 +134,10 @@ class PostPalCubeProvider
   }
 
   @override
-  Override overrideWith(PostPalCube Function() create) {
+  Override overrideWith(CommentAutoCube Function() create) {
     return ProviderOverride(
       origin: this,
-      override: PostPalCubeProvider._internal(
+      override: CommentAutoCubeProvider._internal(
         () => create()
           ..regionId = regionId
           ..id = id,
@@ -153,14 +153,14 @@ class PostPalCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
+  AutoDisposeAsyncNotifierProviderElement<CommentAutoCube, Comment>
       createElement() {
-    return _PostPalCubeProviderElement(this);
+    return _CommentAutoCubeProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PostPalCubeProvider &&
+    return other is CommentAutoCubeProvider &&
         other.regionId == regionId &&
         other.id == id;
   }
@@ -175,7 +175,7 @@ class PostPalCubeProvider
   }
 }
 
-mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
+mixin CommentAutoCubeRef on AutoDisposeAsyncNotifierProviderRef<Comment> {
   /// The parameter `regionId` of this provider.
   String get regionId;
 
@@ -183,15 +183,15 @@ mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
   String get id;
 }
 
-class _PostPalCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
-    with PostPalCubeRef {
-  _PostPalCubeProviderElement(super.provider);
+class _CommentAutoCubeProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<CommentAutoCube, Comment>
+    with CommentAutoCubeRef {
+  _CommentAutoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as PostPalCubeProvider).regionId;
+  String get regionId => (origin as CommentAutoCubeProvider).regionId;
   @override
-  String get id => (origin as PostPalCubeProvider).id;
+  String get id => (origin as CommentAutoCubeProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

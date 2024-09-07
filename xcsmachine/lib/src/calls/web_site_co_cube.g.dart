@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_pal_cube.dart';
+part of 'web_site_co_cube.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postPalCubeHash() => r'ec9cc59d25a0b7baea22986b98a27c642b554f47';
+String _$webSiteCoCubeHash() => r'7dbbfaf61bb1d8543a907cc47f5044bf168c3107';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,40 +29,40 @@ class _SystemHash {
   }
 }
 
-abstract class _$PostPalCube
-    extends BuildlessAutoDisposeAsyncNotifier<PostBundle> {
+abstract class _$WebSiteCoCube
+    extends BuildlessAutoDisposeAsyncNotifier<WebSiteCubeData> {
   late final String regionId;
   late final String id;
 
-  FutureOr<PostBundle> build({
+  FutureOr<WebSiteCubeData> build({
     String regionId = 'default',
     required String id,
   });
 }
 
-/// See also [PostPalCube].
-@ProviderFor(PostPalCube)
-const postPalCubeProvider = PostPalCubeFamily();
+/// See also [WebSiteCoCube].
+@ProviderFor(WebSiteCoCube)
+const webSiteCoCubeProvider = WebSiteCoCubeFamily();
 
-/// See also [PostPalCube].
-class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
-  /// See also [PostPalCube].
-  const PostPalCubeFamily();
+/// See also [WebSiteCoCube].
+class WebSiteCoCubeFamily extends Family<AsyncValue<WebSiteCubeData>> {
+  /// See also [WebSiteCoCube].
+  const WebSiteCoCubeFamily();
 
-  /// See also [PostPalCube].
-  PostPalCubeProvider call({
+  /// See also [WebSiteCoCube].
+  WebSiteCoCubeProvider call({
     String regionId = 'default',
     required String id,
   }) {
-    return PostPalCubeProvider(
+    return WebSiteCoCubeProvider(
       regionId: regionId,
       id: id,
     );
   }
 
   @override
-  PostPalCubeProvider getProviderOverride(
-    covariant PostPalCubeProvider provider,
+  WebSiteCoCubeProvider getProviderOverride(
+    covariant WebSiteCoCubeProvider provider,
   ) {
     return call(
       regionId: provider.regionId,
@@ -82,34 +82,34 @@ class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postPalCubeProvider';
+  String? get name => r'webSiteCoCubeProvider';
 }
 
-/// See also [PostPalCube].
-class PostPalCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<PostPalCube, PostBundle> {
-  /// See also [PostPalCube].
-  PostPalCubeProvider({
+/// See also [WebSiteCoCube].
+class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    WebSiteCoCube, WebSiteCubeData> {
+  /// See also [WebSiteCoCube].
+  WebSiteCoCubeProvider({
     String regionId = 'default',
     required String id,
   }) : this._internal(
-          () => PostPalCube()
+          () => WebSiteCoCube()
             ..regionId = regionId
             ..id = id,
-          from: postPalCubeProvider,
-          name: r'postPalCubeProvider',
+          from: webSiteCoCubeProvider,
+          name: r'webSiteCoCubeProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postPalCubeHash,
-          dependencies: PostPalCubeFamily._dependencies,
+                  : _$webSiteCoCubeHash,
+          dependencies: WebSiteCoCubeFamily._dependencies,
           allTransitiveDependencies:
-              PostPalCubeFamily._allTransitiveDependencies,
+              WebSiteCoCubeFamily._allTransitiveDependencies,
           regionId: regionId,
           id: id,
         );
 
-  PostPalCubeProvider._internal(
+  WebSiteCoCubeProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -124,8 +124,8 @@ class PostPalCubeProvider
   final String id;
 
   @override
-  FutureOr<PostBundle> runNotifierBuild(
-    covariant PostPalCube notifier,
+  FutureOr<WebSiteCubeData> runNotifierBuild(
+    covariant WebSiteCoCube notifier,
   ) {
     return notifier.build(
       regionId: regionId,
@@ -134,10 +134,10 @@ class PostPalCubeProvider
   }
 
   @override
-  Override overrideWith(PostPalCube Function() create) {
+  Override overrideWith(WebSiteCoCube Function() create) {
     return ProviderOverride(
       origin: this,
-      override: PostPalCubeProvider._internal(
+      override: WebSiteCoCubeProvider._internal(
         () => create()
           ..regionId = regionId
           ..id = id,
@@ -153,14 +153,14 @@ class PostPalCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
+  AutoDisposeAsyncNotifierProviderElement<WebSiteCoCube, WebSiteCubeData>
       createElement() {
-    return _PostPalCubeProviderElement(this);
+    return _WebSiteCoCubeProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PostPalCubeProvider &&
+    return other is WebSiteCoCubeProvider &&
         other.regionId == regionId &&
         other.id == id;
   }
@@ -175,7 +175,7 @@ class PostPalCubeProvider
   }
 }
 
-mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
+mixin WebSiteCoCubeRef on AutoDisposeAsyncNotifierProviderRef<WebSiteCubeData> {
   /// The parameter `regionId` of this provider.
   String get regionId;
 
@@ -183,15 +183,15 @@ mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
   String get id;
 }
 
-class _PostPalCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
-    with PostPalCubeRef {
-  _PostPalCubeProviderElement(super.provider);
+class _WebSiteCoCubeProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<WebSiteCoCube,
+        WebSiteCubeData> with WebSiteCoCubeRef {
+  _WebSiteCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as PostPalCubeProvider).regionId;
+  String get regionId => (origin as WebSiteCoCubeProvider).regionId;
   @override
-  String get id => (origin as PostPalCubeProvider).id;
+  String get id => (origin as WebSiteCoCubeProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

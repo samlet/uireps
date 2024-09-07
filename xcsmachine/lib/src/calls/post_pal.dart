@@ -29,7 +29,7 @@ class PostPalRepository {
     }, { 
     });
     
-    return resp as String;
+    return ResultConv.asString(resp);
   }
    
   // Mutation
@@ -58,7 +58,7 @@ class PostPalRepository {
     }, { 
     });
     
-    return double.parse(resp as String);
+    return ResultConv.asDouble(resp);
   }
    
   // Mutation
@@ -90,6 +90,35 @@ class PostPalRepository {
     return PostBundle.fromJson(resp);
   }
    
+  // Mutation
+  Future<void> featured() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "featured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
+  }
+   
+  // Query
+  Future<bool> isFeatured() async { 
+    var resp = await performCall(dio, {
+      "module": "postPal",
+      "action": "isFeatured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
   // Query
   Future<Map<String, double>> getStats() async { 
     var resp = await performCall(dio, {
@@ -106,35 +135,6 @@ class PostPalRepository {
   }
    
   // Query
-  Future<bool> isFeatured() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "isFeatured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-    return bool.parse(resp as String);
-  }
-   
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "featured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
-  // Query
   Future<bool> isLiked() async { 
     var resp = await performCall(dio, {
       "module": "postPal",
@@ -146,7 +146,7 @@ class PostPalRepository {
     }, { 
     });
     
-    return bool.parse(resp as String);
+    return ResultConv.asBool(resp);
   }
    
   // Mutation
@@ -210,7 +210,7 @@ class PostPalRepository {
       "reward": reward, 
     });
     
-    return resp as String;
+    return ResultConv.asString(resp);
   }
    
   // Query
@@ -382,7 +382,7 @@ class PostPalRepository {
       "slotName": slotName, 
     });
     
-    return bool.parse(resp as String);
+    return ResultConv.asBool(resp);
   }
   
 }

@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_pal_cube.dart';
+part of 'data_resource_co_cube.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postPalCubeHash() => r'ec9cc59d25a0b7baea22986b98a27c642b554f47';
+String _$dataResourceCoCubeHash() =>
+    r'a73e3552c15655deb4aef4b1c6ea1bdd18ea5901';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,40 +30,40 @@ class _SystemHash {
   }
 }
 
-abstract class _$PostPalCube
-    extends BuildlessAutoDisposeAsyncNotifier<PostBundle> {
+abstract class _$DataResourceCoCube
+    extends BuildlessAutoDisposeAsyncNotifier<DataResource> {
   late final String regionId;
   late final String id;
 
-  FutureOr<PostBundle> build({
+  FutureOr<DataResource> build({
     String regionId = 'default',
     required String id,
   });
 }
 
-/// See also [PostPalCube].
-@ProviderFor(PostPalCube)
-const postPalCubeProvider = PostPalCubeFamily();
+/// See also [DataResourceCoCube].
+@ProviderFor(DataResourceCoCube)
+const dataResourceCoCubeProvider = DataResourceCoCubeFamily();
 
-/// See also [PostPalCube].
-class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
-  /// See also [PostPalCube].
-  const PostPalCubeFamily();
+/// See also [DataResourceCoCube].
+class DataResourceCoCubeFamily extends Family<AsyncValue<DataResource>> {
+  /// See also [DataResourceCoCube].
+  const DataResourceCoCubeFamily();
 
-  /// See also [PostPalCube].
-  PostPalCubeProvider call({
+  /// See also [DataResourceCoCube].
+  DataResourceCoCubeProvider call({
     String regionId = 'default',
     required String id,
   }) {
-    return PostPalCubeProvider(
+    return DataResourceCoCubeProvider(
       regionId: regionId,
       id: id,
     );
   }
 
   @override
-  PostPalCubeProvider getProviderOverride(
-    covariant PostPalCubeProvider provider,
+  DataResourceCoCubeProvider getProviderOverride(
+    covariant DataResourceCoCubeProvider provider,
   ) {
     return call(
       regionId: provider.regionId,
@@ -82,34 +83,34 @@ class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postPalCubeProvider';
+  String? get name => r'dataResourceCoCubeProvider';
 }
 
-/// See also [PostPalCube].
-class PostPalCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<PostPalCube, PostBundle> {
-  /// See also [PostPalCube].
-  PostPalCubeProvider({
+/// See also [DataResourceCoCube].
+class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    DataResourceCoCube, DataResource> {
+  /// See also [DataResourceCoCube].
+  DataResourceCoCubeProvider({
     String regionId = 'default',
     required String id,
   }) : this._internal(
-          () => PostPalCube()
+          () => DataResourceCoCube()
             ..regionId = regionId
             ..id = id,
-          from: postPalCubeProvider,
-          name: r'postPalCubeProvider',
+          from: dataResourceCoCubeProvider,
+          name: r'dataResourceCoCubeProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postPalCubeHash,
-          dependencies: PostPalCubeFamily._dependencies,
+                  : _$dataResourceCoCubeHash,
+          dependencies: DataResourceCoCubeFamily._dependencies,
           allTransitiveDependencies:
-              PostPalCubeFamily._allTransitiveDependencies,
+              DataResourceCoCubeFamily._allTransitiveDependencies,
           regionId: regionId,
           id: id,
         );
 
-  PostPalCubeProvider._internal(
+  DataResourceCoCubeProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -124,8 +125,8 @@ class PostPalCubeProvider
   final String id;
 
   @override
-  FutureOr<PostBundle> runNotifierBuild(
-    covariant PostPalCube notifier,
+  FutureOr<DataResource> runNotifierBuild(
+    covariant DataResourceCoCube notifier,
   ) {
     return notifier.build(
       regionId: regionId,
@@ -134,10 +135,10 @@ class PostPalCubeProvider
   }
 
   @override
-  Override overrideWith(PostPalCube Function() create) {
+  Override overrideWith(DataResourceCoCube Function() create) {
     return ProviderOverride(
       origin: this,
-      override: PostPalCubeProvider._internal(
+      override: DataResourceCoCubeProvider._internal(
         () => create()
           ..regionId = regionId
           ..id = id,
@@ -153,14 +154,14 @@ class PostPalCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
+  AutoDisposeAsyncNotifierProviderElement<DataResourceCoCube, DataResource>
       createElement() {
-    return _PostPalCubeProviderElement(this);
+    return _DataResourceCoCubeProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PostPalCubeProvider &&
+    return other is DataResourceCoCubeProvider &&
         other.regionId == regionId &&
         other.id == id;
   }
@@ -175,7 +176,8 @@ class PostPalCubeProvider
   }
 }
 
-mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
+mixin DataResourceCoCubeRef
+    on AutoDisposeAsyncNotifierProviderRef<DataResource> {
   /// The parameter `regionId` of this provider.
   String get regionId;
 
@@ -183,15 +185,15 @@ mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
   String get id;
 }
 
-class _PostPalCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<PostPalCube, PostBundle>
-    with PostPalCubeRef {
-  _PostPalCubeProviderElement(super.provider);
+class _DataResourceCoCubeProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<DataResourceCoCube,
+        DataResource> with DataResourceCoCubeRef {
+  _DataResourceCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as PostPalCubeProvider).regionId;
+  String get regionId => (origin as DataResourceCoCubeProvider).regionId;
   @override
-  String get id => (origin as PostPalCubeProvider).id;
+  String get id => (origin as DataResourceCoCubeProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

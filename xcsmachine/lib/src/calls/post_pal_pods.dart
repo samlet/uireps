@@ -175,22 +175,22 @@ Future<PostBundle> postFetch(PostFetchRef ref, {
 }
 
 @riverpod
-Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
-  String regionId='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.getStats(
-  );
-}
-
-@riverpod
 Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
   String regionId='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
   return await pod.isFeatured(
+  );
+}
+
+@riverpod
+Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getStats(
   );
 }
 
