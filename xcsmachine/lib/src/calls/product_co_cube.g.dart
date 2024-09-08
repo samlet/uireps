@@ -6,7 +6,7 @@ part of 'product_co_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productCoCubeHash() => r'46cf0562889043ab42cc387702c5cd0b31fd84f9';
+String _$productCoCubeHash() => r'3f6439ed6543b1d0660f457f221f860d7c45e1af';
 
 /// Copied from Dart SDK
 class _SystemHash {

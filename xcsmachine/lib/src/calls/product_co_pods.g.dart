@@ -463,615 +463,6 @@ class _ProdGetInfoProviderElement
   String get id => (origin as ProdGetInfoProvider).id;
 }
 
-String _$prodGetDefaultPriceHash() =>
-    r'b31b02b00580351faeb7cdb16df21436b3e19e62';
-
-/// See also [prodGetDefaultPrice].
-@ProviderFor(prodGetDefaultPrice)
-const prodGetDefaultPriceProvider = ProdGetDefaultPriceFamily();
-
-/// See also [prodGetDefaultPrice].
-class ProdGetDefaultPriceFamily extends Family<AsyncValue<double>> {
-  /// See also [prodGetDefaultPrice].
-  const ProdGetDefaultPriceFamily();
-
-  /// See also [prodGetDefaultPrice].
-  ProdGetDefaultPriceProvider call({
-    String regionId = 'default',
-    required String id,
-  }) {
-    return ProdGetDefaultPriceProvider(
-      regionId: regionId,
-      id: id,
-    );
-  }
-
-  @override
-  ProdGetDefaultPriceProvider getProviderOverride(
-    covariant ProdGetDefaultPriceProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'prodGetDefaultPriceProvider';
-}
-
-/// See also [prodGetDefaultPrice].
-class ProdGetDefaultPriceProvider extends AutoDisposeFutureProvider<double> {
-  /// See also [prodGetDefaultPrice].
-  ProdGetDefaultPriceProvider({
-    String regionId = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => prodGetDefaultPrice(
-            ref as ProdGetDefaultPriceRef,
-            regionId: regionId,
-            id: id,
-          ),
-          from: prodGetDefaultPriceProvider,
-          name: r'prodGetDefaultPriceProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$prodGetDefaultPriceHash,
-          dependencies: ProdGetDefaultPriceFamily._dependencies,
-          allTransitiveDependencies:
-              ProdGetDefaultPriceFamily._allTransitiveDependencies,
-          regionId: regionId,
-          id: id,
-        );
-
-  ProdGetDefaultPriceProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.id,
-  }) : super.internal();
-
-  final String regionId;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<double> Function(ProdGetDefaultPriceRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ProdGetDefaultPriceProvider._internal(
-        (ref) => create(ref as ProdGetDefaultPriceRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<double> createElement() {
-    return _ProdGetDefaultPriceProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is ProdGetDefaultPriceProvider &&
-        other.regionId == regionId &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin ProdGetDefaultPriceRef on AutoDisposeFutureProviderRef<double> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _ProdGetDefaultPriceProviderElement
-    extends AutoDisposeFutureProviderElement<double>
-    with ProdGetDefaultPriceRef {
-  _ProdGetDefaultPriceProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as ProdGetDefaultPriceProvider).regionId;
-  @override
-  String get id => (origin as ProdGetDefaultPriceProvider).id;
-}
-
-String _$prodGetComponentIdsHash() =>
-    r'887d1eb7d31fc1a419f1ef0f130f360f864995d0';
-
-/// See also [prodGetComponentIds].
-@ProviderFor(prodGetComponentIds)
-const prodGetComponentIdsProvider = ProdGetComponentIdsFamily();
-
-/// See also [prodGetComponentIds].
-class ProdGetComponentIdsFamily extends Family<AsyncValue<List<String>>> {
-  /// See also [prodGetComponentIds].
-  const ProdGetComponentIdsFamily();
-
-  /// See also [prodGetComponentIds].
-  ProdGetComponentIdsProvider call({
-    String regionId = 'default',
-    required String id,
-    required String assocType,
-  }) {
-    return ProdGetComponentIdsProvider(
-      regionId: regionId,
-      id: id,
-      assocType: assocType,
-    );
-  }
-
-  @override
-  ProdGetComponentIdsProvider getProviderOverride(
-    covariant ProdGetComponentIdsProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      id: provider.id,
-      assocType: provider.assocType,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'prodGetComponentIdsProvider';
-}
-
-/// See also [prodGetComponentIds].
-class ProdGetComponentIdsProvider
-    extends AutoDisposeFutureProvider<List<String>> {
-  /// See also [prodGetComponentIds].
-  ProdGetComponentIdsProvider({
-    String regionId = 'default',
-    required String id,
-    required String assocType,
-  }) : this._internal(
-          (ref) => prodGetComponentIds(
-            ref as ProdGetComponentIdsRef,
-            regionId: regionId,
-            id: id,
-            assocType: assocType,
-          ),
-          from: prodGetComponentIdsProvider,
-          name: r'prodGetComponentIdsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$prodGetComponentIdsHash,
-          dependencies: ProdGetComponentIdsFamily._dependencies,
-          allTransitiveDependencies:
-              ProdGetComponentIdsFamily._allTransitiveDependencies,
-          regionId: regionId,
-          id: id,
-          assocType: assocType,
-        );
-
-  ProdGetComponentIdsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.id,
-    required this.assocType,
-  }) : super.internal();
-
-  final String regionId;
-  final String id;
-  final String assocType;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<String>> Function(ProdGetComponentIdsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ProdGetComponentIdsProvider._internal(
-        (ref) => create(ref as ProdGetComponentIdsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        id: id,
-        assocType: assocType,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<String>> createElement() {
-    return _ProdGetComponentIdsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is ProdGetComponentIdsProvider &&
-        other.regionId == regionId &&
-        other.id == id &&
-        other.assocType == assocType;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-    hash = _SystemHash.combine(hash, assocType.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin ProdGetComponentIdsRef on AutoDisposeFutureProviderRef<List<String>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `id` of this provider.
-  String get id;
-
-  /// The parameter `assocType` of this provider.
-  String get assocType;
-}
-
-class _ProdGetComponentIdsProviderElement
-    extends AutoDisposeFutureProviderElement<List<String>>
-    with ProdGetComponentIdsRef {
-  _ProdGetComponentIdsProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as ProdGetComponentIdsProvider).regionId;
-  @override
-  String get id => (origin as ProdGetComponentIdsProvider).id;
-  @override
-  String get assocType => (origin as ProdGetComponentIdsProvider).assocType;
-}
-
-String _$prodGetSelectableFeaturesHash() =>
-    r'4bab27d3004307d700b5373cf740ad7b2051bf8d';
-
-/// See also [prodGetSelectableFeatures].
-@ProviderFor(prodGetSelectableFeatures)
-const prodGetSelectableFeaturesProvider = ProdGetSelectableFeaturesFamily();
-
-/// See also [prodGetSelectableFeatures].
-class ProdGetSelectableFeaturesFamily extends Family<AsyncValue<List<String>>> {
-  /// See also [prodGetSelectableFeatures].
-  const ProdGetSelectableFeaturesFamily();
-
-  /// See also [prodGetSelectableFeatures].
-  ProdGetSelectableFeaturesProvider call({
-    String regionId = 'default',
-    required String id,
-  }) {
-    return ProdGetSelectableFeaturesProvider(
-      regionId: regionId,
-      id: id,
-    );
-  }
-
-  @override
-  ProdGetSelectableFeaturesProvider getProviderOverride(
-    covariant ProdGetSelectableFeaturesProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'prodGetSelectableFeaturesProvider';
-}
-
-/// See also [prodGetSelectableFeatures].
-class ProdGetSelectableFeaturesProvider
-    extends AutoDisposeFutureProvider<List<String>> {
-  /// See also [prodGetSelectableFeatures].
-  ProdGetSelectableFeaturesProvider({
-    String regionId = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => prodGetSelectableFeatures(
-            ref as ProdGetSelectableFeaturesRef,
-            regionId: regionId,
-            id: id,
-          ),
-          from: prodGetSelectableFeaturesProvider,
-          name: r'prodGetSelectableFeaturesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$prodGetSelectableFeaturesHash,
-          dependencies: ProdGetSelectableFeaturesFamily._dependencies,
-          allTransitiveDependencies:
-              ProdGetSelectableFeaturesFamily._allTransitiveDependencies,
-          regionId: regionId,
-          id: id,
-        );
-
-  ProdGetSelectableFeaturesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.id,
-  }) : super.internal();
-
-  final String regionId;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<String>> Function(ProdGetSelectableFeaturesRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ProdGetSelectableFeaturesProvider._internal(
-        (ref) => create(ref as ProdGetSelectableFeaturesRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<String>> createElement() {
-    return _ProdGetSelectableFeaturesProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is ProdGetSelectableFeaturesProvider &&
-        other.regionId == regionId &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin ProdGetSelectableFeaturesRef
-    on AutoDisposeFutureProviderRef<List<String>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _ProdGetSelectableFeaturesProviderElement
-    extends AutoDisposeFutureProviderElement<List<String>>
-    with ProdGetSelectableFeaturesRef {
-  _ProdGetSelectableFeaturesProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as ProdGetSelectableFeaturesProvider).regionId;
-  @override
-  String get id => (origin as ProdGetSelectableFeaturesProvider).id;
-}
-
-String _$prodGetFixedAssetMapHash() =>
-    r'9e6b988a5819203ce9913ea0a922c856c57b4434';
-
-/// See also [prodGetFixedAssetMap].
-@ProviderFor(prodGetFixedAssetMap)
-const prodGetFixedAssetMapProvider = ProdGetFixedAssetMapFamily();
-
-/// See also [prodGetFixedAssetMap].
-class ProdGetFixedAssetMapFamily extends Family<AsyncValue<StringMap>> {
-  /// See also [prodGetFixedAssetMap].
-  const ProdGetFixedAssetMapFamily();
-
-  /// See also [prodGetFixedAssetMap].
-  ProdGetFixedAssetMapProvider call({
-    String regionId = 'default',
-    required String id,
-  }) {
-    return ProdGetFixedAssetMapProvider(
-      regionId: regionId,
-      id: id,
-    );
-  }
-
-  @override
-  ProdGetFixedAssetMapProvider getProviderOverride(
-    covariant ProdGetFixedAssetMapProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'prodGetFixedAssetMapProvider';
-}
-
-/// See also [prodGetFixedAssetMap].
-class ProdGetFixedAssetMapProvider
-    extends AutoDisposeFutureProvider<StringMap> {
-  /// See also [prodGetFixedAssetMap].
-  ProdGetFixedAssetMapProvider({
-    String regionId = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => prodGetFixedAssetMap(
-            ref as ProdGetFixedAssetMapRef,
-            regionId: regionId,
-            id: id,
-          ),
-          from: prodGetFixedAssetMapProvider,
-          name: r'prodGetFixedAssetMapProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$prodGetFixedAssetMapHash,
-          dependencies: ProdGetFixedAssetMapFamily._dependencies,
-          allTransitiveDependencies:
-              ProdGetFixedAssetMapFamily._allTransitiveDependencies,
-          regionId: regionId,
-          id: id,
-        );
-
-  ProdGetFixedAssetMapProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.id,
-  }) : super.internal();
-
-  final String regionId;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<StringMap> Function(ProdGetFixedAssetMapRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ProdGetFixedAssetMapProvider._internal(
-        (ref) => create(ref as ProdGetFixedAssetMapRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<StringMap> createElement() {
-    return _ProdGetFixedAssetMapProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is ProdGetFixedAssetMapProvider &&
-        other.regionId == regionId &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin ProdGetFixedAssetMapRef on AutoDisposeFutureProviderRef<StringMap> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _ProdGetFixedAssetMapProviderElement
-    extends AutoDisposeFutureProviderElement<StringMap>
-    with ProdGetFixedAssetMapRef {
-  _ProdGetFixedAssetMapProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as ProdGetFixedAssetMapProvider).regionId;
-  @override
-  String get id => (origin as ProdGetFixedAssetMapProvider).id;
-}
-
 String _$prodGetPriceMapHash() => r'59b992143ed81f542829822b4626d6d3056ea69c';
 
 /// See also [prodGetPriceMap].
@@ -2256,6 +1647,615 @@ class _ProdPriceProviderElement extends AutoDisposeFutureProviderElement<double>
   String get priceType => (origin as ProdPriceProvider).priceType;
 }
 
+String _$prodGetDefaultPriceHash() =>
+    r'b31b02b00580351faeb7cdb16df21436b3e19e62';
+
+/// See also [prodGetDefaultPrice].
+@ProviderFor(prodGetDefaultPrice)
+const prodGetDefaultPriceProvider = ProdGetDefaultPriceFamily();
+
+/// See also [prodGetDefaultPrice].
+class ProdGetDefaultPriceFamily extends Family<AsyncValue<double>> {
+  /// See also [prodGetDefaultPrice].
+  const ProdGetDefaultPriceFamily();
+
+  /// See also [prodGetDefaultPrice].
+  ProdGetDefaultPriceProvider call({
+    String regionId = 'default',
+    required String id,
+  }) {
+    return ProdGetDefaultPriceProvider(
+      regionId: regionId,
+      id: id,
+    );
+  }
+
+  @override
+  ProdGetDefaultPriceProvider getProviderOverride(
+    covariant ProdGetDefaultPriceProvider provider,
+  ) {
+    return call(
+      regionId: provider.regionId,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'prodGetDefaultPriceProvider';
+}
+
+/// See also [prodGetDefaultPrice].
+class ProdGetDefaultPriceProvider extends AutoDisposeFutureProvider<double> {
+  /// See also [prodGetDefaultPrice].
+  ProdGetDefaultPriceProvider({
+    String regionId = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => prodGetDefaultPrice(
+            ref as ProdGetDefaultPriceRef,
+            regionId: regionId,
+            id: id,
+          ),
+          from: prodGetDefaultPriceProvider,
+          name: r'prodGetDefaultPriceProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$prodGetDefaultPriceHash,
+          dependencies: ProdGetDefaultPriceFamily._dependencies,
+          allTransitiveDependencies:
+              ProdGetDefaultPriceFamily._allTransitiveDependencies,
+          regionId: regionId,
+          id: id,
+        );
+
+  ProdGetDefaultPriceProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionId,
+    required this.id,
+  }) : super.internal();
+
+  final String regionId;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<double> Function(ProdGetDefaultPriceRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ProdGetDefaultPriceProvider._internal(
+        (ref) => create(ref as ProdGetDefaultPriceRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionId: regionId,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<double> createElement() {
+    return _ProdGetDefaultPriceProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProdGetDefaultPriceProvider &&
+        other.regionId == regionId &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ProdGetDefaultPriceRef on AutoDisposeFutureProviderRef<double> {
+  /// The parameter `regionId` of this provider.
+  String get regionId;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _ProdGetDefaultPriceProviderElement
+    extends AutoDisposeFutureProviderElement<double>
+    with ProdGetDefaultPriceRef {
+  _ProdGetDefaultPriceProviderElement(super.provider);
+
+  @override
+  String get regionId => (origin as ProdGetDefaultPriceProvider).regionId;
+  @override
+  String get id => (origin as ProdGetDefaultPriceProvider).id;
+}
+
+String _$prodGetComponentIdsHash() =>
+    r'887d1eb7d31fc1a419f1ef0f130f360f864995d0';
+
+/// See also [prodGetComponentIds].
+@ProviderFor(prodGetComponentIds)
+const prodGetComponentIdsProvider = ProdGetComponentIdsFamily();
+
+/// See also [prodGetComponentIds].
+class ProdGetComponentIdsFamily extends Family<AsyncValue<List<String>>> {
+  /// See also [prodGetComponentIds].
+  const ProdGetComponentIdsFamily();
+
+  /// See also [prodGetComponentIds].
+  ProdGetComponentIdsProvider call({
+    String regionId = 'default',
+    required String id,
+    required String assocType,
+  }) {
+    return ProdGetComponentIdsProvider(
+      regionId: regionId,
+      id: id,
+      assocType: assocType,
+    );
+  }
+
+  @override
+  ProdGetComponentIdsProvider getProviderOverride(
+    covariant ProdGetComponentIdsProvider provider,
+  ) {
+    return call(
+      regionId: provider.regionId,
+      id: provider.id,
+      assocType: provider.assocType,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'prodGetComponentIdsProvider';
+}
+
+/// See also [prodGetComponentIds].
+class ProdGetComponentIdsProvider
+    extends AutoDisposeFutureProvider<List<String>> {
+  /// See also [prodGetComponentIds].
+  ProdGetComponentIdsProvider({
+    String regionId = 'default',
+    required String id,
+    required String assocType,
+  }) : this._internal(
+          (ref) => prodGetComponentIds(
+            ref as ProdGetComponentIdsRef,
+            regionId: regionId,
+            id: id,
+            assocType: assocType,
+          ),
+          from: prodGetComponentIdsProvider,
+          name: r'prodGetComponentIdsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$prodGetComponentIdsHash,
+          dependencies: ProdGetComponentIdsFamily._dependencies,
+          allTransitiveDependencies:
+              ProdGetComponentIdsFamily._allTransitiveDependencies,
+          regionId: regionId,
+          id: id,
+          assocType: assocType,
+        );
+
+  ProdGetComponentIdsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionId,
+    required this.id,
+    required this.assocType,
+  }) : super.internal();
+
+  final String regionId;
+  final String id;
+  final String assocType;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<String>> Function(ProdGetComponentIdsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ProdGetComponentIdsProvider._internal(
+        (ref) => create(ref as ProdGetComponentIdsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionId: regionId,
+        id: id,
+        assocType: assocType,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<String>> createElement() {
+    return _ProdGetComponentIdsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProdGetComponentIdsProvider &&
+        other.regionId == regionId &&
+        other.id == id &&
+        other.assocType == assocType;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, assocType.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ProdGetComponentIdsRef on AutoDisposeFutureProviderRef<List<String>> {
+  /// The parameter `regionId` of this provider.
+  String get regionId;
+
+  /// The parameter `id` of this provider.
+  String get id;
+
+  /// The parameter `assocType` of this provider.
+  String get assocType;
+}
+
+class _ProdGetComponentIdsProviderElement
+    extends AutoDisposeFutureProviderElement<List<String>>
+    with ProdGetComponentIdsRef {
+  _ProdGetComponentIdsProviderElement(super.provider);
+
+  @override
+  String get regionId => (origin as ProdGetComponentIdsProvider).regionId;
+  @override
+  String get id => (origin as ProdGetComponentIdsProvider).id;
+  @override
+  String get assocType => (origin as ProdGetComponentIdsProvider).assocType;
+}
+
+String _$prodGetSelectableFeaturesHash() =>
+    r'4bab27d3004307d700b5373cf740ad7b2051bf8d';
+
+/// See also [prodGetSelectableFeatures].
+@ProviderFor(prodGetSelectableFeatures)
+const prodGetSelectableFeaturesProvider = ProdGetSelectableFeaturesFamily();
+
+/// See also [prodGetSelectableFeatures].
+class ProdGetSelectableFeaturesFamily extends Family<AsyncValue<List<String>>> {
+  /// See also [prodGetSelectableFeatures].
+  const ProdGetSelectableFeaturesFamily();
+
+  /// See also [prodGetSelectableFeatures].
+  ProdGetSelectableFeaturesProvider call({
+    String regionId = 'default',
+    required String id,
+  }) {
+    return ProdGetSelectableFeaturesProvider(
+      regionId: regionId,
+      id: id,
+    );
+  }
+
+  @override
+  ProdGetSelectableFeaturesProvider getProviderOverride(
+    covariant ProdGetSelectableFeaturesProvider provider,
+  ) {
+    return call(
+      regionId: provider.regionId,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'prodGetSelectableFeaturesProvider';
+}
+
+/// See also [prodGetSelectableFeatures].
+class ProdGetSelectableFeaturesProvider
+    extends AutoDisposeFutureProvider<List<String>> {
+  /// See also [prodGetSelectableFeatures].
+  ProdGetSelectableFeaturesProvider({
+    String regionId = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => prodGetSelectableFeatures(
+            ref as ProdGetSelectableFeaturesRef,
+            regionId: regionId,
+            id: id,
+          ),
+          from: prodGetSelectableFeaturesProvider,
+          name: r'prodGetSelectableFeaturesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$prodGetSelectableFeaturesHash,
+          dependencies: ProdGetSelectableFeaturesFamily._dependencies,
+          allTransitiveDependencies:
+              ProdGetSelectableFeaturesFamily._allTransitiveDependencies,
+          regionId: regionId,
+          id: id,
+        );
+
+  ProdGetSelectableFeaturesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionId,
+    required this.id,
+  }) : super.internal();
+
+  final String regionId;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<String>> Function(ProdGetSelectableFeaturesRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ProdGetSelectableFeaturesProvider._internal(
+        (ref) => create(ref as ProdGetSelectableFeaturesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionId: regionId,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<String>> createElement() {
+    return _ProdGetSelectableFeaturesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProdGetSelectableFeaturesProvider &&
+        other.regionId == regionId &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ProdGetSelectableFeaturesRef
+    on AutoDisposeFutureProviderRef<List<String>> {
+  /// The parameter `regionId` of this provider.
+  String get regionId;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _ProdGetSelectableFeaturesProviderElement
+    extends AutoDisposeFutureProviderElement<List<String>>
+    with ProdGetSelectableFeaturesRef {
+  _ProdGetSelectableFeaturesProviderElement(super.provider);
+
+  @override
+  String get regionId => (origin as ProdGetSelectableFeaturesProvider).regionId;
+  @override
+  String get id => (origin as ProdGetSelectableFeaturesProvider).id;
+}
+
+String _$prodGetFixedAssetMapHash() =>
+    r'9e6b988a5819203ce9913ea0a922c856c57b4434';
+
+/// See also [prodGetFixedAssetMap].
+@ProviderFor(prodGetFixedAssetMap)
+const prodGetFixedAssetMapProvider = ProdGetFixedAssetMapFamily();
+
+/// See also [prodGetFixedAssetMap].
+class ProdGetFixedAssetMapFamily extends Family<AsyncValue<StringMap>> {
+  /// See also [prodGetFixedAssetMap].
+  const ProdGetFixedAssetMapFamily();
+
+  /// See also [prodGetFixedAssetMap].
+  ProdGetFixedAssetMapProvider call({
+    String regionId = 'default',
+    required String id,
+  }) {
+    return ProdGetFixedAssetMapProvider(
+      regionId: regionId,
+      id: id,
+    );
+  }
+
+  @override
+  ProdGetFixedAssetMapProvider getProviderOverride(
+    covariant ProdGetFixedAssetMapProvider provider,
+  ) {
+    return call(
+      regionId: provider.regionId,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'prodGetFixedAssetMapProvider';
+}
+
+/// See also [prodGetFixedAssetMap].
+class ProdGetFixedAssetMapProvider
+    extends AutoDisposeFutureProvider<StringMap> {
+  /// See also [prodGetFixedAssetMap].
+  ProdGetFixedAssetMapProvider({
+    String regionId = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => prodGetFixedAssetMap(
+            ref as ProdGetFixedAssetMapRef,
+            regionId: regionId,
+            id: id,
+          ),
+          from: prodGetFixedAssetMapProvider,
+          name: r'prodGetFixedAssetMapProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$prodGetFixedAssetMapHash,
+          dependencies: ProdGetFixedAssetMapFamily._dependencies,
+          allTransitiveDependencies:
+              ProdGetFixedAssetMapFamily._allTransitiveDependencies,
+          regionId: regionId,
+          id: id,
+        );
+
+  ProdGetFixedAssetMapProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionId,
+    required this.id,
+  }) : super.internal();
+
+  final String regionId;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<StringMap> Function(ProdGetFixedAssetMapRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ProdGetFixedAssetMapProvider._internal(
+        (ref) => create(ref as ProdGetFixedAssetMapRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionId: regionId,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<StringMap> createElement() {
+    return _ProdGetFixedAssetMapProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProdGetFixedAssetMapProvider &&
+        other.regionId == regionId &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ProdGetFixedAssetMapRef on AutoDisposeFutureProviderRef<StringMap> {
+  /// The parameter `regionId` of this provider.
+  String get regionId;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _ProdGetFixedAssetMapProviderElement
+    extends AutoDisposeFutureProviderElement<StringMap>
+    with ProdGetFixedAssetMapRef {
+  _ProdGetFixedAssetMapProviderElement(super.provider);
+
+  @override
+  String get regionId => (origin as ProdGetFixedAssetMapProvider).regionId;
+  @override
+  String get id => (origin as ProdGetFixedAssetMapProvider).id;
+}
+
 String _$prodGetDecimalsHash() => r'cd4be2bc3ca43bc391a69ef21d7193f05566b1a2';
 
 /// See also [prodGetDecimals].
@@ -2402,7 +2402,7 @@ class _ProdGetDecimalsProviderElement
   String get id => (origin as ProdGetDecimalsProvider).id;
 }
 
-String _$productCoPodHash() => r'3489fdc25693c5bfb92f21256ddb5e707c8cb566';
+String _$productCoPodHash() => r'05a5deda4473f6f6f9c7b62d1d4c44ae8621ba85';
 
 abstract class _$ProductCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionId;

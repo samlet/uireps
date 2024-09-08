@@ -33,6 +33,19 @@ class NoteCoPod extends _$NoteCoPod {
   }
 
   
+  Future<bool> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
+              workEffId: workEffId,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> setContent({
     
     required String cnt, 
@@ -76,19 +89,6 @@ class NoteCoPod extends _$NoteCoPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(noteCoProvider(regionId: regionId, id: id)).revokeContent(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
-              workEffId: workEffId,
             ));
     return state.hasError == false;
   }

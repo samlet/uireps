@@ -9,18 +9,20 @@ import 'calls.dart';
 class DataResourceCoRepository {
   DataResourceCoRepository(this.dio, {
     this.regionId='default',
+    this.moduleName='dataResourceCo',
     required this.id,
   });
 
   final Dio dio;
   final String regionId;
+  final String moduleName;
   final String id;
 
    
   // Query
   Future<String> name() async { 
     var resp = await performCall(dio, {
-      "module": "dataResourceCo",
+      "module": moduleName,
       "action": "name",
       "bundleName" : "DataResource",
       "call-type": "co",
@@ -39,7 +41,7 @@ class DataResourceCoRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "dataResourceCo",
+      "module": moduleName,
       "action": "setText",
       "bundleName" : "DataResource",
       "call-type": "co",
@@ -54,7 +56,7 @@ class DataResourceCoRepository {
   // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
-      "module": "dataResourceCo",
+      "module": moduleName,
       "action": "getDecimals",
       "bundleName" : "DataResource",
       "call-type": "co",

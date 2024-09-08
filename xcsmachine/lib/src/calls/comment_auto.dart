@@ -9,18 +9,20 @@ import 'calls.dart';
 class CommentAutoRepository {
   CommentAutoRepository(this.dio, {
     this.regionId='default',
+    this.moduleName='commentAuto',
     required this.id,
   });
 
   final Dio dio;
   final String regionId;
+  final String moduleName;
   final String id;
 
    
   // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
-      "module": "commentAuto",
+      "module": moduleName,
       "action": "getDecimals",
       "bundleName" : "Comment",
       "call-type": "co",

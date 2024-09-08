@@ -5,5 +5,9 @@ import '../../xcmodels.dart';
 import '../../util.dart';
 part 'post_bundle.dart';
 part 'web_site_cube_data.dart';
+part 'test_rec.dart';
+part 'store_bundle.dart';
+part 'party_bundle.dart';
+part 'complicated_rec.dart';
 
 part 'calls.g.dart';

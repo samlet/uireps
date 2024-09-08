@@ -68,3 +68,111 @@ Map<String, dynamic> _$WebSiteCubeDataToJson(WebSiteCubeData instance) {
   writeNotNull('httpsUrl', instance.httpsUrl);
   return val;
 }
+
+TestRec _$TestRecFromJson(Map<String, dynamic> json) => TestRec(
+      stringFld: json['stringFld'] as String?,
+      numFld: (json['numFld'] as num?)?.toDouble(),
+      boolFld: json['boolFld'] as bool?,
+      tag: json['tag'] as String?,
+      numMap: (json['numMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num).toDouble()),
+      ),
+      nums: (json['nums'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
+    );
+
+Map<String, dynamic> _$TestRecToJson(TestRec instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('stringFld', instance.stringFld);
+  writeNotNull('numFld', instance.numFld);
+  writeNotNull('boolFld', instance.boolFld);
+  writeNotNull('tag', instance.tag);
+  writeNotNull('numMap', instance.numMap);
+  writeNotNull('nums', instance.nums);
+  return val;
+}
+
+PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
+      party: json['party'] == null
+          ? null
+          : Party.fromJson(json['party'] as Map<String, dynamic>),
+      contacts: (json['contacts'] as List<dynamic>?)
+          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('party', instance.party?.toJson());
+  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
+      store: json['store'] == null
+          ? null
+          : Store.fromJson(json['store'] as Map<String, dynamic>),
+      facility: json['facility'] == null
+          ? null
+          : Facility.fromJson(json['facility'] as Map<String, dynamic>),
+      products: (json['products'] as List<dynamic>?)
+          ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      inventories: (json['inventories'] as List<dynamic>?)
+          ?.map((e) => Inventory.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('store', instance.store?.toJson());
+  writeNotNull('facility', instance.facility?.toJson());
+  writeNotNull('products', instance.products?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'inventories', instance.inventories?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+ComplicatedRec _$ComplicatedRecFromJson(Map<String, dynamic> json) =>
+    ComplicatedRec(
+      poster: json['poster'] as String?,
+      data: json['data'] == null
+          ? null
+          : TestRec.fromJson(json['data'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ComplicatedRecToJson(ComplicatedRec instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('poster', instance.poster);
+  writeNotNull('data', instance.data?.toJson());
+  return val;
+}

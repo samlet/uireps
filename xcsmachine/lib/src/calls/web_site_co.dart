@@ -9,18 +9,20 @@ import 'calls.dart';
 class WebSiteCoRepository {
   WebSiteCoRepository(this.dio, {
     this.regionId='default',
+    this.moduleName='webSiteCo',
     required this.id,
   });
 
   final Dio dio;
   final String regionId;
+  final String moduleName;
   final String id;
 
    
   // Query
   Future<String> name() async { 
     var resp = await performCall(dio, {
-      "module": "webSiteCo",
+      "module": moduleName,
       "action": "name",
       "bundleName" : "WebSite",
       "call-type": "co",
@@ -32,21 +34,6 @@ class WebSiteCoRepository {
     return ResultConv.asString(resp);
   }
    
-  // Query
-  Future<WebSiteCubeData> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": "webSiteCo",
-      "action": "fetch",
-      "bundleName" : "WebSite",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-    return WebSiteCubeData.fromJson(resp);
-  }
-   
   // Mutation
   Future<void> updateHttpUrl({
     
@@ -55,7 +42,7 @@ class WebSiteCoRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "webSiteCo",
+      "module": moduleName,
       "action": "updateHttpUrl",
       "bundleName" : "WebSite",
       "call-type": "co",
@@ -76,7 +63,7 @@ class WebSiteCoRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "webSiteCo",
+      "module": moduleName,
       "action": "updateHttpsUrl",
       "bundleName" : "WebSite",
       "call-type": "co",
@@ -96,7 +83,7 @@ class WebSiteCoRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "webSiteCo",
+      "module": moduleName,
       "action": "updateSiteName",
       "bundleName" : "WebSite",
       "call-type": "co",
@@ -109,9 +96,24 @@ class WebSiteCoRepository {
   }
    
   // Query
+  Future<WebSiteCubeData> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "fetch",
+      "bundleName" : "WebSite",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
+    return WebSiteCubeData.fromJson(resp);
+  }
+   
+  // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
-      "module": "webSiteCo",
+      "module": moduleName,
       "action": "getDecimals",
       "bundleName" : "WebSite",
       "call-type": "co",

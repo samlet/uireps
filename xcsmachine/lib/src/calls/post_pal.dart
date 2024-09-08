@@ -9,18 +9,20 @@ import 'calls.dart';
 class PostPalRepository {
   PostPalRepository(this.dio, {
     this.regionId='default',
+    this.moduleName='postPal',
     required this.id,
   });
 
   final Dio dio;
   final String regionId;
+  final String moduleName;
   final String id;
 
    
   // Query
   Future<String> text() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "text",
       "bundleName" : "Content",
       "call-type": "co",
@@ -32,25 +34,11 @@ class PostPalRepository {
     return ResultConv.asString(resp);
   }
    
-  // Mutation
-  Future<void> like() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "like",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
   // Query
-  Future<double> likes() async { 
+  Future<List<Comment>> getCommentSyncs() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "likes",
+      "module": moduleName,
+      "action": "getCommentSyncs",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
@@ -58,42 +46,32 @@ class PostPalRepository {
     }, { 
     });
     
-    return ResultConv.asDouble(resp);
+    return convList(resp, Comment.fromJson);
   }
    
   // Mutation
-  Future<void> unlike() async { 
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "unlike",
+      "module": moduleName,
+      "action": "addToContentBin",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
-    }, { 
+    }, {
+      "binId": binId, 
     });
     
-  }
-   
-  // Query
-  Future<PostBundle> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "fetch",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-    return PostBundle.fromJson(resp);
   }
    
   // Mutation
   Future<void> featured() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "featured",
       "bundleName" : "Content",
       "call-type": "co",
@@ -107,7 +85,7 @@ class PostPalRepository {
   // Query
   Future<bool> isFeatured() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "isFeatured",
       "bundleName" : "Content",
       "call-type": "co",
@@ -122,7 +100,7 @@ class PostPalRepository {
   // Query
   Future<Map<String, double>> getStats() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "getStats",
       "bundleName" : "Content",
       "call-type": "co",
@@ -137,7 +115,7 @@ class PostPalRepository {
   // Query
   Future<bool> isLiked() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "isLiked",
       "bundleName" : "Content",
       "call-type": "co",
@@ -156,7 +134,7 @@ class PostPalRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "setCharge",
       "bundleName" : "Content",
       "call-type": "co",
@@ -175,7 +153,7 @@ class PostPalRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "updateText",
       "bundleName" : "Content",
       "call-type": "co",
@@ -197,7 +175,7 @@ class PostPalRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "postComment",
       "bundleName" : "Content",
       "call-type": "co",
@@ -214,10 +192,10 @@ class PostPalRepository {
   }
    
   // Query
-  Future<List<Comment>> getCommentSyncs() async { 
+  Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "getCommentSyncs",
+      "module": moduleName,
+      "action": "fetch",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
@@ -225,52 +203,28 @@ class PostPalRepository {
     }, { 
     });
     
-    return convList(resp, Comment.fromJson);
+    return PostBundle.fromJson(resp);
   }
    
   // Mutation
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
+  Future<void> like() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "addToContentBin",
+      "module": moduleName,
+      "action": "like",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
       "id": id,
-    }, {
-      "binId": binId, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> setContentSlot({
-    
-    required BuffersData data, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "setContentSlot",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, {
-      "data": data.toProto3Json()!, 
+    }, { 
     });
     
   }
    
   // Query
-  Future<BuffersData> getContentSlot() async { 
+  Future<double> likes() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
-      "action": "getContentSlot",
+      "module": moduleName,
+      "action": "likes",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionId,
@@ -278,13 +232,27 @@ class PostPalRepository {
     }, { 
     });
     
-    return BuffersData()..mergeFromProto3Json(resp);
+    return ResultConv.asDouble(resp);
+  }
+   
+  // Mutation
+  Future<void> unlike() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "unlike",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
   }
    
   // Query
   Future<Map<String, bool>> persistSlotsExistent() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "persistSlotsExistent",
       "bundleName" : "Content",
       "call-type": "co",
@@ -299,7 +267,7 @@ class PostPalRepository {
   // Query
   Future<BuffersMap> persistSlotValues() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "persistSlotValues",
       "bundleName" : "Content",
       "call-type": "co",
@@ -311,10 +279,44 @@ class PostPalRepository {
     return BuffersMap()..mergeFromProto3Json(resp);
   }
    
+  // Mutation
+  Future<void> setContentSlot({
+    
+    required BuffersData data, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "setContentSlot",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, {
+      "data": data.toProto3Json()!, 
+    });
+    
+  }
+   
+  // Query
+  Future<BuffersData> getContentSlot() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getContentSlot",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionId,
+      "id": id,
+    }, { 
+    });
+    
+    return BuffersData()..mergeFromProto3Json(resp);
+  }
+   
   // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "getDecimals",
       "bundleName" : "Content",
       "call-type": "co",
@@ -333,7 +335,7 @@ class PostPalRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "doneSlot",
       "bundleName" : "Content",
       "call-type": "co",
@@ -352,7 +354,7 @@ class PostPalRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "getSlotValue",
       "bundleName" : "Content",
       "call-type": "co",
@@ -372,7 +374,7 @@ class PostPalRepository {
 
   }) async { 
     var resp = await performCall(dio, {
-      "module": "postPal",
+      "module": moduleName,
       "action": "hasSlotValue",
       "bundleName" : "Content",
       "call-type": "co",

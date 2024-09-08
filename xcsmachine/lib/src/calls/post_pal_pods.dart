@@ -33,18 +33,15 @@ class PostPalPod extends _$PostPalPod {
   }
 
   
-  Future<bool> like() async {
+  Future<bool> addToContentBin({
+    
+    required String binId, 
+
+  }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionId: regionId, id: id)).like(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> unlike() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionId: regionId, id: id)).unlike(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
+              binId: binId,
             ));
     return state.hasError == false;
   }
@@ -102,15 +99,18 @@ class PostPalPod extends _$PostPalPod {
     return state.hasError == false;
   }
   
-  Future<bool> addToContentBin({
-    
-    required String binId, 
-
-  }) async {
+  Future<bool> like() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
-              binId: binId,
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).like(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> unlike() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionId: regionId, id: id)).unlike(
             ));
     return state.hasError == false;
   }
@@ -155,22 +155,12 @@ Future<String> postText(PostTextRef ref, {
 }
 
 @riverpod
-Future<double> postLikes(PostLikesRef ref, {
+Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
   String regionId='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.likes(
-  );
-}
-
-@riverpod
-Future<PostBundle> postFetch(PostFetchRef ref, {
-  String regionId='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.fetch(
+  return await pod.getCommentSyncs(
   );
 }
 
@@ -205,22 +195,22 @@ Future<bool> postIsLiked(PostIsLikedRef ref, {
 }
 
 @riverpod
-Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
+Future<PostBundle> postFetch(PostFetchRef ref, {
   String regionId='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.getCommentSyncs(
+  return await pod.fetch(
   );
 }
 
 @riverpod
-Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
+Future<double> postLikes(PostLikesRef ref, {
   String regionId='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
-  return await pod.getContentSlot(
+  return await pod.likes(
   );
 }
 
@@ -241,6 +231,16 @@ Future<BuffersMap> postPersistSlotValues(PostPersistSlotValuesRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
   return await pod.persistSlotValues(
+  );
+}
+
+@riverpod
+Future<BuffersData> postGetContentSlot(PostGetContentSlotRef ref, {
+  String regionId='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionId: regionId, id: id));
+  return await pod.getContentSlot(
   );
 }
 

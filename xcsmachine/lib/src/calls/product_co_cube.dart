@@ -21,6 +21,18 @@ class ProductCoCube extends _$ProductCoCube {
    
 
   
+  Future<void> modifyDefaultPrice({
+    
+    required double price, 
+
+  }) async { 
+    await ref.read(productCoProvider(regionId: regionId, id: id)).modifyDefaultPrice(
+      price: price,
+    );
+    ref.invalidate(loadProductProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
   Future<void> modifyPrice({
     
     required double price,
@@ -75,18 +87,6 @@ class ProductCoCube extends _$ProductCoCube {
   }) async { 
     await ref.read(productCoProvider(regionId: regionId, id: id)).applyFeatures(
       categoryCo: categoryCo,
-    );
-    ref.invalidate(loadProductProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> modifyDefaultPrice({
-    
-    required double price, 
-
-  }) async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).modifyDefaultPrice(
-      price: price,
     );
     ref.invalidate(loadProductProvider(bundleId: id));
     ref.invalidateSelf();

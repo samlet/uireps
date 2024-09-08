@@ -56,6 +56,11 @@ Future<dynamic> performCall(
   return resp.data;
 }
 
+Future<dynamic> requestBytes(
+Dio dio, Map<String, Object?> ctx, Map<String, Object> inputParams) async {
+  return performCall(dio, ctx, inputParams, options: Options(responseType: ResponseType.bytes));
+}
+
 // Adapters --------------
 
 class AdapterResult {
