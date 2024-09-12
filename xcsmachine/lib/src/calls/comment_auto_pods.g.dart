@@ -6,7 +6,7 @@ part of 'comment_auto_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$commentAutoHash() => r'1489060a17d8f40267b89b8ff80b72382e286495';
+String _$commentAutoHash() => r'03443fee3966cbfd77557d38613ac7805d69da06';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,11 +40,11 @@ class CommentAutoFamily extends Family<CommentAutoRepository> {
 
   /// See also [commentAuto].
   CommentAutoProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return CommentAutoProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -54,7 +54,7 @@ class CommentAutoFamily extends Family<CommentAutoRepository> {
     covariant CommentAutoProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -78,12 +78,12 @@ class CommentAutoFamily extends Family<CommentAutoRepository> {
 class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
   /// See also [commentAuto].
   CommentAutoProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => commentAuto(
             ref as CommentAutoRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: commentAutoProvider,
@@ -95,7 +95,7 @@ class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
           dependencies: CommentAutoFamily._dependencies,
           allTransitiveDependencies:
               CommentAutoFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -106,11 +106,11 @@ class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -126,7 +126,7 @@ class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -140,14 +140,14 @@ class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
   @override
   bool operator ==(Object other) {
     return other is CommentAutoProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -155,8 +155,8 @@ class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
 }
 
 mixin CommentAutoRef on AutoDisposeProviderRef<CommentAutoRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -168,13 +168,13 @@ class _CommentAutoProviderElement
   _CommentAutoProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CommentAutoProvider).regionId;
+  String get regionOrNs => (origin as CommentAutoProvider).regionOrNs;
   @override
   String get id => (origin as CommentAutoProvider).id;
 }
 
 String _$commentAutoGetDecimalsHash() =>
-    r'3531033da82d4f81ac5393c6d2d83cda7c4d6a70';
+    r'4e790cbc72bb7076bb8ee2e71158756f478b0574';
 
 /// See also [commentAutoGetDecimals].
 @ProviderFor(commentAutoGetDecimals)
@@ -187,11 +187,11 @@ class CommentAutoGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
 
   /// See also [commentAutoGetDecimals].
   CommentAutoGetDecimalsProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return CommentAutoGetDecimalsProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -201,7 +201,7 @@ class CommentAutoGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
     covariant CommentAutoGetDecimalsProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -226,12 +226,12 @@ class CommentAutoGetDecimalsProvider
     extends AutoDisposeFutureProvider<DecimalMap> {
   /// See also [commentAutoGetDecimals].
   CommentAutoGetDecimalsProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => commentAutoGetDecimals(
             ref as CommentAutoGetDecimalsRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: commentAutoGetDecimalsProvider,
@@ -243,7 +243,7 @@ class CommentAutoGetDecimalsProvider
           dependencies: CommentAutoGetDecimalsFamily._dependencies,
           allTransitiveDependencies:
               CommentAutoGetDecimalsFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -254,11 +254,11 @@ class CommentAutoGetDecimalsProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -274,7 +274,7 @@ class CommentAutoGetDecimalsProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -288,14 +288,14 @@ class CommentAutoGetDecimalsProvider
   @override
   bool operator ==(Object other) {
     return other is CommentAutoGetDecimalsProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -303,8 +303,8 @@ class CommentAutoGetDecimalsProvider
 }
 
 mixin CommentAutoGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -316,20 +316,21 @@ class _CommentAutoGetDecimalsProviderElement
   _CommentAutoGetDecimalsProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CommentAutoGetDecimalsProvider).regionId;
+  String get regionOrNs =>
+      (origin as CommentAutoGetDecimalsProvider).regionOrNs;
   @override
   String get id => (origin as CommentAutoGetDecimalsProvider).id;
 }
 
-String _$commentAutoPodHash() => r'b401cc4119b656f7f2217d8d08c931b82490e861';
+String _$commentAutoPodHash() => r'f594dc1fa2fdbb618335efb0faeec956cc0e83d4';
 
 abstract class _$CommentAutoPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -345,11 +346,11 @@ class CommentAutoPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [CommentAutoPod].
   CommentAutoPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return CommentAutoPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -359,7 +360,7 @@ class CommentAutoPodFamily extends Family<AsyncValue<void>> {
     covariant CommentAutoPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -384,11 +385,11 @@ class CommentAutoPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<CommentAutoPod, void> {
   /// See also [CommentAutoPod].
   CommentAutoPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => CommentAutoPod()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: commentAutoPodProvider,
           name: r'commentAutoPodProvider',
@@ -399,7 +400,7 @@ class CommentAutoPodProvider
           dependencies: CommentAutoPodFamily._dependencies,
           allTransitiveDependencies:
               CommentAutoPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -410,11 +411,11 @@ class CommentAutoPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -422,7 +423,7 @@ class CommentAutoPodProvider
     covariant CommentAutoPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -433,14 +434,14 @@ class CommentAutoPodProvider
       origin: this,
       override: CommentAutoPodProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -455,14 +456,14 @@ class CommentAutoPodProvider
   @override
   bool operator ==(Object other) {
     return other is CommentAutoPodProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -470,8 +471,8 @@ class CommentAutoPodProvider
 }
 
 mixin CommentAutoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -483,7 +484,7 @@ class _CommentAutoPodProviderElement
   _CommentAutoPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CommentAutoPodProvider).regionId;
+  String get regionOrNs => (origin as CommentAutoPodProvider).regionOrNs;
   @override
   String get id => (origin as CommentAutoPodProvider).id;
 }

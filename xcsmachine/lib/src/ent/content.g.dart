@@ -6,83 +6,85 @@ part of 'content.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Content _$ContentFromJson(Map<String, dynamic> json) => Content()
-  ..contentId = json['contentId'] as String?
-  ..contentTypeId = json['contentTypeId'] as String?
-  ..ownerContentId = json['ownerContentId'] as String?
-  ..decoratorContentId = json['decoratorContentId'] as String?
-  ..instanceOfContentId = json['instanceOfContentId'] as String?
-  ..dataResourceId = json['dataResourceId'] as String?
-  ..templateDataResourceId = json['templateDataResourceId'] as String?
-  ..dataSourceId = json['dataSourceId'] as String?
-  ..statusId = json['statusId'] as String?
-  ..privilegeEnumId = json['privilegeEnumId'] as String?
-  ..serviceName = json['serviceName'] as String?
-  ..customMethodId = json['customMethodId'] as String?
-  ..contentName = json['contentName'] as String?
-  ..description = json['description'] as String?
-  ..localeString = json['localeString'] as String?
-  ..mimeTypeId = json['mimeTypeId'] as String?
-  ..characterSetId = json['characterSetId'] as String?
-  ..childLeafCount = (json['childLeafCount'] as num?)?.toInt()
-  ..childBranchCount = (json['childBranchCount'] as num?)?.toInt()
-  ..createdDate = json['createdDate'] == null
-      ? null
-      : DateTime.parse(json['createdDate'] as String)
-  ..createdByUserLogin = json['createdByUserLogin'] as String?
-  ..lastModifiedDate = json['lastModifiedDate'] == null
-      ? null
-      : DateTime.parse(json['lastModifiedDate'] as String)
-  ..lastModifiedByUserLogin = json['lastModifiedByUserLogin'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?
-  ..defaultCharge = (json['defaultCharge'] as num?)?.toDouble()
-  ..charges = (json['charges'] as Map<String, dynamic>?)?.map(
-    (k, e) => MapEntry(k, (e as num).toDouble()),
-  )
-  ..contentBinId = json['contentBinId'] as String?
-  ..ncopies = (json['ncopies'] as num?)?.toDouble()
-  ..accountId = json['accountId'] as String?
-  ..tokenId = json['tokenId'] as String?
-  ..origin = $enumDecodeNullable(_$IndicatorEnumMap, json['origin'])
-  ..evict = json['evict'] as bool?
-  ..tag1 = json['tag1'] as String?
-  ..tag2 = json['tag2'] as String?
-  ..tag3 = json['tag3'] as String?
-  ..moreTags =
-      (json['moreTags'] as List<dynamic>?)?.map((e) => e as String?).toList()
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..contentSlot = (json['contentSlot'] as List<dynamic>?)
-      ?.map((e) => ContentSlot.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..contentWallet = (json['contentWallet'] as List<dynamic>?)
-      ?.map((e) => ContentWallet.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..fromContentAssoc = (json['fromContentAssoc'] as List<dynamic>?)
-      ?.map((e) => ContentAssoc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..contentAttribute = (json['contentAttribute'] as List<dynamic>?)
-      ?.map((e) => ContentAttribute.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..toContentAssoc = (json['toContentAssoc'] as List<dynamic>?)
-      ?.map((e) => ContentAssoc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..contentReference = (json['contentReference'] as List<dynamic>?)
-      ?.map((e) => ContentReference.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..contentRole = (json['contentRole'] as List<dynamic>?)
-      ?.map((e) => ContentRole.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..contentPurpose = (json['contentPurpose'] as List<dynamic>?)
-      ?.map((e) => ContentPurpose.fromJson(e as Map<String, dynamic>))
-      .toList();
+Content _$ContentFromJson(Map<String, dynamic> json) => Content(
+      contentId: json['contentId'] as String?,
+      contentTypeId: json['contentTypeId'] as String?,
+      ownerContentId: json['ownerContentId'] as String?,
+      decoratorContentId: json['decoratorContentId'] as String?,
+      instanceOfContentId: json['instanceOfContentId'] as String?,
+      dataResourceId: json['dataResourceId'] as String?,
+      templateDataResourceId: json['templateDataResourceId'] as String?,
+      dataSourceId: json['dataSourceId'] as String?,
+      statusId: json['statusId'] as String?,
+      privilegeEnumId: json['privilegeEnumId'] as String?,
+      serviceName: json['serviceName'] as String?,
+      customMethodId: json['customMethodId'] as String?,
+      contentName: json['contentName'] as String?,
+      description: json['description'] as String?,
+      localeString: json['localeString'] as String?,
+      mimeTypeId: json['mimeTypeId'] as String?,
+      characterSetId: json['characterSetId'] as String?,
+      childLeafCount: (json['childLeafCount'] as num?)?.toInt(),
+      childBranchCount: (json['childBranchCount'] as num?)?.toInt(),
+      createdDate: json['createdDate'] == null
+          ? null
+          : DateTime.parse(json['createdDate'] as String),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      lastModifiedDate: json['lastModifiedDate'] == null
+          ? null
+          : DateTime.parse(json['lastModifiedDate'] as String),
+      lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+      defaultCharge: (json['defaultCharge'] as num?)?.toDouble(),
+      charges: (json['charges'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num).toDouble()),
+      ),
+      contentBinId: json['contentBinId'] as String?,
+      ncopies: (json['ncopies'] as num?)?.toDouble(),
+      accountId: json['accountId'] as String?,
+      tokenId: json['tokenId'] as String?,
+      origin: $enumDecodeNullable(_$IndicatorEnumMap, json['origin']),
+      evict: json['evict'] as bool?,
+      tag1: json['tag1'] as String?,
+      tag2: json['tag2'] as String?,
+      tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      contentSlot: (json['contentSlot'] as List<dynamic>?)
+          ?.map((e) => ContentSlot.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contentWallet: (json['contentWallet'] as List<dynamic>?)
+          ?.map((e) => ContentWallet.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fromContentAssoc: (json['fromContentAssoc'] as List<dynamic>?)
+          ?.map((e) => ContentAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contentAttribute: (json['contentAttribute'] as List<dynamic>?)
+          ?.map((e) => ContentAttribute.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      toContentAssoc: (json['toContentAssoc'] as List<dynamic>?)
+          ?.map((e) => ContentAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contentReference: (json['contentReference'] as List<dynamic>?)
+          ?.map((e) => ContentReference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contentRole: (json['contentRole'] as List<dynamic>?)
+          ?.map((e) => ContentRole.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      contentPurpose: (json['contentPurpose'] as List<dynamic>?)
+          ?.map((e) => ContentPurpose.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$ContentToJson(Content instance) {
   final val = <String, dynamic>{};
@@ -185,18 +187,19 @@ const _$IndicatorEnumMap = {
   Indicator.P: 'P',
 };
 
-ContentSlot _$ContentSlotFromJson(Map<String, dynamic> json) => ContentSlot()
-  ..contentId = json['contentId'] as String?
-  ..slotId = json['slotId'] as String?
-  ..bindType = json['bindType'] as String?
-  ..tenantId = json['tenantId'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ContentSlot _$ContentSlotFromJson(Map<String, dynamic> json) => ContentSlot(
+      contentId: json['contentId'] as String?,
+      slotId: json['slotId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentSlotToJson(ContentSlot instance) {
   final val = <String, dynamic>{};
@@ -219,19 +222,20 @@ Map<String, dynamic> _$ContentSlotToJson(ContentSlot instance) {
 }
 
 ContentWallet _$ContentWalletFromJson(Map<String, dynamic> json) =>
-    ContentWallet()
-      ..contentId = json['contentId'] as String?
-      ..walletId = json['walletId'] as String?
-      ..bindType = json['bindType'] as String?
-      ..tenantId = json['tenantId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ContentWallet(
+      contentId: json['contentId'] as String?,
+      walletId: json['walletId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..paymentErc = json['paymentErc'] as String?
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      paymentErc: json['paymentErc'] as String?,
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentWalletToJson(ContentWallet instance) {
   final val = <String, dynamic>{};
@@ -254,37 +258,38 @@ Map<String, dynamic> _$ContentWalletToJson(ContentWallet instance) {
   return val;
 }
 
-ContentAssoc _$ContentAssocFromJson(Map<String, dynamic> json) => ContentAssoc()
-  ..contentId = json['contentId'] as String?
-  ..contentIdTo = json['contentIdTo'] as String?
-  ..contentAssocTypeId = json['contentAssocTypeId'] as String?
-  ..fromDate = json['fromDate'] == null
-      ? null
-      : DateTime.parse(json['fromDate'] as String)
-  ..thruDate = json['thruDate'] == null
-      ? null
-      : DateTime.parse(json['thruDate'] as String)
-  ..contentAssocPredicateId = json['contentAssocPredicateId'] as String?
-  ..dataSourceId = json['dataSourceId'] as String?
-  ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-  ..mapKey = json['mapKey'] as String?
-  ..upperCoordinate = (json['upperCoordinate'] as num?)?.toInt()
-  ..leftCoordinate = (json['leftCoordinate'] as num?)?.toInt()
-  ..createdDate = json['createdDate'] == null
-      ? null
-      : DateTime.parse(json['createdDate'] as String)
-  ..createdByUserLogin = json['createdByUserLogin'] as String?
-  ..lastModifiedDate = json['lastModifiedDate'] == null
-      ? null
-      : DateTime.parse(json['lastModifiedDate'] as String)
-  ..lastModifiedByUserLogin = json['lastModifiedByUserLogin'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ContentAssoc _$ContentAssocFromJson(Map<String, dynamic> json) => ContentAssoc(
+      contentId: json['contentId'] as String?,
+      contentIdTo: json['contentIdTo'] as String?,
+      contentAssocTypeId: json['contentAssocTypeId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      contentAssocPredicateId: json['contentAssocPredicateId'] as String?,
+      dataSourceId: json['dataSourceId'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      mapKey: json['mapKey'] as String?,
+      upperCoordinate: (json['upperCoordinate'] as num?)?.toInt(),
+      leftCoordinate: (json['leftCoordinate'] as num?)?.toInt(),
+      createdDate: json['createdDate'] == null
+          ? null
+          : DateTime.parse(json['createdDate'] as String),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      lastModifiedDate: json['lastModifiedDate'] == null
+          ? null
+          : DateTime.parse(json['lastModifiedDate'] as String),
+      lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentAssocToJson(ContentAssoc instance) {
   final val = <String, dynamic>{};
@@ -319,18 +324,19 @@ Map<String, dynamic> _$ContentAssocToJson(ContentAssoc instance) {
 }
 
 ContentAttribute _$ContentAttributeFromJson(Map<String, dynamic> json) =>
-    ContentAttribute()
-      ..contentId = json['contentId'] as String?
-      ..attrName = json['attrName'] as String?
-      ..attrValue = json['attrValue'] as String?
-      ..attrDescription = json['attrDescription'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ContentAttribute(
+      contentId: json['contentId'] as String?,
+      attrName: json['attrName'] as String?,
+      attrValue: json['attrValue'] as String?,
+      attrDescription: json['attrDescription'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentAttributeToJson(ContentAttribute instance) {
   final val = <String, dynamic>{};
@@ -353,18 +359,19 @@ Map<String, dynamic> _$ContentAttributeToJson(ContentAttribute instance) {
 }
 
 ContentReference _$ContentReferenceFromJson(Map<String, dynamic> json) =>
-    ContentReference()
-      ..contentId = json['contentId'] as String?
-      ..refId = json['refId'] as String?
-      ..bindType = json['bindType'] as String?
-      ..tenantId = json['tenantId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ContentReference(
+      contentId: json['contentId'] as String?,
+      refId: json['refId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentReferenceToJson(ContentReference instance) {
   final val = <String, dynamic>{};
@@ -386,23 +393,24 @@ Map<String, dynamic> _$ContentReferenceToJson(ContentReference instance) {
   return val;
 }
 
-ContentRole _$ContentRoleFromJson(Map<String, dynamic> json) => ContentRole()
-  ..contentId = json['contentId'] as String?
-  ..partyId = json['partyId'] as String?
-  ..roleTypeId = json['roleTypeId'] as String?
-  ..fromDate = json['fromDate'] == null
-      ? null
-      : DateTime.parse(json['fromDate'] as String)
-  ..thruDate = json['thruDate'] == null
-      ? null
-      : DateTime.parse(json['thruDate'] as String)
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ContentRole _$ContentRoleFromJson(Map<String, dynamic> json) => ContentRole(
+      contentId: json['contentId'] as String?,
+      partyId: json['partyId'] as String?,
+      roleTypeId: json['roleTypeId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentRoleToJson(ContentRole instance) {
   final val = <String, dynamic>{};
@@ -426,17 +434,18 @@ Map<String, dynamic> _$ContentRoleToJson(ContentRole instance) {
 }
 
 ContentPurpose _$ContentPurposeFromJson(Map<String, dynamic> json) =>
-    ContentPurpose()
-      ..contentId = json['contentId'] as String?
-      ..contentPurposeTypeId = json['contentPurposeTypeId'] as String?
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ContentPurpose(
+      contentId: json['contentId'] as String?,
+      contentPurposeTypeId: json['contentPurposeTypeId'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContentPurposeToJson(ContentPurpose instance) {
   final val = <String, dynamic>{};

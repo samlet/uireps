@@ -6,7 +6,7 @@ part of 'web_site_co_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$webSiteCoCubeHash() => r'7dbbfaf61bb1d8543a907cc47f5044bf168c3107';
+String _$webSiteCoCubeHash() => r'34e866ef02ddc75fc64b705966cb6a26db29b196';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,11 +31,11 @@ class _SystemHash {
 
 abstract class _$WebSiteCoCube
     extends BuildlessAutoDisposeAsyncNotifier<WebSiteCubeData> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<WebSiteCubeData> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -51,11 +51,11 @@ class WebSiteCoCubeFamily extends Family<AsyncValue<WebSiteCubeData>> {
 
   /// See also [WebSiteCoCube].
   WebSiteCoCubeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return WebSiteCoCubeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -65,7 +65,7 @@ class WebSiteCoCubeFamily extends Family<AsyncValue<WebSiteCubeData>> {
     covariant WebSiteCoCubeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -90,11 +90,11 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
     WebSiteCoCube, WebSiteCubeData> {
   /// See also [WebSiteCoCube].
   WebSiteCoCubeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => WebSiteCoCube()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: webSiteCoCubeProvider,
           name: r'webSiteCoCubeProvider',
@@ -105,7 +105,7 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
           dependencies: WebSiteCoCubeFamily._dependencies,
           allTransitiveDependencies:
               WebSiteCoCubeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -116,11 +116,11 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -128,7 +128,7 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
     covariant WebSiteCoCube notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -139,14 +139,14 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
       origin: this,
       override: WebSiteCoCubeProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -161,14 +161,14 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
   @override
   bool operator ==(Object other) {
     return other is WebSiteCoCubeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -176,8 +176,8 @@ class WebSiteCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
 }
 
 mixin WebSiteCoCubeRef on AutoDisposeAsyncNotifierProviderRef<WebSiteCubeData> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -189,7 +189,7 @@ class _WebSiteCoCubeProviderElement
   _WebSiteCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as WebSiteCoCubeProvider).regionId;
+  String get regionOrNs => (origin as WebSiteCoCubeProvider).regionOrNs;
   @override
   String get id => (origin as WebSiteCoCubeProvider).id;
 }

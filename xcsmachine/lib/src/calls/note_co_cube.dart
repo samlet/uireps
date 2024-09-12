@@ -14,31 +14,19 @@ part 'note_co_cube.g.dart';
 @riverpod
 class NoteCoCube extends _$NoteCoCube {
   @override
-  FutureOr<Note> build({String regionId='default', required String id}) async {
+  FutureOr<Note> build({String regionOrNs='default', required String id}) async {
     final data= await ref.watch(loadNoteProvider(bundleId: id).future);
     return data;
   }
    
 
   
-  Future<void> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
-      workEffId: workEffId,
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
   Future<void> setContent({
     
     required String cnt, 
 
   }) async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).setContent(
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
       cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
@@ -50,7 +38,7 @@ class NoteCoCube extends _$NoteCoCube {
     required String partyId, 
 
   }) async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).attachToParty(
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToParty(
       partyId: partyId,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
@@ -62,7 +50,7 @@ class NoteCoCube extends _$NoteCoCube {
     required String cnt, 
 
   }) async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).setContentComp(
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContentComp(
       cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
@@ -70,7 +58,19 @@ class NoteCoCube extends _$NoteCoCube {
   }
   
   Future<void> revokeContent() async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).revokeContent(
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToWorkEffort(
+      workEffId: workEffId,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();
@@ -81,7 +81,7 @@ class NoteCoCube extends _$NoteCoCube {
     required String slotName, 
 
   }) async { 
-    await ref.read(noteCoProvider(regionId: regionId, id: id)).doneSlot(
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
       slotName: slotName,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));

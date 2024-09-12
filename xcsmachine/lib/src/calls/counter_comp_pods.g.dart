@@ -6,7 +6,7 @@ part of 'counter_comp_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterCompHash() => r'a87d3549f7ac44be6c888f836a0940fad0eaa180';
+String _$counterCompHash() => r'3e49bed4253668102b079d1c53484568fa157d44';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,10 +40,10 @@ class CounterCompFamily extends Family<CounterCompRepository> {
 
   /// See also [counterComp].
   CounterCompProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return CounterCompProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -52,7 +52,7 @@ class CounterCompFamily extends Family<CounterCompRepository> {
     covariant CounterCompProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -75,11 +75,11 @@ class CounterCompFamily extends Family<CounterCompRepository> {
 class CounterCompProvider extends Provider<CounterCompRepository> {
   /// See also [counterComp].
   CounterCompProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
           (ref) => counterComp(
             ref as CounterCompRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
           ),
           from: counterCompProvider,
           name: r'counterCompProvider',
@@ -90,7 +90,7 @@ class CounterCompProvider extends Provider<CounterCompRepository> {
           dependencies: CounterCompFamily._dependencies,
           allTransitiveDependencies:
               CounterCompFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   CounterCompProvider._internal(
@@ -100,10 +100,10 @@ class CounterCompProvider extends Provider<CounterCompRepository> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   Override overrideWith(
@@ -118,7 +118,7 @@ class CounterCompProvider extends Provider<CounterCompRepository> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -130,21 +130,21 @@ class CounterCompProvider extends Provider<CounterCompRepository> {
 
   @override
   bool operator ==(Object other) {
-    return other is CounterCompProvider && other.regionId == regionId;
+    return other is CounterCompProvider && other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin CounterCompRef on ProviderRef<CounterCompRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _CounterCompProviderElement extends ProviderElement<CounterCompRepository>
@@ -152,11 +152,11 @@ class _CounterCompProviderElement extends ProviderElement<CounterCompRepository>
   _CounterCompProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CounterCompProvider).regionId;
+  String get regionOrNs => (origin as CounterCompProvider).regionOrNs;
 }
 
 String _$counterCompGetValueHash() =>
-    r'9bfad37600f985f7985ce2c7f2fa11113d62eeb4';
+    r'453a6d5cf7cbbe138d3819b0392d9bb11c8fd938';
 
 /// See also [counterCompGetValue].
 @ProviderFor(counterCompGetValue)
@@ -169,10 +169,10 @@ class CounterCompGetValueFamily extends Family<AsyncValue<int>> {
 
   /// See also [counterCompGetValue].
   CounterCompGetValueProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return CounterCompGetValueProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -181,7 +181,7 @@ class CounterCompGetValueFamily extends Family<AsyncValue<int>> {
     covariant CounterCompGetValueProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -204,11 +204,11 @@ class CounterCompGetValueFamily extends Family<AsyncValue<int>> {
 class CounterCompGetValueProvider extends AutoDisposeFutureProvider<int> {
   /// See also [counterCompGetValue].
   CounterCompGetValueProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
           (ref) => counterCompGetValue(
             ref as CounterCompGetValueRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
           ),
           from: counterCompGetValueProvider,
           name: r'counterCompGetValueProvider',
@@ -219,7 +219,7 @@ class CounterCompGetValueProvider extends AutoDisposeFutureProvider<int> {
           dependencies: CounterCompGetValueFamily._dependencies,
           allTransitiveDependencies:
               CounterCompGetValueFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   CounterCompGetValueProvider._internal(
@@ -229,10 +229,10 @@ class CounterCompGetValueProvider extends AutoDisposeFutureProvider<int> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   Override overrideWith(
@@ -247,7 +247,7 @@ class CounterCompGetValueProvider extends AutoDisposeFutureProvider<int> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -259,21 +259,22 @@ class CounterCompGetValueProvider extends AutoDisposeFutureProvider<int> {
 
   @override
   bool operator ==(Object other) {
-    return other is CounterCompGetValueProvider && other.regionId == regionId;
+    return other is CounterCompGetValueProvider &&
+        other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin CounterCompGetValueRef on AutoDisposeFutureProviderRef<int> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _CounterCompGetValueProviderElement
@@ -281,17 +282,17 @@ class _CounterCompGetValueProviderElement
   _CounterCompGetValueProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CounterCompGetValueProvider).regionId;
+  String get regionOrNs => (origin as CounterCompGetValueProvider).regionOrNs;
 }
 
-String _$counterCompPodHash() => r'2311a40075c6f522d4907b9364490c92b68d98cd';
+String _$counterCompPodHash() => r'486b8c8fb9d4607fb85f955aa51ca3ba053317a1';
 
 abstract class _$CounterCompPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   });
 }
 
@@ -306,10 +307,10 @@ class CounterCompPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [CounterCompPod].
   CounterCompPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return CounterCompPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -318,7 +319,7 @@ class CounterCompPodFamily extends Family<AsyncValue<void>> {
     covariant CounterCompPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -342,9 +343,9 @@ class CounterCompPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<CounterCompPod, void> {
   /// See also [CounterCompPod].
   CounterCompPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
-          () => CounterCompPod()..regionId = regionId,
+          () => CounterCompPod()..regionOrNs = regionOrNs,
           from: counterCompPodProvider,
           name: r'counterCompPodProvider',
           debugGetCreateSourceHash:
@@ -354,7 +355,7 @@ class CounterCompPodProvider
           dependencies: CounterCompPodFamily._dependencies,
           allTransitiveDependencies:
               CounterCompPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   CounterCompPodProvider._internal(
@@ -364,17 +365,17 @@ class CounterCompPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   FutureOr<void> runNotifierBuild(
     covariant CounterCompPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -383,13 +384,13 @@ class CounterCompPodProvider
     return ProviderOverride(
       origin: this,
       override: CounterCompPodProvider._internal(
-        () => create()..regionId = regionId,
+        () => create()..regionOrNs = regionOrNs,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -402,21 +403,21 @@ class CounterCompPodProvider
 
   @override
   bool operator ==(Object other) {
-    return other is CounterCompPodProvider && other.regionId == regionId;
+    return other is CounterCompPodProvider && other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin CounterCompPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _CounterCompPodProviderElement
@@ -425,7 +426,7 @@ class _CounterCompPodProviderElement
   _CounterCompPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CounterCompPodProvider).regionId;
+  String get regionOrNs => (origin as CounterCompPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

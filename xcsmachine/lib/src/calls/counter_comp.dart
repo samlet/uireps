@@ -8,12 +8,12 @@ import 'calls.dart';
 
 class CounterCompRepository {
   CounterCompRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='counterComp',
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
 
    
@@ -24,7 +24,7 @@ class CounterCompRepository {
       "action": "reset",
       "bundleName" : "CounterComp",
       "call-type": "machineComp",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, { 
     });
     
@@ -37,7 +37,7 @@ class CounterCompRepository {
       "action": "getValue",
       "bundleName" : "CounterComp",
       "call-type": "machineComp",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, { 
     });
     
@@ -55,7 +55,7 @@ class CounterCompRepository {
       "action": "incr",
       "bundleName" : "CounterComp",
       "call-type": "machineComp",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "l": l, 
     });
@@ -74,7 +74,7 @@ class CounterCompRepository {
       "action": "decr",
       "bundleName" : "CounterComp",
       "call-type": "machineComp",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "l": l, 
     });

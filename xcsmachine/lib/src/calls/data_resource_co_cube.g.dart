@@ -7,7 +7,7 @@ part of 'data_resource_co_cube.dart';
 // **************************************************************************
 
 String _$dataResourceCoCubeHash() =>
-    r'a73e3552c15655deb4aef4b1c6ea1bdd18ea5901';
+    r'57103c7ff4048217b15bebe05d00a6148b437ed8';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -32,11 +32,11 @@ class _SystemHash {
 
 abstract class _$DataResourceCoCube
     extends BuildlessAutoDisposeAsyncNotifier<DataResource> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<DataResource> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -52,11 +52,11 @@ class DataResourceCoCubeFamily extends Family<AsyncValue<DataResource>> {
 
   /// See also [DataResourceCoCube].
   DataResourceCoCubeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return DataResourceCoCubeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -66,7 +66,7 @@ class DataResourceCoCubeFamily extends Family<AsyncValue<DataResource>> {
     covariant DataResourceCoCubeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -91,11 +91,11 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
     DataResourceCoCube, DataResource> {
   /// See also [DataResourceCoCube].
   DataResourceCoCubeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => DataResourceCoCube()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: dataResourceCoCubeProvider,
           name: r'dataResourceCoCubeProvider',
@@ -106,7 +106,7 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
           dependencies: DataResourceCoCubeFamily._dependencies,
           allTransitiveDependencies:
               DataResourceCoCubeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -117,11 +117,11 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -129,7 +129,7 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
     covariant DataResourceCoCube notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -140,14 +140,14 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
       origin: this,
       override: DataResourceCoCubeProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -162,14 +162,14 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
   @override
   bool operator ==(Object other) {
     return other is DataResourceCoCubeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -178,8 +178,8 @@ class DataResourceCoCubeProvider extends AutoDisposeAsyncNotifierProviderImpl<
 
 mixin DataResourceCoCubeRef
     on AutoDisposeAsyncNotifierProviderRef<DataResource> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -191,7 +191,7 @@ class _DataResourceCoCubeProviderElement
   _DataResourceCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as DataResourceCoCubeProvider).regionId;
+  String get regionOrNs => (origin as DataResourceCoCubeProvider).regionOrNs;
   @override
   String get id => (origin as DataResourceCoCubeProvider).id;
 }

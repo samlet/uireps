@@ -6,7 +6,7 @@ part of 'web_site_co_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$webSiteCoHash() => r'206d8e443293d35223e941474372d18fe2755a9d';
+String _$webSiteCoHash() => r'5ea844babca7cdfdc7227b4100e7940143a49e06';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,11 +40,11 @@ class WebSiteCoFamily extends Family<WebSiteCoRepository> {
 
   /// See also [webSiteCo].
   WebSiteCoProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return WebSiteCoProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -54,7 +54,7 @@ class WebSiteCoFamily extends Family<WebSiteCoRepository> {
     covariant WebSiteCoProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -78,12 +78,12 @@ class WebSiteCoFamily extends Family<WebSiteCoRepository> {
 class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
   /// See also [webSiteCo].
   WebSiteCoProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => webSiteCo(
             ref as WebSiteCoRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: webSiteCoProvider,
@@ -94,7 +94,7 @@ class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
                   : _$webSiteCoHash,
           dependencies: WebSiteCoFamily._dependencies,
           allTransitiveDependencies: WebSiteCoFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -105,11 +105,11 @@ class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -125,7 +125,7 @@ class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -139,14 +139,14 @@ class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
   @override
   bool operator ==(Object other) {
     return other is WebSiteCoProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -154,8 +154,8 @@ class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
 }
 
 mixin WebSiteCoRef on AutoDisposeProviderRef<WebSiteCoRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -166,12 +166,12 @@ class _WebSiteCoProviderElement
   _WebSiteCoProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as WebSiteCoProvider).regionId;
+  String get regionOrNs => (origin as WebSiteCoProvider).regionOrNs;
   @override
   String get id => (origin as WebSiteCoProvider).id;
 }
 
-String _$siteNameHash() => r'7d4cbe2746989a9c6d97797ec1148da1616af231';
+String _$siteNameHash() => r'7d4cc63847f0181b887ea7444add4b182b3cc5c5';
 
 /// See also [siteName].
 @ProviderFor(siteName)
@@ -184,11 +184,11 @@ class SiteNameFamily extends Family<AsyncValue<String>> {
 
   /// See also [siteName].
   SiteNameProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return SiteNameProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -198,7 +198,7 @@ class SiteNameFamily extends Family<AsyncValue<String>> {
     covariant SiteNameProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -222,12 +222,12 @@ class SiteNameFamily extends Family<AsyncValue<String>> {
 class SiteNameProvider extends AutoDisposeFutureProvider<String> {
   /// See also [siteName].
   SiteNameProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => siteName(
             ref as SiteNameRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: siteNameProvider,
@@ -238,7 +238,7 @@ class SiteNameProvider extends AutoDisposeFutureProvider<String> {
                   : _$siteNameHash,
           dependencies: SiteNameFamily._dependencies,
           allTransitiveDependencies: SiteNameFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -249,11 +249,11 @@ class SiteNameProvider extends AutoDisposeFutureProvider<String> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -269,7 +269,7 @@ class SiteNameProvider extends AutoDisposeFutureProvider<String> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -283,14 +283,14 @@ class SiteNameProvider extends AutoDisposeFutureProvider<String> {
   @override
   bool operator ==(Object other) {
     return other is SiteNameProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -298,8 +298,8 @@ class SiteNameProvider extends AutoDisposeFutureProvider<String> {
 }
 
 mixin SiteNameRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -310,12 +310,12 @@ class _SiteNameProviderElement extends AutoDisposeFutureProviderElement<String>
   _SiteNameProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as SiteNameProvider).regionId;
+  String get regionOrNs => (origin as SiteNameProvider).regionOrNs;
   @override
   String get id => (origin as SiteNameProvider).id;
 }
 
-String _$siteFetchHash() => r'a81316e1d23eeb7fec41f4f4caa5cfffcff8196e';
+String _$siteFetchHash() => r'3e11ccd9077892a0cf70119539c487e3fa5b332b';
 
 /// See also [siteFetch].
 @ProviderFor(siteFetch)
@@ -328,11 +328,11 @@ class SiteFetchFamily extends Family<AsyncValue<WebSiteCubeData>> {
 
   /// See also [siteFetch].
   SiteFetchProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return SiteFetchProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -342,7 +342,7 @@ class SiteFetchFamily extends Family<AsyncValue<WebSiteCubeData>> {
     covariant SiteFetchProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -366,12 +366,12 @@ class SiteFetchFamily extends Family<AsyncValue<WebSiteCubeData>> {
 class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
   /// See also [siteFetch].
   SiteFetchProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => siteFetch(
             ref as SiteFetchRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: siteFetchProvider,
@@ -382,7 +382,7 @@ class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
                   : _$siteFetchHash,
           dependencies: SiteFetchFamily._dependencies,
           allTransitiveDependencies: SiteFetchFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -393,11 +393,11 @@ class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -413,7 +413,7 @@ class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -427,14 +427,14 @@ class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
   @override
   bool operator ==(Object other) {
     return other is SiteFetchProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -442,8 +442,8 @@ class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
 }
 
 mixin SiteFetchRef on AutoDisposeFutureProviderRef<WebSiteCubeData> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -455,12 +455,12 @@ class _SiteFetchProviderElement
   _SiteFetchProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as SiteFetchProvider).regionId;
+  String get regionOrNs => (origin as SiteFetchProvider).regionOrNs;
   @override
   String get id => (origin as SiteFetchProvider).id;
 }
 
-String _$siteGetDecimalsHash() => r'1ab1ecf3a0155f2770205f8033881f97bae3d6c7';
+String _$siteGetDecimalsHash() => r'ac4c730d563c0241226b7358e3c6d5d25d41de75';
 
 /// See also [siteGetDecimals].
 @ProviderFor(siteGetDecimals)
@@ -473,11 +473,11 @@ class SiteGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
 
   /// See also [siteGetDecimals].
   SiteGetDecimalsProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return SiteGetDecimalsProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -487,7 +487,7 @@ class SiteGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
     covariant SiteGetDecimalsProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -511,12 +511,12 @@ class SiteGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
 class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   /// See also [siteGetDecimals].
   SiteGetDecimalsProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => siteGetDecimals(
             ref as SiteGetDecimalsRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: siteGetDecimalsProvider,
@@ -528,7 +528,7 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
           dependencies: SiteGetDecimalsFamily._dependencies,
           allTransitiveDependencies:
               SiteGetDecimalsFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -539,11 +539,11 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -559,7 +559,7 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -573,14 +573,14 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   @override
   bool operator ==(Object other) {
     return other is SiteGetDecimalsProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -588,8 +588,8 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
 }
 
 mixin SiteGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -601,19 +601,19 @@ class _SiteGetDecimalsProviderElement
   _SiteGetDecimalsProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as SiteGetDecimalsProvider).regionId;
+  String get regionOrNs => (origin as SiteGetDecimalsProvider).regionOrNs;
   @override
   String get id => (origin as SiteGetDecimalsProvider).id;
 }
 
-String _$webSiteCoPodHash() => r'be9bdc5e6d36caa6ae1353f18b2057ce2c78d5a9';
+String _$webSiteCoPodHash() => r'cb19f5e733202438ee613fe3347fa14bc8d675ee';
 
 abstract class _$WebSiteCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -629,11 +629,11 @@ class WebSiteCoPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [WebSiteCoPod].
   WebSiteCoPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return WebSiteCoPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -643,7 +643,7 @@ class WebSiteCoPodFamily extends Family<AsyncValue<void>> {
     covariant WebSiteCoPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -668,11 +668,11 @@ class WebSiteCoPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<WebSiteCoPod, void> {
   /// See also [WebSiteCoPod].
   WebSiteCoPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => WebSiteCoPod()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: webSiteCoPodProvider,
           name: r'webSiteCoPodProvider',
@@ -683,7 +683,7 @@ class WebSiteCoPodProvider
           dependencies: WebSiteCoPodFamily._dependencies,
           allTransitiveDependencies:
               WebSiteCoPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -694,11 +694,11 @@ class WebSiteCoPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -706,7 +706,7 @@ class WebSiteCoPodProvider
     covariant WebSiteCoPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -717,14 +717,14 @@ class WebSiteCoPodProvider
       origin: this,
       override: WebSiteCoPodProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -738,14 +738,14 @@ class WebSiteCoPodProvider
   @override
   bool operator ==(Object other) {
     return other is WebSiteCoPodProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -753,8 +753,8 @@ class WebSiteCoPodProvider
 }
 
 mixin WebSiteCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -766,7 +766,7 @@ class _WebSiteCoPodProviderElement
   _WebSiteCoPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as WebSiteCoPodProvider).regionId;
+  String get regionOrNs => (origin as WebSiteCoPodProvider).regionOrNs;
   @override
   String get id => (origin as WebSiteCoPodProvider).id;
 }

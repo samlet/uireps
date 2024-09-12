@@ -6,7 +6,7 @@ part of 'note_co_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteCoHash() => r'8484ea61057501e3488eed687ccd2cd41e9a7b17';
+String _$noteCoHash() => r'b244131d7aefa2d26263df5e39de136a867e7433';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,11 +40,11 @@ class NoteCoFamily extends Family<NoteCoRepository> {
 
   /// See also [noteCo].
   NoteCoProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteCoProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -54,7 +54,7 @@ class NoteCoFamily extends Family<NoteCoRepository> {
     covariant NoteCoProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -78,12 +78,12 @@ class NoteCoFamily extends Family<NoteCoRepository> {
 class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
   /// See also [noteCo].
   NoteCoProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => noteCo(
             ref as NoteCoRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: noteCoProvider,
@@ -94,7 +94,7 @@ class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
                   : _$noteCoHash,
           dependencies: NoteCoFamily._dependencies,
           allTransitiveDependencies: NoteCoFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -105,11 +105,11 @@ class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -125,7 +125,7 @@ class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -139,14 +139,14 @@ class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
   @override
   bool operator ==(Object other) {
     return other is NoteCoProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -154,8 +154,8 @@ class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
 }
 
 mixin NoteCoRef on AutoDisposeProviderRef<NoteCoRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -166,12 +166,12 @@ class _NoteCoProviderElement
   _NoteCoProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteCoProvider).regionId;
+  String get regionOrNs => (origin as NoteCoProvider).regionOrNs;
   @override
   String get id => (origin as NoteCoProvider).id;
 }
 
-String _$noteNameHash() => r'e95e1ebe1d26011519c6b67a5f0f62ecc040744f';
+String _$noteNameHash() => r'3b3b1f921fe6c50d1545f0a21e151f3859c699ce';
 
 /// See also [noteName].
 @ProviderFor(noteName)
@@ -184,11 +184,11 @@ class NoteNameFamily extends Family<AsyncValue<String>> {
 
   /// See also [noteName].
   NoteNameProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteNameProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -198,7 +198,7 @@ class NoteNameFamily extends Family<AsyncValue<String>> {
     covariant NoteNameProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -222,12 +222,12 @@ class NoteNameFamily extends Family<AsyncValue<String>> {
 class NoteNameProvider extends AutoDisposeFutureProvider<String> {
   /// See also [noteName].
   NoteNameProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => noteName(
             ref as NoteNameRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: noteNameProvider,
@@ -238,7 +238,7 @@ class NoteNameProvider extends AutoDisposeFutureProvider<String> {
                   : _$noteNameHash,
           dependencies: NoteNameFamily._dependencies,
           allTransitiveDependencies: NoteNameFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -249,11 +249,11 @@ class NoteNameProvider extends AutoDisposeFutureProvider<String> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -269,7 +269,7 @@ class NoteNameProvider extends AutoDisposeFutureProvider<String> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -283,14 +283,14 @@ class NoteNameProvider extends AutoDisposeFutureProvider<String> {
   @override
   bool operator ==(Object other) {
     return other is NoteNameProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -298,8 +298,8 @@ class NoteNameProvider extends AutoDisposeFutureProvider<String> {
 }
 
 mixin NoteNameRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -310,12 +310,12 @@ class _NoteNameProviderElement extends AutoDisposeFutureProviderElement<String>
   _NoteNameProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteNameProvider).regionId;
+  String get regionOrNs => (origin as NoteNameProvider).regionOrNs;
   @override
   String get id => (origin as NoteNameProvider).id;
 }
 
-String _$noteSizeHash() => r'60bc0da5a5fd026a7bd835c3961bec8c12c5b731';
+String _$noteSizeHash() => r'5e0211d2a433f1791e38eea7008c1d6766a1a603';
 
 /// See also [noteSize].
 @ProviderFor(noteSize)
@@ -328,11 +328,11 @@ class NoteSizeFamily extends Family<AsyncValue<int>> {
 
   /// See also [noteSize].
   NoteSizeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteSizeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -342,7 +342,7 @@ class NoteSizeFamily extends Family<AsyncValue<int>> {
     covariant NoteSizeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -366,12 +366,12 @@ class NoteSizeFamily extends Family<AsyncValue<int>> {
 class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
   /// See also [noteSize].
   NoteSizeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => noteSize(
             ref as NoteSizeRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: noteSizeProvider,
@@ -382,7 +382,7 @@ class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
                   : _$noteSizeHash,
           dependencies: NoteSizeFamily._dependencies,
           allTransitiveDependencies: NoteSizeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -393,11 +393,11 @@ class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -413,7 +413,7 @@ class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -427,14 +427,14 @@ class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
   @override
   bool operator ==(Object other) {
     return other is NoteSizeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -442,8 +442,8 @@ class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
 }
 
 mixin NoteSizeRef on AutoDisposeFutureProviderRef<int> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -454,12 +454,12 @@ class _NoteSizeProviderElement extends AutoDisposeFutureProviderElement<int>
   _NoteSizeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteSizeProvider).regionId;
+  String get regionOrNs => (origin as NoteSizeProvider).regionOrNs;
   @override
   String get id => (origin as NoteSizeProvider).id;
 }
 
-String _$noteGetContentHash() => r'd11928d9fa54fde2861572e9bb68d6cf45d97c04';
+String _$noteGetContentHash() => r'7831017d02e4424392315f1cdf65d47e7754e537';
 
 /// See also [noteGetContent].
 @ProviderFor(noteGetContent)
@@ -472,11 +472,11 @@ class NoteGetContentFamily extends Family<AsyncValue<String>> {
 
   /// See also [noteGetContent].
   NoteGetContentProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteGetContentProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -486,7 +486,7 @@ class NoteGetContentFamily extends Family<AsyncValue<String>> {
     covariant NoteGetContentProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -510,12 +510,12 @@ class NoteGetContentFamily extends Family<AsyncValue<String>> {
 class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
   /// See also [noteGetContent].
   NoteGetContentProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => noteGetContent(
             ref as NoteGetContentRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: noteGetContentProvider,
@@ -527,7 +527,7 @@ class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
           dependencies: NoteGetContentFamily._dependencies,
           allTransitiveDependencies:
               NoteGetContentFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -538,11 +538,11 @@ class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -558,7 +558,7 @@ class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -572,14 +572,14 @@ class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
   @override
   bool operator ==(Object other) {
     return other is NoteGetContentProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -587,8 +587,8 @@ class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
 }
 
 mixin NoteGetContentRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -599,12 +599,12 @@ class _NoteGetContentProviderElement
   _NoteGetContentProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteGetContentProvider).regionId;
+  String get regionOrNs => (origin as NoteGetContentProvider).regionOrNs;
   @override
   String get id => (origin as NoteGetContentProvider).id;
 }
 
-String _$noteGetDecimalsHash() => r'150e839e105280abb686b746104506ed0e7660fb';
+String _$noteGetDecimalsHash() => r'20c0e5793d8c368d98bacb2bd68a58e4367c6d82';
 
 /// See also [noteGetDecimals].
 @ProviderFor(noteGetDecimals)
@@ -617,11 +617,11 @@ class NoteGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
 
   /// See also [noteGetDecimals].
   NoteGetDecimalsProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteGetDecimalsProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -631,7 +631,7 @@ class NoteGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
     covariant NoteGetDecimalsProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -655,12 +655,12 @@ class NoteGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
 class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   /// See also [noteGetDecimals].
   NoteGetDecimalsProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => noteGetDecimals(
             ref as NoteGetDecimalsRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: noteGetDecimalsProvider,
@@ -672,7 +672,7 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
           dependencies: NoteGetDecimalsFamily._dependencies,
           allTransitiveDependencies:
               NoteGetDecimalsFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -683,11 +683,11 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -703,7 +703,7 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -717,14 +717,14 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   @override
   bool operator ==(Object other) {
     return other is NoteGetDecimalsProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -732,8 +732,8 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
 }
 
 mixin NoteGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -745,12 +745,12 @@ class _NoteGetDecimalsProviderElement
   _NoteGetDecimalsProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteGetDecimalsProvider).regionId;
+  String get regionOrNs => (origin as NoteGetDecimalsProvider).regionOrNs;
   @override
   String get id => (origin as NoteGetDecimalsProvider).id;
 }
 
-String _$noteGetSlotValueHash() => r'be09e79bfa96e16a4d953c007d0942d92e113109';
+String _$noteGetSlotValueHash() => r'58928bc99143da03882fd3fb8705b2352eec08ff';
 
 /// See also [noteGetSlotValue].
 @ProviderFor(noteGetSlotValue)
@@ -763,12 +763,12 @@ class NoteGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
 
   /// See also [noteGetSlotValue].
   NoteGetSlotValueProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
     required String slotName,
   }) {
     return NoteGetSlotValueProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
       slotName: slotName,
     );
@@ -779,7 +779,7 @@ class NoteGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
     covariant NoteGetSlotValueProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
       slotName: provider.slotName,
     );
@@ -804,13 +804,13 @@ class NoteGetSlotValueFamily extends Family<AsyncValue<ValueData>> {
 class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
   /// See also [noteGetSlotValue].
   NoteGetSlotValueProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
     required String slotName,
   }) : this._internal(
           (ref) => noteGetSlotValue(
             ref as NoteGetSlotValueRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
             slotName: slotName,
           ),
@@ -823,7 +823,7 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
           dependencies: NoteGetSlotValueFamily._dependencies,
           allTransitiveDependencies:
               NoteGetSlotValueFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
           slotName: slotName,
         );
@@ -835,12 +835,12 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
     required this.slotName,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
   final String slotName;
 
@@ -857,7 +857,7 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
         slotName: slotName,
       ),
@@ -872,7 +872,7 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
   @override
   bool operator ==(Object other) {
     return other is NoteGetSlotValueProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id &&
         other.slotName == slotName;
   }
@@ -880,7 +880,7 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
     hash = _SystemHash.combine(hash, slotName.hashCode);
 
@@ -889,8 +889,8 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
 }
 
 mixin NoteGetSlotValueRef on AutoDisposeFutureProviderRef<ValueData> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -905,14 +905,14 @@ class _NoteGetSlotValueProviderElement
   _NoteGetSlotValueProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteGetSlotValueProvider).regionId;
+  String get regionOrNs => (origin as NoteGetSlotValueProvider).regionOrNs;
   @override
   String get id => (origin as NoteGetSlotValueProvider).id;
   @override
   String get slotName => (origin as NoteGetSlotValueProvider).slotName;
 }
 
-String _$noteHasSlotValueHash() => r'82ccf4315a0a0fbd7a21315b8f2c8048b77bbb03';
+String _$noteHasSlotValueHash() => r'506e597f6836e11115fc2bae27496a1c20d24a68';
 
 /// See also [noteHasSlotValue].
 @ProviderFor(noteHasSlotValue)
@@ -925,12 +925,12 @@ class NoteHasSlotValueFamily extends Family<AsyncValue<bool>> {
 
   /// See also [noteHasSlotValue].
   NoteHasSlotValueProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
     required String slotName,
   }) {
     return NoteHasSlotValueProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
       slotName: slotName,
     );
@@ -941,7 +941,7 @@ class NoteHasSlotValueFamily extends Family<AsyncValue<bool>> {
     covariant NoteHasSlotValueProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
       slotName: provider.slotName,
     );
@@ -966,13 +966,13 @@ class NoteHasSlotValueFamily extends Family<AsyncValue<bool>> {
 class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   /// See also [noteHasSlotValue].
   NoteHasSlotValueProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
     required String slotName,
   }) : this._internal(
           (ref) => noteHasSlotValue(
             ref as NoteHasSlotValueRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
             slotName: slotName,
           ),
@@ -985,7 +985,7 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
           dependencies: NoteHasSlotValueFamily._dependencies,
           allTransitiveDependencies:
               NoteHasSlotValueFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
           slotName: slotName,
         );
@@ -997,12 +997,12 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
     required this.slotName,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
   final String slotName;
 
@@ -1019,7 +1019,7 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
         slotName: slotName,
       ),
@@ -1034,7 +1034,7 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   @override
   bool operator ==(Object other) {
     return other is NoteHasSlotValueProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id &&
         other.slotName == slotName;
   }
@@ -1042,7 +1042,7 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
     hash = _SystemHash.combine(hash, slotName.hashCode);
 
@@ -1051,8 +1051,8 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
 }
 
 mixin NoteHasSlotValueRef on AutoDisposeFutureProviderRef<bool> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -1066,21 +1066,21 @@ class _NoteHasSlotValueProviderElement
   _NoteHasSlotValueProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteHasSlotValueProvider).regionId;
+  String get regionOrNs => (origin as NoteHasSlotValueProvider).regionOrNs;
   @override
   String get id => (origin as NoteHasSlotValueProvider).id;
   @override
   String get slotName => (origin as NoteHasSlotValueProvider).slotName;
 }
 
-String _$noteCoPodHash() => r'c367f596a7110fcfc223d2ab0852185c23001818';
+String _$noteCoPodHash() => r'5f85823cd1a8896d38d8eadb9c5ab05126854dd8';
 
 abstract class _$NoteCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -1096,11 +1096,11 @@ class NoteCoPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [NoteCoPod].
   NoteCoPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteCoPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -1110,7 +1110,7 @@ class NoteCoPodFamily extends Family<AsyncValue<void>> {
     covariant NoteCoPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -1135,11 +1135,11 @@ class NoteCoPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<NoteCoPod, void> {
   /// See also [NoteCoPod].
   NoteCoPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => NoteCoPod()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: noteCoPodProvider,
           name: r'noteCoPodProvider',
@@ -1149,7 +1149,7 @@ class NoteCoPodProvider
                   : _$noteCoPodHash,
           dependencies: NoteCoPodFamily._dependencies,
           allTransitiveDependencies: NoteCoPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -1160,11 +1160,11 @@ class NoteCoPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -1172,7 +1172,7 @@ class NoteCoPodProvider
     covariant NoteCoPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -1183,14 +1183,14 @@ class NoteCoPodProvider
       origin: this,
       override: NoteCoPodProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -1204,14 +1204,14 @@ class NoteCoPodProvider
   @override
   bool operator ==(Object other) {
     return other is NoteCoPodProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -1219,8 +1219,8 @@ class NoteCoPodProvider
 }
 
 mixin NoteCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -1232,7 +1232,7 @@ class _NoteCoPodProviderElement
   _NoteCoPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteCoPodProvider).regionId;
+  String get regionOrNs => (origin as NoteCoPodProvider).regionOrNs;
   @override
   String get id => (origin as NoteCoPodProvider).id;
 }

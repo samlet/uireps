@@ -13,12 +13,12 @@ part 'web_site_co_pods.g.dart';
 
 @riverpod
 WebSiteCoRepository webSiteCo(WebSiteCoRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) {
   var conn = ref.watch(httpConnectorProvider);
   
-  return WebSiteCoRepository(conn.dio, regionId: regionId, id: id);
+  return WebSiteCoRepository(conn.dio, regionOrNs: regionOrNs, id: id);
   
 }
 
@@ -26,7 +26,7 @@ WebSiteCoRepository webSiteCo(WebSiteCoRef ref, {
 class WebSiteCoPod extends _$WebSiteCoPod {
   @override
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) async {
     // ok to leave this empty if the return type is FutureOr<void>
@@ -41,7 +41,7 @@ class WebSiteCoPod extends _$WebSiteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(webSiteCoProvider(regionId: regionId, id: id)).updateHttpUrl(
+        () => ref.read(webSiteCoProvider(regionOrNs: regionOrNs, id: id)).updateHttpUrl(
               host: host,
               port: port,
             ));
@@ -56,7 +56,7 @@ class WebSiteCoPod extends _$WebSiteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(webSiteCoProvider(regionId: regionId, id: id)).updateHttpsUrl(
+        () => ref.read(webSiteCoProvider(regionOrNs: regionOrNs, id: id)).updateHttpsUrl(
               host: host,
               port: port,
             ));
@@ -70,7 +70,7 @@ class WebSiteCoPod extends _$WebSiteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(webSiteCoProvider(regionId: regionId, id: id)).updateSiteName(
+        () => ref.read(webSiteCoProvider(regionOrNs: regionOrNs, id: id)).updateSiteName(
               name: name,
             ));
     return state.hasError == false;
@@ -78,33 +78,33 @@ class WebSiteCoPod extends _$WebSiteCoPod {
     
 }
 
-
+  
 @riverpod
 Future<String> siteName(SiteNameRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(webSiteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(webSiteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.name(
   );
 }
-
+  
 @riverpod
 Future<WebSiteCubeData> siteFetch(SiteFetchRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(webSiteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(webSiteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.fetch(
   );
 }
-
+  
 @riverpod
 Future<DecimalMap> siteGetDecimals(SiteGetDecimalsRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(webSiteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(webSiteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getDecimals(
   );
 }

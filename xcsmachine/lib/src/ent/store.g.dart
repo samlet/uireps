@@ -6,180 +6,190 @@ part of 'store.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Store _$StoreFromJson(Map<String, dynamic> json) => Store()
-  ..productStoreId = json['productStoreId'] as String?
-  ..primaryStoreGroupId = json['primaryStoreGroupId'] as String?
-  ..storeName = json['storeName'] as String?
-  ..companyName = json['companyName'] as String?
-  ..title = json['title'] as String?
-  ..subtitle = json['subtitle'] as String?
-  ..payToPartyId = json['payToPartyId'] as String?
-  ..daysToCancelNonPay = (json['daysToCancelNonPay'] as num?)?.toInt()
-  ..manualAuthIsCapture =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['manualAuthIsCapture'])
-  ..prorateShipping =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['prorateShipping'])
-  ..prorateTaxes = $enumDecodeNullable(_$IndicatorEnumMap, json['prorateTaxes'])
-  ..viewCartOnAdd =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['viewCartOnAdd'])
-  ..autoSaveCart = $enumDecodeNullable(_$IndicatorEnumMap, json['autoSaveCart'])
-  ..autoApproveReviews =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveReviews'])
-  ..isDemoStore = $enumDecodeNullable(_$IndicatorEnumMap, json['isDemoStore'])
-  ..isImmediatelyFulfilled =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['isImmediatelyFulfilled'])
-  ..inventoryFacilityId = json['inventoryFacilityId'] as String?
-  ..oneInventoryFacility =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['oneInventoryFacility'])
-  ..checkInventory =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['checkInventory'])
-  ..reserveInventory =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['reserveInventory'])
-  ..reserveOrderEnumId = json['reserveOrderEnumId'] as String?
-  ..requireInventory =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['requireInventory'])
-  ..balanceResOnOrderCreation =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['balanceResOnOrderCreation'])
-  ..requirementMethodEnumId = json['requirementMethodEnumId'] as String?
-  ..orderNumberPrefix = json['orderNumberPrefix'] as String?
-  ..defaultLocaleString = json['defaultLocaleString'] as String?
-  ..defaultCurrencyUomId = json['defaultCurrencyUomId'] as String?
-  ..defaultTimeZoneString = json['defaultTimeZoneString'] as String?
-  ..defaultSalesChannelEnumId = json['defaultSalesChannelEnumId'] as String?
-  ..allowPassword =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['allowPassword'])
-  ..defaultPassword = json['defaultPassword'] as String?
-  ..explodeOrderItems =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['explodeOrderItems'])
-  ..checkGcBalance =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['checkGcBalance'])
-  ..retryFailedAuths =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['retryFailedAuths'])
-  ..headerApprovedStatus = json['headerApprovedStatus'] as String?
-  ..itemApprovedStatus = json['itemApprovedStatus'] as String?
-  ..digitalItemApprovedStatus = json['digitalItemApprovedStatus'] as String?
-  ..headerDeclinedStatus = json['headerDeclinedStatus'] as String?
-  ..itemDeclinedStatus = json['itemDeclinedStatus'] as String?
-  ..headerCancelStatus = json['headerCancelStatus'] as String?
-  ..itemCancelStatus = json['itemCancelStatus'] as String?
-  ..authDeclinedMessage = json['authDeclinedMessage'] as String?
-  ..authFraudMessage = json['authFraudMessage'] as String?
-  ..authErrorMessage = json['authErrorMessage'] as String?
-  ..visualThemeId = json['visualThemeId'] as String?
-  ..storeCreditAccountEnumId = json['storeCreditAccountEnumId'] as String?
-  ..usePrimaryEmailUsername =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['usePrimaryEmailUsername'])
-  ..requireCustomerRole =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['requireCustomerRole'])
-  ..autoInvoiceDigitalItems =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoInvoiceDigitalItems'])
-  ..reqShipAddrForDigItems =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['reqShipAddrForDigItems'])
-  ..showCheckoutGiftOptions =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['showCheckoutGiftOptions'])
-  ..selectPaymentTypePerItem =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['selectPaymentTypePerItem'])
-  ..showPricesWithVatTax =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['showPricesWithVatTax'])
-  ..showTaxIsExempt =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['showTaxIsExempt'])
-  ..vatTaxAuthGeoId = json['vatTaxAuthGeoId'] as String?
-  ..vatTaxAuthPartyId = json['vatTaxAuthPartyId'] as String?
-  ..enableAutoSuggestionList =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['enableAutoSuggestionList'])
-  ..enableDigProdUpload =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['enableDigProdUpload'])
-  ..prodSearchExcludeVariants =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['prodSearchExcludeVariants'])
-  ..digProdUploadCategoryId = json['digProdUploadCategoryId'] as String?
-  ..autoOrderCcTryExp =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoOrderCcTryExp'])
-  ..autoOrderCcTryOtherCards =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoOrderCcTryOtherCards'])
-  ..autoOrderCcTryLaterNsf =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoOrderCcTryLaterNsf'])
-  ..autoOrderCcTryLaterMax = (json['autoOrderCcTryLaterMax'] as num?)?.toInt()
-  ..storeCreditValidDays = (json['storeCreditValidDays'] as num?)?.toInt()
-  ..autoApproveInvoice =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveInvoice'])
-  ..autoApproveOrder =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveOrder'])
-  ..shipIfCaptureFails =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['shipIfCaptureFails'])
-  ..setOwnerUponIssuance =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['setOwnerUponIssuance'])
-  ..reqReturnInventoryReceive =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['reqReturnInventoryReceive'])
-  ..addToCartRemoveIncompat =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['addToCartRemoveIncompat'])
-  ..addToCartReplaceUpsell =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['addToCartReplaceUpsell'])
-  ..splitPayPrefPerShpGrp =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['splitPayPrefPerShpGrp'])
-  ..managedByLot = $enumDecodeNullable(_$IndicatorEnumMap, json['managedByLot'])
-  ..showOutOfStockProducts =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['showOutOfStockProducts'])
-  ..orderDecimalQuantity =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['orderDecimalQuantity'])
-  ..allowComment = $enumDecodeNullable(_$IndicatorEnumMap, json['allowComment'])
-  ..allocateInventory =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['allocateInventory'])
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?
-  ..evict = json['evict'] as bool?
-  ..tag1 = json['tag1'] as String?
-  ..tag2 = json['tag2'] as String?
-  ..tag3 = json['tag3'] as String?
-  ..moreTags =
-      (json['moreTags'] as List<dynamic>?)?.map((e) => e as String?).toList()
-  ..jointers = (json['jointers'] as Map<String, dynamic>?)?.map(
-    (k, e) => MapEntry(k, e as String),
-  )
-  ..multiJointers = json['multiJointers'] == null
-      ? null
-      : MultimapOra.fromJson(json['multiJointers'] as Map<String, dynamic>)
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..telephone = json['telephone'] as String?
-  ..email = json['email'] as String?
-  ..placeId = json['placeId'] as String?
-  ..productStorePromoAppl = (json['productStorePromoAppl'] as List<dynamic>?)
-      ?.map((e) => ProductStorePromoAppl.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreEmailSetting = (json['productStoreEmailSetting']
-          as List<dynamic>?)
-      ?.map((e) => ProductStoreEmailSetting.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreFacility = (json['productStoreFacility'] as List<dynamic>?)
-      ?.map((e) => ProductStoreFacility.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStorePaymentSetting = (json['productStorePaymentSetting']
-          as List<dynamic>?)
-      ?.map(
-          (e) => ProductStorePaymentSetting.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreKeywordOvrd = (json['productStoreKeywordOvrd']
-          as List<dynamic>?)
-      ?.map((e) => ProductStoreKeywordOvrd.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreSurveyAppl = (json['productStoreSurveyAppl'] as List<dynamic>?)
-      ?.map((e) => ProductStoreSurveyAppl.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreCatalog = (json['productStoreCatalog'] as List<dynamic>?)
-      ?.map((e) => ProductStoreCatalog.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreBunch = (json['productStoreBunch'] as List<dynamic>?)
-      ?.map((e) => ProductStoreBunch.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productStoreRole = (json['productStoreRole'] as List<dynamic>?)
-      ?.map((e) => ProductStoreRole.fromJson(e as Map<String, dynamic>))
-      .toList();
+Store _$StoreFromJson(Map<String, dynamic> json) => Store(
+      productStoreId: json['productStoreId'] as String?,
+      primaryStoreGroupId: json['primaryStoreGroupId'] as String?,
+      storeName: json['storeName'] as String?,
+      companyName: json['companyName'] as String?,
+      title: json['title'] as String?,
+      subtitle: json['subtitle'] as String?,
+      payToPartyId: json['payToPartyId'] as String?,
+      daysToCancelNonPay: (json['daysToCancelNonPay'] as num?)?.toInt(),
+      manualAuthIsCapture:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['manualAuthIsCapture']),
+      prorateShipping:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['prorateShipping']),
+      prorateTaxes:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['prorateTaxes']),
+      viewCartOnAdd:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['viewCartOnAdd']),
+      autoSaveCart:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['autoSaveCart']),
+      autoApproveReviews:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveReviews']),
+      isDemoStore: $enumDecodeNullable(_$IndicatorEnumMap, json['isDemoStore']),
+      isImmediatelyFulfilled: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['isImmediatelyFulfilled']),
+      inventoryFacilityId: json['inventoryFacilityId'] as String?,
+      oneInventoryFacility:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['oneInventoryFacility']),
+      checkInventory:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['checkInventory']),
+      reserveInventory:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['reserveInventory']),
+      reserveOrderEnumId: json['reserveOrderEnumId'] as String?,
+      requireInventory:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['requireInventory']),
+      balanceResOnOrderCreation: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['balanceResOnOrderCreation']),
+      requirementMethodEnumId: json['requirementMethodEnumId'] as String?,
+      orderNumberPrefix: json['orderNumberPrefix'] as String?,
+      defaultLocaleString: json['defaultLocaleString'] as String?,
+      defaultCurrencyUomId: json['defaultCurrencyUomId'] as String?,
+      defaultTimeZoneString: json['defaultTimeZoneString'] as String?,
+      defaultSalesChannelEnumId: json['defaultSalesChannelEnumId'] as String?,
+      allowPassword:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['allowPassword']),
+      defaultPassword: json['defaultPassword'] as String?,
+      explodeOrderItems:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['explodeOrderItems']),
+      checkGcBalance:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['checkGcBalance']),
+      retryFailedAuths:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['retryFailedAuths']),
+      headerApprovedStatus: json['headerApprovedStatus'] as String?,
+      itemApprovedStatus: json['itemApprovedStatus'] as String?,
+      digitalItemApprovedStatus: json['digitalItemApprovedStatus'] as String?,
+      headerDeclinedStatus: json['headerDeclinedStatus'] as String?,
+      itemDeclinedStatus: json['itemDeclinedStatus'] as String?,
+      headerCancelStatus: json['headerCancelStatus'] as String?,
+      itemCancelStatus: json['itemCancelStatus'] as String?,
+      authDeclinedMessage: json['authDeclinedMessage'] as String?,
+      authFraudMessage: json['authFraudMessage'] as String?,
+      authErrorMessage: json['authErrorMessage'] as String?,
+      visualThemeId: json['visualThemeId'] as String?,
+      storeCreditAccountEnumId: json['storeCreditAccountEnumId'] as String?,
+      usePrimaryEmailUsername: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['usePrimaryEmailUsername']),
+      requireCustomerRole:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['requireCustomerRole']),
+      autoInvoiceDigitalItems: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['autoInvoiceDigitalItems']),
+      reqShipAddrForDigItems: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['reqShipAddrForDigItems']),
+      showCheckoutGiftOptions: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['showCheckoutGiftOptions']),
+      selectPaymentTypePerItem: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['selectPaymentTypePerItem']),
+      showPricesWithVatTax:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['showPricesWithVatTax']),
+      showTaxIsExempt:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['showTaxIsExempt']),
+      vatTaxAuthGeoId: json['vatTaxAuthGeoId'] as String?,
+      vatTaxAuthPartyId: json['vatTaxAuthPartyId'] as String?,
+      enableAutoSuggestionList: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['enableAutoSuggestionList']),
+      enableDigProdUpload:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['enableDigProdUpload']),
+      prodSearchExcludeVariants: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['prodSearchExcludeVariants']),
+      digProdUploadCategoryId: json['digProdUploadCategoryId'] as String?,
+      autoOrderCcTryExp:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['autoOrderCcTryExp']),
+      autoOrderCcTryOtherCards: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['autoOrderCcTryOtherCards']),
+      autoOrderCcTryLaterNsf: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['autoOrderCcTryLaterNsf']),
+      autoOrderCcTryLaterMax: (json['autoOrderCcTryLaterMax'] as num?)?.toInt(),
+      storeCreditValidDays: (json['storeCreditValidDays'] as num?)?.toInt(),
+      autoApproveInvoice:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveInvoice']),
+      autoApproveOrder:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveOrder']),
+      shipIfCaptureFails:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['shipIfCaptureFails']),
+      setOwnerUponIssuance:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['setOwnerUponIssuance']),
+      reqReturnInventoryReceive: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['reqReturnInventoryReceive']),
+      addToCartRemoveIncompat: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['addToCartRemoveIncompat']),
+      addToCartReplaceUpsell: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['addToCartReplaceUpsell']),
+      splitPayPrefPerShpGrp: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['splitPayPrefPerShpGrp']),
+      managedByLot:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['managedByLot']),
+      showOutOfStockProducts: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['showOutOfStockProducts']),
+      orderDecimalQuantity:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['orderDecimalQuantity']),
+      allowComment:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['allowComment']),
+      allocateInventory:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['allocateInventory']),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+      evict: json['evict'] as bool?,
+      tag1: json['tag1'] as String?,
+      tag2: json['tag2'] as String?,
+      tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      jointers: (json['jointers'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      multiJointers: json['multiJointers'] == null
+          ? null
+          : MultimapOra.fromJson(json['multiJointers'] as Map<String, dynamic>),
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      telephone: json['telephone'] as String?,
+      email: json['email'] as String?,
+      placeId: json['placeId'] as String?,
+      productStorePromoAppl: (json['productStorePromoAppl'] as List<dynamic>?)
+          ?.map(
+              (e) => ProductStorePromoAppl.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productStoreEmailSetting:
+          (json['productStoreEmailSetting'] as List<dynamic>?)
+              ?.map((e) =>
+                  ProductStoreEmailSetting.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      productStoreFacility: (json['productStoreFacility'] as List<dynamic>?)
+          ?.map((e) => ProductStoreFacility.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productStorePaymentSetting: (json['productStorePaymentSetting']
+              as List<dynamic>?)
+          ?.map((e) =>
+              ProductStorePaymentSetting.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productStoreKeywordOvrd:
+          (json['productStoreKeywordOvrd'] as List<dynamic>?)
+              ?.map((e) =>
+                  ProductStoreKeywordOvrd.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      productStoreSurveyAppl: (json['productStoreSurveyAppl'] as List<dynamic>?)
+          ?.map(
+              (e) => ProductStoreSurveyAppl.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productStoreCatalog: (json['productStoreCatalog'] as List<dynamic>?)
+          ?.map((e) => ProductStoreCatalog.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productStoreBunch: (json['productStoreBunch'] as List<dynamic>?)
+          ?.map((e) => ProductStoreBunch.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productStoreRole: (json['productStoreRole'] as List<dynamic>?)
+          ?.map((e) => ProductStoreRole.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$StoreToJson(Store instance) {
   final val = <String, dynamic>{};
@@ -371,24 +381,25 @@ const _$IndicatorEnumMap = {
 
 ProductStorePromoAppl _$ProductStorePromoApplFromJson(
         Map<String, dynamic> json) =>
-    ProductStorePromoAppl()
-      ..productStoreId = json['productStoreId'] as String?
-      ..productPromoId = json['productPromoId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductStorePromoAppl(
+      productStoreId: json['productStoreId'] as String?,
+      productPromoId: json['productPromoId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..manualOnly = $enumDecodeNullable(_$IndicatorEnumMap, json['manualOnly'])
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      manualOnly: $enumDecodeNullable(_$IndicatorEnumMap, json['manualOnly']),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStorePromoApplToJson(
     ProductStorePromoAppl instance) {
@@ -415,23 +426,24 @@ Map<String, dynamic> _$ProductStorePromoApplToJson(
 
 ProductStoreEmailSetting _$ProductStoreEmailSettingFromJson(
         Map<String, dynamic> json) =>
-    ProductStoreEmailSetting()
-      ..productStoreId = json['productStoreId'] as String?
-      ..emailType = json['emailType'] as String?
-      ..bodyScreenLocation = json['bodyScreenLocation'] as String?
-      ..xslfoAttachScreenLocation = json['xslfoAttachScreenLocation'] as String?
-      ..fromAddress = json['fromAddress'] as String?
-      ..ccAddress = json['ccAddress'] as String?
-      ..bccAddress = json['bccAddress'] as String?
-      ..subject = json['subject'] as String?
-      ..contentType = json['contentType'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ProductStoreEmailSetting(
+      productStoreId: json['productStoreId'] as String?,
+      emailType: json['emailType'] as String?,
+      bodyScreenLocation: json['bodyScreenLocation'] as String?,
+      xslfoAttachScreenLocation: json['xslfoAttachScreenLocation'] as String?,
+      fromAddress: json['fromAddress'] as String?,
+      ccAddress: json['ccAddress'] as String?,
+      bccAddress: json['bccAddress'] as String?,
+      subject: json['subject'] as String?,
+      contentType: json['contentType'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreEmailSettingToJson(
     ProductStoreEmailSetting instance) {
@@ -461,24 +473,25 @@ Map<String, dynamic> _$ProductStoreEmailSettingToJson(
 
 ProductStoreFacility _$ProductStoreFacilityFromJson(
         Map<String, dynamic> json) =>
-    ProductStoreFacility()
-      ..productStoreId = json['productStoreId'] as String?
-      ..facilityId = json['facilityId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductStoreFacility(
+      productStoreId: json['productStoreId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreFacilityToJson(
     ProductStoreFacility instance) {
@@ -505,23 +518,24 @@ Map<String, dynamic> _$ProductStoreFacilityToJson(
 
 ProductStorePaymentSetting _$ProductStorePaymentSettingFromJson(
         Map<String, dynamic> json) =>
-    ProductStorePaymentSetting()
-      ..productStoreId = json['productStoreId'] as String?
-      ..paymentMethodTypeId = json['paymentMethodTypeId'] as String?
-      ..paymentServiceTypeEnumId = json['paymentServiceTypeEnumId'] as String?
-      ..paymentService = json['paymentService'] as String?
-      ..paymentCustomMethodId = json['paymentCustomMethodId'] as String?
-      ..paymentGatewayConfigId = json['paymentGatewayConfigId'] as String?
-      ..paymentPropertiesPath = json['paymentPropertiesPath'] as String?
-      ..applyToAllProducts =
-          $enumDecodeNullable(_$IndicatorEnumMap, json['applyToAllProducts'])
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ProductStorePaymentSetting(
+      productStoreId: json['productStoreId'] as String?,
+      paymentMethodTypeId: json['paymentMethodTypeId'] as String?,
+      paymentServiceTypeEnumId: json['paymentServiceTypeEnumId'] as String?,
+      paymentService: json['paymentService'] as String?,
+      paymentCustomMethodId: json['paymentCustomMethodId'] as String?,
+      paymentGatewayConfigId: json['paymentGatewayConfigId'] as String?,
+      paymentPropertiesPath: json['paymentPropertiesPath'] as String?,
+      applyToAllProducts:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['applyToAllProducts']),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStorePaymentSettingToJson(
     ProductStorePaymentSetting instance) {
@@ -551,24 +565,25 @@ Map<String, dynamic> _$ProductStorePaymentSettingToJson(
 
 ProductStoreKeywordOvrd _$ProductStoreKeywordOvrdFromJson(
         Map<String, dynamic> json) =>
-    ProductStoreKeywordOvrd()
-      ..productStoreId = json['productStoreId'] as String?
-      ..keyword = json['keyword'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductStoreKeywordOvrd(
+      productStoreId: json['productStoreId'] as String?,
+      keyword: json['keyword'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..target = json['target'] as String?
-      ..targetTypeEnumId = json['targetTypeEnumId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      target: json['target'] as String?,
+      targetTypeEnumId: json['targetTypeEnumId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreKeywordOvrdToJson(
     ProductStoreKeywordOvrd instance) {
@@ -595,30 +610,31 @@ Map<String, dynamic> _$ProductStoreKeywordOvrdToJson(
 
 ProductStoreSurveyAppl _$ProductStoreSurveyApplFromJson(
         Map<String, dynamic> json) =>
-    ProductStoreSurveyAppl()
-      ..productStoreSurveyId = json['productStoreSurveyId'] as String?
-      ..productStoreId = json['productStoreId'] as String?
-      ..surveyApplTypeId = json['surveyApplTypeId'] as String?
-      ..groupName = json['groupName'] as String?
-      ..surveyId = json['surveyId'] as String?
-      ..productId = json['productId'] as String?
-      ..productCategoryId = json['productCategoryId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductStoreSurveyAppl(
+      productStoreSurveyId: json['productStoreSurveyId'] as String?,
+      productStoreId: json['productStoreId'] as String?,
+      surveyApplTypeId: json['surveyApplTypeId'] as String?,
+      groupName: json['groupName'] as String?,
+      surveyId: json['surveyId'] as String?,
+      productId: json['productId'] as String?,
+      productCategoryId: json['productCategoryId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..surveyTemplate = json['surveyTemplate'] as String?
-      ..resultTemplate = json['resultTemplate'] as String?
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      surveyTemplate: json['surveyTemplate'] as String?,
+      resultTemplate: json['resultTemplate'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreSurveyApplToJson(
     ProductStoreSurveyAppl instance) {
@@ -650,24 +666,25 @@ Map<String, dynamic> _$ProductStoreSurveyApplToJson(
 }
 
 ProductStoreCatalog _$ProductStoreCatalogFromJson(Map<String, dynamic> json) =>
-    ProductStoreCatalog()
-      ..productStoreId = json['productStoreId'] as String?
-      ..prodCatalogId = json['prodCatalogId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductStoreCatalog(
+      productStoreId: json['productStoreId'] as String?,
+      prodCatalogId: json['prodCatalogId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreCatalogToJson(ProductStoreCatalog instance) {
   final val = <String, dynamic>{};
@@ -692,19 +709,20 @@ Map<String, dynamic> _$ProductStoreCatalogToJson(ProductStoreCatalog instance) {
 }
 
 ProductStoreBunch _$ProductStoreBunchFromJson(Map<String, dynamic> json) =>
-    ProductStoreBunch()
-      ..productStoreId = json['productStoreId'] as String?
-      ..bunchId = json['bunchId'] as String?
-      ..bindType = json['bindType'] as String?
-      ..tenantId = json['tenantId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ProductStoreBunch(
+      productStoreId: json['productStoreId'] as String?,
+      bunchId: json['bunchId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..kind = json['kind'] as String?
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      kind: json['kind'] as String?,
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreBunchToJson(ProductStoreBunch instance) {
   final val = <String, dynamic>{};
@@ -728,24 +746,25 @@ Map<String, dynamic> _$ProductStoreBunchToJson(ProductStoreBunch instance) {
 }
 
 ProductStoreRole _$ProductStoreRoleFromJson(Map<String, dynamic> json) =>
-    ProductStoreRole()
-      ..partyId = json['partyId'] as String?
-      ..roleTypeId = json['roleTypeId'] as String?
-      ..productStoreId = json['productStoreId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductStoreRole(
+      partyId: json['partyId'] as String?,
+      roleTypeId: json['roleTypeId'] as String?,
+      productStoreId: json['productStoreId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductStoreRoleToJson(ProductStoreRole instance) {
   final val = <String, dynamic>{};

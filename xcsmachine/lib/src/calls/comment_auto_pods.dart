@@ -13,12 +13,12 @@ part 'comment_auto_pods.g.dart';
 
 @riverpod
 CommentAutoRepository commentAuto(CommentAutoRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) {
   var conn = ref.watch(httpConnectorProvider);
   
-  return CommentAutoRepository(conn.dio, regionId: regionId, id: id);
+  return CommentAutoRepository(conn.dio, regionOrNs: regionOrNs, id: id);
   
 }
 
@@ -26,7 +26,7 @@ CommentAutoRepository commentAuto(CommentAutoRef ref, {
 class CommentAutoPod extends _$CommentAutoPod {
   @override
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) async {
     // ok to leave this empty if the return type is FutureOr<void>
@@ -35,13 +35,13 @@ class CommentAutoPod extends _$CommentAutoPod {
     
 }
 
-
+  
 @riverpod
 Future<DecimalMap> commentAutoGetDecimals(CommentAutoGetDecimalsRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(commentAutoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(commentAutoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getDecimals(
   );
 }

@@ -8,12 +8,12 @@ import 'calls.dart';
 
 class FixtureObjectsRepository {
   FixtureObjectsRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='fixtureObjects',
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
 
    
@@ -31,7 +31,7 @@ class FixtureObjectsRepository {
       "action": "createEvent",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "eventName": eventName,
       "estStartDt": estStartDt,
@@ -40,115 +40,6 @@ class FixtureObjectsRepository {
     });
     
     return WorkEffort.fromJson(resp);
-  }
-   
-  // Query
-  Future<Map<String, List<String>>> echoStringMultiMap({
-    
-    required Map<String, List<String>> input, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "echoStringMultiMap",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionId,
-    }, {
-      "input": input, 
-    });
-    
-    return asMultimap<String>(resp);
-  }
-   
-  // Mutation
-  Future<Note> oneNoteWithData({
-    
-    required List<int> data, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "oneNoteWithData",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionId,
-    }, {
-      "data": data, 
-    });
-    
-    return Note.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<int>> getNoteSlotData({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await requestBytes(dio, {
-      "module": moduleName,
-      "action": "getNoteSlotData",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionId,
-    }, {
-      "noteId": noteId, 
-    });
-    
-    return resp;
-  }
-   
-  // Mutation
-  Future<String> createTestAsset({
-    
-    required ComplicatedRec rec, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "createTestAsset",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionId,
-    }, {
-      "rec": rec, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<String> createPostWithComments() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "createPostWithComments",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionId,
-    }, { 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<String> getNoteProto({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNoteProto",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionId,
-    }, {
-      "noteId": noteId, 
-    });
-    
-    return ResultConv.asString(resp);
   }
    
   // Mutation
@@ -162,7 +53,7 @@ class FixtureObjectsRepository {
       "action": "someStores",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "total": total, 
     });
@@ -181,7 +72,7 @@ class FixtureObjectsRepository {
       "action": "someProducts",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "total": total, 
     });
@@ -200,7 +91,7 @@ class FixtureObjectsRepository {
       "action": "someNotes",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "total": total, 
     });
@@ -215,7 +106,7 @@ class FixtureObjectsRepository {
       "action": "oneNote",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, { 
     });
     
@@ -233,7 +124,7 @@ class FixtureObjectsRepository {
       "action": "partyBundle",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "partyId": partyId, 
     });
@@ -252,7 +143,7 @@ class FixtureObjectsRepository {
       "action": "storeBundle",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "storeId": storeId, 
     });
@@ -271,7 +162,7 @@ class FixtureObjectsRepository {
       "action": "someShipments",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "total": total, 
     });
@@ -290,7 +181,7 @@ class FixtureObjectsRepository {
       "action": "someFacilities",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "total": total, 
     });
@@ -305,7 +196,7 @@ class FixtureObjectsRepository {
       "action": "oneStore",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, { 
     });
     
@@ -319,7 +210,7 @@ class FixtureObjectsRepository {
       "action": "oneProduct",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, { 
     });
     
@@ -337,7 +228,7 @@ class FixtureObjectsRepository {
       "action": "someTodos",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "total": total, 
     });
@@ -356,7 +247,7 @@ class FixtureObjectsRepository {
       "action": "echoDecimalMap",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "input": input, 
     });
@@ -375,7 +266,7 @@ class FixtureObjectsRepository {
       "action": "echoIntMap",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "input": input, 
     });
@@ -394,7 +285,7 @@ class FixtureObjectsRepository {
       "action": "echoBoolMap",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "input": input, 
     });
@@ -416,7 +307,7 @@ class FixtureObjectsRepository {
       "action": "makeTestRec",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "stringFld": stringFld,
       "numFld": numFld,
@@ -438,7 +329,7 @@ class FixtureObjectsRepository {
       "action": "makeSomeRecs",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       if(total!=null) "total": total, 
     });
@@ -457,7 +348,7 @@ class FixtureObjectsRepository {
       "action": "publicNotes",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "author": author, 
     });
@@ -480,7 +371,7 @@ class FixtureObjectsRepository {
       "action": "protoInput",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "strings": strings.toProto3Json()!,
       "decimals": decimals.toProto3Json()!,
@@ -490,6 +381,25 @@ class FixtureObjectsRepository {
     });
     
     return IntMap()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<String> getNoteProto({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNoteProto",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "noteId": noteId, 
+    });
+    
+    return ResultConv.asString(resp);
   }
    
   // Mutation
@@ -504,7 +414,7 @@ class FixtureObjectsRepository {
       "action": "touch",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "bundleName": bundleName,
       "bundleId": bundleId, 
@@ -523,7 +433,7 @@ class FixtureObjectsRepository {
       "action": "ping",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "req": req, 
     });
@@ -542,12 +452,102 @@ class FixtureObjectsRepository {
       "action": "echo",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "input": input, 
     });
     
     return asTypedMap(resp);
+  }
+   
+  // Query
+  Future<Map<String, List<String>>> echoStringMultiMap({
+    
+    required Map<String, List<String>> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echoStringMultiMap",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asMultimap<String>(resp);
+  }
+   
+  // Mutation
+  Future<Note> oneNoteWithData({
+    
+    required List<int> data, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "oneNoteWithData",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "data": data, 
+    });
+    
+    return Note.fromJson(resp);
+  }
+   
+  // Query
+  Future<List<int>> getNoteSlotData({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await requestBytes(dio, {
+      "module": moduleName,
+      "action": "getNoteSlotData",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "noteId": noteId, 
+    });
+    
+    return resp;
+  }
+   
+  // Mutation
+  Future<String> createTestAsset({
+    
+    required ComplicatedRec rec, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "createTestAsset",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "rec": rec, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<String> createPostWithComments() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "createPostWithComments",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
   }
   
 }

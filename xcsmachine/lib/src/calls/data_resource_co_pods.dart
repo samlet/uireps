@@ -13,12 +13,12 @@ part 'data_resource_co_pods.g.dart';
 
 @riverpod
 DataResourceCoRepository dataResourceCo(DataResourceCoRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) {
   var conn = ref.watch(httpConnectorProvider);
   
-  return DataResourceCoRepository(conn.dio, regionId: regionId, id: id);
+  return DataResourceCoRepository(conn.dio, regionOrNs: regionOrNs, id: id);
   
 }
 
@@ -26,7 +26,7 @@ DataResourceCoRepository dataResourceCo(DataResourceCoRef ref, {
 class DataResourceCoPod extends _$DataResourceCoPod {
   @override
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) async {
     // ok to leave this empty if the return type is FutureOr<void>
@@ -40,7 +40,7 @@ class DataResourceCoPod extends _$DataResourceCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(dataResourceCoProvider(regionId: regionId, id: id)).setText(
+        () => ref.read(dataResourceCoProvider(regionOrNs: regionOrNs, id: id)).setText(
               text: text,
             ));
     return state.hasError == false;
@@ -48,23 +48,23 @@ class DataResourceCoPod extends _$DataResourceCoPod {
     
 }
 
-
+  
 @riverpod
 Future<String> dataResourceCoName(DataResourceCoNameRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(dataResourceCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(dataResourceCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.name(
   );
 }
-
+  
 @riverpod
 Future<DecimalMap> dataResourceCoGetDecimals(DataResourceCoGetDecimalsRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(dataResourceCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(dataResourceCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getDecimals(
   );
 }

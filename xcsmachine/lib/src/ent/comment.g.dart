@@ -6,50 +6,51 @@ part of 'comment.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Comment _$CommentFromJson(Map<String, dynamic> json) => Comment()
-  ..commentId = json['commentId'] as String?
-  ..postedDateTime = json['postedDateTime'] == null
-      ? null
-      : DateTime.parse(json['postedDateTime'] as String)
-  ..resourceId = json['resourceId'] as String?
-  ..resourceType = json['resourceType'] as String?
-  ..rating = (json['rating'] as num?)?.toDouble()
-  ..subject = json['subject'] as String?
-  ..review = json['review'] as String?
-  ..userLoginId = json['userLoginId'] as String?
-  ..replyTo = json['replyTo'] as String?
-  ..replyToCommentId = json['replyToCommentId'] as String?
-  ..contentId = json['contentId'] as String?
-  ..anchor = json['anchor'] as String?
-  ..paragraph = (json['paragraph'] as num?)?.toInt()
-  ..mediaLinks = json['mediaLinks'] == null
-      ? null
-      : MultimapOra.fromJson(json['mediaLinks'] as Map<String, dynamic>)
-  ..sharedLinks = json['sharedLinks'] == null
-      ? null
-      : MultimapOra.fromJson(json['sharedLinks'] as Map<String, dynamic>)
-  ..claimPayment = (json['claimPayment'] as num?)?.toDouble()
-  ..paymentErc = json['paymentErc'] as String?
-  ..walletId = json['walletId'] as String?
-  ..tenantId = json['tenantId'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..commentTypeId = json['commentTypeId'] as String?
-  ..statusId = json['statusId'] as String?
-  ..evict = json['evict'] as bool?
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..commentType = json['commentType'] == null
-      ? null
-      : CommentType.fromJson(json['commentType'] as Map<String, dynamic>)
-  ..commentStatus = (json['commentStatus'] as List<dynamic>?)
-      ?.map((e) => CommentStatus.fromJson(e as Map<String, dynamic>))
-      .toList();
+Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
+      commentId: json['commentId'] as String?,
+      postedDateTime: json['postedDateTime'] == null
+          ? null
+          : DateTime.parse(json['postedDateTime'] as String),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
+      subject: json['subject'] as String?,
+      review: json['review'] as String?,
+      userLoginId: json['userLoginId'] as String?,
+      replyTo: json['replyTo'] as String?,
+      replyToCommentId: json['replyToCommentId'] as String?,
+      contentId: json['contentId'] as String?,
+      anchor: json['anchor'] as String?,
+      paragraph: (json['paragraph'] as num?)?.toInt(),
+      mediaLinks: json['mediaLinks'] == null
+          ? null
+          : MultimapOra.fromJson(json['mediaLinks'] as Map<String, dynamic>),
+      sharedLinks: json['sharedLinks'] == null
+          ? null
+          : MultimapOra.fromJson(json['sharedLinks'] as Map<String, dynamic>),
+      claimPayment: (json['claimPayment'] as num?)?.toDouble(),
+      paymentErc: json['paymentErc'] as String?,
+      walletId: json['walletId'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      commentTypeId: json['commentTypeId'] as String?,
+      statusId: json['statusId'] as String?,
+      evict: json['evict'] as bool?,
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      commentType: json['commentType'] == null
+          ? null
+          : CommentType.fromJson(json['commentType'] as Map<String, dynamic>),
+      commentStatus: (json['commentStatus'] as List<dynamic>?)
+          ?.map((e) => CommentStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$CommentToJson(Comment instance) {
   final val = <String, dynamic>{};
@@ -92,17 +93,18 @@ Map<String, dynamic> _$CommentToJson(Comment instance) {
   return val;
 }
 
-CommentType _$CommentTypeFromJson(Map<String, dynamic> json) => CommentType()
-  ..commentTypeId = json['commentTypeId'] as String?
-  ..parentTypeId = json['parentTypeId'] as String?
-  ..description = json['description'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?;
+CommentType _$CommentTypeFromJson(Map<String, dynamic> json) => CommentType(
+      commentTypeId: json['commentTypeId'] as String?,
+      parentTypeId: json['parentTypeId'] as String?,
+      description: json['description'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$CommentTypeToJson(CommentType instance) {
   final val = <String, dynamic>{};
@@ -124,23 +126,24 @@ Map<String, dynamic> _$CommentTypeToJson(CommentType instance) {
 }
 
 CommentStatus _$CommentStatusFromJson(Map<String, dynamic> json) =>
-    CommentStatus()
-      ..commentId = json['commentId'] as String?
-      ..statusDate = json['statusDate'] == null
+    CommentStatus(
+      commentId: json['commentId'] as String?,
+      statusDate: json['statusDate'] == null
           ? null
-          : DateTime.parse(json['statusDate'] as String)
-      ..statusEndDate = json['statusEndDate'] == null
+          : DateTime.parse(json['statusDate'] as String),
+      statusEndDate: json['statusEndDate'] == null
           ? null
-          : DateTime.parse(json['statusEndDate'] as String)
-      ..changeByUserLoginId = json['changeByUserLoginId'] as String?
-      ..statusId = json['statusId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['statusEndDate'] as String),
+      changeByUserLoginId: json['changeByUserLoginId'] as String?,
+      statusId: json['statusId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$CommentStatusToJson(CommentStatus instance) {
   final val = <String, dynamic>{};

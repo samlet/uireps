@@ -4,6 +4,8 @@ import 'package:xcsmachine/xcsapi.dart';
 
 import 'jwt_proc.dart';
 
+/// @see counter_comp_proc.dart
+
 // var dio=createAuthDio(samletToken);
 var dio = createAuthDioWithToken(buyer1Token);
 

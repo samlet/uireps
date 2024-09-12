@@ -8,12 +8,12 @@ import 'calls.dart';
 
 class AclOnChainRepository {
   AclOnChainRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='aclOnChain',
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
 
    
@@ -32,7 +32,7 @@ class AclOnChainRepository {
       "action": "grant",
       "bundleName" : "AclOnChain",
       "call-type": "chain",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "caller": caller,
       "biName": biName,
@@ -56,53 +56,13 @@ class AclOnChainRepository {
       "action": "setOwner",
       "bundleName" : "AclOnChain",
       "call-type": "chain",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "biName": biName,
       "bundleId": bundleId,
       "userOrGroup": userOrGroup, 
     });
     
-  }
-   
-  // Query
-  Future<List<String>> getPublicMethods({
-    
-    required String mod, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPublicMethods",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionId,
-    }, {
-      "mod": mod, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<bool> hasRole({
-    
-    required String partyId,
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "hasRole",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionId,
-    }, {
-      "partyId": partyId,
-      "role": role, 
-    });
-    
-    return ResultConv.asBool(resp);
   }
    
   // Query
@@ -118,7 +78,7 @@ class AclOnChainRepository {
       "action": "isOwner",
       "bundleName" : "AclOnChain",
       "call-type": "chain",
-      "regionId": regionId,
+      "regionId": regionOrNs,
     }, {
       "biName": biName,
       "bundleId": bundleId,
@@ -126,6 +86,46 @@ class AclOnChainRepository {
     });
     
     return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<bool> hasRole({
+    
+    required String partyId,
+    required String role, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "hasRole",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "partyId": partyId,
+      "role": role, 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<List<String>> getPublicMethods({
+    
+    required String mod, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPublicMethods",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "mod": mod, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
   }
   
 }

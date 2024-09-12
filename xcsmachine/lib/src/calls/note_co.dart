@@ -8,13 +8,13 @@ import 'calls.dart';
 
 class NoteCoRepository {
   NoteCoRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='noteCo',
     required this.id,
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
   final String id;
 
@@ -26,7 +26,7 @@ class NoteCoRepository {
       "action": "name",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -41,7 +41,7 @@ class NoteCoRepository {
       "action": "size",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -56,31 +56,12 @@ class NoteCoRepository {
       "action": "getContent",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<void> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "attachToWorkEffort",
-      "bundleName" : "Note",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, {
-      "workEffId": workEffId, 
-    });
-    
   }
    
   // Mutation
@@ -94,7 +75,7 @@ class NoteCoRepository {
       "action": "setContent",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "cnt": cnt, 
@@ -113,7 +94,7 @@ class NoteCoRepository {
       "action": "attachToParty",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "partyId": partyId, 
@@ -132,7 +113,7 @@ class NoteCoRepository {
       "action": "setContentComp",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "cnt": cnt, 
@@ -147,9 +128,28 @@ class NoteCoRepository {
       "action": "revokeContent",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "attachToWorkEffort",
+      "bundleName" : "Note",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "workEffId": workEffId, 
     });
     
   }
@@ -161,7 +161,7 @@ class NoteCoRepository {
       "action": "getDecimals",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -180,7 +180,7 @@ class NoteCoRepository {
       "action": "doneSlot",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "slotName": slotName, 
@@ -199,7 +199,7 @@ class NoteCoRepository {
       "action": "getSlotValue",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "slotName": slotName, 
@@ -219,7 +219,7 @@ class NoteCoRepository {
       "action": "hasSlotValue",
       "bundleName" : "Note",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "slotName": slotName, 

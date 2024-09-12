@@ -176,3 +176,22 @@ Map<String, dynamic> _$ComplicatedRecToJson(ComplicatedRec instance) {
   writeNotNull('data', instance.data?.toJson());
   return val;
 }
+
+LoadBundle _$LoadBundleFromJson(Map<String, dynamic> json) => LoadBundle(
+      bundleName: json['bundleName'] as String?,
+      bundleId: json['bundleId'] as String?,
+    );
+
+Map<String, dynamic> _$LoadBundleToJson(LoadBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('bundleId', instance.bundleId);
+  return val;
+}

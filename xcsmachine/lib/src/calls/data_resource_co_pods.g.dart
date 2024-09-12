@@ -6,7 +6,7 @@ part of 'data_resource_co_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dataResourceCoHash() => r'5455da062f1d391f7afa513cc22316005bbe3047';
+String _$dataResourceCoHash() => r'0b740a0fbbd3303e9f0eb1cb5dbfe547ff1eb6ae';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,11 +40,11 @@ class DataResourceCoFamily extends Family<DataResourceCoRepository> {
 
   /// See also [dataResourceCo].
   DataResourceCoProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return DataResourceCoProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -54,7 +54,7 @@ class DataResourceCoFamily extends Family<DataResourceCoRepository> {
     covariant DataResourceCoProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -79,12 +79,12 @@ class DataResourceCoProvider
     extends AutoDisposeProvider<DataResourceCoRepository> {
   /// See also [dataResourceCo].
   DataResourceCoProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => dataResourceCo(
             ref as DataResourceCoRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: dataResourceCoProvider,
@@ -96,7 +96,7 @@ class DataResourceCoProvider
           dependencies: DataResourceCoFamily._dependencies,
           allTransitiveDependencies:
               DataResourceCoFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -107,11 +107,11 @@ class DataResourceCoProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -127,7 +127,7 @@ class DataResourceCoProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -141,14 +141,14 @@ class DataResourceCoProvider
   @override
   bool operator ==(Object other) {
     return other is DataResourceCoProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -156,8 +156,8 @@ class DataResourceCoProvider
 }
 
 mixin DataResourceCoRef on AutoDisposeProviderRef<DataResourceCoRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -169,13 +169,13 @@ class _DataResourceCoProviderElement
   _DataResourceCoProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as DataResourceCoProvider).regionId;
+  String get regionOrNs => (origin as DataResourceCoProvider).regionOrNs;
   @override
   String get id => (origin as DataResourceCoProvider).id;
 }
 
 String _$dataResourceCoNameHash() =>
-    r'a05510b8c841a3dc36a5ee36a4f14d97f9923ed6';
+    r'9bf72afa193ac5b86cfc2c7b20b1fdbdf5daeb4d';
 
 /// See also [dataResourceCoName].
 @ProviderFor(dataResourceCoName)
@@ -188,11 +188,11 @@ class DataResourceCoNameFamily extends Family<AsyncValue<String>> {
 
   /// See also [dataResourceCoName].
   DataResourceCoNameProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return DataResourceCoNameProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -202,7 +202,7 @@ class DataResourceCoNameFamily extends Family<AsyncValue<String>> {
     covariant DataResourceCoNameProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -226,12 +226,12 @@ class DataResourceCoNameFamily extends Family<AsyncValue<String>> {
 class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
   /// See also [dataResourceCoName].
   DataResourceCoNameProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => dataResourceCoName(
             ref as DataResourceCoNameRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: dataResourceCoNameProvider,
@@ -243,7 +243,7 @@ class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
           dependencies: DataResourceCoNameFamily._dependencies,
           allTransitiveDependencies:
               DataResourceCoNameFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -254,11 +254,11 @@ class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -274,7 +274,7 @@ class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -288,14 +288,14 @@ class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
   @override
   bool operator ==(Object other) {
     return other is DataResourceCoNameProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -303,8 +303,8 @@ class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
 }
 
 mixin DataResourceCoNameRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -316,13 +316,13 @@ class _DataResourceCoNameProviderElement
   _DataResourceCoNameProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as DataResourceCoNameProvider).regionId;
+  String get regionOrNs => (origin as DataResourceCoNameProvider).regionOrNs;
   @override
   String get id => (origin as DataResourceCoNameProvider).id;
 }
 
 String _$dataResourceCoGetDecimalsHash() =>
-    r'a1f81b978b33816c00ae93085582d752709cdcdd';
+    r'e20486a99de51355536c5c96558a1501a4347be0';
 
 /// See also [dataResourceCoGetDecimals].
 @ProviderFor(dataResourceCoGetDecimals)
@@ -335,11 +335,11 @@ class DataResourceCoGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
 
   /// See also [dataResourceCoGetDecimals].
   DataResourceCoGetDecimalsProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return DataResourceCoGetDecimalsProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -349,7 +349,7 @@ class DataResourceCoGetDecimalsFamily extends Family<AsyncValue<DecimalMap>> {
     covariant DataResourceCoGetDecimalsProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -374,12 +374,12 @@ class DataResourceCoGetDecimalsProvider
     extends AutoDisposeFutureProvider<DecimalMap> {
   /// See also [dataResourceCoGetDecimals].
   DataResourceCoGetDecimalsProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           (ref) => dataResourceCoGetDecimals(
             ref as DataResourceCoGetDecimalsRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             id: id,
           ),
           from: dataResourceCoGetDecimalsProvider,
@@ -391,7 +391,7 @@ class DataResourceCoGetDecimalsProvider
           dependencies: DataResourceCoGetDecimalsFamily._dependencies,
           allTransitiveDependencies:
               DataResourceCoGetDecimalsFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -402,11 +402,11 @@ class DataResourceCoGetDecimalsProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -422,7 +422,7 @@ class DataResourceCoGetDecimalsProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -436,14 +436,14 @@ class DataResourceCoGetDecimalsProvider
   @override
   bool operator ==(Object other) {
     return other is DataResourceCoGetDecimalsProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -451,8 +451,8 @@ class DataResourceCoGetDecimalsProvider
 }
 
 mixin DataResourceCoGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -464,20 +464,21 @@ class _DataResourceCoGetDecimalsProviderElement
   _DataResourceCoGetDecimalsProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as DataResourceCoGetDecimalsProvider).regionId;
+  String get regionOrNs =>
+      (origin as DataResourceCoGetDecimalsProvider).regionOrNs;
   @override
   String get id => (origin as DataResourceCoGetDecimalsProvider).id;
 }
 
-String _$dataResourceCoPodHash() => r'74101ba040071962d72e82514ee0071f14b8826c';
+String _$dataResourceCoPodHash() => r'7ff3c2d0f24bdf7d1225b6abe8469a12916091d0';
 
 abstract class _$DataResourceCoPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -493,11 +494,11 @@ class DataResourceCoPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [DataResourceCoPod].
   DataResourceCoPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return DataResourceCoPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -507,7 +508,7 @@ class DataResourceCoPodFamily extends Family<AsyncValue<void>> {
     covariant DataResourceCoPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -532,11 +533,11 @@ class DataResourceCoPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<DataResourceCoPod, void> {
   /// See also [DataResourceCoPod].
   DataResourceCoPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => DataResourceCoPod()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: dataResourceCoPodProvider,
           name: r'dataResourceCoPodProvider',
@@ -547,7 +548,7 @@ class DataResourceCoPodProvider
           dependencies: DataResourceCoPodFamily._dependencies,
           allTransitiveDependencies:
               DataResourceCoPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -558,11 +559,11 @@ class DataResourceCoPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -570,7 +571,7 @@ class DataResourceCoPodProvider
     covariant DataResourceCoPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -581,14 +582,14 @@ class DataResourceCoPodProvider
       origin: this,
       override: DataResourceCoPodProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -603,14 +604,14 @@ class DataResourceCoPodProvider
   @override
   bool operator ==(Object other) {
     return other is DataResourceCoPodProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -618,8 +619,8 @@ class DataResourceCoPodProvider
 }
 
 mixin DataResourceCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -631,7 +632,7 @@ class _DataResourceCoPodProviderElement
   _DataResourceCoPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as DataResourceCoPodProvider).regionId;
+  String get regionOrNs => (origin as DataResourceCoPodProvider).regionOrNs;
   @override
   String get id => (origin as DataResourceCoPodProvider).id;
 }

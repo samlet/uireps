@@ -13,12 +13,12 @@ part 'note_co_pods.g.dart';
 
 @riverpod
 NoteCoRepository noteCo(NoteCoRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) {
   var conn = ref.watch(httpConnectorProvider);
   
-  return NoteCoRepository(conn.dio, regionId: regionId, id: id);
+  return NoteCoRepository(conn.dio, regionOrNs: regionOrNs, id: id);
   
 }
 
@@ -26,25 +26,12 @@ NoteCoRepository noteCo(NoteCoRef ref, {
 class NoteCoPod extends _$NoteCoPod {
   @override
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) async {
     // ok to leave this empty if the return type is FutureOr<void>
   }
 
-  
-  Future<bool> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).attachToWorkEffort(
-              workEffId: workEffId,
-            ));
-    return state.hasError == false;
-  }
   
   Future<bool> setContent({
     
@@ -53,7 +40,7 @@ class NoteCoPod extends _$NoteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).setContent(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
               cnt: cnt,
             ));
     return state.hasError == false;
@@ -66,7 +53,7 @@ class NoteCoPod extends _$NoteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).attachToParty(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToParty(
               partyId: partyId,
             ));
     return state.hasError == false;
@@ -79,7 +66,7 @@ class NoteCoPod extends _$NoteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).setContentComp(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContentComp(
               cnt: cnt,
             ));
     return state.hasError == false;
@@ -88,7 +75,20 @@ class NoteCoPod extends _$NoteCoPod {
   Future<bool> revokeContent() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).revokeContent(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToWorkEffort(
+              workEffId: workEffId,
             ));
     return state.hasError == false;
   }
@@ -100,7 +100,7 @@ class NoteCoPod extends _$NoteCoPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionId: regionId, id: id)).doneSlot(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
               slotName: slotName,
             ));
     return state.hasError == false;
@@ -108,70 +108,70 @@ class NoteCoPod extends _$NoteCoPod {
     
 }
 
-
+  
 @riverpod
 Future<String> noteName(NoteNameRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(noteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.name(
   );
 }
-
+  
 @riverpod
 Future<int> noteSize(NoteSizeRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(noteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.size(
   );
 }
-
+  
 @riverpod
 Future<String> noteGetContent(NoteGetContentRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(noteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getContent(
   );
 }
-
+  
 @riverpod
 Future<DecimalMap> noteGetDecimals(NoteGetDecimalsRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
 }) async {
-  var pod=ref.watch(noteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getDecimals(
   );
 }
-
+  
 @riverpod
 Future<ValueData> noteGetSlotValue(NoteGetSlotValueRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
   
     required String slotName, 
 
 }) async {
-  var pod=ref.watch(noteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getSlotValue(
       slotName: slotName,
   );
 }
-
+  
 @riverpod
 Future<bool> noteHasSlotValue(NoteHasSlotValueRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   required String id,
   
     required String slotName, 
 
 }) async {
-  var pod=ref.watch(noteCoProvider(regionId: regionId, id: id));
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.hasSlotValue(
       slotName: slotName,
   );

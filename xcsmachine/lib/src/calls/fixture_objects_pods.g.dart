@@ -6,7 +6,7 @@ part of 'fixture_objects_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fixtureObjectsHash() => r'35fc0fdb8c0be1fb12a220235a16101df2b466d5';
+String _$fixtureObjectsHash() => r'00889a36984a8347d6937b0cfc54805d120b4af5';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,10 +40,10 @@ class FixtureObjectsFamily extends Family<FixtureObjectsRepository> {
 
   /// See also [fixtureObjects].
   FixtureObjectsProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return FixtureObjectsProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -52,7 +52,7 @@ class FixtureObjectsFamily extends Family<FixtureObjectsRepository> {
     covariant FixtureObjectsProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -75,11 +75,11 @@ class FixtureObjectsFamily extends Family<FixtureObjectsRepository> {
 class FixtureObjectsProvider extends Provider<FixtureObjectsRepository> {
   /// See also [fixtureObjects].
   FixtureObjectsProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
           (ref) => fixtureObjects(
             ref as FixtureObjectsRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
           ),
           from: fixtureObjectsProvider,
           name: r'fixtureObjectsProvider',
@@ -90,7 +90,7 @@ class FixtureObjectsProvider extends Provider<FixtureObjectsRepository> {
           dependencies: FixtureObjectsFamily._dependencies,
           allTransitiveDependencies:
               FixtureObjectsFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   FixtureObjectsProvider._internal(
@@ -100,10 +100,10 @@ class FixtureObjectsProvider extends Provider<FixtureObjectsRepository> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   Override overrideWith(
@@ -118,7 +118,7 @@ class FixtureObjectsProvider extends Provider<FixtureObjectsRepository> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -130,21 +130,21 @@ class FixtureObjectsProvider extends Provider<FixtureObjectsRepository> {
 
   @override
   bool operator ==(Object other) {
-    return other is FixtureObjectsProvider && other.regionId == regionId;
+    return other is FixtureObjectsProvider && other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin FixtureObjectsRef on ProviderRef<FixtureObjectsRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _FixtureObjectsProviderElement
@@ -152,11 +152,314 @@ class _FixtureObjectsProviderElement
   _FixtureObjectsProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixtureObjectsProvider).regionId;
+  String get regionOrNs => (origin as FixtureObjectsProvider).regionOrNs;
+}
+
+String _$fixturesEchoStringMultiMapHash() =>
+    r'e4bbf1b0c71d67fd81b877fd0952d92b7e4b08bc';
+
+/// See also [fixturesEchoStringMultiMap].
+@ProviderFor(fixturesEchoStringMultiMap)
+const fixturesEchoStringMultiMapProvider = FixturesEchoStringMultiMapFamily();
+
+/// See also [fixturesEchoStringMultiMap].
+class FixturesEchoStringMultiMapFamily
+    extends Family<AsyncValue<Map<String, List<String>>>> {
+  /// See also [fixturesEchoStringMultiMap].
+  const FixturesEchoStringMultiMapFamily();
+
+  /// See also [fixturesEchoStringMultiMap].
+  FixturesEchoStringMultiMapProvider call({
+    String regionOrNs = 'default',
+    required Map<String, List<String>> input,
+  }) {
+    return FixturesEchoStringMultiMapProvider(
+      regionOrNs: regionOrNs,
+      input: input,
+    );
+  }
+
+  @override
+  FixturesEchoStringMultiMapProvider getProviderOverride(
+    covariant FixturesEchoStringMultiMapProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      input: provider.input,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesEchoStringMultiMapProvider';
+}
+
+/// See also [fixturesEchoStringMultiMap].
+class FixturesEchoStringMultiMapProvider
+    extends AutoDisposeFutureProvider<Map<String, List<String>>> {
+  /// See also [fixturesEchoStringMultiMap].
+  FixturesEchoStringMultiMapProvider({
+    String regionOrNs = 'default',
+    required Map<String, List<String>> input,
+  }) : this._internal(
+          (ref) => fixturesEchoStringMultiMap(
+            ref as FixturesEchoStringMultiMapRef,
+            regionOrNs: regionOrNs,
+            input: input,
+          ),
+          from: fixturesEchoStringMultiMapProvider,
+          name: r'fixturesEchoStringMultiMapProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesEchoStringMultiMapHash,
+          dependencies: FixturesEchoStringMultiMapFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesEchoStringMultiMapFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          input: input,
+        );
+
+  FixturesEchoStringMultiMapProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.input,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final Map<String, List<String>> input;
+
+  @override
+  Override overrideWith(
+    FutureOr<Map<String, List<String>>> Function(
+            FixturesEchoStringMultiMapRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesEchoStringMultiMapProvider._internal(
+        (ref) => create(ref as FixturesEchoStringMultiMapRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        input: input,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Map<String, List<String>>> createElement() {
+    return _FixturesEchoStringMultiMapProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesEchoStringMultiMapProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.input == input;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, input.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesEchoStringMultiMapRef
+    on AutoDisposeFutureProviderRef<Map<String, List<String>>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `input` of this provider.
+  Map<String, List<String>> get input;
+}
+
+class _FixturesEchoStringMultiMapProviderElement
+    extends AutoDisposeFutureProviderElement<Map<String, List<String>>>
+    with FixturesEchoStringMultiMapRef {
+  _FixturesEchoStringMultiMapProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as FixturesEchoStringMultiMapProvider).regionOrNs;
+  @override
+  Map<String, List<String>> get input =>
+      (origin as FixturesEchoStringMultiMapProvider).input;
+}
+
+String _$fixturesGetNoteSlotDataHash() =>
+    r'fe1bbb7d5308fa252daec180d7e4a18da0e6b9be';
+
+/// See also [fixturesGetNoteSlotData].
+@ProviderFor(fixturesGetNoteSlotData)
+const fixturesGetNoteSlotDataProvider = FixturesGetNoteSlotDataFamily();
+
+/// See also [fixturesGetNoteSlotData].
+class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
+  /// See also [fixturesGetNoteSlotData].
+  const FixturesGetNoteSlotDataFamily();
+
+  /// See also [fixturesGetNoteSlotData].
+  FixturesGetNoteSlotDataProvider call({
+    String regionOrNs = 'default',
+    required String noteId,
+  }) {
+    return FixturesGetNoteSlotDataProvider(
+      regionOrNs: regionOrNs,
+      noteId: noteId,
+    );
+  }
+
+  @override
+  FixturesGetNoteSlotDataProvider getProviderOverride(
+    covariant FixturesGetNoteSlotDataProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      noteId: provider.noteId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetNoteSlotDataProvider';
+}
+
+/// See also [fixturesGetNoteSlotData].
+class FixturesGetNoteSlotDataProvider
+    extends AutoDisposeFutureProvider<List<int>> {
+  /// See also [fixturesGetNoteSlotData].
+  FixturesGetNoteSlotDataProvider({
+    String regionOrNs = 'default',
+    required String noteId,
+  }) : this._internal(
+          (ref) => fixturesGetNoteSlotData(
+            ref as FixturesGetNoteSlotDataRef,
+            regionOrNs: regionOrNs,
+            noteId: noteId,
+          ),
+          from: fixturesGetNoteSlotDataProvider,
+          name: r'fixturesGetNoteSlotDataProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetNoteSlotDataHash,
+          dependencies: FixturesGetNoteSlotDataFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetNoteSlotDataFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          noteId: noteId,
+        );
+
+  FixturesGetNoteSlotDataProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.noteId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String noteId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<int>> Function(FixturesGetNoteSlotDataRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesGetNoteSlotDataProvider._internal(
+        (ref) => create(ref as FixturesGetNoteSlotDataRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        noteId: noteId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<int>> createElement() {
+    return _FixturesGetNoteSlotDataProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetNoteSlotDataProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.noteId == noteId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, noteId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesGetNoteSlotDataRef on AutoDisposeFutureProviderRef<List<int>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `noteId` of this provider.
+  String get noteId;
+}
+
+class _FixturesGetNoteSlotDataProviderElement
+    extends AutoDisposeFutureProviderElement<List<int>>
+    with FixturesGetNoteSlotDataRef {
+  _FixturesGetNoteSlotDataProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as FixturesGetNoteSlotDataProvider).regionOrNs;
+  @override
+  String get noteId => (origin as FixturesGetNoteSlotDataProvider).noteId;
 }
 
 String _$fixturesPartyBundleHash() =>
-    r'ea3c06905ea4ee03cc59363f3e5afa28c2df34d6';
+    r'de10763fb2e354b1eb4af8cd25a5255976107892';
 
 /// See also [fixturesPartyBundle].
 @ProviderFor(fixturesPartyBundle)
@@ -169,11 +472,11 @@ class FixturesPartyBundleFamily extends Family<AsyncValue<PartyBundle>> {
 
   /// See also [fixturesPartyBundle].
   FixturesPartyBundleProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String partyId,
   }) {
     return FixturesPartyBundleProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       partyId: partyId,
     );
   }
@@ -183,7 +486,7 @@ class FixturesPartyBundleFamily extends Family<AsyncValue<PartyBundle>> {
     covariant FixturesPartyBundleProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       partyId: provider.partyId,
     );
   }
@@ -208,12 +511,12 @@ class FixturesPartyBundleProvider
     extends AutoDisposeFutureProvider<PartyBundle> {
   /// See also [fixturesPartyBundle].
   FixturesPartyBundleProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String partyId,
   }) : this._internal(
           (ref) => fixturesPartyBundle(
             ref as FixturesPartyBundleRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             partyId: partyId,
           ),
           from: fixturesPartyBundleProvider,
@@ -225,7 +528,7 @@ class FixturesPartyBundleProvider
           dependencies: FixturesPartyBundleFamily._dependencies,
           allTransitiveDependencies:
               FixturesPartyBundleFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           partyId: partyId,
         );
 
@@ -236,11 +539,11 @@ class FixturesPartyBundleProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.partyId,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String partyId;
 
   @override
@@ -256,7 +559,7 @@ class FixturesPartyBundleProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         partyId: partyId,
       ),
     );
@@ -270,14 +573,14 @@ class FixturesPartyBundleProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesPartyBundleProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.partyId == partyId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, partyId.hashCode);
 
     return _SystemHash.finish(hash);
@@ -285,8 +588,8 @@ class FixturesPartyBundleProvider
 }
 
 mixin FixturesPartyBundleRef on AutoDisposeFutureProviderRef<PartyBundle> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `partyId` of this provider.
   String get partyId;
@@ -298,13 +601,13 @@ class _FixturesPartyBundleProviderElement
   _FixturesPartyBundleProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesPartyBundleProvider).regionId;
+  String get regionOrNs => (origin as FixturesPartyBundleProvider).regionOrNs;
   @override
   String get partyId => (origin as FixturesPartyBundleProvider).partyId;
 }
 
 String _$fixturesStoreBundleHash() =>
-    r'edcb28e2e6298f0fb026b9a2609b965549831ab4';
+    r'872c69976ab8bb02c6ad5f7d12c06f2f949f2e96';
 
 /// See also [fixturesStoreBundle].
 @ProviderFor(fixturesStoreBundle)
@@ -317,11 +620,11 @@ class FixturesStoreBundleFamily extends Family<AsyncValue<StoreBundle>> {
 
   /// See also [fixturesStoreBundle].
   FixturesStoreBundleProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String storeId,
   }) {
     return FixturesStoreBundleProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       storeId: storeId,
     );
   }
@@ -331,7 +634,7 @@ class FixturesStoreBundleFamily extends Family<AsyncValue<StoreBundle>> {
     covariant FixturesStoreBundleProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       storeId: provider.storeId,
     );
   }
@@ -356,12 +659,12 @@ class FixturesStoreBundleProvider
     extends AutoDisposeFutureProvider<StoreBundle> {
   /// See also [fixturesStoreBundle].
   FixturesStoreBundleProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String storeId,
   }) : this._internal(
           (ref) => fixturesStoreBundle(
             ref as FixturesStoreBundleRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             storeId: storeId,
           ),
           from: fixturesStoreBundleProvider,
@@ -373,7 +676,7 @@ class FixturesStoreBundleProvider
           dependencies: FixturesStoreBundleFamily._dependencies,
           allTransitiveDependencies:
               FixturesStoreBundleFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           storeId: storeId,
         );
 
@@ -384,11 +687,11 @@ class FixturesStoreBundleProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.storeId,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String storeId;
 
   @override
@@ -404,7 +707,7 @@ class FixturesStoreBundleProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         storeId: storeId,
       ),
     );
@@ -418,14 +721,14 @@ class FixturesStoreBundleProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesStoreBundleProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.storeId == storeId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, storeId.hashCode);
 
     return _SystemHash.finish(hash);
@@ -433,8 +736,8 @@ class FixturesStoreBundleProvider
 }
 
 mixin FixturesStoreBundleRef on AutoDisposeFutureProviderRef<StoreBundle> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `storeId` of this provider.
   String get storeId;
@@ -446,13 +749,13 @@ class _FixturesStoreBundleProviderElement
   _FixturesStoreBundleProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesStoreBundleProvider).regionId;
+  String get regionOrNs => (origin as FixturesStoreBundleProvider).regionOrNs;
   @override
   String get storeId => (origin as FixturesStoreBundleProvider).storeId;
 }
 
 String _$fixturesEchoDecimalMapHash() =>
-    r'9988ad5d9ffe66a043615e11be400382cebbb8ef';
+    r'760070f74fc1c7141457754cb9dd5d4c66ed215a';
 
 /// See also [fixturesEchoDecimalMap].
 @ProviderFor(fixturesEchoDecimalMap)
@@ -466,11 +769,11 @@ class FixturesEchoDecimalMapFamily
 
   /// See also [fixturesEchoDecimalMap].
   FixturesEchoDecimalMapProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, double> input,
   }) {
     return FixturesEchoDecimalMapProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       input: input,
     );
   }
@@ -480,7 +783,7 @@ class FixturesEchoDecimalMapFamily
     covariant FixturesEchoDecimalMapProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       input: provider.input,
     );
   }
@@ -505,12 +808,12 @@ class FixturesEchoDecimalMapProvider
     extends AutoDisposeFutureProvider<Map<String, double>> {
   /// See also [fixturesEchoDecimalMap].
   FixturesEchoDecimalMapProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, double> input,
   }) : this._internal(
           (ref) => fixturesEchoDecimalMap(
             ref as FixturesEchoDecimalMapRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             input: input,
           ),
           from: fixturesEchoDecimalMapProvider,
@@ -522,7 +825,7 @@ class FixturesEchoDecimalMapProvider
           dependencies: FixturesEchoDecimalMapFamily._dependencies,
           allTransitiveDependencies:
               FixturesEchoDecimalMapFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           input: input,
         );
 
@@ -533,11 +836,11 @@ class FixturesEchoDecimalMapProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.input,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final Map<String, double> input;
 
   @override
@@ -554,7 +857,7 @@ class FixturesEchoDecimalMapProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         input: input,
       ),
     );
@@ -568,14 +871,14 @@ class FixturesEchoDecimalMapProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesEchoDecimalMapProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.input == input;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, input.hashCode);
 
     return _SystemHash.finish(hash);
@@ -584,8 +887,8 @@ class FixturesEchoDecimalMapProvider
 
 mixin FixturesEchoDecimalMapRef
     on AutoDisposeFutureProviderRef<Map<String, double>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `input` of this provider.
   Map<String, double> get input;
@@ -597,14 +900,15 @@ class _FixturesEchoDecimalMapProviderElement
   _FixturesEchoDecimalMapProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesEchoDecimalMapProvider).regionId;
+  String get regionOrNs =>
+      (origin as FixturesEchoDecimalMapProvider).regionOrNs;
   @override
   Map<String, double> get input =>
       (origin as FixturesEchoDecimalMapProvider).input;
 }
 
 String _$fixturesEchoIntMapHash() =>
-    r'87d2443f30f8c93499ae95b74c7dc7ec31734231';
+    r'1c4a0e950451e40453bdcb1f08e8f178723a9cd8';
 
 /// See also [fixturesEchoIntMap].
 @ProviderFor(fixturesEchoIntMap)
@@ -617,11 +921,11 @@ class FixturesEchoIntMapFamily extends Family<AsyncValue<Map<String, int>>> {
 
   /// See also [fixturesEchoIntMap].
   FixturesEchoIntMapProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, int> input,
   }) {
     return FixturesEchoIntMapProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       input: input,
     );
   }
@@ -631,7 +935,7 @@ class FixturesEchoIntMapFamily extends Family<AsyncValue<Map<String, int>>> {
     covariant FixturesEchoIntMapProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       input: provider.input,
     );
   }
@@ -656,12 +960,12 @@ class FixturesEchoIntMapProvider
     extends AutoDisposeFutureProvider<Map<String, int>> {
   /// See also [fixturesEchoIntMap].
   FixturesEchoIntMapProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, int> input,
   }) : this._internal(
           (ref) => fixturesEchoIntMap(
             ref as FixturesEchoIntMapRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             input: input,
           ),
           from: fixturesEchoIntMapProvider,
@@ -673,7 +977,7 @@ class FixturesEchoIntMapProvider
           dependencies: FixturesEchoIntMapFamily._dependencies,
           allTransitiveDependencies:
               FixturesEchoIntMapFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           input: input,
         );
 
@@ -684,11 +988,11 @@ class FixturesEchoIntMapProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.input,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final Map<String, int> input;
 
   @override
@@ -704,7 +1008,7 @@ class FixturesEchoIntMapProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         input: input,
       ),
     );
@@ -718,14 +1022,14 @@ class FixturesEchoIntMapProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesEchoIntMapProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.input == input;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, input.hashCode);
 
     return _SystemHash.finish(hash);
@@ -733,8 +1037,8 @@ class FixturesEchoIntMapProvider
 }
 
 mixin FixturesEchoIntMapRef on AutoDisposeFutureProviderRef<Map<String, int>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `input` of this provider.
   Map<String, int> get input;
@@ -746,13 +1050,13 @@ class _FixturesEchoIntMapProviderElement
   _FixturesEchoIntMapProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesEchoIntMapProvider).regionId;
+  String get regionOrNs => (origin as FixturesEchoIntMapProvider).regionOrNs;
   @override
   Map<String, int> get input => (origin as FixturesEchoIntMapProvider).input;
 }
 
 String _$fixturesEchoBoolMapHash() =>
-    r'80331572f30e2179a18a6f7ed72ee14bc647b774';
+    r'0a5ea43ec6f315a117bad5a18050aa8b69013c6a';
 
 /// See also [fixturesEchoBoolMap].
 @ProviderFor(fixturesEchoBoolMap)
@@ -765,11 +1069,11 @@ class FixturesEchoBoolMapFamily extends Family<AsyncValue<Map<String, bool>>> {
 
   /// See also [fixturesEchoBoolMap].
   FixturesEchoBoolMapProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, bool> input,
   }) {
     return FixturesEchoBoolMapProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       input: input,
     );
   }
@@ -779,7 +1083,7 @@ class FixturesEchoBoolMapFamily extends Family<AsyncValue<Map<String, bool>>> {
     covariant FixturesEchoBoolMapProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       input: provider.input,
     );
   }
@@ -804,12 +1108,12 @@ class FixturesEchoBoolMapProvider
     extends AutoDisposeFutureProvider<Map<String, bool>> {
   /// See also [fixturesEchoBoolMap].
   FixturesEchoBoolMapProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, bool> input,
   }) : this._internal(
           (ref) => fixturesEchoBoolMap(
             ref as FixturesEchoBoolMapRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             input: input,
           ),
           from: fixturesEchoBoolMapProvider,
@@ -821,7 +1125,7 @@ class FixturesEchoBoolMapProvider
           dependencies: FixturesEchoBoolMapFamily._dependencies,
           allTransitiveDependencies:
               FixturesEchoBoolMapFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           input: input,
         );
 
@@ -832,11 +1136,11 @@ class FixturesEchoBoolMapProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.input,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final Map<String, bool> input;
 
   @override
@@ -853,7 +1157,7 @@ class FixturesEchoBoolMapProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         input: input,
       ),
     );
@@ -867,14 +1171,14 @@ class FixturesEchoBoolMapProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesEchoBoolMapProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.input == input;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, input.hashCode);
 
     return _SystemHash.finish(hash);
@@ -883,8 +1187,8 @@ class FixturesEchoBoolMapProvider
 
 mixin FixturesEchoBoolMapRef
     on AutoDisposeFutureProviderRef<Map<String, bool>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `input` of this provider.
   Map<String, bool> get input;
@@ -896,13 +1200,13 @@ class _FixturesEchoBoolMapProviderElement
   _FixturesEchoBoolMapProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesEchoBoolMapProvider).regionId;
+  String get regionOrNs => (origin as FixturesEchoBoolMapProvider).regionOrNs;
   @override
   Map<String, bool> get input => (origin as FixturesEchoBoolMapProvider).input;
 }
 
 String _$fixturesMakeTestRecHash() =>
-    r'729f82f27f8a12d031faac8358a246cca17fec0e';
+    r'30cd92b1e5e7da014ba282baa32d6bf1124d211f';
 
 /// See also [fixturesMakeTestRec].
 @ProviderFor(fixturesMakeTestRec)
@@ -915,14 +1219,14 @@ class FixturesMakeTestRecFamily extends Family<AsyncValue<TestRec>> {
 
   /// See also [fixturesMakeTestRec].
   FixturesMakeTestRecProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String stringFld,
     required double numFld,
     required Map<String, double> numMap,
     List<double>? nums,
   }) {
     return FixturesMakeTestRecProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       stringFld: stringFld,
       numFld: numFld,
       numMap: numMap,
@@ -935,7 +1239,7 @@ class FixturesMakeTestRecFamily extends Family<AsyncValue<TestRec>> {
     covariant FixturesMakeTestRecProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       stringFld: provider.stringFld,
       numFld: provider.numFld,
       numMap: provider.numMap,
@@ -962,7 +1266,7 @@ class FixturesMakeTestRecFamily extends Family<AsyncValue<TestRec>> {
 class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
   /// See also [fixturesMakeTestRec].
   FixturesMakeTestRecProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String stringFld,
     required double numFld,
     required Map<String, double> numMap,
@@ -970,7 +1274,7 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
   }) : this._internal(
           (ref) => fixturesMakeTestRec(
             ref as FixturesMakeTestRecRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             stringFld: stringFld,
             numFld: numFld,
             numMap: numMap,
@@ -985,7 +1289,7 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
           dependencies: FixturesMakeTestRecFamily._dependencies,
           allTransitiveDependencies:
               FixturesMakeTestRecFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           stringFld: stringFld,
           numFld: numFld,
           numMap: numMap,
@@ -999,14 +1303,14 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.stringFld,
     required this.numFld,
     required this.numMap,
     required this.nums,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String stringFld;
   final double numFld;
   final Map<String, double> numMap;
@@ -1025,7 +1329,7 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         stringFld: stringFld,
         numFld: numFld,
         numMap: numMap,
@@ -1042,7 +1346,7 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
   @override
   bool operator ==(Object other) {
     return other is FixturesMakeTestRecProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.stringFld == stringFld &&
         other.numFld == numFld &&
         other.numMap == numMap &&
@@ -1052,7 +1356,7 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, stringFld.hashCode);
     hash = _SystemHash.combine(hash, numFld.hashCode);
     hash = _SystemHash.combine(hash, numMap.hashCode);
@@ -1063,8 +1367,8 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
 }
 
 mixin FixturesMakeTestRecRef on AutoDisposeFutureProviderRef<TestRec> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `stringFld` of this provider.
   String get stringFld;
@@ -1085,7 +1389,7 @@ class _FixturesMakeTestRecProviderElement
   _FixturesMakeTestRecProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesMakeTestRecProvider).regionId;
+  String get regionOrNs => (origin as FixturesMakeTestRecProvider).regionOrNs;
   @override
   String get stringFld => (origin as FixturesMakeTestRecProvider).stringFld;
   @override
@@ -1098,7 +1402,7 @@ class _FixturesMakeTestRecProviderElement
 }
 
 String _$fixturesMakeSomeRecsHash() =>
-    r'6b401576f829120003c56e24a28655de42a5bb16';
+    r'4516e46ecd2fe35aec8d04930b81410b615f1009';
 
 /// See also [fixturesMakeSomeRecs].
 @ProviderFor(fixturesMakeSomeRecs)
@@ -1111,11 +1415,11 @@ class FixturesMakeSomeRecsFamily extends Family<AsyncValue<List<TestRec>>> {
 
   /// See also [fixturesMakeSomeRecs].
   FixturesMakeSomeRecsProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     int? total = 5,
   }) {
     return FixturesMakeSomeRecsProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       total: total,
     );
   }
@@ -1125,7 +1429,7 @@ class FixturesMakeSomeRecsFamily extends Family<AsyncValue<List<TestRec>>> {
     covariant FixturesMakeSomeRecsProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       total: provider.total,
     );
   }
@@ -1150,12 +1454,12 @@ class FixturesMakeSomeRecsProvider
     extends AutoDisposeFutureProvider<List<TestRec>> {
   /// See also [fixturesMakeSomeRecs].
   FixturesMakeSomeRecsProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     int? total = 5,
   }) : this._internal(
           (ref) => fixturesMakeSomeRecs(
             ref as FixturesMakeSomeRecsRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             total: total,
           ),
           from: fixturesMakeSomeRecsProvider,
@@ -1167,7 +1471,7 @@ class FixturesMakeSomeRecsProvider
           dependencies: FixturesMakeSomeRecsFamily._dependencies,
           allTransitiveDependencies:
               FixturesMakeSomeRecsFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           total: total,
         );
 
@@ -1178,11 +1482,11 @@ class FixturesMakeSomeRecsProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.total,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final int? total;
 
   @override
@@ -1198,7 +1502,7 @@ class FixturesMakeSomeRecsProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         total: total,
       ),
     );
@@ -1212,14 +1516,14 @@ class FixturesMakeSomeRecsProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesMakeSomeRecsProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.total == total;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, total.hashCode);
 
     return _SystemHash.finish(hash);
@@ -1227,8 +1531,8 @@ class FixturesMakeSomeRecsProvider
 }
 
 mixin FixturesMakeSomeRecsRef on AutoDisposeFutureProviderRef<List<TestRec>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `total` of this provider.
   int? get total;
@@ -1240,13 +1544,13 @@ class _FixturesMakeSomeRecsProviderElement
   _FixturesMakeSomeRecsProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesMakeSomeRecsProvider).regionId;
+  String get regionOrNs => (origin as FixturesMakeSomeRecsProvider).regionOrNs;
   @override
   int? get total => (origin as FixturesMakeSomeRecsProvider).total;
 }
 
 String _$fixturesPublicNotesHash() =>
-    r'8bd2b738c6cff680580583610ea8e4acba2a982d';
+    r'9da94f63e5b9f14f56b55641366fcfd90538568e';
 
 /// See also [fixturesPublicNotes].
 @ProviderFor(fixturesPublicNotes)
@@ -1259,11 +1563,11 @@ class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
 
   /// See also [fixturesPublicNotes].
   FixturesPublicNotesProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String author,
   }) {
     return FixturesPublicNotesProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       author: author,
     );
   }
@@ -1273,7 +1577,7 @@ class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
     covariant FixturesPublicNotesProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       author: provider.author,
     );
   }
@@ -1298,12 +1602,12 @@ class FixturesPublicNotesProvider
     extends AutoDisposeFutureProvider<List<Note>> {
   /// See also [fixturesPublicNotes].
   FixturesPublicNotesProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String author,
   }) : this._internal(
           (ref) => fixturesPublicNotes(
             ref as FixturesPublicNotesRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             author: author,
           ),
           from: fixturesPublicNotesProvider,
@@ -1315,7 +1619,7 @@ class FixturesPublicNotesProvider
           dependencies: FixturesPublicNotesFamily._dependencies,
           allTransitiveDependencies:
               FixturesPublicNotesFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           author: author,
         );
 
@@ -1326,11 +1630,11 @@ class FixturesPublicNotesProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.author,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String author;
 
   @override
@@ -1346,7 +1650,7 @@ class FixturesPublicNotesProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         author: author,
       ),
     );
@@ -1360,14 +1664,14 @@ class FixturesPublicNotesProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesPublicNotesProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.author == author;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, author.hashCode);
 
     return _SystemHash.finish(hash);
@@ -1375,8 +1679,8 @@ class FixturesPublicNotesProvider
 }
 
 mixin FixturesPublicNotesRef on AutoDisposeFutureProviderRef<List<Note>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `author` of this provider.
   String get author;
@@ -1388,13 +1692,13 @@ class _FixturesPublicNotesProviderElement
   _FixturesPublicNotesProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesPublicNotesProvider).regionId;
+  String get regionOrNs => (origin as FixturesPublicNotesProvider).regionOrNs;
   @override
   String get author => (origin as FixturesPublicNotesProvider).author;
 }
 
 String _$fixturesProtoInputHash() =>
-    r'b5c37b35523ea0d98f10a512957f50cee6b9e113';
+    r'f612216e24f7292bd2fc929b5b936e671ee59ba7';
 
 /// See also [fixturesProtoInput].
 @ProviderFor(fixturesProtoInput)
@@ -1407,7 +1711,7 @@ class FixturesProtoInputFamily extends Family<AsyncValue<IntMap>> {
 
   /// See also [fixturesProtoInput].
   FixturesProtoInputProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Strings strings,
     required Decimals decimals,
     required Timestamps timestamps,
@@ -1415,7 +1719,7 @@ class FixturesProtoInputFamily extends Family<AsyncValue<IntMap>> {
     required DecimalMap decimalMap,
   }) {
     return FixturesProtoInputProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       strings: strings,
       decimals: decimals,
       timestamps: timestamps,
@@ -1429,7 +1733,7 @@ class FixturesProtoInputFamily extends Family<AsyncValue<IntMap>> {
     covariant FixturesProtoInputProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       strings: provider.strings,
       decimals: provider.decimals,
       timestamps: provider.timestamps,
@@ -1457,7 +1761,7 @@ class FixturesProtoInputFamily extends Family<AsyncValue<IntMap>> {
 class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   /// See also [fixturesProtoInput].
   FixturesProtoInputProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Strings strings,
     required Decimals decimals,
     required Timestamps timestamps,
@@ -1466,7 +1770,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   }) : this._internal(
           (ref) => fixturesProtoInput(
             ref as FixturesProtoInputRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             strings: strings,
             decimals: decimals,
             timestamps: timestamps,
@@ -1482,7 +1786,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
           dependencies: FixturesProtoInputFamily._dependencies,
           allTransitiveDependencies:
               FixturesProtoInputFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           strings: strings,
           decimals: decimals,
           timestamps: timestamps,
@@ -1497,7 +1801,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.strings,
     required this.decimals,
     required this.timestamps,
@@ -1505,7 +1809,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
     required this.decimalMap,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final Strings strings;
   final Decimals decimals;
   final Timestamps timestamps;
@@ -1525,7 +1829,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         strings: strings,
         decimals: decimals,
         timestamps: timestamps,
@@ -1543,7 +1847,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   @override
   bool operator ==(Object other) {
     return other is FixturesProtoInputProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.strings == strings &&
         other.decimals == decimals &&
         other.timestamps == timestamps &&
@@ -1554,7 +1858,7 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, strings.hashCode);
     hash = _SystemHash.combine(hash, decimals.hashCode);
     hash = _SystemHash.combine(hash, timestamps.hashCode);
@@ -1566,8 +1870,8 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
 }
 
 mixin FixturesProtoInputRef on AutoDisposeFutureProviderRef<IntMap> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `strings` of this provider.
   Strings get strings;
@@ -1591,7 +1895,7 @@ class _FixturesProtoInputProviderElement
   _FixturesProtoInputProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesProtoInputProvider).regionId;
+  String get regionOrNs => (origin as FixturesProtoInputProvider).regionOrNs;
   @override
   Strings get strings => (origin as FixturesProtoInputProvider).strings;
   @override
@@ -1607,7 +1911,7 @@ class _FixturesProtoInputProviderElement
 }
 
 String _$fixturesGetNoteProtoHash() =>
-    r'6e53b92ea24e8685485efe06b8ccb5d7ef8d08b8';
+    r'8d0dc18bf82e48e25e28f090ac99ae13a245ac96';
 
 /// See also [fixturesGetNoteProto].
 @ProviderFor(fixturesGetNoteProto)
@@ -1620,11 +1924,11 @@ class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
 
   /// See also [fixturesGetNoteProto].
   FixturesGetNoteProtoProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String noteId,
   }) {
     return FixturesGetNoteProtoProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       noteId: noteId,
     );
   }
@@ -1634,7 +1938,7 @@ class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
     covariant FixturesGetNoteProtoProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       noteId: provider.noteId,
     );
   }
@@ -1658,12 +1962,12 @@ class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
 class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
   /// See also [fixturesGetNoteProto].
   FixturesGetNoteProtoProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String noteId,
   }) : this._internal(
           (ref) => fixturesGetNoteProto(
             ref as FixturesGetNoteProtoRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             noteId: noteId,
           ),
           from: fixturesGetNoteProtoProvider,
@@ -1675,7 +1979,7 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
           dependencies: FixturesGetNoteProtoFamily._dependencies,
           allTransitiveDependencies:
               FixturesGetNoteProtoFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           noteId: noteId,
         );
 
@@ -1686,11 +1990,11 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.noteId,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String noteId;
 
   @override
@@ -1706,7 +2010,7 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         noteId: noteId,
       ),
     );
@@ -1720,14 +2024,14 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
   @override
   bool operator ==(Object other) {
     return other is FixturesGetNoteProtoProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.noteId == noteId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, noteId.hashCode);
 
     return _SystemHash.finish(hash);
@@ -1735,8 +2039,8 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
 }
 
 mixin FixturesGetNoteProtoRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `noteId` of this provider.
   String get noteId;
@@ -1748,12 +2052,12 @@ class _FixturesGetNoteProtoProviderElement
   _FixturesGetNoteProtoProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesGetNoteProtoProvider).regionId;
+  String get regionOrNs => (origin as FixturesGetNoteProtoProvider).regionOrNs;
   @override
   String get noteId => (origin as FixturesGetNoteProtoProvider).noteId;
 }
 
-String _$fixturesPingHash() => r'02c9971c6d2695157eb2d0ac573252405f253b19';
+String _$fixturesPingHash() => r'37aa07767b9dcc4e158e44b0f35c36fdc49fab94';
 
 /// See also [fixturesPing].
 @ProviderFor(fixturesPing)
@@ -1766,11 +2070,11 @@ class FixturesPingFamily extends Family<AsyncValue<String>> {
 
   /// See also [fixturesPing].
   FixturesPingProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String req,
   }) {
     return FixturesPingProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       req: req,
     );
   }
@@ -1780,7 +2084,7 @@ class FixturesPingFamily extends Family<AsyncValue<String>> {
     covariant FixturesPingProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       req: provider.req,
     );
   }
@@ -1804,12 +2108,12 @@ class FixturesPingFamily extends Family<AsyncValue<String>> {
 class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
   /// See also [fixturesPing].
   FixturesPingProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String req,
   }) : this._internal(
           (ref) => fixturesPing(
             ref as FixturesPingRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             req: req,
           ),
           from: fixturesPingProvider,
@@ -1821,7 +2125,7 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
           dependencies: FixturesPingFamily._dependencies,
           allTransitiveDependencies:
               FixturesPingFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           req: req,
         );
 
@@ -1832,11 +2136,11 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.req,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String req;
 
   @override
@@ -1852,7 +2156,7 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         req: req,
       ),
     );
@@ -1866,14 +2170,14 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
   @override
   bool operator ==(Object other) {
     return other is FixturesPingProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.req == req;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, req.hashCode);
 
     return _SystemHash.finish(hash);
@@ -1881,8 +2185,8 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
 }
 
 mixin FixturesPingRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `req` of this provider.
   String get req;
@@ -1893,12 +2197,12 @@ class _FixturesPingProviderElement
   _FixturesPingProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesPingProvider).regionId;
+  String get regionOrNs => (origin as FixturesPingProvider).regionOrNs;
   @override
   String get req => (origin as FixturesPingProvider).req;
 }
 
-String _$fixturesEchoHash() => r'd65aab594e6fb0921057388cfe0790f867f7fb24';
+String _$fixturesEchoHash() => r'6ae713f09c032d9eb69f8918d09a2ebf689309f2';
 
 /// See also [fixturesEcho].
 @ProviderFor(fixturesEcho)
@@ -1911,11 +2215,11 @@ class FixturesEchoFamily extends Family<AsyncValue<Map<String, Object>>> {
 
   /// See also [fixturesEcho].
   FixturesEchoProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, Object> input,
   }) {
     return FixturesEchoProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       input: input,
     );
   }
@@ -1925,7 +2229,7 @@ class FixturesEchoFamily extends Family<AsyncValue<Map<String, Object>>> {
     covariant FixturesEchoProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       input: provider.input,
     );
   }
@@ -1950,12 +2254,12 @@ class FixturesEchoProvider
     extends AutoDisposeFutureProvider<Map<String, Object>> {
   /// See also [fixturesEcho].
   FixturesEchoProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required Map<String, Object> input,
   }) : this._internal(
           (ref) => fixturesEcho(
             ref as FixturesEchoRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             input: input,
           ),
           from: fixturesEchoProvider,
@@ -1967,7 +2271,7 @@ class FixturesEchoProvider
           dependencies: FixturesEchoFamily._dependencies,
           allTransitiveDependencies:
               FixturesEchoFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           input: input,
         );
 
@@ -1978,11 +2282,11 @@ class FixturesEchoProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.input,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final Map<String, Object> input;
 
   @override
@@ -1998,7 +2302,7 @@ class FixturesEchoProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         input: input,
       ),
     );
@@ -2012,14 +2316,14 @@ class FixturesEchoProvider
   @override
   bool operator ==(Object other) {
     return other is FixturesEchoProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.input == input;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, input.hashCode);
 
     return _SystemHash.finish(hash);
@@ -2027,8 +2331,8 @@ class FixturesEchoProvider
 }
 
 mixin FixturesEchoRef on AutoDisposeFutureProviderRef<Map<String, Object>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `input` of this provider.
   Map<String, Object> get input;
@@ -2040,321 +2344,19 @@ class _FixturesEchoProviderElement
   _FixturesEchoProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixturesEchoProvider).regionId;
+  String get regionOrNs => (origin as FixturesEchoProvider).regionOrNs;
   @override
   Map<String, Object> get input => (origin as FixturesEchoProvider).input;
 }
 
-String _$fixturesEchoStringMultiMapHash() =>
-    r'3d5d98260c5aca8af2b021381871731c8c73187f';
-
-/// See also [fixturesEchoStringMultiMap].
-@ProviderFor(fixturesEchoStringMultiMap)
-const fixturesEchoStringMultiMapProvider = FixturesEchoStringMultiMapFamily();
-
-/// See also [fixturesEchoStringMultiMap].
-class FixturesEchoStringMultiMapFamily
-    extends Family<AsyncValue<Map<String, List<String>>>> {
-  /// See also [fixturesEchoStringMultiMap].
-  const FixturesEchoStringMultiMapFamily();
-
-  /// See also [fixturesEchoStringMultiMap].
-  FixturesEchoStringMultiMapProvider call({
-    String regionId = 'default',
-    required Map<String, List<String>> input,
-  }) {
-    return FixturesEchoStringMultiMapProvider(
-      regionId: regionId,
-      input: input,
-    );
-  }
-
-  @override
-  FixturesEchoStringMultiMapProvider getProviderOverride(
-    covariant FixturesEchoStringMultiMapProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      input: provider.input,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesEchoStringMultiMapProvider';
-}
-
-/// See also [fixturesEchoStringMultiMap].
-class FixturesEchoStringMultiMapProvider
-    extends AutoDisposeFutureProvider<Map<String, List<String>>> {
-  /// See also [fixturesEchoStringMultiMap].
-  FixturesEchoStringMultiMapProvider({
-    String regionId = 'default',
-    required Map<String, List<String>> input,
-  }) : this._internal(
-          (ref) => fixturesEchoStringMultiMap(
-            ref as FixturesEchoStringMultiMapRef,
-            regionId: regionId,
-            input: input,
-          ),
-          from: fixturesEchoStringMultiMapProvider,
-          name: r'fixturesEchoStringMultiMapProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesEchoStringMultiMapHash,
-          dependencies: FixturesEchoStringMultiMapFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesEchoStringMultiMapFamily._allTransitiveDependencies,
-          regionId: regionId,
-          input: input,
-        );
-
-  FixturesEchoStringMultiMapProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.input,
-  }) : super.internal();
-
-  final String regionId;
-  final Map<String, List<String>> input;
-
-  @override
-  Override overrideWith(
-    FutureOr<Map<String, List<String>>> Function(
-            FixturesEchoStringMultiMapRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesEchoStringMultiMapProvider._internal(
-        (ref) => create(ref as FixturesEchoStringMultiMapRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        input: input,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Map<String, List<String>>> createElement() {
-    return _FixturesEchoStringMultiMapProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesEchoStringMultiMapProvider &&
-        other.regionId == regionId &&
-        other.input == input;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, input.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FixturesEchoStringMultiMapRef
-    on AutoDisposeFutureProviderRef<Map<String, List<String>>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `input` of this provider.
-  Map<String, List<String>> get input;
-}
-
-class _FixturesEchoStringMultiMapProviderElement
-    extends AutoDisposeFutureProviderElement<Map<String, List<String>>>
-    with FixturesEchoStringMultiMapRef {
-  _FixturesEchoStringMultiMapProviderElement(super.provider);
-
-  @override
-  String get regionId =>
-      (origin as FixturesEchoStringMultiMapProvider).regionId;
-  @override
-  Map<String, List<String>> get input =>
-      (origin as FixturesEchoStringMultiMapProvider).input;
-}
-
-String _$fixturesGetNoteSlotDataHash() =>
-    r'74755f7b0d2c9b7cf0d5fcabb122ae00dbecdd9b';
-
-/// See also [fixturesGetNoteSlotData].
-@ProviderFor(fixturesGetNoteSlotData)
-const fixturesGetNoteSlotDataProvider = FixturesGetNoteSlotDataFamily();
-
-/// See also [fixturesGetNoteSlotData].
-class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
-  /// See also [fixturesGetNoteSlotData].
-  const FixturesGetNoteSlotDataFamily();
-
-  /// See also [fixturesGetNoteSlotData].
-  FixturesGetNoteSlotDataProvider call({
-    String regionId = 'default',
-    required String noteId,
-  }) {
-    return FixturesGetNoteSlotDataProvider(
-      regionId: regionId,
-      noteId: noteId,
-    );
-  }
-
-  @override
-  FixturesGetNoteSlotDataProvider getProviderOverride(
-    covariant FixturesGetNoteSlotDataProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      noteId: provider.noteId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesGetNoteSlotDataProvider';
-}
-
-/// See also [fixturesGetNoteSlotData].
-class FixturesGetNoteSlotDataProvider
-    extends AutoDisposeFutureProvider<List<int>> {
-  /// See also [fixturesGetNoteSlotData].
-  FixturesGetNoteSlotDataProvider({
-    String regionId = 'default',
-    required String noteId,
-  }) : this._internal(
-          (ref) => fixturesGetNoteSlotData(
-            ref as FixturesGetNoteSlotDataRef,
-            regionId: regionId,
-            noteId: noteId,
-          ),
-          from: fixturesGetNoteSlotDataProvider,
-          name: r'fixturesGetNoteSlotDataProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesGetNoteSlotDataHash,
-          dependencies: FixturesGetNoteSlotDataFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesGetNoteSlotDataFamily._allTransitiveDependencies,
-          regionId: regionId,
-          noteId: noteId,
-        );
-
-  FixturesGetNoteSlotDataProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.noteId,
-  }) : super.internal();
-
-  final String regionId;
-  final String noteId;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<int>> Function(FixturesGetNoteSlotDataRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesGetNoteSlotDataProvider._internal(
-        (ref) => create(ref as FixturesGetNoteSlotDataRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        noteId: noteId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<int>> createElement() {
-    return _FixturesGetNoteSlotDataProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesGetNoteSlotDataProvider &&
-        other.regionId == regionId &&
-        other.noteId == noteId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, noteId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FixturesGetNoteSlotDataRef on AutoDisposeFutureProviderRef<List<int>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `noteId` of this provider.
-  String get noteId;
-}
-
-class _FixturesGetNoteSlotDataProviderElement
-    extends AutoDisposeFutureProviderElement<List<int>>
-    with FixturesGetNoteSlotDataRef {
-  _FixturesGetNoteSlotDataProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as FixturesGetNoteSlotDataProvider).regionId;
-  @override
-  String get noteId => (origin as FixturesGetNoteSlotDataProvider).noteId;
-}
-
-String _$fixtureObjectsPodHash() => r'c7a45155e33dd947580b883cf695506b8b825cc2';
+String _$fixtureObjectsPodHash() => r'72750de6b0104ba78d88971fd1b61801d5ffa86e';
 
 abstract class _$FixtureObjectsPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   });
 }
 
@@ -2369,10 +2371,10 @@ class FixtureObjectsPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [FixtureObjectsPod].
   FixtureObjectsPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return FixtureObjectsPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -2381,7 +2383,7 @@ class FixtureObjectsPodFamily extends Family<AsyncValue<void>> {
     covariant FixtureObjectsPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -2405,9 +2407,9 @@ class FixtureObjectsPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<FixtureObjectsPod, void> {
   /// See also [FixtureObjectsPod].
   FixtureObjectsPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
-          () => FixtureObjectsPod()..regionId = regionId,
+          () => FixtureObjectsPod()..regionOrNs = regionOrNs,
           from: fixtureObjectsPodProvider,
           name: r'fixtureObjectsPodProvider',
           debugGetCreateSourceHash:
@@ -2417,7 +2419,7 @@ class FixtureObjectsPodProvider
           dependencies: FixtureObjectsPodFamily._dependencies,
           allTransitiveDependencies:
               FixtureObjectsPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   FixtureObjectsPodProvider._internal(
@@ -2427,17 +2429,17 @@ class FixtureObjectsPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   FutureOr<void> runNotifierBuild(
     covariant FixtureObjectsPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -2446,13 +2448,13 @@ class FixtureObjectsPodProvider
     return ProviderOverride(
       origin: this,
       override: FixtureObjectsPodProvider._internal(
-        () => create()..regionId = regionId,
+        () => create()..regionOrNs = regionOrNs,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -2465,21 +2467,21 @@ class FixtureObjectsPodProvider
 
   @override
   bool operator ==(Object other) {
-    return other is FixtureObjectsPodProvider && other.regionId == regionId;
+    return other is FixtureObjectsPodProvider && other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin FixtureObjectsPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _FixtureObjectsPodProviderElement
@@ -2488,7 +2490,7 @@ class _FixtureObjectsPodProviderElement
   _FixtureObjectsPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as FixtureObjectsPodProvider).regionId;
+  String get regionOrNs => (origin as FixtureObjectsPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -6,170 +6,175 @@ part of 'product.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Product _$ProductFromJson(Map<String, dynamic> json) => Product()
-  ..productId = json['productId'] as String?
-  ..productTypeId = json['productTypeId'] as String?
-  ..primaryProductCategoryId = json['primaryProductCategoryId'] as String?
-  ..facilityId = json['facilityId'] as String?
-  ..introductionDate = json['introductionDate'] == null
-      ? null
-      : DateTime.parse(json['introductionDate'] as String)
-  ..releaseDate = json['releaseDate'] == null
-      ? null
-      : DateTime.parse(json['releaseDate'] as String)
-  ..supportDiscontinuationDate = json['supportDiscontinuationDate'] == null
-      ? null
-      : DateTime.parse(json['supportDiscontinuationDate'] as String)
-  ..salesDiscontinuationDate = json['salesDiscontinuationDate'] == null
-      ? null
-      : DateTime.parse(json['salesDiscontinuationDate'] as String)
-  ..salesDiscWhenNotAvail =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['salesDiscWhenNotAvail'])
-  ..internalName = json['internalName'] as String?
-  ..brandName = json['brandName'] as String?
-  ..comments = json['comments'] as String?
-  ..productName = json['productName'] as String?
-  ..description = json['description'] as String?
-  ..longDescription = json['longDescription'] as String?
-  ..priceDetailText = json['priceDetailText'] as String?
-  ..smallImageUrl = json['smallImageUrl'] as String?
-  ..mediumImageUrl = json['mediumImageUrl'] as String?
-  ..largeImageUrl = json['largeImageUrl'] as String?
-  ..detailImageUrl = json['detailImageUrl'] as String?
-  ..originalImageUrl = json['originalImageUrl'] as String?
-  ..detailScreen = json['detailScreen'] as String?
-  ..inventoryMessage = json['inventoryMessage'] as String?
-  ..inventoryItemTypeId = json['inventoryItemTypeId'] as String?
-  ..requireInventory =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['requireInventory'])
-  ..quantityUomId = json['quantityUomId'] as String?
-  ..quantityIncluded = (json['quantityIncluded'] as num?)?.toDouble()
-  ..piecesIncluded = (json['piecesIncluded'] as num?)?.toInt()
-  ..requireAmount =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['requireAmount'])
-  ..fixedAmount = (json['fixedAmount'] as num?)?.toDouble()
-  ..amountUomTypeId = json['amountUomTypeId'] as String?
-  ..weightUomId = json['weightUomId'] as String?
-  ..shippingWeight = (json['shippingWeight'] as num?)?.toDouble()
-  ..productWeight = (json['productWeight'] as num?)?.toDouble()
-  ..heightUomId = json['heightUomId'] as String?
-  ..productHeight = (json['productHeight'] as num?)?.toDouble()
-  ..shippingHeight = (json['shippingHeight'] as num?)?.toDouble()
-  ..widthUomId = json['widthUomId'] as String?
-  ..productWidth = (json['productWidth'] as num?)?.toDouble()
-  ..shippingWidth = (json['shippingWidth'] as num?)?.toDouble()
-  ..depthUomId = json['depthUomId'] as String?
-  ..productDepth = (json['productDepth'] as num?)?.toDouble()
-  ..shippingDepth = (json['shippingDepth'] as num?)?.toDouble()
-  ..diameterUomId = json['diameterUomId'] as String?
-  ..productDiameter = (json['productDiameter'] as num?)?.toDouble()
-  ..productRating = (json['productRating'] as num?)?.toDouble()
-  ..ratingTypeEnum = json['ratingTypeEnum'] as String?
-  ..returnable = $enumDecodeNullable(_$IndicatorEnumMap, json['returnable'])
-  ..taxable = $enumDecodeNullable(_$IndicatorEnumMap, json['taxable'])
-  ..chargeShipping =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['chargeShipping'])
-  ..autoCreateKeywords =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['autoCreateKeywords'])
-  ..includeInPromotions =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['includeInPromotions'])
-  ..isVirtual = $enumDecodeNullable(_$IndicatorEnumMap, json['isVirtual'])
-  ..isVariant = $enumDecodeNullable(_$IndicatorEnumMap, json['isVariant'])
-  ..virtualVariantMethodEnum = json['virtualVariantMethodEnum'] as String?
-  ..originGeoId = json['originGeoId'] as String?
-  ..requirementMethodEnumId = json['requirementMethodEnumId'] as String?
-  ..billOfMaterialLevel = (json['billOfMaterialLevel'] as num?)?.toInt()
-  ..reservMaxPersons = (json['reservMaxPersons'] as num?)?.toDouble()
-  ..reserv2ndPPPerc = (json['reserv2ndPPPerc'] as num?)?.toDouble()
-  ..reservNthPPPerc = (json['reservNthPPPerc'] as num?)?.toDouble()
-  ..configId = json['configId'] as String?
-  ..createdDate = json['createdDate'] == null
-      ? null
-      : DateTime.parse(json['createdDate'] as String)
-  ..createdByUserLogin = json['createdByUserLogin'] as String?
-  ..lastModifiedDate = json['lastModifiedDate'] == null
-      ? null
-      : DateTime.parse(json['lastModifiedDate'] as String)
-  ..lastModifiedByUserLogin = json['lastModifiedByUserLogin'] as String?
-  ..inShippingBox =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['inShippingBox'])
-  ..defaultShipmentBoxTypeId = json['defaultShipmentBoxTypeId'] as String?
-  ..lotIdFilledIn = json['lotIdFilledIn'] as String?
-  ..orderDecimalQuantity =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['orderDecimalQuantity'])
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?
-  ..cats = (json['cats'] as List<dynamic>?)?.map((e) => e as String?).toList()
-  ..evict = json['evict'] as bool?
-  ..tag1 = json['tag1'] as String?
-  ..tag2 = json['tag2'] as String?
-  ..tag3 = json['tag3'] as String?
-  ..moreTags =
-      (json['moreTags'] as List<dynamic>?)?.map((e) => e as String?).toList()
-  ..jointers = (json['jointers'] as Map<String, dynamic>?)?.map(
-    (k, e) => MapEntry(k, e as String),
-  )
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..productType = json['productType'] == null
-      ? null
-      : ProductType.fromJson(json['productType'] as Map<String, dynamic>)
-  ..fixedAssetProduct = (json['fixedAssetProduct'] as List<dynamic>?)
-      ?.map((e) => FixedAssetProduct.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productFacility = (json['productFacility'] as List<dynamic>?)
-      ?.map((e) => ProductFacility.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productCostComponentCalc = (json['productCostComponentCalc']
-          as List<dynamic>?)
-      ?.map((e) => ProductCostComponentCalc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productRole = (json['productRole'] as List<dynamic>?)
-      ?.map((e) => ProductRole.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productProductConfig = (json['productProductConfig'] as List<dynamic>?)
-      ?.map((e) => ProductConfig.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productPrice = (json['productPrice'] as List<dynamic>?)
-      ?.map((e) => ProductPrice.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productFacilityLocation = (json['productFacilityLocation']
-          as List<dynamic>?)
-      ?.map((e) => ProductFacilityLocation.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productSlot = (json['productSlot'] as List<dynamic>?)
-      ?.map((e) => ProductSlot.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productContent = (json['productContent'] as List<dynamic>?)
-      ?.map((e) => ProductContent.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..assocProductAssoc = (json['assocProductAssoc'] as List<dynamic>?)
-      ?.map((e) => ProductAssoc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productMaint = (json['productMaint'] as List<dynamic>?)
-      ?.map((e) => ProductMaint.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productFeatureAppl = (json['productFeatureAppl'] as List<dynamic>?)
-      ?.map((e) => ProductFeatureAppl.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productFacilityAssoc = (json['productFacilityAssoc'] as List<dynamic>?)
-      ?.map((e) => ProductFacilityAssoc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..productKeyword = (json['productKeyword'] as List<dynamic>?)
-      ?.map((e) => ProductKeyword.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..mainProductAssoc = (json['mainProductAssoc'] as List<dynamic>?)
-      ?.map((e) => ProductAssoc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortGoodStandard = (json['workEffortGoodStandard'] as List<dynamic>?)
-      ?.map((e) => WorkEffortGoodStandard.fromJson(e as Map<String, dynamic>))
-      .toList();
+Product _$ProductFromJson(Map<String, dynamic> json) => Product(
+      productId: json['productId'] as String?,
+      productTypeId: json['productTypeId'] as String?,
+      primaryProductCategoryId: json['primaryProductCategoryId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      introductionDate: json['introductionDate'] == null
+          ? null
+          : DateTime.parse(json['introductionDate'] as String),
+      releaseDate: json['releaseDate'] == null
+          ? null
+          : DateTime.parse(json['releaseDate'] as String),
+      supportDiscontinuationDate: json['supportDiscontinuationDate'] == null
+          ? null
+          : DateTime.parse(json['supportDiscontinuationDate'] as String),
+      salesDiscontinuationDate: json['salesDiscontinuationDate'] == null
+          ? null
+          : DateTime.parse(json['salesDiscontinuationDate'] as String),
+      salesDiscWhenNotAvail: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['salesDiscWhenNotAvail']),
+      internalName: json['internalName'] as String?,
+      brandName: json['brandName'] as String?,
+      comments: json['comments'] as String?,
+      productName: json['productName'] as String?,
+      description: json['description'] as String?,
+      longDescription: json['longDescription'] as String?,
+      priceDetailText: json['priceDetailText'] as String?,
+      smallImageUrl: json['smallImageUrl'] as String?,
+      mediumImageUrl: json['mediumImageUrl'] as String?,
+      largeImageUrl: json['largeImageUrl'] as String?,
+      detailImageUrl: json['detailImageUrl'] as String?,
+      originalImageUrl: json['originalImageUrl'] as String?,
+      detailScreen: json['detailScreen'] as String?,
+      inventoryMessage: json['inventoryMessage'] as String?,
+      inventoryItemTypeId: json['inventoryItemTypeId'] as String?,
+      requireInventory:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['requireInventory']),
+      quantityUomId: json['quantityUomId'] as String?,
+      quantityIncluded: (json['quantityIncluded'] as num?)?.toDouble(),
+      piecesIncluded: (json['piecesIncluded'] as num?)?.toInt(),
+      requireAmount:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['requireAmount']),
+      fixedAmount: (json['fixedAmount'] as num?)?.toDouble(),
+      amountUomTypeId: json['amountUomTypeId'] as String?,
+      weightUomId: json['weightUomId'] as String?,
+      shippingWeight: (json['shippingWeight'] as num?)?.toDouble(),
+      productWeight: (json['productWeight'] as num?)?.toDouble(),
+      heightUomId: json['heightUomId'] as String?,
+      productHeight: (json['productHeight'] as num?)?.toDouble(),
+      shippingHeight: (json['shippingHeight'] as num?)?.toDouble(),
+      widthUomId: json['widthUomId'] as String?,
+      productWidth: (json['productWidth'] as num?)?.toDouble(),
+      shippingWidth: (json['shippingWidth'] as num?)?.toDouble(),
+      depthUomId: json['depthUomId'] as String?,
+      productDepth: (json['productDepth'] as num?)?.toDouble(),
+      shippingDepth: (json['shippingDepth'] as num?)?.toDouble(),
+      diameterUomId: json['diameterUomId'] as String?,
+      productDiameter: (json['productDiameter'] as num?)?.toDouble(),
+      productRating: (json['productRating'] as num?)?.toDouble(),
+      ratingTypeEnum: json['ratingTypeEnum'] as String?,
+      returnable: $enumDecodeNullable(_$IndicatorEnumMap, json['returnable']),
+      taxable: $enumDecodeNullable(_$IndicatorEnumMap, json['taxable']),
+      chargeShipping:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['chargeShipping']),
+      autoCreateKeywords:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['autoCreateKeywords']),
+      includeInPromotions:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['includeInPromotions']),
+      isVirtual: $enumDecodeNullable(_$IndicatorEnumMap, json['isVirtual']),
+      isVariant: $enumDecodeNullable(_$IndicatorEnumMap, json['isVariant']),
+      virtualVariantMethodEnum: json['virtualVariantMethodEnum'] as String?,
+      originGeoId: json['originGeoId'] as String?,
+      requirementMethodEnumId: json['requirementMethodEnumId'] as String?,
+      billOfMaterialLevel: (json['billOfMaterialLevel'] as num?)?.toInt(),
+      reservMaxPersons: (json['reservMaxPersons'] as num?)?.toDouble(),
+      reserv2ndPPPerc: (json['reserv2ndPPPerc'] as num?)?.toDouble(),
+      reservNthPPPerc: (json['reservNthPPPerc'] as num?)?.toDouble(),
+      configId: json['configId'] as String?,
+      createdDate: json['createdDate'] == null
+          ? null
+          : DateTime.parse(json['createdDate'] as String),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      lastModifiedDate: json['lastModifiedDate'] == null
+          ? null
+          : DateTime.parse(json['lastModifiedDate'] as String),
+      lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
+      inShippingBox:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['inShippingBox']),
+      defaultShipmentBoxTypeId: json['defaultShipmentBoxTypeId'] as String?,
+      lotIdFilledIn: json['lotIdFilledIn'] as String?,
+      orderDecimalQuantity:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['orderDecimalQuantity']),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+      cats: (json['cats'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      evict: json['evict'] as bool?,
+      tag1: json['tag1'] as String?,
+      tag2: json['tag2'] as String?,
+      tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      jointers: (json['jointers'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      productType: json['productType'] == null
+          ? null
+          : ProductType.fromJson(json['productType'] as Map<String, dynamic>),
+      fixedAssetProduct: (json['fixedAssetProduct'] as List<dynamic>?)
+          ?.map((e) => FixedAssetProduct.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productFacility: (json['productFacility'] as List<dynamic>?)
+          ?.map((e) => ProductFacility.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productCostComponentCalc:
+          (json['productCostComponentCalc'] as List<dynamic>?)
+              ?.map((e) =>
+                  ProductCostComponentCalc.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      productRole: (json['productRole'] as List<dynamic>?)
+          ?.map((e) => ProductRole.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productProductConfig: (json['productProductConfig'] as List<dynamic>?)
+          ?.map((e) => ProductConfig.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productPrice: (json['productPrice'] as List<dynamic>?)
+          ?.map((e) => ProductPrice.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productFacilityLocation:
+          (json['productFacilityLocation'] as List<dynamic>?)
+              ?.map((e) =>
+                  ProductFacilityLocation.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      productSlot: (json['productSlot'] as List<dynamic>?)
+          ?.map((e) => ProductSlot.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productContent: (json['productContent'] as List<dynamic>?)
+          ?.map((e) => ProductContent.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      assocProductAssoc: (json['assocProductAssoc'] as List<dynamic>?)
+          ?.map((e) => ProductAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productMaint: (json['productMaint'] as List<dynamic>?)
+          ?.map((e) => ProductMaint.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productFeatureAppl: (json['productFeatureAppl'] as List<dynamic>?)
+          ?.map((e) => ProductFeatureAppl.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productFacilityAssoc: (json['productFacilityAssoc'] as List<dynamic>?)
+          ?.map((e) => ProductFacilityAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      productKeyword: (json['productKeyword'] as List<dynamic>?)
+          ?.map((e) => ProductKeyword.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      mainProductAssoc: (json['mainProductAssoc'] as List<dynamic>?)
+          ?.map((e) => ProductAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workEffortGoodStandard: (json['workEffortGoodStandard'] as List<dynamic>?)
+          ?.map(
+              (e) => WorkEffortGoodStandard.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$ProductToJson(Product instance) {
   final val = <String, dynamic>{};
@@ -340,27 +345,28 @@ const _$IndicatorEnumMap = {
 };
 
 FixedAssetProduct _$FixedAssetProductFromJson(Map<String, dynamic> json) =>
-    FixedAssetProduct()
-      ..fixedAssetId = json['fixedAssetId'] as String?
-      ..productId = json['productId'] as String?
-      ..fixedAssetProductTypeId = json['fixedAssetProductTypeId'] as String?
-      ..fromDate = json['fromDate'] == null
+    FixedAssetProduct(
+      fixedAssetId: json['fixedAssetId'] as String?,
+      productId: json['productId'] as String?,
+      fixedAssetProductTypeId: json['fixedAssetProductTypeId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..comments = json['comments'] as String?
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..quantity = (json['quantity'] as num?)?.toDouble()
-      ..quantityUomId = json['quantityUomId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      comments: json['comments'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      quantityUomId: json['quantityUomId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$FixedAssetProductToJson(FixedAssetProduct instance) {
   final val = <String, dynamic>{};
@@ -388,22 +394,23 @@ Map<String, dynamic> _$FixedAssetProductToJson(FixedAssetProduct instance) {
 }
 
 ProductFacility _$ProductFacilityFromJson(Map<String, dynamic> json) =>
-    ProductFacility()
-      ..productId = json['productId'] as String?
-      ..facilityId = json['facilityId'] as String?
-      ..minimumStock = (json['minimumStock'] as num?)?.toDouble()
-      ..reorderQuantity = (json['reorderQuantity'] as num?)?.toDouble()
-      ..daysToShip = (json['daysToShip'] as num?)?.toInt()
-      ..replenishMethodEnumId = json['replenishMethodEnumId'] as String?
-      ..lastInventoryCount = (json['lastInventoryCount'] as num?)?.toDouble()
-      ..requirementMethodEnumId = json['requirementMethodEnumId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ProductFacility(
+      productId: json['productId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      minimumStock: (json['minimumStock'] as num?)?.toDouble(),
+      reorderQuantity: (json['reorderQuantity'] as num?)?.toDouble(),
+      daysToShip: (json['daysToShip'] as num?)?.toInt(),
+      replenishMethodEnumId: json['replenishMethodEnumId'] as String?,
+      lastInventoryCount: (json['lastInventoryCount'] as num?)?.toDouble(),
+      requirementMethodEnumId: json['requirementMethodEnumId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductFacilityToJson(ProductFacility instance) {
   final val = <String, dynamic>{};
@@ -431,24 +438,25 @@ Map<String, dynamic> _$ProductFacilityToJson(ProductFacility instance) {
 
 ProductCostComponentCalc _$ProductCostComponentCalcFromJson(
         Map<String, dynamic> json) =>
-    ProductCostComponentCalc()
-      ..productId = json['productId'] as String?
-      ..costComponentTypeId = json['costComponentTypeId'] as String?
-      ..costComponentCalcId = json['costComponentCalcId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductCostComponentCalc(
+      productId: json['productId'] as String?,
+      costComponentTypeId: json['costComponentTypeId'] as String?,
+      costComponentCalcId: json['costComponentCalcId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductCostComponentCalcToJson(
     ProductCostComponentCalc instance) {
@@ -473,25 +481,26 @@ Map<String, dynamic> _$ProductCostComponentCalcToJson(
   return val;
 }
 
-ProductRole _$ProductRoleFromJson(Map<String, dynamic> json) => ProductRole()
-  ..productId = json['productId'] as String?
-  ..partyId = json['partyId'] as String?
-  ..roleTypeId = json['roleTypeId'] as String?
-  ..fromDate = json['fromDate'] == null
-      ? null
-      : DateTime.parse(json['fromDate'] as String)
-  ..thruDate = json['thruDate'] == null
-      ? null
-      : DateTime.parse(json['thruDate'] as String)
-  ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-  ..comments = json['comments'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ProductRole _$ProductRoleFromJson(Map<String, dynamic> json) => ProductRole(
+      productId: json['productId'] as String?,
+      partyId: json['partyId'] as String?,
+      roleTypeId: json['roleTypeId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      comments: json['comments'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductRoleToJson(ProductRole instance) {
   final val = <String, dynamic>{};
@@ -516,20 +525,21 @@ Map<String, dynamic> _$ProductRoleToJson(ProductRole instance) {
   return val;
 }
 
-ProductType _$ProductTypeFromJson(Map<String, dynamic> json) => ProductType()
-  ..productTypeId = json['productTypeId'] as String?
-  ..parentTypeId = json['parentTypeId'] as String?
-  ..isPhysical = $enumDecodeNullable(_$IndicatorEnumMap, json['isPhysical'])
-  ..isDigital = $enumDecodeNullable(_$IndicatorEnumMap, json['isDigital'])
-  ..hasTable = $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable'])
-  ..description = json['description'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?;
+ProductType _$ProductTypeFromJson(Map<String, dynamic> json) => ProductType(
+      productTypeId: json['productTypeId'] as String?,
+      parentTypeId: json['parentTypeId'] as String?,
+      isPhysical: $enumDecodeNullable(_$IndicatorEnumMap, json['isPhysical']),
+      isDigital: $enumDecodeNullable(_$IndicatorEnumMap, json['isDigital']),
+      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      description: json['description'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ProductTypeToJson(ProductType instance) {
   final val = <String, dynamic>{};
@@ -554,29 +564,29 @@ Map<String, dynamic> _$ProductTypeToJson(ProductType instance) {
 }
 
 ProductConfig _$ProductConfigFromJson(Map<String, dynamic> json) =>
-    ProductConfig()
-      ..productId = json['productId'] as String?
-      ..configItemId = json['configItemId'] as String?
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..fromDate = json['fromDate'] == null
+    ProductConfig(
+      productId: json['productId'] as String?,
+      configItemId: json['configItemId'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..description = json['description'] as String?
-      ..longDescription = json['longDescription'] as String?
-      ..configTypeId = json['configTypeId'] as String?
-      ..defaultConfigOptionId = json['defaultConfigOptionId'] as String?
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      description: json['description'] as String?,
+      longDescription: json['longDescription'] as String?,
+      configTypeId: json['configTypeId'] as String?,
+      defaultConfigOptionId: json['defaultConfigOptionId'] as String?,
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..isMandatory =
-          $enumDecodeNullable(_$IndicatorEnumMap, json['isMandatory'])
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      isMandatory: $enumDecodeNullable(_$IndicatorEnumMap, json['isMandatory']),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductConfigToJson(ProductConfig instance) {
   final val = <String, dynamic>{};
@@ -604,43 +614,44 @@ Map<String, dynamic> _$ProductConfigToJson(ProductConfig instance) {
   return val;
 }
 
-ProductPrice _$ProductPriceFromJson(Map<String, dynamic> json) => ProductPrice()
-  ..productId = json['productId'] as String?
-  ..productPriceTypeId = json['productPriceTypeId'] as String?
-  ..productPricePurposeId = json['productPricePurposeId'] as String?
-  ..currencyUomId = json['currencyUomId'] as String?
-  ..productStoreGroupId = json['productStoreGroupId'] as String?
-  ..fromDate = json['fromDate'] == null
-      ? null
-      : DateTime.parse(json['fromDate'] as String)
-  ..thruDate = json['thruDate'] == null
-      ? null
-      : DateTime.parse(json['thruDate'] as String)
-  ..price = (json['price'] as num?)?.toDouble()
-  ..termUomId = json['termUomId'] as String?
-  ..customPriceCalcService = json['customPriceCalcService'] as String?
-  ..priceWithoutTax = (json['priceWithoutTax'] as num?)?.toDouble()
-  ..priceWithTax = (json['priceWithTax'] as num?)?.toDouble()
-  ..taxAmount = (json['taxAmount'] as num?)?.toDouble()
-  ..taxPercentage = (json['taxPercentage'] as num?)?.toDouble()
-  ..taxAuthPartyId = json['taxAuthPartyId'] as String?
-  ..taxAuthGeoId = json['taxAuthGeoId'] as String?
-  ..taxInPrice = $enumDecodeNullable(_$IndicatorEnumMap, json['taxInPrice'])
-  ..createdDate = json['createdDate'] == null
-      ? null
-      : DateTime.parse(json['createdDate'] as String)
-  ..createdByUserLogin = json['createdByUserLogin'] as String?
-  ..lastModifiedDate = json['lastModifiedDate'] == null
-      ? null
-      : DateTime.parse(json['lastModifiedDate'] as String)
-  ..lastModifiedByUserLogin = json['lastModifiedByUserLogin'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ProductPrice _$ProductPriceFromJson(Map<String, dynamic> json) => ProductPrice(
+      productId: json['productId'] as String?,
+      productPriceTypeId: json['productPriceTypeId'] as String?,
+      productPricePurposeId: json['productPricePurposeId'] as String?,
+      currencyUomId: json['currencyUomId'] as String?,
+      productStoreGroupId: json['productStoreGroupId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      price: (json['price'] as num?)?.toDouble(),
+      termUomId: json['termUomId'] as String?,
+      customPriceCalcService: json['customPriceCalcService'] as String?,
+      priceWithoutTax: (json['priceWithoutTax'] as num?)?.toDouble(),
+      priceWithTax: (json['priceWithTax'] as num?)?.toDouble(),
+      taxAmount: (json['taxAmount'] as num?)?.toDouble(),
+      taxPercentage: (json['taxPercentage'] as num?)?.toDouble(),
+      taxAuthPartyId: json['taxAuthPartyId'] as String?,
+      taxAuthGeoId: json['taxAuthGeoId'] as String?,
+      taxInPrice: $enumDecodeNullable(_$IndicatorEnumMap, json['taxInPrice']),
+      createdDate: json['createdDate'] == null
+          ? null
+          : DateTime.parse(json['createdDate'] as String),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      lastModifiedDate: json['lastModifiedDate'] == null
+          ? null
+          : DateTime.parse(json['lastModifiedDate'] as String),
+      lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductPriceToJson(ProductPrice instance) {
   final val = <String, dynamic>{};
@@ -682,19 +693,20 @@ Map<String, dynamic> _$ProductPriceToJson(ProductPrice instance) {
 
 ProductFacilityLocation _$ProductFacilityLocationFromJson(
         Map<String, dynamic> json) =>
-    ProductFacilityLocation()
-      ..productId = json['productId'] as String?
-      ..facilityId = json['facilityId'] as String?
-      ..locationSeqId = json['locationSeqId'] as String?
-      ..minimumStock = (json['minimumStock'] as num?)?.toDouble()
-      ..moveQuantity = (json['moveQuantity'] as num?)?.toDouble()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ProductFacilityLocation(
+      productId: json['productId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      locationSeqId: json['locationSeqId'] as String?,
+      minimumStock: (json['minimumStock'] as num?)?.toDouble(),
+      moveQuantity: (json['moveQuantity'] as num?)?.toDouble(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductFacilityLocationToJson(
     ProductFacilityLocation instance) {
@@ -718,18 +730,19 @@ Map<String, dynamic> _$ProductFacilityLocationToJson(
   return val;
 }
 
-ProductSlot _$ProductSlotFromJson(Map<String, dynamic> json) => ProductSlot()
-  ..productId = json['productId'] as String?
-  ..slotId = json['slotId'] as String?
-  ..bindType = json['bindType'] as String?
-  ..tenantId = json['tenantId'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ProductSlot _$ProductSlotFromJson(Map<String, dynamic> json) => ProductSlot(
+      productId: json['productId'] as String?,
+      slotId: json['slotId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductSlotToJson(ProductSlot instance) {
   final val = <String, dynamic>{};
@@ -752,34 +765,35 @@ Map<String, dynamic> _$ProductSlotToJson(ProductSlot instance) {
 }
 
 ProductContent _$ProductContentFromJson(Map<String, dynamic> json) =>
-    ProductContent()
-      ..productId = json['productId'] as String?
-      ..contentId = json['contentId'] as String?
-      ..productContentTypeId = json['productContentTypeId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductContent(
+      productId: json['productId'] as String?,
+      contentId: json['contentId'] as String?,
+      productContentTypeId: json['productContentTypeId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..purchaseFromDate = json['purchaseFromDate'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      purchaseFromDate: json['purchaseFromDate'] == null
           ? null
-          : DateTime.parse(json['purchaseFromDate'] as String)
-      ..purchaseThruDate = json['purchaseThruDate'] == null
+          : DateTime.parse(json['purchaseFromDate'] as String),
+      purchaseThruDate: json['purchaseThruDate'] == null
           ? null
-          : DateTime.parse(json['purchaseThruDate'] as String)
-      ..useCountLimit = (json['useCountLimit'] as num?)?.toInt()
-      ..useTime = (json['useTime'] as num?)?.toInt()
-      ..useTimeUomId = json['useTimeUomId'] as String?
-      ..useRoleTypeId = json['useRoleTypeId'] as String?
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['purchaseThruDate'] as String),
+      useCountLimit: (json['useCountLimit'] as num?)?.toInt(),
+      useTime: (json['useTime'] as num?)?.toInt(),
+      useTimeUomId: json['useTimeUomId'] as String?,
+      useRoleTypeId: json['useRoleTypeId'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductContentToJson(ProductContent instance) {
   final val = <String, dynamic>{};
@@ -811,23 +825,24 @@ Map<String, dynamic> _$ProductContentToJson(ProductContent instance) {
   return val;
 }
 
-ProductMaint _$ProductMaintFromJson(Map<String, dynamic> json) => ProductMaint()
-  ..productId = json['productId'] as String?
-  ..productMaintSeqId = json['productMaintSeqId'] as String?
-  ..productMaintTypeId = json['productMaintTypeId'] as String?
-  ..maintName = json['maintName'] as String?
-  ..maintTemplateWorkEffortId = json['maintTemplateWorkEffortId'] as String?
-  ..intervalQuantity = (json['intervalQuantity'] as num?)?.toDouble()
-  ..intervalUomId = json['intervalUomId'] as String?
-  ..intervalMeterTypeId = json['intervalMeterTypeId'] as String?
-  ..repeatCount = (json['repeatCount'] as num?)?.toInt()
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ProductMaint _$ProductMaintFromJson(Map<String, dynamic> json) => ProductMaint(
+      productId: json['productId'] as String?,
+      productMaintSeqId: json['productMaintSeqId'] as String?,
+      productMaintTypeId: json['productMaintTypeId'] as String?,
+      maintName: json['maintName'] as String?,
+      maintTemplateWorkEffortId: json['maintTemplateWorkEffortId'] as String?,
+      intervalQuantity: (json['intervalQuantity'] as num?)?.toDouble(),
+      intervalUomId: json['intervalUomId'] as String?,
+      intervalMeterTypeId: json['intervalMeterTypeId'] as String?,
+      repeatCount: (json['repeatCount'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductMaintToJson(ProductMaint instance) {
   final val = <String, dynamic>{};
@@ -855,26 +870,27 @@ Map<String, dynamic> _$ProductMaintToJson(ProductMaint instance) {
 }
 
 ProductFeatureAppl _$ProductFeatureApplFromJson(Map<String, dynamic> json) =>
-    ProductFeatureAppl()
-      ..productId = json['productId'] as String?
-      ..productFeatureId = json['productFeatureId'] as String?
-      ..productFeatureApplTypeId = json['productFeatureApplTypeId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductFeatureAppl(
+      productId: json['productId'] as String?,
+      productFeatureId: json['productFeatureId'] as String?,
+      productFeatureApplTypeId: json['productFeatureApplTypeId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..amount = (json['amount'] as num?)?.toDouble()
-      ..recurringAmount = (json['recurringAmount'] as num?)?.toDouble()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      amount: (json['amount'] as num?)?.toDouble(),
+      recurringAmount: (json['recurringAmount'] as num?)?.toDouble(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductFeatureApplToJson(ProductFeatureAppl instance) {
   final val = <String, dynamic>{};
@@ -902,26 +918,27 @@ Map<String, dynamic> _$ProductFeatureApplToJson(ProductFeatureAppl instance) {
 
 ProductFacilityAssoc _$ProductFacilityAssocFromJson(
         Map<String, dynamic> json) =>
-    ProductFacilityAssoc()
-      ..productId = json['productId'] as String?
-      ..facilityId = json['facilityId'] as String?
-      ..facilityIdTo = json['facilityIdTo'] as String?
-      ..facilityAssocTypeId = json['facilityAssocTypeId'] as String?
-      ..fromDate = json['fromDate'] == null
+    ProductFacilityAssoc(
+      productId: json['productId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      facilityIdTo: json['facilityIdTo'] as String?,
+      facilityAssocTypeId: json['facilityAssocTypeId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..transitTime = (json['transitTime'] as num?)?.toInt()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      transitTime: (json['transitTime'] as num?)?.toInt(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductFacilityAssocToJson(
     ProductFacilityAssoc instance) {
@@ -949,19 +966,20 @@ Map<String, dynamic> _$ProductFacilityAssocToJson(
 }
 
 ProductKeyword _$ProductKeywordFromJson(Map<String, dynamic> json) =>
-    ProductKeyword()
-      ..productId = json['productId'] as String?
-      ..keyword = json['keyword'] as String?
-      ..keywordTypeId = json['keywordTypeId'] as String?
-      ..relevancyWeight = (json['relevancyWeight'] as num?)?.toInt()
-      ..statusId = json['statusId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ProductKeyword(
+      productId: json['productId'] as String?,
+      keyword: json['keyword'] as String?,
+      keywordTypeId: json['keywordTypeId'] as String?,
+      relevancyWeight: (json['relevancyWeight'] as num?)?.toInt(),
+      statusId: json['statusId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductKeywordToJson(ProductKeyword instance) {
   final val = <String, dynamic>{};
@@ -984,31 +1002,32 @@ Map<String, dynamic> _$ProductKeywordToJson(ProductKeyword instance) {
   return val;
 }
 
-ProductAssoc _$ProductAssocFromJson(Map<String, dynamic> json) => ProductAssoc()
-  ..productId = json['productId'] as String?
-  ..productIdTo = json['productIdTo'] as String?
-  ..productAssocTypeId = json['productAssocTypeId'] as String?
-  ..fromDate = json['fromDate'] == null
-      ? null
-      : DateTime.parse(json['fromDate'] as String)
-  ..thruDate = json['thruDate'] == null
-      ? null
-      : DateTime.parse(json['thruDate'] as String)
-  ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-  ..reason = json['reason'] as String?
-  ..quantity = (json['quantity'] as num?)?.toDouble()
-  ..scrapFactor = (json['scrapFactor'] as num?)?.toDouble()
-  ..instruction = json['instruction'] as String?
-  ..routingWorkEffortId = json['routingWorkEffortId'] as String?
-  ..estimateCalcMethod = json['estimateCalcMethod'] as String?
-  ..recurrenceInfoId = json['recurrenceInfoId'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..id = json['id'] as String?;
+ProductAssoc _$ProductAssocFromJson(Map<String, dynamic> json) => ProductAssoc(
+      productId: json['productId'] as String?,
+      productIdTo: json['productIdTo'] as String?,
+      productAssocTypeId: json['productAssocTypeId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      reason: json['reason'] as String?,
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      scrapFactor: (json['scrapFactor'] as num?)?.toDouble(),
+      instruction: json['instruction'] as String?,
+      routingWorkEffortId: json['routingWorkEffortId'] as String?,
+      estimateCalcMethod: json['estimateCalcMethod'] as String?,
+      recurrenceInfoId: json['recurrenceInfoId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ProductAssocToJson(ProductAssoc instance) {
   final val = <String, dynamic>{};
@@ -1041,26 +1060,27 @@ Map<String, dynamic> _$ProductAssocToJson(ProductAssoc instance) {
 
 WorkEffortGoodStandard _$WorkEffortGoodStandardFromJson(
         Map<String, dynamic> json) =>
-    WorkEffortGoodStandard()
-      ..workEffortId = json['workEffortId'] as String?
-      ..productId = json['productId'] as String?
-      ..workEffortGoodStdTypeId = json['workEffortGoodStdTypeId'] as String?
-      ..fromDate = json['fromDate'] == null
+    WorkEffortGoodStandard(
+      workEffortId: json['workEffortId'] as String?,
+      productId: json['productId'] as String?,
+      workEffortGoodStdTypeId: json['workEffortGoodStdTypeId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..statusId = json['statusId'] as String?
-      ..estimatedQuantity = (json['estimatedQuantity'] as num?)?.toDouble()
-      ..estimatedCost = (json['estimatedCost'] as num?)?.toDouble()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      statusId: json['statusId'] as String?,
+      estimatedQuantity: (json['estimatedQuantity'] as num?)?.toDouble(),
+      estimatedCost: (json['estimatedCost'] as num?)?.toDouble(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortGoodStandardToJson(
     WorkEffortGoodStandard instance) {

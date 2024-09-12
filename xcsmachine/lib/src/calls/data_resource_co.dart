@@ -8,13 +8,13 @@ import 'calls.dart';
 
 class DataResourceCoRepository {
   DataResourceCoRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='dataResourceCo',
     required this.id,
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
   final String id;
 
@@ -26,7 +26,7 @@ class DataResourceCoRepository {
       "action": "name",
       "bundleName" : "DataResource",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -45,7 +45,7 @@ class DataResourceCoRepository {
       "action": "setText",
       "bundleName" : "DataResource",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "text": text, 
@@ -60,7 +60,7 @@ class DataResourceCoRepository {
       "action": "getDecimals",
       "bundleName" : "DataResource",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });

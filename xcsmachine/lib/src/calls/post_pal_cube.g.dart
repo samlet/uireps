@@ -6,7 +6,7 @@ part of 'post_pal_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postPalCubeHash() => r'd0b3aab4ab4c77eba76ba460167c0a7582ff3ce9';
+String _$postPalCubeHash() => r'7a48202636513b3ba35bd5356d1d6540185202cc';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,11 +31,11 @@ class _SystemHash {
 
 abstract class _$PostPalCube
     extends BuildlessAutoDisposeAsyncNotifier<PostBundle> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<PostBundle> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -51,11 +51,11 @@ class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
 
   /// See also [PostPalCube].
   PostPalCubeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return PostPalCubeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -65,7 +65,7 @@ class PostPalCubeFamily extends Family<AsyncValue<PostBundle>> {
     covariant PostPalCubeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -90,11 +90,11 @@ class PostPalCubeProvider
     extends AutoDisposeAsyncNotifierProviderImpl<PostPalCube, PostBundle> {
   /// See also [PostPalCube].
   PostPalCubeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => PostPalCube()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: postPalCubeProvider,
           name: r'postPalCubeProvider',
@@ -105,7 +105,7 @@ class PostPalCubeProvider
           dependencies: PostPalCubeFamily._dependencies,
           allTransitiveDependencies:
               PostPalCubeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -116,11 +116,11 @@ class PostPalCubeProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -128,7 +128,7 @@ class PostPalCubeProvider
     covariant PostPalCube notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -139,14 +139,14 @@ class PostPalCubeProvider
       origin: this,
       override: PostPalCubeProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -161,14 +161,14 @@ class PostPalCubeProvider
   @override
   bool operator ==(Object other) {
     return other is PostPalCubeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -176,8 +176,8 @@ class PostPalCubeProvider
 }
 
 mixin PostPalCubeRef on AutoDisposeAsyncNotifierProviderRef<PostBundle> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -189,7 +189,7 @@ class _PostPalCubeProviderElement
   _PostPalCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as PostPalCubeProvider).regionId;
+  String get regionOrNs => (origin as PostPalCubeProvider).regionOrNs;
   @override
   String get id => (origin as PostPalCubeProvider).id;
 }

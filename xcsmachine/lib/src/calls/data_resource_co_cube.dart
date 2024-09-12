@@ -14,7 +14,7 @@ part 'data_resource_co_cube.g.dart';
 @riverpod
 class DataResourceCoCube extends _$DataResourceCoCube {
   @override
-  FutureOr<DataResource> build({String regionId='default', required String id}) async {
+  FutureOr<DataResource> build({String regionOrNs='default', required String id}) async {
     final data= await ref.watch(loadDataResourceProvider(bundleId: id).future);
     return data;
   }
@@ -26,7 +26,7 @@ class DataResourceCoCube extends _$DataResourceCoCube {
     required String text, 
 
   }) async { 
-    await ref.read(dataResourceCoProvider(regionId: regionId, id: id)).setText(
+    await ref.read(dataResourceCoProvider(regionOrNs: regionOrNs, id: id)).setText(
       text: text,
     );
     ref.invalidate(loadDataResourceProvider(bundleId: id));

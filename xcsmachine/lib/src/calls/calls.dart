@@ -9,5 +9,6 @@ part 'test_rec.dart';
 part 'store_bundle.dart';
 part 'party_bundle.dart';
 part 'complicated_rec.dart';
+part 'load_bundle.dart';
 
 part 'calls.g.dart';

@@ -6,7 +6,7 @@ part of 'comment_auto_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$commentAutoCubeHash() => r'29e7c8d440f16e4f9e0a5e3ba3f80fbd6b60b9b0';
+String _$commentAutoCubeHash() => r'708e8b27bfd9563382d9155d0d0f303fe9cbc625';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,11 +31,11 @@ class _SystemHash {
 
 abstract class _$CommentAutoCube
     extends BuildlessAutoDisposeAsyncNotifier<Comment> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<Comment> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -51,11 +51,11 @@ class CommentAutoCubeFamily extends Family<AsyncValue<Comment>> {
 
   /// See also [CommentAutoCube].
   CommentAutoCubeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return CommentAutoCubeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -65,7 +65,7 @@ class CommentAutoCubeFamily extends Family<AsyncValue<Comment>> {
     covariant CommentAutoCubeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -90,11 +90,11 @@ class CommentAutoCubeProvider
     extends AutoDisposeAsyncNotifierProviderImpl<CommentAutoCube, Comment> {
   /// See also [CommentAutoCube].
   CommentAutoCubeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => CommentAutoCube()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: commentAutoCubeProvider,
           name: r'commentAutoCubeProvider',
@@ -105,7 +105,7 @@ class CommentAutoCubeProvider
           dependencies: CommentAutoCubeFamily._dependencies,
           allTransitiveDependencies:
               CommentAutoCubeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -116,11 +116,11 @@ class CommentAutoCubeProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -128,7 +128,7 @@ class CommentAutoCubeProvider
     covariant CommentAutoCube notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -139,14 +139,14 @@ class CommentAutoCubeProvider
       origin: this,
       override: CommentAutoCubeProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -161,14 +161,14 @@ class CommentAutoCubeProvider
   @override
   bool operator ==(Object other) {
     return other is CommentAutoCubeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -176,8 +176,8 @@ class CommentAutoCubeProvider
 }
 
 mixin CommentAutoCubeRef on AutoDisposeAsyncNotifierProviderRef<Comment> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -189,7 +189,7 @@ class _CommentAutoCubeProviderElement
   _CommentAutoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as CommentAutoCubeProvider).regionId;
+  String get regionOrNs => (origin as CommentAutoCubeProvider).regionOrNs;
   @override
   String get id => (origin as CommentAutoCubeProvider).id;
 }

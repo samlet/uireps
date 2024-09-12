@@ -14,30 +14,19 @@ part 'post_pal_cube.g.dart';
 class PostPalCube extends _$PostPalCube {
   @override
   FutureOr<PostBundle> build({
-    String regionId='default', 
+    String regionOrNs='default', 
     required String id,
    
 
   }) async {
-    final data= await ref.watch(postPalProvider(regionId: regionId, id: id)).fetch(
+    final data= await ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id)).fetch(
     );
     return data;
   } 
 
   
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).addToContentBin(
-      binId: binId,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> featured() async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).featured(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
     );
     ref.invalidateSelf();
   }
@@ -47,7 +36,7 @@ class PostPalCube extends _$PostPalCube {
     required double fee, 
 
   }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).setCharge(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).setCharge(
       fee: fee,
     );
     ref.invalidateSelf();
@@ -58,7 +47,7 @@ class PostPalCube extends _$PostPalCube {
     required String text, 
 
   }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).updateText(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).updateText(
       text: text,
     );
     ref.invalidateSelf();
@@ -72,7 +61,7 @@ class PostPalCube extends _$PostPalCube {
     required double reward, 
 
   }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).postComment(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).postComment(
       subject: subject,
       review: review,
       rating: rating,
@@ -82,13 +71,24 @@ class PostPalCube extends _$PostPalCube {
   }
   
   Future<void> like() async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).like(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
     );
     ref.invalidateSelf();
   }
   
   Future<void> unlike() async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).unlike(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).addToContentBin(
+      binId: binId,
     );
     ref.invalidateSelf();
   }
@@ -98,7 +98,7 @@ class PostPalCube extends _$PostPalCube {
     required BuffersData data, 
 
   }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).setContentSlot(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).setContentSlot(
       data: data,
     );
     ref.invalidateSelf();
@@ -109,7 +109,7 @@ class PostPalCube extends _$PostPalCube {
     required String slotName, 
 
   }) async { 
-    await ref.read(postPalProvider(regionId: regionId, id: id)).doneSlot(
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
       slotName: slotName,
     );
     ref.invalidateSelf();

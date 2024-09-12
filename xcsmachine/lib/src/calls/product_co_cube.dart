@@ -14,24 +14,12 @@ part 'product_co_cube.g.dart';
 @riverpod
 class ProductCoCube extends _$ProductCoCube {
   @override
-  FutureOr<Product> build({String regionId='default', required String id}) async {
+  FutureOr<Product> build({String regionOrNs='default', required String id}) async {
     final data= await ref.watch(loadProductProvider(bundleId: id).future);
     return data;
   }
    
 
-  
-  Future<void> modifyDefaultPrice({
-    
-    required double price, 
-
-  }) async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).modifyDefaultPrice(
-      price: price,
-    );
-    ref.invalidate(loadProductProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
   
   Future<void> modifyPrice({
     
@@ -39,7 +27,7 @@ class ProductCoCube extends _$ProductCoCube {
     required String priceType, 
 
   }) async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).modifyPrice(
+    await ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).modifyPrice(
       price: price,
       priceType: priceType,
     );
@@ -48,7 +36,7 @@ class ProductCoCube extends _$ProductCoCube {
   }
   
   Future<void> featured() async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).featured(
+    await ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).featured(
     );
     ref.invalidate(loadProductProvider(bundleId: id));
     ref.invalidateSelf();
@@ -60,7 +48,7 @@ class ProductCoCube extends _$ProductCoCube {
     required String productContentType, 
 
   }) async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).addContent(
+    await ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).addContent(
       contentId: contentId,
       productContentType: productContentType,
     );
@@ -73,7 +61,7 @@ class ProductCoCube extends _$ProductCoCube {
     required DecimalMap requirements, 
 
   }) async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).addComponents(
+    await ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).addComponents(
       requirements: requirements,
     );
     ref.invalidate(loadProductProvider(bundleId: id));
@@ -85,8 +73,20 @@ class ProductCoCube extends _$ProductCoCube {
     required String categoryCo, 
 
   }) async { 
-    await ref.read(productCoProvider(regionId: regionId, id: id)).applyFeatures(
+    await ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).applyFeatures(
       categoryCo: categoryCo,
+    );
+    ref.invalidate(loadProductProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> modifyDefaultPrice({
+    
+    required double price, 
+
+  }) async { 
+    await ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).modifyDefaultPrice(
+      price: price,
     );
     ref.invalidate(loadProductProvider(bundleId: id));
     ref.invalidateSelf();

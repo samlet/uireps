@@ -6,63 +6,65 @@ part of 'data_resource.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource()
-  ..dataResourceId = json['dataResourceId'] as String?
-  ..dataResourceTypeId = json['dataResourceTypeId'] as String?
-  ..dataTemplateTypeId = json['dataTemplateTypeId'] as String?
-  ..dataCategoryId = json['dataCategoryId'] as String?
-  ..dataSourceId = json['dataSourceId'] as String?
-  ..statusId = json['statusId'] as String?
-  ..dataResourceName = json['dataResourceName'] as String?
-  ..localeString = json['localeString'] as String?
-  ..mimeTypeId = json['mimeTypeId'] as String?
-  ..characterSetId = json['characterSetId'] as String?
-  ..objectInfo = json['objectInfo'] as String?
-  ..surveyId = json['surveyId'] as String?
-  ..surveyResponseId = json['surveyResponseId'] as String?
-  ..relatedDetailId = json['relatedDetailId'] as String?
-  ..isPublic = $enumDecodeNullable(_$IndicatorEnumMap, json['isPublic'])
-  ..createdDate = json['createdDate'] == null
-      ? null
-      : DateTime.parse(json['createdDate'] as String)
-  ..createdByUserLogin = json['createdByUserLogin'] as String?
-  ..lastModifiedDate = json['lastModifiedDate'] == null
-      ? null
-      : DateTime.parse(json['lastModifiedDate'] as String)
-  ..lastModifiedByUserLogin = json['lastModifiedByUserLogin'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?
-  ..evict = json['evict'] as bool?
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..electronicText = json['electronicText'] == null
-      ? null
-      : ElectronicText.fromJson(json['electronicText'] as Map<String, dynamic>)
-  ..audioDataResource = json['audioDataResource'] == null
-      ? null
-      : AudioDataResource.fromJson(
-          json['audioDataResource'] as Map<String, dynamic>)
-  ..dataResourceType = json['dataResourceType'] == null
-      ? null
-      : DataResourceType.fromJson(
-          json['dataResourceType'] as Map<String, dynamic>)
-  ..imageDataResource = json['imageDataResource'] == null
-      ? null
-      : ImageDataResource.fromJson(
-          json['imageDataResource'] as Map<String, dynamic>)
-  ..videoDataResource = json['videoDataResource'] == null
-      ? null
-      : VideoDataResource.fromJson(
-          json['videoDataResource'] as Map<String, dynamic>)
-  ..dataResourceSlot = (json['dataResourceSlot'] as List<dynamic>?)
-      ?.map((e) => DataResourceSlot.fromJson(e as Map<String, dynamic>))
-      .toList();
+DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource(
+      dataResourceId: json['dataResourceId'] as String?,
+      dataResourceTypeId: json['dataResourceTypeId'] as String?,
+      dataTemplateTypeId: json['dataTemplateTypeId'] as String?,
+      dataCategoryId: json['dataCategoryId'] as String?,
+      dataSourceId: json['dataSourceId'] as String?,
+      statusId: json['statusId'] as String?,
+      dataResourceName: json['dataResourceName'] as String?,
+      localeString: json['localeString'] as String?,
+      mimeTypeId: json['mimeTypeId'] as String?,
+      characterSetId: json['characterSetId'] as String?,
+      objectInfo: json['objectInfo'] as String?,
+      surveyId: json['surveyId'] as String?,
+      surveyResponseId: json['surveyResponseId'] as String?,
+      relatedDetailId: json['relatedDetailId'] as String?,
+      isPublic: $enumDecodeNullable(_$IndicatorEnumMap, json['isPublic']),
+      createdDate: json['createdDate'] == null
+          ? null
+          : DateTime.parse(json['createdDate'] as String),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      lastModifiedDate: json['lastModifiedDate'] == null
+          ? null
+          : DateTime.parse(json['lastModifiedDate'] as String),
+      lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+      evict: json['evict'] as bool?,
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      electronicText: json['electronicText'] == null
+          ? null
+          : ElectronicText.fromJson(
+              json['electronicText'] as Map<String, dynamic>),
+      audioDataResource: json['audioDataResource'] == null
+          ? null
+          : AudioDataResource.fromJson(
+              json['audioDataResource'] as Map<String, dynamic>),
+      dataResourceType: json['dataResourceType'] == null
+          ? null
+          : DataResourceType.fromJson(
+              json['dataResourceType'] as Map<String, dynamic>),
+      imageDataResource: json['imageDataResource'] == null
+          ? null
+          : ImageDataResource.fromJson(
+              json['imageDataResource'] as Map<String, dynamic>),
+      videoDataResource: json['videoDataResource'] == null
+          ? null
+          : VideoDataResource.fromJson(
+              json['videoDataResource'] as Map<String, dynamic>),
+      dataResourceSlot: (json['dataResourceSlot'] as List<dynamic>?)
+          ?.map((e) => DataResourceSlot.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$DataResourceToJson(DataResource instance) {
   final val = <String, dynamic>{};
@@ -142,16 +144,17 @@ const _$IndicatorEnumMap = {
 };
 
 ElectronicText _$ElectronicTextFromJson(Map<String, dynamic> json) =>
-    ElectronicText()
-      ..dataResourceId = json['dataResourceId'] as String?
-      ..textData = json['textData'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ElectronicText(
+      dataResourceId: json['dataResourceId'] as String?,
+      textData: json['textData'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ElectronicTextToJson(ElectronicText instance) {
   final val = <String, dynamic>{};
@@ -172,18 +175,19 @@ Map<String, dynamic> _$ElectronicTextToJson(ElectronicText instance) {
 }
 
 AudioDataResource _$AudioDataResourceFromJson(Map<String, dynamic> json) =>
-    AudioDataResource()
-      ..dataResourceId = json['dataResourceId'] as String?
-      ..audioData = (json['audioData'] as List<dynamic>?)
+    AudioDataResource(
+      dataResourceId: json['dataResourceId'] as String?,
+      audioData: (json['audioData'] as List<dynamic>?)
           ?.map((e) => (e as num).toInt())
-          .toList()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          .toList(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$AudioDataResourceToJson(AudioDataResource instance) {
   final val = <String, dynamic>{};
@@ -204,18 +208,19 @@ Map<String, dynamic> _$AudioDataResourceToJson(AudioDataResource instance) {
 }
 
 DataResourceType _$DataResourceTypeFromJson(Map<String, dynamic> json) =>
-    DataResourceType()
-      ..dataResourceTypeId = json['dataResourceTypeId'] as String?
-      ..parentTypeId = json['parentTypeId'] as String?
-      ..hasTable = $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable'])
-      ..description = json['description'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    DataResourceType(
+      dataResourceTypeId: json['dataResourceTypeId'] as String?,
+      parentTypeId: json['parentTypeId'] as String?,
+      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      description: json['description'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$DataResourceTypeToJson(DataResourceType instance) {
   final val = <String, dynamic>{};
@@ -238,18 +243,19 @@ Map<String, dynamic> _$DataResourceTypeToJson(DataResourceType instance) {
 }
 
 ImageDataResource _$ImageDataResourceFromJson(Map<String, dynamic> json) =>
-    ImageDataResource()
-      ..dataResourceId = json['dataResourceId'] as String?
-      ..imageData = (json['imageData'] as List<dynamic>?)
+    ImageDataResource(
+      dataResourceId: json['dataResourceId'] as String?,
+      imageData: (json['imageData'] as List<dynamic>?)
           ?.map((e) => (e as num).toInt())
-          .toList()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          .toList(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ImageDataResourceToJson(ImageDataResource instance) {
   final val = <String, dynamic>{};
@@ -270,18 +276,19 @@ Map<String, dynamic> _$ImageDataResourceToJson(ImageDataResource instance) {
 }
 
 DataResourceSlot _$DataResourceSlotFromJson(Map<String, dynamic> json) =>
-    DataResourceSlot()
-      ..dataResourceId = json['dataResourceId'] as String?
-      ..slotId = json['slotId'] as String?
-      ..bindType = json['bindType'] as String?
-      ..tenantId = json['tenantId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    DataResourceSlot(
+      dataResourceId: json['dataResourceId'] as String?,
+      slotId: json['slotId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$DataResourceSlotToJson(DataResourceSlot instance) {
   final val = <String, dynamic>{};
@@ -304,18 +311,19 @@ Map<String, dynamic> _$DataResourceSlotToJson(DataResourceSlot instance) {
 }
 
 VideoDataResource _$VideoDataResourceFromJson(Map<String, dynamic> json) =>
-    VideoDataResource()
-      ..dataResourceId = json['dataResourceId'] as String?
-      ..videoData = (json['videoData'] as List<dynamic>?)
+    VideoDataResource(
+      dataResourceId: json['dataResourceId'] as String?,
+      videoData: (json['videoData'] as List<dynamic>?)
           ?.map((e) => (e as num).toInt())
-          .toList()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          .toList(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$VideoDataResourceToJson(VideoDataResource instance) {
   final val = <String, dynamic>{};

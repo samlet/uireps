@@ -13,11 +13,11 @@ part 'counter_comp_pods.g.dart';
 
 @Riverpod(keepAlive: true)
 CounterCompRepository counterComp(CounterCompRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
 }) {
   var conn = ref.watch(httpConnectorProvider);
   
-  return CounterCompRepository(conn.dio, regionId: regionId);
+  return CounterCompRepository(conn.dio, regionOrNs: regionOrNs);
   
 }
 
@@ -25,7 +25,7 @@ CounterCompRepository counterComp(CounterCompRef ref, {
 class CounterCompPod extends _$CounterCompPod {
   @override
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) async {
     // ok to leave this empty if the return type is FutureOr<void>
   }
@@ -34,7 +34,7 @@ class CounterCompPod extends _$CounterCompPod {
   Future<bool> reset() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(counterCompProvider(regionId: regionId)).reset(
+        () => ref.read(counterCompProvider(regionOrNs: regionOrNs)).reset(
             ));
     return state.hasError == false;
   }
@@ -46,7 +46,7 @@ class CounterCompPod extends _$CounterCompPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(counterCompProvider(regionId: regionId)).incr(
+        () => ref.read(counterCompProvider(regionOrNs: regionOrNs)).incr(
               l: l,
             ));
     return state.hasError == false;
@@ -59,7 +59,7 @@ class CounterCompPod extends _$CounterCompPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(counterCompProvider(regionId: regionId)).decr(
+        () => ref.read(counterCompProvider(regionOrNs: regionOrNs)).decr(
               l: l,
             ));
     return state.hasError == false;
@@ -67,12 +67,12 @@ class CounterCompPod extends _$CounterCompPod {
     
 }
 
-
+  
 @riverpod
 Future<int> counterCompGetValue(CounterCompGetValueRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
 }) async {
-  var pod=ref.watch(counterCompProvider(regionId: regionId));
+  var pod=ref.watch(counterCompProvider(regionOrNs: regionOrNs));
   return await pod.getValue(
   );
 }

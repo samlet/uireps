@@ -6,7 +6,7 @@ part of 'product_co_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productCoCubeHash() => r'3f6439ed6543b1d0660f457f221f860d7c45e1af';
+String _$productCoCubeHash() => r'a34300a2fcedbb69c07171029b7c854ba39c32c6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,11 +31,11 @@ class _SystemHash {
 
 abstract class _$ProductCoCube
     extends BuildlessAutoDisposeAsyncNotifier<Product> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<Product> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -51,11 +51,11 @@ class ProductCoCubeFamily extends Family<AsyncValue<Product>> {
 
   /// See also [ProductCoCube].
   ProductCoCubeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return ProductCoCubeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -65,7 +65,7 @@ class ProductCoCubeFamily extends Family<AsyncValue<Product>> {
     covariant ProductCoCubeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -90,11 +90,11 @@ class ProductCoCubeProvider
     extends AutoDisposeAsyncNotifierProviderImpl<ProductCoCube, Product> {
   /// See also [ProductCoCube].
   ProductCoCubeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => ProductCoCube()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: productCoCubeProvider,
           name: r'productCoCubeProvider',
@@ -105,7 +105,7 @@ class ProductCoCubeProvider
           dependencies: ProductCoCubeFamily._dependencies,
           allTransitiveDependencies:
               ProductCoCubeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -116,11 +116,11 @@ class ProductCoCubeProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -128,7 +128,7 @@ class ProductCoCubeProvider
     covariant ProductCoCube notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -139,14 +139,14 @@ class ProductCoCubeProvider
       origin: this,
       override: ProductCoCubeProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -161,14 +161,14 @@ class ProductCoCubeProvider
   @override
   bool operator ==(Object other) {
     return other is ProductCoCubeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -176,8 +176,8 @@ class ProductCoCubeProvider
 }
 
 mixin ProductCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Product> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -189,7 +189,7 @@ class _ProductCoCubeProviderElement
   _ProductCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as ProductCoCubeProvider).regionId;
+  String get regionOrNs => (origin as ProductCoCubeProvider).regionOrNs;
   @override
   String get id => (origin as ProductCoCubeProvider).id;
 }

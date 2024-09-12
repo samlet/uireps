@@ -5,7 +5,7 @@ import 'jwt_proc.dart';
 
 var dio=createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {
-  var counterRepo=CounterCompRepository(dio, regionId: 'comps:testCounter');
+  var counterRepo=CounterCompRepository(dio, regionOrNs: 'comps:testCounter');
   var result=await counterRepo.getValue();
   print("the result $result");
 
@@ -13,7 +13,7 @@ Future<void> main(List<String> arguments) async {
 }
 
 Future<void> testWithNamedCounter() async{
-  var counterRepo=CounterCompRepository(dio, regionId: 'comps:toy', moduleName: 'visit');
+  var counterRepo=CounterCompRepository(dio, regionOrNs: 'comps:toy', moduleName: 'visit');
   var result=await counterRepo.getValue();
   print("the result $result");
 }

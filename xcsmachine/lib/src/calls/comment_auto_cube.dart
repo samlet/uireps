@@ -14,7 +14,7 @@ part 'comment_auto_cube.g.dart';
 @riverpod
 class CommentAutoCube extends _$CommentAutoCube {
   @override
-  FutureOr<Comment> build({String regionId='default', required String id}) async {
+  FutureOr<Comment> build({String regionOrNs='default', required String id}) async {
     final data= await ref.watch(loadCommentProvider(bundleId: id).future);
     return data;
   }

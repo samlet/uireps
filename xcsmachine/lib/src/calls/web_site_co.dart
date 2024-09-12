@@ -8,13 +8,13 @@ import 'calls.dart';
 
 class WebSiteCoRepository {
   WebSiteCoRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='webSiteCo',
     required this.id,
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
   final String id;
 
@@ -26,7 +26,7 @@ class WebSiteCoRepository {
       "action": "name",
       "bundleName" : "WebSite",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -46,7 +46,7 @@ class WebSiteCoRepository {
       "action": "updateHttpUrl",
       "bundleName" : "WebSite",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "host": host,
@@ -67,7 +67,7 @@ class WebSiteCoRepository {
       "action": "updateHttpsUrl",
       "bundleName" : "WebSite",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "host": host,
@@ -87,7 +87,7 @@ class WebSiteCoRepository {
       "action": "updateSiteName",
       "bundleName" : "WebSite",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "name": name, 
@@ -102,7 +102,7 @@ class WebSiteCoRepository {
       "action": "fetch",
       "bundleName" : "WebSite",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -117,7 +117,7 @@ class WebSiteCoRepository {
       "action": "getDecimals",
       "bundleName" : "WebSite",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });

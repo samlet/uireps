@@ -6,7 +6,7 @@ part of 'acl_on_chain_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$aclOnChainHash() => r'145a42ab235053e1ae342f8bed6e4ae96b9131fe';
+String _$aclOnChainHash() => r'9ad1f113a553992d2404cb18e425bf8a6316e1ea';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,10 +40,10 @@ class AclOnChainFamily extends Family<AclOnChainRepository> {
 
   /// See also [aclOnChain].
   AclOnChainProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return AclOnChainProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -52,7 +52,7 @@ class AclOnChainFamily extends Family<AclOnChainRepository> {
     covariant AclOnChainProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -75,11 +75,11 @@ class AclOnChainFamily extends Family<AclOnChainRepository> {
 class AclOnChainProvider extends Provider<AclOnChainRepository> {
   /// See also [aclOnChain].
   AclOnChainProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
           (ref) => aclOnChain(
             ref as AclOnChainRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
           ),
           from: aclOnChainProvider,
           name: r'aclOnChainProvider',
@@ -90,7 +90,7 @@ class AclOnChainProvider extends Provider<AclOnChainRepository> {
           dependencies: AclOnChainFamily._dependencies,
           allTransitiveDependencies:
               AclOnChainFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   AclOnChainProvider._internal(
@@ -100,10 +100,10 @@ class AclOnChainProvider extends Provider<AclOnChainRepository> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   Override overrideWith(
@@ -118,7 +118,7 @@ class AclOnChainProvider extends Provider<AclOnChainRepository> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -130,21 +130,21 @@ class AclOnChainProvider extends Provider<AclOnChainRepository> {
 
   @override
   bool operator ==(Object other) {
-    return other is AclOnChainProvider && other.regionId == regionId;
+    return other is AclOnChainProvider && other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin AclOnChainRef on ProviderRef<AclOnChainRepository> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _AclOnChainProviderElement extends ProviderElement<AclOnChainRepository>
@@ -152,10 +152,319 @@ class _AclOnChainProviderElement extends ProviderElement<AclOnChainRepository>
   _AclOnChainProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as AclOnChainProvider).regionId;
+  String get regionOrNs => (origin as AclOnChainProvider).regionOrNs;
 }
 
-String _$aocIsOwnerHash() => r'25ef0e7b78e822079d644669b476405578ded613';
+String _$aocGetPublicMethodsHash() =>
+    r'f5ad172741f0e06c9b52d3b65f5e2b87aab33799';
+
+/// See also [aocGetPublicMethods].
+@ProviderFor(aocGetPublicMethods)
+const aocGetPublicMethodsProvider = AocGetPublicMethodsFamily();
+
+/// See also [aocGetPublicMethods].
+class AocGetPublicMethodsFamily extends Family<AsyncValue<List<String>>> {
+  /// See also [aocGetPublicMethods].
+  const AocGetPublicMethodsFamily();
+
+  /// See also [aocGetPublicMethods].
+  AocGetPublicMethodsProvider call({
+    String regionOrNs = 'default',
+    required String mod,
+  }) {
+    return AocGetPublicMethodsProvider(
+      regionOrNs: regionOrNs,
+      mod: mod,
+    );
+  }
+
+  @override
+  AocGetPublicMethodsProvider getProviderOverride(
+    covariant AocGetPublicMethodsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      mod: provider.mod,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'aocGetPublicMethodsProvider';
+}
+
+/// See also [aocGetPublicMethods].
+class AocGetPublicMethodsProvider
+    extends AutoDisposeFutureProvider<List<String>> {
+  /// See also [aocGetPublicMethods].
+  AocGetPublicMethodsProvider({
+    String regionOrNs = 'default',
+    required String mod,
+  }) : this._internal(
+          (ref) => aocGetPublicMethods(
+            ref as AocGetPublicMethodsRef,
+            regionOrNs: regionOrNs,
+            mod: mod,
+          ),
+          from: aocGetPublicMethodsProvider,
+          name: r'aocGetPublicMethodsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$aocGetPublicMethodsHash,
+          dependencies: AocGetPublicMethodsFamily._dependencies,
+          allTransitiveDependencies:
+              AocGetPublicMethodsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          mod: mod,
+        );
+
+  AocGetPublicMethodsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.mod,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String mod;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<String>> Function(AocGetPublicMethodsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AocGetPublicMethodsProvider._internal(
+        (ref) => create(ref as AocGetPublicMethodsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        mod: mod,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<String>> createElement() {
+    return _AocGetPublicMethodsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AocGetPublicMethodsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.mod == mod;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, mod.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin AocGetPublicMethodsRef on AutoDisposeFutureProviderRef<List<String>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `mod` of this provider.
+  String get mod;
+}
+
+class _AocGetPublicMethodsProviderElement
+    extends AutoDisposeFutureProviderElement<List<String>>
+    with AocGetPublicMethodsRef {
+  _AocGetPublicMethodsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as AocGetPublicMethodsProvider).regionOrNs;
+  @override
+  String get mod => (origin as AocGetPublicMethodsProvider).mod;
+}
+
+String _$aocHasRoleHash() => r'048e9618ea887804c1aaf013630547338fe6e493';
+
+/// See also [aocHasRole].
+@ProviderFor(aocHasRole)
+const aocHasRoleProvider = AocHasRoleFamily();
+
+/// See also [aocHasRole].
+class AocHasRoleFamily extends Family<AsyncValue<bool>> {
+  /// See also [aocHasRole].
+  const AocHasRoleFamily();
+
+  /// See also [aocHasRole].
+  AocHasRoleProvider call({
+    String regionOrNs = 'default',
+    required String partyId,
+    required String role,
+  }) {
+    return AocHasRoleProvider(
+      regionOrNs: regionOrNs,
+      partyId: partyId,
+      role: role,
+    );
+  }
+
+  @override
+  AocHasRoleProvider getProviderOverride(
+    covariant AocHasRoleProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      partyId: provider.partyId,
+      role: provider.role,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'aocHasRoleProvider';
+}
+
+/// See also [aocHasRole].
+class AocHasRoleProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [aocHasRole].
+  AocHasRoleProvider({
+    String regionOrNs = 'default',
+    required String partyId,
+    required String role,
+  }) : this._internal(
+          (ref) => aocHasRole(
+            ref as AocHasRoleRef,
+            regionOrNs: regionOrNs,
+            partyId: partyId,
+            role: role,
+          ),
+          from: aocHasRoleProvider,
+          name: r'aocHasRoleProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$aocHasRoleHash,
+          dependencies: AocHasRoleFamily._dependencies,
+          allTransitiveDependencies:
+              AocHasRoleFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          partyId: partyId,
+          role: role,
+        );
+
+  AocHasRoleProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.partyId,
+    required this.role,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String partyId;
+  final String role;
+
+  @override
+  Override overrideWith(
+    FutureOr<bool> Function(AocHasRoleRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AocHasRoleProvider._internal(
+        (ref) => create(ref as AocHasRoleRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        partyId: partyId,
+        role: role,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<bool> createElement() {
+    return _AocHasRoleProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AocHasRoleProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.partyId == partyId &&
+        other.role == role;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, partyId.hashCode);
+    hash = _SystemHash.combine(hash, role.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin AocHasRoleRef on AutoDisposeFutureProviderRef<bool> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `partyId` of this provider.
+  String get partyId;
+
+  /// The parameter `role` of this provider.
+  String get role;
+}
+
+class _AocHasRoleProviderElement extends AutoDisposeFutureProviderElement<bool>
+    with AocHasRoleRef {
+  _AocHasRoleProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as AocHasRoleProvider).regionOrNs;
+  @override
+  String get partyId => (origin as AocHasRoleProvider).partyId;
+  @override
+  String get role => (origin as AocHasRoleProvider).role;
+}
+
+String _$aocIsOwnerHash() => r'dca8c882001475f894f18bc8372188ef6bf91c63';
 
 /// See also [aocIsOwner].
 @ProviderFor(aocIsOwner)
@@ -168,13 +477,13 @@ class AocIsOwnerFamily extends Family<AsyncValue<bool>> {
 
   /// See also [aocIsOwner].
   AocIsOwnerProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String biName,
     required String bundleId,
     required String userOrGroup,
   }) {
     return AocIsOwnerProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       biName: biName,
       bundleId: bundleId,
       userOrGroup: userOrGroup,
@@ -186,7 +495,7 @@ class AocIsOwnerFamily extends Family<AsyncValue<bool>> {
     covariant AocIsOwnerProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       biName: provider.biName,
       bundleId: provider.bundleId,
       userOrGroup: provider.userOrGroup,
@@ -212,14 +521,14 @@ class AocIsOwnerFamily extends Family<AsyncValue<bool>> {
 class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
   /// See also [aocIsOwner].
   AocIsOwnerProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String biName,
     required String bundleId,
     required String userOrGroup,
   }) : this._internal(
           (ref) => aocIsOwner(
             ref as AocIsOwnerRef,
-            regionId: regionId,
+            regionOrNs: regionOrNs,
             biName: biName,
             bundleId: bundleId,
             userOrGroup: userOrGroup,
@@ -233,7 +542,7 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
           dependencies: AocIsOwnerFamily._dependencies,
           allTransitiveDependencies:
               AocIsOwnerFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           biName: biName,
           bundleId: bundleId,
           userOrGroup: userOrGroup,
@@ -246,13 +555,13 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.biName,
     required this.bundleId,
     required this.userOrGroup,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String biName;
   final String bundleId;
   final String userOrGroup;
@@ -270,7 +579,7 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         biName: biName,
         bundleId: bundleId,
         userOrGroup: userOrGroup,
@@ -286,7 +595,7 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
   @override
   bool operator ==(Object other) {
     return other is AocIsOwnerProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.biName == biName &&
         other.bundleId == bundleId &&
         other.userOrGroup == userOrGroup;
@@ -295,7 +604,7 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, biName.hashCode);
     hash = _SystemHash.combine(hash, bundleId.hashCode);
     hash = _SystemHash.combine(hash, userOrGroup.hashCode);
@@ -305,8 +614,8 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
 }
 
 mixin AocIsOwnerRef on AutoDisposeFutureProviderRef<bool> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `biName` of this provider.
   String get biName;
@@ -323,7 +632,7 @@ class _AocIsOwnerProviderElement extends AutoDisposeFutureProviderElement<bool>
   _AocIsOwnerProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as AocIsOwnerProvider).regionId;
+  String get regionOrNs => (origin as AocIsOwnerProvider).regionOrNs;
   @override
   String get biName => (origin as AocIsOwnerProvider).biName;
   @override
@@ -332,322 +641,13 @@ class _AocIsOwnerProviderElement extends AutoDisposeFutureProviderElement<bool>
   String get userOrGroup => (origin as AocIsOwnerProvider).userOrGroup;
 }
 
-String _$aocHasRoleHash() => r'da31dd2162aae28214fb9f11c6ed60267fa23661';
-
-/// See also [aocHasRole].
-@ProviderFor(aocHasRole)
-const aocHasRoleProvider = AocHasRoleFamily();
-
-/// See also [aocHasRole].
-class AocHasRoleFamily extends Family<AsyncValue<bool>> {
-  /// See also [aocHasRole].
-  const AocHasRoleFamily();
-
-  /// See also [aocHasRole].
-  AocHasRoleProvider call({
-    String regionId = 'default',
-    required String partyId,
-    required String role,
-  }) {
-    return AocHasRoleProvider(
-      regionId: regionId,
-      partyId: partyId,
-      role: role,
-    );
-  }
-
-  @override
-  AocHasRoleProvider getProviderOverride(
-    covariant AocHasRoleProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      partyId: provider.partyId,
-      role: provider.role,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'aocHasRoleProvider';
-}
-
-/// See also [aocHasRole].
-class AocHasRoleProvider extends AutoDisposeFutureProvider<bool> {
-  /// See also [aocHasRole].
-  AocHasRoleProvider({
-    String regionId = 'default',
-    required String partyId,
-    required String role,
-  }) : this._internal(
-          (ref) => aocHasRole(
-            ref as AocHasRoleRef,
-            regionId: regionId,
-            partyId: partyId,
-            role: role,
-          ),
-          from: aocHasRoleProvider,
-          name: r'aocHasRoleProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$aocHasRoleHash,
-          dependencies: AocHasRoleFamily._dependencies,
-          allTransitiveDependencies:
-              AocHasRoleFamily._allTransitiveDependencies,
-          regionId: regionId,
-          partyId: partyId,
-          role: role,
-        );
-
-  AocHasRoleProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.partyId,
-    required this.role,
-  }) : super.internal();
-
-  final String regionId;
-  final String partyId;
-  final String role;
-
-  @override
-  Override overrideWith(
-    FutureOr<bool> Function(AocHasRoleRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AocHasRoleProvider._internal(
-        (ref) => create(ref as AocHasRoleRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        partyId: partyId,
-        role: role,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<bool> createElement() {
-    return _AocHasRoleProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AocHasRoleProvider &&
-        other.regionId == regionId &&
-        other.partyId == partyId &&
-        other.role == role;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, partyId.hashCode);
-    hash = _SystemHash.combine(hash, role.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin AocHasRoleRef on AutoDisposeFutureProviderRef<bool> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `partyId` of this provider.
-  String get partyId;
-
-  /// The parameter `role` of this provider.
-  String get role;
-}
-
-class _AocHasRoleProviderElement extends AutoDisposeFutureProviderElement<bool>
-    with AocHasRoleRef {
-  _AocHasRoleProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as AocHasRoleProvider).regionId;
-  @override
-  String get partyId => (origin as AocHasRoleProvider).partyId;
-  @override
-  String get role => (origin as AocHasRoleProvider).role;
-}
-
-String _$aocGetPublicMethodsHash() =>
-    r'0be225b5fca78e1fd2bb4ed1f9524dc6dd3da636';
-
-/// See also [aocGetPublicMethods].
-@ProviderFor(aocGetPublicMethods)
-const aocGetPublicMethodsProvider = AocGetPublicMethodsFamily();
-
-/// See also [aocGetPublicMethods].
-class AocGetPublicMethodsFamily extends Family<AsyncValue<List<String>>> {
-  /// See also [aocGetPublicMethods].
-  const AocGetPublicMethodsFamily();
-
-  /// See also [aocGetPublicMethods].
-  AocGetPublicMethodsProvider call({
-    String regionId = 'default',
-    required String mod,
-  }) {
-    return AocGetPublicMethodsProvider(
-      regionId: regionId,
-      mod: mod,
-    );
-  }
-
-  @override
-  AocGetPublicMethodsProvider getProviderOverride(
-    covariant AocGetPublicMethodsProvider provider,
-  ) {
-    return call(
-      regionId: provider.regionId,
-      mod: provider.mod,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'aocGetPublicMethodsProvider';
-}
-
-/// See also [aocGetPublicMethods].
-class AocGetPublicMethodsProvider
-    extends AutoDisposeFutureProvider<List<String>> {
-  /// See also [aocGetPublicMethods].
-  AocGetPublicMethodsProvider({
-    String regionId = 'default',
-    required String mod,
-  }) : this._internal(
-          (ref) => aocGetPublicMethods(
-            ref as AocGetPublicMethodsRef,
-            regionId: regionId,
-            mod: mod,
-          ),
-          from: aocGetPublicMethodsProvider,
-          name: r'aocGetPublicMethodsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$aocGetPublicMethodsHash,
-          dependencies: AocGetPublicMethodsFamily._dependencies,
-          allTransitiveDependencies:
-              AocGetPublicMethodsFamily._allTransitiveDependencies,
-          regionId: regionId,
-          mod: mod,
-        );
-
-  AocGetPublicMethodsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionId,
-    required this.mod,
-  }) : super.internal();
-
-  final String regionId;
-  final String mod;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<String>> Function(AocGetPublicMethodsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AocGetPublicMethodsProvider._internal(
-        (ref) => create(ref as AocGetPublicMethodsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionId: regionId,
-        mod: mod,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<String>> createElement() {
-    return _AocGetPublicMethodsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AocGetPublicMethodsProvider &&
-        other.regionId == regionId &&
-        other.mod == mod;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, mod.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin AocGetPublicMethodsRef on AutoDisposeFutureProviderRef<List<String>> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
-
-  /// The parameter `mod` of this provider.
-  String get mod;
-}
-
-class _AocGetPublicMethodsProviderElement
-    extends AutoDisposeFutureProviderElement<List<String>>
-    with AocGetPublicMethodsRef {
-  _AocGetPublicMethodsProviderElement(super.provider);
-
-  @override
-  String get regionId => (origin as AocGetPublicMethodsProvider).regionId;
-  @override
-  String get mod => (origin as AocGetPublicMethodsProvider).mod;
-}
-
-String _$aclOnChainPodHash() => r'38480c90aa3e481b5c23caeab114f8430bce2691';
+String _$aclOnChainPodHash() => r'a5eeb36bca6b2618b725b00fdeb472a04c424d7f';
 
 abstract class _$AclOnChainPod extends BuildlessAutoDisposeAsyncNotifier<void> {
-  late final String regionId;
+  late final String regionOrNs;
 
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   });
 }
 
@@ -662,10 +662,10 @@ class AclOnChainPodFamily extends Family<AsyncValue<void>> {
 
   /// See also [AclOnChainPod].
   AclOnChainPodProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) {
     return AclOnChainPodProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -674,7 +674,7 @@ class AclOnChainPodFamily extends Family<AsyncValue<void>> {
     covariant AclOnChainPodProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
     );
   }
 
@@ -698,9 +698,9 @@ class AclOnChainPodProvider
     extends AutoDisposeAsyncNotifierProviderImpl<AclOnChainPod, void> {
   /// See also [AclOnChainPod].
   AclOnChainPodProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) : this._internal(
-          () => AclOnChainPod()..regionId = regionId,
+          () => AclOnChainPod()..regionOrNs = regionOrNs,
           from: aclOnChainPodProvider,
           name: r'aclOnChainPodProvider',
           debugGetCreateSourceHash:
@@ -710,7 +710,7 @@ class AclOnChainPodProvider
           dependencies: AclOnChainPodFamily._dependencies,
           allTransitiveDependencies:
               AclOnChainPodFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
         );
 
   AclOnChainPodProvider._internal(
@@ -720,17 +720,17 @@ class AclOnChainPodProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
 
   @override
   FutureOr<void> runNotifierBuild(
     covariant AclOnChainPod notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
     );
   }
 
@@ -739,13 +739,13 @@ class AclOnChainPodProvider
     return ProviderOverride(
       origin: this,
       override: AclOnChainPodProvider._internal(
-        () => create()..regionId = regionId,
+        () => create()..regionOrNs = regionOrNs,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
       ),
     );
   }
@@ -757,21 +757,21 @@ class AclOnChainPodProvider
 
   @override
   bool operator ==(Object other) {
-    return other is AclOnChainPodProvider && other.regionId == regionId;
+    return other is AclOnChainPodProvider && other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
 mixin AclOnChainPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 }
 
 class _AclOnChainPodProviderElement
@@ -780,7 +780,7 @@ class _AclOnChainPodProviderElement
   _AclOnChainPodProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as AclOnChainPodProvider).regionId;
+  String get regionOrNs => (origin as AclOnChainPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

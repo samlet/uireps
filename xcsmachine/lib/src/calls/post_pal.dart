@@ -8,13 +8,13 @@ import 'calls.dart';
 
 class PostPalRepository {
   PostPalRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='postPal',
     required this.id,
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
   final String id;
 
@@ -26,46 +26,12 @@ class PostPalRepository {
       "action": "text",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<List<Comment>> getCommentSyncs() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getCommentSyncs",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Comment.fromJson);
-  }
-   
-  // Mutation
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addToContentBin",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, {
-      "binId": binId, 
-    });
-    
   }
    
   // Mutation
@@ -75,26 +41,11 @@ class PostPalRepository {
       "action": "featured",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
-  }
-   
-  // Query
-  Future<bool> isFeatured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isFeatured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionId,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asBool(resp);
   }
    
   // Query
@@ -104,7 +55,7 @@ class PostPalRepository {
       "action": "getStats",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -119,7 +70,7 @@ class PostPalRepository {
       "action": "isLiked",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -138,7 +89,7 @@ class PostPalRepository {
       "action": "setCharge",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "fee": fee, 
@@ -157,7 +108,7 @@ class PostPalRepository {
       "action": "updateText",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "text": text, 
@@ -179,7 +130,7 @@ class PostPalRepository {
       "action": "postComment",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "subject": subject,
@@ -192,13 +143,28 @@ class PostPalRepository {
   }
    
   // Query
+  Future<bool> isFeatured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isFeatured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
   Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
       "action": "fetch",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -213,7 +179,7 @@ class PostPalRepository {
       "action": "like",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -227,7 +193,7 @@ class PostPalRepository {
       "action": "likes",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -242,7 +208,7 @@ class PostPalRepository {
       "action": "unlike",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -250,33 +216,37 @@ class PostPalRepository {
   }
    
   // Query
-  Future<Map<String, bool>> persistSlotsExistent() async { 
+  Future<List<Comment>> getCommentSyncs() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "persistSlotsExistent",
+      "action": "getCommentSyncs",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
-    return asTypedMap<bool>(resp);
+    return convList(resp, Comment.fromJson);
   }
    
-  // Query
-  Future<BuffersMap> persistSlotValues() async { 
+  // Mutation
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "persistSlotValues",
+      "action": "addToContentBin",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
-    }, { 
+    }, {
+      "binId": binId, 
     });
     
-    return BuffersMap()..mergeFromProto3Json(resp);
   }
    
   // Mutation
@@ -290,7 +260,7 @@ class PostPalRepository {
       "action": "setContentSlot",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "data": data.toProto3Json()!, 
@@ -305,12 +275,42 @@ class PostPalRepository {
       "action": "getContentSlot",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
     return BuffersData()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<Map<String, bool>> persistSlotsExistent() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "persistSlotsExistent",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return asTypedMap<bool>(resp);
+  }
+   
+  // Query
+  Future<BuffersMap> persistSlotValues() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "persistSlotValues",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return BuffersMap()..mergeFromProto3Json(resp);
   }
    
   // Query
@@ -320,7 +320,7 @@ class PostPalRepository {
       "action": "getDecimals",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
@@ -339,7 +339,7 @@ class PostPalRepository {
       "action": "doneSlot",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "slotName": slotName, 
@@ -358,7 +358,7 @@ class PostPalRepository {
       "action": "getSlotValue",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "slotName": slotName, 
@@ -378,7 +378,7 @@ class PostPalRepository {
       "action": "hasSlotValue",
       "bundleName" : "Content",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, {
       "slotName": slotName, 

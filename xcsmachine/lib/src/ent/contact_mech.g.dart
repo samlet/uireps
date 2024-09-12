@@ -6,34 +6,37 @@ part of 'contact_mech.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ContactMech _$ContactMechFromJson(Map<String, dynamic> json) => ContactMech()
-  ..contactMechId = json['contactMechId'] as String?
-  ..contactMechTypeId = json['contactMechTypeId'] as String?
-  ..infoString = json['infoString'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..tenantId = json['tenantId'] as String?
-  ..evict = json['evict'] as bool?
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..postalAddress = json['postalAddress'] == null
-      ? null
-      : PostalAddress.fromJson(json['postalAddress'] as Map<String, dynamic>)
-  ..contactMechType = json['contactMechType'] == null
-      ? null
-      : ContactMechType.fromJson(
-          json['contactMechType'] as Map<String, dynamic>)
-  ..telecomNumber = json['telecomNumber'] == null
-      ? null
-      : TelecomNumber.fromJson(json['telecomNumber'] as Map<String, dynamic>)
-  ..fromContactMechLink = (json['fromContactMechLink'] as List<dynamic>?)
-      ?.map((e) => ContactMechLink.fromJson(e as Map<String, dynamic>))
-      .toList();
+ContactMech _$ContactMechFromJson(Map<String, dynamic> json) => ContactMech(
+      contactMechId: json['contactMechId'] as String?,
+      contactMechTypeId: json['contactMechTypeId'] as String?,
+      infoString: json['infoString'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+      evict: json['evict'] as bool?,
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      postalAddress: json['postalAddress'] == null
+          ? null
+          : PostalAddress.fromJson(
+              json['postalAddress'] as Map<String, dynamic>),
+      contactMechType: json['contactMechType'] == null
+          ? null
+          : ContactMechType.fromJson(
+              json['contactMechType'] as Map<String, dynamic>),
+      telecomNumber: json['telecomNumber'] == null
+          ? null
+          : TelecomNumber.fromJson(
+              json['telecomNumber'] as Map<String, dynamic>),
+      fromContactMechLink: (json['fromContactMechLink'] as List<dynamic>?)
+          ?.map((e) => ContactMechLink.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$ContactMechToJson(ContactMech instance) {
   final val = <String, dynamic>{};
@@ -62,32 +65,33 @@ Map<String, dynamic> _$ContactMechToJson(ContactMech instance) {
 }
 
 PostalAddress _$PostalAddressFromJson(Map<String, dynamic> json) =>
-    PostalAddress()
-      ..contactMechId = json['contactMechId'] as String?
-      ..toName = json['toName'] as String?
-      ..attnName = json['attnName'] as String?
-      ..address1 = json['address1'] as String?
-      ..address2 = json['address2'] as String?
-      ..houseNumber = (json['houseNumber'] as num?)?.toInt()
-      ..houseNumberExt = json['houseNumberExt'] as String?
-      ..directions = json['directions'] as String?
-      ..city = json['city'] as String?
-      ..cityGeoId = json['cityGeoId'] as String?
-      ..postalCode = json['postalCode'] as String?
-      ..postalCodeExt = json['postalCodeExt'] as String?
-      ..countryGeoId = json['countryGeoId'] as String?
-      ..stateProvinceGeoId = json['stateProvinceGeoId'] as String?
-      ..countyGeoId = json['countyGeoId'] as String?
-      ..municipalityGeoId = json['municipalityGeoId'] as String?
-      ..postalCodeGeoId = json['postalCodeGeoId'] as String?
-      ..geoPointId = json['geoPointId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    PostalAddress(
+      contactMechId: json['contactMechId'] as String?,
+      toName: json['toName'] as String?,
+      attnName: json['attnName'] as String?,
+      address1: json['address1'] as String?,
+      address2: json['address2'] as String?,
+      houseNumber: (json['houseNumber'] as num?)?.toInt(),
+      houseNumberExt: json['houseNumberExt'] as String?,
+      directions: json['directions'] as String?,
+      city: json['city'] as String?,
+      cityGeoId: json['cityGeoId'] as String?,
+      postalCode: json['postalCode'] as String?,
+      postalCodeExt: json['postalCodeExt'] as String?,
+      countryGeoId: json['countryGeoId'] as String?,
+      stateProvinceGeoId: json['stateProvinceGeoId'] as String?,
+      countyGeoId: json['countyGeoId'] as String?,
+      municipalityGeoId: json['municipalityGeoId'] as String?,
+      postalCodeGeoId: json['postalCodeGeoId'] as String?,
+      geoPointId: json['geoPointId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$PostalAddressToJson(PostalAddress instance) {
   final val = <String, dynamic>{};
@@ -124,18 +128,19 @@ Map<String, dynamic> _$PostalAddressToJson(PostalAddress instance) {
 }
 
 ContactMechType _$ContactMechTypeFromJson(Map<String, dynamic> json) =>
-    ContactMechType()
-      ..contactMechTypeId = json['contactMechTypeId'] as String?
-      ..parentTypeId = json['parentTypeId'] as String?
-      ..hasTable = $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable'])
-      ..description = json['description'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ContactMechType(
+      contactMechTypeId: json['contactMechTypeId'] as String?,
+      parentTypeId: json['parentTypeId'] as String?,
+      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      description: json['description'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$ContactMechTypeToJson(ContactMechType instance) {
   final val = <String, dynamic>{};
@@ -190,16 +195,17 @@ const _$IndicatorEnumMap = {
 };
 
 ContactMechLink _$ContactMechLinkFromJson(Map<String, dynamic> json) =>
-    ContactMechLink()
-      ..contactMechIdFrom = json['contactMechIdFrom'] as String?
-      ..contactMechIdTo = json['contactMechIdTo'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    ContactMechLink(
+      contactMechIdFrom: json['contactMechIdFrom'] as String?,
+      contactMechIdTo: json['contactMechIdTo'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$ContactMechLinkToJson(ContactMechLink instance) {
   final val = <String, dynamic>{};
@@ -220,19 +226,20 @@ Map<String, dynamic> _$ContactMechLinkToJson(ContactMechLink instance) {
 }
 
 TelecomNumber _$TelecomNumberFromJson(Map<String, dynamic> json) =>
-    TelecomNumber()
-      ..contactMechId = json['contactMechId'] as String?
-      ..countryCode = json['countryCode'] as String?
-      ..areaCode = json['areaCode'] as String?
-      ..contactNumber = json['contactNumber'] as String?
-      ..askForName = json['askForName'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    TelecomNumber(
+      contactMechId: json['contactMechId'] as String?,
+      countryCode: json['countryCode'] as String?,
+      areaCode: json['areaCode'] as String?,
+      contactNumber: json['contactNumber'] as String?,
+      askForName: json['askForName'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$TelecomNumberToJson(TelecomNumber instance) {
   final val = <String, dynamic>{};

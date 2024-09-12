@@ -26,3 +26,7 @@ Future<void> main(List<String> arguments) async {
   exit(0);
 }
 
+/*
+Prepare: AssetBoxPacker -c snapshotJson
+ */
+

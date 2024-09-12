@@ -6,126 +6,132 @@ part of 'work_effort.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort()
-  ..workEffortId = json['workEffortId'] as String?
-  ..workEffortTypeId = json['workEffortTypeId'] as String?
-  ..currentStatusId = json['currentStatusId'] as String?
-  ..lastStatusUpdate = json['lastStatusUpdate'] == null
-      ? null
-      : DateTime.parse(json['lastStatusUpdate'] as String)
-  ..workEffortPurposeTypeId = json['workEffortPurposeTypeId'] as String?
-  ..workEffortParentId = json['workEffortParentId'] as String?
-  ..scopeEnumId = json['scopeEnumId'] as String?
-  ..priority = (json['priority'] as num?)?.toInt()
-  ..percentComplete = (json['percentComplete'] as num?)?.toInt()
-  ..workEffortName = json['workEffortName'] as String?
-  ..showAsEnumId = json['showAsEnumId'] as String?
-  ..sendNotificationEmail =
-      $enumDecodeNullable(_$IndicatorEnumMap, json['sendNotificationEmail'])
-  ..description = json['description'] as String?
-  ..locationDesc = json['locationDesc'] as String?
-  ..estimatedStartDate = json['estimatedStartDate'] == null
-      ? null
-      : DateTime.parse(json['estimatedStartDate'] as String)
-  ..estimatedCompletionDate = json['estimatedCompletionDate'] == null
-      ? null
-      : DateTime.parse(json['estimatedCompletionDate'] as String)
-  ..actualStartDate = json['actualStartDate'] == null
-      ? null
-      : DateTime.parse(json['actualStartDate'] as String)
-  ..actualCompletionDate = json['actualCompletionDate'] == null
-      ? null
-      : DateTime.parse(json['actualCompletionDate'] as String)
-  ..estimatedMilliSeconds = (json['estimatedMilliSeconds'] as num?)?.toDouble()
-  ..estimatedSetupMillis = (json['estimatedSetupMillis'] as num?)?.toDouble()
-  ..estimateCalcMethod = json['estimateCalcMethod'] as String?
-  ..actualMilliSeconds = (json['actualMilliSeconds'] as num?)?.toDouble()
-  ..actualSetupMillis = (json['actualSetupMillis'] as num?)?.toDouble()
-  ..totalMilliSecondsAllowed =
-      (json['totalMilliSecondsAllowed'] as num?)?.toDouble()
-  ..totalMoneyAllowed = (json['totalMoneyAllowed'] as num?)?.toDouble()
-  ..moneyUomId = json['moneyUomId'] as String?
-  ..specialTerms = json['specialTerms'] as String?
-  ..timeTransparency = (json['timeTransparency'] as num?)?.toInt()
-  ..universalId = json['universalId'] as String?
-  ..sourceReferenceId = json['sourceReferenceId'] as String?
-  ..fixedAssetId = json['fixedAssetId'] as String?
-  ..facilityId = json['facilityId'] as String?
-  ..infoUrl = json['infoUrl'] as String?
-  ..recurrenceInfoId = json['recurrenceInfoId'] as String?
-  ..tempExprId = json['tempExprId'] as String?
-  ..runtimeDataId = json['runtimeDataId'] as String?
-  ..noteId = json['noteId'] as String?
-  ..serviceLoaderName = json['serviceLoaderName'] as String?
-  ..quantityToProduce = (json['quantityToProduce'] as num?)?.toDouble()
-  ..quantityProduced = (json['quantityProduced'] as num?)?.toDouble()
-  ..quantityRejected = (json['quantityRejected'] as num?)?.toDouble()
-  ..reservPersons = (json['reservPersons'] as num?)?.toDouble()
-  ..reserv2ndPPPerc = (json['reserv2ndPPPerc'] as num?)?.toDouble()
-  ..reservNthPPPerc = (json['reservNthPPPerc'] as num?)?.toDouble()
-  ..accommodationMapId = json['accommodationMapId'] as String?
-  ..accommodationSpotId = json['accommodationSpotId'] as String?
-  ..revisionNumber = (json['revisionNumber'] as num?)?.toInt()
-  ..createdDate = json['createdDate'] == null
-      ? null
-      : DateTime.parse(json['createdDate'] as String)
-  ..createdByUserLogin = json['createdByUserLogin'] as String?
-  ..lastModifiedDate = json['lastModifiedDate'] == null
-      ? null
-      : DateTime.parse(json['lastModifiedDate'] as String)
-  ..lastModifiedByUserLogin = json['lastModifiedByUserLogin'] as String?
-  ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
-      ? null
-      : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-  ..createdTxStamp = json['createdTxStamp'] == null
-      ? null
-      : DateTime.parse(json['createdTxStamp'] as String)
-  ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-  ..tenantId = json['tenantId'] as String?
-  ..slotId = json['slotId'] as String?
-  ..confirmation = $enumDecodeNullable(_$IndicatorEnumMap, json['confirmation'])
-  ..evict = json['evict'] as bool?
-  ..acl = json['acl'] == null
-      ? null
-      : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>)
-  ..workEffortType = json['workEffortType'] == null
-      ? null
-      : WorkEffortType.fromJson(json['workEffortType'] as Map<String, dynamic>)
-  ..workEffortTransaction = (json['workEffortTransaction'] as List<dynamic>?)
-      ?.map((e) => WorkEffortTransaction.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortNote = (json['workEffortNote'] as List<dynamic>?)
-      ?.map((e) => WorkEffortNote.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortFixedAssetAssign = (json['workEffortFixedAssetAssign']
-          as List<dynamic>?)
-      ?.map(
-          (e) => WorkEffortFixedAssetAssign.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortSkillStandard = (json['workEffortSkillStandard']
-          as List<dynamic>?)
-      ?.map((e) => WorkEffortSkillStandard.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortCostCalc = (json['workEffortCostCalc'] as List<dynamic>?)
-      ?.map((e) => WorkEffortCostCalc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortAttribute = (json['workEffortAttribute'] as List<dynamic>?)
-      ?.map((e) => WorkEffortAttribute.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortPartyAssignment = (json['workEffortPartyAssignment']
-          as List<dynamic>?)
-      ?.map(
-          (e) => WorkEffortPartyAssignment.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..workEffortStatus = (json['workEffortStatus'] as List<dynamic>?)
-      ?.map((e) => WorkEffortStatus.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..fromWorkEffortAssoc = (json['fromWorkEffortAssoc'] as List<dynamic>?)
-      ?.map((e) => WorkEffortAssoc.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..toWorkEffortAssoc = (json['toWorkEffortAssoc'] as List<dynamic>?)
-      ?.map((e) => WorkEffortAssoc.fromJson(e as Map<String, dynamic>))
-      .toList();
+WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
+      workEffortId: json['workEffortId'] as String?,
+      workEffortTypeId: json['workEffortTypeId'] as String?,
+      currentStatusId: json['currentStatusId'] as String?,
+      lastStatusUpdate: json['lastStatusUpdate'] == null
+          ? null
+          : DateTime.parse(json['lastStatusUpdate'] as String),
+      workEffortPurposeTypeId: json['workEffortPurposeTypeId'] as String?,
+      workEffortParentId: json['workEffortParentId'] as String?,
+      scopeEnumId: json['scopeEnumId'] as String?,
+      priority: (json['priority'] as num?)?.toInt(),
+      percentComplete: (json['percentComplete'] as num?)?.toInt(),
+      workEffortName: json['workEffortName'] as String?,
+      showAsEnumId: json['showAsEnumId'] as String?,
+      sendNotificationEmail: $enumDecodeNullable(
+          _$IndicatorEnumMap, json['sendNotificationEmail']),
+      description: json['description'] as String?,
+      locationDesc: json['locationDesc'] as String?,
+      estimatedStartDate: json['estimatedStartDate'] == null
+          ? null
+          : DateTime.parse(json['estimatedStartDate'] as String),
+      estimatedCompletionDate: json['estimatedCompletionDate'] == null
+          ? null
+          : DateTime.parse(json['estimatedCompletionDate'] as String),
+      actualStartDate: json['actualStartDate'] == null
+          ? null
+          : DateTime.parse(json['actualStartDate'] as String),
+      actualCompletionDate: json['actualCompletionDate'] == null
+          ? null
+          : DateTime.parse(json['actualCompletionDate'] as String),
+      estimatedMilliSeconds:
+          (json['estimatedMilliSeconds'] as num?)?.toDouble(),
+      estimatedSetupMillis: (json['estimatedSetupMillis'] as num?)?.toDouble(),
+      estimateCalcMethod: json['estimateCalcMethod'] as String?,
+      actualMilliSeconds: (json['actualMilliSeconds'] as num?)?.toDouble(),
+      actualSetupMillis: (json['actualSetupMillis'] as num?)?.toDouble(),
+      totalMilliSecondsAllowed:
+          (json['totalMilliSecondsAllowed'] as num?)?.toDouble(),
+      totalMoneyAllowed: (json['totalMoneyAllowed'] as num?)?.toDouble(),
+      moneyUomId: json['moneyUomId'] as String?,
+      specialTerms: json['specialTerms'] as String?,
+      timeTransparency: (json['timeTransparency'] as num?)?.toInt(),
+      universalId: json['universalId'] as String?,
+      sourceReferenceId: json['sourceReferenceId'] as String?,
+      fixedAssetId: json['fixedAssetId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      infoUrl: json['infoUrl'] as String?,
+      recurrenceInfoId: json['recurrenceInfoId'] as String?,
+      tempExprId: json['tempExprId'] as String?,
+      runtimeDataId: json['runtimeDataId'] as String?,
+      noteId: json['noteId'] as String?,
+      serviceLoaderName: json['serviceLoaderName'] as String?,
+      quantityToProduce: (json['quantityToProduce'] as num?)?.toDouble(),
+      quantityProduced: (json['quantityProduced'] as num?)?.toDouble(),
+      quantityRejected: (json['quantityRejected'] as num?)?.toDouble(),
+      reservPersons: (json['reservPersons'] as num?)?.toDouble(),
+      reserv2ndPPPerc: (json['reserv2ndPPPerc'] as num?)?.toDouble(),
+      reservNthPPPerc: (json['reservNthPPPerc'] as num?)?.toDouble(),
+      accommodationMapId: json['accommodationMapId'] as String?,
+      accommodationSpotId: json['accommodationSpotId'] as String?,
+      revisionNumber: (json['revisionNumber'] as num?)?.toInt(),
+      createdDate: json['createdDate'] == null
+          ? null
+          : DateTime.parse(json['createdDate'] as String),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      lastModifiedDate: json['lastModifiedDate'] == null
+          ? null
+          : DateTime.parse(json['lastModifiedDate'] as String),
+      lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      tenantId: json['tenantId'] as String?,
+      slotId: json['slotId'] as String?,
+      confirmation:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['confirmation']),
+      evict: json['evict'] as bool?,
+      acl: json['acl'] == null
+          ? null
+          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      workEffortType: json['workEffortType'] == null
+          ? null
+          : WorkEffortType.fromJson(
+              json['workEffortType'] as Map<String, dynamic>),
+      workEffortTransaction: (json['workEffortTransaction'] as List<dynamic>?)
+          ?.map(
+              (e) => WorkEffortTransaction.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workEffortNote: (json['workEffortNote'] as List<dynamic>?)
+          ?.map((e) => WorkEffortNote.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workEffortFixedAssetAssign: (json['workEffortFixedAssetAssign']
+              as List<dynamic>?)
+          ?.map((e) =>
+              WorkEffortFixedAssetAssign.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workEffortSkillStandard:
+          (json['workEffortSkillStandard'] as List<dynamic>?)
+              ?.map((e) =>
+                  WorkEffortSkillStandard.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      workEffortCostCalc: (json['workEffortCostCalc'] as List<dynamic>?)
+          ?.map((e) => WorkEffortCostCalc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workEffortAttribute: (json['workEffortAttribute'] as List<dynamic>?)
+          ?.map((e) => WorkEffortAttribute.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      workEffortPartyAssignment:
+          (json['workEffortPartyAssignment'] as List<dynamic>?)
+              ?.map((e) =>
+                  WorkEffortPartyAssignment.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      workEffortStatus: (json['workEffortStatus'] as List<dynamic>?)
+          ?.map((e) => WorkEffortStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      fromWorkEffortAssoc: (json['fromWorkEffortAssoc'] as List<dynamic>?)
+          ?.map((e) => WorkEffortAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      toWorkEffortAssoc: (json['toWorkEffortAssoc'] as List<dynamic>?)
+          ?.map((e) => WorkEffortAssoc.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
   final val = <String, dynamic>{};
@@ -260,18 +266,19 @@ const _$IndicatorEnumMap = {
 
 WorkEffortTransaction _$WorkEffortTransactionFromJson(
         Map<String, dynamic> json) =>
-    WorkEffortTransaction()
-      ..workEffortId = json['workEffortId'] as String?
-      ..transactionId = json['transactionId'] as String?
-      ..bindType = json['bindType'] as String?
-      ..tenantId = json['tenantId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    WorkEffortTransaction(
+      workEffortId: json['workEffortId'] as String?,
+      transactionId: json['transactionId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortTransactionToJson(
     WorkEffortTransaction instance) {
@@ -295,18 +302,19 @@ Map<String, dynamic> _$WorkEffortTransactionToJson(
 }
 
 WorkEffortNote _$WorkEffortNoteFromJson(Map<String, dynamic> json) =>
-    WorkEffortNote()
-      ..workEffortId = json['workEffortId'] as String?
-      ..noteId = json['noteId'] as String?
-      ..internalNote =
-          $enumDecodeNullable(_$IndicatorEnumMap, json['internalNote'])
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    WorkEffortNote(
+      workEffortId: json['workEffortId'] as String?,
+      noteId: json['noteId'] as String?,
+      internalNote:
+          $enumDecodeNullable(_$IndicatorEnumMap, json['internalNote']),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortNoteToJson(WorkEffortNote instance) {
   final val = <String, dynamic>{};
@@ -329,26 +337,27 @@ Map<String, dynamic> _$WorkEffortNoteToJson(WorkEffortNote instance) {
 
 WorkEffortFixedAssetAssign _$WorkEffortFixedAssetAssignFromJson(
         Map<String, dynamic> json) =>
-    WorkEffortFixedAssetAssign()
-      ..workEffortId = json['workEffortId'] as String?
-      ..fixedAssetId = json['fixedAssetId'] as String?
-      ..statusId = json['statusId'] as String?
-      ..fromDate = json['fromDate'] == null
+    WorkEffortFixedAssetAssign(
+      workEffortId: json['workEffortId'] as String?,
+      fixedAssetId: json['fixedAssetId'] as String?,
+      statusId: json['statusId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..availabilityStatusId = json['availabilityStatusId'] as String?
-      ..allocatedCost = (json['allocatedCost'] as num?)?.toDouble()
-      ..comments = json['comments'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      availabilityStatusId: json['availabilityStatusId'] as String?,
+      allocatedCost: (json['allocatedCost'] as num?)?.toDouble(),
+      comments: json['comments'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortFixedAssetAssignToJson(
     WorkEffortFixedAssetAssign instance) {
@@ -377,19 +386,20 @@ Map<String, dynamic> _$WorkEffortFixedAssetAssignToJson(
 
 WorkEffortSkillStandard _$WorkEffortSkillStandardFromJson(
         Map<String, dynamic> json) =>
-    WorkEffortSkillStandard()
-      ..workEffortId = json['workEffortId'] as String?
-      ..skillTypeId = json['skillTypeId'] as String?
-      ..estimatedNumPeople = (json['estimatedNumPeople'] as num?)?.toDouble()
-      ..estimatedDuration = (json['estimatedDuration'] as num?)?.toDouble()
-      ..estimatedCost = (json['estimatedCost'] as num?)?.toDouble()
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    WorkEffortSkillStandard(
+      workEffortId: json['workEffortId'] as String?,
+      skillTypeId: json['skillTypeId'] as String?,
+      estimatedNumPeople: (json['estimatedNumPeople'] as num?)?.toDouble(),
+      estimatedDuration: (json['estimatedDuration'] as num?)?.toDouble(),
+      estimatedCost: (json['estimatedCost'] as num?)?.toDouble(),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortSkillStandardToJson(
     WorkEffortSkillStandard instance) {
@@ -414,23 +424,24 @@ Map<String, dynamic> _$WorkEffortSkillStandardToJson(
 }
 
 WorkEffortCostCalc _$WorkEffortCostCalcFromJson(Map<String, dynamic> json) =>
-    WorkEffortCostCalc()
-      ..workEffortId = json['workEffortId'] as String?
-      ..costComponentTypeId = json['costComponentTypeId'] as String?
-      ..costComponentCalcId = json['costComponentCalcId'] as String?
-      ..fromDate = json['fromDate'] == null
+    WorkEffortCostCalc(
+      workEffortId: json['workEffortId'] as String?,
+      costComponentTypeId: json['costComponentTypeId'] as String?,
+      costComponentCalcId: json['costComponentCalcId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortCostCalcToJson(WorkEffortCostCalc instance) {
   final val = <String, dynamic>{};
@@ -454,18 +465,19 @@ Map<String, dynamic> _$WorkEffortCostCalcToJson(WorkEffortCostCalc instance) {
 }
 
 WorkEffortAttribute _$WorkEffortAttributeFromJson(Map<String, dynamic> json) =>
-    WorkEffortAttribute()
-      ..workEffortId = json['workEffortId'] as String?
-      ..attrName = json['attrName'] as String?
-      ..attrValue = json['attrValue'] as String?
-      ..attrDescription = json['attrDescription'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    WorkEffortAttribute(
+      workEffortId: json['workEffortId'] as String?,
+      attrName: json['attrName'] as String?,
+      attrValue: json['attrValue'] as String?,
+      attrDescription: json['attrDescription'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortAttributeToJson(WorkEffortAttribute instance) {
   final val = <String, dynamic>{};
@@ -489,34 +501,35 @@ Map<String, dynamic> _$WorkEffortAttributeToJson(WorkEffortAttribute instance) {
 
 WorkEffortPartyAssignment _$WorkEffortPartyAssignmentFromJson(
         Map<String, dynamic> json) =>
-    WorkEffortPartyAssignment()
-      ..workEffortId = json['workEffortId'] as String?
-      ..partyId = json['partyId'] as String?
-      ..roleTypeId = json['roleTypeId'] as String?
-      ..fromDate = json['fromDate'] == null
+    WorkEffortPartyAssignment(
+      workEffortId: json['workEffortId'] as String?,
+      partyId: json['partyId'] as String?,
+      roleTypeId: json['roleTypeId'] as String?,
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..assignedByUserLoginId = json['assignedByUserLoginId'] as String?
-      ..statusId = json['statusId'] as String?
-      ..statusDateTime = json['statusDateTime'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      assignedByUserLoginId: json['assignedByUserLoginId'] as String?,
+      statusId: json['statusId'] as String?,
+      statusDateTime: json['statusDateTime'] == null
           ? null
-          : DateTime.parse(json['statusDateTime'] as String)
-      ..expectationEnumId = json['expectationEnumId'] as String?
-      ..delegateReasonEnumId = json['delegateReasonEnumId'] as String?
-      ..facilityId = json['facilityId'] as String?
-      ..comments = json['comments'] as String?
-      ..mustRsvp = $enumDecodeNullable(_$IndicatorEnumMap, json['mustRsvp'])
-      ..availabilityStatusId = json['availabilityStatusId'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['statusDateTime'] as String),
+      expectationEnumId: json['expectationEnumId'] as String?,
+      delegateReasonEnumId: json['delegateReasonEnumId'] as String?,
+      facilityId: json['facilityId'] as String?,
+      comments: json['comments'] as String?,
+      mustRsvp: $enumDecodeNullable(_$IndicatorEnumMap, json['mustRsvp']),
+      availabilityStatusId: json['availabilityStatusId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortPartyAssignmentToJson(
     WorkEffortPartyAssignment instance) {
@@ -550,21 +563,22 @@ Map<String, dynamic> _$WorkEffortPartyAssignmentToJson(
 }
 
 WorkEffortStatus _$WorkEffortStatusFromJson(Map<String, dynamic> json) =>
-    WorkEffortStatus()
-      ..workEffortId = json['workEffortId'] as String?
-      ..statusId = json['statusId'] as String?
-      ..statusDatetime = json['statusDatetime'] == null
+    WorkEffortStatus(
+      workEffortId: json['workEffortId'] as String?,
+      statusId: json['statusId'] as String?,
+      statusDatetime: json['statusDatetime'] == null
           ? null
-          : DateTime.parse(json['statusDatetime'] as String)
-      ..setByUserLogin = json['setByUserLogin'] as String?
-      ..reason = json['reason'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['statusDatetime'] as String),
+      setByUserLogin: json['setByUserLogin'] as String?,
+      reason: json['reason'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortStatusToJson(WorkEffortStatus instance) {
   final val = <String, dynamic>{};
@@ -588,18 +602,19 @@ Map<String, dynamic> _$WorkEffortStatusToJson(WorkEffortStatus instance) {
 }
 
 WorkEffortType _$WorkEffortTypeFromJson(Map<String, dynamic> json) =>
-    WorkEffortType()
-      ..workEffortTypeId = json['workEffortTypeId'] as String?
-      ..parentTypeId = json['parentTypeId'] as String?
-      ..hasTable = $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable'])
-      ..description = json['description'] as String?
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+    WorkEffortType(
+      workEffortTypeId: json['workEffortTypeId'] as String?,
+      parentTypeId: json['parentTypeId'] as String?,
+      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      description: json['description'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..tenantId = json['tenantId'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      tenantId: json['tenantId'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortTypeToJson(WorkEffortType instance) {
   final val = <String, dynamic>{};
@@ -622,24 +637,25 @@ Map<String, dynamic> _$WorkEffortTypeToJson(WorkEffortType instance) {
 }
 
 WorkEffortAssoc _$WorkEffortAssocFromJson(Map<String, dynamic> json) =>
-    WorkEffortAssoc()
-      ..workEffortIdFrom = json['workEffortIdFrom'] as String?
-      ..workEffortIdTo = json['workEffortIdTo'] as String?
-      ..workEffortAssocTypeId = json['workEffortAssocTypeId'] as String?
-      ..sequenceNum = (json['sequenceNum'] as num?)?.toInt()
-      ..fromDate = json['fromDate'] == null
+    WorkEffortAssoc(
+      workEffortIdFrom: json['workEffortIdFrom'] as String?,
+      workEffortIdTo: json['workEffortIdTo'] as String?,
+      workEffortAssocTypeId: json['workEffortAssocTypeId'] as String?,
+      sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
+      fromDate: json['fromDate'] == null
           ? null
-          : DateTime.parse(json['fromDate'] as String)
-      ..thruDate = json['thruDate'] == null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
           ? null
-          : DateTime.parse(json['thruDate'] as String)
-      ..lastUpdatedTxStamp = json['lastUpdatedTxStamp'] == null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
-          : DateTime.parse(json['lastUpdatedTxStamp'] as String)
-      ..createdTxStamp = json['createdTxStamp'] == null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
           ? null
-          : DateTime.parse(json['createdTxStamp'] as String)
-      ..id = json['id'] as String?;
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$WorkEffortAssocToJson(WorkEffortAssoc instance) {
   final val = <String, dynamic>{};

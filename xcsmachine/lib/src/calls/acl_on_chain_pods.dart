@@ -13,11 +13,11 @@ part 'acl_on_chain_pods.g.dart';
 
 @Riverpod(keepAlive: true)
 AclOnChainRepository aclOnChain(AclOnChainRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
 }) {
   var conn = ref.watch(httpConnectorProvider);
   
-  return AclOnChainRepository(conn.dio, regionId: regionId);
+  return AclOnChainRepository(conn.dio, regionOrNs: regionOrNs);
   
 }
 
@@ -25,7 +25,7 @@ AclOnChainRepository aclOnChain(AclOnChainRef ref, {
 class AclOnChainPod extends _$AclOnChainPod {
   @override
   FutureOr<void> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
   }) async {
     // ok to leave this empty if the return type is FutureOr<void>
   }
@@ -42,7 +42,7 @@ class AclOnChainPod extends _$AclOnChainPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(aclOnChainProvider(regionId: regionId)).grant(
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).grant(
               caller: caller,
               biName: biName,
               bundleId: bundleId,
@@ -61,7 +61,7 @@ class AclOnChainPod extends _$AclOnChainPod {
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(aclOnChainProvider(regionId: regionId)).setOwner(
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).setOwner(
               biName: biName,
               bundleId: bundleId,
               userOrGroup: userOrGroup,
@@ -71,49 +71,49 @@ class AclOnChainPod extends _$AclOnChainPod {
     
 }
 
-
-@riverpod
-Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
-  String regionId='default',
   
-    required String mod, 
-
-}) async {
-  var pod=ref.watch(aclOnChainProvider(regionId: regionId));
-  return await pod.getPublicMethods(
-      mod: mod,
-  );
-}
-
-@riverpod
-Future<bool> aocHasRole(AocHasRoleRef ref, {
-  String regionId='default',
-  
-    required String partyId,
-    required String role, 
-
-}) async {
-  var pod=ref.watch(aclOnChainProvider(regionId: regionId));
-  return await pod.hasRole(
-      partyId: partyId,
-      role: role,
-  );
-}
-
 @riverpod
 Future<bool> aocIsOwner(AocIsOwnerRef ref, {
-  String regionId='default',
+  String regionOrNs='default',
   
     required String biName,
     required String bundleId,
     required String userOrGroup, 
 
 }) async {
-  var pod=ref.watch(aclOnChainProvider(regionId: regionId));
+  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
   return await pod.isOwner(
       biName: biName,
       bundleId: bundleId,
       userOrGroup: userOrGroup,
+  );
+}
+  
+@riverpod
+Future<bool> aocHasRole(AocHasRoleRef ref, {
+  String regionOrNs='default',
+  
+    required String partyId,
+    required String role, 
+
+}) async {
+  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.hasRole(
+      partyId: partyId,
+      role: role,
+  );
+}
+  
+@riverpod
+Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
+  String regionOrNs='default',
+  
+    required String mod, 
+
+}) async {
+  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.getPublicMethods(
+      mod: mod,
   );
 }
 

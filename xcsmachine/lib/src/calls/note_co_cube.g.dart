@@ -6,7 +6,7 @@ part of 'note_co_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteCoCubeHash() => r'88dfcff64c94804bf3342c8612cd8279cfb5701c';
+String _$noteCoCubeHash() => r'd703a6e7e0e640f755132a7bcf3ca0e9c2462bad';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -30,11 +30,11 @@ class _SystemHash {
 }
 
 abstract class _$NoteCoCube extends BuildlessAutoDisposeAsyncNotifier<Note> {
-  late final String regionId;
+  late final String regionOrNs;
   late final String id;
 
   FutureOr<Note> build({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   });
 }
@@ -50,11 +50,11 @@ class NoteCoCubeFamily extends Family<AsyncValue<Note>> {
 
   /// See also [NoteCoCube].
   NoteCoCubeProvider call({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) {
     return NoteCoCubeProvider(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -64,7 +64,7 @@ class NoteCoCubeFamily extends Family<AsyncValue<Note>> {
     covariant NoteCoCubeProvider provider,
   ) {
     return call(
-      regionId: provider.regionId,
+      regionOrNs: provider.regionOrNs,
       id: provider.id,
     );
   }
@@ -89,11 +89,11 @@ class NoteCoCubeProvider
     extends AutoDisposeAsyncNotifierProviderImpl<NoteCoCube, Note> {
   /// See also [NoteCoCube].
   NoteCoCubeProvider({
-    String regionId = 'default',
+    String regionOrNs = 'default',
     required String id,
   }) : this._internal(
           () => NoteCoCube()
-            ..regionId = regionId
+            ..regionOrNs = regionOrNs
             ..id = id,
           from: noteCoCubeProvider,
           name: r'noteCoCubeProvider',
@@ -104,7 +104,7 @@ class NoteCoCubeProvider
           dependencies: NoteCoCubeFamily._dependencies,
           allTransitiveDependencies:
               NoteCoCubeFamily._allTransitiveDependencies,
-          regionId: regionId,
+          regionOrNs: regionOrNs,
           id: id,
         );
 
@@ -115,11 +115,11 @@ class NoteCoCubeProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.regionId,
+    required this.regionOrNs,
     required this.id,
   }) : super.internal();
 
-  final String regionId;
+  final String regionOrNs;
   final String id;
 
   @override
@@ -127,7 +127,7 @@ class NoteCoCubeProvider
     covariant NoteCoCube notifier,
   ) {
     return notifier.build(
-      regionId: regionId,
+      regionOrNs: regionOrNs,
       id: id,
     );
   }
@@ -138,14 +138,14 @@ class NoteCoCubeProvider
       origin: this,
       override: NoteCoCubeProvider._internal(
         () => create()
-          ..regionId = regionId
+          ..regionOrNs = regionOrNs
           ..id = id,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        regionId: regionId,
+        regionOrNs: regionOrNs,
         id: id,
       ),
     );
@@ -159,14 +159,14 @@ class NoteCoCubeProvider
   @override
   bool operator ==(Object other) {
     return other is NoteCoCubeProvider &&
-        other.regionId == regionId &&
+        other.regionOrNs == regionOrNs &&
         other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
@@ -174,8 +174,8 @@ class NoteCoCubeProvider
 }
 
 mixin NoteCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Note> {
-  /// The parameter `regionId` of this provider.
-  String get regionId;
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
 
   /// The parameter `id` of this provider.
   String get id;
@@ -187,7 +187,7 @@ class _NoteCoCubeProviderElement
   _NoteCoCubeProviderElement(super.provider);
 
   @override
-  String get regionId => (origin as NoteCoCubeProvider).regionId;
+  String get regionOrNs => (origin as NoteCoCubeProvider).regionOrNs;
   @override
   String get id => (origin as NoteCoCubeProvider).id;
 }

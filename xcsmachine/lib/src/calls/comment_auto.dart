@@ -8,13 +8,13 @@ import 'calls.dart';
 
 class CommentAutoRepository {
   CommentAutoRepository(this.dio, {
-    this.regionId='default',
+    this.regionOrNs='default',
     this.moduleName='commentAuto',
     required this.id,
   });
 
   final Dio dio;
-  final String regionId;
+  final String regionOrNs;
   final String moduleName;
   final String id;
 
@@ -26,7 +26,7 @@ class CommentAutoRepository {
       "action": "getDecimals",
       "bundleName" : "Comment",
       "call-type": "co",
-      "regionId": regionId,
+      "regionId": regionOrNs,
       "id": id,
     }, { 
     });
