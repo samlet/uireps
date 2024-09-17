@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'note.g.dart';
 
@@ -42,7 +43,7 @@ class Note {
     String? moreInfoItemName,
     String? tenantId,
     bool? evict,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     List<NoteDataSlot>? noteDataSlot,
   }) {
     return Note(
@@ -108,8 +109,9 @@ class Note {
    
   bool? evict;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)

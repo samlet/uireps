@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'inventory.g.dart';
 
@@ -90,7 +91,7 @@ class Inventory {
     String? tenantId,
     String? accountId,
     String? tokenId,
-    Indicator? origin,
+    String? origin,
     bool? evict,
     String? tag1,
     String? tag2,
@@ -253,7 +254,7 @@ class Inventory {
   String? tokenId;
 
    
-  Indicator? origin;
+  String? origin;
 
    
   bool? evict;
@@ -731,7 +732,7 @@ class InventoryItemType {
   InventoryItemType copyWith({
     String? inventoryItemTypeId,
     String? parentTypeId,
-    Indicator? hasTable,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -758,7 +759,7 @@ class InventoryItemType {
   String? parentTypeId;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;

@@ -21,7 +21,7 @@ DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource(
       surveyId: json['surveyId'] as String?,
       surveyResponseId: json['surveyResponseId'] as String?,
       relatedDetailId: json['relatedDetailId'] as String?,
-      isPublic: $enumDecodeNullable(_$IndicatorEnumMap, json['isPublic']),
+      isPublic: json['isPublic'] as String?,
       createdDate: json['createdDate'] == null
           ? null
           : DateTime.parse(json['createdDate'] as String),
@@ -38,9 +38,8 @@ DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource(
           : DateTime.parse(json['createdTxStamp'] as String),
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       electronicText: json['electronicText'] == null
           ? null
           : ElectronicText.fromJson(
@@ -89,7 +88,7 @@ Map<String, dynamic> _$DataResourceToJson(DataResource instance) {
   writeNotNull('surveyId', instance.surveyId);
   writeNotNull('surveyResponseId', instance.surveyResponseId);
   writeNotNull('relatedDetailId', instance.relatedDetailId);
-  writeNotNull('isPublic', _$IndicatorEnumMap[instance.isPublic]);
+  writeNotNull('isPublic', instance.isPublic);
   writeNotNull('createdDate', instance.createdDate?.toIso8601String());
   writeNotNull('createdByUserLogin', instance.createdByUserLogin);
   writeNotNull(
@@ -100,7 +99,7 @@ Map<String, dynamic> _$DataResourceToJson(DataResource instance) {
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('evict', instance.evict);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('electronicText', instance.electronicText?.toJson());
   writeNotNull('audioDataResource', instance.audioDataResource?.toJson());
   writeNotNull('dataResourceType', instance.dataResourceType?.toJson());
@@ -110,38 +109,6 @@ Map<String, dynamic> _$DataResourceToJson(DataResource instance) {
       instance.dataResourceSlot?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 ElectronicText _$ElectronicTextFromJson(Map<String, dynamic> json) =>
     ElectronicText(
@@ -211,7 +178,7 @@ DataResourceType _$DataResourceTypeFromJson(Map<String, dynamic> json) =>
     DataResourceType(
       dataResourceTypeId: json['dataResourceTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -233,7 +200,7 @@ Map<String, dynamic> _$DataResourceTypeToJson(DataResourceType instance) {
 
   writeNotNull('dataResourceTypeId', instance.dataResourceTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());

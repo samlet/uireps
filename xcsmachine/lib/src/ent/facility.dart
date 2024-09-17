@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'facility.g.dart';
 
@@ -82,7 +83,7 @@ class Facility {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     FacilityType? facilityType,
     List<FacilityCalendar>? facilityCalendar,
     List<FacilityMultisig>? facilityMultisig,
@@ -228,8 +229,9 @@ class Facility {
    
   List<String?>? moreTags;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)
@@ -1139,7 +1141,7 @@ class FacilityType {
   FacilityType copyWith({
     String? facilityTypeId,
     String? parentTypeId,
-    Indicator? hasTable,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -1166,7 +1168,7 @@ class FacilityType {
   String? parentTypeId;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;

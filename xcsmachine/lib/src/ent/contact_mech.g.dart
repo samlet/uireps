@@ -18,9 +18,8 @@ ContactMech _$ContactMechFromJson(Map<String, dynamic> json) => ContactMech(
           : DateTime.parse(json['createdTxStamp'] as String),
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       postalAddress: json['postalAddress'] == null
           ? null
           : PostalAddress.fromJson(
@@ -55,7 +54,7 @@ Map<String, dynamic> _$ContactMechToJson(ContactMech instance) {
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('evict', instance.evict);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('postalAddress', instance.postalAddress?.toJson());
   writeNotNull('contactMechType', instance.contactMechType?.toJson());
   writeNotNull('telecomNumber', instance.telecomNumber?.toJson());
@@ -131,7 +130,7 @@ ContactMechType _$ContactMechTypeFromJson(Map<String, dynamic> json) =>
     ContactMechType(
       contactMechTypeId: json['contactMechTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -153,7 +152,7 @@ Map<String, dynamic> _$ContactMechTypeToJson(ContactMechType instance) {
 
   writeNotNull('contactMechTypeId', instance.contactMechTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -161,38 +160,6 @@ Map<String, dynamic> _$ContactMechTypeToJson(ContactMechType instance) {
   writeNotNull('tenantId', instance.tenantId);
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 ContactMechLink _$ContactMechLinkFromJson(Map<String, dynamic> json) =>
     ContactMechLink(

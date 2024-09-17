@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'work_effort.g.dart';
 
@@ -97,7 +98,7 @@ class WorkEffort {
     int? percentComplete,
     String? workEffortName,
     String? showAsEnumId,
-    Indicator? sendNotificationEmail,
+    String? sendNotificationEmail,
     String? description,
     String? locationDesc,
     DateTime? estimatedStartDate,
@@ -142,9 +143,9 @@ class WorkEffort {
     int? sequenceNum,
     String? tenantId,
     String? slotId,
-    Indicator? confirmation,
+    String? confirmation,
     bool? evict,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     WorkEffortType? workEffortType,
     List<WorkEffortTransaction>? workEffortTransaction,
     List<WorkEffortNote>? workEffortNote,
@@ -274,7 +275,7 @@ class WorkEffort {
   String? showAsEnumId;
 
    
-  Indicator? sendNotificationEmail;
+  String? sendNotificationEmail;
 
    
   String? description;
@@ -409,13 +410,14 @@ class WorkEffort {
   String? slotId;
 
    
-  Indicator? confirmation;
+  String? confirmation;
 
    
   bool? evict;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)
@@ -486,7 +488,7 @@ class WorkEffort {
   void updateWorkEffortNote(String id, {
     String? workEffortId_,
     String? noteId_,
-    Indicator? internalNote_,
+    String? internalNote_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -696,7 +698,7 @@ class WorkEffort {
     String? delegateReasonEnumId_,
     String? facilityId_,
     String? comments_,
-    Indicator? mustRsvp_,
+    String? mustRsvp_,
     String? availabilityStatusId_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
@@ -934,7 +936,7 @@ class WorkEffortNote {
   WorkEffortNote copyWith({
     String? workEffortId,
     String? noteId,
-    Indicator? internalNote,
+    String? internalNote,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -959,7 +961,7 @@ class WorkEffortNote {
   String? noteId;
 
    
-  Indicator? internalNote;
+  String? internalNote;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -1285,7 +1287,7 @@ class WorkEffortPartyAssignment {
     String? delegateReasonEnumId,
     String? facilityId,
     String? comments,
-    Indicator? mustRsvp,
+    String? mustRsvp,
     String? availabilityStatusId,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -1352,7 +1354,7 @@ class WorkEffortPartyAssignment {
   String? comments;
 
    
-  Indicator? mustRsvp;
+  String? mustRsvp;
 
    
   String? availabilityStatusId;
@@ -1451,7 +1453,7 @@ class WorkEffortType {
   WorkEffortType copyWith({
     String? workEffortTypeId,
     String? parentTypeId,
-    Indicator? hasTable,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -1478,7 +1480,7 @@ class WorkEffortType {
   String? parentTypeId;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;

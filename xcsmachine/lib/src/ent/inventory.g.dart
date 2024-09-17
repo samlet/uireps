@@ -52,7 +52,7 @@ Inventory _$InventoryFromJson(Map<String, dynamic> json) => Inventory(
       tenantId: json['tenantId'] as String?,
       accountId: json['accountId'] as String?,
       tokenId: json['tokenId'] as String?,
-      origin: $enumDecodeNullable(_$IndicatorEnumMap, json['origin']),
+      origin: json['origin'] as String?,
       evict: json['evict'] as bool?,
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
@@ -126,7 +126,7 @@ Map<String, dynamic> _$InventoryToJson(Inventory instance) {
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('accountId', instance.accountId);
   writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('origin', _$IndicatorEnumMap[instance.origin]);
+  writeNotNull('origin', instance.origin);
   writeNotNull('evict', instance.evict);
   writeNotNull('tag1', instance.tag1);
   writeNotNull('tag2', instance.tag2);
@@ -145,38 +145,6 @@ Map<String, dynamic> _$InventoryToJson(Inventory instance) {
       instance.inventoryItemVariance?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 InventoryTransfer _$InventoryTransferFromJson(Map<String, dynamic> json) =>
     InventoryTransfer(
@@ -274,7 +242,7 @@ InventoryItemType _$InventoryItemTypeFromJson(Map<String, dynamic> json) =>
     InventoryItemType(
       inventoryItemTypeId: json['inventoryItemTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -296,7 +264,7 @@ Map<String, dynamic> _$InventoryItemTypeToJson(InventoryItemType instance) {
 
   writeNotNull('inventoryItemTypeId', instance.inventoryItemTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());

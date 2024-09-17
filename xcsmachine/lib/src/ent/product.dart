@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'product.g.dart';
 
@@ -122,7 +123,7 @@ class Product {
     DateTime? releaseDate,
     DateTime? supportDiscontinuationDate,
     DateTime? salesDiscontinuationDate,
-    Indicator? salesDiscWhenNotAvail,
+    String? salesDiscWhenNotAvail,
     String? internalName,
     String? brandName,
     String? comments,
@@ -138,11 +139,11 @@ class Product {
     String? detailScreen,
     String? inventoryMessage,
     String? inventoryItemTypeId,
-    Indicator? requireInventory,
+    String? requireInventory,
     String? quantityUomId,
     double? quantityIncluded,
     int? piecesIncluded,
-    Indicator? requireAmount,
+    String? requireAmount,
     double? fixedAmount,
     String? amountUomTypeId,
     String? weightUomId,
@@ -161,13 +162,13 @@ class Product {
     double? productDiameter,
     double? productRating,
     String? ratingTypeEnum,
-    Indicator? returnable,
-    Indicator? taxable,
-    Indicator? chargeShipping,
-    Indicator? autoCreateKeywords,
-    Indicator? includeInPromotions,
-    Indicator? isVirtual,
-    Indicator? isVariant,
+    String? returnable,
+    String? taxable,
+    String? chargeShipping,
+    String? autoCreateKeywords,
+    String? includeInPromotions,
+    String? isVirtual,
+    String? isVariant,
     String? virtualVariantMethodEnum,
     String? originGeoId,
     String? requirementMethodEnumId,
@@ -180,10 +181,10 @@ class Product {
     String? createdByUserLogin,
     DateTime? lastModifiedDate,
     String? lastModifiedByUserLogin,
-    Indicator? inShippingBox,
+    String? inShippingBox,
     String? defaultShipmentBoxTypeId,
     String? lotIdFilledIn,
-    Indicator? orderDecimalQuantity,
+    String? orderDecimalQuantity,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -194,7 +195,7 @@ class Product {
     String? tag3,
     List<String?>? moreTags,
     Map<String, String>? jointers,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     ProductType? productType,
     List<FixedAssetProduct>? fixedAssetProduct,
     List<ProductFacility>? productFacility,
@@ -349,7 +350,7 @@ class Product {
   DateTime? salesDiscontinuationDate;
 
    
-  Indicator? salesDiscWhenNotAvail;
+  String? salesDiscWhenNotAvail;
 
    
   String? internalName;
@@ -397,7 +398,7 @@ class Product {
   String? inventoryItemTypeId;
 
    
-  Indicator? requireInventory;
+  String? requireInventory;
 
    
   String? quantityUomId;
@@ -409,7 +410,7 @@ class Product {
   int? piecesIncluded;
 
    
-  Indicator? requireAmount;
+  String? requireAmount;
 
    
   double? fixedAmount;
@@ -466,25 +467,25 @@ class Product {
   String? ratingTypeEnum;
 
    
-  Indicator? returnable;
+  String? returnable;
 
    
-  Indicator? taxable;
+  String? taxable;
 
    
-  Indicator? chargeShipping;
+  String? chargeShipping;
 
    
-  Indicator? autoCreateKeywords;
+  String? autoCreateKeywords;
 
    
-  Indicator? includeInPromotions;
+  String? includeInPromotions;
 
    
-  Indicator? isVirtual;
+  String? isVirtual;
 
    
-  Indicator? isVariant;
+  String? isVariant;
 
    
   String? virtualVariantMethodEnum;
@@ -523,7 +524,7 @@ class Product {
   String? lastModifiedByUserLogin;
 
    
-  Indicator? inShippingBox;
+  String? inShippingBox;
 
    
   String? defaultShipmentBoxTypeId;
@@ -532,7 +533,7 @@ class Product {
   String? lotIdFilledIn;
 
    
-  Indicator? orderDecimalQuantity;
+  String? orderDecimalQuantity;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -564,8 +565,9 @@ class Product {
    
   Map<String, String>? jointers;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)
@@ -791,7 +793,7 @@ class Product {
     String? configTypeId_,
     String? defaultConfigOptionId_,
     DateTime? thruDate_,
-    Indicator? isMandatory_,
+    String? isMandatory_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -848,7 +850,7 @@ class Product {
     double? taxPercentage_,
     String? taxAuthPartyId_,
     String? taxAuthGeoId_,
-    Indicator? taxInPrice_,
+    String? taxInPrice_,
     DateTime? createdDate_,
     String? createdByUserLogin_,
     DateTime? lastModifiedDate_,
@@ -1709,9 +1711,9 @@ class ProductType {
   ProductType copyWith({
     String? productTypeId,
     String? parentTypeId,
-    Indicator? isPhysical,
-    Indicator? isDigital,
-    Indicator? hasTable,
+    String? isPhysical,
+    String? isDigital,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -1740,13 +1742,13 @@ class ProductType {
   String? parentTypeId;
 
    
-  Indicator? isPhysical;
+  String? isPhysical;
 
    
-  Indicator? isDigital;
+  String? isDigital;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;
@@ -1792,7 +1794,7 @@ class ProductConfig {
     String? configTypeId,
     String? defaultConfigOptionId,
     DateTime? thruDate,
-    Indicator? isMandatory,
+    String? isMandatory,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -1845,7 +1847,7 @@ class ProductConfig {
   DateTime? thruDate;
 
    
-  Indicator? isMandatory;
+  String? isMandatory;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -1906,7 +1908,7 @@ class ProductPrice {
     double? taxPercentage,
     String? taxAuthPartyId,
     String? taxAuthGeoId,
-    Indicator? taxInPrice,
+    String? taxInPrice,
     DateTime? createdDate,
     String? createdByUserLogin,
     DateTime? lastModifiedDate,
@@ -1995,7 +1997,7 @@ class ProductPrice {
   String? taxAuthGeoId;
 
    
-  Indicator? taxInPrice;
+  String? taxInPrice;
 
    
   DateTime? createdDate;

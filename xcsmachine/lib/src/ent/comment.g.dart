@@ -22,12 +22,10 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       contentId: json['contentId'] as String?,
       anchor: json['anchor'] as String?,
       paragraph: (json['paragraph'] as num?)?.toInt(),
-      mediaLinks: json['mediaLinks'] == null
-          ? null
-          : MultimapOra.fromJson(json['mediaLinks'] as Map<String, dynamic>),
-      sharedLinks: json['sharedLinks'] == null
-          ? null
-          : MultimapOra.fromJson(json['sharedLinks'] as Map<String, dynamic>),
+      mediaLinks: stringMultimapFromJson(
+          json['mediaLinks'] as Map<String, Iterable<String>>?),
+      sharedLinks: stringMultimapFromJson(
+          json['sharedLinks'] as Map<String, Iterable<String>>?),
       claimPayment: (json['claimPayment'] as num?)?.toDouble(),
       paymentErc: json['paymentErc'] as String?,
       walletId: json['walletId'] as String?,
@@ -41,9 +39,8 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       commentTypeId: json['commentTypeId'] as String?,
       statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       commentType: json['commentType'] == null
           ? null
           : CommentType.fromJson(json['commentType'] as Map<String, dynamic>),
@@ -74,8 +71,8 @@ Map<String, dynamic> _$CommentToJson(Comment instance) {
   writeNotNull('contentId', instance.contentId);
   writeNotNull('anchor', instance.anchor);
   writeNotNull('paragraph', instance.paragraph);
-  writeNotNull('mediaLinks', instance.mediaLinks?.toJson());
-  writeNotNull('sharedLinks', instance.sharedLinks?.toJson());
+  val['mediaLinks'] = stringMultimapToJson(instance.mediaLinks);
+  val['sharedLinks'] = stringMultimapToJson(instance.sharedLinks);
   writeNotNull('claimPayment', instance.claimPayment);
   writeNotNull('paymentErc', instance.paymentErc);
   writeNotNull('walletId', instance.walletId);
@@ -86,7 +83,7 @@ Map<String, dynamic> _$CommentToJson(Comment instance) {
   writeNotNull('commentTypeId', instance.commentTypeId);
   writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('commentType', instance.commentType?.toJson());
   writeNotNull(
       'commentStatus', instance.commentStatus?.map((e) => e.toJson()).toList());

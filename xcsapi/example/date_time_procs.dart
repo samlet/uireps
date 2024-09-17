@@ -7,11 +7,15 @@ void main(List<String> arguments) {
   print(dt);
   print(dt.toIso8601String());
 
+  print("duration ...");
+  print(parseDuration('pt1s'));
+
   //
   var fromDate = "2009-01-09 00:00:00.000";
   print(DateTime.parse(fromDate).toIso8601String());
 
   print(DateTime.parse('2009-01-09'));
+  // print(DateTime.parse('20:18:04'));
 
   // DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
   // print(DateTime.parse('20:18:04'));

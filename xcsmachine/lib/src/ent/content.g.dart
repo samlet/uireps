@@ -49,7 +49,7 @@ Content _$ContentFromJson(Map<String, dynamic> json) => Content(
       ncopies: (json['ncopies'] as num?)?.toDouble(),
       accountId: json['accountId'] as String?,
       tokenId: json['tokenId'] as String?,
-      origin: $enumDecodeNullable(_$IndicatorEnumMap, json['origin']),
+      origin: json['origin'] as String?,
       evict: json['evict'] as bool?,
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
@@ -57,9 +57,8 @@ Content _$ContentFromJson(Map<String, dynamic> json) => Content(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       contentSlot: (json['contentSlot'] as List<dynamic>?)
           ?.map((e) => ContentSlot.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -129,13 +128,13 @@ Map<String, dynamic> _$ContentToJson(Content instance) {
   writeNotNull('ncopies', instance.ncopies);
   writeNotNull('accountId', instance.accountId);
   writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('origin', _$IndicatorEnumMap[instance.origin]);
+  writeNotNull('origin', instance.origin);
   writeNotNull('evict', instance.evict);
   writeNotNull('tag1', instance.tag1);
   writeNotNull('tag2', instance.tag2);
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull(
       'contentSlot', instance.contentSlot?.map((e) => e.toJson()).toList());
   writeNotNull(
@@ -154,38 +153,6 @@ Map<String, dynamic> _$ContentToJson(Content instance) {
       instance.contentPurpose?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 ContentSlot _$ContentSlotFromJson(Map<String, dynamic> json) => ContentSlot(
       contentId: json['contentId'] as String?,

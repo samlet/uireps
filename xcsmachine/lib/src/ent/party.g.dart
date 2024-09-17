@@ -22,7 +22,7 @@ Party _$PartyFromJson(Map<String, dynamic> json) => Party(
           : DateTime.parse(json['lastModifiedDate'] as String),
       lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
       dataSourceId: json['dataSourceId'] as String?,
-      isUnread: $enumDecodeNullable(_$IndicatorEnumMap, json['isUnread']),
+      isUnread: json['isUnread'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -38,9 +38,8 @@ Party _$PartyFromJson(Map<String, dynamic> json) => Party(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
       placeId: json['placeId'] as String?,
@@ -200,7 +199,7 @@ Map<String, dynamic> _$PartyToJson(Party instance) {
       'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
   writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
   writeNotNull('dataSourceId', instance.dataSourceId);
-  writeNotNull('isUnread', _$IndicatorEnumMap[instance.isUnread]);
+  writeNotNull('isUnread', instance.isUnread);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -211,7 +210,7 @@ Map<String, dynamic> _$PartyToJson(Party instance) {
   writeNotNull('tag2', instance.tag2);
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('telephone', instance.telephone);
   writeNotNull('email', instance.email);
   writeNotNull('placeId', instance.placeId);
@@ -298,38 +297,6 @@ Map<String, dynamic> _$PartyToJson(Party instance) {
       instance.partyContactMech?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 AgreementRole _$AgreementRoleFromJson(Map<String, dynamic> json) =>
     AgreementRole(
@@ -644,7 +611,7 @@ SupplierProduct _$SupplierProductFromJson(Map<String, dynamic> json) =>
       currencyUomId: json['currencyUomId'] as String?,
       supplierProductName: json['supplierProductName'] as String?,
       supplierProductId: json['supplierProductId'] as String?,
-      canDropShip: $enumDecodeNullable(_$IndicatorEnumMap, json['canDropShip']),
+      canDropShip: json['canDropShip'] as String?,
       comments: json['comments'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -684,7 +651,7 @@ Map<String, dynamic> _$SupplierProductToJson(SupplierProduct instance) {
   writeNotNull('currencyUomId', instance.currencyUomId);
   writeNotNull('supplierProductName', instance.supplierProductName);
   writeNotNull('supplierProductId', instance.supplierProductId);
-  writeNotNull('canDropShip', _$IndicatorEnumMap[instance.canDropShip]);
+  writeNotNull('canDropShip', instance.canDropShip);
   writeNotNull('comments', instance.comments);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -1124,7 +1091,7 @@ Map<String, dynamic> _$PartyAccountToJson(PartyAccount instance) {
 PartyType _$PartyTypeFromJson(Map<String, dynamic> json) => PartyType(
       partyTypeId: json['partyTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -1146,7 +1113,7 @@ Map<String, dynamic> _$PartyTypeToJson(PartyType instance) {
 
   writeNotNull('partyTypeId', instance.partyTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -1293,8 +1260,8 @@ PartyTaxAuthInfo _$PartyTaxAuthInfoFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['thruDate'] as String),
       partyTaxId: json['partyTaxId'] as String?,
-      isExempt: $enumDecodeNullable(_$IndicatorEnumMap, json['isExempt']),
-      isNexus: $enumDecodeNullable(_$IndicatorEnumMap, json['isNexus']),
+      isExempt: json['isExempt'] as String?,
+      isNexus: json['isNexus'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -1319,8 +1286,8 @@ Map<String, dynamic> _$PartyTaxAuthInfoToJson(PartyTaxAuthInfo instance) {
   writeNotNull('fromDate', instance.fromDate?.toIso8601String());
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
   writeNotNull('partyTaxId', instance.partyTaxId);
-  writeNotNull('isExempt', _$IndicatorEnumMap[instance.isExempt]);
-  writeNotNull('isNexus', _$IndicatorEnumMap[instance.isNexus]);
+  writeNotNull('isExempt', instance.isExempt);
+  writeNotNull('isNexus', instance.isNexus);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -1552,8 +1519,7 @@ PartyAcctgPreference _$PartyAcctgPreferenceFromJson(
       lastInvoiceRestartDate: json['lastInvoiceRestartDate'] == null
           ? null
           : DateTime.parse(json['lastInvoiceRestartDate'] as String),
-      useInvoiceIdForReturns: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['useInvoiceIdForReturns']),
+      useInvoiceIdForReturns: json['useInvoiceIdForReturns'] as String?,
       quoteSeqCustMethId: json['quoteSeqCustMethId'] as String?,
       quoteIdPrefix: json['quoteIdPrefix'] as String?,
       lastQuoteNumber: (json['lastQuoteNumber'] as num?)?.toInt(),
@@ -1562,8 +1528,7 @@ PartyAcctgPreference _$PartyAcctgPreferenceFromJson(
       lastOrderNumber: (json['lastOrderNumber'] as num?)?.toInt(),
       refundPaymentMethodId: json['refundPaymentMethodId'] as String?,
       errorGlJournalId: json['errorGlJournalId'] as String?,
-      enableAccounting:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['enableAccounting']),
+      enableAccounting: json['enableAccounting'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -1594,8 +1559,7 @@ Map<String, dynamic> _$PartyAcctgPreferenceToJson(
   writeNotNull('lastInvoiceNumber', instance.lastInvoiceNumber);
   writeNotNull('lastInvoiceRestartDate',
       instance.lastInvoiceRestartDate?.toIso8601String());
-  writeNotNull('useInvoiceIdForReturns',
-      _$IndicatorEnumMap[instance.useInvoiceIdForReturns]);
+  writeNotNull('useInvoiceIdForReturns', instance.useInvoiceIdForReturns);
   writeNotNull('quoteSeqCustMethId', instance.quoteSeqCustMethId);
   writeNotNull('quoteIdPrefix', instance.quoteIdPrefix);
   writeNotNull('lastQuoteNumber', instance.lastQuoteNumber);
@@ -1604,8 +1568,7 @@ Map<String, dynamic> _$PartyAcctgPreferenceToJson(
   writeNotNull('lastOrderNumber', instance.lastOrderNumber);
   writeNotNull('refundPaymentMethodId', instance.refundPaymentMethodId);
   writeNotNull('errorGlJournalId', instance.errorGlJournalId);
-  writeNotNull(
-      'enableAccounting', _$IndicatorEnumMap[instance.enableAccounting]);
+  writeNotNull('enableAccounting', instance.enableAccounting);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -1794,11 +1757,9 @@ Map<String, dynamic> _$PartyGeoForceToJson(PartyGeoForce instance) {
 TaxAuthority _$TaxAuthorityFromJson(Map<String, dynamic> json) => TaxAuthority(
       taxAuthGeoId: json['taxAuthGeoId'] as String?,
       taxAuthPartyId: json['taxAuthPartyId'] as String?,
-      requireTaxIdForExemption: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['requireTaxIdForExemption']),
+      requireTaxIdForExemption: json['requireTaxIdForExemption'] as String?,
       taxIdFormatPattern: json['taxIdFormatPattern'] as String?,
-      includeTaxInPrice:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['includeTaxInPrice']),
+      includeTaxInPrice: json['includeTaxInPrice'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -1819,11 +1780,9 @@ Map<String, dynamic> _$TaxAuthorityToJson(TaxAuthority instance) {
 
   writeNotNull('taxAuthGeoId', instance.taxAuthGeoId);
   writeNotNull('taxAuthPartyId', instance.taxAuthPartyId);
-  writeNotNull('requireTaxIdForExemption',
-      _$IndicatorEnumMap[instance.requireTaxIdForExemption]);
+  writeNotNull('requireTaxIdForExemption', instance.requireTaxIdForExemption);
   writeNotNull('taxIdFormatPattern', instance.taxIdFormatPattern);
-  writeNotNull(
-      'includeTaxInPrice', _$IndicatorEnumMap[instance.includeTaxInPrice]);
+  writeNotNull('includeTaxInPrice', instance.includeTaxInPrice);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -1845,7 +1804,7 @@ Person _$PersonFromJson(Map<String, dynamic> json) => Person(
       lastNameLocal: json['lastNameLocal'] as String?,
       otherLocal: json['otherLocal'] as String?,
       memberId: json['memberId'] as String?,
-      gender: $enumDecodeNullable(_$IndicatorEnumMap, json['gender']),
+      gender: json['gender'] as String?,
       birthDate: json['birthDate'] == null
           ? null
           : DateTime.parse(json['birthDate'] as String),
@@ -1869,8 +1828,7 @@ Person _$PersonFromJson(Map<String, dynamic> json) => Person(
       occupation: json['occupation'] as String?,
       yearsWithEmployer: (json['yearsWithEmployer'] as num?)?.toInt(),
       monthsWithEmployer: (json['monthsWithEmployer'] as num?)?.toInt(),
-      existingCustomer:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['existingCustomer']),
+      existingCustomer: json['existingCustomer'] as String?,
       cardId: json['cardId'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -1903,7 +1861,7 @@ Map<String, dynamic> _$PersonToJson(Person instance) {
   writeNotNull('lastNameLocal', instance.lastNameLocal);
   writeNotNull('otherLocal', instance.otherLocal);
   writeNotNull('memberId', instance.memberId);
-  writeNotNull('gender', _$IndicatorEnumMap[instance.gender]);
+  writeNotNull('gender', instance.gender);
   writeNotNull('birthDate', instance.birthDate?.toIso8601String());
   writeNotNull('deceasedDate', instance.deceasedDate?.toIso8601String());
   writeNotNull('height', instance.height);
@@ -1921,8 +1879,7 @@ Map<String, dynamic> _$PersonToJson(Person instance) {
   writeNotNull('occupation', instance.occupation);
   writeNotNull('yearsWithEmployer', instance.yearsWithEmployer);
   writeNotNull('monthsWithEmployer', instance.monthsWithEmployer);
-  writeNotNull(
-      'existingCustomer', _$IndicatorEnumMap[instance.existingCustomer]);
+  writeNotNull('existingCustomer', instance.existingCustomer);
   writeNotNull('cardId', instance.cardId);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -1942,10 +1899,9 @@ PartyContactMech _$PartyContactMechFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['thruDate'] as String),
       roleTypeId: json['roleTypeId'] as String?,
-      allowSolicitation:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['allowSolicitation']),
+      allowSolicitation: json['allowSolicitation'] as String?,
       extension: json['extension'] as String?,
-      verified: $enumDecodeNullable(_$IndicatorEnumMap, json['verified']),
+      verified: json['verified'] as String?,
       comments: json['comments'] as String?,
       yearsWithContactMech: (json['yearsWithContactMech'] as num?)?.toInt(),
       monthsWithContactMech: (json['monthsWithContactMech'] as num?)?.toInt(),
@@ -1972,10 +1928,9 @@ Map<String, dynamic> _$PartyContactMechToJson(PartyContactMech instance) {
   writeNotNull('fromDate', instance.fromDate?.toIso8601String());
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
   writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull(
-      'allowSolicitation', _$IndicatorEnumMap[instance.allowSolicitation]);
+  writeNotNull('allowSolicitation', instance.allowSolicitation);
   writeNotNull('extension', instance.extension);
-  writeNotNull('verified', _$IndicatorEnumMap[instance.verified]);
+  writeNotNull('verified', instance.verified);
   writeNotNull('comments', instance.comments);
   writeNotNull('yearsWithContactMech', instance.yearsWithContactMech);
   writeNotNull('monthsWithContactMech', instance.monthsWithContactMech);

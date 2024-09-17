@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'content.g.dart';
 
@@ -95,13 +96,13 @@ class Content {
     double? ncopies,
     String? accountId,
     String? tokenId,
-    Indicator? origin,
+    String? origin,
     bool? evict,
     String? tag1,
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     List<ContentSlot>? contentSlot,
     List<ContentWallet>? contentWallet,
     List<ContentAssoc>? fromContentAssoc,
@@ -268,7 +269,7 @@ class Content {
   String? tokenId;
 
    
-  Indicator? origin;
+  String? origin;
 
    
   bool? evict;
@@ -285,8 +286,9 @@ class Content {
    
   List<String?>? moreTags;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)

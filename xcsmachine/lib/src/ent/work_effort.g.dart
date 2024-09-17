@@ -20,8 +20,7 @@ WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
       percentComplete: (json['percentComplete'] as num?)?.toInt(),
       workEffortName: json['workEffortName'] as String?,
       showAsEnumId: json['showAsEnumId'] as String?,
-      sendNotificationEmail: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['sendNotificationEmail']),
+      sendNotificationEmail: json['sendNotificationEmail'] as String?,
       description: json['description'] as String?,
       locationDesc: json['locationDesc'] as String?,
       estimatedStartDate: json['estimatedStartDate'] == null
@@ -84,12 +83,10 @@ WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
       sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
       tenantId: json['tenantId'] as String?,
       slotId: json['slotId'] as String?,
-      confirmation:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['confirmation']),
+      confirmation: json['confirmation'] as String?,
       evict: json['evict'] as bool?,
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       workEffortType: json['workEffortType'] == null
           ? null
           : WorkEffortType.fromJson(
@@ -154,8 +151,7 @@ Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
   writeNotNull('percentComplete', instance.percentComplete);
   writeNotNull('workEffortName', instance.workEffortName);
   writeNotNull('showAsEnumId', instance.showAsEnumId);
-  writeNotNull('sendNotificationEmail',
-      _$IndicatorEnumMap[instance.sendNotificationEmail]);
+  writeNotNull('sendNotificationEmail', instance.sendNotificationEmail);
   writeNotNull('description', instance.description);
   writeNotNull('locationDesc', instance.locationDesc);
   writeNotNull(
@@ -205,9 +201,9 @@ Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
   writeNotNull('sequenceNum', instance.sequenceNum);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('slotId', instance.slotId);
-  writeNotNull('confirmation', _$IndicatorEnumMap[instance.confirmation]);
+  writeNotNull('confirmation', instance.confirmation);
   writeNotNull('evict', instance.evict);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('workEffortType', instance.workEffortType?.toJson());
   writeNotNull('workEffortTransaction',
       instance.workEffortTransaction?.map((e) => e.toJson()).toList());
@@ -231,38 +227,6 @@ Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
       instance.toWorkEffortAssoc?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 WorkEffortTransaction _$WorkEffortTransactionFromJson(
         Map<String, dynamic> json) =>
@@ -305,8 +269,7 @@ WorkEffortNote _$WorkEffortNoteFromJson(Map<String, dynamic> json) =>
     WorkEffortNote(
       workEffortId: json['workEffortId'] as String?,
       noteId: json['noteId'] as String?,
-      internalNote:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['internalNote']),
+      internalNote: json['internalNote'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -327,7 +290,7 @@ Map<String, dynamic> _$WorkEffortNoteToJson(WorkEffortNote instance) {
 
   writeNotNull('workEffortId', instance.workEffortId);
   writeNotNull('noteId', instance.noteId);
-  writeNotNull('internalNote', _$IndicatorEnumMap[instance.internalNote]);
+  writeNotNull('internalNote', instance.internalNote);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -520,7 +483,7 @@ WorkEffortPartyAssignment _$WorkEffortPartyAssignmentFromJson(
       delegateReasonEnumId: json['delegateReasonEnumId'] as String?,
       facilityId: json['facilityId'] as String?,
       comments: json['comments'] as String?,
-      mustRsvp: $enumDecodeNullable(_$IndicatorEnumMap, json['mustRsvp']),
+      mustRsvp: json['mustRsvp'] as String?,
       availabilityStatusId: json['availabilityStatusId'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -553,7 +516,7 @@ Map<String, dynamic> _$WorkEffortPartyAssignmentToJson(
   writeNotNull('delegateReasonEnumId', instance.delegateReasonEnumId);
   writeNotNull('facilityId', instance.facilityId);
   writeNotNull('comments', instance.comments);
-  writeNotNull('mustRsvp', _$IndicatorEnumMap[instance.mustRsvp]);
+  writeNotNull('mustRsvp', instance.mustRsvp);
   writeNotNull('availabilityStatusId', instance.availabilityStatusId);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -605,7 +568,7 @@ WorkEffortType _$WorkEffortTypeFromJson(Map<String, dynamic> json) =>
     WorkEffortType(
       workEffortTypeId: json['workEffortTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -627,7 +590,7 @@ Map<String, dynamic> _$WorkEffortTypeToJson(WorkEffortType instance) {
 
   writeNotNull('workEffortTypeId', instance.workEffortTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());

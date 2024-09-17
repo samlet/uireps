@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'contact_mech.g.dart';
 
@@ -35,7 +36,7 @@ class ContactMech {
     DateTime? createdTxStamp,
     String? tenantId,
     bool? evict,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     PostalAddress? postalAddress,
     ContactMechType? contactMechType,
     TelecomNumber? telecomNumber,
@@ -87,8 +88,9 @@ class ContactMech {
    
   bool? evict;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)
@@ -299,7 +301,7 @@ class ContactMechType {
   ContactMechType copyWith({
     String? contactMechTypeId,
     String? parentTypeId,
-    Indicator? hasTable,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -326,7 +328,7 @@ class ContactMechType {
   String? parentTypeId;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;

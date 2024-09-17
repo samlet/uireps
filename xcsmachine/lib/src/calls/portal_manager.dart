@@ -1,0 +1,68 @@
+import 'package:xcsproto/xcsproto.dart';
+import '../../xcmodels.dart';
+import '../../xcsapi.dart';
+// import 'package:xcsapi/xcmodels.dart';
+// import 'package:xcsapi/xcsapi.dart';
+import 'calls.dart';
+
+
+class PortalManagerRepository {
+  PortalManagerRepository(this.dio, {
+    this.regionOrNs='default',
+    this.moduleName='portalManager',
+  });
+
+  final Dio dio;
+  final String regionOrNs;
+  final String moduleName;
+
+   
+  // Query
+  Future<List<BiFacetBi>> loadAsBiFacets({
+    
+    required String bundleName,
+    String? regionId='default',
+    required List<String> bundleIds, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacets",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "bundleIds": bundleIds, 
+    });
+    
+    return convList(resp, BiFacetBi.fromJson);
+  }
+   
+  // Query
+  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String tenantId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacetsByTenant",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "tenantId": tenantId, 
+    });
+    
+    return convList(resp, BiFacetBi.fromJson);
+  }
+  
+}
+
+

@@ -195,3 +195,62 @@ Map<String, dynamic> _$LoadBundleToJson(LoadBundle instance) {
   writeNotNull('bundleId', instance.bundleId);
   return val;
 }
+
+BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
+      biId: json['biId'] as String?,
+      bundleName: json['bundleName'] as String?,
+      regionId: json['regionId'] as String?,
+      data: (json['data'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as Object),
+      ),
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      modified: json['modified'] as bool?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: _$JsonConverterFromJson<String, DateTime>(
+          json['lastUpdatedTxStamp'], const OffsetDateTimeConverter().fromJson),
+      createdTxStamp: _$JsonConverterFromJson<String, DateTime>(
+          json['createdTxStamp'], const OffsetDateTimeConverter().fromJson),
+      evict: json['evict'] as bool?,
+      type: json['type'] as String?,
+    );
+
+Map<String, dynamic> _$BiFacetBiToJson(BiFacetBi instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('biId', instance.biId);
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('regionId', instance.regionId);
+  writeNotNull('data', instance.data);
+  writeNotNull('tags', instance.tags);
+  writeNotNull('modified', instance.modified);
+  writeNotNull('tenantId', instance.tenantId);
+  writeNotNull(
+      'lastUpdatedTxStamp',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.lastUpdatedTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull(
+      'createdTxStamp',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull('evict', instance.evict);
+  writeNotNull('type', instance.type);
+  return val;
+}
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

@@ -23,8 +23,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       salesDiscontinuationDate: json['salesDiscontinuationDate'] == null
           ? null
           : DateTime.parse(json['salesDiscontinuationDate'] as String),
-      salesDiscWhenNotAvail: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['salesDiscWhenNotAvail']),
+      salesDiscWhenNotAvail: json['salesDiscWhenNotAvail'] as String?,
       internalName: json['internalName'] as String?,
       brandName: json['brandName'] as String?,
       comments: json['comments'] as String?,
@@ -40,13 +39,11 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       detailScreen: json['detailScreen'] as String?,
       inventoryMessage: json['inventoryMessage'] as String?,
       inventoryItemTypeId: json['inventoryItemTypeId'] as String?,
-      requireInventory:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['requireInventory']),
+      requireInventory: json['requireInventory'] as String?,
       quantityUomId: json['quantityUomId'] as String?,
       quantityIncluded: (json['quantityIncluded'] as num?)?.toDouble(),
       piecesIncluded: (json['piecesIncluded'] as num?)?.toInt(),
-      requireAmount:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['requireAmount']),
+      requireAmount: json['requireAmount'] as String?,
       fixedAmount: (json['fixedAmount'] as num?)?.toDouble(),
       amountUomTypeId: json['amountUomTypeId'] as String?,
       weightUomId: json['weightUomId'] as String?,
@@ -65,16 +62,13 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       productDiameter: (json['productDiameter'] as num?)?.toDouble(),
       productRating: (json['productRating'] as num?)?.toDouble(),
       ratingTypeEnum: json['ratingTypeEnum'] as String?,
-      returnable: $enumDecodeNullable(_$IndicatorEnumMap, json['returnable']),
-      taxable: $enumDecodeNullable(_$IndicatorEnumMap, json['taxable']),
-      chargeShipping:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['chargeShipping']),
-      autoCreateKeywords:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['autoCreateKeywords']),
-      includeInPromotions:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['includeInPromotions']),
-      isVirtual: $enumDecodeNullable(_$IndicatorEnumMap, json['isVirtual']),
-      isVariant: $enumDecodeNullable(_$IndicatorEnumMap, json['isVariant']),
+      returnable: json['returnable'] as String?,
+      taxable: json['taxable'] as String?,
+      chargeShipping: json['chargeShipping'] as String?,
+      autoCreateKeywords: json['autoCreateKeywords'] as String?,
+      includeInPromotions: json['includeInPromotions'] as String?,
+      isVirtual: json['isVirtual'] as String?,
+      isVariant: json['isVariant'] as String?,
       virtualVariantMethodEnum: json['virtualVariantMethodEnum'] as String?,
       originGeoId: json['originGeoId'] as String?,
       requirementMethodEnumId: json['requirementMethodEnumId'] as String?,
@@ -91,12 +85,10 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
           ? null
           : DateTime.parse(json['lastModifiedDate'] as String),
       lastModifiedByUserLogin: json['lastModifiedByUserLogin'] as String?,
-      inShippingBox:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['inShippingBox']),
+      inShippingBox: json['inShippingBox'] as String?,
       defaultShipmentBoxTypeId: json['defaultShipmentBoxTypeId'] as String?,
       lotIdFilledIn: json['lotIdFilledIn'] as String?,
-      orderDecimalQuantity:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['orderDecimalQuantity']),
+      orderDecimalQuantity: json['orderDecimalQuantity'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -115,9 +107,8 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       jointers: (json['jointers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       productType: json['productType'] == null
           ? null
           : ProductType.fromJson(json['productType'] as Map<String, dynamic>),
@@ -196,8 +187,7 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
       instance.supportDiscontinuationDate?.toIso8601String());
   writeNotNull('salesDiscontinuationDate',
       instance.salesDiscontinuationDate?.toIso8601String());
-  writeNotNull('salesDiscWhenNotAvail',
-      _$IndicatorEnumMap[instance.salesDiscWhenNotAvail]);
+  writeNotNull('salesDiscWhenNotAvail', instance.salesDiscWhenNotAvail);
   writeNotNull('internalName', instance.internalName);
   writeNotNull('brandName', instance.brandName);
   writeNotNull('comments', instance.comments);
@@ -213,12 +203,11 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
   writeNotNull('detailScreen', instance.detailScreen);
   writeNotNull('inventoryMessage', instance.inventoryMessage);
   writeNotNull('inventoryItemTypeId', instance.inventoryItemTypeId);
-  writeNotNull(
-      'requireInventory', _$IndicatorEnumMap[instance.requireInventory]);
+  writeNotNull('requireInventory', instance.requireInventory);
   writeNotNull('quantityUomId', instance.quantityUomId);
   writeNotNull('quantityIncluded', instance.quantityIncluded);
   writeNotNull('piecesIncluded', instance.piecesIncluded);
-  writeNotNull('requireAmount', _$IndicatorEnumMap[instance.requireAmount]);
+  writeNotNull('requireAmount', instance.requireAmount);
   writeNotNull('fixedAmount', instance.fixedAmount);
   writeNotNull('amountUomTypeId', instance.amountUomTypeId);
   writeNotNull('weightUomId', instance.weightUomId);
@@ -237,15 +226,13 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
   writeNotNull('productDiameter', instance.productDiameter);
   writeNotNull('productRating', instance.productRating);
   writeNotNull('ratingTypeEnum', instance.ratingTypeEnum);
-  writeNotNull('returnable', _$IndicatorEnumMap[instance.returnable]);
-  writeNotNull('taxable', _$IndicatorEnumMap[instance.taxable]);
-  writeNotNull('chargeShipping', _$IndicatorEnumMap[instance.chargeShipping]);
-  writeNotNull(
-      'autoCreateKeywords', _$IndicatorEnumMap[instance.autoCreateKeywords]);
-  writeNotNull(
-      'includeInPromotions', _$IndicatorEnumMap[instance.includeInPromotions]);
-  writeNotNull('isVirtual', _$IndicatorEnumMap[instance.isVirtual]);
-  writeNotNull('isVariant', _$IndicatorEnumMap[instance.isVariant]);
+  writeNotNull('returnable', instance.returnable);
+  writeNotNull('taxable', instance.taxable);
+  writeNotNull('chargeShipping', instance.chargeShipping);
+  writeNotNull('autoCreateKeywords', instance.autoCreateKeywords);
+  writeNotNull('includeInPromotions', instance.includeInPromotions);
+  writeNotNull('isVirtual', instance.isVirtual);
+  writeNotNull('isVariant', instance.isVariant);
   writeNotNull('virtualVariantMethodEnum', instance.virtualVariantMethodEnum);
   writeNotNull('originGeoId', instance.originGeoId);
   writeNotNull('requirementMethodEnumId', instance.requirementMethodEnumId);
@@ -259,11 +246,10 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
   writeNotNull(
       'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
   writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull('inShippingBox', _$IndicatorEnumMap[instance.inShippingBox]);
+  writeNotNull('inShippingBox', instance.inShippingBox);
   writeNotNull('defaultShipmentBoxTypeId', instance.defaultShipmentBoxTypeId);
   writeNotNull('lotIdFilledIn', instance.lotIdFilledIn);
-  writeNotNull('orderDecimalQuantity',
-      _$IndicatorEnumMap[instance.orderDecimalQuantity]);
+  writeNotNull('orderDecimalQuantity', instance.orderDecimalQuantity);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -275,7 +261,7 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   writeNotNull('jointers', instance.jointers);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('productType', instance.productType?.toJson());
   writeNotNull('fixedAssetProduct',
       instance.fixedAssetProduct?.map((e) => e.toJson()).toList());
@@ -311,38 +297,6 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
       instance.workEffortGoodStandard?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
 
 FixedAssetProduct _$FixedAssetProductFromJson(Map<String, dynamic> json) =>
     FixedAssetProduct(
@@ -528,9 +482,9 @@ Map<String, dynamic> _$ProductRoleToJson(ProductRole instance) {
 ProductType _$ProductTypeFromJson(Map<String, dynamic> json) => ProductType(
       productTypeId: json['productTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      isPhysical: $enumDecodeNullable(_$IndicatorEnumMap, json['isPhysical']),
-      isDigital: $enumDecodeNullable(_$IndicatorEnumMap, json['isDigital']),
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      isPhysical: json['isPhysical'] as String?,
+      isDigital: json['isDigital'] as String?,
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -552,9 +506,9 @@ Map<String, dynamic> _$ProductTypeToJson(ProductType instance) {
 
   writeNotNull('productTypeId', instance.productTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('isPhysical', _$IndicatorEnumMap[instance.isPhysical]);
-  writeNotNull('isDigital', _$IndicatorEnumMap[instance.isDigital]);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('isPhysical', instance.isPhysical);
+  writeNotNull('isDigital', instance.isDigital);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -578,7 +532,7 @@ ProductConfig _$ProductConfigFromJson(Map<String, dynamic> json) =>
       thruDate: json['thruDate'] == null
           ? null
           : DateTime.parse(json['thruDate'] as String),
-      isMandatory: $enumDecodeNullable(_$IndicatorEnumMap, json['isMandatory']),
+      isMandatory: json['isMandatory'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -606,7 +560,7 @@ Map<String, dynamic> _$ProductConfigToJson(ProductConfig instance) {
   writeNotNull('configTypeId', instance.configTypeId);
   writeNotNull('defaultConfigOptionId', instance.defaultConfigOptionId);
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('isMandatory', _$IndicatorEnumMap[instance.isMandatory]);
+  writeNotNull('isMandatory', instance.isMandatory);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -635,7 +589,7 @@ ProductPrice _$ProductPriceFromJson(Map<String, dynamic> json) => ProductPrice(
       taxPercentage: (json['taxPercentage'] as num?)?.toDouble(),
       taxAuthPartyId: json['taxAuthPartyId'] as String?,
       taxAuthGeoId: json['taxAuthGeoId'] as String?,
-      taxInPrice: $enumDecodeNullable(_$IndicatorEnumMap, json['taxInPrice']),
+      taxInPrice: json['taxInPrice'] as String?,
       createdDate: json['createdDate'] == null
           ? null
           : DateTime.parse(json['createdDate'] as String),
@@ -678,7 +632,7 @@ Map<String, dynamic> _$ProductPriceToJson(ProductPrice instance) {
   writeNotNull('taxPercentage', instance.taxPercentage);
   writeNotNull('taxAuthPartyId', instance.taxAuthPartyId);
   writeNotNull('taxAuthGeoId', instance.taxAuthGeoId);
-  writeNotNull('taxInPrice', _$IndicatorEnumMap[instance.taxInPrice]);
+  writeNotNull('taxInPrice', instance.taxInPrice);
   writeNotNull('createdDate', instance.createdDate?.toIso8601String());
   writeNotNull('createdByUserLogin', instance.createdByUserLogin);
   writeNotNull(

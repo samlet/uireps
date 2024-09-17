@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'data_resource.g.dart';
 
@@ -60,7 +61,7 @@ class DataResource {
     String? surveyId,
     String? surveyResponseId,
     String? relatedDetailId,
-    Indicator? isPublic,
+    String? isPublic,
     DateTime? createdDate,
     String? createdByUserLogin,
     DateTime? lastModifiedDate,
@@ -69,7 +70,7 @@ class DataResource {
     DateTime? createdTxStamp,
     String? tenantId,
     bool? evict,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     ElectronicText? electronicText,
     AudioDataResource? audioDataResource,
     DataResourceType? dataResourceType,
@@ -163,7 +164,7 @@ class DataResource {
   String? relatedDetailId;
 
    
-  Indicator? isPublic;
+  String? isPublic;
 
    
   DateTime? createdDate;
@@ -189,8 +190,9 @@ class DataResource {
    
   bool? evict;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)
@@ -359,7 +361,7 @@ class DataResourceType {
   DataResourceType copyWith({
     String? dataResourceTypeId,
     String? parentTypeId,
-    Indicator? hasTable,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -386,7 +388,7 @@ class DataResourceType {
   String? parentTypeId;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;

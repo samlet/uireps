@@ -25,9 +25,8 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       moreInfoItemName: json['moreInfoItemName'] as String?,
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       noteDataSlot: (json['noteDataSlot'] as List<dynamic>?)
           ?.map((e) => NoteDataSlot.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -55,7 +54,7 @@ Map<String, dynamic> _$NoteToJson(Note instance) {
   writeNotNull('moreInfoItemName', instance.moreInfoItemName);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('evict', instance.evict);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull(
       'noteDataSlot', instance.noteDataSlot?.map((e) => e.toJson()).toList());
   return val;

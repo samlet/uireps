@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'party.g.dart';
 
@@ -93,7 +94,7 @@ class Party {
     DateTime? lastModifiedDate,
     String? lastModifiedByUserLogin,
     String? dataSourceId,
-    Indicator? isUnread,
+    String? isUnread,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -103,7 +104,7 @@ class Party {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     String? telephone,
     String? email,
     String? placeId,
@@ -262,7 +263,7 @@ class Party {
   String? dataSourceId;
 
    
-  Indicator? isUnread;
+  String? isUnread;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -291,8 +292,9 @@ class Party {
    
   List<String?>? moreTags;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
    
   String? telephone;
@@ -714,7 +716,7 @@ class Party {
     String? currencyUomId_,
     String? supplierProductName_,
     String? supplierProductId_,
-    Indicator? canDropShip_,
+    String? canDropShip_,
     String? comments_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
@@ -982,9 +984,9 @@ class Party {
   void updateTaxAuthTaxAuthority(String id, {
     String? taxAuthGeoId_,
     String? taxAuthPartyId_,
-    Indicator? requireTaxIdForExemption_,
+    String? requireTaxIdForExemption_,
     String? taxIdFormatPattern_,
-    Indicator? includeTaxInPrice_,
+    String? includeTaxInPrice_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -1450,8 +1452,8 @@ class Party {
     DateTime? fromDate_,
     DateTime? thruDate_,
     String? partyTaxId_,
-    Indicator? isExempt_,
-    Indicator? isNexus_,
+    String? isExempt_,
+    String? isNexus_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -1941,9 +1943,9 @@ class Party {
     DateTime? fromDate_,
     DateTime? thruDate_,
     String? roleTypeId_,
-    Indicator? allowSolicitation_,
+    String? allowSolicitation_,
     String? extension_,
-    Indicator? verified_,
+    String? verified_,
     String? comments_,
     int? yearsWithContactMech_,
     int? monthsWithContactMech_,
@@ -2545,7 +2547,7 @@ class SupplierProduct {
     String? currencyUomId,
     String? supplierProductName,
     String? supplierProductId,
-    Indicator? canDropShip,
+    String? canDropShip,
     String? comments,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -2636,7 +2638,7 @@ class SupplierProduct {
   String? supplierProductId;
 
    
-  Indicator? canDropShip;
+  String? canDropShip;
 
    
   String? comments;
@@ -3407,7 +3409,7 @@ class PartyType {
   PartyType copyWith({
     String? partyTypeId,
     String? parentTypeId,
-    Indicator? hasTable,
+    String? hasTable,
     String? description,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -3434,7 +3436,7 @@ class PartyType {
   String? parentTypeId;
 
    
-  Indicator? hasTable;
+  String? hasTable;
 
    
   String? description;
@@ -3697,8 +3699,8 @@ class PartyTaxAuthInfo {
     DateTime? fromDate,
     DateTime? thruDate,
     String? partyTaxId,
-    Indicator? isExempt,
-    Indicator? isNexus,
+    String? isExempt,
+    String? isNexus,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -3740,10 +3742,10 @@ class PartyTaxAuthInfo {
   String? partyTaxId;
 
    
-  Indicator? isExempt;
+  String? isExempt;
 
    
-  Indicator? isNexus;
+  String? isNexus;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -4175,7 +4177,7 @@ class PartyAcctgPreference {
     String? invoiceIdPrefix,
     int? lastInvoiceNumber,
     DateTime? lastInvoiceRestartDate,
-    Indicator? useInvoiceIdForReturns,
+    String? useInvoiceIdForReturns,
     String? quoteSeqCustMethId,
     String? quoteIdPrefix,
     int? lastQuoteNumber,
@@ -4184,7 +4186,7 @@ class PartyAcctgPreference {
     int? lastOrderNumber,
     String? refundPaymentMethodId,
     String? errorGlJournalId,
-    Indicator? enableAccounting,
+    String? enableAccounting,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -4250,7 +4252,7 @@ class PartyAcctgPreference {
   DateTime? lastInvoiceRestartDate;
 
    
-  Indicator? useInvoiceIdForReturns;
+  String? useInvoiceIdForReturns;
 
    
   String? quoteSeqCustMethId;
@@ -4277,7 +4279,7 @@ class PartyAcctgPreference {
   String? errorGlJournalId;
 
    
-  Indicator? enableAccounting;
+  String? enableAccounting;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -4620,9 +4622,9 @@ class TaxAuthority {
   TaxAuthority copyWith({
     String? taxAuthGeoId,
     String? taxAuthPartyId,
-    Indicator? requireTaxIdForExemption,
+    String? requireTaxIdForExemption,
     String? taxIdFormatPattern,
-    Indicator? includeTaxInPrice,
+    String? includeTaxInPrice,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -4649,13 +4651,13 @@ class TaxAuthority {
   String? taxAuthPartyId;
 
    
-  Indicator? requireTaxIdForExemption;
+  String? requireTaxIdForExemption;
 
    
   String? taxIdFormatPattern;
 
    
-  Indicator? includeTaxInPrice;
+  String? includeTaxInPrice;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -4724,7 +4726,7 @@ class Person {
     String? lastNameLocal,
     String? otherLocal,
     String? memberId,
-    Indicator? gender,
+    String? gender,
     DateTime? birthDate,
     DateTime? deceasedDate,
     double? height,
@@ -4741,7 +4743,7 @@ class Person {
     String? occupation,
     int? yearsWithEmployer,
     int? monthsWithEmployer,
-    Indicator? existingCustomer,
+    String? existingCustomer,
     String? cardId,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -4829,7 +4831,7 @@ class Person {
   String? memberId;
 
    
-  Indicator? gender;
+  String? gender;
 
    
   DateTime? birthDate;
@@ -4880,7 +4882,7 @@ class Person {
   int? monthsWithEmployer;
 
    
-  Indicator? existingCustomer;
+  String? existingCustomer;
 
    
   String? cardId;
@@ -4923,9 +4925,9 @@ class PartyContactMech {
     DateTime? fromDate,
     DateTime? thruDate,
     String? roleTypeId,
-    Indicator? allowSolicitation,
+    String? allowSolicitation,
     String? extension,
-    Indicator? verified,
+    String? verified,
     String? comments,
     int? yearsWithContactMech,
     int? monthsWithContactMech,
@@ -4970,13 +4972,13 @@ class PartyContactMech {
   String? roleTypeId;
 
    
-  Indicator? allowSolicitation;
+  String? allowSolicitation;
 
    
   String? extension;
 
    
-  Indicator? verified;
+  String? verified;
 
    
   String? comments;

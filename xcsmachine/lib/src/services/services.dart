@@ -11,3 +11,4 @@ export 'inventory_pod.dart';
 export 'contact_mech_pod.dart';
 export 'work_effort_pod.dart';
 export 'party_pod.dart';
+export 'example_pod.dart';

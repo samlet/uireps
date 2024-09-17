@@ -15,48 +15,32 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       subtitle: json['subtitle'] as String?,
       payToPartyId: json['payToPartyId'] as String?,
       daysToCancelNonPay: (json['daysToCancelNonPay'] as num?)?.toInt(),
-      manualAuthIsCapture:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['manualAuthIsCapture']),
-      prorateShipping:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['prorateShipping']),
-      prorateTaxes:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['prorateTaxes']),
-      viewCartOnAdd:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['viewCartOnAdd']),
-      autoSaveCart:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['autoSaveCart']),
-      autoApproveReviews:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveReviews']),
-      isDemoStore: $enumDecodeNullable(_$IndicatorEnumMap, json['isDemoStore']),
-      isImmediatelyFulfilled: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['isImmediatelyFulfilled']),
+      manualAuthIsCapture: json['manualAuthIsCapture'] as String?,
+      prorateShipping: json['prorateShipping'] as String?,
+      prorateTaxes: json['prorateTaxes'] as String?,
+      viewCartOnAdd: json['viewCartOnAdd'] as String?,
+      autoSaveCart: json['autoSaveCart'] as String?,
+      autoApproveReviews: json['autoApproveReviews'] as String?,
+      isDemoStore: json['isDemoStore'] as String?,
+      isImmediatelyFulfilled: json['isImmediatelyFulfilled'] as String?,
       inventoryFacilityId: json['inventoryFacilityId'] as String?,
-      oneInventoryFacility:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['oneInventoryFacility']),
-      checkInventory:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['checkInventory']),
-      reserveInventory:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['reserveInventory']),
+      oneInventoryFacility: json['oneInventoryFacility'] as String?,
+      checkInventory: json['checkInventory'] as String?,
+      reserveInventory: json['reserveInventory'] as String?,
       reserveOrderEnumId: json['reserveOrderEnumId'] as String?,
-      requireInventory:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['requireInventory']),
-      balanceResOnOrderCreation: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['balanceResOnOrderCreation']),
+      requireInventory: json['requireInventory'] as String?,
+      balanceResOnOrderCreation: json['balanceResOnOrderCreation'] as String?,
       requirementMethodEnumId: json['requirementMethodEnumId'] as String?,
       orderNumberPrefix: json['orderNumberPrefix'] as String?,
       defaultLocaleString: json['defaultLocaleString'] as String?,
       defaultCurrencyUomId: json['defaultCurrencyUomId'] as String?,
       defaultTimeZoneString: json['defaultTimeZoneString'] as String?,
       defaultSalesChannelEnumId: json['defaultSalesChannelEnumId'] as String?,
-      allowPassword:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['allowPassword']),
+      allowPassword: json['allowPassword'] as String?,
       defaultPassword: json['defaultPassword'] as String?,
-      explodeOrderItems:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['explodeOrderItems']),
-      checkGcBalance:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['checkGcBalance']),
-      retryFailedAuths:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['retryFailedAuths']),
+      explodeOrderItems: json['explodeOrderItems'] as String?,
+      checkGcBalance: json['checkGcBalance'] as String?,
+      retryFailedAuths: json['retryFailedAuths'] as String?,
       headerApprovedStatus: json['headerApprovedStatus'] as String?,
       itemApprovedStatus: json['itemApprovedStatus'] as String?,
       digitalItemApprovedStatus: json['digitalItemApprovedStatus'] as String?,
@@ -69,65 +53,38 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       authErrorMessage: json['authErrorMessage'] as String?,
       visualThemeId: json['visualThemeId'] as String?,
       storeCreditAccountEnumId: json['storeCreditAccountEnumId'] as String?,
-      usePrimaryEmailUsername: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['usePrimaryEmailUsername']),
-      requireCustomerRole:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['requireCustomerRole']),
-      autoInvoiceDigitalItems: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['autoInvoiceDigitalItems']),
-      reqShipAddrForDigItems: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['reqShipAddrForDigItems']),
-      showCheckoutGiftOptions: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['showCheckoutGiftOptions']),
-      selectPaymentTypePerItem: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['selectPaymentTypePerItem']),
-      showPricesWithVatTax:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['showPricesWithVatTax']),
-      showTaxIsExempt:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['showTaxIsExempt']),
+      usePrimaryEmailUsername: json['usePrimaryEmailUsername'] as String?,
+      requireCustomerRole: json['requireCustomerRole'] as String?,
+      autoInvoiceDigitalItems: json['autoInvoiceDigitalItems'] as String?,
+      reqShipAddrForDigItems: json['reqShipAddrForDigItems'] as String?,
+      showCheckoutGiftOptions: json['showCheckoutGiftOptions'] as String?,
+      selectPaymentTypePerItem: json['selectPaymentTypePerItem'] as String?,
+      showPricesWithVatTax: json['showPricesWithVatTax'] as String?,
+      showTaxIsExempt: json['showTaxIsExempt'] as String?,
       vatTaxAuthGeoId: json['vatTaxAuthGeoId'] as String?,
       vatTaxAuthPartyId: json['vatTaxAuthPartyId'] as String?,
-      enableAutoSuggestionList: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['enableAutoSuggestionList']),
-      enableDigProdUpload:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['enableDigProdUpload']),
-      prodSearchExcludeVariants: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['prodSearchExcludeVariants']),
+      enableAutoSuggestionList: json['enableAutoSuggestionList'] as String?,
+      enableDigProdUpload: json['enableDigProdUpload'] as String?,
+      prodSearchExcludeVariants: json['prodSearchExcludeVariants'] as String?,
       digProdUploadCategoryId: json['digProdUploadCategoryId'] as String?,
-      autoOrderCcTryExp:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['autoOrderCcTryExp']),
-      autoOrderCcTryOtherCards: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['autoOrderCcTryOtherCards']),
-      autoOrderCcTryLaterNsf: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['autoOrderCcTryLaterNsf']),
+      autoOrderCcTryExp: json['autoOrderCcTryExp'] as String?,
+      autoOrderCcTryOtherCards: json['autoOrderCcTryOtherCards'] as String?,
+      autoOrderCcTryLaterNsf: json['autoOrderCcTryLaterNsf'] as String?,
       autoOrderCcTryLaterMax: (json['autoOrderCcTryLaterMax'] as num?)?.toInt(),
       storeCreditValidDays: (json['storeCreditValidDays'] as num?)?.toInt(),
-      autoApproveInvoice:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveInvoice']),
-      autoApproveOrder:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['autoApproveOrder']),
-      shipIfCaptureFails:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['shipIfCaptureFails']),
-      setOwnerUponIssuance:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['setOwnerUponIssuance']),
-      reqReturnInventoryReceive: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['reqReturnInventoryReceive']),
-      addToCartRemoveIncompat: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['addToCartRemoveIncompat']),
-      addToCartReplaceUpsell: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['addToCartReplaceUpsell']),
-      splitPayPrefPerShpGrp: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['splitPayPrefPerShpGrp']),
-      managedByLot:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['managedByLot']),
-      showOutOfStockProducts: $enumDecodeNullable(
-          _$IndicatorEnumMap, json['showOutOfStockProducts']),
-      orderDecimalQuantity:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['orderDecimalQuantity']),
-      allowComment:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['allowComment']),
-      allocateInventory:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['allocateInventory']),
+      autoApproveInvoice: json['autoApproveInvoice'] as String?,
+      autoApproveOrder: json['autoApproveOrder'] as String?,
+      shipIfCaptureFails: json['shipIfCaptureFails'] as String?,
+      setOwnerUponIssuance: json['setOwnerUponIssuance'] as String?,
+      reqReturnInventoryReceive: json['reqReturnInventoryReceive'] as String?,
+      addToCartRemoveIncompat: json['addToCartRemoveIncompat'] as String?,
+      addToCartReplaceUpsell: json['addToCartReplaceUpsell'] as String?,
+      splitPayPrefPerShpGrp: json['splitPayPrefPerShpGrp'] as String?,
+      managedByLot: json['managedByLot'] as String?,
+      showOutOfStockProducts: json['showOutOfStockProducts'] as String?,
+      orderDecimalQuantity: json['orderDecimalQuantity'] as String?,
+      allowComment: json['allowComment'] as String?,
+      allocateInventory: json['allocateInventory'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -145,12 +102,10 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       jointers: (json['jointers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      multiJointers: json['multiJointers'] == null
-          ? null
-          : MultimapOra.fromJson(json['multiJointers'] as Map<String, dynamic>),
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      multiJointers: stringMultimapFromJson(
+          json['multiJointers'] as Map<String, Iterable<String>>?),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
       placeId: json['placeId'] as String?,
@@ -208,41 +163,32 @@ Map<String, dynamic> _$StoreToJson(Store instance) {
   writeNotNull('subtitle', instance.subtitle);
   writeNotNull('payToPartyId', instance.payToPartyId);
   writeNotNull('daysToCancelNonPay', instance.daysToCancelNonPay);
-  writeNotNull(
-      'manualAuthIsCapture', _$IndicatorEnumMap[instance.manualAuthIsCapture]);
-  writeNotNull('prorateShipping', _$IndicatorEnumMap[instance.prorateShipping]);
-  writeNotNull('prorateTaxes', _$IndicatorEnumMap[instance.prorateTaxes]);
-  writeNotNull('viewCartOnAdd', _$IndicatorEnumMap[instance.viewCartOnAdd]);
-  writeNotNull('autoSaveCart', _$IndicatorEnumMap[instance.autoSaveCart]);
-  writeNotNull(
-      'autoApproveReviews', _$IndicatorEnumMap[instance.autoApproveReviews]);
-  writeNotNull('isDemoStore', _$IndicatorEnumMap[instance.isDemoStore]);
-  writeNotNull('isImmediatelyFulfilled',
-      _$IndicatorEnumMap[instance.isImmediatelyFulfilled]);
+  writeNotNull('manualAuthIsCapture', instance.manualAuthIsCapture);
+  writeNotNull('prorateShipping', instance.prorateShipping);
+  writeNotNull('prorateTaxes', instance.prorateTaxes);
+  writeNotNull('viewCartOnAdd', instance.viewCartOnAdd);
+  writeNotNull('autoSaveCart', instance.autoSaveCart);
+  writeNotNull('autoApproveReviews', instance.autoApproveReviews);
+  writeNotNull('isDemoStore', instance.isDemoStore);
+  writeNotNull('isImmediatelyFulfilled', instance.isImmediatelyFulfilled);
   writeNotNull('inventoryFacilityId', instance.inventoryFacilityId);
-  writeNotNull('oneInventoryFacility',
-      _$IndicatorEnumMap[instance.oneInventoryFacility]);
-  writeNotNull('checkInventory', _$IndicatorEnumMap[instance.checkInventory]);
-  writeNotNull(
-      'reserveInventory', _$IndicatorEnumMap[instance.reserveInventory]);
+  writeNotNull('oneInventoryFacility', instance.oneInventoryFacility);
+  writeNotNull('checkInventory', instance.checkInventory);
+  writeNotNull('reserveInventory', instance.reserveInventory);
   writeNotNull('reserveOrderEnumId', instance.reserveOrderEnumId);
-  writeNotNull(
-      'requireInventory', _$IndicatorEnumMap[instance.requireInventory]);
-  writeNotNull('balanceResOnOrderCreation',
-      _$IndicatorEnumMap[instance.balanceResOnOrderCreation]);
+  writeNotNull('requireInventory', instance.requireInventory);
+  writeNotNull('balanceResOnOrderCreation', instance.balanceResOnOrderCreation);
   writeNotNull('requirementMethodEnumId', instance.requirementMethodEnumId);
   writeNotNull('orderNumberPrefix', instance.orderNumberPrefix);
   writeNotNull('defaultLocaleString', instance.defaultLocaleString);
   writeNotNull('defaultCurrencyUomId', instance.defaultCurrencyUomId);
   writeNotNull('defaultTimeZoneString', instance.defaultTimeZoneString);
   writeNotNull('defaultSalesChannelEnumId', instance.defaultSalesChannelEnumId);
-  writeNotNull('allowPassword', _$IndicatorEnumMap[instance.allowPassword]);
+  writeNotNull('allowPassword', instance.allowPassword);
   writeNotNull('defaultPassword', instance.defaultPassword);
-  writeNotNull(
-      'explodeOrderItems', _$IndicatorEnumMap[instance.explodeOrderItems]);
-  writeNotNull('checkGcBalance', _$IndicatorEnumMap[instance.checkGcBalance]);
-  writeNotNull(
-      'retryFailedAuths', _$IndicatorEnumMap[instance.retryFailedAuths]);
+  writeNotNull('explodeOrderItems', instance.explodeOrderItems);
+  writeNotNull('checkGcBalance', instance.checkGcBalance);
+  writeNotNull('retryFailedAuths', instance.retryFailedAuths);
   writeNotNull('headerApprovedStatus', instance.headerApprovedStatus);
   writeNotNull('itemApprovedStatus', instance.itemApprovedStatus);
   writeNotNull('digitalItemApprovedStatus', instance.digitalItemApprovedStatus);
@@ -255,62 +201,38 @@ Map<String, dynamic> _$StoreToJson(Store instance) {
   writeNotNull('authErrorMessage', instance.authErrorMessage);
   writeNotNull('visualThemeId', instance.visualThemeId);
   writeNotNull('storeCreditAccountEnumId', instance.storeCreditAccountEnumId);
-  writeNotNull('usePrimaryEmailUsername',
-      _$IndicatorEnumMap[instance.usePrimaryEmailUsername]);
-  writeNotNull(
-      'requireCustomerRole', _$IndicatorEnumMap[instance.requireCustomerRole]);
-  writeNotNull('autoInvoiceDigitalItems',
-      _$IndicatorEnumMap[instance.autoInvoiceDigitalItems]);
-  writeNotNull('reqShipAddrForDigItems',
-      _$IndicatorEnumMap[instance.reqShipAddrForDigItems]);
-  writeNotNull('showCheckoutGiftOptions',
-      _$IndicatorEnumMap[instance.showCheckoutGiftOptions]);
-  writeNotNull('selectPaymentTypePerItem',
-      _$IndicatorEnumMap[instance.selectPaymentTypePerItem]);
-  writeNotNull('showPricesWithVatTax',
-      _$IndicatorEnumMap[instance.showPricesWithVatTax]);
-  writeNotNull('showTaxIsExempt', _$IndicatorEnumMap[instance.showTaxIsExempt]);
+  writeNotNull('usePrimaryEmailUsername', instance.usePrimaryEmailUsername);
+  writeNotNull('requireCustomerRole', instance.requireCustomerRole);
+  writeNotNull('autoInvoiceDigitalItems', instance.autoInvoiceDigitalItems);
+  writeNotNull('reqShipAddrForDigItems', instance.reqShipAddrForDigItems);
+  writeNotNull('showCheckoutGiftOptions', instance.showCheckoutGiftOptions);
+  writeNotNull('selectPaymentTypePerItem', instance.selectPaymentTypePerItem);
+  writeNotNull('showPricesWithVatTax', instance.showPricesWithVatTax);
+  writeNotNull('showTaxIsExempt', instance.showTaxIsExempt);
   writeNotNull('vatTaxAuthGeoId', instance.vatTaxAuthGeoId);
   writeNotNull('vatTaxAuthPartyId', instance.vatTaxAuthPartyId);
-  writeNotNull('enableAutoSuggestionList',
-      _$IndicatorEnumMap[instance.enableAutoSuggestionList]);
-  writeNotNull(
-      'enableDigProdUpload', _$IndicatorEnumMap[instance.enableDigProdUpload]);
-  writeNotNull('prodSearchExcludeVariants',
-      _$IndicatorEnumMap[instance.prodSearchExcludeVariants]);
+  writeNotNull('enableAutoSuggestionList', instance.enableAutoSuggestionList);
+  writeNotNull('enableDigProdUpload', instance.enableDigProdUpload);
+  writeNotNull('prodSearchExcludeVariants', instance.prodSearchExcludeVariants);
   writeNotNull('digProdUploadCategoryId', instance.digProdUploadCategoryId);
-  writeNotNull(
-      'autoOrderCcTryExp', _$IndicatorEnumMap[instance.autoOrderCcTryExp]);
-  writeNotNull('autoOrderCcTryOtherCards',
-      _$IndicatorEnumMap[instance.autoOrderCcTryOtherCards]);
-  writeNotNull('autoOrderCcTryLaterNsf',
-      _$IndicatorEnumMap[instance.autoOrderCcTryLaterNsf]);
+  writeNotNull('autoOrderCcTryExp', instance.autoOrderCcTryExp);
+  writeNotNull('autoOrderCcTryOtherCards', instance.autoOrderCcTryOtherCards);
+  writeNotNull('autoOrderCcTryLaterNsf', instance.autoOrderCcTryLaterNsf);
   writeNotNull('autoOrderCcTryLaterMax', instance.autoOrderCcTryLaterMax);
   writeNotNull('storeCreditValidDays', instance.storeCreditValidDays);
-  writeNotNull(
-      'autoApproveInvoice', _$IndicatorEnumMap[instance.autoApproveInvoice]);
-  writeNotNull(
-      'autoApproveOrder', _$IndicatorEnumMap[instance.autoApproveOrder]);
-  writeNotNull(
-      'shipIfCaptureFails', _$IndicatorEnumMap[instance.shipIfCaptureFails]);
-  writeNotNull('setOwnerUponIssuance',
-      _$IndicatorEnumMap[instance.setOwnerUponIssuance]);
-  writeNotNull('reqReturnInventoryReceive',
-      _$IndicatorEnumMap[instance.reqReturnInventoryReceive]);
-  writeNotNull('addToCartRemoveIncompat',
-      _$IndicatorEnumMap[instance.addToCartRemoveIncompat]);
-  writeNotNull('addToCartReplaceUpsell',
-      _$IndicatorEnumMap[instance.addToCartReplaceUpsell]);
-  writeNotNull('splitPayPrefPerShpGrp',
-      _$IndicatorEnumMap[instance.splitPayPrefPerShpGrp]);
-  writeNotNull('managedByLot', _$IndicatorEnumMap[instance.managedByLot]);
-  writeNotNull('showOutOfStockProducts',
-      _$IndicatorEnumMap[instance.showOutOfStockProducts]);
-  writeNotNull('orderDecimalQuantity',
-      _$IndicatorEnumMap[instance.orderDecimalQuantity]);
-  writeNotNull('allowComment', _$IndicatorEnumMap[instance.allowComment]);
-  writeNotNull(
-      'allocateInventory', _$IndicatorEnumMap[instance.allocateInventory]);
+  writeNotNull('autoApproveInvoice', instance.autoApproveInvoice);
+  writeNotNull('autoApproveOrder', instance.autoApproveOrder);
+  writeNotNull('shipIfCaptureFails', instance.shipIfCaptureFails);
+  writeNotNull('setOwnerUponIssuance', instance.setOwnerUponIssuance);
+  writeNotNull('reqReturnInventoryReceive', instance.reqReturnInventoryReceive);
+  writeNotNull('addToCartRemoveIncompat', instance.addToCartRemoveIncompat);
+  writeNotNull('addToCartReplaceUpsell', instance.addToCartReplaceUpsell);
+  writeNotNull('splitPayPrefPerShpGrp', instance.splitPayPrefPerShpGrp);
+  writeNotNull('managedByLot', instance.managedByLot);
+  writeNotNull('showOutOfStockProducts', instance.showOutOfStockProducts);
+  writeNotNull('orderDecimalQuantity', instance.orderDecimalQuantity);
+  writeNotNull('allowComment', instance.allowComment);
+  writeNotNull('allocateInventory', instance.allocateInventory);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -321,8 +243,8 @@ Map<String, dynamic> _$StoreToJson(Store instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   writeNotNull('jointers', instance.jointers);
-  writeNotNull('multiJointers', instance.multiJointers?.toJson());
-  writeNotNull('acl', instance.acl?.toJson());
+  val['multiJointers'] = stringMultimapToJson(instance.multiJointers);
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('telephone', instance.telephone);
   writeNotNull('email', instance.email);
   writeNotNull('placeId', instance.placeId);
@@ -347,38 +269,6 @@ Map<String, dynamic> _$StoreToJson(Store instance) {
   return val;
 }
 
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};
-
 ProductStorePromoAppl _$ProductStorePromoApplFromJson(
         Map<String, dynamic> json) =>
     ProductStorePromoAppl(
@@ -391,7 +281,7 @@ ProductStorePromoAppl _$ProductStorePromoApplFromJson(
           ? null
           : DateTime.parse(json['thruDate'] as String),
       sequenceNum: (json['sequenceNum'] as num?)?.toInt(),
-      manualOnly: $enumDecodeNullable(_$IndicatorEnumMap, json['manualOnly']),
+      manualOnly: json['manualOnly'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -416,7 +306,7 @@ Map<String, dynamic> _$ProductStorePromoApplToJson(
   writeNotNull('fromDate', instance.fromDate?.toIso8601String());
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
   writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull('manualOnly', _$IndicatorEnumMap[instance.manualOnly]);
+  writeNotNull('manualOnly', instance.manualOnly);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -526,8 +416,7 @@ ProductStorePaymentSetting _$ProductStorePaymentSettingFromJson(
       paymentCustomMethodId: json['paymentCustomMethodId'] as String?,
       paymentGatewayConfigId: json['paymentGatewayConfigId'] as String?,
       paymentPropertiesPath: json['paymentPropertiesPath'] as String?,
-      applyToAllProducts:
-          $enumDecodeNullable(_$IndicatorEnumMap, json['applyToAllProducts']),
+      applyToAllProducts: json['applyToAllProducts'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -554,8 +443,7 @@ Map<String, dynamic> _$ProductStorePaymentSettingToJson(
   writeNotNull('paymentCustomMethodId', instance.paymentCustomMethodId);
   writeNotNull('paymentGatewayConfigId', instance.paymentGatewayConfigId);
   writeNotNull('paymentPropertiesPath', instance.paymentPropertiesPath);
-  writeNotNull(
-      'applyToAllProducts', _$IndicatorEnumMap[instance.applyToAllProducts]);
+  writeNotNull('applyToAllProducts', instance.applyToAllProducts);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());

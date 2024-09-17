@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'store.g.dart';
 
@@ -125,32 +126,32 @@ class Store {
     String? subtitle,
     String? payToPartyId,
     int? daysToCancelNonPay,
-    Indicator? manualAuthIsCapture,
-    Indicator? prorateShipping,
-    Indicator? prorateTaxes,
-    Indicator? viewCartOnAdd,
-    Indicator? autoSaveCart,
-    Indicator? autoApproveReviews,
-    Indicator? isDemoStore,
-    Indicator? isImmediatelyFulfilled,
+    String? manualAuthIsCapture,
+    String? prorateShipping,
+    String? prorateTaxes,
+    String? viewCartOnAdd,
+    String? autoSaveCart,
+    String? autoApproveReviews,
+    String? isDemoStore,
+    String? isImmediatelyFulfilled,
     String? inventoryFacilityId,
-    Indicator? oneInventoryFacility,
-    Indicator? checkInventory,
-    Indicator? reserveInventory,
+    String? oneInventoryFacility,
+    String? checkInventory,
+    String? reserveInventory,
     String? reserveOrderEnumId,
-    Indicator? requireInventory,
-    Indicator? balanceResOnOrderCreation,
+    String? requireInventory,
+    String? balanceResOnOrderCreation,
     String? requirementMethodEnumId,
     String? orderNumberPrefix,
     String? defaultLocaleString,
     String? defaultCurrencyUomId,
     String? defaultTimeZoneString,
     String? defaultSalesChannelEnumId,
-    Indicator? allowPassword,
+    String? allowPassword,
     String? defaultPassword,
-    Indicator? explodeOrderItems,
-    Indicator? checkGcBalance,
-    Indicator? retryFailedAuths,
+    String? explodeOrderItems,
+    String? checkGcBalance,
+    String? retryFailedAuths,
     String? headerApprovedStatus,
     String? itemApprovedStatus,
     String? digitalItemApprovedStatus,
@@ -163,38 +164,38 @@ class Store {
     String? authErrorMessage,
     String? visualThemeId,
     String? storeCreditAccountEnumId,
-    Indicator? usePrimaryEmailUsername,
-    Indicator? requireCustomerRole,
-    Indicator? autoInvoiceDigitalItems,
-    Indicator? reqShipAddrForDigItems,
-    Indicator? showCheckoutGiftOptions,
-    Indicator? selectPaymentTypePerItem,
-    Indicator? showPricesWithVatTax,
-    Indicator? showTaxIsExempt,
+    String? usePrimaryEmailUsername,
+    String? requireCustomerRole,
+    String? autoInvoiceDigitalItems,
+    String? reqShipAddrForDigItems,
+    String? showCheckoutGiftOptions,
+    String? selectPaymentTypePerItem,
+    String? showPricesWithVatTax,
+    String? showTaxIsExempt,
     String? vatTaxAuthGeoId,
     String? vatTaxAuthPartyId,
-    Indicator? enableAutoSuggestionList,
-    Indicator? enableDigProdUpload,
-    Indicator? prodSearchExcludeVariants,
+    String? enableAutoSuggestionList,
+    String? enableDigProdUpload,
+    String? prodSearchExcludeVariants,
     String? digProdUploadCategoryId,
-    Indicator? autoOrderCcTryExp,
-    Indicator? autoOrderCcTryOtherCards,
-    Indicator? autoOrderCcTryLaterNsf,
+    String? autoOrderCcTryExp,
+    String? autoOrderCcTryOtherCards,
+    String? autoOrderCcTryLaterNsf,
     int? autoOrderCcTryLaterMax,
     int? storeCreditValidDays,
-    Indicator? autoApproveInvoice,
-    Indicator? autoApproveOrder,
-    Indicator? shipIfCaptureFails,
-    Indicator? setOwnerUponIssuance,
-    Indicator? reqReturnInventoryReceive,
-    Indicator? addToCartRemoveIncompat,
-    Indicator? addToCartReplaceUpsell,
-    Indicator? splitPayPrefPerShpGrp,
-    Indicator? managedByLot,
-    Indicator? showOutOfStockProducts,
-    Indicator? orderDecimalQuantity,
-    Indicator? allowComment,
-    Indicator? allocateInventory,
+    String? autoApproveInvoice,
+    String? autoApproveOrder,
+    String? shipIfCaptureFails,
+    String? setOwnerUponIssuance,
+    String? reqReturnInventoryReceive,
+    String? addToCartRemoveIncompat,
+    String? addToCartReplaceUpsell,
+    String? splitPayPrefPerShpGrp,
+    String? managedByLot,
+    String? showOutOfStockProducts,
+    String? orderDecimalQuantity,
+    String? allowComment,
+    String? allocateInventory,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -204,8 +205,8 @@ class Store {
     String? tag3,
     List<String?>? moreTags,
     Map<String, String>? jointers,
-    MultimapOra? multiJointers,
-    MultimapOra? acl,
+    Multimap<String, String>? multiJointers,
+    Multimap<String, String>? acl,
     String? telephone,
     String? email,
     String? placeId,
@@ -358,49 +359,49 @@ class Store {
   int? daysToCancelNonPay;
 
    
-  Indicator? manualAuthIsCapture;
+  String? manualAuthIsCapture;
 
    
-  Indicator? prorateShipping;
+  String? prorateShipping;
 
    
-  Indicator? prorateTaxes;
+  String? prorateTaxes;
 
    
-  Indicator? viewCartOnAdd;
+  String? viewCartOnAdd;
 
    
-  Indicator? autoSaveCart;
+  String? autoSaveCart;
 
    
-  Indicator? autoApproveReviews;
+  String? autoApproveReviews;
 
    
-  Indicator? isDemoStore;
+  String? isDemoStore;
 
    
-  Indicator? isImmediatelyFulfilled;
+  String? isImmediatelyFulfilled;
 
    
   String? inventoryFacilityId;
 
    
-  Indicator? oneInventoryFacility;
+  String? oneInventoryFacility;
 
    
-  Indicator? checkInventory;
+  String? checkInventory;
 
    
-  Indicator? reserveInventory;
+  String? reserveInventory;
 
    
   String? reserveOrderEnumId;
 
    
-  Indicator? requireInventory;
+  String? requireInventory;
 
    
-  Indicator? balanceResOnOrderCreation;
+  String? balanceResOnOrderCreation;
 
    
   String? requirementMethodEnumId;
@@ -421,19 +422,19 @@ class Store {
   String? defaultSalesChannelEnumId;
 
    
-  Indicator? allowPassword;
+  String? allowPassword;
 
    
   String? defaultPassword;
 
    
-  Indicator? explodeOrderItems;
+  String? explodeOrderItems;
 
    
-  Indicator? checkGcBalance;
+  String? checkGcBalance;
 
    
-  Indicator? retryFailedAuths;
+  String? retryFailedAuths;
 
    
   String? headerApprovedStatus;
@@ -472,28 +473,28 @@ class Store {
   String? storeCreditAccountEnumId;
 
    
-  Indicator? usePrimaryEmailUsername;
+  String? usePrimaryEmailUsername;
 
    
-  Indicator? requireCustomerRole;
+  String? requireCustomerRole;
 
    
-  Indicator? autoInvoiceDigitalItems;
+  String? autoInvoiceDigitalItems;
 
    
-  Indicator? reqShipAddrForDigItems;
+  String? reqShipAddrForDigItems;
 
    
-  Indicator? showCheckoutGiftOptions;
+  String? showCheckoutGiftOptions;
 
    
-  Indicator? selectPaymentTypePerItem;
+  String? selectPaymentTypePerItem;
 
    
-  Indicator? showPricesWithVatTax;
+  String? showPricesWithVatTax;
 
    
-  Indicator? showTaxIsExempt;
+  String? showTaxIsExempt;
 
    
   String? vatTaxAuthGeoId;
@@ -502,25 +503,25 @@ class Store {
   String? vatTaxAuthPartyId;
 
    
-  Indicator? enableAutoSuggestionList;
+  String? enableAutoSuggestionList;
 
    
-  Indicator? enableDigProdUpload;
+  String? enableDigProdUpload;
 
    
-  Indicator? prodSearchExcludeVariants;
+  String? prodSearchExcludeVariants;
 
    
   String? digProdUploadCategoryId;
 
    
-  Indicator? autoOrderCcTryExp;
+  String? autoOrderCcTryExp;
 
    
-  Indicator? autoOrderCcTryOtherCards;
+  String? autoOrderCcTryOtherCards;
 
    
-  Indicator? autoOrderCcTryLaterNsf;
+  String? autoOrderCcTryLaterNsf;
 
    
   int? autoOrderCcTryLaterMax;
@@ -529,43 +530,43 @@ class Store {
   int? storeCreditValidDays;
 
    
-  Indicator? autoApproveInvoice;
+  String? autoApproveInvoice;
 
    
-  Indicator? autoApproveOrder;
+  String? autoApproveOrder;
 
    
-  Indicator? shipIfCaptureFails;
+  String? shipIfCaptureFails;
 
    
-  Indicator? setOwnerUponIssuance;
+  String? setOwnerUponIssuance;
 
    
-  Indicator? reqReturnInventoryReceive;
+  String? reqReturnInventoryReceive;
 
    
-  Indicator? addToCartRemoveIncompat;
+  String? addToCartRemoveIncompat;
 
    
-  Indicator? addToCartReplaceUpsell;
+  String? addToCartReplaceUpsell;
 
    
-  Indicator? splitPayPrefPerShpGrp;
+  String? splitPayPrefPerShpGrp;
 
    
-  Indicator? managedByLot;
+  String? managedByLot;
 
    
-  Indicator? showOutOfStockProducts;
+  String? showOutOfStockProducts;
 
    
-  Indicator? orderDecimalQuantity;
+  String? orderDecimalQuantity;
 
    
-  Indicator? allowComment;
+  String? allowComment;
 
    
-  Indicator? allocateInventory;
+  String? allocateInventory;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -594,11 +595,13 @@ class Store {
    
   Map<String, String>? jointers;
 
-   
-  MultimapOra? multiJointers;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? multiJointers;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
    
   String? telephone;
@@ -641,7 +644,7 @@ class Store {
     DateTime? fromDate_,
     DateTime? thruDate_,
     int? sequenceNum_,
-    Indicator? manualOnly_,
+    String? manualOnly_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -775,7 +778,7 @@ class Store {
     String? paymentCustomMethodId_,
     String? paymentGatewayConfigId_,
     String? paymentPropertiesPath_,
-    Indicator? applyToAllProducts_,
+    String? applyToAllProducts_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -1048,7 +1051,7 @@ class ProductStorePromoAppl {
     DateTime? fromDate,
     DateTime? thruDate,
     int? sequenceNum,
-    Indicator? manualOnly,
+    String? manualOnly,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -1085,7 +1088,7 @@ class ProductStorePromoAppl {
   int? sequenceNum;
 
    
-  Indicator? manualOnly;
+  String? manualOnly;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -1286,7 +1289,7 @@ class ProductStorePaymentSetting {
     String? paymentCustomMethodId,
     String? paymentGatewayConfigId,
     String? paymentPropertiesPath,
-    Indicator? applyToAllProducts,
+    String? applyToAllProducts,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -1331,7 +1334,7 @@ class ProductStorePaymentSetting {
   String? paymentPropertiesPath;
 
    
-  Indicator? applyToAllProducts;
+  String? applyToAllProducts;
 
    
   DateTime? lastUpdatedTxStamp;

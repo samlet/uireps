@@ -45,9 +45,8 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl:
+          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
       facilityType: json['facilityType'] == null
           ? null
           : FacilityType.fromJson(json['facilityType'] as Map<String, dynamic>),
@@ -120,7 +119,7 @@ Map<String, dynamic> _$FacilityToJson(Facility instance) {
   writeNotNull('tag2', instance.tag2);
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('facilityType', instance.facilityType?.toJson());
   writeNotNull('facilityCalendar',
       instance.facilityCalendar?.map((e) => e.toJson()).toList());
@@ -466,7 +465,7 @@ Map<String, dynamic> _$FacilityContactMechToJson(FacilityContactMech instance) {
 FacilityType _$FacilityTypeFromJson(Map<String, dynamic> json) => FacilityType(
       facilityTypeId: json['facilityTypeId'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
-      hasTable: $enumDecodeNullable(_$IndicatorEnumMap, json['hasTable']),
+      hasTable: json['hasTable'] as String?,
       description: json['description'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -488,7 +487,7 @@ Map<String, dynamic> _$FacilityTypeToJson(FacilityType instance) {
 
   writeNotNull('facilityTypeId', instance.facilityTypeId);
   writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', _$IndicatorEnumMap[instance.hasTable]);
+  writeNotNull('hasTable', instance.hasTable);
   writeNotNull('description', instance.description);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
@@ -496,35 +495,3 @@ Map<String, dynamic> _$FacilityTypeToJson(FacilityType instance) {
   writeNotNull('tenantId', instance.tenantId);
   return val;
 }
-
-const _$IndicatorEnumMap = {
-  Indicator.UNKNOWN: 'UNKNOWN',
-  Indicator.FIRST: 'FIRST',
-  Indicator.SECOND: 'SECOND',
-  Indicator.THIRD: 'THIRD',
-  Indicator.FOURTH: 'FOURTH',
-  Indicator.FIFTH: 'FIFTH',
-  Indicator.SIXTH: 'SIXTH',
-  Indicator.SEVENTH: 'SEVENTH',
-  Indicator.EIGHTH: 'EIGHTH',
-  Indicator.NINTH: 'NINTH',
-  Indicator.YES: 'YES',
-  Indicator.NO: 'NO',
-  Indicator.TRANSIT: 'TRANSIT',
-  Indicator.A: 'A',
-  Indicator.B: 'B',
-  Indicator.C: 'C',
-  Indicator.D: 'D',
-  Indicator.E: 'E',
-  Indicator.F: 'F',
-  Indicator.G: 'G',
-  Indicator.H: 'H',
-  Indicator.I: 'I',
-  Indicator.J: 'J',
-  Indicator.K: 'K',
-  Indicator.L: 'L',
-  Indicator.M: 'M',
-  Indicator.N: 'N',
-  Indicator.O: 'O',
-  Indicator.P: 'P',
-};

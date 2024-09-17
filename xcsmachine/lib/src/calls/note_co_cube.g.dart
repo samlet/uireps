@@ -6,7 +6,7 @@ part of 'note_co_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteCoCubeHash() => r'd703a6e7e0e640f755132a7bcf3ca0e9c2462bad';
+String _$noteCoCubeHash() => r'87b0d94d0df484a5ac32116fd7489cab1163b458';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -1,0 +1,21 @@
+import '../multimap_conv.dart';
+
+CREATE TABLE thing_facet (
+    thing_id VARCHAR(255) NOT NULL PRIMARY KEY,
+    name VARCHAR(100),
+    description VARCHAR(255),
+    url VARCHAR(2000),
+    image TEXT,
+    same_as VARCHAR(2000),
+    tenant_id VARCHAR(22),
+    last_updated_tx_stamp DATETIME(3),
+    created_tx_stamp DATETIME(3),
+    evict BOOLEAN
+);
+
+allThingFacets: SELECT * FROM thing_facet;
+clearThingFacets: DELETE FROM thing_facet;
+
+
+
+

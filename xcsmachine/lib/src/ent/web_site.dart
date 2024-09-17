@@ -1,7 +1,8 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'web_site.g.dart';
 
@@ -49,7 +50,7 @@ class WebSite {
     String? httpPort,
     String? httpsHost,
     String? httpsPort,
-    Indicator? enableHttps,
+    String? enableHttps,
     String? webappPath,
     String? standardContentPrefix,
     String? secureContentPrefix,
@@ -58,17 +59,17 @@ class WebSite {
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? productStoreId,
-    Indicator? allowProductStoreChange,
+    String? allowProductStoreChange,
     String? hostedPathAlias,
-    Indicator? isDefault,
-    Indicator? displayMaintenancePage,
+    String? isDefault,
+    String? displayMaintenancePage,
     String? tenantId,
     bool? evict,
     String? tag1,
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     List<WebSiteContactList>? webSiteContactList,
   }) {
     return WebSite(
@@ -130,7 +131,7 @@ class WebSite {
   String? httpsPort;
 
    
-  Indicator? enableHttps;
+  String? enableHttps;
 
    
   String? webappPath;
@@ -157,16 +158,16 @@ class WebSite {
   String? productStoreId;
 
    
-  Indicator? allowProductStoreChange;
+  String? allowProductStoreChange;
 
    
   String? hostedPathAlias;
 
    
-  Indicator? isDefault;
+  String? isDefault;
 
    
-  Indicator? displayMaintenancePage;
+  String? displayMaintenancePage;
 
    
   String? tenantId;
@@ -186,8 +187,9 @@ class WebSite {
    
   List<String?>? moreTags;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
 
   // rel: one (no public-types)
