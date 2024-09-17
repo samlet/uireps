@@ -1,4 +1,4 @@
-import '../multimap_conv.dart';
+import '../fldconv.dart';
 
 CREATE TABLE thing_facet (
     thing_id VARCHAR(255) NOT NULL PRIMARY KEY,

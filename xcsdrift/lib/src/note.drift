@@ -1,0 +1,24 @@
+import '../fldconv.dart';
+
+CREATE TABLE note_data (
+    note_id VARCHAR(255) NOT NULL PRIMARY KEY,
+    note_name VARCHAR(100),
+    note_info LONGTEXT,
+    note_date_time DATETIME(3),
+    last_updated_tx_stamp DATETIME(3),
+    created_tx_stamp DATETIME(3),
+    note_party VARCHAR(22),
+    more_info_url VARCHAR(255),
+    more_info_item_id VARCHAR(255),
+    more_info_item_name VARCHAR(255),
+    tenant_id VARCHAR(22),
+    evict BOOLEAN,
+    acl TEXT MAPPED BY `const StringMultimapConverter()`
+);
+
+allNoteData: SELECT * FROM note_data;
+clearNoteData: DELETE FROM note_data;
+
+
+
+

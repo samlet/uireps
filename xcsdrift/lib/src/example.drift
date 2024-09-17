@@ -1,0 +1,51 @@
+import '../fldconv.dart';
+
+CREATE TABLE example (
+    example_id VARCHAR(255) NOT NULL PRIMARY KEY,
+    example_type_id VARCHAR(22),
+    status_id VARCHAR(22),
+    example_name VARCHAR(100),
+    description VARCHAR(255),
+    long_description LONGTEXT,
+    comments VARCHAR(255),
+    example_size BIGINT,
+    example_date DATETIME(3),
+    another_date DATETIME(3),
+    another_text VARCHAR(255),
+    last_updated_tx_stamp DATETIME(3),
+    created_tx_stamp DATETIME(3),
+    tenant_id VARCHAR(22),
+    note_id VARCHAR(22),
+    extra_date DATE,
+    extra_time VARCHAR(20) MAPPED BY `const TimeConverter()`,
+    extra_currency DECIMAL(18,2),
+    extra_amount DECIMAL(18,6),
+    extra_blob LongBlob,
+    extra_strings TEXT,
+    extra_ints TEXT,
+    extra_bools TEXT,
+    extra_decimals TEXT,
+    extra_timestamps TEXT,
+    extra_buffers TEXT,
+    measures TEXT,
+    series TEXT,
+    describes TEXT,
+    refs TEXT,
+    options TEXT,
+    media_links TEXT,
+    bookmarks TEXT MAPPED BY `const StringMultimapConverter()`,
+    symbols TEXT MAPPED BY `const SymbolMultimapConverter()`,
+    detail TEXT,
+    metadata TEXT,
+    slot_id VARCHAR(22),
+    customer_confirmation CHAR(1),
+    evict BOOLEAN,
+    acl TEXT MAPPED BY `const StringMultimapConverter()`
+);
+
+allExamples: SELECT * FROM example;
+clearExamples: DELETE FROM example;
+
+
+
+

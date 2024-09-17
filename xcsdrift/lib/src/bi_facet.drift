@@ -1,4 +1,4 @@
-import '../multimap_conv.dart';
+import '../fldconv.dart';
 
 CREATE TABLE bi_facet (
     bi_id VARCHAR(255) NOT NULL PRIMARY KEY,
