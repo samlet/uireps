@@ -1,7 +1,7 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/inventory.drift.dart' as i1;
-import 'package:xcsmachine/src/ent/inventory.dart' as i2;
+import 'package:xcsdrift/src/inv_type.dart' as i2;
 import 'package:xcsdrift/src/inventory_conv.dart' as i3;
 import 'package:drift/internal/modular.dart' as i4;
 
@@ -275,7 +275,7 @@ class InventoryItem extends i0.Table
       const i0.VerificationMeta('inventoryItemType');
   late final i0.GeneratedColumnWithTypeConverter<i2.InventoryItemType?, String>
       inventoryItemType = i0.GeneratedColumn<String>(
-              'inventoryItemType', aliasedName, true,
+              'inventory_item_type', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
@@ -620,7 +620,7 @@ class InventoryItem extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags']),
       inventoryItemType: i1.InventoryItem.$converterinventoryItemTypen.fromSql(
           attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
-              data['${effectivePrefix}inventoryItemType'])),
+              data['${effectivePrefix}inventory_item_type'])),
     );
   }
 
@@ -629,11 +629,13 @@ class InventoryItem extends i0.Table
     return InventoryItem(attachedDatabase, alias);
   }
 
-  static i0.TypeConverter<i2.InventoryItemType, String>
+  static i0
+      .JsonTypeConverter2<i2.InventoryItemType, String, Map<String, dynamic>>
       $converterinventoryItemType = const i3.InventoryItemTypeConverter();
-  static i0.TypeConverter<i2.InventoryItemType?, String?>
+  static i0
+      .JsonTypeConverter2<i2.InventoryItemType?, String?, Map<String, dynamic>?>
       $converterinventoryItemTypen =
-      i0.NullAwareTypeConverter.wrap($converterinventoryItemType);
+      i0.JsonTypeConverter2.asNullable($converterinventoryItemType);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -833,7 +835,7 @@ class InventoryItemData extends i0.DataClass
       map['more_tags'] = i0.Variable<String>(moreTags);
     }
     if (!nullToAbsent || inventoryItemType != null) {
-      map['inventoryItemType'] = i0.Variable<String>(i1
+      map['inventory_item_type'] = i0.Variable<String>(i1
           .InventoryItem.$converterinventoryItemTypen
           .toSql(inventoryItemType));
     }
@@ -1006,8 +1008,9 @@ class InventoryItemData extends i0.DataClass
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: serializer.fromJson<String?>(json['more_tags']),
-      inventoryItemType:
-          serializer.fromJson<i2.InventoryItemType?>(json['inventoryItemType']),
+      inventoryItemType: i1.InventoryItem.$converterinventoryItemTypen.fromJson(
+          serializer
+              .fromJson<Map<String, dynamic>?>(json['inventory_item_type'])),
     );
   }
   @override
@@ -1055,8 +1058,9 @@ class InventoryItemData extends i0.DataClass
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<String?>(moreTags),
-      'inventoryItemType':
-          serializer.toJson<i2.InventoryItemType?>(inventoryItemType),
+      'inventory_item_type': serializer.toJson<Map<String, dynamic>?>(i1
+          .InventoryItem.$converterinventoryItemTypen
+          .toJson(inventoryItemType)),
     };
   }
 
@@ -1587,7 +1591,7 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
-      if (inventoryItemType != null) 'inventoryItemType': inventoryItemType,
+      if (inventoryItemType != null) 'inventory_item_type': inventoryItemType,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -1799,7 +1803,7 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       map['more_tags'] = i0.Variable<String>(moreTags.value);
     }
     if (inventoryItemType.present) {
-      map['inventoryItemType'] = i0.Variable<String>(i1
+      map['inventory_item_type'] = i0.Variable<String>(i1
           .InventoryItem.$converterinventoryItemTypen
           .toSql(inventoryItemType.value));
     }
