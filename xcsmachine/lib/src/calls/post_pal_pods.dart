@@ -33,30 +33,6 @@ class PostPalPod extends _$PostPalPod {
   }
 
   
-  Future<bool> like() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> unlike() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> featured() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> setCharge({
     
     required double fee, 
@@ -98,6 +74,30 @@ class PostPalPod extends _$PostPalPod {
               review: review,
               rating: rating,
               reward: reward,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> like() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> unlike() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
             ));
     return state.hasError == false;
   }
@@ -155,26 +155,6 @@ Future<String> postText(PostTextRef ref, {
 }
   
 @riverpod
-Future<double> postLikes(PostLikesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.likes(
-  );
-}
-  
-@riverpod
-Future<PostBundle> postFetch(PostFetchRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.fetch(
-  );
-}
-  
-@riverpod
 Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
   String regionOrNs='default',
   required String id,
@@ -201,6 +181,26 @@ Future<bool> postIsLiked(PostIsLikedRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.isLiked(
+  );
+}
+  
+@riverpod
+Future<PostBundle> postFetch(PostFetchRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.fetch(
+  );
+}
+  
+@riverpod
+Future<double> postLikes(PostLikesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.likes(
   );
 }
   

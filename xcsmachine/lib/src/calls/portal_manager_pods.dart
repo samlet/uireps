@@ -30,6 +30,23 @@ class PortalManagerPod extends _$PortalManagerPod {
     // ok to leave this empty if the return type is FutureOr<void>
   }
 
+  
+  Future<bool> storeBundleSpec({
+    
+    required String bundleName,
+    String? regionId='default',
+    required Map<String, Object?> spec, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalManagerProvider(regionOrNs: regionOrNs)).storeBundleSpec(
+              bundleName: bundleName,
+              regionId: regionId,
+              spec: spec,
+            ));
+    return state.hasError == false;
+  }
     
 }
 

@@ -18,7 +18,7 @@ class BundlesQueryDealerRepository {
 
    
   // Query
-  Future<Map<String, Object>> loadBundle({
+  Future<Map<String, Object?>> loadBundle({
     
     required LoadBundle r,
     String? regionId='default', 

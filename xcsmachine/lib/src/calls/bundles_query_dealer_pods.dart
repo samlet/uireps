@@ -35,7 +35,7 @@ class BundlesQueryDealerPod extends _$BundlesQueryDealerPod {
 
   
 @riverpod
-Future<Map<String, Object>> bundlesQueryLoadBundle(BundlesQueryLoadBundleRef ref, {
+Future<Map<String, Object?>> bundlesQueryLoadBundle(BundlesQueryLoadBundleRef ref, {
   String regionOrNs='default',
   
     required LoadBundle r,

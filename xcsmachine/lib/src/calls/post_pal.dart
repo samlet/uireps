@@ -34,78 +34,6 @@ class PostPalRepository {
     return ResultConv.asString(resp);
   }
    
-  // Mutation
-  Future<void> like() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "like",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
-  // Query
-  Future<double> likes() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "likes",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asDouble(resp);
-  }
-   
-  // Mutation
-  Future<void> unlike() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "unlike",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
-  // Query
-  Future<PostBundle> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "fetch",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return PostBundle.fromJson(resp);
-  }
-   
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "featured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
   // Query
   Future<bool> isFeatured() async { 
     var resp = await performCall(dio, {
@@ -213,6 +141,78 @@ class PostPalRepository {
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<void> featured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "featured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+  }
+   
+  // Query
+  Future<PostBundle> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "fetch",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return PostBundle.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> like() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "like",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+  }
+   
+  // Query
+  Future<double> likes() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "likes",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asDouble(resp);
+  }
+   
+  // Mutation
+  Future<void> unlike() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "unlike",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
   }
    
   // Query

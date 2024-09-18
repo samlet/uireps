@@ -6,7 +6,7 @@ class BiFacetBi{
   String? biId;
   String? bundleName;
   String? regionId;
-  Map<String, Object>? data;
+  Map<String, Object?>? data;
   List<String>? tags;
   bool? modified;
   String? tenantId;

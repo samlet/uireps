@@ -161,7 +161,7 @@ class _BundlesQueryDealerProviderElement
 }
 
 String _$bundlesQueryLoadBundleHash() =>
-    r'9e849dcac236813b52162b8ca0c8e977eb3e3d90';
+    r'5f4594d6244050d489ae95bf77c262512529c5fc';
 
 /// See also [bundlesQueryLoadBundle].
 @ProviderFor(bundlesQueryLoadBundle)
@@ -169,7 +169,7 @@ const bundlesQueryLoadBundleProvider = BundlesQueryLoadBundleFamily();
 
 /// See also [bundlesQueryLoadBundle].
 class BundlesQueryLoadBundleFamily
-    extends Family<AsyncValue<Map<String, Object>>> {
+    extends Family<AsyncValue<Map<String, Object?>>> {
   /// See also [bundlesQueryLoadBundle].
   const BundlesQueryLoadBundleFamily();
 
@@ -214,7 +214,7 @@ class BundlesQueryLoadBundleFamily
 
 /// See also [bundlesQueryLoadBundle].
 class BundlesQueryLoadBundleProvider
-    extends AutoDisposeFutureProvider<Map<String, Object>> {
+    extends AutoDisposeFutureProvider<Map<String, Object?>> {
   /// See also [bundlesQueryLoadBundle].
   BundlesQueryLoadBundleProvider({
     String regionOrNs = 'default',
@@ -259,7 +259,7 @@ class BundlesQueryLoadBundleProvider
 
   @override
   Override overrideWith(
-    FutureOr<Map<String, Object>> Function(BundlesQueryLoadBundleRef provider)
+    FutureOr<Map<String, Object?>> Function(BundlesQueryLoadBundleRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -279,7 +279,7 @@ class BundlesQueryLoadBundleProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<Map<String, Object>> createElement() {
+  AutoDisposeFutureProviderElement<Map<String, Object?>> createElement() {
     return _BundlesQueryLoadBundleProviderElement(this);
   }
 
@@ -303,7 +303,7 @@ class BundlesQueryLoadBundleProvider
 }
 
 mixin BundlesQueryLoadBundleRef
-    on AutoDisposeFutureProviderRef<Map<String, Object>> {
+    on AutoDisposeFutureProviderRef<Map<String, Object?>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
@@ -315,7 +315,7 @@ mixin BundlesQueryLoadBundleRef
 }
 
 class _BundlesQueryLoadBundleProviderElement
-    extends AutoDisposeFutureProviderElement<Map<String, Object>>
+    extends AutoDisposeFutureProviderElement<Map<String, Object?>>
     with BundlesQueryLoadBundleRef {
   _BundlesQueryLoadBundleProviderElement(super.provider);
 
