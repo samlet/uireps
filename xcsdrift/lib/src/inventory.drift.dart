@@ -1,7 +1,7 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/inventory.drift.dart' as i1;
-import 'package:xcsdrift/src/inv_type.dart' as i2;
+import 'package:xcsmachine/src/ent/inventory.dart' as i2;
 import 'package:xcsdrift/src/inventory_conv.dart' as i3;
 import 'package:drift/internal/modular.dart' as i4;
 
@@ -281,16 +281,68 @@ class InventoryItem extends i0.Table
               $customConstraints: '')
           .withConverter<i2.InventoryItemType?>(
               i1.InventoryItem.$converterinventoryItemTypen);
-  static const i0.VerificationMeta _invTypesMeta =
-      const i0.VerificationMeta('invTypes');
+  static const i0.VerificationMeta _inventoryTransferMeta =
+      const i0.VerificationMeta('inventoryTransfer');
   late final i0
-      .GeneratedColumnWithTypeConverter<List<i2.InventoryItemType>?, String>
-      invTypes = i0.GeneratedColumn<String>('inv_types', aliasedName, true,
+      .GeneratedColumnWithTypeConverter<List<i2.InventoryTransfer>?, String>
+      inventoryTransfer = i0.GeneratedColumn<String>(
+              'inventory_transfer', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i2.InventoryItemType>?>(
-              i1.InventoryItem.$converterinvTypesn);
+          .withConverter<List<i2.InventoryTransfer>?>(
+              i1.InventoryItem.$converterinventoryTransfern);
+  static const i0.VerificationMeta _inventoryItemSlotMeta =
+      const i0.VerificationMeta('inventoryItemSlot');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i2.InventoryItemSlot>?, String>
+      inventoryItemSlot = i0.GeneratedColumn<String>(
+              'inventory_item_slot', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i2.InventoryItemSlot>?>(
+              i1.InventoryItem.$converterinventoryItemSlotn);
+  static const i0.VerificationMeta _inventoryItemDetailMeta =
+      const i0.VerificationMeta('inventoryItemDetail');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i2.InventoryItemDetail>?, String>
+      inventoryItemDetail = i0.GeneratedColumn<String>(
+              'inventory_item_detail', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i2.InventoryItemDetail>?>(
+              i1.InventoryItem.$converterinventoryItemDetailn);
+  static const i0.VerificationMeta _inventoryItemStatusMeta =
+      const i0.VerificationMeta('inventoryItemStatus');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i2.InventoryItemStatus>?, String>
+      inventoryItemStatus = i0.GeneratedColumn<String>(
+              'inventory_item_status', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i2.InventoryItemStatus>?>(
+              i1.InventoryItem.$converterinventoryItemStatusn);
+  static const i0.VerificationMeta _inventoryItemVarianceMeta =
+      const i0.VerificationMeta('inventoryItemVariance');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i2.InventoryItemVariance>?, String>
+      inventoryItemVariance = i0.GeneratedColumn<String>(
+              'inventory_item_variance', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i2.InventoryItemVariance>?>(
+              i1.InventoryItem.$converterinventoryItemVariancen);
+  static const i0.VerificationMeta _reservedFlagMeta =
+      const i0.VerificationMeta('reservedFlag');
+  late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
+      'reserved_flag', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   @override
   List<i0.GeneratedColumn> get $columns => [
         inventoryItemId,
@@ -331,7 +383,12 @@ class InventoryItem extends i0.Table
         tag3,
         moreTags,
         inventoryItemType,
-        invTypes
+        inventoryTransfer,
+        inventoryItemSlot,
+        inventoryItemDetail,
+        inventoryItemStatus,
+        inventoryItemVariance,
+        reservedFlag
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -538,7 +595,22 @@ class InventoryItem extends i0.Table
     }
     context.handle(
         _inventoryItemTypeMeta, const i0.VerificationResult.success());
-    context.handle(_invTypesMeta, const i0.VerificationResult.success());
+    context.handle(
+        _inventoryTransferMeta, const i0.VerificationResult.success());
+    context.handle(
+        _inventoryItemSlotMeta, const i0.VerificationResult.success());
+    context.handle(
+        _inventoryItemDetailMeta, const i0.VerificationResult.success());
+    context.handle(
+        _inventoryItemStatusMeta, const i0.VerificationResult.success());
+    context.handle(
+        _inventoryItemVarianceMeta, const i0.VerificationResult.success());
+    if (data.containsKey('reserved_flag')) {
+      context.handle(
+          _reservedFlagMeta,
+          reservedFlag.isAcceptableOrUnknown(
+              data['reserved_flag']!, _reservedFlagMeta));
+    }
     return context;
   }
 
@@ -633,9 +705,23 @@ class InventoryItem extends i0.Table
       inventoryItemType: i1.InventoryItem.$converterinventoryItemTypen.fromSql(
           attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
               data['${effectivePrefix}inventory_item_type'])),
-      invTypes: i1.InventoryItem.$converterinvTypesn.fromSql(attachedDatabase
-          .typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}inv_types'])),
+      inventoryTransfer: i1.InventoryItem.$converterinventoryTransfern.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}inventory_transfer'])),
+      inventoryItemSlot: i1.InventoryItem.$converterinventoryItemSlotn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}inventory_item_slot'])),
+      inventoryItemDetail: i1.InventoryItem.$converterinventoryItemDetailn
+          .fromSql(attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}inventory_item_detail'])),
+      inventoryItemStatus: i1.InventoryItem.$converterinventoryItemStatusn
+          .fromSql(attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}inventory_item_status'])),
+      inventoryItemVariance: i1.InventoryItem.$converterinventoryItemVariancen
+          .fromSql(attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}inventory_item_variance'])),
+      reservedFlag: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
   }
 
@@ -651,12 +737,36 @@ class InventoryItem extends i0.Table
       .JsonTypeConverter2<i2.InventoryItemType?, String?, Map<String, dynamic>?>
       $converterinventoryItemTypen =
       i0.JsonTypeConverter2.asNullable($converterinventoryItemType);
-  static i0.JsonTypeConverter2<List<i2.InventoryItemType>, String,
-          List<Map<String, dynamic>>> $converterinvTypes =
-      const i3.InventoryItemTypeListConverter();
-  static i0.JsonTypeConverter2<List<i2.InventoryItemType>?, String?,
-          List<Map<String, dynamic>>?> $converterinvTypesn =
-      i0.JsonTypeConverter2.asNullable($converterinvTypes);
+  static i0.JsonTypeConverter2<List<i2.InventoryTransfer>, String,
+          List<Map<String, dynamic>>> $converterinventoryTransfer =
+      const i3.InventoryTransferListConverter();
+  static i0.JsonTypeConverter2<List<i2.InventoryTransfer>?, String?,
+          List<Map<String, dynamic>>?> $converterinventoryTransfern =
+      i0.JsonTypeConverter2.asNullable($converterinventoryTransfer);
+  static i0.JsonTypeConverter2<List<i2.InventoryItemSlot>, String,
+          List<Map<String, dynamic>>> $converterinventoryItemSlot =
+      const i3.InventoryItemSlotListConverter();
+  static i0.JsonTypeConverter2<List<i2.InventoryItemSlot>?, String?,
+          List<Map<String, dynamic>>?> $converterinventoryItemSlotn =
+      i0.JsonTypeConverter2.asNullable($converterinventoryItemSlot);
+  static i0.JsonTypeConverter2<List<i2.InventoryItemDetail>, String,
+          List<Map<String, dynamic>>> $converterinventoryItemDetail =
+      const i3.InventoryItemDetailListConverter();
+  static i0.JsonTypeConverter2<List<i2.InventoryItemDetail>?, String?,
+          List<Map<String, dynamic>>?> $converterinventoryItemDetailn =
+      i0.JsonTypeConverter2.asNullable($converterinventoryItemDetail);
+  static i0.JsonTypeConverter2<List<i2.InventoryItemStatus>, String,
+          List<Map<String, dynamic>>> $converterinventoryItemStatus =
+      const i3.InventoryItemStatusListConverter();
+  static i0.JsonTypeConverter2<List<i2.InventoryItemStatus>?, String?,
+          List<Map<String, dynamic>>?> $converterinventoryItemStatusn =
+      i0.JsonTypeConverter2.asNullable($converterinventoryItemStatus);
+  static i0.JsonTypeConverter2<List<i2.InventoryItemVariance>, String,
+          List<Map<String, dynamic>>> $converterinventoryItemVariance =
+      const i3.InventoryItemVarianceListConverter();
+  static i0.JsonTypeConverter2<List<i2.InventoryItemVariance>?, String?,
+          List<Map<String, dynamic>>?> $converterinventoryItemVariancen =
+      i0.JsonTypeConverter2.asNullable($converterinventoryItemVariance);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -700,8 +810,17 @@ class InventoryItemData extends i0.DataClass
   final String? tag2;
   final String? tag3;
   final String? moreTags;
+
+  /// rel: one (no public-types)
   final i2.InventoryItemType? inventoryItemType;
-  final List<i2.InventoryItemType>? invTypes;
+
+  /// rel: many
+  final List<i2.InventoryTransfer>? inventoryTransfer;
+  final List<i2.InventoryItemSlot>? inventoryItemSlot;
+  final List<i2.InventoryItemDetail>? inventoryItemDetail;
+  final List<i2.InventoryItemStatus>? inventoryItemStatus;
+  final List<i2.InventoryItemVariance>? inventoryItemVariance;
+  final int? reservedFlag;
   const InventoryItemData(
       {required this.inventoryItemId,
       this.inventoryItemTypeId,
@@ -741,7 +860,12 @@ class InventoryItemData extends i0.DataClass
       this.tag3,
       this.moreTags,
       this.inventoryItemType,
-      this.invTypes});
+      this.inventoryTransfer,
+      this.inventoryItemSlot,
+      this.inventoryItemDetail,
+      this.inventoryItemStatus,
+      this.inventoryItemVariance,
+      this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
     final map = <String, i0.Expression>{};
@@ -862,9 +986,33 @@ class InventoryItemData extends i0.DataClass
           .InventoryItem.$converterinventoryItemTypen
           .toSql(inventoryItemType));
     }
-    if (!nullToAbsent || invTypes != null) {
-      map['inv_types'] = i0.Variable<String>(
-          i1.InventoryItem.$converterinvTypesn.toSql(invTypes));
+    if (!nullToAbsent || inventoryTransfer != null) {
+      map['inventory_transfer'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryTransfern
+          .toSql(inventoryTransfer));
+    }
+    if (!nullToAbsent || inventoryItemSlot != null) {
+      map['inventory_item_slot'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemSlotn
+          .toSql(inventoryItemSlot));
+    }
+    if (!nullToAbsent || inventoryItemDetail != null) {
+      map['inventory_item_detail'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemDetailn
+          .toSql(inventoryItemDetail));
+    }
+    if (!nullToAbsent || inventoryItemStatus != null) {
+      map['inventory_item_status'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemStatusn
+          .toSql(inventoryItemStatus));
+    }
+    if (!nullToAbsent || inventoryItemVariance != null) {
+      map['inventory_item_variance'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemVariancen
+          .toSql(inventoryItemVariance));
+    }
+    if (!nullToAbsent || reservedFlag != null) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag);
     }
     return map;
   }
@@ -983,9 +1131,24 @@ class InventoryItemData extends i0.DataClass
       inventoryItemType: inventoryItemType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(inventoryItemType),
-      invTypes: invTypes == null && nullToAbsent
+      inventoryTransfer: inventoryTransfer == null && nullToAbsent
           ? const i0.Value.absent()
-          : i0.Value(invTypes),
+          : i0.Value(inventoryTransfer),
+      inventoryItemSlot: inventoryItemSlot == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(inventoryItemSlot),
+      inventoryItemDetail: inventoryItemDetail == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(inventoryItemDetail),
+      inventoryItemStatus: inventoryItemStatus == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(inventoryItemStatus),
+      inventoryItemVariance: inventoryItemVariance == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(inventoryItemVariance),
+      reservedFlag: reservedFlag == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(reservedFlag),
     );
   }
 
@@ -1041,8 +1204,22 @@ class InventoryItemData extends i0.DataClass
       inventoryItemType: i1.InventoryItem.$converterinventoryItemTypen.fromJson(
           serializer
               .fromJson<Map<String, dynamic>?>(json['inventory_item_type'])),
-      invTypes: i1.InventoryItem.$converterinvTypesn.fromJson(
-          serializer.fromJson<List<Map<String, dynamic>>?>(json['inv_types'])),
+      inventoryTransfer: i1.InventoryItem.$converterinventoryTransfern.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['inventory_transfer'])),
+      inventoryItemSlot: i1.InventoryItem.$converterinventoryItemSlotn.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['inventory_item_slot'])),
+      inventoryItemDetail: i1.InventoryItem.$converterinventoryItemDetailn
+          .fromJson(serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['inventory_item_detail'])),
+      inventoryItemStatus: i1.InventoryItem.$converterinventoryItemStatusn
+          .fromJson(serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['inventory_item_status'])),
+      inventoryItemVariance: i1.InventoryItem.$converterinventoryItemVariancen
+          .fromJson(serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['inventory_item_variance'])),
+      reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
   @override
@@ -1093,8 +1270,22 @@ class InventoryItemData extends i0.DataClass
       'inventory_item_type': serializer.toJson<Map<String, dynamic>?>(i1
           .InventoryItem.$converterinventoryItemTypen
           .toJson(inventoryItemType)),
-      'inv_types': serializer.toJson<List<Map<String, dynamic>>?>(
-          i1.InventoryItem.$converterinvTypesn.toJson(invTypes)),
+      'inventory_transfer': serializer.toJson<List<Map<String, dynamic>>?>(i1
+          .InventoryItem.$converterinventoryTransfern
+          .toJson(inventoryTransfer)),
+      'inventory_item_slot': serializer.toJson<List<Map<String, dynamic>>?>(i1
+          .InventoryItem.$converterinventoryItemSlotn
+          .toJson(inventoryItemSlot)),
+      'inventory_item_detail': serializer.toJson<List<Map<String, dynamic>>?>(i1
+          .InventoryItem.$converterinventoryItemDetailn
+          .toJson(inventoryItemDetail)),
+      'inventory_item_status': serializer.toJson<List<Map<String, dynamic>>?>(i1
+          .InventoryItem.$converterinventoryItemStatusn
+          .toJson(inventoryItemStatus)),
+      'inventory_item_variance': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.InventoryItem.$converterinventoryItemVariancen
+              .toJson(inventoryItemVariance)),
+      'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
 
@@ -1138,8 +1329,17 @@ class InventoryItemData extends i0.DataClass
           i0.Value<String?> moreTags = const i0.Value.absent(),
           i0.Value<i2.InventoryItemType?> inventoryItemType =
               const i0.Value.absent(),
-          i0.Value<List<i2.InventoryItemType>?> invTypes =
-              const i0.Value.absent()}) =>
+          i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
+              const i0.Value.absent(),
+          i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
+              const i0.Value.absent(),
+          i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
+              const i0.Value.absent(),
+          i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
+              const i0.Value.absent(),
+          i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
+              const i0.Value.absent(),
+          i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.InventoryItemData(
         inventoryItemId: inventoryItemId ?? this.inventoryItemId,
         inventoryItemTypeId: inventoryItemTypeId.present
@@ -1206,7 +1406,23 @@ class InventoryItemData extends i0.DataClass
         inventoryItemType: inventoryItemType.present
             ? inventoryItemType.value
             : this.inventoryItemType,
-        invTypes: invTypes.present ? invTypes.value : this.invTypes,
+        inventoryTransfer: inventoryTransfer.present
+            ? inventoryTransfer.value
+            : this.inventoryTransfer,
+        inventoryItemSlot: inventoryItemSlot.present
+            ? inventoryItemSlot.value
+            : this.inventoryItemSlot,
+        inventoryItemDetail: inventoryItemDetail.present
+            ? inventoryItemDetail.value
+            : this.inventoryItemDetail,
+        inventoryItemStatus: inventoryItemStatus.present
+            ? inventoryItemStatus.value
+            : this.inventoryItemStatus,
+        inventoryItemVariance: inventoryItemVariance.present
+            ? inventoryItemVariance.value
+            : this.inventoryItemVariance,
+        reservedFlag:
+            reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
   InventoryItemData copyWithCompanion(i1.InventoryItemCompanion data) {
     return InventoryItemData(
@@ -1287,7 +1503,24 @@ class InventoryItemData extends i0.DataClass
       inventoryItemType: data.inventoryItemType.present
           ? data.inventoryItemType.value
           : this.inventoryItemType,
-      invTypes: data.invTypes.present ? data.invTypes.value : this.invTypes,
+      inventoryTransfer: data.inventoryTransfer.present
+          ? data.inventoryTransfer.value
+          : this.inventoryTransfer,
+      inventoryItemSlot: data.inventoryItemSlot.present
+          ? data.inventoryItemSlot.value
+          : this.inventoryItemSlot,
+      inventoryItemDetail: data.inventoryItemDetail.present
+          ? data.inventoryItemDetail.value
+          : this.inventoryItemDetail,
+      inventoryItemStatus: data.inventoryItemStatus.present
+          ? data.inventoryItemStatus.value
+          : this.inventoryItemStatus,
+      inventoryItemVariance: data.inventoryItemVariance.present
+          ? data.inventoryItemVariance.value
+          : this.inventoryItemVariance,
+      reservedFlag: data.reservedFlag.present
+          ? data.reservedFlag.value
+          : this.reservedFlag,
     );
   }
 
@@ -1332,7 +1565,12 @@ class InventoryItemData extends i0.DataClass
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('inventoryItemType: $inventoryItemType, ')
-          ..write('invTypes: $invTypes')
+          ..write('inventoryTransfer: $inventoryTransfer, ')
+          ..write('inventoryItemSlot: $inventoryItemSlot, ')
+          ..write('inventoryItemDetail: $inventoryItemDetail, ')
+          ..write('inventoryItemStatus: $inventoryItemStatus, ')
+          ..write('inventoryItemVariance: $inventoryItemVariance, ')
+          ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
   }
@@ -1377,7 +1615,12 @@ class InventoryItemData extends i0.DataClass
         tag3,
         moreTags,
         inventoryItemType,
-        invTypes
+        inventoryTransfer,
+        inventoryItemSlot,
+        inventoryItemDetail,
+        inventoryItemStatus,
+        inventoryItemVariance,
+        reservedFlag
       ]);
   @override
   bool operator ==(Object other) =>
@@ -1421,7 +1664,12 @@ class InventoryItemData extends i0.DataClass
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
           other.inventoryItemType == this.inventoryItemType &&
-          other.invTypes == this.invTypes);
+          other.inventoryTransfer == this.inventoryTransfer &&
+          other.inventoryItemSlot == this.inventoryItemSlot &&
+          other.inventoryItemDetail == this.inventoryItemDetail &&
+          other.inventoryItemStatus == this.inventoryItemStatus &&
+          other.inventoryItemVariance == this.inventoryItemVariance &&
+          other.reservedFlag == this.reservedFlag);
 }
 
 class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
@@ -1463,7 +1711,12 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
   final i0.Value<String?> tag3;
   final i0.Value<String?> moreTags;
   final i0.Value<i2.InventoryItemType?> inventoryItemType;
-  final i0.Value<List<i2.InventoryItemType>?> invTypes;
+  final i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer;
+  final i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot;
+  final i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail;
+  final i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus;
+  final i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance;
+  final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const InventoryItemCompanion({
     this.inventoryItemId = const i0.Value.absent(),
@@ -1504,7 +1757,12 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.inventoryItemType = const i0.Value.absent(),
-    this.invTypes = const i0.Value.absent(),
+    this.inventoryTransfer = const i0.Value.absent(),
+    this.inventoryItemSlot = const i0.Value.absent(),
+    this.inventoryItemDetail = const i0.Value.absent(),
+    this.inventoryItemStatus = const i0.Value.absent(),
+    this.inventoryItemVariance = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
   InventoryItemCompanion.insert({
@@ -1546,7 +1804,12 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.inventoryItemType = const i0.Value.absent(),
-    this.invTypes = const i0.Value.absent(),
+    this.inventoryTransfer = const i0.Value.absent(),
+    this.inventoryItemSlot = const i0.Value.absent(),
+    this.inventoryItemDetail = const i0.Value.absent(),
+    this.inventoryItemStatus = const i0.Value.absent(),
+    this.inventoryItemVariance = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : inventoryItemId = i0.Value(inventoryItemId);
   static i0.Insertable<i1.InventoryItemData> custom({
@@ -1588,7 +1851,12 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
     i0.Expression<String>? inventoryItemType,
-    i0.Expression<String>? invTypes,
+    i0.Expression<String>? inventoryTransfer,
+    i0.Expression<String>? inventoryItemSlot,
+    i0.Expression<String>? inventoryItemDetail,
+    i0.Expression<String>? inventoryItemStatus,
+    i0.Expression<String>? inventoryItemVariance,
+    i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
     return i0.RawValuesInsertable({
@@ -1637,7 +1905,15 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
       if (inventoryItemType != null) 'inventory_item_type': inventoryItemType,
-      if (invTypes != null) 'inv_types': invTypes,
+      if (inventoryTransfer != null) 'inventory_transfer': inventoryTransfer,
+      if (inventoryItemSlot != null) 'inventory_item_slot': inventoryItemSlot,
+      if (inventoryItemDetail != null)
+        'inventory_item_detail': inventoryItemDetail,
+      if (inventoryItemStatus != null)
+        'inventory_item_status': inventoryItemStatus,
+      if (inventoryItemVariance != null)
+        'inventory_item_variance': inventoryItemVariance,
+      if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -1681,7 +1957,12 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       i0.Value<String?>? tag3,
       i0.Value<String?>? moreTags,
       i0.Value<i2.InventoryItemType?>? inventoryItemType,
-      i0.Value<List<i2.InventoryItemType>?>? invTypes,
+      i0.Value<List<i2.InventoryTransfer>?>? inventoryTransfer,
+      i0.Value<List<i2.InventoryItemSlot>?>? inventoryItemSlot,
+      i0.Value<List<i2.InventoryItemDetail>?>? inventoryItemDetail,
+      i0.Value<List<i2.InventoryItemStatus>?>? inventoryItemStatus,
+      i0.Value<List<i2.InventoryItemVariance>?>? inventoryItemVariance,
+      i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.InventoryItemCompanion(
       inventoryItemId: inventoryItemId ?? this.inventoryItemId,
@@ -1724,7 +2005,13 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       inventoryItemType: inventoryItemType ?? this.inventoryItemType,
-      invTypes: invTypes ?? this.invTypes,
+      inventoryTransfer: inventoryTransfer ?? this.inventoryTransfer,
+      inventoryItemSlot: inventoryItemSlot ?? this.inventoryItemSlot,
+      inventoryItemDetail: inventoryItemDetail ?? this.inventoryItemDetail,
+      inventoryItemStatus: inventoryItemStatus ?? this.inventoryItemStatus,
+      inventoryItemVariance:
+          inventoryItemVariance ?? this.inventoryItemVariance,
+      reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -1855,9 +2142,33 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
           .InventoryItem.$converterinventoryItemTypen
           .toSql(inventoryItemType.value));
     }
-    if (invTypes.present) {
-      map['inv_types'] = i0.Variable<String>(
-          i1.InventoryItem.$converterinvTypesn.toSql(invTypes.value));
+    if (inventoryTransfer.present) {
+      map['inventory_transfer'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryTransfern
+          .toSql(inventoryTransfer.value));
+    }
+    if (inventoryItemSlot.present) {
+      map['inventory_item_slot'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemSlotn
+          .toSql(inventoryItemSlot.value));
+    }
+    if (inventoryItemDetail.present) {
+      map['inventory_item_detail'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemDetailn
+          .toSql(inventoryItemDetail.value));
+    }
+    if (inventoryItemStatus.present) {
+      map['inventory_item_status'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemStatusn
+          .toSql(inventoryItemStatus.value));
+    }
+    if (inventoryItemVariance.present) {
+      map['inventory_item_variance'] = i0.Variable<String>(i1
+          .InventoryItem.$converterinventoryItemVariancen
+          .toSql(inventoryItemVariance.value));
+    }
+    if (reservedFlag.present) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
     }
     if (rowid.present) {
       map['rowid'] = i0.Variable<int>(rowid.value);
@@ -1906,7 +2217,12 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('inventoryItemType: $inventoryItemType, ')
-          ..write('invTypes: $invTypes, ')
+          ..write('inventoryTransfer: $inventoryTransfer, ')
+          ..write('inventoryItemSlot: $inventoryItemSlot, ')
+          ..write('inventoryItemDetail: $inventoryItemDetail, ')
+          ..write('inventoryItemStatus: $inventoryItemStatus, ')
+          ..write('inventoryItemVariance: $inventoryItemVariance, ')
+          ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -1953,7 +2269,12 @@ typedef $InventoryItemCreateCompanionBuilder = i1.InventoryItemCompanion
   i0.Value<String?> tag3,
   i0.Value<String?> moreTags,
   i0.Value<i2.InventoryItemType?> inventoryItemType,
-  i0.Value<List<i2.InventoryItemType>?> invTypes,
+  i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
+  i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
+  i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail,
+  i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus,
+  i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 typedef $InventoryItemUpdateCompanionBuilder = i1.InventoryItemCompanion
@@ -1996,7 +2317,12 @@ typedef $InventoryItemUpdateCompanionBuilder = i1.InventoryItemCompanion
   i0.Value<String?> tag3,
   i0.Value<String?> moreTags,
   i0.Value<i2.InventoryItemType?> inventoryItemType,
-  i0.Value<List<i2.InventoryItemType>?> invTypes,
+  i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
+  i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
+  i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail,
+  i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus,
+  i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 
@@ -2200,13 +2526,50 @@ class $InventoryItemFilterComposer
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemType>?,
-          List<i2.InventoryItemType>, String>
-      get invTypes => $state.composableBuilder(
-          column: $state.table.invTypes,
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryTransfer>?,
+          List<i2.InventoryTransfer>, String>
+      get inventoryTransfer => $state.composableBuilder(
+          column: $state.table.inventoryTransfer,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemSlot>?,
+          List<i2.InventoryItemSlot>, String>
+      get inventoryItemSlot => $state.composableBuilder(
+          column: $state.table.inventoryItemSlot,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemDetail>?,
+          List<i2.InventoryItemDetail>, String>
+      get inventoryItemDetail => $state.composableBuilder(
+          column: $state.table.inventoryItemDetail,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemStatus>?,
+          List<i2.InventoryItemStatus>, String>
+      get inventoryItemStatus => $state.composableBuilder(
+          column: $state.table.inventoryItemStatus,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemVariance>?,
+          List<i2.InventoryItemVariance>, String>
+      get inventoryItemVariance => $state.composableBuilder(
+          column: $state.table.inventoryItemVariance,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
 }
 
 class $InventoryItemOrderingComposer
@@ -2409,8 +2772,36 @@ class $InventoryItemOrderingComposer
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 
-  i0.ColumnOrderings<String> get invTypes => $state.composableBuilder(
-      column: $state.table.invTypes,
+  i0.ColumnOrderings<String> get inventoryTransfer => $state.composableBuilder(
+      column: $state.table.inventoryTransfer,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get inventoryItemSlot => $state.composableBuilder(
+      column: $state.table.inventoryItemSlot,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get inventoryItemDetail =>
+      $state.composableBuilder(
+          column: $state.table.inventoryItemDetail,
+          builder: (column, joinBuilders) =>
+              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get inventoryItemStatus =>
+      $state.composableBuilder(
+          column: $state.table.inventoryItemStatus,
+          builder: (column, joinBuilders) =>
+              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get inventoryItemVariance =>
+      $state.composableBuilder(
+          column: $state.table.inventoryItemVariance,
+          builder: (column, joinBuilders) =>
+              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 }
@@ -2478,8 +2869,17 @@ class $InventoryItemTableManager extends i0.RootTableManager<
             i0.Value<String?> moreTags = const i0.Value.absent(),
             i0.Value<i2.InventoryItemType?> inventoryItemType =
                 const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemType>?> invTypes =
+            i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
                 const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.InventoryItemCompanion(
@@ -2521,7 +2921,12 @@ class $InventoryItemTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             inventoryItemType: inventoryItemType,
-            invTypes: invTypes,
+            inventoryTransfer: inventoryTransfer,
+            inventoryItemSlot: inventoryItemSlot,
+            inventoryItemDetail: inventoryItemDetail,
+            inventoryItemStatus: inventoryItemStatus,
+            inventoryItemVariance: inventoryItemVariance,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -2564,8 +2969,17 @@ class $InventoryItemTableManager extends i0.RootTableManager<
             i0.Value<String?> moreTags = const i0.Value.absent(),
             i0.Value<i2.InventoryItemType?> inventoryItemType =
                 const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemType>?> invTypes =
+            i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
                 const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.InventoryItemCompanion.insert(
@@ -2607,7 +3021,12 @@ class $InventoryItemTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             inventoryItemType: inventoryItemType,
-            invTypes: invTypes,
+            inventoryTransfer: inventoryTransfer,
+            inventoryItemSlot: inventoryItemSlot,
+            inventoryItemDetail: inventoryItemDetail,
+            inventoryItemStatus: inventoryItemStatus,
+            inventoryItemVariance: inventoryItemVariance,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0

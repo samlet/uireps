@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -60,6 +61,12 @@ class ContactMech {
 
   factory ContactMech.fromJson(Map<String, dynamic> json) => _$ContactMechFromJson(json);
   Map<String, dynamic> toJson() => _$ContactMechToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ContactMech, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContactMech.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -219,6 +226,12 @@ class PostalAddress {
   factory PostalAddress.fromJson(Map<String, dynamic> json) => _$PostalAddressFromJson(json);
   Map<String, dynamic> toJson() => _$PostalAddressToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PostalAddress, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PostalAddress.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? contactMechId;
 
@@ -321,6 +334,12 @@ class ContactMechType {
   factory ContactMechType.fromJson(Map<String, dynamic> json) => _$ContactMechTypeFromJson(json);
   Map<String, dynamic> toJson() => _$ContactMechTypeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ContactMechType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContactMechType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? contactMechTypeId;
 
@@ -374,6 +393,12 @@ class ContactMechLink {
 
   factory ContactMechLink.fromJson(Map<String, dynamic> json) => _$ContactMechLinkFromJson(json);
   Map<String, dynamic> toJson() => _$ContactMechLinkToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ContactMechLink, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContactMechLink.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? contactMechIdFrom;
@@ -431,6 +456,12 @@ class TelecomNumber {
 
   factory TelecomNumber.fromJson(Map<String, dynamic> json) => _$TelecomNumberFromJson(json);
   Map<String, dynamic> toJson() => _$TelecomNumberToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<TelecomNumber, String> converter = df.TypeConverter.json(
+    fromJson: (json) => TelecomNumber.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? contactMechId;

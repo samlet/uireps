@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -318,6 +319,12 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
   Map<String, dynamic> toJson() => _$ProductToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Product, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Product.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -1420,6 +1427,12 @@ class FixedAssetProduct {
   factory FixedAssetProduct.fromJson(Map<String, dynamic> json) => _$FixedAssetProductFromJson(json);
   Map<String, dynamic> toJson() => _$FixedAssetProductToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FixedAssetProduct, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FixedAssetProduct.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? fixedAssetId;
 
@@ -1507,6 +1520,12 @@ class ProductFacility {
   factory ProductFacility.fromJson(Map<String, dynamic> json) => _$ProductFacilityFromJson(json);
   Map<String, dynamic> toJson() => _$ProductFacilityToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductFacility, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductFacility.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -1585,6 +1604,12 @@ class ProductCostComponentCalc {
   factory ProductCostComponentCalc.fromJson(Map<String, dynamic> json) => _$ProductCostComponentCalcFromJson(json);
   Map<String, dynamic> toJson() => _$ProductCostComponentCalcToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductCostComponentCalc, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductCostComponentCalc.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -1660,6 +1685,12 @@ class ProductRole {
   factory ProductRole.fromJson(Map<String, dynamic> json) => _$ProductRoleFromJson(json);
   Map<String, dynamic> toJson() => _$ProductRoleToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductRole, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductRole.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -1734,6 +1765,12 @@ class ProductType {
 
   factory ProductType.fromJson(Map<String, dynamic> json) => _$ProductTypeFromJson(json);
   Map<String, dynamic> toJson() => _$ProductTypeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ProductType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? productTypeId;
@@ -1818,6 +1855,12 @@ class ProductConfig {
 
   factory ProductConfig.fromJson(Map<String, dynamic> json) => _$ProductConfigFromJson(json);
   Map<String, dynamic> toJson() => _$ProductConfigToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ProductConfig, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductConfig.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? productId;
@@ -1948,6 +1991,12 @@ class ProductPrice {
   factory ProductPrice.fromJson(Map<String, dynamic> json) => _$ProductPriceFromJson(json);
   Map<String, dynamic> toJson() => _$ProductPriceToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductPrice, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductPrice.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -2062,6 +2111,12 @@ class ProductFacilityLocation {
   factory ProductFacilityLocation.fromJson(Map<String, dynamic> json) => _$ProductFacilityLocationFromJson(json);
   Map<String, dynamic> toJson() => _$ProductFacilityLocationToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductFacilityLocation, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductFacilityLocation.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -2124,6 +2179,12 @@ class ProductSlot {
 
   factory ProductSlot.fromJson(Map<String, dynamic> json) => _$ProductSlotFromJson(json);
   Map<String, dynamic> toJson() => _$ProductSlotToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ProductSlot, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductSlot.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? productId;
@@ -2208,6 +2269,12 @@ class ProductContent {
 
   factory ProductContent.fromJson(Map<String, dynamic> json) => _$ProductContentFromJson(json);
   Map<String, dynamic> toJson() => _$ProductContentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ProductContent, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductContent.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? productId;
@@ -2308,6 +2375,12 @@ class ProductMaint {
   factory ProductMaint.fromJson(Map<String, dynamic> json) => _$ProductMaintFromJson(json);
   Map<String, dynamic> toJson() => _$ProductMaintToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductMaint, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductMaint.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -2395,6 +2468,12 @@ class ProductFeatureAppl {
   factory ProductFeatureAppl.fromJson(Map<String, dynamic> json) => _$ProductFeatureApplFromJson(json);
   Map<String, dynamic> toJson() => _$ProductFeatureApplToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductFeatureAppl, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductFeatureAppl.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -2479,6 +2558,12 @@ class ProductFacilityAssoc {
   factory ProductFacilityAssoc.fromJson(Map<String, dynamic> json) => _$ProductFacilityAssocFromJson(json);
   Map<String, dynamic> toJson() => _$ProductFacilityAssocToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ProductFacilityAssoc, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductFacilityAssoc.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -2553,6 +2638,12 @@ class ProductKeyword {
 
   factory ProductKeyword.fromJson(Map<String, dynamic> json) => _$ProductKeywordFromJson(json);
   Map<String, dynamic> toJson() => _$ProductKeywordToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ProductKeyword, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductKeyword.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? productId;
@@ -2643,6 +2734,12 @@ class ProductAssoc {
 
   factory ProductAssoc.fromJson(Map<String, dynamic> json) => _$ProductAssocFromJson(json);
   Map<String, dynamic> toJson() => _$ProductAssocToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ProductAssoc, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ProductAssoc.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? productId;
@@ -2742,6 +2839,12 @@ class WorkEffortGoodStandard {
 
   factory WorkEffortGoodStandard.fromJson(Map<String, dynamic> json) => _$WorkEffortGoodStandardFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortGoodStandardToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortGoodStandard, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortGoodStandard.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortId;

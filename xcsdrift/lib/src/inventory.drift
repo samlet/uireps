@@ -1,6 +1,7 @@
 import '../fldconv.dart';
 import 'inventory_conv.dart';
 
+
 CREATE TABLE inventory_item (
     inventory_item_id VARCHAR(255) NOT NULL PRIMARY KEY,
     inventory_item_type_id VARCHAR(22),
@@ -40,8 +41,16 @@ CREATE TABLE inventory_item (
     tag3 VARCHAR(100),
     more_tags TEXT,
 
+    -- rel: one (no public-types)
     inventory_item_type TEXT MAPPED BY `const InventoryItemTypeConverter()`,
-    inv_types TEXT MAPPED BY `const InventoryItemTypeListConverter()`
+
+    -- rel: many
+    inventory_transfer TEXT MAPPED BY `const InventoryTransferListConverter()`,
+    inventory_item_slot TEXT MAPPED BY `const InventoryItemSlotListConverter()`,
+    inventory_item_detail TEXT MAPPED BY `const InventoryItemDetailListConverter()`,
+    inventory_item_status TEXT MAPPED BY `const InventoryItemStatusListConverter()`,
+    inventory_item_variance TEXT MAPPED BY `const InventoryItemVarianceListConverter()`,
+    reserved_flag INTEGER
 );
 
 allInventoryItems: SELECT * FROM inventory_item;

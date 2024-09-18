@@ -1,4 +1,6 @@
 import '../fldconv.dart';
+import 'example_conv.dart';
+
 
 CREATE TABLE example (
     example_id VARCHAR(255) NOT NULL PRIMARY KEY,
@@ -40,11 +42,21 @@ CREATE TABLE example (
     slot_id VARCHAR(22),
     customer_confirmation CHAR(1),
     evict BOOLEAN,
-    acl TEXT MAPPED BY `const StringMultimapConverter()`
+    acl TEXT MAPPED BY `const StringMultimapConverter()`,
+
+    -- rel: one (no public-types)
+    example_type TEXT MAPPED BY `const ExampleTypeConverter()`,
+
+    -- rel: many
+    example_feature_appl TEXT MAPPED BY `const ExampleFeatureApplListConverter()`,
+    example_status TEXT MAPPED BY `const ExampleStatusListConverter()`,
+    example_item TEXT MAPPED BY `const ExampleItemListConverter()`,
+    reserved_flag INTEGER
 );
 
 allExamples: SELECT * FROM example;
 clearExamples: DELETE FROM example;
+addExample: INSERT INTO example $el;
 
 
 

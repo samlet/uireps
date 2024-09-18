@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -165,6 +166,12 @@ class Content {
 
   factory Content.fromJson(Map<String, dynamic> json) => _$ContentFromJson(json);
   Map<String, dynamic> toJson() => _$ContentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Content, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Content.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -695,6 +702,12 @@ class ContentSlot {
   factory ContentSlot.fromJson(Map<String, dynamic> json) => _$ContentSlotFromJson(json);
   Map<String, dynamic> toJson() => _$ContentSlotToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ContentSlot, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentSlot.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? contentId;
 
@@ -757,6 +770,12 @@ class ContentWallet {
 
   factory ContentWallet.fromJson(Map<String, dynamic> json) => _$ContentWalletFromJson(json);
   Map<String, dynamic> toJson() => _$ContentWalletToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ContentWallet, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentWallet.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? contentId;
@@ -854,6 +873,12 @@ class ContentAssoc {
   factory ContentAssoc.fromJson(Map<String, dynamic> json) => _$ContentAssocFromJson(json);
   Map<String, dynamic> toJson() => _$ContentAssocToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ContentAssoc, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentAssoc.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? contentId;
 
@@ -947,6 +972,12 @@ class ContentAttribute {
   factory ContentAttribute.fromJson(Map<String, dynamic> json) => _$ContentAttributeFromJson(json);
   Map<String, dynamic> toJson() => _$ContentAttributeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ContentAttribute, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentAttribute.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? contentId;
 
@@ -1006,6 +1037,12 @@ class ContentReference {
 
   factory ContentReference.fromJson(Map<String, dynamic> json) => _$ContentReferenceFromJson(json);
   Map<String, dynamic> toJson() => _$ContentReferenceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ContentReference, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentReference.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? contentId;
@@ -1070,6 +1107,12 @@ class ContentRole {
   factory ContentRole.fromJson(Map<String, dynamic> json) => _$ContentRoleFromJson(json);
   Map<String, dynamic> toJson() => _$ContentRoleToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ContentRole, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentRole.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? contentId;
 
@@ -1129,6 +1172,12 @@ class ContentPurpose {
 
   factory ContentPurpose.fromJson(Map<String, dynamic> json) => _$ContentPurposeFromJson(json);
   Map<String, dynamic> toJson() => _$ContentPurposeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ContentPurpose, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ContentPurpose.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? contentId;

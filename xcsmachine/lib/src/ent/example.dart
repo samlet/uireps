@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -156,6 +157,12 @@ class Example {
 
   factory Example.fromJson(Map<String, dynamic> json) => _$ExampleFromJson(json);
   Map<String, dynamic> toJson() => _$ExampleToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Example, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Example.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -466,6 +473,12 @@ class ExampleFeatureAppl {
   factory ExampleFeatureAppl.fromJson(Map<String, dynamic> json) => _$ExampleFeatureApplFromJson(json);
   Map<String, dynamic> toJson() => _$ExampleFeatureApplToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ExampleFeatureAppl, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ExampleFeatureAppl.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? exampleId;
 
@@ -535,6 +548,12 @@ class ExampleStatus {
   factory ExampleStatus.fromJson(Map<String, dynamic> json) => _$ExampleStatusFromJson(json);
   Map<String, dynamic> toJson() => _$ExampleStatusToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ExampleStatus, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ExampleStatus.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? exampleId;
 
@@ -601,6 +620,12 @@ class ExampleItem {
   factory ExampleItem.fromJson(Map<String, dynamic> json) => _$ExampleItemFromJson(json);
   Map<String, dynamic> toJson() => _$ExampleItemToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ExampleItem, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ExampleItem.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? exampleId;
 
@@ -660,6 +685,12 @@ class ExampleType {
 
   factory ExampleType.fromJson(Map<String, dynamic> json) => _$ExampleTypeFromJson(json);
   Map<String, dynamic> toJson() => _$ExampleTypeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ExampleType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ExampleType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? exampleTypeId;

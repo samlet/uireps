@@ -1,4 +1,6 @@
 import '../fldconv.dart';
+import 'shipment_conv.dart';
+
 
 CREATE TABLE shipment (
     shipment_id VARCHAR(255) NOT NULL PRIMARY KEY,
@@ -45,11 +47,29 @@ CREATE TABLE shipment (
     tag2 VARCHAR(100),
     tag3 VARCHAR(100),
     more_tags TEXT,
-    acl TEXT MAPPED BY `const StringMultimapConverter()`
+    acl TEXT MAPPED BY `const StringMultimapConverter()`,
+
+    -- rel: one (no public-types)
+
+    -- rel: many
+    shipment_item_billing TEXT MAPPED BY `const ShipmentItemBillingListConverter()`,
+    shipping_document TEXT MAPPED BY `const ShippingDocumentListConverter()`,
+    shipment_item_feature TEXT MAPPED BY `const ShipmentItemFeatureListConverter()`,
+    shipment_package_route_seg TEXT MAPPED BY `const ShipmentPackageRouteSegListConverter()`,
+    shipment_route_segment TEXT MAPPED BY `const ShipmentRouteSegmentListConverter()`,
+    shipment_status TEXT MAPPED BY `const ShipmentStatusListConverter()`,
+    shipment_package TEXT MAPPED BY `const ShipmentPackageListConverter()`,
+    shipment_receipt TEXT MAPPED BY `const ShipmentReceiptListConverter()`,
+    shipment_multisig TEXT MAPPED BY `const ShipmentMultisigListConverter()`,
+    shipment_package_content TEXT MAPPED BY `const ShipmentPackageContentListConverter()`,
+    shipment_item TEXT MAPPED BY `const ShipmentItemListConverter()`,
+    shipment_geo_force TEXT MAPPED BY `const ShipmentGeoForceListConverter()`,
+    reserved_flag INTEGER
 );
 
 allShipments: SELECT * FROM shipment;
 clearShipments: DELETE FROM shipment;
+addShipment: INSERT INTO shipment $el;
 
 
 

@@ -1,4 +1,6 @@
 import '../fldconv.dart';
+import 'facility_conv.dart';
+
 
 CREATE TABLE facility (
     facility_id VARCHAR(255) NOT NULL PRIMARY KEY,
@@ -29,11 +31,26 @@ CREATE TABLE facility (
     tag2 VARCHAR(100),
     tag3 VARCHAR(100),
     more_tags TEXT,
-    acl TEXT MAPPED BY `const StringMultimapConverter()`
+    acl TEXT MAPPED BY `const StringMultimapConverter()`,
+
+    -- rel: one (no public-types)
+    facility_type TEXT MAPPED BY `const FacilityTypeConverter()`,
+
+    -- rel: many
+    facility_calendar TEXT MAPPED BY `const FacilityCalendarListConverter()`,
+    facility_multisig TEXT MAPPED BY `const FacilityMultisigListConverter()`,
+    facility_geo_force TEXT MAPPED BY `const FacilityGeoForceListConverter()`,
+    facility_attribute TEXT MAPPED BY `const FacilityAttributeListConverter()`,
+    facility_contact_mech_purpose TEXT MAPPED BY `const FacilityContactMechPurposeListConverter()`,
+    facility_location TEXT MAPPED BY `const FacilityLocationListConverter()`,
+    facility_location_geo_point TEXT MAPPED BY `const FacilityLocationGeoPointListConverter()`,
+    facility_contact_mech TEXT MAPPED BY `const FacilityContactMechListConverter()`,
+    reserved_flag INTEGER
 );
 
 allFacilities: SELECT * FROM facility;
 clearFacilities: DELETE FROM facility;
+addFacility: INSERT INTO facility $el;
 
 
 

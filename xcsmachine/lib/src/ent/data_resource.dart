@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -114,6 +115,12 @@ class DataResource {
 
   factory DataResource.fromJson(Map<String, dynamic> json) => _$DataResourceFromJson(json);
   Map<String, dynamic> toJson() => _$DataResourceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<DataResource, String> converter = df.TypeConverter.json(
+    fromJson: (json) => DataResource.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -279,6 +286,12 @@ class ElectronicText {
   factory ElectronicText.fromJson(Map<String, dynamic> json) => _$ElectronicTextFromJson(json);
   Map<String, dynamic> toJson() => _$ElectronicTextToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ElectronicText, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ElectronicText.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? dataResourceId;
 
@@ -326,6 +339,12 @@ class AudioDataResource {
 
   factory AudioDataResource.fromJson(Map<String, dynamic> json) => _$AudioDataResourceFromJson(json);
   Map<String, dynamic> toJson() => _$AudioDataResourceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<AudioDataResource, String> converter = df.TypeConverter.json(
+    fromJson: (json) => AudioDataResource.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? dataResourceId;
@@ -381,6 +400,12 @@ class DataResourceType {
   factory DataResourceType.fromJson(Map<String, dynamic> json) => _$DataResourceTypeFromJson(json);
   Map<String, dynamic> toJson() => _$DataResourceTypeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<DataResourceType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => DataResourceType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? dataResourceTypeId;
 
@@ -434,6 +459,12 @@ class ImageDataResource {
 
   factory ImageDataResource.fromJson(Map<String, dynamic> json) => _$ImageDataResourceFromJson(json);
   Map<String, dynamic> toJson() => _$ImageDataResourceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<ImageDataResource, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ImageDataResource.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? dataResourceId;
@@ -489,6 +520,12 @@ class DataResourceSlot {
   factory DataResourceSlot.fromJson(Map<String, dynamic> json) => _$DataResourceSlotFromJson(json);
   Map<String, dynamic> toJson() => _$DataResourceSlotToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<DataResourceSlot, String> converter = df.TypeConverter.json(
+    fromJson: (json) => DataResourceSlot.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? dataResourceId;
 
@@ -542,6 +579,12 @@ class VideoDataResource {
 
   factory VideoDataResource.fromJson(Map<String, dynamic> json) => _$VideoDataResourceFromJson(json);
   Map<String, dynamic> toJson() => _$VideoDataResourceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<VideoDataResource, String> converter = df.TypeConverter.json(
+    fromJson: (json) => VideoDataResource.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? dataResourceId;

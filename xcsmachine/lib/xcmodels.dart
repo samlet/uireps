@@ -12,3 +12,4 @@ export 'src/ent/contact_mech.dart';
 export 'src/ent/work_effort.dart';
 export 'src/ent/party.dart';
 export 'src/ent/example.dart';
+export 'src/ent/shipment.dart';

@@ -34,6 +34,20 @@ class PostPalRepository {
     return ResultConv.asString(resp);
   }
    
+  // Mutation
+  Future<void> featured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "featured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+  }
+   
   // Query
   Future<bool> isFeatured() async { 
     var resp = await performCall(dio, {
@@ -141,20 +155,6 @@ class PostPalRepository {
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "featured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
   }
    
   // Query

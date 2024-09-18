@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -138,6 +139,12 @@ class Facility {
 
   factory Facility.fromJson(Map<String, dynamic> json) => _$FacilityFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Facility, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Facility.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -618,6 +625,12 @@ class FacilityCalendar {
   factory FacilityCalendar.fromJson(Map<String, dynamic> json) => _$FacilityCalendarFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityCalendarToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FacilityCalendar, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityCalendar.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? facilityId;
 
@@ -680,6 +693,12 @@ class FacilityMultisig {
 
   factory FacilityMultisig.fromJson(Map<String, dynamic> json) => _$FacilityMultisigFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityMultisigToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<FacilityMultisig, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityMultisig.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? facilityId;
@@ -744,6 +763,12 @@ class FacilityGeoForce {
   factory FacilityGeoForce.fromJson(Map<String, dynamic> json) => _$FacilityGeoForceFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityGeoForceToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FacilityGeoForce, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityGeoForce.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? facilityId;
 
@@ -807,6 +832,12 @@ class FacilityAttribute {
   factory FacilityAttribute.fromJson(Map<String, dynamic> json) => _$FacilityAttributeFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityAttributeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FacilityAttribute, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityAttribute.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? facilityId;
 
@@ -869,6 +900,12 @@ class FacilityContactMechPurpose {
 
   factory FacilityContactMechPurpose.fromJson(Map<String, dynamic> json) => _$FacilityContactMechPurposeFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityContactMechPurposeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<FacilityContactMechPurpose, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityContactMechPurpose.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? facilityId;
@@ -948,6 +985,12 @@ class FacilityLocation {
   factory FacilityLocation.fromJson(Map<String, dynamic> json) => _$FacilityLocationFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityLocationToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FacilityLocation, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityLocation.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? facilityId;
 
@@ -1026,6 +1069,12 @@ class FacilityLocationGeoPoint {
   factory FacilityLocationGeoPoint.fromJson(Map<String, dynamic> json) => _$FacilityLocationGeoPointFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityLocationGeoPointToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FacilityLocationGeoPoint, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityLocationGeoPoint.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? facilityId;
 
@@ -1095,6 +1144,12 @@ class FacilityContactMech {
   factory FacilityContactMech.fromJson(Map<String, dynamic> json) => _$FacilityContactMechFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityContactMechToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<FacilityContactMech, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityContactMech.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? facilityId;
 
@@ -1160,6 +1215,12 @@ class FacilityType {
 
   factory FacilityType.fromJson(Map<String, dynamic> json) => _$FacilityTypeFromJson(json);
   Map<String, dynamic> toJson() => _$FacilityTypeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<FacilityType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? facilityTypeId;

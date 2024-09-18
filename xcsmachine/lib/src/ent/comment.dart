@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -105,6 +106,12 @@ class Comment {
 
   factory Comment.fromJson(Map<String, dynamic> json) => _$CommentFromJson(json);
   Map<String, dynamic> toJson() => _$CommentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Comment, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Comment.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -276,6 +283,12 @@ class CommentType {
   factory CommentType.fromJson(Map<String, dynamic> json) => _$CommentTypeFromJson(json);
   Map<String, dynamic> toJson() => _$CommentTypeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<CommentType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => CommentType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? commentTypeId;
 
@@ -335,6 +348,12 @@ class CommentStatus {
 
   factory CommentStatus.fromJson(Map<String, dynamic> json) => _$CommentStatusFromJson(json);
   Map<String, dynamic> toJson() => _$CommentStatusToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<CommentStatus, String> converter = df.TypeConverter.json(
+    fromJson: (json) => CommentStatus.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? commentId;

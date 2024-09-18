@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -105,6 +106,12 @@ class WebSite {
 
   factory WebSite.fromJson(Map<String, dynamic> json) => _$WebSiteFromJson(json);
   Map<String, dynamic> toJson() => _$WebSiteToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WebSite, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WebSite.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -276,6 +283,12 @@ class WebSiteContactList {
 
   factory WebSiteContactList.fromJson(Map<String, dynamic> json) => _$WebSiteContactListFromJson(json);
   Map<String, dynamic> toJson() => _$WebSiteContactListToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WebSiteContactList, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WebSiteContactList.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? webSiteId;

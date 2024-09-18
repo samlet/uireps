@@ -1,9 +1,10 @@
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:xcsdrift/database.dart';
-import 'package:xcsdrift/src/inv_type.dart';
+// import 'package:xcsdrift/src/inv_type.dart';
 import 'package:xcsdrift/src/inventory.drift.dart';
 import 'package:xcsmachine/util.dart';
+import 'package:xcsmachine/xcmodels.dart';
 
 void main() async {
   final database = Database(NativeDatabase.memory(logStatements: true));
@@ -15,9 +16,9 @@ void main() async {
     inventoryItemId: 'inv1',
     productId: Value('demoProd'),
     inventoryItemType: Value(InventoryItemType(inventoryItemTypeId: 'GOOD')),
-    invTypes: Value([
-      InventoryItemType(inventoryItemTypeId: 'GOOD'),
-      InventoryItemType(inventoryItemTypeId: 'PART')
+    inventoryItemDetail: Value([
+      InventoryItemDetail(inventoryItemDetailSeqId: '1'),
+      InventoryItemDetail(inventoryItemDetailSeqId: '2')
     ]),
   ));
 
@@ -36,7 +37,7 @@ Future<void> insertWithJson(Database database) async {
       'inventory_item_id': 'inv2',
       'product_id': 'rawJsonProd',
       'inventory_item_type': {'inventoryItemTypeId': 'GOOD'},
-      'inv_types': [{'inventoryItemTypeId': 'GOOD'}]
+      'inventory_item_detail': [{'inventoryItemDetailSeqId': '3'}]
     };
     var entry = InventoryItemData.fromJson(jsonData);
     batch.insert(database.inventoryItem, entry,

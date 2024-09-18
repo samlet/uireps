@@ -2,8 +2,10 @@
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/facility.drift.dart' as i1;
 import 'package:quiver/src/collection/multimap.dart' as i2;
-import 'package:xcsdrift/fldconv.dart' as i3;
-import 'package:drift/internal/modular.dart' as i4;
+import 'package:xcsmachine/src/ent/facility.dart' as i3;
+import 'package:xcsdrift/fldconv.dart' as i4;
+import 'package:xcsdrift/src/facility_conv.dart' as i5;
+import 'package:drift/internal/modular.dart' as i6;
 
 class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
   @override
@@ -214,6 +216,110 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.Facility.$converteracln);
+  static const i0.VerificationMeta _facilityTypeMeta =
+      const i0.VerificationMeta('facilityType');
+  late final i0.GeneratedColumnWithTypeConverter<i3.FacilityType?, String>
+      facilityType = i0.GeneratedColumn<String>(
+              'facility_type', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i3.FacilityType?>(i1.Facility.$converterfacilityTypen);
+  static const i0.VerificationMeta _facilityCalendarMeta =
+      const i0.VerificationMeta('facilityCalendar');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i3.FacilityCalendar>?, String>
+      facilityCalendar = i0.GeneratedColumn<String>(
+              'facility_calendar', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.FacilityCalendar>?>(
+              i1.Facility.$converterfacilityCalendarn);
+  static const i0.VerificationMeta _facilityMultisigMeta =
+      const i0.VerificationMeta('facilityMultisig');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i3.FacilityMultisig>?, String>
+      facilityMultisig = i0.GeneratedColumn<String>(
+              'facility_multisig', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.FacilityMultisig>?>(
+              i1.Facility.$converterfacilityMultisign);
+  static const i0.VerificationMeta _facilityGeoForceMeta =
+      const i0.VerificationMeta('facilityGeoForce');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i3.FacilityGeoForce>?, String>
+      facilityGeoForce = i0.GeneratedColumn<String>(
+              'facility_geo_force', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.FacilityGeoForce>?>(
+              i1.Facility.$converterfacilityGeoForcen);
+  static const i0.VerificationMeta _facilityAttributeMeta =
+      const i0.VerificationMeta('facilityAttribute');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i3.FacilityAttribute>?, String>
+      facilityAttribute = i0.GeneratedColumn<String>(
+              'facility_attribute', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.FacilityAttribute>?>(
+              i1.Facility.$converterfacilityAttributen);
+  static const i0.VerificationMeta _facilityContactMechPurposeMeta =
+      const i0.VerificationMeta('facilityContactMechPurpose');
+  late final i0.GeneratedColumnWithTypeConverter<
+      List<i3.FacilityContactMechPurpose>?,
+      String> facilityContactMechPurpose = i0.GeneratedColumn<String>(
+          'facility_contact_mech_purpose', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '')
+      .withConverter<List<i3.FacilityContactMechPurpose>?>(
+          i1.Facility.$converterfacilityContactMechPurposen);
+  static const i0.VerificationMeta _facilityLocationMeta =
+      const i0.VerificationMeta('facilityLocation');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i3.FacilityLocation>?, String>
+      facilityLocation = i0.GeneratedColumn<String>(
+              'facility_location', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.FacilityLocation>?>(
+              i1.Facility.$converterfacilityLocationn);
+  static const i0.VerificationMeta _facilityLocationGeoPointMeta =
+      const i0.VerificationMeta('facilityLocationGeoPoint');
+  late final i0.GeneratedColumnWithTypeConverter<
+      List<i3.FacilityLocationGeoPoint>?,
+      String> facilityLocationGeoPoint = i0.GeneratedColumn<String>(
+          'facility_location_geo_point', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '')
+      .withConverter<List<i3.FacilityLocationGeoPoint>?>(
+          i1.Facility.$converterfacilityLocationGeoPointn);
+  static const i0.VerificationMeta _facilityContactMechMeta =
+      const i0.VerificationMeta('facilityContactMech');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i3.FacilityContactMech>?, String>
+      facilityContactMech = i0.GeneratedColumn<String>(
+              'facility_contact_mech', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.FacilityContactMech>?>(
+              i1.Facility.$converterfacilityContactMechn);
+  static const i0.VerificationMeta _reservedFlagMeta =
+      const i0.VerificationMeta('reservedFlag');
+  late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
+      'reserved_flag', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   @override
   List<i0.GeneratedColumn> get $columns => [
         facilityId,
@@ -244,7 +350,17 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
         tag2,
         tag3,
         moreTags,
-        acl
+        acl,
+        facilityType,
+        facilityCalendar,
+        facilityMultisig,
+        facilityGeoForce,
+        facilityAttribute,
+        facilityContactMechPurpose,
+        facilityLocation,
+        facilityLocationGeoPoint,
+        facilityContactMech,
+        reservedFlag
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -415,6 +531,29 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
           moreTags.isAcceptableOrUnknown(data['more_tags']!, _moreTagsMeta));
     }
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    context.handle(_facilityTypeMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityCalendarMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityMultisigMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityGeoForceMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityAttributeMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityContactMechPurposeMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityLocationMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityLocationGeoPointMeta, const i0.VerificationResult.success());
+    context.handle(
+        _facilityContactMechMeta, const i0.VerificationResult.success());
+    if (data.containsKey('reserved_flag')) {
+      context.handle(
+          _reservedFlagMeta,
+          reservedFlag.isAcceptableOrUnknown(
+              data['reserved_flag']!, _reservedFlagMeta));
+    }
     return context;
   }
 
@@ -488,6 +627,36 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags']),
       acl: i1.Facility.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      facilityType: i1.Facility.$converterfacilityTypen.fromSql(
+          attachedDatabase.typeMapping.read(
+              i0.DriftSqlType.string, data['${effectivePrefix}facility_type'])),
+      facilityCalendar: i1.Facility.$converterfacilityCalendarn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_calendar'])),
+      facilityMultisig: i1.Facility.$converterfacilityMultisign.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_multisig'])),
+      facilityGeoForce: i1.Facility.$converterfacilityGeoForcen.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_geo_force'])),
+      facilityAttribute: i1.Facility.$converterfacilityAttributen.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_attribute'])),
+      facilityContactMechPurpose: i1
+          .Facility.$converterfacilityContactMechPurposen
+          .fromSql(attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_contact_mech_purpose'])),
+      facilityLocation: i1.Facility.$converterfacilityLocationn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_location'])),
+      facilityLocationGeoPoint: i1.Facility.$converterfacilityLocationGeoPointn
+          .fromSql(attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_location_geo_point'])),
+      facilityContactMech: i1.Facility.$converterfacilityContactMechn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}facility_contact_mech'])),
+      reservedFlag: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
   }
 
@@ -498,10 +667,63 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
 
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
           Map<String, Iterable<String>>> $converteracl =
-      const i3.StringMultimapConverter();
+      const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
           Map<String, Iterable<String>>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
+  static i0.JsonTypeConverter2<i3.FacilityType, String, Map<String, dynamic>>
+      $converterfacilityType = const i5.FacilityTypeConverter();
+  static i0.JsonTypeConverter2<i3.FacilityType?, String?, Map<String, dynamic>?>
+      $converterfacilityTypen =
+      i0.JsonTypeConverter2.asNullable($converterfacilityType);
+  static i0.JsonTypeConverter2<List<i3.FacilityCalendar>, String,
+          List<Map<String, dynamic>>> $converterfacilityCalendar =
+      const i5.FacilityCalendarListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityCalendar>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityCalendarn =
+      i0.JsonTypeConverter2.asNullable($converterfacilityCalendar);
+  static i0.JsonTypeConverter2<List<i3.FacilityMultisig>, String,
+          List<Map<String, dynamic>>> $converterfacilityMultisig =
+      const i5.FacilityMultisigListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityMultisig>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityMultisign =
+      i0.JsonTypeConverter2.asNullable($converterfacilityMultisig);
+  static i0.JsonTypeConverter2<List<i3.FacilityGeoForce>, String,
+          List<Map<String, dynamic>>> $converterfacilityGeoForce =
+      const i5.FacilityGeoForceListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityGeoForce>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityGeoForcen =
+      i0.JsonTypeConverter2.asNullable($converterfacilityGeoForce);
+  static i0.JsonTypeConverter2<List<i3.FacilityAttribute>, String,
+          List<Map<String, dynamic>>> $converterfacilityAttribute =
+      const i5.FacilityAttributeListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityAttribute>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityAttributen =
+      i0.JsonTypeConverter2.asNullable($converterfacilityAttribute);
+  static i0.JsonTypeConverter2<List<i3.FacilityContactMechPurpose>, String,
+          List<Map<String, dynamic>>> $converterfacilityContactMechPurpose =
+      const i5.FacilityContactMechPurposeListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityContactMechPurpose>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityContactMechPurposen =
+      i0.JsonTypeConverter2.asNullable($converterfacilityContactMechPurpose);
+  static i0.JsonTypeConverter2<List<i3.FacilityLocation>, String,
+          List<Map<String, dynamic>>> $converterfacilityLocation =
+      const i5.FacilityLocationListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityLocation>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityLocationn =
+      i0.JsonTypeConverter2.asNullable($converterfacilityLocation);
+  static i0.JsonTypeConverter2<List<i3.FacilityLocationGeoPoint>, String,
+          List<Map<String, dynamic>>> $converterfacilityLocationGeoPoint =
+      const i5.FacilityLocationGeoPointListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityLocationGeoPoint>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityLocationGeoPointn =
+      i0.JsonTypeConverter2.asNullable($converterfacilityLocationGeoPoint);
+  static i0.JsonTypeConverter2<List<i3.FacilityContactMech>, String,
+          List<Map<String, dynamic>>> $converterfacilityContactMech =
+      const i5.FacilityContactMechListConverter();
+  static i0.JsonTypeConverter2<List<i3.FacilityContactMech>?, String?,
+          List<Map<String, dynamic>>?> $converterfacilityContactMechn =
+      i0.JsonTypeConverter2.asNullable($converterfacilityContactMech);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -537,6 +759,20 @@ class FacilityData extends i0.DataClass
   final String? tag3;
   final String? moreTags;
   final i2.Multimap<String, String>? acl;
+
+  /// rel: one (no public-types)
+  final i3.FacilityType? facilityType;
+
+  /// rel: many
+  final List<i3.FacilityCalendar>? facilityCalendar;
+  final List<i3.FacilityMultisig>? facilityMultisig;
+  final List<i3.FacilityGeoForce>? facilityGeoForce;
+  final List<i3.FacilityAttribute>? facilityAttribute;
+  final List<i3.FacilityContactMechPurpose>? facilityContactMechPurpose;
+  final List<i3.FacilityLocation>? facilityLocation;
+  final List<i3.FacilityLocationGeoPoint>? facilityLocationGeoPoint;
+  final List<i3.FacilityContactMech>? facilityContactMech;
+  final int? reservedFlag;
   const FacilityData(
       {required this.facilityId,
       this.facilityTypeId,
@@ -566,7 +802,17 @@ class FacilityData extends i0.DataClass
       this.tag2,
       this.tag3,
       this.moreTags,
-      this.acl});
+      this.acl,
+      this.facilityType,
+      this.facilityCalendar,
+      this.facilityMultisig,
+      this.facilityGeoForce,
+      this.facilityAttribute,
+      this.facilityContactMechPurpose,
+      this.facilityLocation,
+      this.facilityLocationGeoPoint,
+      this.facilityContactMech,
+      this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
     final map = <String, i0.Expression>{};
@@ -658,6 +904,48 @@ class FacilityData extends i0.DataClass
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Facility.$converteracln.toSql(acl));
     }
+    if (!nullToAbsent || facilityType != null) {
+      map['facility_type'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityTypen.toSql(facilityType));
+    }
+    if (!nullToAbsent || facilityCalendar != null) {
+      map['facility_calendar'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityCalendarn.toSql(facilityCalendar));
+    }
+    if (!nullToAbsent || facilityMultisig != null) {
+      map['facility_multisig'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityMultisign.toSql(facilityMultisig));
+    }
+    if (!nullToAbsent || facilityGeoForce != null) {
+      map['facility_geo_force'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityGeoForcen.toSql(facilityGeoForce));
+    }
+    if (!nullToAbsent || facilityAttribute != null) {
+      map['facility_attribute'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityAttributen.toSql(facilityAttribute));
+    }
+    if (!nullToAbsent || facilityContactMechPurpose != null) {
+      map['facility_contact_mech_purpose'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityContactMechPurposen
+          .toSql(facilityContactMechPurpose));
+    }
+    if (!nullToAbsent || facilityLocation != null) {
+      map['facility_location'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityLocationn.toSql(facilityLocation));
+    }
+    if (!nullToAbsent || facilityLocationGeoPoint != null) {
+      map['facility_location_geo_point'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityLocationGeoPointn
+          .toSql(facilityLocationGeoPoint));
+    }
+    if (!nullToAbsent || facilityContactMech != null) {
+      map['facility_contact_mech'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityContactMechn
+          .toSql(facilityContactMech));
+    }
+    if (!nullToAbsent || reservedFlag != null) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag);
+    }
     return map;
   }
 
@@ -748,6 +1036,37 @@ class FacilityData extends i0.DataClass
           : i0.Value(moreTags),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      facilityType: facilityType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityType),
+      facilityCalendar: facilityCalendar == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityCalendar),
+      facilityMultisig: facilityMultisig == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityMultisig),
+      facilityGeoForce: facilityGeoForce == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityGeoForce),
+      facilityAttribute: facilityAttribute == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityAttribute),
+      facilityContactMechPurpose:
+          facilityContactMechPurpose == null && nullToAbsent
+              ? const i0.Value.absent()
+              : i0.Value(facilityContactMechPurpose),
+      facilityLocation: facilityLocation == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityLocation),
+      facilityLocationGeoPoint: facilityLocationGeoPoint == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityLocationGeoPoint),
+      facilityContactMech: facilityContactMech == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(facilityContactMech),
+      reservedFlag: reservedFlag == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(reservedFlag),
     );
   }
 
@@ -793,6 +1112,34 @@ class FacilityData extends i0.DataClass
       moreTags: serializer.fromJson<String?>(json['more_tags']),
       acl: i1.Facility.$converteracln.fromJson(
           serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      facilityType: i1.Facility.$converterfacilityTypen.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['facility_type'])),
+      facilityCalendar: i1.Facility.$converterfacilityCalendarn.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_calendar'])),
+      facilityMultisig: i1.Facility.$converterfacilityMultisign.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_multisig'])),
+      facilityGeoForce: i1.Facility.$converterfacilityGeoForcen.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_geo_force'])),
+      facilityAttribute: i1.Facility.$converterfacilityAttributen.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_attribute'])),
+      facilityContactMechPurpose: i1
+          .Facility.$converterfacilityContactMechPurposen
+          .fromJson(serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_contact_mech_purpose'])),
+      facilityLocation: i1.Facility.$converterfacilityLocationn.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_location'])),
+      facilityLocationGeoPoint: i1.Facility.$converterfacilityLocationGeoPointn
+          .fromJson(serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_location_geo_point'])),
+      facilityContactMech: i1.Facility.$converterfacilityContactMechn.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['facility_contact_mech'])),
+      reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
   @override
@@ -832,6 +1179,30 @@ class FacilityData extends i0.DataClass
       'more_tags': serializer.toJson<String?>(moreTags),
       'acl': serializer.toJson<Map<String, Iterable<String>>?>(
           i1.Facility.$converteracln.toJson(acl)),
+      'facility_type': serializer.toJson<Map<String, dynamic>?>(
+          i1.Facility.$converterfacilityTypen.toJson(facilityType)),
+      'facility_calendar': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Facility.$converterfacilityCalendarn.toJson(facilityCalendar)),
+      'facility_multisig': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Facility.$converterfacilityMultisign.toJson(facilityMultisig)),
+      'facility_geo_force': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Facility.$converterfacilityGeoForcen.toJson(facilityGeoForce)),
+      'facility_attribute': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Facility.$converterfacilityAttributen.toJson(facilityAttribute)),
+      'facility_contact_mech_purpose':
+          serializer.toJson<List<Map<String, dynamic>>?>(i1
+              .Facility.$converterfacilityContactMechPurposen
+              .toJson(facilityContactMechPurpose)),
+      'facility_location': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Facility.$converterfacilityLocationn.toJson(facilityLocation)),
+      'facility_location_geo_point':
+          serializer.toJson<List<Map<String, dynamic>>?>(i1
+              .Facility.$converterfacilityLocationGeoPointn
+              .toJson(facilityLocationGeoPoint)),
+      'facility_contact_mech': serializer.toJson<List<Map<String, dynamic>>?>(i1
+          .Facility.$converterfacilityContactMechn
+          .toJson(facilityContactMech)),
+      'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
 
@@ -865,8 +1236,25 @@ class FacilityData extends i0.DataClass
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<String?> moreTags = const i0.Value.absent(),
-          i0.Value<i2.Multimap<String, String>?> acl =
-              const i0.Value.absent()}) =>
+          i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
+          i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
+              const i0.Value.absent(),
+          i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
+              const i0.Value.absent(),
+          i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
+              const i0.Value.absent(),
+          i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
+              const i0.Value.absent(),
+          i0.Value<List<i3.FacilityContactMechPurpose>?>
+              facilityContactMechPurpose = const i0.Value.absent(),
+          i0.Value<List<i3.FacilityLocation>?> facilityLocation =
+              const i0.Value.absent(),
+          i0.Value<List<i3.FacilityLocationGeoPoint>?>
+              facilityLocationGeoPoint = const i0.Value.absent(),
+          i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
+              const i0.Value.absent(),
+          i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.FacilityData(
         facilityId: facilityId ?? this.facilityId,
         facilityTypeId:
@@ -921,6 +1309,34 @@ class FacilityData extends i0.DataClass
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
         acl: acl.present ? acl.value : this.acl,
+        facilityType:
+            facilityType.present ? facilityType.value : this.facilityType,
+        facilityCalendar: facilityCalendar.present
+            ? facilityCalendar.value
+            : this.facilityCalendar,
+        facilityMultisig: facilityMultisig.present
+            ? facilityMultisig.value
+            : this.facilityMultisig,
+        facilityGeoForce: facilityGeoForce.present
+            ? facilityGeoForce.value
+            : this.facilityGeoForce,
+        facilityAttribute: facilityAttribute.present
+            ? facilityAttribute.value
+            : this.facilityAttribute,
+        facilityContactMechPurpose: facilityContactMechPurpose.present
+            ? facilityContactMechPurpose.value
+            : this.facilityContactMechPurpose,
+        facilityLocation: facilityLocation.present
+            ? facilityLocation.value
+            : this.facilityLocation,
+        facilityLocationGeoPoint: facilityLocationGeoPoint.present
+            ? facilityLocationGeoPoint.value
+            : this.facilityLocationGeoPoint,
+        facilityContactMech: facilityContactMech.present
+            ? facilityContactMech.value
+            : this.facilityContactMech,
+        reservedFlag:
+            reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
   FacilityData copyWithCompanion(i1.FacilityCompanion data) {
     return FacilityData(
@@ -990,6 +1406,36 @@ class FacilityData extends i0.DataClass
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       acl: data.acl.present ? data.acl.value : this.acl,
+      facilityType: data.facilityType.present
+          ? data.facilityType.value
+          : this.facilityType,
+      facilityCalendar: data.facilityCalendar.present
+          ? data.facilityCalendar.value
+          : this.facilityCalendar,
+      facilityMultisig: data.facilityMultisig.present
+          ? data.facilityMultisig.value
+          : this.facilityMultisig,
+      facilityGeoForce: data.facilityGeoForce.present
+          ? data.facilityGeoForce.value
+          : this.facilityGeoForce,
+      facilityAttribute: data.facilityAttribute.present
+          ? data.facilityAttribute.value
+          : this.facilityAttribute,
+      facilityContactMechPurpose: data.facilityContactMechPurpose.present
+          ? data.facilityContactMechPurpose.value
+          : this.facilityContactMechPurpose,
+      facilityLocation: data.facilityLocation.present
+          ? data.facilityLocation.value
+          : this.facilityLocation,
+      facilityLocationGeoPoint: data.facilityLocationGeoPoint.present
+          ? data.facilityLocationGeoPoint.value
+          : this.facilityLocationGeoPoint,
+      facilityContactMech: data.facilityContactMech.present
+          ? data.facilityContactMech.value
+          : this.facilityContactMech,
+      reservedFlag: data.reservedFlag.present
+          ? data.reservedFlag.value
+          : this.reservedFlag,
     );
   }
 
@@ -1024,7 +1470,17 @@ class FacilityData extends i0.DataClass
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
-          ..write('acl: $acl')
+          ..write('acl: $acl, ')
+          ..write('facilityType: $facilityType, ')
+          ..write('facilityCalendar: $facilityCalendar, ')
+          ..write('facilityMultisig: $facilityMultisig, ')
+          ..write('facilityGeoForce: $facilityGeoForce, ')
+          ..write('facilityAttribute: $facilityAttribute, ')
+          ..write('facilityContactMechPurpose: $facilityContactMechPurpose, ')
+          ..write('facilityLocation: $facilityLocation, ')
+          ..write('facilityLocationGeoPoint: $facilityLocationGeoPoint, ')
+          ..write('facilityContactMech: $facilityContactMech, ')
+          ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
   }
@@ -1059,7 +1515,17 @@ class FacilityData extends i0.DataClass
         tag2,
         tag3,
         moreTags,
-        acl
+        acl,
+        facilityType,
+        facilityCalendar,
+        facilityMultisig,
+        facilityGeoForce,
+        facilityAttribute,
+        facilityContactMechPurpose,
+        facilityLocation,
+        facilityLocationGeoPoint,
+        facilityContactMech,
+        reservedFlag
       ]);
   @override
   bool operator ==(Object other) =>
@@ -1093,7 +1559,17 @@ class FacilityData extends i0.DataClass
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
-          other.acl == this.acl);
+          other.acl == this.acl &&
+          other.facilityType == this.facilityType &&
+          other.facilityCalendar == this.facilityCalendar &&
+          other.facilityMultisig == this.facilityMultisig &&
+          other.facilityGeoForce == this.facilityGeoForce &&
+          other.facilityAttribute == this.facilityAttribute &&
+          other.facilityContactMechPurpose == this.facilityContactMechPurpose &&
+          other.facilityLocation == this.facilityLocation &&
+          other.facilityLocationGeoPoint == this.facilityLocationGeoPoint &&
+          other.facilityContactMech == this.facilityContactMech &&
+          other.reservedFlag == this.reservedFlag);
 }
 
 class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
@@ -1126,6 +1602,17 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
   final i0.Value<String?> tag3;
   final i0.Value<String?> moreTags;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<i3.FacilityType?> facilityType;
+  final i0.Value<List<i3.FacilityCalendar>?> facilityCalendar;
+  final i0.Value<List<i3.FacilityMultisig>?> facilityMultisig;
+  final i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce;
+  final i0.Value<List<i3.FacilityAttribute>?> facilityAttribute;
+  final i0.Value<List<i3.FacilityContactMechPurpose>?>
+      facilityContactMechPurpose;
+  final i0.Value<List<i3.FacilityLocation>?> facilityLocation;
+  final i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint;
+  final i0.Value<List<i3.FacilityContactMech>?> facilityContactMech;
+  final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const FacilityCompanion({
     this.facilityId = const i0.Value.absent(),
@@ -1157,6 +1644,16 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.facilityType = const i0.Value.absent(),
+    this.facilityCalendar = const i0.Value.absent(),
+    this.facilityMultisig = const i0.Value.absent(),
+    this.facilityGeoForce = const i0.Value.absent(),
+    this.facilityAttribute = const i0.Value.absent(),
+    this.facilityContactMechPurpose = const i0.Value.absent(),
+    this.facilityLocation = const i0.Value.absent(),
+    this.facilityLocationGeoPoint = const i0.Value.absent(),
+    this.facilityContactMech = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
   FacilityCompanion.insert({
@@ -1189,6 +1686,16 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.facilityType = const i0.Value.absent(),
+    this.facilityCalendar = const i0.Value.absent(),
+    this.facilityMultisig = const i0.Value.absent(),
+    this.facilityGeoForce = const i0.Value.absent(),
+    this.facilityAttribute = const i0.Value.absent(),
+    this.facilityContactMechPurpose = const i0.Value.absent(),
+    this.facilityLocation = const i0.Value.absent(),
+    this.facilityLocationGeoPoint = const i0.Value.absent(),
+    this.facilityContactMech = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : facilityId = i0.Value(facilityId);
   static i0.Insertable<i1.FacilityData> custom({
@@ -1221,6 +1728,16 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
     i0.Expression<String>? acl,
+    i0.Expression<String>? facilityType,
+    i0.Expression<String>? facilityCalendar,
+    i0.Expression<String>? facilityMultisig,
+    i0.Expression<String>? facilityGeoForce,
+    i0.Expression<String>? facilityAttribute,
+    i0.Expression<String>? facilityContactMechPurpose,
+    i0.Expression<String>? facilityLocation,
+    i0.Expression<String>? facilityLocationGeoPoint,
+    i0.Expression<String>? facilityContactMech,
+    i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
     return i0.RawValuesInsertable({
@@ -1258,6 +1775,19 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
       if (acl != null) 'acl': acl,
+      if (facilityType != null) 'facility_type': facilityType,
+      if (facilityCalendar != null) 'facility_calendar': facilityCalendar,
+      if (facilityMultisig != null) 'facility_multisig': facilityMultisig,
+      if (facilityGeoForce != null) 'facility_geo_force': facilityGeoForce,
+      if (facilityAttribute != null) 'facility_attribute': facilityAttribute,
+      if (facilityContactMechPurpose != null)
+        'facility_contact_mech_purpose': facilityContactMechPurpose,
+      if (facilityLocation != null) 'facility_location': facilityLocation,
+      if (facilityLocationGeoPoint != null)
+        'facility_location_geo_point': facilityLocationGeoPoint,
+      if (facilityContactMech != null)
+        'facility_contact_mech': facilityContactMech,
+      if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -1292,6 +1822,17 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       i0.Value<String?>? tag3,
       i0.Value<String?>? moreTags,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<i3.FacilityType?>? facilityType,
+      i0.Value<List<i3.FacilityCalendar>?>? facilityCalendar,
+      i0.Value<List<i3.FacilityMultisig>?>? facilityMultisig,
+      i0.Value<List<i3.FacilityGeoForce>?>? facilityGeoForce,
+      i0.Value<List<i3.FacilityAttribute>?>? facilityAttribute,
+      i0.Value<List<i3.FacilityContactMechPurpose>?>?
+          facilityContactMechPurpose,
+      i0.Value<List<i3.FacilityLocation>?>? facilityLocation,
+      i0.Value<List<i3.FacilityLocationGeoPoint>?>? facilityLocationGeoPoint,
+      i0.Value<List<i3.FacilityContactMech>?>? facilityContactMech,
+      i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.FacilityCompanion(
       facilityId: facilityId ?? this.facilityId,
@@ -1326,6 +1867,18 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      facilityType: facilityType ?? this.facilityType,
+      facilityCalendar: facilityCalendar ?? this.facilityCalendar,
+      facilityMultisig: facilityMultisig ?? this.facilityMultisig,
+      facilityGeoForce: facilityGeoForce ?? this.facilityGeoForce,
+      facilityAttribute: facilityAttribute ?? this.facilityAttribute,
+      facilityContactMechPurpose:
+          facilityContactMechPurpose ?? this.facilityContactMechPurpose,
+      facilityLocation: facilityLocation ?? this.facilityLocation,
+      facilityLocationGeoPoint:
+          facilityLocationGeoPoint ?? this.facilityLocationGeoPoint,
+      facilityContactMech: facilityContactMech ?? this.facilityContactMech,
+      reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -1427,6 +1980,53 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       map['acl'] =
           i0.Variable<String>(i1.Facility.$converteracln.toSql(acl.value));
     }
+    if (facilityType.present) {
+      map['facility_type'] = i0.Variable<String>(
+          i1.Facility.$converterfacilityTypen.toSql(facilityType.value));
+    }
+    if (facilityCalendar.present) {
+      map['facility_calendar'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityCalendarn
+          .toSql(facilityCalendar.value));
+    }
+    if (facilityMultisig.present) {
+      map['facility_multisig'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityMultisign
+          .toSql(facilityMultisig.value));
+    }
+    if (facilityGeoForce.present) {
+      map['facility_geo_force'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityGeoForcen
+          .toSql(facilityGeoForce.value));
+    }
+    if (facilityAttribute.present) {
+      map['facility_attribute'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityAttributen
+          .toSql(facilityAttribute.value));
+    }
+    if (facilityContactMechPurpose.present) {
+      map['facility_contact_mech_purpose'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityContactMechPurposen
+          .toSql(facilityContactMechPurpose.value));
+    }
+    if (facilityLocation.present) {
+      map['facility_location'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityLocationn
+          .toSql(facilityLocation.value));
+    }
+    if (facilityLocationGeoPoint.present) {
+      map['facility_location_geo_point'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityLocationGeoPointn
+          .toSql(facilityLocationGeoPoint.value));
+    }
+    if (facilityContactMech.present) {
+      map['facility_contact_mech'] = i0.Variable<String>(i1
+          .Facility.$converterfacilityContactMechn
+          .toSql(facilityContactMech.value));
+    }
+    if (reservedFlag.present) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
+    }
     if (rowid.present) {
       map['rowid'] = i0.Variable<int>(rowid.value);
     }
@@ -1465,6 +2065,16 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('facilityType: $facilityType, ')
+          ..write('facilityCalendar: $facilityCalendar, ')
+          ..write('facilityMultisig: $facilityMultisig, ')
+          ..write('facilityGeoForce: $facilityGeoForce, ')
+          ..write('facilityAttribute: $facilityAttribute, ')
+          ..write('facilityContactMechPurpose: $facilityContactMechPurpose, ')
+          ..write('facilityLocation: $facilityLocation, ')
+          ..write('facilityLocationGeoPoint: $facilityLocationGeoPoint, ')
+          ..write('facilityContactMech: $facilityContactMech, ')
+          ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -1501,6 +2111,16 @@ typedef $FacilityCreateCompanionBuilder = i1.FacilityCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<String?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<i3.FacilityType?> facilityType,
+  i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
+  i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
+  i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce,
+  i0.Value<List<i3.FacilityAttribute>?> facilityAttribute,
+  i0.Value<List<i3.FacilityContactMechPurpose>?> facilityContactMechPurpose,
+  i0.Value<List<i3.FacilityLocation>?> facilityLocation,
+  i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint,
+  i0.Value<List<i3.FacilityContactMech>?> facilityContactMech,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 typedef $FacilityUpdateCompanionBuilder = i1.FacilityCompanion Function({
@@ -1533,6 +2153,16 @@ typedef $FacilityUpdateCompanionBuilder = i1.FacilityCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<String?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<i3.FacilityType?> facilityType,
+  i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
+  i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
+  i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce,
+  i0.Value<List<i3.FacilityAttribute>?> facilityAttribute,
+  i0.Value<List<i3.FacilityContactMechPurpose>?> facilityContactMechPurpose,
+  i0.Value<List<i3.FacilityLocation>?> facilityLocation,
+  i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint,
+  i0.Value<List<i3.FacilityContactMech>?> facilityContactMech,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 
@@ -1689,6 +2319,82 @@ class $FacilityFilterComposer
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<i3.FacilityType?, i3.FacilityType, String>
+      get facilityType => $state.composableBuilder(
+          column: $state.table.facilityType,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityCalendar>?,
+          List<i3.FacilityCalendar>, String>
+      get facilityCalendar => $state.composableBuilder(
+          column: $state.table.facilityCalendar,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityMultisig>?,
+          List<i3.FacilityMultisig>, String>
+      get facilityMultisig => $state.composableBuilder(
+          column: $state.table.facilityMultisig,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityGeoForce>?,
+          List<i3.FacilityGeoForce>, String>
+      get facilityGeoForce => $state.composableBuilder(
+          column: $state.table.facilityGeoForce,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityAttribute>?,
+          List<i3.FacilityAttribute>, String>
+      get facilityAttribute => $state.composableBuilder(
+          column: $state.table.facilityAttribute,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityContactMechPurpose>?,
+          List<i3.FacilityContactMechPurpose>, String>
+      get facilityContactMechPurpose => $state.composableBuilder(
+          column: $state.table.facilityContactMechPurpose,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityLocation>?,
+          List<i3.FacilityLocation>, String>
+      get facilityLocation => $state.composableBuilder(
+          column: $state.table.facilityLocation,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityLocationGeoPoint>?,
+          List<i3.FacilityLocationGeoPoint>, String>
+      get facilityLocationGeoPoint => $state.composableBuilder(
+          column: $state.table.facilityLocationGeoPoint,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityContactMech>?,
+          List<i3.FacilityContactMech>, String>
+      get facilityContactMech => $state.composableBuilder(
+          column: $state.table.facilityContactMech,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
 }
 
 class $FacilityOrderingComposer
@@ -1842,6 +2548,59 @@ class $FacilityOrderingComposer
       column: $state.table.acl,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityType => $state.composableBuilder(
+      column: $state.table.facilityType,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityCalendar => $state.composableBuilder(
+      column: $state.table.facilityCalendar,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityMultisig => $state.composableBuilder(
+      column: $state.table.facilityMultisig,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityGeoForce => $state.composableBuilder(
+      column: $state.table.facilityGeoForce,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityAttribute => $state.composableBuilder(
+      column: $state.table.facilityAttribute,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityContactMechPurpose =>
+      $state.composableBuilder(
+          column: $state.table.facilityContactMechPurpose,
+          builder: (column, joinBuilders) =>
+              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityLocation => $state.composableBuilder(
+      column: $state.table.facilityLocation,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityLocationGeoPoint =>
+      $state.composableBuilder(
+          column: $state.table.facilityLocationGeoPoint,
+          builder: (column, joinBuilders) =>
+              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get facilityContactMech =>
+      $state.composableBuilder(
+          column: $state.table.facilityContactMech,
+          builder: (column, joinBuilders) =>
+              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
 class $FacilityTableManager extends i0.RootTableManager<
@@ -1898,6 +2657,24 @@ class $FacilityTableManager extends i0.RootTableManager<
             i0.Value<String?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMechPurpose>?>
+                facilityContactMechPurpose = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocation>?> facilityLocation =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocationGeoPoint>?>
+                facilityLocationGeoPoint = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.FacilityCompanion(
@@ -1930,6 +2707,16 @@ class $FacilityTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             acl: acl,
+            facilityType: facilityType,
+            facilityCalendar: facilityCalendar,
+            facilityMultisig: facilityMultisig,
+            facilityGeoForce: facilityGeoForce,
+            facilityAttribute: facilityAttribute,
+            facilityContactMechPurpose: facilityContactMechPurpose,
+            facilityLocation: facilityLocation,
+            facilityLocationGeoPoint: facilityLocationGeoPoint,
+            facilityContactMech: facilityContactMech,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -1964,6 +2751,24 @@ class $FacilityTableManager extends i0.RootTableManager<
             i0.Value<String?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMechPurpose>?>
+                facilityContactMechPurpose = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocation>?> facilityLocation =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocationGeoPoint>?>
+                facilityLocationGeoPoint = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.FacilityCompanion.insert(
@@ -1996,6 +2801,16 @@ class $FacilityTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             acl: acl,
+            facilityType: facilityType,
+            facilityCalendar: facilityCalendar,
+            facilityMultisig: facilityMultisig,
+            facilityGeoForce: facilityGeoForce,
+            facilityAttribute: facilityAttribute,
+            facilityContactMechPurpose: facilityContactMechPurpose,
+            facilityLocation: facilityLocation,
+            facilityLocationGeoPoint: facilityLocationGeoPoint,
+            facilityContactMech: facilityContactMech,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
@@ -2020,7 +2835,7 @@ typedef $FacilityProcessedTableManager = i0.ProcessedTableManager<
     i1.FacilityData,
     i0.PrefetchHooks Function()>;
 
-class FacilityDrift extends i4.ModularAccessor {
+class FacilityDrift extends i6.ModularAccessor {
   FacilityDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.FacilityData> allFacilities() {
     return customSelect('SELECT * FROM facility', variables: [], readsFrom: {
@@ -2037,6 +2852,18 @@ class FacilityDrift extends i4.ModularAccessor {
     );
   }
 
-  i1.Facility get facility => i4.ReadDatabaseContainer(attachedDatabase)
+  Future<int> addFacility({required i0.Insertable<i1.FacilityData> el}) {
+    var $arrayStartIndex = 1;
+    final generatedel =
+        $writeInsertable(this.facility, el, startIndex: $arrayStartIndex);
+    $arrayStartIndex += generatedel.amountOfVariables;
+    return customInsert(
+      'INSERT INTO facility ${generatedel.sql}',
+      variables: [...generatedel.introducedVariables],
+      updates: {facility},
+    );
+  }
+
+  i1.Facility get facility => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Facility>('facility');
 }

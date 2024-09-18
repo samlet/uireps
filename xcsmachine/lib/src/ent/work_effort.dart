@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -234,6 +235,12 @@ class WorkEffort {
 
   factory WorkEffort.fromJson(Map<String, dynamic> json) => _$WorkEffortFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffort, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffort.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -897,6 +904,12 @@ class WorkEffortTransaction {
   factory WorkEffortTransaction.fromJson(Map<String, dynamic> json) => _$WorkEffortTransactionFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortTransactionToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<WorkEffortTransaction, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortTransaction.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? workEffortId;
 
@@ -953,6 +966,12 @@ class WorkEffortNote {
 
   factory WorkEffortNote.fromJson(Map<String, dynamic> json) => _$WorkEffortNoteFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortNoteToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortNote, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortNote.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortId;
@@ -1022,6 +1041,12 @@ class WorkEffortFixedAssetAssign {
 
   factory WorkEffortFixedAssetAssign.fromJson(Map<String, dynamic> json) => _$WorkEffortFixedAssetAssignFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortFixedAssetAssignToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortFixedAssetAssign, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortFixedAssetAssign.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortId;
@@ -1098,6 +1123,12 @@ class WorkEffortSkillStandard {
   factory WorkEffortSkillStandard.fromJson(Map<String, dynamic> json) => _$WorkEffortSkillStandardFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortSkillStandardToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<WorkEffortSkillStandard, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortSkillStandard.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? workEffortId;
 
@@ -1164,6 +1195,12 @@ class WorkEffortCostCalc {
   factory WorkEffortCostCalc.fromJson(Map<String, dynamic> json) => _$WorkEffortCostCalcFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortCostCalcToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<WorkEffortCostCalc, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortCostCalc.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? workEffortId;
 
@@ -1226,6 +1263,12 @@ class WorkEffortAttribute {
 
   factory WorkEffortAttribute.fromJson(Map<String, dynamic> json) => _$WorkEffortAttributeFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortAttributeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortAttribute, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortAttribute.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortId;
@@ -1316,6 +1359,12 @@ class WorkEffortPartyAssignment {
 
   factory WorkEffortPartyAssignment.fromJson(Map<String, dynamic> json) => _$WorkEffortPartyAssignmentFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortPartyAssignmentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortPartyAssignment, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortPartyAssignment.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortId;
@@ -1410,6 +1459,12 @@ class WorkEffortStatus {
   factory WorkEffortStatus.fromJson(Map<String, dynamic> json) => _$WorkEffortStatusFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortStatusToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<WorkEffortStatus, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortStatus.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? workEffortId;
 
@@ -1472,6 +1527,12 @@ class WorkEffortType {
 
   factory WorkEffortType.fromJson(Map<String, dynamic> json) => _$WorkEffortTypeFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortTypeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortTypeId;
@@ -1538,6 +1599,12 @@ class WorkEffortAssoc {
 
   factory WorkEffortAssoc.fromJson(Map<String, dynamic> json) => _$WorkEffortAssocFromJson(json);
   Map<String, dynamic> toJson() => _$WorkEffortAssocToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WorkEffortAssoc, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WorkEffortAssoc.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? workEffortIdFrom;

@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -66,6 +67,12 @@ class Note {
 
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
   Map<String, dynamic> toJson() => _$NoteToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Note, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Note.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -198,6 +205,12 @@ class NoteDataSlot {
 
   factory NoteDataSlot.fromJson(Map<String, dynamic> json) => _$NoteDataSlotFromJson(json);
   Map<String, dynamic> toJson() => _$NoteDataSlotToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<NoteDataSlot, String> converter = df.TypeConverter.json(
+    fromJson: (json) => NoteDataSlot.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? noteId;

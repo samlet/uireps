@@ -78,6 +78,13 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
       type: i0.DriftSqlType.bool,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _reservedFlagMeta =
+      const i0.VerificationMeta('reservedFlag');
+  late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
+      'reserved_flag', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   @override
   List<i0.GeneratedColumn> get $columns => [
         biId,
@@ -89,7 +96,8 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
         tenantId,
         lastUpdatedTxStamp,
         createdTxStamp,
-        evict
+        evict,
+        reservedFlag
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -150,6 +158,12 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
       context.handle(
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
+    if (data.containsKey('reserved_flag')) {
+      context.handle(
+          _reservedFlagMeta,
+          reservedFlag.isAcceptableOrUnknown(
+              data['reserved_flag']!, _reservedFlagMeta));
+    }
     return context;
   }
 
@@ -180,6 +194,8 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
           i0.DriftSqlType.dateTime, data['${effectivePrefix}created_tx_stamp']),
       evict: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
+      reservedFlag: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
   }
 
@@ -204,6 +220,10 @@ class BiFacetData extends i0.DataClass
   final DateTime? lastUpdatedTxStamp;
   final DateTime? createdTxStamp;
   final bool? evict;
+
+  /// rel: many
+  /// rel: one (no public-types)
+  final int? reservedFlag;
   const BiFacetData(
       {required this.biId,
       this.bundleName,
@@ -214,7 +234,8 @@ class BiFacetData extends i0.DataClass
       this.tenantId,
       this.lastUpdatedTxStamp,
       this.createdTxStamp,
-      this.evict});
+      this.evict,
+      this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
     final map = <String, i0.Expression>{};
@@ -245,6 +266,9 @@ class BiFacetData extends i0.DataClass
     }
     if (!nullToAbsent || evict != null) {
       map['evict'] = i0.Variable<bool>(evict);
+    }
+    if (!nullToAbsent || reservedFlag != null) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag);
     }
     return map;
   }
@@ -279,6 +303,9 @@ class BiFacetData extends i0.DataClass
       evict: evict == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(evict),
+      reservedFlag: reservedFlag == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(reservedFlag),
     );
   }
 
@@ -297,6 +324,7 @@ class BiFacetData extends i0.DataClass
           serializer.fromJson<DateTime?>(json['last_updated_tx_stamp']),
       createdTxStamp: serializer.fromJson<DateTime?>(json['created_tx_stamp']),
       evict: serializer.fromJson<bool?>(json['evict']),
+      reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
   @override
@@ -313,6 +341,7 @@ class BiFacetData extends i0.DataClass
       'last_updated_tx_stamp': serializer.toJson<DateTime?>(lastUpdatedTxStamp),
       'created_tx_stamp': serializer.toJson<DateTime?>(createdTxStamp),
       'evict': serializer.toJson<bool?>(evict),
+      'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
 
@@ -326,7 +355,8 @@ class BiFacetData extends i0.DataClass
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
           i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-          i0.Value<bool?> evict = const i0.Value.absent()}) =>
+          i0.Value<bool?> evict = const i0.Value.absent(),
+          i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.BiFacetData(
         biId: biId ?? this.biId,
         bundleName: bundleName.present ? bundleName.value : this.bundleName,
@@ -341,6 +371,8 @@ class BiFacetData extends i0.DataClass
         createdTxStamp:
             createdTxStamp.present ? createdTxStamp.value : this.createdTxStamp,
         evict: evict.present ? evict.value : this.evict,
+        reservedFlag:
+            reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
   BiFacetData copyWithCompanion(i1.BiFacetCompanion data) {
     return BiFacetData(
@@ -359,6 +391,9 @@ class BiFacetData extends i0.DataClass
           ? data.createdTxStamp.value
           : this.createdTxStamp,
       evict: data.evict.present ? data.evict.value : this.evict,
+      reservedFlag: data.reservedFlag.present
+          ? data.reservedFlag.value
+          : this.reservedFlag,
     );
   }
 
@@ -374,14 +409,25 @@ class BiFacetData extends i0.DataClass
           ..write('tenantId: $tenantId, ')
           ..write('lastUpdatedTxStamp: $lastUpdatedTxStamp, ')
           ..write('createdTxStamp: $createdTxStamp, ')
-          ..write('evict: $evict')
+          ..write('evict: $evict, ')
+          ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(biId, bundleName, regionId, data, tags,
-      modified, tenantId, lastUpdatedTxStamp, createdTxStamp, evict);
+  int get hashCode => Object.hash(
+      biId,
+      bundleName,
+      regionId,
+      data,
+      tags,
+      modified,
+      tenantId,
+      lastUpdatedTxStamp,
+      createdTxStamp,
+      evict,
+      reservedFlag);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -395,7 +441,8 @@ class BiFacetData extends i0.DataClass
           other.tenantId == this.tenantId &&
           other.lastUpdatedTxStamp == this.lastUpdatedTxStamp &&
           other.createdTxStamp == this.createdTxStamp &&
-          other.evict == this.evict);
+          other.evict == this.evict &&
+          other.reservedFlag == this.reservedFlag);
 }
 
 class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
@@ -409,6 +456,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
   final i0.Value<DateTime?> lastUpdatedTxStamp;
   final i0.Value<DateTime?> createdTxStamp;
   final i0.Value<bool?> evict;
+  final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const BiFacetCompanion({
     this.biId = const i0.Value.absent(),
@@ -421,6 +469,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     this.lastUpdatedTxStamp = const i0.Value.absent(),
     this.createdTxStamp = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
   BiFacetCompanion.insert({
@@ -434,6 +483,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     this.lastUpdatedTxStamp = const i0.Value.absent(),
     this.createdTxStamp = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : biId = i0.Value(biId);
   static i0.Insertable<i1.BiFacetData> custom({
@@ -447,6 +497,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     i0.Expression<DateTime>? lastUpdatedTxStamp,
     i0.Expression<DateTime>? createdTxStamp,
     i0.Expression<bool>? evict,
+    i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
     return i0.RawValuesInsertable({
@@ -461,6 +512,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
         'last_updated_tx_stamp': lastUpdatedTxStamp,
       if (createdTxStamp != null) 'created_tx_stamp': createdTxStamp,
       if (evict != null) 'evict': evict,
+      if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -476,6 +528,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       i0.Value<DateTime?>? lastUpdatedTxStamp,
       i0.Value<DateTime?>? createdTxStamp,
       i0.Value<bool?>? evict,
+      i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.BiFacetCompanion(
       biId: biId ?? this.biId,
@@ -488,6 +541,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
       evict: evict ?? this.evict,
+      reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -526,6 +580,9 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     if (evict.present) {
       map['evict'] = i0.Variable<bool>(evict.value);
     }
+    if (reservedFlag.present) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
+    }
     if (rowid.present) {
       map['rowid'] = i0.Variable<int>(rowid.value);
     }
@@ -545,6 +602,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
           ..write('lastUpdatedTxStamp: $lastUpdatedTxStamp, ')
           ..write('createdTxStamp: $createdTxStamp, ')
           ..write('evict: $evict, ')
+          ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -562,6 +620,7 @@ typedef $BiFacetCreateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<DateTime?> lastUpdatedTxStamp,
   i0.Value<DateTime?> createdTxStamp,
   i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
@@ -575,6 +634,7 @@ typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<DateTime?> lastUpdatedTxStamp,
   i0.Value<DateTime?> createdTxStamp,
   i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 
@@ -628,6 +688,11 @@ class $BiFacetFilterComposer
 
   i0.ColumnFilters<bool> get evict => $state.composableBuilder(
       column: $state.table.evict,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 }
@@ -685,6 +750,11 @@ class $BiFacetOrderingComposer
       column: $state.table.evict,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
 class $BiFacetTableManager extends i0.RootTableManager<
@@ -720,6 +790,7 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
             i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.BiFacetCompanion(
@@ -733,6 +804,7 @@ class $BiFacetTableManager extends i0.RootTableManager<
             lastUpdatedTxStamp: lastUpdatedTxStamp,
             createdTxStamp: createdTxStamp,
             evict: evict,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -746,6 +818,7 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
             i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.BiFacetCompanion.insert(
@@ -759,6 +832,7 @@ class $BiFacetTableManager extends i0.RootTableManager<
             lastUpdatedTxStamp: lastUpdatedTxStamp,
             createdTxStamp: createdTxStamp,
             evict: evict,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
@@ -797,6 +871,18 @@ class BiFacetDrift extends i2.ModularAccessor {
       variables: [],
       updates: {biFacet},
       updateKind: i0.UpdateKind.delete,
+    );
+  }
+
+  Future<int> addBiFacet({required i0.Insertable<i1.BiFacetData> el}) {
+    var $arrayStartIndex = 1;
+    final generatedel =
+        $writeInsertable(this.biFacet, el, startIndex: $arrayStartIndex);
+    $arrayStartIndex += generatedel.amountOfVariables;
+    return customInsert(
+      'INSERT INTO bi_facet ${generatedel.sql}',
+      variables: [...generatedel.introducedVariables],
+      updates: {biFacet},
     );
   }
 

@@ -2,8 +2,10 @@
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/note.drift.dart' as i1;
 import 'package:quiver/src/collection/multimap.dart' as i2;
-import 'package:xcsdrift/fldconv.dart' as i3;
-import 'package:drift/internal/modular.dart' as i4;
+import 'package:xcsmachine/src/ent/note.dart' as i3;
+import 'package:xcsdrift/fldconv.dart' as i4;
+import 'package:xcsdrift/src/note_conv.dart' as i5;
+import 'package:drift/internal/modular.dart' as i6;
 
 class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
   @override
@@ -101,6 +103,23 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.NoteData.$converteracln);
+  static const i0.VerificationMeta _noteDataSlotMeta =
+      const i0.VerificationMeta('noteDataSlot');
+  late final i0.GeneratedColumnWithTypeConverter<List<i3.NoteDataSlot>?, String>
+      noteDataSlot = i0.GeneratedColumn<String>(
+              'note_data_slot', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i3.NoteDataSlot>?>(
+              i1.NoteData.$converternoteDataSlotn);
+  static const i0.VerificationMeta _reservedFlagMeta =
+      const i0.VerificationMeta('reservedFlag');
+  late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
+      'reserved_flag', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   @override
   List<i0.GeneratedColumn> get $columns => [
         noteId,
@@ -115,7 +134,9 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
         moreInfoItemName,
         tenantId,
         evict,
-        acl
+        acl,
+        noteDataSlot,
+        reservedFlag
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -191,6 +212,13 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    context.handle(_noteDataSlotMeta, const i0.VerificationResult.success());
+    if (data.containsKey('reserved_flag')) {
+      context.handle(
+          _reservedFlagMeta,
+          reservedFlag.isAcceptableOrUnknown(
+              data['reserved_flag']!, _reservedFlagMeta));
+    }
     return context;
   }
 
@@ -228,6 +256,11 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
       acl: i1.NoteData.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      noteDataSlot: i1.NoteData.$converternoteDataSlotn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}note_data_slot'])),
+      reservedFlag: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
   }
 
@@ -238,10 +271,16 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
 
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
           Map<String, Iterable<String>>> $converteracl =
-      const i3.StringMultimapConverter();
+      const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
           Map<String, Iterable<String>>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
+  static i0.JsonTypeConverter2<List<i3.NoteDataSlot>, String,
+          List<Map<String, dynamic>>> $converternoteDataSlot =
+      const i5.NoteDataSlotListConverter();
+  static i0.JsonTypeConverter2<List<i3.NoteDataSlot>?, String?,
+          List<Map<String, dynamic>>?> $converternoteDataSlotn =
+      i0.JsonTypeConverter2.asNullable($converternoteDataSlot);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -261,6 +300,11 @@ class NoteDataData extends i0.DataClass
   final String? tenantId;
   final bool? evict;
   final i2.Multimap<String, String>? acl;
+
+  /// rel: many
+  /// rel: one (no public-types)
+  final List<i3.NoteDataSlot>? noteDataSlot;
+  final int? reservedFlag;
   const NoteDataData(
       {required this.noteId,
       this.noteName,
@@ -274,7 +318,9 @@ class NoteDataData extends i0.DataClass
       this.moreInfoItemName,
       this.tenantId,
       this.evict,
-      this.acl});
+      this.acl,
+      this.noteDataSlot,
+      this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
     final map = <String, i0.Expression>{};
@@ -314,6 +360,13 @@ class NoteDataData extends i0.DataClass
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.NoteData.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || noteDataSlot != null) {
+      map['note_data_slot'] = i0.Variable<String>(
+          i1.NoteData.$converternoteDataSlotn.toSql(noteDataSlot));
+    }
+    if (!nullToAbsent || reservedFlag != null) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag);
     }
     return map;
   }
@@ -356,6 +409,12 @@ class NoteDataData extends i0.DataClass
           : i0.Value(evict),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      noteDataSlot: noteDataSlot == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(noteDataSlot),
+      reservedFlag: reservedFlag == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(reservedFlag),
     );
   }
 
@@ -379,6 +438,9 @@ class NoteDataData extends i0.DataClass
       evict: serializer.fromJson<bool?>(json['evict']),
       acl: i1.NoteData.$converteracln.fromJson(
           serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      noteDataSlot: i1.NoteData.$converternoteDataSlotn.fromJson(serializer
+          .fromJson<List<Map<String, dynamic>>?>(json['note_data_slot'])),
+      reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
   @override
@@ -399,6 +461,9 @@ class NoteDataData extends i0.DataClass
       'evict': serializer.toJson<bool?>(evict),
       'acl': serializer.toJson<Map<String, Iterable<String>>?>(
           i1.NoteData.$converteracln.toJson(acl)),
+      'note_data_slot': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.NoteData.$converternoteDataSlotn.toJson(noteDataSlot)),
+      'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
 
@@ -415,8 +480,10 @@ class NoteDataData extends i0.DataClass
           i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
-          i0.Value<i2.Multimap<String, String>?> acl =
-              const i0.Value.absent()}) =>
+          i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
+              const i0.Value.absent(),
+          i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.NoteDataData(
         noteId: noteId ?? this.noteId,
         noteName: noteName.present ? noteName.value : this.noteName,
@@ -438,6 +505,10 @@ class NoteDataData extends i0.DataClass
         tenantId: tenantId.present ? tenantId.value : this.tenantId,
         evict: evict.present ? evict.value : this.evict,
         acl: acl.present ? acl.value : this.acl,
+        noteDataSlot:
+            noteDataSlot.present ? noteDataSlot.value : this.noteDataSlot,
+        reservedFlag:
+            reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
   NoteDataData copyWithCompanion(i1.NoteDataCompanion data) {
     return NoteDataData(
@@ -465,6 +536,12 @@ class NoteDataData extends i0.DataClass
       tenantId: data.tenantId.present ? data.tenantId.value : this.tenantId,
       evict: data.evict.present ? data.evict.value : this.evict,
       acl: data.acl.present ? data.acl.value : this.acl,
+      noteDataSlot: data.noteDataSlot.present
+          ? data.noteDataSlot.value
+          : this.noteDataSlot,
+      reservedFlag: data.reservedFlag.present
+          ? data.reservedFlag.value
+          : this.reservedFlag,
     );
   }
 
@@ -483,7 +560,9 @@ class NoteDataData extends i0.DataClass
           ..write('moreInfoItemName: $moreInfoItemName, ')
           ..write('tenantId: $tenantId, ')
           ..write('evict: $evict, ')
-          ..write('acl: $acl')
+          ..write('acl: $acl, ')
+          ..write('noteDataSlot: $noteDataSlot, ')
+          ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
   }
@@ -502,7 +581,9 @@ class NoteDataData extends i0.DataClass
       moreInfoItemName,
       tenantId,
       evict,
-      acl);
+      acl,
+      noteDataSlot,
+      reservedFlag);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -519,7 +600,9 @@ class NoteDataData extends i0.DataClass
           other.moreInfoItemName == this.moreInfoItemName &&
           other.tenantId == this.tenantId &&
           other.evict == this.evict &&
-          other.acl == this.acl);
+          other.acl == this.acl &&
+          other.noteDataSlot == this.noteDataSlot &&
+          other.reservedFlag == this.reservedFlag);
 }
 
 class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
@@ -536,6 +619,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
   final i0.Value<String?> tenantId;
   final i0.Value<bool?> evict;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<List<i3.NoteDataSlot>?> noteDataSlot;
+  final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const NoteDataCompanion({
     this.noteId = const i0.Value.absent(),
@@ -551,6 +636,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     this.tenantId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.noteDataSlot = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
   NoteDataCompanion.insert({
@@ -567,6 +654,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     this.tenantId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.noteDataSlot = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : noteId = i0.Value(noteId);
   static i0.Insertable<i1.NoteDataData> custom({
@@ -583,6 +672,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     i0.Expression<String>? tenantId,
     i0.Expression<bool>? evict,
     i0.Expression<String>? acl,
+    i0.Expression<String>? noteDataSlot,
+    i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
     return i0.RawValuesInsertable({
@@ -600,6 +691,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       if (tenantId != null) 'tenant_id': tenantId,
       if (evict != null) 'evict': evict,
       if (acl != null) 'acl': acl,
+      if (noteDataSlot != null) 'note_data_slot': noteDataSlot,
+      if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -618,6 +711,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       i0.Value<String?>? tenantId,
       i0.Value<bool?>? evict,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<List<i3.NoteDataSlot>?>? noteDataSlot,
+      i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.NoteDataCompanion(
       noteId: noteId ?? this.noteId,
@@ -633,6 +728,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       tenantId: tenantId ?? this.tenantId,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      noteDataSlot: noteDataSlot ?? this.noteDataSlot,
+      reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -681,6 +778,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       map['acl'] =
           i0.Variable<String>(i1.NoteData.$converteracln.toSql(acl.value));
     }
+    if (noteDataSlot.present) {
+      map['note_data_slot'] = i0.Variable<String>(
+          i1.NoteData.$converternoteDataSlotn.toSql(noteDataSlot.value));
+    }
+    if (reservedFlag.present) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
+    }
     if (rowid.present) {
       map['rowid'] = i0.Variable<int>(rowid.value);
     }
@@ -703,6 +807,8 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
           ..write('tenantId: $tenantId, ')
           ..write('evict: $evict, ')
           ..write('acl: $acl, ')
+          ..write('noteDataSlot: $noteDataSlot, ')
+          ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -723,6 +829,8 @@ typedef $NoteDataCreateCompanionBuilder = i1.NoteDataCompanion Function({
   i0.Value<String?> tenantId,
   i0.Value<bool?> evict,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 typedef $NoteDataUpdateCompanionBuilder = i1.NoteDataCompanion Function({
@@ -739,6 +847,8 @@ typedef $NoteDataUpdateCompanionBuilder = i1.NoteDataCompanion Function({
   i0.Value<String?> tenantId,
   i0.Value<bool?> evict,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 
@@ -812,6 +922,19 @@ class $NoteDataFilterComposer
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.NoteDataSlot>?,
+          List<i3.NoteDataSlot>, String>
+      get noteDataSlot => $state.composableBuilder(
+          column: $state.table.noteDataSlot,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
 }
 
 class $NoteDataOrderingComposer
@@ -882,6 +1005,16 @@ class $NoteDataOrderingComposer
       column: $state.table.acl,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get noteDataSlot => $state.composableBuilder(
+      column: $state.table.noteDataSlot,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
 class $NoteDataTableManager extends i0.RootTableManager<
@@ -921,6 +1054,9 @@ class $NoteDataTableManager extends i0.RootTableManager<
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.NoteDataCompanion(
@@ -937,6 +1073,8 @@ class $NoteDataTableManager extends i0.RootTableManager<
             tenantId: tenantId,
             evict: evict,
             acl: acl,
+            noteDataSlot: noteDataSlot,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -954,6 +1092,9 @@ class $NoteDataTableManager extends i0.RootTableManager<
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.NoteDataCompanion.insert(
@@ -970,6 +1111,8 @@ class $NoteDataTableManager extends i0.RootTableManager<
             tenantId: tenantId,
             evict: evict,
             acl: acl,
+            noteDataSlot: noteDataSlot,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
@@ -994,7 +1137,7 @@ typedef $NoteDataProcessedTableManager = i0.ProcessedTableManager<
     i1.NoteDataData,
     i0.PrefetchHooks Function()>;
 
-class NoteDrift extends i4.ModularAccessor {
+class NoteDrift extends i6.ModularAccessor {
   NoteDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.NoteDataData> allNoteData() {
     return customSelect('SELECT * FROM note_data', variables: [], readsFrom: {
@@ -1011,6 +1154,18 @@ class NoteDrift extends i4.ModularAccessor {
     );
   }
 
-  i1.NoteData get noteData => i4.ReadDatabaseContainer(attachedDatabase)
+  Future<int> addNoteData({required i0.Insertable<i1.NoteDataData> el}) {
+    var $arrayStartIndex = 1;
+    final generatedel =
+        $writeInsertable(this.noteData, el, startIndex: $arrayStartIndex);
+    $arrayStartIndex += generatedel.amountOfVariables;
+    return customInsert(
+      'INSERT INTO note_data ${generatedel.sql}',
+      variables: [...generatedel.introducedVariables],
+      updates: {noteData},
+    );
+  }
+
+  i1.NoteData get noteData => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.NoteData>('note_data');
 }

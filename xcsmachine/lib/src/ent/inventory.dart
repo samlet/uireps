@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -153,6 +154,12 @@ class Inventory {
 
   factory Inventory.fromJson(Map<String, dynamic> json) => _$InventoryFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Inventory, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Inventory.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -605,6 +612,12 @@ class InventoryTransfer {
   factory InventoryTransfer.fromJson(Map<String, dynamic> json) => _$InventoryTransferFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryTransferToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<InventoryTransfer, String> converter = df.TypeConverter.json(
+    fromJson: (json) => InventoryTransfer.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? inventoryTransferId;
 
@@ -692,6 +705,12 @@ class InventoryItemSlot {
   factory InventoryItemSlot.fromJson(Map<String, dynamic> json) => _$InventoryItemSlotFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryItemSlotToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<InventoryItemSlot, String> converter = df.TypeConverter.json(
+    fromJson: (json) => InventoryItemSlot.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? inventoryItemId;
 
@@ -751,6 +770,12 @@ class InventoryItemType {
 
   factory InventoryItemType.fromJson(Map<String, dynamic> json) => _$InventoryItemTypeFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryItemTypeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<InventoryItemType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => InventoryItemType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? inventoryItemTypeId;
@@ -865,6 +890,12 @@ class InventoryItemDetail {
 
   factory InventoryItemDetail.fromJson(Map<String, dynamic> json) => _$InventoryItemDetailFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryItemDetailToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<InventoryItemDetail, String> converter = df.TypeConverter.json(
+    fromJson: (json) => InventoryItemDetail.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? inventoryItemId;
@@ -989,6 +1020,12 @@ class InventoryItemStatus {
   factory InventoryItemStatus.fromJson(Map<String, dynamic> json) => _$InventoryItemStatusFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryItemStatusToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<InventoryItemStatus, String> converter = df.TypeConverter.json(
+    fromJson: (json) => InventoryItemStatus.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? inventoryItemId;
 
@@ -1063,6 +1100,12 @@ class InventoryItemVariance {
 
   factory InventoryItemVariance.fromJson(Map<String, dynamic> json) => _$InventoryItemVarianceFromJson(json);
   Map<String, dynamic> toJson() => _$InventoryItemVarianceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<InventoryItemVariance, String> converter = df.TypeConverter.json(
+    fromJson: (json) => InventoryItemVariance.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? inventoryItemId;

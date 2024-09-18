@@ -1,6 +1,7 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
 
@@ -222,6 +223,12 @@ class Party {
 
   factory Party.fromJson(Map<String, dynamic> json) => _$PartyFromJson(json);
   Map<String, dynamic> toJson() => _$PartyToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Party, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Party.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
   @override
   String toString() {
@@ -2016,6 +2023,12 @@ class AgreementRole {
   factory AgreementRole.fromJson(Map<String, dynamic> json) => _$AgreementRoleFromJson(json);
   Map<String, dynamic> toJson() => _$AgreementRoleToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<AgreementRole, String> converter = df.TypeConverter.json(
+    fromJson: (json) => AgreementRole.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? agreementId;
 
@@ -2072,6 +2085,12 @@ class PartyClassification {
 
   factory PartyClassification.fromJson(Map<String, dynamic> json) => _$PartyClassificationFromJson(json);
   Map<String, dynamic> toJson() => _$PartyClassificationToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyClassification, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyClassification.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -2154,6 +2173,12 @@ class PartyNeed {
   factory PartyNeed.fromJson(Map<String, dynamic> json) => _$PartyNeedFromJson(json);
   Map<String, dynamic> toJson() => _$PartyNeedToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyNeed, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyNeed.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyNeedId;
 
@@ -2235,6 +2260,12 @@ class CarrierShipmentBoxType {
   factory CarrierShipmentBoxType.fromJson(Map<String, dynamic> json) => _$CarrierShipmentBoxTypeFromJson(json);
   Map<String, dynamic> toJson() => _$CarrierShipmentBoxTypeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<CarrierShipmentBoxType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => CarrierShipmentBoxType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? shipmentBoxTypeId;
 
@@ -2309,6 +2340,12 @@ class RateAmount {
 
   factory RateAmount.fromJson(Map<String, dynamic> json) => _$RateAmountFromJson(json);
   Map<String, dynamic> toJson() => _$RateAmountToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<RateAmount, String> converter = df.TypeConverter.json(
+    fromJson: (json) => RateAmount.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? rateTypeId;
@@ -2385,6 +2422,12 @@ class PartyStatus {
   factory PartyStatus.fromJson(Map<String, dynamic> json) => _$PartyStatusFromJson(json);
   Map<String, dynamic> toJson() => _$PartyStatusToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyStatus, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyStatus.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? statusId;
 
@@ -2459,6 +2502,12 @@ class PartyGroup {
 
   factory PartyGroup.fromJson(Map<String, dynamic> json) => _$PartyGroupFromJson(json);
   Map<String, dynamic> toJson() => _$PartyGroupToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyGroup, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyGroup.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -2583,6 +2632,12 @@ class SupplierProduct {
   factory SupplierProduct.fromJson(Map<String, dynamic> json) => _$SupplierProductFromJson(json);
   Map<String, dynamic> toJson() => _$SupplierProductToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<SupplierProduct, String> converter = df.TypeConverter.json(
+    fromJson: (json) => SupplierProduct.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? productId;
 
@@ -2694,6 +2749,12 @@ class PartyNotification {
   factory PartyNotification.fromJson(Map<String, dynamic> json) => _$PartyNotificationFromJson(json);
   Map<String, dynamic> toJson() => _$PartyNotificationToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyNotification, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyNotification.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -2762,6 +2823,12 @@ class PartySkill {
 
   factory PartySkill.fromJson(Map<String, dynamic> json) => _$PartySkillFromJson(json);
   Map<String, dynamic> toJson() => _$PartySkillToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartySkill, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartySkill.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -2832,6 +2899,12 @@ class PartyContent {
   factory PartyContent.fromJson(Map<String, dynamic> json) => _$PartyContentFromJson(json);
   Map<String, dynamic> toJson() => _$PartyContentToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyContent, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyContent.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -2897,6 +2970,12 @@ class PartyContactMechPurpose {
 
   factory PartyContactMechPurpose.fromJson(Map<String, dynamic> json) => _$PartyContactMechPurposeFromJson(json);
   Map<String, dynamic> toJson() => _$PartyContactMechPurposeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyContactMechPurpose, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyContactMechPurpose.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -2973,6 +3052,12 @@ class Employment {
   factory Employment.fromJson(Map<String, dynamic> json) => _$EmploymentFromJson(json);
   Map<String, dynamic> toJson() => _$EmploymentToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<Employment, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Employment.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? roleTypeIdFrom;
 
@@ -3048,6 +3133,12 @@ class SupplierProductFeature {
   factory SupplierProductFeature.fromJson(Map<String, dynamic> json) => _$SupplierProductFeatureFromJson(json);
   Map<String, dynamic> toJson() => _$SupplierProductFeatureToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<SupplierProductFeature, String> converter = df.TypeConverter.json(
+    fromJson: (json) => SupplierProductFeature.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3111,6 +3202,12 @@ class PartyAttribute {
   factory PartyAttribute.fromJson(Map<String, dynamic> json) => _$PartyAttributeFromJson(json);
   Map<String, dynamic> toJson() => _$PartyAttributeToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyAttribute, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyAttribute.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3170,6 +3267,12 @@ class PartyPreference {
 
   factory PartyPreference.fromJson(Map<String, dynamic> json) => _$PartyPreferenceFromJson(json);
   Map<String, dynamic> toJson() => _$PartyPreferenceToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyPreference, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyPreference.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -3237,6 +3340,12 @@ class PartyProfileDefault {
   factory PartyProfileDefault.fromJson(Map<String, dynamic> json) => _$PartyProfileDefaultFromJson(json);
   Map<String, dynamic> toJson() => _$PartyProfileDefaultToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyProfileDefault, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyProfileDefault.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3303,6 +3412,12 @@ class PartySlot {
   factory PartySlot.fromJson(Map<String, dynamic> json) => _$PartySlotFromJson(json);
   Map<String, dynamic> toJson() => _$PartySlotToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartySlot, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartySlot.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3366,6 +3481,12 @@ class PartyAccount {
   factory PartyAccount.fromJson(Map<String, dynamic> json) => _$PartyAccountFromJson(json);
   Map<String, dynamic> toJson() => _$PartyAccountToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyAccount, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyAccount.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3428,6 +3549,12 @@ class PartyType {
 
   factory PartyType.fromJson(Map<String, dynamic> json) => _$PartyTypeFromJson(json);
   Map<String, dynamic> toJson() => _$PartyTypeToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyType, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyType.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyTypeId;
@@ -3516,6 +3643,12 @@ class PayrollPreference {
   factory PayrollPreference.fromJson(Map<String, dynamic> json) => _$PayrollPreferenceFromJson(json);
   Map<String, dynamic> toJson() => _$PayrollPreferenceToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PayrollPreference, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PayrollPreference.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3597,6 +3730,12 @@ class PartyRole {
   factory PartyRole.fromJson(Map<String, dynamic> json) => _$PartyRoleFromJson(json);
   Map<String, dynamic> toJson() => _$PartyRoleToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyRole, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyRole.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -3650,6 +3789,12 @@ class PartyGeoPoint {
 
   factory PartyGeoPoint.fromJson(Map<String, dynamic> json) => _$PartyGeoPointFromJson(json);
   Map<String, dynamic> toJson() => _$PartyGeoPointToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyGeoPoint, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyGeoPoint.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -3722,6 +3867,12 @@ class PartyTaxAuthInfo {
 
   factory PartyTaxAuthInfo.fromJson(Map<String, dynamic> json) => _$PartyTaxAuthInfoFromJson(json);
   Map<String, dynamic> toJson() => _$PartyTaxAuthInfoToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyTaxAuthInfo, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyTaxAuthInfo.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -3798,6 +3949,12 @@ class CarrierShipmentMethod {
   factory CarrierShipmentMethod.fromJson(Map<String, dynamic> json) => _$CarrierShipmentMethodFromJson(json);
   Map<String, dynamic> toJson() => _$CarrierShipmentMethodToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<CarrierShipmentMethod, String> converter = df.TypeConverter.json(
+    fromJson: (json) => CarrierShipmentMethod.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? shipmentMethodTypeId;
 
@@ -3854,6 +4011,12 @@ class PartyNote {
 
   factory PartyNote.fromJson(Map<String, dynamic> json) => _$PartyNoteFromJson(json);
   Map<String, dynamic> toJson() => _$PartyNoteToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyNote, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyNote.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -3920,6 +4083,12 @@ class EmplLeave {
 
   factory EmplLeave.fromJson(Map<String, dynamic> json) => _$EmplLeaveFromJson(json);
   Map<String, dynamic> toJson() => _$EmplLeaveToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<EmplLeave, String> converter = df.TypeConverter.json(
+    fromJson: (json) => EmplLeave.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -3989,6 +4158,12 @@ class PartyIdentification {
 
   factory PartyIdentification.fromJson(Map<String, dynamic> json) => _$PartyIdentificationFromJson(json);
   Map<String, dynamic> toJson() => _$PartyIdentificationToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyIdentification, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyIdentification.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -4079,6 +4254,12 @@ class PartyRelationship {
 
   factory PartyRelationship.fromJson(Map<String, dynamic> json) => _$PartyRelationshipFromJson(json);
   Map<String, dynamic> toJson() => _$PartyRelationshipToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyRelationship, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyRelationship.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyIdFrom;
@@ -4221,6 +4402,12 @@ class PartyAcctgPreference {
   factory PartyAcctgPreference.fromJson(Map<String, dynamic> json) => _$PartyAcctgPreferenceFromJson(json);
   Map<String, dynamic> toJson() => _$PartyAcctgPreferenceToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyAcctgPreference, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyAcctgPreference.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -4350,6 +4537,12 @@ class PartyBenefit {
   factory PartyBenefit.fromJson(Map<String, dynamic> json) => _$PartyBenefitFromJson(json);
   Map<String, dynamic> toJson() => _$PartyBenefitToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyBenefit, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyBenefit.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? roleTypeIdFrom;
 
@@ -4431,6 +4624,12 @@ class TaxAuthorityGlAccount {
   factory TaxAuthorityGlAccount.fromJson(Map<String, dynamic> json) => _$TaxAuthorityGlAccountFromJson(json);
   Map<String, dynamic> toJson() => _$TaxAuthorityGlAccountToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<TaxAuthorityGlAccount, String> converter = df.TypeConverter.json(
+    fromJson: (json) => TaxAuthorityGlAccount.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? taxAuthGeoId;
 
@@ -4502,6 +4701,12 @@ class PartyFixedAssetAssignment {
 
   factory PartyFixedAssetAssignment.fromJson(Map<String, dynamic> json) => _$PartyFixedAssetAssignmentFromJson(json);
   Map<String, dynamic> toJson() => _$PartyFixedAssetAssignmentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyFixedAssetAssignment, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyFixedAssetAssignment.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -4578,6 +4783,12 @@ class PartyGeoForce {
   factory PartyGeoForce.fromJson(Map<String, dynamic> json) => _$PartyGeoForceFromJson(json);
   Map<String, dynamic> toJson() => _$PartyGeoForceToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<PartyGeoForce, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyGeoForce.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
    
   String? partyId;
 
@@ -4643,6 +4854,12 @@ class TaxAuthority {
 
   factory TaxAuthority.fromJson(Map<String, dynamic> json) => _$TaxAuthorityFromJson(json);
   Map<String, dynamic> toJson() => _$TaxAuthorityToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<TaxAuthority, String> converter = df.TypeConverter.json(
+    fromJson: (json) => TaxAuthority.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? taxAuthGeoId;
@@ -4790,6 +5007,12 @@ class Person {
 
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
   Map<String, dynamic> toJson() => _$PersonToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<Person, String> converter = df.TypeConverter.json(
+    fromJson: (json) => Person.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;
@@ -4955,6 +5178,12 @@ class PartyContactMech {
 
   factory PartyContactMech.fromJson(Map<String, dynamic> json) => _$PartyContactMechFromJson(json);
   Map<String, dynamic> toJson() => _$PartyContactMechToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<PartyContactMech, String> converter = df.TypeConverter.json(
+    fromJson: (json) => PartyContactMech.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
 
    
   String? partyId;

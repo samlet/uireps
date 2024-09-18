@@ -4,8 +4,10 @@ import 'package:xcsdrift/src/example.drift.dart' as i1;
 import 'package:xcsmachine/time_conv.dart' as i2;
 import 'dart:typed_data' as i3;
 import 'package:quiver/src/collection/multimap.dart' as i4;
-import 'package:xcsdrift/fldconv.dart' as i5;
-import 'package:drift/internal/modular.dart' as i6;
+import 'package:xcsmachine/src/ent/example.dart' as i5;
+import 'package:xcsdrift/fldconv.dart' as i6;
+import 'package:xcsdrift/src/example_conv.dart' as i7;
+import 'package:drift/internal/modular.dart' as i8;
 
 class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
   @override
@@ -297,6 +299,54 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i4.Multimap<String, String>?>(i1.Example.$converteracln);
+  static const i0.VerificationMeta _exampleTypeMeta =
+      const i0.VerificationMeta('exampleType');
+  late final i0.GeneratedColumnWithTypeConverter<i5.ExampleType?, String>
+      exampleType = i0.GeneratedColumn<String>(
+              'example_type', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i5.ExampleType?>(i1.Example.$converterexampleTypen);
+  static const i0.VerificationMeta _exampleFeatureApplMeta =
+      const i0.VerificationMeta('exampleFeatureAppl');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i5.ExampleFeatureAppl>?, String>
+      exampleFeatureAppl = i0.GeneratedColumn<String>(
+              'example_feature_appl', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i5.ExampleFeatureAppl>?>(
+              i1.Example.$converterexampleFeatureAppln);
+  static const i0.VerificationMeta _exampleStatusMeta =
+      const i0.VerificationMeta('exampleStatus');
+  late final i0
+      .GeneratedColumnWithTypeConverter<List<i5.ExampleStatus>?, String>
+      exampleStatus = i0.GeneratedColumn<String>(
+              'example_status', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i5.ExampleStatus>?>(
+              i1.Example.$converterexampleStatusn);
+  static const i0.VerificationMeta _exampleItemMeta =
+      const i0.VerificationMeta('exampleItem');
+  late final i0.GeneratedColumnWithTypeConverter<List<i5.ExampleItem>?, String>
+      exampleItem = i0.GeneratedColumn<String>(
+              'example_item', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<i5.ExampleItem>?>(
+              i1.Example.$converterexampleItemn);
+  static const i0.VerificationMeta _reservedFlagMeta =
+      const i0.VerificationMeta('reservedFlag');
+  late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
+      'reserved_flag', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   @override
   List<i0.GeneratedColumn> get $columns => [
         exampleId,
@@ -338,7 +388,12 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
         slotId,
         customerConfirmation,
         evict,
-        acl
+        acl,
+        exampleType,
+        exampleFeatureAppl,
+        exampleStatus,
+        exampleItem,
+        reservedFlag
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -539,6 +594,17 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    context.handle(_exampleTypeMeta, const i0.VerificationResult.success());
+    context.handle(
+        _exampleFeatureApplMeta, const i0.VerificationResult.success());
+    context.handle(_exampleStatusMeta, const i0.VerificationResult.success());
+    context.handle(_exampleItemMeta, const i0.VerificationResult.success());
+    if (data.containsKey('reserved_flag')) {
+      context.handle(
+          _reservedFlagMeta,
+          reservedFlag.isAcceptableOrUnknown(
+              data['reserved_flag']!, _reservedFlagMeta));
+    }
     return context;
   }
 
@@ -633,6 +699,20 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
       acl: i1.Example.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      exampleType: i1.Example.$converterexampleTypen.fromSql(
+          attachedDatabase.typeMapping.read(
+              i0.DriftSqlType.string, data['${effectivePrefix}example_type'])),
+      exampleFeatureAppl: i1.Example.$converterexampleFeatureAppln.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}example_feature_appl'])),
+      exampleStatus: i1.Example.$converterexampleStatusn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}example_status'])),
+      exampleItem: i1.Example.$converterexampleItemn.fromSql(
+          attachedDatabase.typeMapping.read(
+              i0.DriftSqlType.string, data['${effectivePrefix}example_item'])),
+      reservedFlag: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
   }
 
@@ -642,28 +722,51 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
   }
 
   static i0.JsonTypeConverter2<i2.Time, String, String> $converterextraTime =
-      const i5.TimeConverter();
+      const i6.TimeConverter();
   static i0.JsonTypeConverter2<i2.Time?, String?, String?>
       $converterextraTimen =
       i0.JsonTypeConverter2.asNullable($converterextraTime);
   static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
           Map<String, Iterable<String>>> $converterbookmarks =
-      const i5.StringMultimapConverter();
+      const i6.StringMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
           Map<String, Iterable<String>>?> $converterbookmarksn =
       i0.JsonTypeConverter2.asNullable($converterbookmarks);
   static i0.JsonTypeConverter2<i4.Multimap<String, int>, String,
           Map<String, Iterable<int>>> $convertersymbols =
-      const i5.SymbolMultimapConverter();
+      const i6.SymbolMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, int>?, String?,
           Map<String, Iterable<int>>?> $convertersymbolsn =
       i0.JsonTypeConverter2.asNullable($convertersymbols);
   static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
           Map<String, Iterable<String>>> $converteracl =
-      const i5.StringMultimapConverter();
+      const i6.StringMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
           Map<String, Iterable<String>>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
+  static i0.JsonTypeConverter2<i5.ExampleType, String, Map<String, dynamic>>
+      $converterexampleType = const i7.ExampleTypeConverter();
+  static i0.JsonTypeConverter2<i5.ExampleType?, String?, Map<String, dynamic>?>
+      $converterexampleTypen =
+      i0.JsonTypeConverter2.asNullable($converterexampleType);
+  static i0.JsonTypeConverter2<List<i5.ExampleFeatureAppl>, String,
+          List<Map<String, dynamic>>> $converterexampleFeatureAppl =
+      const i7.ExampleFeatureApplListConverter();
+  static i0.JsonTypeConverter2<List<i5.ExampleFeatureAppl>?, String?,
+          List<Map<String, dynamic>>?> $converterexampleFeatureAppln =
+      i0.JsonTypeConverter2.asNullable($converterexampleFeatureAppl);
+  static i0.JsonTypeConverter2<List<i5.ExampleStatus>, String,
+          List<Map<String, dynamic>>> $converterexampleStatus =
+      const i7.ExampleStatusListConverter();
+  static i0.JsonTypeConverter2<List<i5.ExampleStatus>?, String?,
+          List<Map<String, dynamic>>?> $converterexampleStatusn =
+      i0.JsonTypeConverter2.asNullable($converterexampleStatus);
+  static i0.JsonTypeConverter2<List<i5.ExampleItem>, String,
+          List<Map<String, dynamic>>> $converterexampleItem =
+      const i7.ExampleItemListConverter();
+  static i0.JsonTypeConverter2<List<i5.ExampleItem>?, String?,
+          List<Map<String, dynamic>>?> $converterexampleItemn =
+      i0.JsonTypeConverter2.asNullable($converterexampleItem);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -710,6 +813,15 @@ class ExampleData extends i0.DataClass
   final String? customerConfirmation;
   final bool? evict;
   final i4.Multimap<String, String>? acl;
+
+  /// rel: one (no public-types)
+  final i5.ExampleType? exampleType;
+
+  /// rel: many
+  final List<i5.ExampleFeatureAppl>? exampleFeatureAppl;
+  final List<i5.ExampleStatus>? exampleStatus;
+  final List<i5.ExampleItem>? exampleItem;
+  final int? reservedFlag;
   const ExampleData(
       {required this.exampleId,
       this.exampleTypeId,
@@ -750,7 +862,12 @@ class ExampleData extends i0.DataClass
       this.slotId,
       this.customerConfirmation,
       this.evict,
-      this.acl});
+      this.acl,
+      this.exampleType,
+      this.exampleFeatureAppl,
+      this.exampleStatus,
+      this.exampleItem,
+      this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
     final map = <String, i0.Expression>{};
@@ -875,6 +992,25 @@ class ExampleData extends i0.DataClass
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Example.$converteracln.toSql(acl));
     }
+    if (!nullToAbsent || exampleType != null) {
+      map['example_type'] = i0.Variable<String>(
+          i1.Example.$converterexampleTypen.toSql(exampleType));
+    }
+    if (!nullToAbsent || exampleFeatureAppl != null) {
+      map['example_feature_appl'] = i0.Variable<String>(
+          i1.Example.$converterexampleFeatureAppln.toSql(exampleFeatureAppl));
+    }
+    if (!nullToAbsent || exampleStatus != null) {
+      map['example_status'] = i0.Variable<String>(
+          i1.Example.$converterexampleStatusn.toSql(exampleStatus));
+    }
+    if (!nullToAbsent || exampleItem != null) {
+      map['example_item'] = i0.Variable<String>(
+          i1.Example.$converterexampleItemn.toSql(exampleItem));
+    }
+    if (!nullToAbsent || reservedFlag != null) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag);
+    }
     return map;
   }
 
@@ -997,6 +1133,21 @@ class ExampleData extends i0.DataClass
           : i0.Value(evict),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      exampleType: exampleType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(exampleType),
+      exampleFeatureAppl: exampleFeatureAppl == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(exampleFeatureAppl),
+      exampleStatus: exampleStatus == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(exampleStatus),
+      exampleItem: exampleItem == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(exampleItem),
+      reservedFlag: reservedFlag == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(reservedFlag),
     );
   }
 
@@ -1050,6 +1201,16 @@ class ExampleData extends i0.DataClass
       evict: serializer.fromJson<bool?>(json['evict']),
       acl: i1.Example.$converteracln.fromJson(
           serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      exampleType: i1.Example.$converterexampleTypen.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['example_type'])),
+      exampleFeatureAppl: i1.Example.$converterexampleFeatureAppln.fromJson(
+          serializer.fromJson<List<Map<String, dynamic>>?>(
+              json['example_feature_appl'])),
+      exampleStatus: i1.Example.$converterexampleStatusn.fromJson(serializer
+          .fromJson<List<Map<String, dynamic>>?>(json['example_status'])),
+      exampleItem: i1.Example.$converterexampleItemn.fromJson(serializer
+          .fromJson<List<Map<String, dynamic>>?>(json['example_item'])),
+      reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
   @override
@@ -1100,6 +1261,15 @@ class ExampleData extends i0.DataClass
       'evict': serializer.toJson<bool?>(evict),
       'acl': serializer.toJson<Map<String, Iterable<String>>?>(
           i1.Example.$converteracln.toJson(acl)),
+      'example_type': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converterexampleTypen.toJson(exampleType)),
+      'example_feature_appl': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Example.$converterexampleFeatureAppln.toJson(exampleFeatureAppl)),
+      'example_status': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Example.$converterexampleStatusn.toJson(exampleStatus)),
+      'example_item': serializer.toJson<List<Map<String, dynamic>>?>(
+          i1.Example.$converterexampleItemn.toJson(exampleItem)),
+      'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
 
@@ -1144,8 +1314,14 @@ class ExampleData extends i0.DataClass
           i0.Value<String?> slotId = const i0.Value.absent(),
           i0.Value<String?> customerConfirmation = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
-          i0.Value<i4.Multimap<String, String>?> acl =
-              const i0.Value.absent()}) =>
+          i0.Value<i4.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
+          i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
+              const i0.Value.absent(),
+          i0.Value<List<i5.ExampleStatus>?> exampleStatus =
+              const i0.Value.absent(),
+          i0.Value<List<i5.ExampleItem>?> exampleItem = const i0.Value.absent(),
+          i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.ExampleData(
         exampleId: exampleId ?? this.exampleId,
         exampleTypeId:
@@ -1201,6 +1377,15 @@ class ExampleData extends i0.DataClass
             : this.customerConfirmation,
         evict: evict.present ? evict.value : this.evict,
         acl: acl.present ? acl.value : this.acl,
+        exampleType: exampleType.present ? exampleType.value : this.exampleType,
+        exampleFeatureAppl: exampleFeatureAppl.present
+            ? exampleFeatureAppl.value
+            : this.exampleFeatureAppl,
+        exampleStatus:
+            exampleStatus.present ? exampleStatus.value : this.exampleStatus,
+        exampleItem: exampleItem.present ? exampleItem.value : this.exampleItem,
+        reservedFlag:
+            reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
   ExampleData copyWithCompanion(i1.ExampleCompanion data) {
     return ExampleData(
@@ -1273,6 +1458,19 @@ class ExampleData extends i0.DataClass
           : this.customerConfirmation,
       evict: data.evict.present ? data.evict.value : this.evict,
       acl: data.acl.present ? data.acl.value : this.acl,
+      exampleType:
+          data.exampleType.present ? data.exampleType.value : this.exampleType,
+      exampleFeatureAppl: data.exampleFeatureAppl.present
+          ? data.exampleFeatureAppl.value
+          : this.exampleFeatureAppl,
+      exampleStatus: data.exampleStatus.present
+          ? data.exampleStatus.value
+          : this.exampleStatus,
+      exampleItem:
+          data.exampleItem.present ? data.exampleItem.value : this.exampleItem,
+      reservedFlag: data.reservedFlag.present
+          ? data.reservedFlag.value
+          : this.reservedFlag,
     );
   }
 
@@ -1318,7 +1516,12 @@ class ExampleData extends i0.DataClass
           ..write('slotId: $slotId, ')
           ..write('customerConfirmation: $customerConfirmation, ')
           ..write('evict: $evict, ')
-          ..write('acl: $acl')
+          ..write('acl: $acl, ')
+          ..write('exampleType: $exampleType, ')
+          ..write('exampleFeatureAppl: $exampleFeatureAppl, ')
+          ..write('exampleStatus: $exampleStatus, ')
+          ..write('exampleItem: $exampleItem, ')
+          ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
   }
@@ -1364,7 +1567,12 @@ class ExampleData extends i0.DataClass
         slotId,
         customerConfirmation,
         evict,
-        acl
+        acl,
+        exampleType,
+        exampleFeatureAppl,
+        exampleStatus,
+        exampleItem,
+        reservedFlag
       ]);
   @override
   bool operator ==(Object other) =>
@@ -1409,7 +1617,12 @@ class ExampleData extends i0.DataClass
           other.slotId == this.slotId &&
           other.customerConfirmation == this.customerConfirmation &&
           other.evict == this.evict &&
-          other.acl == this.acl);
+          other.acl == this.acl &&
+          other.exampleType == this.exampleType &&
+          other.exampleFeatureAppl == this.exampleFeatureAppl &&
+          other.exampleStatus == this.exampleStatus &&
+          other.exampleItem == this.exampleItem &&
+          other.reservedFlag == this.reservedFlag);
 }
 
 class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
@@ -1453,6 +1666,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
   final i0.Value<String?> customerConfirmation;
   final i0.Value<bool?> evict;
   final i0.Value<i4.Multimap<String, String>?> acl;
+  final i0.Value<i5.ExampleType?> exampleType;
+  final i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl;
+  final i0.Value<List<i5.ExampleStatus>?> exampleStatus;
+  final i0.Value<List<i5.ExampleItem>?> exampleItem;
+  final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const ExampleCompanion({
     this.exampleId = const i0.Value.absent(),
@@ -1495,6 +1713,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.customerConfirmation = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.exampleType = const i0.Value.absent(),
+    this.exampleFeatureAppl = const i0.Value.absent(),
+    this.exampleStatus = const i0.Value.absent(),
+    this.exampleItem = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
   ExampleCompanion.insert({
@@ -1538,6 +1761,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.customerConfirmation = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.exampleType = const i0.Value.absent(),
+    this.exampleFeatureAppl = const i0.Value.absent(),
+    this.exampleStatus = const i0.Value.absent(),
+    this.exampleItem = const i0.Value.absent(),
+    this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : exampleId = i0.Value(exampleId);
   static i0.Insertable<i1.ExampleData> custom({
@@ -1581,6 +1809,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     i0.Expression<String>? customerConfirmation,
     i0.Expression<bool>? evict,
     i0.Expression<String>? acl,
+    i0.Expression<String>? exampleType,
+    i0.Expression<String>? exampleFeatureAppl,
+    i0.Expression<String>? exampleStatus,
+    i0.Expression<String>? exampleItem,
+    i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
     return i0.RawValuesInsertable({
@@ -1626,6 +1859,12 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
         'customer_confirmation': customerConfirmation,
       if (evict != null) 'evict': evict,
       if (acl != null) 'acl': acl,
+      if (exampleType != null) 'example_type': exampleType,
+      if (exampleFeatureAppl != null)
+        'example_feature_appl': exampleFeatureAppl,
+      if (exampleStatus != null) 'example_status': exampleStatus,
+      if (exampleItem != null) 'example_item': exampleItem,
+      if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -1671,6 +1910,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       i0.Value<String?>? customerConfirmation,
       i0.Value<bool?>? evict,
       i0.Value<i4.Multimap<String, String>?>? acl,
+      i0.Value<i5.ExampleType?>? exampleType,
+      i0.Value<List<i5.ExampleFeatureAppl>?>? exampleFeatureAppl,
+      i0.Value<List<i5.ExampleStatus>?>? exampleStatus,
+      i0.Value<List<i5.ExampleItem>?>? exampleItem,
+      i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.ExampleCompanion(
       exampleId: exampleId ?? this.exampleId,
@@ -1713,6 +1957,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       customerConfirmation: customerConfirmation ?? this.customerConfirmation,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      exampleType: exampleType ?? this.exampleType,
+      exampleFeatureAppl: exampleFeatureAppl ?? this.exampleFeatureAppl,
+      exampleStatus: exampleStatus ?? this.exampleStatus,
+      exampleItem: exampleItem ?? this.exampleItem,
+      reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -1846,6 +2095,26 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       map['acl'] =
           i0.Variable<String>(i1.Example.$converteracln.toSql(acl.value));
     }
+    if (exampleType.present) {
+      map['example_type'] = i0.Variable<String>(
+          i1.Example.$converterexampleTypen.toSql(exampleType.value));
+    }
+    if (exampleFeatureAppl.present) {
+      map['example_feature_appl'] = i0.Variable<String>(i1
+          .Example.$converterexampleFeatureAppln
+          .toSql(exampleFeatureAppl.value));
+    }
+    if (exampleStatus.present) {
+      map['example_status'] = i0.Variable<String>(
+          i1.Example.$converterexampleStatusn.toSql(exampleStatus.value));
+    }
+    if (exampleItem.present) {
+      map['example_item'] = i0.Variable<String>(
+          i1.Example.$converterexampleItemn.toSql(exampleItem.value));
+    }
+    if (reservedFlag.present) {
+      map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
+    }
     if (rowid.present) {
       map['rowid'] = i0.Variable<int>(rowid.value);
     }
@@ -1895,6 +2164,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
           ..write('customerConfirmation: $customerConfirmation, ')
           ..write('evict: $evict, ')
           ..write('acl: $acl, ')
+          ..write('exampleType: $exampleType, ')
+          ..write('exampleFeatureAppl: $exampleFeatureAppl, ')
+          ..write('exampleStatus: $exampleStatus, ')
+          ..write('exampleItem: $exampleItem, ')
+          ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -1942,6 +2216,11 @@ typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<String?> customerConfirmation,
   i0.Value<bool?> evict,
   i0.Value<i4.Multimap<String, String>?> acl,
+  i0.Value<i5.ExampleType?> exampleType,
+  i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
+  i0.Value<List<i5.ExampleStatus>?> exampleStatus,
+  i0.Value<List<i5.ExampleItem>?> exampleItem,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
@@ -1985,6 +2264,11 @@ typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<String?> customerConfirmation,
   i0.Value<bool?> evict,
   i0.Value<i4.Multimap<String, String>?> acl,
+  i0.Value<i5.ExampleType?> exampleType,
+  i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
+  i0.Value<List<i5.ExampleStatus>?> exampleStatus,
+  i0.Value<List<i5.ExampleItem>?> exampleItem,
+  i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
 
@@ -2201,6 +2485,42 @@ class $ExampleFilterComposer
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<i5.ExampleType?, i5.ExampleType, String>
+      get exampleType => $state.composableBuilder(
+          column: $state.table.exampleType,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i5.ExampleFeatureAppl>?,
+          List<i5.ExampleFeatureAppl>, String>
+      get exampleFeatureAppl => $state.composableBuilder(
+          column: $state.table.exampleFeatureAppl,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i5.ExampleStatus>?,
+          List<i5.ExampleStatus>, String>
+      get exampleStatus => $state.composableBuilder(
+          column: $state.table.exampleStatus,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnWithTypeConverterFilters<List<i5.ExampleItem>?, List<i5.ExampleItem>,
+          String>
+      get exampleItem => $state.composableBuilder(
+          column: $state.table.exampleItem,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
 }
 
 class $ExampleOrderingComposer
@@ -2407,6 +2727,31 @@ class $ExampleOrderingComposer
       column: $state.table.acl,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get exampleType => $state.composableBuilder(
+      column: $state.table.exampleType,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get exampleFeatureAppl => $state.composableBuilder(
+      column: $state.table.exampleFeatureAppl,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get exampleStatus => $state.composableBuilder(
+      column: $state.table.exampleStatus,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get exampleItem => $state.composableBuilder(
+      column: $state.table.exampleItem,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
+      column: $state.table.reservedFlag,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 }
 
 class $ExampleTableManager extends i0.RootTableManager<
@@ -2475,6 +2820,14 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i4.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
+            i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i5.ExampleStatus>?> exampleStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i5.ExampleItem>?> exampleItem =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.ExampleCompanion(
@@ -2518,6 +2871,11 @@ class $ExampleTableManager extends i0.RootTableManager<
             customerConfirmation: customerConfirmation,
             evict: evict,
             acl: acl,
+            exampleType: exampleType,
+            exampleFeatureAppl: exampleFeatureAppl,
+            exampleStatus: exampleStatus,
+            exampleItem: exampleItem,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           createCompanionCallback: ({
@@ -2564,6 +2922,14 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i4.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
+            i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i5.ExampleStatus>?> exampleStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i5.ExampleItem>?> exampleItem =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
               i1.ExampleCompanion.insert(
@@ -2607,6 +2973,11 @@ class $ExampleTableManager extends i0.RootTableManager<
             customerConfirmation: customerConfirmation,
             evict: evict,
             acl: acl,
+            exampleType: exampleType,
+            exampleFeatureAppl: exampleFeatureAppl,
+            exampleStatus: exampleStatus,
+            exampleItem: exampleItem,
+            reservedFlag: reservedFlag,
             rowid: rowid,
           ),
           withReferenceMapper: (p0) => p0
@@ -2631,7 +3002,7 @@ typedef $ExampleProcessedTableManager = i0.ProcessedTableManager<
     i1.ExampleData,
     i0.PrefetchHooks Function()>;
 
-class ExampleDrift extends i6.ModularAccessor {
+class ExampleDrift extends i8.ModularAccessor {
   ExampleDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.ExampleData> allExamples() {
     return customSelect('SELECT * FROM example', variables: [], readsFrom: {
@@ -2648,6 +3019,18 @@ class ExampleDrift extends i6.ModularAccessor {
     );
   }
 
-  i1.Example get example => i6.ReadDatabaseContainer(attachedDatabase)
+  Future<int> addExample({required i0.Insertable<i1.ExampleData> el}) {
+    var $arrayStartIndex = 1;
+    final generatedel =
+        $writeInsertable(this.example, el, startIndex: $arrayStartIndex);
+    $arrayStartIndex += generatedel.amountOfVariables;
+    return customInsert(
+      'INSERT INTO example ${generatedel.sql}',
+      variables: [...generatedel.introducedVariables],
+      updates: {example},
+    );
+  }
+
+  i1.Example get example => i8.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Example>('example');
 }
