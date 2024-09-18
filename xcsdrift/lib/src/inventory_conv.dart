@@ -43,4 +43,31 @@ class InventoryItemTypeConverter extends TypeConverter<ent.InventoryItemType, St
   }
 }
 
+class InventoryItemTypeListConverter extends TypeConverter<List<ent.InventoryItemType>, String>
+    with JsonTypeConverter2<List<ent.InventoryItemType>, String, List<Map<String, dynamic>>>{
+  const InventoryItemTypeListConverter();
+
+  @override
+  List<ent.InventoryItemType> fromSql(String fromDb) {
+    final list=json.decode(fromDb) as List<dynamic>;
+    return list.map((el) => ent.InventoryItemType.fromJson(el)).toList();
+  }
+
+  @override
+  String toSql(List<ent.InventoryItemType> value) {
+    return json.encode(value.map((el)=>el.toJson()).toList());
+  }
+
+  @override
+  List<ent.InventoryItemType> fromJson(List<Map<String, dynamic>> json) {
+    return json.map((el) => ent.InventoryItemType.fromJson(el)).toList();
+  }
+
+  @override
+  List<Map<String, dynamic>> toJson(List<ent.InventoryItemType> value) {
+    return value.map((el)=>el.toJson()).toList();
+  }
+}
  //*/
+
+// InventoryItemDetail

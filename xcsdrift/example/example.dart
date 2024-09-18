@@ -15,6 +15,10 @@ void main() async {
     inventoryItemId: 'inv1',
     productId: Value('demoProd'),
     inventoryItemType: Value(InventoryItemType(inventoryItemTypeId: 'GOOD')),
+    invTypes: Value([
+      InventoryItemType(inventoryItemTypeId: 'GOOD'),
+      InventoryItemType(inventoryItemTypeId: 'PART')
+    ]),
   ));
 
   await insertWithJson(database);
@@ -31,7 +35,8 @@ Future<void> insertWithJson(Database database) async {
     var jsonData = {
       'inventory_item_id': 'inv2',
       'product_id': 'rawJsonProd',
-      'inventory_item_type': {'inventoryItemTypeId': 'GOOD'}
+      'inventory_item_type': {'inventoryItemTypeId': 'GOOD'},
+      'inv_types': [{'inventoryItemTypeId': 'GOOD'}]
     };
     var entry = InventoryItemData.fromJson(jsonData);
     batch.insert(database.inventoryItem, entry,

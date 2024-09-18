@@ -40,7 +40,8 @@ CREATE TABLE inventory_item (
     tag3 VARCHAR(100),
     more_tags TEXT,
 
-    inventory_item_type TEXT MAPPED BY `const InventoryItemTypeConverter()`
+    inventory_item_type TEXT MAPPED BY `const InventoryItemTypeConverter()`,
+    inv_types TEXT MAPPED BY `const InventoryItemTypeListConverter()`
 );
 
 allInventoryItems: SELECT * FROM inventory_item;
