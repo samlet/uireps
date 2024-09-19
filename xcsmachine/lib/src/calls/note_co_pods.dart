@@ -33,19 +33,6 @@ class NoteCoPod extends _$NoteCoPod {
   }
 
   
-  Future<bool> setContent({
-    
-    required String cnt, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
-              cnt: cnt,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> attachToParty({
     
     required String partyId, 
@@ -76,6 +63,19 @@ class NoteCoPod extends _$NoteCoPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> setContent({
+    
+    required String cnt, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
+              cnt: cnt,
             ));
     return state.hasError == false;
   }

@@ -1,5 +1,6 @@
 
 export 'src/ent/comment.dart';
+export 'src/ent/party.dart';
 export 'src/ent/content.dart';
 export 'src/ent/note.dart';
 export 'src/ent/web_site.dart';
@@ -10,6 +11,8 @@ export 'src/ent/facility.dart';
 export 'src/ent/inventory.dart';
 export 'src/ent/contact_mech.dart';
 export 'src/ent/work_effort.dart';
-export 'src/ent/party.dart';
 export 'src/ent/example.dart';
 export 'src/ent/shipment.dart';
+export 'src/ent/order.dart';
+export 'src/ent/user_login.dart';
+export 'src/ent/wallet.dart';

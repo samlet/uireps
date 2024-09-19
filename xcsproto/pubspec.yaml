@@ -10,8 +10,10 @@ environment:
 dependencies:
   path: ^1.8.0
   async: ^2.2.0
-  grpc: ^3.0.2
-  protobuf: ^2.0.0
+  # grpc: ^3.0.2
+  # protobuf: ^2.0.0
+  grpc: ^4.0.1
+  protobuf: ^3.1.0
   logging: ^1.0.2
   recase: ^4.0.0
   slugid: ^1.1.0

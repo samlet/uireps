@@ -1,4 +1,5 @@
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
@@ -13,7 +14,7 @@ class WebSiteCoRepository {
     required this.id,
   });
 
-  final Dio dio;
+  final d.Dio dio;
   final String regionOrNs;
   final String moduleName;
   final String id;
@@ -32,6 +33,21 @@ class WebSiteCoRepository {
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<WebSiteCubeData> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "fetch",
+      "bundleName" : "WebSite",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return WebSiteCubeData.fromJson(resp);
   }
    
   // Mutation
@@ -96,21 +112,6 @@ class WebSiteCoRepository {
   }
    
   // Query
-  Future<WebSiteCubeData> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "fetch",
-      "bundleName" : "WebSite",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return WebSiteCubeData.fromJson(resp);
-  }
-   
-  // Query
   Future<DecimalMap> getDecimals() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -126,5 +127,9 @@ class WebSiteCoRepository {
   }
   
 }
+
+/*
+proto-files: [web_site.proto]
+*/
 
 

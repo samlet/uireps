@@ -1,4 +1,5 @@
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
@@ -13,7 +14,7 @@ class DataResourceCoRepository {
     required this.id,
   });
 
-  final Dio dio;
+  final d.Dio dio;
   final String regionOrNs;
   final String moduleName;
   final String id;
@@ -69,5 +70,9 @@ class DataResourceCoRepository {
   }
   
 }
+
+/*
+proto-files: []
+*/
 
 

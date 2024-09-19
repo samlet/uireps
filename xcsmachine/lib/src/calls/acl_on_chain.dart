@@ -1,4 +1,5 @@
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
@@ -12,7 +13,7 @@ class AclOnChainRepository {
     this.moduleName='aclOnChain',
   });
 
-  final Dio dio;
+  final d.Dio dio;
   final String regionOrNs;
   final String moduleName;
 
@@ -66,27 +67,6 @@ class AclOnChainRepository {
   }
    
   // Query
-  Future<bool> hasRole({
-    
-    required String partyId,
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "hasRole",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "partyId": partyId,
-      "role": role, 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
   Future<bool> isOwner({
     
     required String biName,
@@ -104,6 +84,27 @@ class AclOnChainRepository {
       "biName": biName,
       "bundleId": bundleId,
       "userOrGroup": userOrGroup, 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<bool> hasRole({
+    
+    required String partyId,
+    required String role, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "hasRole",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "partyId": partyId,
+      "role": role, 
     });
     
     return ResultConv.asBool(resp);
@@ -129,5 +130,9 @@ class AclOnChainRepository {
   }
   
 }
+
+/*
+proto-files: []
+*/
 
 

@@ -1,6 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 // import 'package:xcsapi/xcmodels.dart';
 import 'calls.dart';
@@ -20,18 +21,6 @@ class NoteCoCube extends _$NoteCoCube {
   }
    
 
-  
-  Future<void> setContent({
-    
-    required String cnt, 
-
-  }) async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
-      cnt: cnt,
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
   
   Future<void> attachToParty({
     
@@ -59,6 +48,18 @@ class NoteCoCube extends _$NoteCoCube {
   
   Future<void> revokeContent() async { 
     await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> setContent({
+    
+    required String cnt, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
+      cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();

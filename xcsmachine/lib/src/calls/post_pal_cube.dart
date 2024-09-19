@@ -1,6 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 // import 'package:xcsapi/xcmodels.dart';
 import 'calls.dart';
@@ -25,8 +26,14 @@ class PostPalCube extends _$PostPalCube {
   } 
 
   
-  Future<void> featured() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
+  Future<void> like() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> unlike() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
     );
     ref.invalidateSelf();
   }
@@ -70,14 +77,8 @@ class PostPalCube extends _$PostPalCube {
     ref.invalidateSelf();
   }
   
-  Future<void> like() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> unlike() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
+  Future<void> featured() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
     );
     ref.invalidateSelf();
   }

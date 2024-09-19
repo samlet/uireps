@@ -1,4 +1,5 @@
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
@@ -12,7 +13,7 @@ class FixtureObjectsRepository {
     this.moduleName='fixtureObjects',
   });
 
-  final Dio dio;
+  final d.Dio dio;
   final String regionOrNs;
   final String moduleName;
 
@@ -42,23 +43,62 @@ class FixtureObjectsRepository {
     return WorkEffort.fromJson(resp);
   }
    
-  // Query
-  Future<String> getNoteProto({
+  // Mutation
+  Future<void> touch({
     
-    required String noteId, 
+    required String bundleName,
+    required String bundleId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getNoteProto",
+      "action": "touch",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "noteId": noteId, 
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
+  }
+   
+  // Query
+  Future<String> ping({
+    
+    required String req, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "ping",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "req": req, 
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<Map<String, Object?>> echo({
+    
+    required Map<String, Object?> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echo",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asTypedMap(resp);
   }
    
   // Mutation
@@ -402,62 +442,23 @@ class FixtureObjectsRepository {
     return IntMap()..mergeFromProto3Json(resp);
   }
    
-  // Mutation
-  Future<void> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-  }
-   
   // Query
-  Future<String> ping({
+  Future<String> getNoteProto({
     
-    required String req, 
+    required String noteId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "ping",
+      "action": "getNoteProto",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "req": req, 
+      "noteId": noteId, 
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<Map<String, Object?>> echo({
-    
-    required Map<String, Object?> input, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "echo",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "input": input, 
-    });
-    
-    return asTypedMap(resp);
   }
    
   // Query
@@ -551,5 +552,9 @@ class FixtureObjectsRepository {
   }
   
 }
+
+/*
+proto-files: [autometa/test_rec.proto]
+*/
 
 

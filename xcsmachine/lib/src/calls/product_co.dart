@@ -1,4 +1,5 @@
 import 'package:xcsproto/xcsproto.dart';
+import 'package:dio/dio.dart' as d;
 import '../../xcmodels.dart';
 import '../../xcsapi.dart';
 // import 'package:xcsapi/xcmodels.dart';
@@ -13,7 +14,7 @@ class ProductCoRepository {
     required this.id,
   });
 
-  final Dio dio;
+  final d.Dio dio;
   final String regionOrNs;
   final String moduleName;
   final String id;
@@ -50,18 +51,23 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<CurrencyMap> getPrices() async { 
+  Future<double> price({
+    
+    required String priceType, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getPrices",
+      "action": "price",
       "bundleName" : "Product",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, { 
+    }, {
+      "priceType": priceType, 
     });
     
-    return CurrencyMap()..mergeFromProto3Json(resp);
+    return ResultConv.asDouble(resp);
   }
    
   // Mutation
@@ -249,23 +255,18 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<double> price({
-    
-    required String priceType, 
-
-  }) async { 
+  Future<CurrencyMap> getPrices() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "price",
+      "action": "getPrices",
       "bundleName" : "Product",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, {
-      "priceType": priceType, 
+    }, { 
     });
     
-    return ResultConv.asDouble(resp);
+    return CurrencyMap()..mergeFromProto3Json(resp);
   }
    
   // Query
@@ -368,5 +369,9 @@ class ProductCoRepository {
   }
   
 }
+
+/*
+proto-files: []
+*/
 
 

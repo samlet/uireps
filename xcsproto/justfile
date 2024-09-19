@@ -11,6 +11,7 @@ gen_proto file:
                 -I/opt/app/apiset/proto/src/main/proto \
                 -I/opt/app/apiset/mesh/src/main/proto \
                 -I/opt/app/apiset/mods/src/main/proto \
+                -I/opt/app/apiset/domain/src/main/proto \
                 -I/opt/app/apiset/facade/src/main/proto {{file}}
 
 google:
@@ -24,3 +25,9 @@ google:
 
 fund:
     just gen_proto "/opt/app/apiset/proto/src/main/proto/*.proto"
+
+ents:
+    just gen_proto "/opt/app/apiset/entity/src/main/proto/ents/*.proto"
+
+domain:
+    just gen_proto "/opt/app/apiset/domain/src/main/proto/*.proto"
