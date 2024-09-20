@@ -4,7 +4,7 @@ import 'package:slugid/slugid.dart';
 import 'package:tuple/tuple.dart';
 
 void prettyPrint(Object? data) {
-  var encoder = JsonEncoder.withIndent('  ');
+  var encoder = const JsonEncoder.withIndent('  ');
   String prettyprint = encoder.convert(data);
   print(prettyprint);
 }

@@ -66,9 +66,9 @@ Future<void> storeNote(PortalManagerRepository repo) async {
 Future<void> loadInv(PortalManagerRepository repo) async {
   var result = await repo.loadAsBiFacets(
       bundleName: 'Inventory', regionId: 'default', bundleIds: ["9029"]);
-  result.forEach((el) {
+  for (var el in result) {
     print("the result ${el.toJson()}");
-  });
+  }
 }
 
 
