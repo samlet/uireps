@@ -51,6 +51,7 @@ CREATE TABLE facility (
 allFacilities: SELECT * FROM facility;
 clearFacilities: DELETE FROM facility;
 addFacility: INSERT INTO facility $el;
+getFacility: SELECT * FROM facility WHERE facility_id = ?;
 
 
 

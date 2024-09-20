@@ -38,8 +38,7 @@ WebSite _$WebSiteFromJson(Map<String, dynamic> json) => WebSite(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       webSiteContactList: (json['webSiteContactList'] as List<dynamic>?)
           ?.map((e) => WebSiteContactList.fromJson(e as Map<String, dynamic>))
           .toList(),

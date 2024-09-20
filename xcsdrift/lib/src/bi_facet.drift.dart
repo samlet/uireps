@@ -886,6 +886,14 @@ class BiFacetDrift extends i2.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.BiFacetData> getBiFacet(String var1) {
+    return customSelect('SELECT * FROM bi_facet WHERE bi_id = ?1', variables: [
+      i0.Variable<String>(var1)
+    ], readsFrom: {
+      biFacet,
+    }).asyncMap(biFacet.mapFromRow);
+  }
+
   i1.BiFacet get biFacet => i2.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.BiFacet>('bi_facet');
 }

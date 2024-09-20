@@ -38,8 +38,7 @@ Party _$PartyFromJson(Map<String, dynamic> json) => Party(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
       placeId: json['placeId'] as String?,

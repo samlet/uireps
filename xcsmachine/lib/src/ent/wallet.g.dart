@@ -26,9 +26,8 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
         (k, e) => MapEntry(k, e as String),
       ),
       multiJointers: stringMultimapFromJson(
-          json['multiJointers'] as Map<String, Iterable<String>>?),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+          json['multiJointers'] as Map<String, dynamic>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       walletType: json['walletType'] == null
           ? null
           : WalletType.fromJson(json['walletType'] as Map<String, dynamic>),

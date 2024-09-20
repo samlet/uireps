@@ -18,8 +18,7 @@ ContactMech _$ContactMechFromJson(Map<String, dynamic> json) => ContactMech(
           : DateTime.parse(json['createdTxStamp'] as String),
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       postalAddress: json['postalAddress'] == null
           ? null
           : PostalAddress.fromJson(

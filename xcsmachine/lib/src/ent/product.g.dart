@@ -107,8 +107,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       jointers: (json['jointers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       productType: json['productType'] == null
           ? null
           : ProductType.fromJson(json['productType'] as Map<String, dynamic>),

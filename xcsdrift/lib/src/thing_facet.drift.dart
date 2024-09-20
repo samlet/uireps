@@ -885,6 +885,16 @@ class ThingFacetDrift extends i2.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.ThingFacetData> getThingFacet(String var1) {
+    return customSelect('SELECT * FROM thing_facet WHERE thing_id = ?1',
+        variables: [
+          i0.Variable<String>(var1)
+        ],
+        readsFrom: {
+          thingFacet,
+        }).asyncMap(thingFacet.mapFromRow);
+  }
+
   i1.ThingFacet get thingFacet => i2.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.ThingFacet>('thing_facet');
 }

@@ -987,10 +987,9 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
   }
 
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
-          Map<String, Iterable<String>>> $converteracl =
-      const i4.StringMultimapConverter();
+      Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
-          Map<String, Iterable<String>>?> $converteracln =
+          Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
   static i0.JsonTypeConverter2<List<i3.ShipmentItemBilling>, String,
           List<Map<String, dynamic>>> $convertershipmentItemBilling =
@@ -1643,8 +1642,8 @@ class ShipmentData extends i0.DataClass
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: serializer.fromJson<String?>(json['more_tags']),
-      acl: i1.Shipment.$converteracln.fromJson(
-          serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      acl: i1.Shipment.$converteracln
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       shipmentItemBilling: i1.Shipment.$convertershipmentItemBillingn.fromJson(
           serializer.fromJson<List<Map<String, dynamic>>?>(
               json['shipment_item_billing'])),
@@ -1741,7 +1740,7 @@ class ShipmentData extends i0.DataClass
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<String?>(moreTags),
-      'acl': serializer.toJson<Map<String, Iterable<String>>?>(
+      'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.Shipment.$converteracln.toJson(acl)),
       'shipment_item_billing': serializer.toJson<List<Map<String, dynamic>>?>(i1
           .Shipment.$convertershipmentItemBillingn
@@ -4202,6 +4201,16 @@ class ShipmentDrift extends i6.ModularAccessor {
       variables: [...generatedel.introducedVariables],
       updates: {shipment},
     );
+  }
+
+  i0.Selectable<i1.ShipmentData> getShipment(String var1) {
+    return customSelect('SELECT * FROM shipment WHERE shipment_id = ?1',
+        variables: [
+          i0.Variable<String>(var1)
+        ],
+        readsFrom: {
+          shipment,
+        }).asyncMap(shipment.mapFromRow);
   }
 
   i1.Shipment get shipment => i6.ReadDatabaseContainer(attachedDatabase)

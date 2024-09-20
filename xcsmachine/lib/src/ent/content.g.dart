@@ -57,8 +57,7 @@ Content _$ContentFromJson(Map<String, dynamic> json) => Content(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       contentSlot: (json['contentSlot'] as List<dynamic>?)
           ?.map((e) => ContentSlot.fromJson(e as Map<String, dynamic>))
           .toList(),

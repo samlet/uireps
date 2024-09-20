@@ -57,6 +57,7 @@ CREATE TABLE example (
 allExamples: SELECT * FROM example;
 clearExamples: DELETE FROM example;
 addExample: INSERT INTO example $el;
+getExample: SELECT * FROM example WHERE example_id = ?;
 
 
 

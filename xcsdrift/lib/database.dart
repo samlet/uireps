@@ -6,6 +6,7 @@ import 'database.drift.dart';
   'src/inventory.drift',
   'src/note.drift',
   'src/example.drift',
+  'src/facility.drift'
 })
 class Database extends $Database {
   Database(super.e);

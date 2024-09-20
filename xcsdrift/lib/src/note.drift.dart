@@ -270,10 +270,9 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
   }
 
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
-          Map<String, Iterable<String>>> $converteracl =
-      const i4.StringMultimapConverter();
+      Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
-          Map<String, Iterable<String>>?> $converteracln =
+          Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
   static i0.JsonTypeConverter2<List<i3.NoteDataSlot>, String,
           List<Map<String, dynamic>>> $converternoteDataSlot =
@@ -436,8 +435,8 @@ class NoteDataData extends i0.DataClass
           serializer.fromJson<String?>(json['more_info_item_name']),
       tenantId: serializer.fromJson<String?>(json['tenant_id']),
       evict: serializer.fromJson<bool?>(json['evict']),
-      acl: i1.NoteData.$converteracln.fromJson(
-          serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      acl: i1.NoteData.$converteracln
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       noteDataSlot: i1.NoteData.$converternoteDataSlotn.fromJson(serializer
           .fromJson<List<Map<String, dynamic>>?>(json['note_data_slot'])),
       reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
@@ -459,7 +458,7 @@ class NoteDataData extends i0.DataClass
       'more_info_item_name': serializer.toJson<String?>(moreInfoItemName),
       'tenant_id': serializer.toJson<String?>(tenantId),
       'evict': serializer.toJson<bool?>(evict),
-      'acl': serializer.toJson<Map<String, Iterable<String>>?>(
+      'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.NoteData.$converteracln.toJson(acl)),
       'note_data_slot': serializer.toJson<List<Map<String, dynamic>>?>(
           i1.NoteData.$converternoteDataSlotn.toJson(noteDataSlot)),
@@ -1164,6 +1163,16 @@ class NoteDrift extends i6.ModularAccessor {
       variables: [...generatedel.introducedVariables],
       updates: {noteData},
     );
+  }
+
+  i0.Selectable<i1.NoteDataData> getNoteData(String var1) {
+    return customSelect('SELECT * FROM note_data WHERE note_id = ?1',
+        variables: [
+          i0.Variable<String>(var1)
+        ],
+        readsFrom: {
+          noteData,
+        }).asyncMap(noteData.mapFromRow);
   }
 
   i1.NoteData get noteData => i6.ReadDatabaseContainer(attachedDatabase)

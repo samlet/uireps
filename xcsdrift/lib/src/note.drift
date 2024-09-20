@@ -27,6 +27,7 @@ CREATE TABLE note_data (
 allNoteData: SELECT * FROM note_data;
 clearNoteData: DELETE FROM note_data;
 addNoteData: INSERT INTO note_data $el;
+getNoteData: SELECT * FROM note_data WHERE note_id = ?;
 
 
 

@@ -66,8 +66,7 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       orderType: json['orderType'] == null
           ? null
           : OrderType.fromJson(json['orderType'] as Map<String, dynamic>),

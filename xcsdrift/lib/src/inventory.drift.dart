@@ -3084,6 +3084,17 @@ class InventoryDrift extends i4.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.InventoryItemData> getInventoryItem(String var1) {
+    return customSelect(
+        'SELECT * FROM inventory_item WHERE inventory_item_id = ?1',
+        variables: [
+          i0.Variable<String>(var1)
+        ],
+        readsFrom: {
+          inventoryItem,
+        }).asyncMap(inventoryItem.mapFromRow);
+  }
+
   i1.InventoryItem get inventoryItem =>
       i4.ReadDatabaseContainer(attachedDatabase)
           .resultSet<i1.InventoryItem>('inventory_item');

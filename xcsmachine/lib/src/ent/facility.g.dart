@@ -45,8 +45,7 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       facilityType: json['facilityType'] == null
           ? null
           : FacilityType.fromJson(json['facilityType'] as Map<String, dynamic>),

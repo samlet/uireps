@@ -11,6 +11,16 @@ void main() async {
 
   database.inventoryDrift.allInventoryItems().watch().listen(print);
 
+  await insertDrift(database);
+
+  await insertWithJson(database);
+
+  await printInvs(database);
+
+  await database.close();
+}
+
+Future<void> insertDrift(Database database) async {
   await database.inventoryDrift.addInventoryItem(
       el: InventoryItemCompanion.insert(
     inventoryItemId: 'inv1',
@@ -21,12 +31,6 @@ void main() async {
       InventoryItemDetail(inventoryItemDetailSeqId: '2')
     ]),
   ));
-
-  await insertWithJson(database);
-
-  await printInvs(database);
-
-  await database.close();
 }
 
 // has issue: type '_Map<String, String>' is not a subtype of type 'InventoryItemType?' in type cast

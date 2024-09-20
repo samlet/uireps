@@ -666,10 +666,9 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
   }
 
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
-          Map<String, Iterable<String>>> $converteracl =
-      const i4.StringMultimapConverter();
+      Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
-          Map<String, Iterable<String>>?> $converteracln =
+          Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
   static i0.JsonTypeConverter2<i3.FacilityType, String, Map<String, dynamic>>
       $converterfacilityType = const i5.FacilityTypeConverter();
@@ -1110,8 +1109,8 @@ class FacilityData extends i0.DataClass
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: serializer.fromJson<String?>(json['more_tags']),
-      acl: i1.Facility.$converteracln.fromJson(
-          serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      acl: i1.Facility.$converteracln
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       facilityType: i1.Facility.$converterfacilityTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['facility_type'])),
       facilityCalendar: i1.Facility.$converterfacilityCalendarn.fromJson(
@@ -1177,7 +1176,7 @@ class FacilityData extends i0.DataClass
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<String?>(moreTags),
-      'acl': serializer.toJson<Map<String, Iterable<String>>?>(
+      'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.Facility.$converteracln.toJson(acl)),
       'facility_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Facility.$converterfacilityTypen.toJson(facilityType)),
@@ -2862,6 +2861,16 @@ class FacilityDrift extends i6.ModularAccessor {
       variables: [...generatedel.introducedVariables],
       updates: {facility},
     );
+  }
+
+  i0.Selectable<i1.FacilityData> getFacility(String var1) {
+    return customSelect('SELECT * FROM facility WHERE facility_id = ?1',
+        variables: [
+          i0.Variable<String>(var1)
+        ],
+        readsFrom: {
+          facility,
+        }).asyncMap(facility.mapFromRow);
   }
 
   i1.Facility get facility => i6.ReadDatabaseContainer(attachedDatabase)

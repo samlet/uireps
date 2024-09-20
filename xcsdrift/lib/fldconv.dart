@@ -6,7 +6,7 @@ import 'package:drift/drift.dart';
 
 // Multimap Converters: string, symbol
 class StringMultimapConverter extends TypeConverter<Multimap<String, String>, String>
-    with JsonTypeConverter2<Multimap<String, String>, String, Map<String, Iterable<String>>> {
+    with JsonTypeConverter2<Multimap<String, String>, String, Map<String, dynamic>> {
   const StringMultimapConverter();
 
   @override
@@ -20,18 +20,18 @@ class StringMultimapConverter extends TypeConverter<Multimap<String, String>, St
   }
 
   @override
-  Multimap<String, String> fromJson(Map<String, Iterable<String>> json) {
+  Multimap<String, String> fromJson(Map<String, dynamic> json) {
     return stringMultimapFromJson(json);
   }
 
   @override
-  Map<String, Iterable<String>> toJson(Multimap<String, String> value) {
+  Map<String, dynamic> toJson(Multimap<String, String> value) {
     return stringMultimapToJson(value);
   }
 }
 
 class SymbolMultimapConverter extends TypeConverter<Multimap<String, int>, String>
-    with JsonTypeConverter2<Multimap<String, int>, String, Map<String, Iterable<int>>> {
+    with JsonTypeConverter2<Multimap<String, int>, String, Map<String, dynamic>> {
   const SymbolMultimapConverter();
 
   @override
@@ -45,12 +45,12 @@ class SymbolMultimapConverter extends TypeConverter<Multimap<String, int>, Strin
   }
 
   @override
-  Multimap<String, int> fromJson(Map<String, Iterable<int>> json) {
+  Multimap<String, int> fromJson(Map<String, dynamic> json) {
     return intMultimapFromJson(json);
   }
 
   @override
-  Map<String, Iterable<int>> toJson(Multimap<String, int> value) {
+  Map<String, dynamic> toJson(Multimap<String, int> value) {
     return intMultimapToJson(value);
   }
 }

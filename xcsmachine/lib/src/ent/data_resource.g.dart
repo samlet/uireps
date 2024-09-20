@@ -38,8 +38,7 @@ DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource(
           : DateTime.parse(json['createdTxStamp'] as String),
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       electronicText: json['electronicText'] == null
           ? null
           : ElectronicText.fromJson(

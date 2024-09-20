@@ -85,8 +85,7 @@ WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
       slotId: json['slotId'] as String?,
       confirmation: json['confirmation'] as String?,
       evict: json['evict'] as bool?,
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       workEffortType: json['workEffortType'] == null
           ? null
           : WorkEffortType.fromJson(

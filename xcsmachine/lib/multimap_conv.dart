@@ -1,26 +1,27 @@
 import 'package:quiver/collection.dart';
 
-Multimap<String, String> stringMultimapFromJson(Map<String, Iterable<String>>? map) {
+Multimap<String, String> stringMultimapFromJson(Map<String, dynamic>? map) {
   return multimapFromJson(map);
 }
 
-Map<String, Iterable<String>> stringMultimapToJson(Multimap<String, String>? mm) {
+Map<String, dynamic> stringMultimapToJson(Multimap<String, String>? mm) {
   return mm?.asMap()??{};
 }
 
-Multimap<String, int> intMultimapFromJson(Map<String, Iterable<int>>? map) {
+Multimap<String, int> intMultimapFromJson(Map<String, dynamic>? map) {
   return multimapFromJson(map);
 }
 
-Map<String, Iterable<int>> intMultimapToJson(Multimap<String, int>? mm) {
+Map<String, dynamic> intMultimapToJson(Multimap<String, int>? mm) {
   return mm?.asMap()??{};
 }
 
 
-Multimap<String, T> multimapFromJson<T>(Map<String, Iterable<T>>? map) {
+Multimap<String, T> multimapFromJson<T>(Map<String, dynamic>? map) {
   var mm = Multimap<String, T>();
   map?.forEach((k, v) {
-    mm.addValues(k, v);
+    var tl=(v as List).map((el)=>el as T).toList();
+    mm.addValues(k, tl);
   });
   return mm;
 }

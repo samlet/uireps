@@ -70,8 +70,7 @@ Shipment _$ShipmentFromJson(Map<String, dynamic> json) => Shipment(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       shipmentItemBilling: (json['shipmentItemBilling'] as List<dynamic>?)
           ?.map((e) => ShipmentItemBilling.fromJson(e as Map<String, dynamic>))
           .toList(),

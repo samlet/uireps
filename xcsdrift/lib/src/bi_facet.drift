@@ -23,6 +23,7 @@ CREATE TABLE bi_facet (
 allBiFacets: SELECT * FROM bi_facet;
 clearBiFacets: DELETE FROM bi_facet;
 addBiFacet: INSERT INTO bi_facet $el;
+getBiFacet: SELECT * FROM bi_facet WHERE bi_id = ?;
 
 
 

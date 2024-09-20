@@ -75,10 +75,9 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example(
       mediaLinks: (json['mediaLinks'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      bookmarks: stringMultimapFromJson(
-          json['bookmarks'] as Map<String, Iterable<String>>?),
-      symbols:
-          intMultimapFromJson(json['symbols'] as Map<String, Iterable<int>>?),
+      bookmarks:
+          stringMultimapFromJson(json['bookmarks'] as Map<String, dynamic>?),
+      symbols: intMultimapFromJson(json['symbols'] as Map<String, dynamic>?),
       detail: json['detail'] == null
           ? null
           : TableOra.fromJson(json['detail'] as Map<String, dynamic>),
@@ -86,8 +85,7 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example(
       slotId: json['slotId'] as String?,
       customerConfirmation: json['customerConfirmation'] as String?,
       evict: json['evict'] as bool?,
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       exampleType: json['exampleType'] == null
           ? null
           : ExampleType.fromJson(json['exampleType'] as Map<String, dynamic>),

@@ -22,10 +22,10 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       contentId: json['contentId'] as String?,
       anchor: json['anchor'] as String?,
       paragraph: (json['paragraph'] as num?)?.toInt(),
-      mediaLinks: stringMultimapFromJson(
-          json['mediaLinks'] as Map<String, Iterable<String>>?),
-      sharedLinks: stringMultimapFromJson(
-          json['sharedLinks'] as Map<String, Iterable<String>>?),
+      mediaLinks:
+          stringMultimapFromJson(json['mediaLinks'] as Map<String, dynamic>?),
+      sharedLinks:
+          stringMultimapFromJson(json['sharedLinks'] as Map<String, dynamic>?),
       claimPayment: (json['claimPayment'] as num?)?.toDouble(),
       paymentErc: json['paymentErc'] as String?,
       walletId: json['walletId'] as String?,
@@ -39,8 +39,7 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       commentTypeId: json['commentTypeId'] as String?,
       statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       commentType: json['commentType'] == null
           ? null
           : CommentType.fromJson(json['commentType'] as Map<String, dynamic>),

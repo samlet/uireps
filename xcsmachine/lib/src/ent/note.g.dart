@@ -25,8 +25,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       moreInfoItemName: json['moreInfoItemName'] as String?,
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       noteDataSlot: (json['noteDataSlot'] as List<dynamic>?)
           ?.map((e) => NoteDataSlot.fromJson(e as Map<String, dynamic>))
           .toList(),

@@ -727,22 +727,21 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
       $converterextraTimen =
       i0.JsonTypeConverter2.asNullable($converterextraTime);
   static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
-          Map<String, Iterable<String>>> $converterbookmarks =
+          Map<String, dynamic>> $converterbookmarks =
       const i6.StringMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
-          Map<String, Iterable<String>>?> $converterbookmarksn =
+          Map<String, dynamic>?> $converterbookmarksn =
       i0.JsonTypeConverter2.asNullable($converterbookmarks);
   static i0.JsonTypeConverter2<i4.Multimap<String, int>, String,
-          Map<String, Iterable<int>>> $convertersymbols =
+          Map<String, dynamic>> $convertersymbols =
       const i6.SymbolMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, int>?, String?,
-          Map<String, Iterable<int>>?> $convertersymbolsn =
+          Map<String, dynamic>?> $convertersymbolsn =
       i0.JsonTypeConverter2.asNullable($convertersymbols);
   static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
-          Map<String, Iterable<String>>> $converteracl =
-      const i6.StringMultimapConverter();
+      Map<String, dynamic>> $converteracl = const i6.StringMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
-          Map<String, Iterable<String>>?> $converteracln =
+          Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
   static i0.JsonTypeConverter2<i5.ExampleType, String, Map<String, dynamic>>
       $converterexampleType = const i7.ExampleTypeConverter();
@@ -1189,18 +1188,18 @@ class ExampleData extends i0.DataClass
       refs: serializer.fromJson<String?>(json['refs']),
       options: serializer.fromJson<String?>(json['options']),
       mediaLinks: serializer.fromJson<String?>(json['media_links']),
-      bookmarks: i1.Example.$converterbookmarksn.fromJson(serializer
-          .fromJson<Map<String, Iterable<String>>?>(json['bookmarks'])),
+      bookmarks: i1.Example.$converterbookmarksn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['bookmarks'])),
       symbols: i1.Example.$convertersymbolsn.fromJson(
-          serializer.fromJson<Map<String, Iterable<int>>?>(json['symbols'])),
+          serializer.fromJson<Map<String, dynamic>?>(json['symbols'])),
       detail: serializer.fromJson<String?>(json['detail']),
       metadata: serializer.fromJson<String?>(json['metadata']),
       slotId: serializer.fromJson<String?>(json['slot_id']),
       customerConfirmation:
           serializer.fromJson<String?>(json['customer_confirmation']),
       evict: serializer.fromJson<bool?>(json['evict']),
-      acl: i1.Example.$converteracln.fromJson(
-          serializer.fromJson<Map<String, Iterable<String>>?>(json['acl'])),
+      acl: i1.Example.$converteracln
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       exampleType: i1.Example.$converterexampleTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['example_type'])),
       exampleFeatureAppl: i1.Example.$converterexampleFeatureAppln.fromJson(
@@ -1250,17 +1249,17 @@ class ExampleData extends i0.DataClass
       'refs': serializer.toJson<String?>(refs),
       'options': serializer.toJson<String?>(options),
       'media_links': serializer.toJson<String?>(mediaLinks),
-      'bookmarks': serializer.toJson<Map<String, Iterable<String>>?>(
+      'bookmarks': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$converterbookmarksn.toJson(bookmarks)),
-      'symbols': serializer.toJson<Map<String, Iterable<int>>?>(
+      'symbols': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$convertersymbolsn.toJson(symbols)),
       'detail': serializer.toJson<String?>(detail),
       'metadata': serializer.toJson<String?>(metadata),
       'slot_id': serializer.toJson<String?>(slotId),
       'customer_confirmation': serializer.toJson<String?>(customerConfirmation),
       'evict': serializer.toJson<bool?>(evict),
-      'acl': serializer.toJson<Map<String, Iterable<String>>?>(
-          i1.Example.$converteracln.toJson(acl)),
+      'acl': serializer
+          .toJson<Map<String, dynamic>?>(i1.Example.$converteracln.toJson(acl)),
       'example_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$converterexampleTypen.toJson(exampleType)),
       'example_feature_appl': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -3029,6 +3028,16 @@ class ExampleDrift extends i8.ModularAccessor {
       variables: [...generatedel.introducedVariables],
       updates: {example},
     );
+  }
+
+  i0.Selectable<i1.ExampleData> getExample(String var1) {
+    return customSelect('SELECT * FROM example WHERE example_id = ?1',
+        variables: [
+          i0.Variable<String>(var1)
+        ],
+        readsFrom: {
+          example,
+        }).asyncMap(example.mapFromRow);
   }
 
   i1.Example get example => i8.ReadDatabaseContainer(attachedDatabase)

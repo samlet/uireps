@@ -103,9 +103,8 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
         (k, e) => MapEntry(k, e as String),
       ),
       multiJointers: stringMultimapFromJson(
-          json['multiJointers'] as Map<String, Iterable<String>>?),
-      acl:
-          stringMultimapFromJson(json['acl'] as Map<String, Iterable<String>>?),
+          json['multiJointers'] as Map<String, dynamic>?),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
       placeId: json['placeId'] as String?,

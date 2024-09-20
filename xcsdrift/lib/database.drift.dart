@@ -1,28 +1,32 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:xcsdrift/src/example.drift.dart' as i1;
-import 'package:xcsdrift/src/note.drift.dart' as i2;
-import 'package:xcsdrift/src/inventory.drift.dart' as i3;
-import 'package:drift/internal/modular.dart' as i4;
+import 'package:xcsdrift/src/facility.drift.dart' as i1;
+import 'package:xcsdrift/src/example.drift.dart' as i2;
+import 'package:xcsdrift/src/note.drift.dart' as i3;
+import 'package:xcsdrift/src/inventory.drift.dart' as i4;
+import 'package:drift/internal/modular.dart' as i5;
 
 abstract class $Database extends i0.GeneratedDatabase {
   $Database(i0.QueryExecutor e) : super(e);
   $DatabaseManager get managers => $DatabaseManager(this);
-  late final i1.Example example = i1.Example(this);
-  late final i2.NoteData noteData = i2.NoteData(this);
-  late final i3.InventoryItem inventoryItem = i3.InventoryItem(this);
-  i3.InventoryDrift get inventoryDrift => i4.ReadDatabaseContainer(this)
-      .accessor<i3.InventoryDrift>(i3.InventoryDrift.new);
-  i2.NoteDrift get noteDrift =>
-      i4.ReadDatabaseContainer(this).accessor<i2.NoteDrift>(i2.NoteDrift.new);
-  i1.ExampleDrift get exampleDrift => i4.ReadDatabaseContainer(this)
-      .accessor<i1.ExampleDrift>(i1.ExampleDrift.new);
+  late final i1.Facility facility = i1.Facility(this);
+  late final i2.Example example = i2.Example(this);
+  late final i3.NoteData noteData = i3.NoteData(this);
+  late final i4.InventoryItem inventoryItem = i4.InventoryItem(this);
+  i4.InventoryDrift get inventoryDrift => i5.ReadDatabaseContainer(this)
+      .accessor<i4.InventoryDrift>(i4.InventoryDrift.new);
+  i3.NoteDrift get noteDrift =>
+      i5.ReadDatabaseContainer(this).accessor<i3.NoteDrift>(i3.NoteDrift.new);
+  i2.ExampleDrift get exampleDrift => i5.ReadDatabaseContainer(this)
+      .accessor<i2.ExampleDrift>(i2.ExampleDrift.new);
+  i1.FacilityDrift get facilityDrift => i5.ReadDatabaseContainer(this)
+      .accessor<i1.FacilityDrift>(i1.FacilityDrift.new);
   @override
   Iterable<i0.TableInfo<i0.Table, Object?>> get allTables =>
       allSchemaEntities.whereType<i0.TableInfo<i0.Table, Object?>>();
   @override
   List<i0.DatabaseSchemaEntity> get allSchemaEntities =>
-      [example, noteData, inventoryItem];
+      [facility, example, noteData, inventoryItem];
   @override
   i0.DriftDatabaseOptions get options =>
       const i0.DriftDatabaseOptions(storeDateTimeAsText: true);
@@ -31,10 +35,12 @@ abstract class $Database extends i0.GeneratedDatabase {
 class $DatabaseManager {
   final $Database _db;
   $DatabaseManager(this._db);
-  i1.$ExampleTableManager get example =>
-      i1.$ExampleTableManager(_db, _db.example);
-  i2.$NoteDataTableManager get noteData =>
-      i2.$NoteDataTableManager(_db, _db.noteData);
-  i3.$InventoryItemTableManager get inventoryItem =>
-      i3.$InventoryItemTableManager(_db, _db.inventoryItem);
+  i1.$FacilityTableManager get facility =>
+      i1.$FacilityTableManager(_db, _db.facility);
+  i2.$ExampleTableManager get example =>
+      i2.$ExampleTableManager(_db, _db.example);
+  i3.$NoteDataTableManager get noteData =>
+      i3.$NoteDataTableManager(_db, _db.noteData);
+  i4.$InventoryItemTableManager get inventoryItem =>
+      i4.$InventoryItemTableManager(_db, _db.inventoryItem);
 }
