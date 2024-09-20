@@ -2873,6 +2873,15 @@ class FacilityDrift extends i6.ModularAccessor {
         }).asyncMap(facility.mapFromRow);
   }
 
+  Future<int> deleteFacility({required String id}) {
+    return customUpdate(
+      'DELETE FROM facility WHERE facility_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {facility},
+      updateKind: i0.UpdateKind.delete,
+    );
+  }
+
   i1.Facility get facility => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Facility>('facility');
 }

@@ -71,6 +71,7 @@ allShipments: SELECT * FROM shipment;
 clearShipments: DELETE FROM shipment;
 addShipment: INSERT INTO shipment $el;
 getShipment: SELECT * FROM shipment WHERE shipment_id = ?;
+deleteShipment: DELETE FROM shipment WHERE shipment_id = :id;
 
 
 

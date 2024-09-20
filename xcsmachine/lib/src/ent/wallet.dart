@@ -1,4 +1,5 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
@@ -481,7 +482,7 @@ class Wallet {
     String? trackId_,
     String? ercType_,
     String? ercId_,
-    List<int>? metadata_,
+    Uint8List? metadata_,
     String? description_,
   }) {
     walletRuntimeData = [
@@ -1175,7 +1176,7 @@ class WalletRuntimeData {
     String? trackId,
     String? ercType,
     String? ercId,
-    List<int>? metadata,
+    Uint8List? metadata,
     String? description,
     String? id,
   }) {
@@ -1231,8 +1232,9 @@ class WalletRuntimeData {
    
   String? ercId;
 
-   
-  List<int>? metadata;
+  
+  @BytesConverter() 
+  Uint8List? metadata;
 
    
   String? description;

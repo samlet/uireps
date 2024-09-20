@@ -2,9 +2,9 @@
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/example.drift.dart' as i1;
 import 'package:xcsmachine/time_conv.dart' as i2;
-import 'dart:typed_data' as i3;
-import 'package:quiver/src/collection/multimap.dart' as i4;
-import 'package:xcsmachine/src/ent/example.dart' as i5;
+import 'package:quiver/src/collection/multimap.dart' as i3;
+import 'package:xcsmachine/src/ent/example.dart' as i4;
+import 'dart:typed_data' as i5;
 import 'package:xcsdrift/fldconv.dart' as i6;
 import 'package:xcsdrift/src/example_conv.dart' as i7;
 import 'package:drift/internal/modular.dart' as i8;
@@ -150,120 +150,141 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           $customConstraints: '');
   static const i0.VerificationMeta _extraBlobMeta =
       const i0.VerificationMeta('extraBlob');
-  late final i0.GeneratedColumn<i3.Uint8List> extraBlob =
-      i0.GeneratedColumn<i3.Uint8List>('extra_blob', aliasedName, true,
-          type: i0.DriftSqlType.blob,
-          requiredDuringInsert: false,
-          $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<String?, i5.Uint8List>
+      extraBlob = i0.GeneratedColumn<i5.Uint8List>(
+              'extra_blob', aliasedName, true,
+              type: i0.DriftSqlType.blob,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<String?>(i1.Example.$converterextraBlobn);
   static const i0.VerificationMeta _extraStringsMeta =
       const i0.VerificationMeta('extraStrings');
-  late final i0.GeneratedColumn<String> extraStrings =
-      i0.GeneratedColumn<String>('extra_strings', aliasedName, true,
-          type: i0.DriftSqlType.string,
-          requiredDuringInsert: false,
-          $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      extraStrings = i0.GeneratedColumn<String>(
+              'extra_strings', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Example.$converterextraStringsn);
   static const i0.VerificationMeta _extraIntsMeta =
       const i0.VerificationMeta('extraInts');
-  late final i0.GeneratedColumn<String> extraInts = i0.GeneratedColumn<String>(
-      'extra_ints', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<int>?, String> extraInts =
+      i0.GeneratedColumn<String>('extra_ints', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<int>?>(i1.Example.$converterextraIntsn);
   static const i0.VerificationMeta _extraBoolsMeta =
       const i0.VerificationMeta('extraBools');
-  late final i0.GeneratedColumn<String> extraBools = i0.GeneratedColumn<String>(
-      'extra_bools', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<bool>?, String>
+      extraBools = i0.GeneratedColumn<String>('extra_bools', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<bool>?>(i1.Example.$converterextraBoolsn);
   static const i0.VerificationMeta _extraDecimalsMeta =
       const i0.VerificationMeta('extraDecimals');
-  late final i0.GeneratedColumn<String> extraDecimals =
-      i0.GeneratedColumn<String>('extra_decimals', aliasedName, true,
-          type: i0.DriftSqlType.string,
-          requiredDuringInsert: false,
-          $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<double>?, String>
+      extraDecimals = i0.GeneratedColumn<String>(
+              'extra_decimals', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<double>?>(i1.Example.$converterextraDecimalsn);
   static const i0.VerificationMeta _extraTimestampsMeta =
       const i0.VerificationMeta('extraTimestamps');
-  late final i0.GeneratedColumn<String> extraTimestamps =
-      i0.GeneratedColumn<String>('extra_timestamps', aliasedName, true,
-          type: i0.DriftSqlType.string,
-          requiredDuringInsert: false,
-          $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<DateTime>?, String>
+      extraTimestamps = i0.GeneratedColumn<String>(
+              'extra_timestamps', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<DateTime>?>(
+              i1.Example.$converterextraTimestampsn);
   static const i0.VerificationMeta _extraBuffersMeta =
       const i0.VerificationMeta('extraBuffers');
-  late final i0.GeneratedColumn<String> extraBuffers =
-      i0.GeneratedColumn<String>('extra_buffers', aliasedName, true,
-          type: i0.DriftSqlType.string,
-          requiredDuringInsert: false,
-          $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      extraBuffers = i0.GeneratedColumn<String>(
+              'extra_buffers', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Example.$converterextraBuffersn);
   static const i0.VerificationMeta _measuresMeta =
       const i0.VerificationMeta('measures');
-  late final i0.GeneratedColumn<String> measures = i0.GeneratedColumn<String>(
-      'measures', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, double>?, String>
+      measures = i0.GeneratedColumn<String>('measures', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, double>?>(i1.Example.$convertermeasuresn);
   static const i0.VerificationMeta _seriesMeta =
       const i0.VerificationMeta('series');
-  late final i0.GeneratedColumn<String> series = i0.GeneratedColumn<String>(
-      'series', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, int>?, String>
+      series = i0.GeneratedColumn<String>('series', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, int>?>(i1.Example.$converterseriesn);
   static const i0.VerificationMeta _describesMeta =
       const i0.VerificationMeta('describes');
-  late final i0.GeneratedColumn<String> describes = i0.GeneratedColumn<String>(
-      'describes', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      describes = i0.GeneratedColumn<String>('describes', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, String>?>(i1.Example.$converterdescribesn);
   static const i0.VerificationMeta _refsMeta =
       const i0.VerificationMeta('refs');
-  late final i0.GeneratedColumn<String> refs = i0.GeneratedColumn<String>(
-      'refs', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      refs = i0.GeneratedColumn<String>('refs', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, String>?>(i1.Example.$converterrefsn);
   static const i0.VerificationMeta _optionsMeta =
       const i0.VerificationMeta('options');
-  late final i0.GeneratedColumn<String> options = i0.GeneratedColumn<String>(
-      'options', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, bool>?, String>
+      options = i0.GeneratedColumn<String>('options', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, bool>?>(i1.Example.$converteroptionsn);
   static const i0.VerificationMeta _mediaLinksMeta =
       const i0.VerificationMeta('mediaLinks');
-  late final i0.GeneratedColumn<String> mediaLinks = i0.GeneratedColumn<String>(
-      'media_links', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      mediaLinks = i0.GeneratedColumn<String>('media_links', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, String>?>(
+              i1.Example.$convertermediaLinksn);
   static const i0.VerificationMeta _bookmarksMeta =
       const i0.VerificationMeta('bookmarks');
   late final i0
-      .GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?, String>
+      .GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
       bookmarks = i0.GeneratedColumn<String>('bookmarks', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i4.Multimap<String, String>?>(
+          .withConverter<i3.Multimap<String, String>?>(
               i1.Example.$converterbookmarksn);
   static const i0.VerificationMeta _symbolsMeta =
       const i0.VerificationMeta('symbols');
-  late final i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, int>?,
+  late final i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, int>?,
       String> symbols = i0.GeneratedColumn<String>('symbols', aliasedName, true,
           type: i0.DriftSqlType.string,
           requiredDuringInsert: false,
           $customConstraints: '')
-      .withConverter<i4.Multimap<String, int>?>(i1.Example.$convertersymbolsn);
+      .withConverter<i3.Multimap<String, int>?>(i1.Example.$convertersymbolsn);
   static const i0.VerificationMeta _detailMeta =
       const i0.VerificationMeta('detail');
-  late final i0.GeneratedColumn<String> detail = i0.GeneratedColumn<String>(
-      'detail', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<Map<String, Object?>?, String>
+      detail = i0.GeneratedColumn<String>('detail', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<Map<String, Object?>?>(i1.Example.$converterdetailn);
   static const i0.VerificationMeta _metadataMeta =
       const i0.VerificationMeta('metadata');
   late final i0.GeneratedColumn<String> metadata = i0.GeneratedColumn<String>(
@@ -293,52 +314,52 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
       requiredDuringInsert: false,
       $customConstraints: '');
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
-  late final i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?,
+  late final i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?,
       String> acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
           type: i0.DriftSqlType.string,
           requiredDuringInsert: false,
           $customConstraints: '')
-      .withConverter<i4.Multimap<String, String>?>(i1.Example.$converteracln);
+      .withConverter<i3.Multimap<String, String>?>(i1.Example.$converteracln);
   static const i0.VerificationMeta _exampleTypeMeta =
       const i0.VerificationMeta('exampleType');
-  late final i0.GeneratedColumnWithTypeConverter<i5.ExampleType?, String>
+  late final i0.GeneratedColumnWithTypeConverter<i4.ExampleType?, String>
       exampleType = i0.GeneratedColumn<String>(
               'example_type', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i5.ExampleType?>(i1.Example.$converterexampleTypen);
+          .withConverter<i4.ExampleType?>(i1.Example.$converterexampleTypen);
   static const i0.VerificationMeta _exampleFeatureApplMeta =
       const i0.VerificationMeta('exampleFeatureAppl');
   late final i0
-      .GeneratedColumnWithTypeConverter<List<i5.ExampleFeatureAppl>?, String>
+      .GeneratedColumnWithTypeConverter<List<i4.ExampleFeatureAppl>?, String>
       exampleFeatureAppl = i0.GeneratedColumn<String>(
               'example_feature_appl', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i5.ExampleFeatureAppl>?>(
+          .withConverter<List<i4.ExampleFeatureAppl>?>(
               i1.Example.$converterexampleFeatureAppln);
   static const i0.VerificationMeta _exampleStatusMeta =
       const i0.VerificationMeta('exampleStatus');
   late final i0
-      .GeneratedColumnWithTypeConverter<List<i5.ExampleStatus>?, String>
+      .GeneratedColumnWithTypeConverter<List<i4.ExampleStatus>?, String>
       exampleStatus = i0.GeneratedColumn<String>(
               'example_status', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i5.ExampleStatus>?>(
+          .withConverter<List<i4.ExampleStatus>?>(
               i1.Example.$converterexampleStatusn);
   static const i0.VerificationMeta _exampleItemMeta =
       const i0.VerificationMeta('exampleItem');
-  late final i0.GeneratedColumnWithTypeConverter<List<i5.ExampleItem>?, String>
+  late final i0.GeneratedColumnWithTypeConverter<List<i4.ExampleItem>?, String>
       exampleItem = i0.GeneratedColumn<String>(
               'example_item', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i5.ExampleItem>?>(
+          .withConverter<List<i4.ExampleItem>?>(
               i1.Example.$converterexampleItemn);
   static const i0.VerificationMeta _reservedFlagMeta =
       const i0.VerificationMeta('reservedFlag');
@@ -505,76 +526,22 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           extraAmount.isAcceptableOrUnknown(
               data['extra_amount']!, _extraAmountMeta));
     }
-    if (data.containsKey('extra_blob')) {
-      context.handle(_extraBlobMeta,
-          extraBlob.isAcceptableOrUnknown(data['extra_blob']!, _extraBlobMeta));
-    }
-    if (data.containsKey('extra_strings')) {
-      context.handle(
-          _extraStringsMeta,
-          extraStrings.isAcceptableOrUnknown(
-              data['extra_strings']!, _extraStringsMeta));
-    }
-    if (data.containsKey('extra_ints')) {
-      context.handle(_extraIntsMeta,
-          extraInts.isAcceptableOrUnknown(data['extra_ints']!, _extraIntsMeta));
-    }
-    if (data.containsKey('extra_bools')) {
-      context.handle(
-          _extraBoolsMeta,
-          extraBools.isAcceptableOrUnknown(
-              data['extra_bools']!, _extraBoolsMeta));
-    }
-    if (data.containsKey('extra_decimals')) {
-      context.handle(
-          _extraDecimalsMeta,
-          extraDecimals.isAcceptableOrUnknown(
-              data['extra_decimals']!, _extraDecimalsMeta));
-    }
-    if (data.containsKey('extra_timestamps')) {
-      context.handle(
-          _extraTimestampsMeta,
-          extraTimestamps.isAcceptableOrUnknown(
-              data['extra_timestamps']!, _extraTimestampsMeta));
-    }
-    if (data.containsKey('extra_buffers')) {
-      context.handle(
-          _extraBuffersMeta,
-          extraBuffers.isAcceptableOrUnknown(
-              data['extra_buffers']!, _extraBuffersMeta));
-    }
-    if (data.containsKey('measures')) {
-      context.handle(_measuresMeta,
-          measures.isAcceptableOrUnknown(data['measures']!, _measuresMeta));
-    }
-    if (data.containsKey('series')) {
-      context.handle(_seriesMeta,
-          series.isAcceptableOrUnknown(data['series']!, _seriesMeta));
-    }
-    if (data.containsKey('describes')) {
-      context.handle(_describesMeta,
-          describes.isAcceptableOrUnknown(data['describes']!, _describesMeta));
-    }
-    if (data.containsKey('refs')) {
-      context.handle(
-          _refsMeta, refs.isAcceptableOrUnknown(data['refs']!, _refsMeta));
-    }
-    if (data.containsKey('options')) {
-      context.handle(_optionsMeta,
-          options.isAcceptableOrUnknown(data['options']!, _optionsMeta));
-    }
-    if (data.containsKey('media_links')) {
-      context.handle(
-          _mediaLinksMeta,
-          mediaLinks.isAcceptableOrUnknown(
-              data['media_links']!, _mediaLinksMeta));
-    }
+    context.handle(_extraBlobMeta, const i0.VerificationResult.success());
+    context.handle(_extraStringsMeta, const i0.VerificationResult.success());
+    context.handle(_extraIntsMeta, const i0.VerificationResult.success());
+    context.handle(_extraBoolsMeta, const i0.VerificationResult.success());
+    context.handle(_extraDecimalsMeta, const i0.VerificationResult.success());
+    context.handle(_extraTimestampsMeta, const i0.VerificationResult.success());
+    context.handle(_extraBuffersMeta, const i0.VerificationResult.success());
+    context.handle(_measuresMeta, const i0.VerificationResult.success());
+    context.handle(_seriesMeta, const i0.VerificationResult.success());
+    context.handle(_describesMeta, const i0.VerificationResult.success());
+    context.handle(_refsMeta, const i0.VerificationResult.success());
+    context.handle(_optionsMeta, const i0.VerificationResult.success());
+    context.handle(_mediaLinksMeta, const i0.VerificationResult.success());
     context.handle(_bookmarksMeta, const i0.VerificationResult.success());
     context.handle(_symbolsMeta, const i0.VerificationResult.success());
-    if (data.containsKey('detail')) {
-      context.handle(_detailMeta,
-          detail.isAcceptableOrUnknown(data['detail']!, _detailMeta));
-    }
+    context.handle(_detailMeta, const i0.VerificationResult.success());
     if (data.containsKey('metadata')) {
       context.handle(_metadataMeta,
           metadata.isAcceptableOrUnknown(data['metadata']!, _metadataMeta));
@@ -654,40 +621,51 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           i0.DriftSqlType.double, data['${effectivePrefix}extra_currency']),
       extraAmount: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.double, data['${effectivePrefix}extra_amount']),
-      extraBlob: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.blob, data['${effectivePrefix}extra_blob']),
-      extraStrings: attachedDatabase.typeMapping.read(
-          i0.DriftSqlType.string, data['${effectivePrefix}extra_strings']),
-      extraInts: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}extra_ints']),
-      extraBools: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}extra_bools']),
-      extraDecimals: attachedDatabase.typeMapping.read(
-          i0.DriftSqlType.string, data['${effectivePrefix}extra_decimals']),
-      extraTimestamps: attachedDatabase.typeMapping.read(
-          i0.DriftSqlType.string, data['${effectivePrefix}extra_timestamps']),
-      extraBuffers: attachedDatabase.typeMapping.read(
-          i0.DriftSqlType.string, data['${effectivePrefix}extra_buffers']),
-      measures: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}measures']),
-      series: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}series']),
-      describes: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}describes']),
-      refs: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}refs']),
-      options: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}options']),
-      mediaLinks: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}media_links']),
+      extraBlob: i1.Example.$converterextraBlobn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.blob, data['${effectivePrefix}extra_blob'])),
+      extraStrings: i1.Example.$converterextraStringsn.fromSql(
+          attachedDatabase.typeMapping.read(
+              i0.DriftSqlType.string, data['${effectivePrefix}extra_strings'])),
+      extraInts: i1.Example.$converterextraIntsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}extra_ints'])),
+      extraBools: i1.Example.$converterextraBoolsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}extra_bools'])),
+      extraDecimals: i1.Example.$converterextraDecimalsn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}extra_decimals'])),
+      extraTimestamps: i1.Example.$converterextraTimestampsn.fromSql(
+          attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
+              data['${effectivePrefix}extra_timestamps'])),
+      extraBuffers: i1.Example.$converterextraBuffersn.fromSql(
+          attachedDatabase.typeMapping.read(
+              i0.DriftSqlType.string, data['${effectivePrefix}extra_buffers'])),
+      measures: i1.Example.$convertermeasuresn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}measures'])),
+      series: i1.Example.$converterseriesn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}series'])),
+      describes: i1.Example.$converterdescribesn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}describes'])),
+      refs: i1.Example.$converterrefsn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}refs'])),
+      options: i1.Example.$converteroptionsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}options'])),
+      mediaLinks: i1.Example.$convertermediaLinksn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}media_links'])),
       bookmarks: i1.Example.$converterbookmarksn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}bookmarks'])),
       symbols: i1.Example.$convertersymbolsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}symbols'])),
-      detail: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}detail']),
+      detail: i1.Example.$converterdetailn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}detail'])),
       metadata: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}metadata']),
       slotId: attachedDatabase.typeMapping
@@ -726,44 +704,121 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
   static i0.JsonTypeConverter2<i2.Time?, String?, String?>
       $converterextraTimen =
       i0.JsonTypeConverter2.asNullable($converterextraTime);
-  static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
+  static i0.TypeConverter<String, i5.Uint8List> $converterextraBlob =
+      const i6.BytesFldConverter();
+  static i0.TypeConverter<String?, i5.Uint8List?> $converterextraBlobn =
+      i0.NullAwareTypeConverter.wrap($converterextraBlob);
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $converterextraStrings = const i6.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $converterextraStringsn =
+      i0.JsonTypeConverter2.asNullable($converterextraStrings);
+  static i0.JsonTypeConverter2<List<int>, String, List<dynamic>>
+      $converterextraInts = const i6.IntListConverter();
+  static i0.JsonTypeConverter2<List<int>?, String?, List<dynamic>?>
+      $converterextraIntsn =
+      i0.JsonTypeConverter2.asNullable($converterextraInts);
+  static i0.JsonTypeConverter2<List<bool>, String, List<dynamic>>
+      $converterextraBools = const i6.BoolListConverter();
+  static i0.JsonTypeConverter2<List<bool>?, String?, List<dynamic>?>
+      $converterextraBoolsn =
+      i0.JsonTypeConverter2.asNullable($converterextraBools);
+  static i0.JsonTypeConverter2<List<double>, String, List<dynamic>>
+      $converterextraDecimals = const i6.DoubleListConverter();
+  static i0.JsonTypeConverter2<List<double>?, String?, List<dynamic>?>
+      $converterextraDecimalsn =
+      i0.JsonTypeConverter2.asNullable($converterextraDecimals);
+  static i0.JsonTypeConverter2<List<DateTime>, String, List<dynamic>>
+      $converterextraTimestamps = const i6.DateTimeListConverter();
+  static i0.JsonTypeConverter2<List<DateTime>?, String?, List<dynamic>?>
+      $converterextraTimestampsn =
+      i0.JsonTypeConverter2.asNullable($converterextraTimestamps);
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $converterextraBuffers = const i6.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $converterextraBuffersn =
+      i0.JsonTypeConverter2.asNullable($converterextraBuffers);
+  static i0
+      .JsonTypeConverter2<Map<String, double>, String, Map<String, dynamic>>
+      $convertermeasures = const i6.DoubleMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, double>?, String?, Map<String, dynamic>?>
+      $convertermeasuresn =
+      i0.JsonTypeConverter2.asNullable($convertermeasures);
+  static i0.JsonTypeConverter2<Map<String, int>, String, Map<String, dynamic>>
+      $converterseries = const i6.IntMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, int>?, String?, Map<String, dynamic>?>
+      $converterseriesn = i0.JsonTypeConverter2.asNullable($converterseries);
+  static i0
+      .JsonTypeConverter2<Map<String, String>, String, Map<String, dynamic>>
+      $converterdescribes = const i6.StringMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, String>?, String?, Map<String, dynamic>?>
+      $converterdescribesn =
+      i0.JsonTypeConverter2.asNullable($converterdescribes);
+  static i0
+      .JsonTypeConverter2<Map<String, String>, String, Map<String, dynamic>>
+      $converterrefs = const i6.StringMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, String>?, String?, Map<String, dynamic>?>
+      $converterrefsn = i0.JsonTypeConverter2.asNullable($converterrefs);
+  static i0.JsonTypeConverter2<Map<String, bool>, String, Map<String, dynamic>>
+      $converteroptions = const i6.BoolMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, bool>?, String?, Map<String, dynamic>?>
+      $converteroptionsn = i0.JsonTypeConverter2.asNullable($converteroptions);
+  static i0
+      .JsonTypeConverter2<Map<String, String>, String, Map<String, dynamic>>
+      $convertermediaLinks = const i6.StringMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, String>?, String?, Map<String, dynamic>?>
+      $convertermediaLinksn =
+      i0.JsonTypeConverter2.asNullable($convertermediaLinks);
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
           Map<String, dynamic>> $converterbookmarks =
       const i6.StringMultimapConverter();
-  static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $converterbookmarksn =
       i0.JsonTypeConverter2.asNullable($converterbookmarks);
-  static i0.JsonTypeConverter2<i4.Multimap<String, int>, String,
+  static i0.JsonTypeConverter2<i3.Multimap<String, int>, String,
           Map<String, dynamic>> $convertersymbols =
       const i6.SymbolMultimapConverter();
-  static i0.JsonTypeConverter2<i4.Multimap<String, int>?, String?,
+  static i0.JsonTypeConverter2<i3.Multimap<String, int>?, String?,
           Map<String, dynamic>?> $convertersymbolsn =
       i0.JsonTypeConverter2.asNullable($convertersymbols);
-  static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
+  static i0
+      .JsonTypeConverter2<Map<String, Object?>, String, Map<String, dynamic>>
+      $converterdetail = const i6.ObjectMapConverter();
+  static i0
+      .JsonTypeConverter2<Map<String, Object?>?, String?, Map<String, dynamic>?>
+      $converterdetailn = i0.JsonTypeConverter2.asNullable($converterdetail);
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i6.StringMultimapConverter();
-  static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
-  static i0.JsonTypeConverter2<i5.ExampleType, String, Map<String, dynamic>>
+  static i0.JsonTypeConverter2<i4.ExampleType, String, Map<String, dynamic>>
       $converterexampleType = const i7.ExampleTypeConverter();
-  static i0.JsonTypeConverter2<i5.ExampleType?, String?, Map<String, dynamic>?>
+  static i0.JsonTypeConverter2<i4.ExampleType?, String?, Map<String, dynamic>?>
       $converterexampleTypen =
       i0.JsonTypeConverter2.asNullable($converterexampleType);
-  static i0.JsonTypeConverter2<List<i5.ExampleFeatureAppl>, String,
+  static i0.JsonTypeConverter2<List<i4.ExampleFeatureAppl>, String,
           List<Map<String, dynamic>>> $converterexampleFeatureAppl =
       const i7.ExampleFeatureApplListConverter();
-  static i0.JsonTypeConverter2<List<i5.ExampleFeatureAppl>?, String?,
+  static i0.JsonTypeConverter2<List<i4.ExampleFeatureAppl>?, String?,
           List<Map<String, dynamic>>?> $converterexampleFeatureAppln =
       i0.JsonTypeConverter2.asNullable($converterexampleFeatureAppl);
-  static i0.JsonTypeConverter2<List<i5.ExampleStatus>, String,
+  static i0.JsonTypeConverter2<List<i4.ExampleStatus>, String,
           List<Map<String, dynamic>>> $converterexampleStatus =
       const i7.ExampleStatusListConverter();
-  static i0.JsonTypeConverter2<List<i5.ExampleStatus>?, String?,
+  static i0.JsonTypeConverter2<List<i4.ExampleStatus>?, String?,
           List<Map<String, dynamic>>?> $converterexampleStatusn =
       i0.JsonTypeConverter2.asNullable($converterexampleStatus);
-  static i0.JsonTypeConverter2<List<i5.ExampleItem>, String,
+  static i0.JsonTypeConverter2<List<i4.ExampleItem>, String,
           List<Map<String, dynamic>>> $converterexampleItem =
       const i7.ExampleItemListConverter();
-  static i0.JsonTypeConverter2<List<i5.ExampleItem>?, String?,
+  static i0.JsonTypeConverter2<List<i4.ExampleItem>?, String?,
           List<Map<String, dynamic>>?> $converterexampleItemn =
       i0.JsonTypeConverter2.asNullable($converterexampleItem);
   @override
@@ -791,35 +846,35 @@ class ExampleData extends i0.DataClass
   final i2.Time? extraTime;
   final double? extraCurrency;
   final double? extraAmount;
-  final i3.Uint8List? extraBlob;
-  final String? extraStrings;
-  final String? extraInts;
-  final String? extraBools;
-  final String? extraDecimals;
-  final String? extraTimestamps;
-  final String? extraBuffers;
-  final String? measures;
-  final String? series;
-  final String? describes;
-  final String? refs;
-  final String? options;
-  final String? mediaLinks;
-  final i4.Multimap<String, String>? bookmarks;
-  final i4.Multimap<String, int>? symbols;
-  final String? detail;
+  final String? extraBlob;
+  final List<String>? extraStrings;
+  final List<int>? extraInts;
+  final List<bool>? extraBools;
+  final List<double>? extraDecimals;
+  final List<DateTime>? extraTimestamps;
+  final List<String>? extraBuffers;
+  final Map<String, double>? measures;
+  final Map<String, int>? series;
+  final Map<String, String>? describes;
+  final Map<String, String>? refs;
+  final Map<String, bool>? options;
+  final Map<String, String>? mediaLinks;
+  final i3.Multimap<String, String>? bookmarks;
+  final i3.Multimap<String, int>? symbols;
+  final Map<String, Object?>? detail;
   final String? metadata;
   final String? slotId;
   final String? customerConfirmation;
   final bool? evict;
-  final i4.Multimap<String, String>? acl;
+  final i3.Multimap<String, String>? acl;
 
   /// rel: one (no public-types)
-  final i5.ExampleType? exampleType;
+  final i4.ExampleType? exampleType;
 
   /// rel: many
-  final List<i5.ExampleFeatureAppl>? exampleFeatureAppl;
-  final List<i5.ExampleStatus>? exampleStatus;
-  final List<i5.ExampleItem>? exampleItem;
+  final List<i4.ExampleFeatureAppl>? exampleFeatureAppl;
+  final List<i4.ExampleStatus>? exampleStatus;
+  final List<i4.ExampleItem>? exampleItem;
   final int? reservedFlag;
   const ExampleData(
       {required this.exampleId,
@@ -927,43 +982,55 @@ class ExampleData extends i0.DataClass
       map['extra_amount'] = i0.Variable<double>(extraAmount);
     }
     if (!nullToAbsent || extraBlob != null) {
-      map['extra_blob'] = i0.Variable<i3.Uint8List>(extraBlob);
+      map['extra_blob'] = i0.Variable<i5.Uint8List>(
+          i1.Example.$converterextraBlobn.toSql(extraBlob));
     }
     if (!nullToAbsent || extraStrings != null) {
-      map['extra_strings'] = i0.Variable<String>(extraStrings);
+      map['extra_strings'] = i0.Variable<String>(
+          i1.Example.$converterextraStringsn.toSql(extraStrings));
     }
     if (!nullToAbsent || extraInts != null) {
-      map['extra_ints'] = i0.Variable<String>(extraInts);
+      map['extra_ints'] =
+          i0.Variable<String>(i1.Example.$converterextraIntsn.toSql(extraInts));
     }
     if (!nullToAbsent || extraBools != null) {
-      map['extra_bools'] = i0.Variable<String>(extraBools);
+      map['extra_bools'] = i0.Variable<String>(
+          i1.Example.$converterextraBoolsn.toSql(extraBools));
     }
     if (!nullToAbsent || extraDecimals != null) {
-      map['extra_decimals'] = i0.Variable<String>(extraDecimals);
+      map['extra_decimals'] = i0.Variable<String>(
+          i1.Example.$converterextraDecimalsn.toSql(extraDecimals));
     }
     if (!nullToAbsent || extraTimestamps != null) {
-      map['extra_timestamps'] = i0.Variable<String>(extraTimestamps);
+      map['extra_timestamps'] = i0.Variable<String>(
+          i1.Example.$converterextraTimestampsn.toSql(extraTimestamps));
     }
     if (!nullToAbsent || extraBuffers != null) {
-      map['extra_buffers'] = i0.Variable<String>(extraBuffers);
+      map['extra_buffers'] = i0.Variable<String>(
+          i1.Example.$converterextraBuffersn.toSql(extraBuffers));
     }
     if (!nullToAbsent || measures != null) {
-      map['measures'] = i0.Variable<String>(measures);
+      map['measures'] =
+          i0.Variable<String>(i1.Example.$convertermeasuresn.toSql(measures));
     }
     if (!nullToAbsent || series != null) {
-      map['series'] = i0.Variable<String>(series);
+      map['series'] =
+          i0.Variable<String>(i1.Example.$converterseriesn.toSql(series));
     }
     if (!nullToAbsent || describes != null) {
-      map['describes'] = i0.Variable<String>(describes);
+      map['describes'] =
+          i0.Variable<String>(i1.Example.$converterdescribesn.toSql(describes));
     }
     if (!nullToAbsent || refs != null) {
-      map['refs'] = i0.Variable<String>(refs);
+      map['refs'] = i0.Variable<String>(i1.Example.$converterrefsn.toSql(refs));
     }
     if (!nullToAbsent || options != null) {
-      map['options'] = i0.Variable<String>(options);
+      map['options'] =
+          i0.Variable<String>(i1.Example.$converteroptionsn.toSql(options));
     }
     if (!nullToAbsent || mediaLinks != null) {
-      map['media_links'] = i0.Variable<String>(mediaLinks);
+      map['media_links'] = i0.Variable<String>(
+          i1.Example.$convertermediaLinksn.toSql(mediaLinks));
     }
     if (!nullToAbsent || bookmarks != null) {
       map['bookmarks'] =
@@ -974,7 +1041,8 @@ class ExampleData extends i0.DataClass
           i0.Variable<String>(i1.Example.$convertersymbolsn.toSql(symbols));
     }
     if (!nullToAbsent || detail != null) {
-      map['detail'] = i0.Variable<String>(detail);
+      map['detail'] =
+          i0.Variable<String>(i1.Example.$converterdetailn.toSql(detail));
     }
     if (!nullToAbsent || metadata != null) {
       map['metadata'] = i0.Variable<String>(metadata);
@@ -1175,24 +1243,37 @@ class ExampleData extends i0.DataClass
           .fromJson(serializer.fromJson<String?>(json['extra_time'])),
       extraCurrency: serializer.fromJson<double?>(json['extra_currency']),
       extraAmount: serializer.fromJson<double?>(json['extra_amount']),
-      extraBlob: serializer.fromJson<i3.Uint8List?>(json['extra_blob']),
-      extraStrings: serializer.fromJson<String?>(json['extra_strings']),
-      extraInts: serializer.fromJson<String?>(json['extra_ints']),
-      extraBools: serializer.fromJson<String?>(json['extra_bools']),
-      extraDecimals: serializer.fromJson<String?>(json['extra_decimals']),
-      extraTimestamps: serializer.fromJson<String?>(json['extra_timestamps']),
-      extraBuffers: serializer.fromJson<String?>(json['extra_buffers']),
-      measures: serializer.fromJson<String?>(json['measures']),
-      series: serializer.fromJson<String?>(json['series']),
-      describes: serializer.fromJson<String?>(json['describes']),
-      refs: serializer.fromJson<String?>(json['refs']),
-      options: serializer.fromJson<String?>(json['options']),
-      mediaLinks: serializer.fromJson<String?>(json['media_links']),
+      extraBlob: serializer.fromJson<String?>(json['extra_blob']),
+      extraStrings: i1.Example.$converterextraStringsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['extra_strings'])),
+      extraInts: i1.Example.$converterextraIntsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['extra_ints'])),
+      extraBools: i1.Example.$converterextraBoolsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['extra_bools'])),
+      extraDecimals: i1.Example.$converterextraDecimalsn.fromJson(
+          serializer.fromJson<List<dynamic>?>(json['extra_decimals'])),
+      extraTimestamps: i1.Example.$converterextraTimestampsn.fromJson(
+          serializer.fromJson<List<dynamic>?>(json['extra_timestamps'])),
+      extraBuffers: i1.Example.$converterextraBuffersn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['extra_buffers'])),
+      measures: i1.Example.$convertermeasuresn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['measures'])),
+      series: i1.Example.$converterseriesn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['series'])),
+      describes: i1.Example.$converterdescribesn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['describes'])),
+      refs: i1.Example.$converterrefsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['refs'])),
+      options: i1.Example.$converteroptionsn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['options'])),
+      mediaLinks: i1.Example.$convertermediaLinksn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['media_links'])),
       bookmarks: i1.Example.$converterbookmarksn.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['bookmarks'])),
       symbols: i1.Example.$convertersymbolsn.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['symbols'])),
-      detail: serializer.fromJson<String?>(json['detail']),
+      detail: i1.Example.$converterdetailn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['detail'])),
       metadata: serializer.fromJson<String?>(json['metadata']),
       slotId: serializer.fromJson<String?>(json['slot_id']),
       customerConfirmation:
@@ -1236,24 +1317,37 @@ class ExampleData extends i0.DataClass
           .toJson<String?>(i1.Example.$converterextraTimen.toJson(extraTime)),
       'extra_currency': serializer.toJson<double?>(extraCurrency),
       'extra_amount': serializer.toJson<double?>(extraAmount),
-      'extra_blob': serializer.toJson<i3.Uint8List?>(extraBlob),
-      'extra_strings': serializer.toJson<String?>(extraStrings),
-      'extra_ints': serializer.toJson<String?>(extraInts),
-      'extra_bools': serializer.toJson<String?>(extraBools),
-      'extra_decimals': serializer.toJson<String?>(extraDecimals),
-      'extra_timestamps': serializer.toJson<String?>(extraTimestamps),
-      'extra_buffers': serializer.toJson<String?>(extraBuffers),
-      'measures': serializer.toJson<String?>(measures),
-      'series': serializer.toJson<String?>(series),
-      'describes': serializer.toJson<String?>(describes),
-      'refs': serializer.toJson<String?>(refs),
-      'options': serializer.toJson<String?>(options),
-      'media_links': serializer.toJson<String?>(mediaLinks),
+      'extra_blob': serializer.toJson<String?>(extraBlob),
+      'extra_strings': serializer.toJson<List<dynamic>?>(
+          i1.Example.$converterextraStringsn.toJson(extraStrings)),
+      'extra_ints': serializer.toJson<List<dynamic>?>(
+          i1.Example.$converterextraIntsn.toJson(extraInts)),
+      'extra_bools': serializer.toJson<List<dynamic>?>(
+          i1.Example.$converterextraBoolsn.toJson(extraBools)),
+      'extra_decimals': serializer.toJson<List<dynamic>?>(
+          i1.Example.$converterextraDecimalsn.toJson(extraDecimals)),
+      'extra_timestamps': serializer.toJson<List<dynamic>?>(
+          i1.Example.$converterextraTimestampsn.toJson(extraTimestamps)),
+      'extra_buffers': serializer.toJson<List<dynamic>?>(
+          i1.Example.$converterextraBuffersn.toJson(extraBuffers)),
+      'measures': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$convertermeasuresn.toJson(measures)),
+      'series': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converterseriesn.toJson(series)),
+      'describes': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converterdescribesn.toJson(describes)),
+      'refs': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converterrefsn.toJson(refs)),
+      'options': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converteroptionsn.toJson(options)),
+      'media_links': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$convertermediaLinksn.toJson(mediaLinks)),
       'bookmarks': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$converterbookmarksn.toJson(bookmarks)),
       'symbols': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$convertersymbolsn.toJson(symbols)),
-      'detail': serializer.toJson<String?>(detail),
+      'detail': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converterdetailn.toJson(detail)),
       'metadata': serializer.toJson<String?>(metadata),
       'slot_id': serializer.toJson<String?>(slotId),
       'customer_confirmation': serializer.toJson<String?>(customerConfirmation),
@@ -1292,34 +1386,34 @@ class ExampleData extends i0.DataClass
           i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
           i0.Value<double?> extraCurrency = const i0.Value.absent(),
           i0.Value<double?> extraAmount = const i0.Value.absent(),
-          i0.Value<i3.Uint8List?> extraBlob = const i0.Value.absent(),
-          i0.Value<String?> extraStrings = const i0.Value.absent(),
-          i0.Value<String?> extraInts = const i0.Value.absent(),
-          i0.Value<String?> extraBools = const i0.Value.absent(),
-          i0.Value<String?> extraDecimals = const i0.Value.absent(),
-          i0.Value<String?> extraTimestamps = const i0.Value.absent(),
-          i0.Value<String?> extraBuffers = const i0.Value.absent(),
-          i0.Value<String?> measures = const i0.Value.absent(),
-          i0.Value<String?> series = const i0.Value.absent(),
-          i0.Value<String?> describes = const i0.Value.absent(),
-          i0.Value<String?> refs = const i0.Value.absent(),
-          i0.Value<String?> options = const i0.Value.absent(),
-          i0.Value<String?> mediaLinks = const i0.Value.absent(),
-          i0.Value<i4.Multimap<String, String>?> bookmarks =
+          i0.Value<String?> extraBlob = const i0.Value.absent(),
+          i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
+          i0.Value<List<int>?> extraInts = const i0.Value.absent(),
+          i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
+          i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
+          i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
+          i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
+          i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
+          i0.Value<Map<String, int>?> series = const i0.Value.absent(),
+          i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
+          i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
+          i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
+          i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
+          i0.Value<i3.Multimap<String, String>?> bookmarks =
               const i0.Value.absent(),
-          i0.Value<i4.Multimap<String, int>?> symbols = const i0.Value.absent(),
-          i0.Value<String?> detail = const i0.Value.absent(),
+          i0.Value<i3.Multimap<String, int>?> symbols = const i0.Value.absent(),
+          i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
           i0.Value<String?> metadata = const i0.Value.absent(),
           i0.Value<String?> slotId = const i0.Value.absent(),
           i0.Value<String?> customerConfirmation = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
-          i0.Value<i4.Multimap<String, String>?> acl = const i0.Value.absent(),
-          i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
-          i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
+          i0.Value<i3.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
+          i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
               const i0.Value.absent(),
-          i0.Value<List<i5.ExampleStatus>?> exampleStatus =
+          i0.Value<List<i4.ExampleStatus>?> exampleStatus =
               const i0.Value.absent(),
-          i0.Value<List<i5.ExampleItem>?> exampleItem = const i0.Value.absent(),
+          i0.Value<List<i4.ExampleItem>?> exampleItem = const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.ExampleData(
         exampleId: exampleId ?? this.exampleId,
@@ -1546,7 +1640,7 @@ class ExampleData extends i0.DataClass
         extraTime,
         extraCurrency,
         extraAmount,
-        i0.$driftBlobEquality.hash(extraBlob),
+        extraBlob,
         extraStrings,
         extraInts,
         extraBools,
@@ -1596,7 +1690,7 @@ class ExampleData extends i0.DataClass
           other.extraTime == this.extraTime &&
           other.extraCurrency == this.extraCurrency &&
           other.extraAmount == this.extraAmount &&
-          i0.$driftBlobEquality.equals(other.extraBlob, this.extraBlob) &&
+          other.extraBlob == this.extraBlob &&
           other.extraStrings == this.extraStrings &&
           other.extraInts == this.extraInts &&
           other.extraBools == this.extraBools &&
@@ -1644,31 +1738,31 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
   final i0.Value<i2.Time?> extraTime;
   final i0.Value<double?> extraCurrency;
   final i0.Value<double?> extraAmount;
-  final i0.Value<i3.Uint8List?> extraBlob;
-  final i0.Value<String?> extraStrings;
-  final i0.Value<String?> extraInts;
-  final i0.Value<String?> extraBools;
-  final i0.Value<String?> extraDecimals;
-  final i0.Value<String?> extraTimestamps;
-  final i0.Value<String?> extraBuffers;
-  final i0.Value<String?> measures;
-  final i0.Value<String?> series;
-  final i0.Value<String?> describes;
-  final i0.Value<String?> refs;
-  final i0.Value<String?> options;
-  final i0.Value<String?> mediaLinks;
-  final i0.Value<i4.Multimap<String, String>?> bookmarks;
-  final i0.Value<i4.Multimap<String, int>?> symbols;
-  final i0.Value<String?> detail;
+  final i0.Value<String?> extraBlob;
+  final i0.Value<List<String>?> extraStrings;
+  final i0.Value<List<int>?> extraInts;
+  final i0.Value<List<bool>?> extraBools;
+  final i0.Value<List<double>?> extraDecimals;
+  final i0.Value<List<DateTime>?> extraTimestamps;
+  final i0.Value<List<String>?> extraBuffers;
+  final i0.Value<Map<String, double>?> measures;
+  final i0.Value<Map<String, int>?> series;
+  final i0.Value<Map<String, String>?> describes;
+  final i0.Value<Map<String, String>?> refs;
+  final i0.Value<Map<String, bool>?> options;
+  final i0.Value<Map<String, String>?> mediaLinks;
+  final i0.Value<i3.Multimap<String, String>?> bookmarks;
+  final i0.Value<i3.Multimap<String, int>?> symbols;
+  final i0.Value<Map<String, Object?>?> detail;
   final i0.Value<String?> metadata;
   final i0.Value<String?> slotId;
   final i0.Value<String?> customerConfirmation;
   final i0.Value<bool?> evict;
-  final i0.Value<i4.Multimap<String, String>?> acl;
-  final i0.Value<i5.ExampleType?> exampleType;
-  final i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl;
-  final i0.Value<List<i5.ExampleStatus>?> exampleStatus;
-  final i0.Value<List<i5.ExampleItem>?> exampleItem;
+  final i0.Value<i3.Multimap<String, String>?> acl;
+  final i0.Value<i4.ExampleType?> exampleType;
+  final i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl;
+  final i0.Value<List<i4.ExampleStatus>?> exampleStatus;
+  final i0.Value<List<i4.ExampleItem>?> exampleItem;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const ExampleCompanion({
@@ -1787,7 +1881,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     i0.Expression<String>? extraTime,
     i0.Expression<double>? extraCurrency,
     i0.Expression<double>? extraAmount,
-    i0.Expression<i3.Uint8List>? extraBlob,
+    i0.Expression<i5.Uint8List>? extraBlob,
     i0.Expression<String>? extraStrings,
     i0.Expression<String>? extraInts,
     i0.Expression<String>? extraBools,
@@ -1888,31 +1982,31 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       i0.Value<i2.Time?>? extraTime,
       i0.Value<double?>? extraCurrency,
       i0.Value<double?>? extraAmount,
-      i0.Value<i3.Uint8List?>? extraBlob,
-      i0.Value<String?>? extraStrings,
-      i0.Value<String?>? extraInts,
-      i0.Value<String?>? extraBools,
-      i0.Value<String?>? extraDecimals,
-      i0.Value<String?>? extraTimestamps,
-      i0.Value<String?>? extraBuffers,
-      i0.Value<String?>? measures,
-      i0.Value<String?>? series,
-      i0.Value<String?>? describes,
-      i0.Value<String?>? refs,
-      i0.Value<String?>? options,
-      i0.Value<String?>? mediaLinks,
-      i0.Value<i4.Multimap<String, String>?>? bookmarks,
-      i0.Value<i4.Multimap<String, int>?>? symbols,
-      i0.Value<String?>? detail,
+      i0.Value<String?>? extraBlob,
+      i0.Value<List<String>?>? extraStrings,
+      i0.Value<List<int>?>? extraInts,
+      i0.Value<List<bool>?>? extraBools,
+      i0.Value<List<double>?>? extraDecimals,
+      i0.Value<List<DateTime>?>? extraTimestamps,
+      i0.Value<List<String>?>? extraBuffers,
+      i0.Value<Map<String, double>?>? measures,
+      i0.Value<Map<String, int>?>? series,
+      i0.Value<Map<String, String>?>? describes,
+      i0.Value<Map<String, String>?>? refs,
+      i0.Value<Map<String, bool>?>? options,
+      i0.Value<Map<String, String>?>? mediaLinks,
+      i0.Value<i3.Multimap<String, String>?>? bookmarks,
+      i0.Value<i3.Multimap<String, int>?>? symbols,
+      i0.Value<Map<String, Object?>?>? detail,
       i0.Value<String?>? metadata,
       i0.Value<String?>? slotId,
       i0.Value<String?>? customerConfirmation,
       i0.Value<bool?>? evict,
-      i0.Value<i4.Multimap<String, String>?>? acl,
-      i0.Value<i5.ExampleType?>? exampleType,
-      i0.Value<List<i5.ExampleFeatureAppl>?>? exampleFeatureAppl,
-      i0.Value<List<i5.ExampleStatus>?>? exampleStatus,
-      i0.Value<List<i5.ExampleItem>?>? exampleItem,
+      i0.Value<i3.Multimap<String, String>?>? acl,
+      i0.Value<i4.ExampleType?>? exampleType,
+      i0.Value<List<i4.ExampleFeatureAppl>?>? exampleFeatureAppl,
+      i0.Value<List<i4.ExampleStatus>?>? exampleStatus,
+      i0.Value<List<i4.ExampleItem>?>? exampleItem,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.ExampleCompanion(
@@ -2028,43 +2122,56 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       map['extra_amount'] = i0.Variable<double>(extraAmount.value);
     }
     if (extraBlob.present) {
-      map['extra_blob'] = i0.Variable<i3.Uint8List>(extraBlob.value);
+      map['extra_blob'] = i0.Variable<i5.Uint8List>(
+          i1.Example.$converterextraBlobn.toSql(extraBlob.value));
     }
     if (extraStrings.present) {
-      map['extra_strings'] = i0.Variable<String>(extraStrings.value);
+      map['extra_strings'] = i0.Variable<String>(
+          i1.Example.$converterextraStringsn.toSql(extraStrings.value));
     }
     if (extraInts.present) {
-      map['extra_ints'] = i0.Variable<String>(extraInts.value);
+      map['extra_ints'] = i0.Variable<String>(
+          i1.Example.$converterextraIntsn.toSql(extraInts.value));
     }
     if (extraBools.present) {
-      map['extra_bools'] = i0.Variable<String>(extraBools.value);
+      map['extra_bools'] = i0.Variable<String>(
+          i1.Example.$converterextraBoolsn.toSql(extraBools.value));
     }
     if (extraDecimals.present) {
-      map['extra_decimals'] = i0.Variable<String>(extraDecimals.value);
+      map['extra_decimals'] = i0.Variable<String>(
+          i1.Example.$converterextraDecimalsn.toSql(extraDecimals.value));
     }
     if (extraTimestamps.present) {
-      map['extra_timestamps'] = i0.Variable<String>(extraTimestamps.value);
+      map['extra_timestamps'] = i0.Variable<String>(
+          i1.Example.$converterextraTimestampsn.toSql(extraTimestamps.value));
     }
     if (extraBuffers.present) {
-      map['extra_buffers'] = i0.Variable<String>(extraBuffers.value);
+      map['extra_buffers'] = i0.Variable<String>(
+          i1.Example.$converterextraBuffersn.toSql(extraBuffers.value));
     }
     if (measures.present) {
-      map['measures'] = i0.Variable<String>(measures.value);
+      map['measures'] = i0.Variable<String>(
+          i1.Example.$convertermeasuresn.toSql(measures.value));
     }
     if (series.present) {
-      map['series'] = i0.Variable<String>(series.value);
+      map['series'] =
+          i0.Variable<String>(i1.Example.$converterseriesn.toSql(series.value));
     }
     if (describes.present) {
-      map['describes'] = i0.Variable<String>(describes.value);
+      map['describes'] = i0.Variable<String>(
+          i1.Example.$converterdescribesn.toSql(describes.value));
     }
     if (refs.present) {
-      map['refs'] = i0.Variable<String>(refs.value);
+      map['refs'] =
+          i0.Variable<String>(i1.Example.$converterrefsn.toSql(refs.value));
     }
     if (options.present) {
-      map['options'] = i0.Variable<String>(options.value);
+      map['options'] = i0.Variable<String>(
+          i1.Example.$converteroptionsn.toSql(options.value));
     }
     if (mediaLinks.present) {
-      map['media_links'] = i0.Variable<String>(mediaLinks.value);
+      map['media_links'] = i0.Variable<String>(
+          i1.Example.$convertermediaLinksn.toSql(mediaLinks.value));
     }
     if (bookmarks.present) {
       map['bookmarks'] = i0.Variable<String>(
@@ -2075,7 +2182,8 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
           i1.Example.$convertersymbolsn.toSql(symbols.value));
     }
     if (detail.present) {
-      map['detail'] = i0.Variable<String>(detail.value);
+      map['detail'] =
+          i0.Variable<String>(i1.Example.$converterdetailn.toSql(detail.value));
     }
     if (metadata.present) {
       map['metadata'] = i0.Variable<String>(metadata.value);
@@ -2194,31 +2302,31 @@ typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<i2.Time?> extraTime,
   i0.Value<double?> extraCurrency,
   i0.Value<double?> extraAmount,
-  i0.Value<i3.Uint8List?> extraBlob,
-  i0.Value<String?> extraStrings,
-  i0.Value<String?> extraInts,
-  i0.Value<String?> extraBools,
-  i0.Value<String?> extraDecimals,
-  i0.Value<String?> extraTimestamps,
-  i0.Value<String?> extraBuffers,
-  i0.Value<String?> measures,
-  i0.Value<String?> series,
-  i0.Value<String?> describes,
-  i0.Value<String?> refs,
-  i0.Value<String?> options,
-  i0.Value<String?> mediaLinks,
-  i0.Value<i4.Multimap<String, String>?> bookmarks,
-  i0.Value<i4.Multimap<String, int>?> symbols,
-  i0.Value<String?> detail,
+  i0.Value<String?> extraBlob,
+  i0.Value<List<String>?> extraStrings,
+  i0.Value<List<int>?> extraInts,
+  i0.Value<List<bool>?> extraBools,
+  i0.Value<List<double>?> extraDecimals,
+  i0.Value<List<DateTime>?> extraTimestamps,
+  i0.Value<List<String>?> extraBuffers,
+  i0.Value<Map<String, double>?> measures,
+  i0.Value<Map<String, int>?> series,
+  i0.Value<Map<String, String>?> describes,
+  i0.Value<Map<String, String>?> refs,
+  i0.Value<Map<String, bool>?> options,
+  i0.Value<Map<String, String>?> mediaLinks,
+  i0.Value<i3.Multimap<String, String>?> bookmarks,
+  i0.Value<i3.Multimap<String, int>?> symbols,
+  i0.Value<Map<String, Object?>?> detail,
   i0.Value<String?> metadata,
   i0.Value<String?> slotId,
   i0.Value<String?> customerConfirmation,
   i0.Value<bool?> evict,
-  i0.Value<i4.Multimap<String, String>?> acl,
-  i0.Value<i5.ExampleType?> exampleType,
-  i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
-  i0.Value<List<i5.ExampleStatus>?> exampleStatus,
-  i0.Value<List<i5.ExampleItem>?> exampleItem,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ExampleType?> exampleType,
+  i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl,
+  i0.Value<List<i4.ExampleStatus>?> exampleStatus,
+  i0.Value<List<i4.ExampleItem>?> exampleItem,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -2242,31 +2350,31 @@ typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<i2.Time?> extraTime,
   i0.Value<double?> extraCurrency,
   i0.Value<double?> extraAmount,
-  i0.Value<i3.Uint8List?> extraBlob,
-  i0.Value<String?> extraStrings,
-  i0.Value<String?> extraInts,
-  i0.Value<String?> extraBools,
-  i0.Value<String?> extraDecimals,
-  i0.Value<String?> extraTimestamps,
-  i0.Value<String?> extraBuffers,
-  i0.Value<String?> measures,
-  i0.Value<String?> series,
-  i0.Value<String?> describes,
-  i0.Value<String?> refs,
-  i0.Value<String?> options,
-  i0.Value<String?> mediaLinks,
-  i0.Value<i4.Multimap<String, String>?> bookmarks,
-  i0.Value<i4.Multimap<String, int>?> symbols,
-  i0.Value<String?> detail,
+  i0.Value<String?> extraBlob,
+  i0.Value<List<String>?> extraStrings,
+  i0.Value<List<int>?> extraInts,
+  i0.Value<List<bool>?> extraBools,
+  i0.Value<List<double>?> extraDecimals,
+  i0.Value<List<DateTime>?> extraTimestamps,
+  i0.Value<List<String>?> extraBuffers,
+  i0.Value<Map<String, double>?> measures,
+  i0.Value<Map<String, int>?> series,
+  i0.Value<Map<String, String>?> describes,
+  i0.Value<Map<String, String>?> refs,
+  i0.Value<Map<String, bool>?> options,
+  i0.Value<Map<String, String>?> mediaLinks,
+  i0.Value<i3.Multimap<String, String>?> bookmarks,
+  i0.Value<i3.Multimap<String, int>?> symbols,
+  i0.Value<Map<String, Object?>?> detail,
   i0.Value<String?> metadata,
   i0.Value<String?> slotId,
   i0.Value<String?> customerConfirmation,
   i0.Value<bool?> evict,
-  i0.Value<i4.Multimap<String, String>?> acl,
-  i0.Value<i5.ExampleType?> exampleType,
-  i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
-  i0.Value<List<i5.ExampleStatus>?> exampleStatus,
-  i0.Value<List<i5.ExampleItem>?> exampleItem,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ExampleType?> exampleType,
+  i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl,
+  i0.Value<List<i4.ExampleStatus>?> exampleStatus,
+  i0.Value<List<i4.ExampleItem>?> exampleItem,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -2371,91 +2479,125 @@ class $ExampleFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<i3.Uint8List> get extraBlob => $state.composableBuilder(
-      column: $state.table.extraBlob,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<String?, String, i5.Uint8List>
+      get extraBlob => $state.composableBuilder(
+          column: $state.table.extraBlob,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get extraStrings => $state.composableBuilder(
-      column: $state.table.extraStrings,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get extraStrings => $state.composableBuilder(
+          column: $state.table.extraStrings,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get extraInts => $state.composableBuilder(
-      column: $state.table.extraInts,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<int>?, List<int>, String>
+      get extraInts => $state.composableBuilder(
+          column: $state.table.extraInts,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get extraBools => $state.composableBuilder(
-      column: $state.table.extraBools,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<bool>?, List<bool>, String>
+      get extraBools => $state.composableBuilder(
+          column: $state.table.extraBools,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get extraDecimals => $state.composableBuilder(
-      column: $state.table.extraDecimals,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<double>?, List<double>, String>
+      get extraDecimals => $state.composableBuilder(
+          column: $state.table.extraDecimals,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get extraTimestamps => $state.composableBuilder(
-      column: $state.table.extraTimestamps,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<DateTime>?, List<DateTime>, String>
+      get extraTimestamps => $state.composableBuilder(
+          column: $state.table.extraTimestamps,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get extraBuffers => $state.composableBuilder(
-      column: $state.table.extraBuffers,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get extraBuffers => $state.composableBuilder(
+          column: $state.table.extraBuffers,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get measures => $state.composableBuilder(
-      column: $state.table.measures,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, double>?, Map<String, double>,
+          String>
+      get measures => $state.composableBuilder(
+          column: $state.table.measures,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get series => $state.composableBuilder(
-      column: $state.table.series,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, int>?, Map<String, int>, String>
+      get series => $state.composableBuilder(
+          column: $state.table.series,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get describes => $state.composableBuilder(
-      column: $state.table.describes,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get describes => $state.composableBuilder(
+          column: $state.table.describes,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get refs => $state.composableBuilder(
-      column: $state.table.refs,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get refs => $state.composableBuilder(
+          column: $state.table.refs,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get options => $state.composableBuilder(
-      column: $state.table.options,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, bool>?, Map<String, bool>,
+          String>
+      get options => $state.composableBuilder(
+          column: $state.table.options,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get mediaLinks => $state.composableBuilder(
-      column: $state.table.mediaLinks,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get mediaLinks => $state.composableBuilder(
+          column: $state.table.mediaLinks,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i4.Multimap<String, String>?,
-          i4.Multimap<String, String>, String>
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
       get bookmarks => $state.composableBuilder(
           column: $state.table.bookmarks,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i4.Multimap<String, int>?,
-          i4.Multimap<String, int>, String>
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, int>?,
+          i3.Multimap<String, int>, String>
       get symbols => $state.composableBuilder(
           column: $state.table.symbols,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get detail => $state.composableBuilder(
-      column: $state.table.detail,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<Map<String, Object?>?, Map<String, Object>?,
+          String>
+      get detail => $state.composableBuilder(
+          column: $state.table.detail,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
   i0.ColumnFilters<String> get metadata => $state.composableBuilder(
       column: $state.table.metadata,
@@ -2477,38 +2619,38 @@ class $ExampleFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i4.Multimap<String, String>?,
-          i4.Multimap<String, String>, String>
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
       get acl => $state.composableBuilder(
           column: $state.table.acl,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i5.ExampleType?, i5.ExampleType, String>
+  i0.ColumnWithTypeConverterFilters<i4.ExampleType?, i4.ExampleType, String>
       get exampleType => $state.composableBuilder(
           column: $state.table.exampleType,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i5.ExampleFeatureAppl>?,
-          List<i5.ExampleFeatureAppl>, String>
+  i0.ColumnWithTypeConverterFilters<List<i4.ExampleFeatureAppl>?,
+          List<i4.ExampleFeatureAppl>, String>
       get exampleFeatureAppl => $state.composableBuilder(
           column: $state.table.exampleFeatureAppl,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i5.ExampleStatus>?,
-          List<i5.ExampleStatus>, String>
+  i0.ColumnWithTypeConverterFilters<List<i4.ExampleStatus>?,
+          List<i4.ExampleStatus>, String>
       get exampleStatus => $state.composableBuilder(
           column: $state.table.exampleStatus,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i5.ExampleItem>?, List<i5.ExampleItem>,
+  i0.ColumnWithTypeConverterFilters<List<i4.ExampleItem>?, List<i4.ExampleItem>,
           String>
       get exampleItem => $state.composableBuilder(
           column: $state.table.exampleItem,
@@ -2621,7 +2763,7 @@ class $ExampleOrderingComposer
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 
-  i0.ColumnOrderings<i3.Uint8List> get extraBlob => $state.composableBuilder(
+  i0.ColumnOrderings<i5.Uint8List> get extraBlob => $state.composableBuilder(
       column: $state.table.extraBlob,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
@@ -2795,36 +2937,36 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
             i0.Value<double?> extraCurrency = const i0.Value.absent(),
             i0.Value<double?> extraAmount = const i0.Value.absent(),
-            i0.Value<i3.Uint8List?> extraBlob = const i0.Value.absent(),
-            i0.Value<String?> extraStrings = const i0.Value.absent(),
-            i0.Value<String?> extraInts = const i0.Value.absent(),
-            i0.Value<String?> extraBools = const i0.Value.absent(),
-            i0.Value<String?> extraDecimals = const i0.Value.absent(),
-            i0.Value<String?> extraTimestamps = const i0.Value.absent(),
-            i0.Value<String?> extraBuffers = const i0.Value.absent(),
-            i0.Value<String?> measures = const i0.Value.absent(),
-            i0.Value<String?> series = const i0.Value.absent(),
-            i0.Value<String?> describes = const i0.Value.absent(),
-            i0.Value<String?> refs = const i0.Value.absent(),
-            i0.Value<String?> options = const i0.Value.absent(),
-            i0.Value<String?> mediaLinks = const i0.Value.absent(),
-            i0.Value<i4.Multimap<String, String>?> bookmarks =
+            i0.Value<String?> extraBlob = const i0.Value.absent(),
+            i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
+            i0.Value<List<int>?> extraInts = const i0.Value.absent(),
+            i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
+            i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
+            i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
+            i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
+            i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
+            i0.Value<Map<String, int>?> series = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
+            i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> bookmarks =
                 const i0.Value.absent(),
-            i0.Value<i4.Multimap<String, int>?> symbols =
+            i0.Value<i3.Multimap<String, int>?> symbols =
                 const i0.Value.absent(),
-            i0.Value<String?> detail = const i0.Value.absent(),
+            i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
             i0.Value<String?> metadata = const i0.Value.absent(),
             i0.Value<String?> slotId = const i0.Value.absent(),
             i0.Value<String?> customerConfirmation = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i4.Multimap<String, String>?> acl =
+            i0.Value<i3.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
-            i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
-            i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
+            i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
+            i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
                 const i0.Value.absent(),
-            i0.Value<List<i5.ExampleStatus>?> exampleStatus =
+            i0.Value<List<i4.ExampleStatus>?> exampleStatus =
                 const i0.Value.absent(),
-            i0.Value<List<i5.ExampleItem>?> exampleItem =
+            i0.Value<List<i4.ExampleItem>?> exampleItem =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -2897,36 +3039,36 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
             i0.Value<double?> extraCurrency = const i0.Value.absent(),
             i0.Value<double?> extraAmount = const i0.Value.absent(),
-            i0.Value<i3.Uint8List?> extraBlob = const i0.Value.absent(),
-            i0.Value<String?> extraStrings = const i0.Value.absent(),
-            i0.Value<String?> extraInts = const i0.Value.absent(),
-            i0.Value<String?> extraBools = const i0.Value.absent(),
-            i0.Value<String?> extraDecimals = const i0.Value.absent(),
-            i0.Value<String?> extraTimestamps = const i0.Value.absent(),
-            i0.Value<String?> extraBuffers = const i0.Value.absent(),
-            i0.Value<String?> measures = const i0.Value.absent(),
-            i0.Value<String?> series = const i0.Value.absent(),
-            i0.Value<String?> describes = const i0.Value.absent(),
-            i0.Value<String?> refs = const i0.Value.absent(),
-            i0.Value<String?> options = const i0.Value.absent(),
-            i0.Value<String?> mediaLinks = const i0.Value.absent(),
-            i0.Value<i4.Multimap<String, String>?> bookmarks =
+            i0.Value<String?> extraBlob = const i0.Value.absent(),
+            i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
+            i0.Value<List<int>?> extraInts = const i0.Value.absent(),
+            i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
+            i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
+            i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
+            i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
+            i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
+            i0.Value<Map<String, int>?> series = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
+            i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> bookmarks =
                 const i0.Value.absent(),
-            i0.Value<i4.Multimap<String, int>?> symbols =
+            i0.Value<i3.Multimap<String, int>?> symbols =
                 const i0.Value.absent(),
-            i0.Value<String?> detail = const i0.Value.absent(),
+            i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
             i0.Value<String?> metadata = const i0.Value.absent(),
             i0.Value<String?> slotId = const i0.Value.absent(),
             i0.Value<String?> customerConfirmation = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i4.Multimap<String, String>?> acl =
+            i0.Value<i3.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
-            i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
-            i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
+            i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
+            i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
                 const i0.Value.absent(),
-            i0.Value<List<i5.ExampleStatus>?> exampleStatus =
+            i0.Value<List<i4.ExampleStatus>?> exampleStatus =
                 const i0.Value.absent(),
-            i0.Value<List<i5.ExampleItem>?> exampleItem =
+            i0.Value<List<i4.ExampleItem>?> exampleItem =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -3038,6 +3180,15 @@ class ExampleDrift extends i8.ModularAccessor {
         readsFrom: {
           example,
         }).asyncMap(example.mapFromRow);
+  }
+
+  Future<int> deleteExample({required String id}) {
+    return customUpdate(
+      'DELETE FROM example WHERE example_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {example},
+      updateKind: i0.UpdateKind.delete,
+    );
   }
 
   i1.Example get example => i8.ReadDatabaseContainer(attachedDatabase)

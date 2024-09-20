@@ -36,9 +36,7 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example(
       extraTime: timeFromJson(json['extraTime'] as String?),
       extraCurrency: (json['extraCurrency'] as num?)?.toDouble(),
       extraAmount: (json['extraAmount'] as num?)?.toDouble(),
-      extraBlob: (json['extraBlob'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      extraBlob: const BytesConverter().fromJson(json['extraBlob'] as String?),
       extraStrings: (json['extraStrings'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
@@ -129,7 +127,7 @@ Map<String, dynamic> _$ExampleToJson(Example instance) {
   writeNotNull('extraTime', timeToJson(instance.extraTime));
   writeNotNull('extraCurrency', instance.extraCurrency);
   writeNotNull('extraAmount', instance.extraAmount);
-  writeNotNull('extraBlob', instance.extraBlob);
+  writeNotNull('extraBlob', const BytesConverter().toJson(instance.extraBlob));
   writeNotNull('extraStrings', instance.extraStrings);
   writeNotNull('extraInts', instance.extraInts);
   writeNotNull('extraBools', instance.extraBools);

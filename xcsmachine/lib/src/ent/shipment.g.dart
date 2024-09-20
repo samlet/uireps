@@ -208,17 +208,14 @@ ShipmentPackageRouteSeg _$ShipmentPackageRouteSegFromJson(
       shipmentRouteSegmentId: json['shipmentRouteSegmentId'] as String?,
       trackingCode: json['trackingCode'] as String?,
       boxNumber: json['boxNumber'] as String?,
-      labelImage: (json['labelImage'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
-      labelIntlSignImage: (json['labelIntlSignImage'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      labelImage:
+          const BytesConverter().fromJson(json['labelImage'] as String?),
+      labelIntlSignImage: const BytesConverter()
+          .fromJson(json['labelIntlSignImage'] as String?),
       labelHtml: json['labelHtml'] as String?,
       labelPrinted: json['labelPrinted'] as String?,
-      internationalInvoice: (json['internationalInvoice'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      internationalInvoice: const BytesConverter()
+          .fromJson(json['internationalInvoice'] as String?),
       packageTransportCost: (json['packageTransportCost'] as num?)?.toDouble(),
       packageServiceCost: (json['packageServiceCost'] as num?)?.toDouble(),
       packageOtherCost: (json['packageOtherCost'] as num?)?.toDouble(),
@@ -249,11 +246,14 @@ Map<String, dynamic> _$ShipmentPackageRouteSegToJson(
   writeNotNull('shipmentRouteSegmentId', instance.shipmentRouteSegmentId);
   writeNotNull('trackingCode', instance.trackingCode);
   writeNotNull('boxNumber', instance.boxNumber);
-  writeNotNull('labelImage', instance.labelImage);
-  writeNotNull('labelIntlSignImage', instance.labelIntlSignImage);
+  writeNotNull(
+      'labelImage', const BytesConverter().toJson(instance.labelImage));
+  writeNotNull('labelIntlSignImage',
+      const BytesConverter().toJson(instance.labelIntlSignImage));
   writeNotNull('labelHtml', instance.labelHtml);
   writeNotNull('labelPrinted', instance.labelPrinted);
-  writeNotNull('internationalInvoice', instance.internationalInvoice);
+  writeNotNull('internationalInvoice',
+      const BytesConverter().toJson(instance.internationalInvoice));
   writeNotNull('packageTransportCost', instance.packageTransportCost);
   writeNotNull('packageServiceCost', instance.packageServiceCost);
   writeNotNull('packageOtherCost', instance.packageOtherCost);
@@ -317,9 +317,8 @@ ShipmentRouteSegment _$ShipmentRouteSegmentFromJson(
       thirdPartyAccountNumber: json['thirdPartyAccountNumber'] as String?,
       thirdPartyPostalCode: json['thirdPartyPostalCode'] as String?,
       thirdPartyCountryGeoCode: json['thirdPartyCountryGeoCode'] as String?,
-      upsHighValueReport: (json['upsHighValueReport'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      upsHighValueReport: const BytesConverter()
+          .fromJson(json['upsHighValueReport'] as String?),
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -378,7 +377,8 @@ Map<String, dynamic> _$ShipmentRouteSegmentToJson(
   writeNotNull('thirdPartyAccountNumber', instance.thirdPartyAccountNumber);
   writeNotNull('thirdPartyPostalCode', instance.thirdPartyPostalCode);
   writeNotNull('thirdPartyCountryGeoCode', instance.thirdPartyCountryGeoCode);
-  writeNotNull('upsHighValueReport', instance.upsHighValueReport);
+  writeNotNull('upsHighValueReport',
+      const BytesConverter().toJson(instance.upsHighValueReport));
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());

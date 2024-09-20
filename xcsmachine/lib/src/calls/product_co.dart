@@ -51,23 +51,18 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<double> price({
-    
-    required String priceType, 
-
-  }) async { 
+  Future<CurrencyMap> getPrices() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "price",
+      "action": "getPrices",
       "bundleName" : "Product",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, {
-      "priceType": priceType, 
+    }, { 
     });
     
-    return ResultConv.asDouble(resp);
+    return CurrencyMap()..mergeFromProto3Json(resp);
   }
    
   // Mutation
@@ -255,53 +250,23 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<CurrencyMap> getPrices() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPrices",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
+  Future<double> price({
     
-    return CurrencyMap()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<double> getDefaultPrice() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getDefaultPrice",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asDouble(resp);
-  }
-   
-  // Query
-  Future<List<String>> getComponentIds({
-    
-    required String assocType, 
+    required String priceType, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getComponentIds",
+      "action": "price",
       "bundleName" : "Product",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
     }, {
-      "assocType": assocType, 
+      "priceType": priceType, 
     });
     
-    return convScalars(resp, (e)=> e.toString());
+    return ResultConv.asDouble(resp);
   }
    
   // Query
@@ -351,6 +316,41 @@ class ProductCoRepository {
     });
     
     return StringMap()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<double> getDefaultPrice() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getDefaultPrice",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asDouble(resp);
+  }
+   
+  // Query
+  Future<List<String>> getComponentIds({
+    
+    required String assocType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getComponentIds",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "assocType": assocType, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query

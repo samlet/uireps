@@ -1,4 +1,5 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
@@ -323,7 +324,7 @@ class AudioDataResource {
 
   AudioDataResource copyWith({
     String? dataResourceId,
-    List<int>? audioData,
+    Uint8List? audioData,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -349,8 +350,9 @@ class AudioDataResource {
    
   String? dataResourceId;
 
-   
-  List<int>? audioData;
+  
+  @BytesConverter() 
+  Uint8List? audioData;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -443,7 +445,7 @@ class ImageDataResource {
 
   ImageDataResource copyWith({
     String? dataResourceId,
-    List<int>? imageData,
+    Uint8List? imageData,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -469,8 +471,9 @@ class ImageDataResource {
    
   String? dataResourceId;
 
-   
-  List<int>? imageData;
+  
+  @BytesConverter() 
+  Uint8List? imageData;
 
    
   DateTime? lastUpdatedTxStamp;
@@ -563,7 +566,7 @@ class VideoDataResource {
 
   VideoDataResource copyWith({
     String? dataResourceId,
-    List<int>? videoData,
+    Uint8List? videoData,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? tenantId,
@@ -589,8 +592,9 @@ class VideoDataResource {
    
   String? dataResourceId;
 
-   
-  List<int>? videoData;
+  
+  @BytesConverter() 
+  Uint8List? videoData;
 
    
   DateTime? lastUpdatedTxStamp;

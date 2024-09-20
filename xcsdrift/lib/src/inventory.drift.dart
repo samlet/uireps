@@ -3095,6 +3095,15 @@ class InventoryDrift extends i4.ModularAccessor {
         }).asyncMap(inventoryItem.mapFromRow);
   }
 
+  Future<int> deleteInventoryItem({required String id}) {
+    return customUpdate(
+      'DELETE FROM inventory_item WHERE inventory_item_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {inventoryItem},
+      updateKind: i0.UpdateKind.delete,
+    );
+  }
+
   i1.InventoryItem get inventoryItem =>
       i4.ReadDatabaseContainer(attachedDatabase)
           .resultSet<i1.InventoryItem>('inventory_item');

@@ -894,6 +894,15 @@ class BiFacetDrift extends i2.ModularAccessor {
     }).asyncMap(biFacet.mapFromRow);
   }
 
+  Future<int> deleteBiFacet({required String id}) {
+    return customUpdate(
+      'DELETE FROM bi_facet WHERE bi_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {biFacet},
+      updateKind: i0.UpdateKind.delete,
+    );
+  }
+
   i1.BiFacet get biFacet => i2.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.BiFacet>('bi_facet');
 }

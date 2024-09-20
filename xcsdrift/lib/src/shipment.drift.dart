@@ -4213,6 +4213,15 @@ class ShipmentDrift extends i6.ModularAccessor {
         }).asyncMap(shipment.mapFromRow);
   }
 
+  Future<int> deleteShipment({required String id}) {
+    return customUpdate(
+      'DELETE FROM shipment WHERE shipment_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {shipment},
+      updateKind: i0.UpdateKind.delete,
+    );
+  }
+
   i1.Shipment get shipment => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Shipment>('shipment');
 }

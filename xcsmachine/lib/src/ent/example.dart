@@ -1,4 +1,5 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
@@ -81,7 +82,7 @@ class Example {
     Time? extraTime,
     double? extraCurrency,
     double? extraAmount,
-    List<int>? extraBlob,
+    Uint8List? extraBlob,
     List<String?>? extraStrings,
     List<int?>? extraInts,
     List<bool?>? extraBools,
@@ -228,8 +229,9 @@ class Example {
    
   double? extraAmount;
 
-   
-  List<int>? extraBlob;
+  
+  @BytesConverter() 
+  Uint8List? extraBlob;
 
    
   List<String?>? extraStrings;

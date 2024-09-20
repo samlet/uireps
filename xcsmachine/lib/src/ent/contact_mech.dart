@@ -1,4 +1,5 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;

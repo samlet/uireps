@@ -429,9 +429,7 @@ WalletRuntimeData _$WalletRuntimeDataFromJson(Map<String, dynamic> json) =>
       trackId: json['trackId'] as String?,
       ercType: json['ercType'] as String?,
       ercId: json['ercId'] as String?,
-      metadata: (json['metadata'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      metadata: const BytesConverter().fromJson(json['metadata'] as String?),
       description: json['description'] as String?,
       id: json['id'] as String?,
     );
@@ -455,7 +453,7 @@ Map<String, dynamic> _$WalletRuntimeDataToJson(WalletRuntimeData instance) {
   writeNotNull('trackId', instance.trackId);
   writeNotNull('ercType', instance.ercType);
   writeNotNull('ercId', instance.ercId);
-  writeNotNull('metadata', instance.metadata);
+  writeNotNull('metadata', const BytesConverter().toJson(instance.metadata));
   writeNotNull('description', instance.description);
   writeNotNull('id', instance.id);
   return val;

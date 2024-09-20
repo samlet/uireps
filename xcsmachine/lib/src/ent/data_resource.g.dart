@@ -143,9 +143,7 @@ Map<String, dynamic> _$ElectronicTextToJson(ElectronicText instance) {
 AudioDataResource _$AudioDataResourceFromJson(Map<String, dynamic> json) =>
     AudioDataResource(
       dataResourceId: json['dataResourceId'] as String?,
-      audioData: (json['audioData'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      audioData: const BytesConverter().fromJson(json['audioData'] as String?),
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -165,7 +163,7 @@ Map<String, dynamic> _$AudioDataResourceToJson(AudioDataResource instance) {
   }
 
   writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('audioData', instance.audioData);
+  writeNotNull('audioData', const BytesConverter().toJson(instance.audioData));
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -211,9 +209,7 @@ Map<String, dynamic> _$DataResourceTypeToJson(DataResourceType instance) {
 ImageDataResource _$ImageDataResourceFromJson(Map<String, dynamic> json) =>
     ImageDataResource(
       dataResourceId: json['dataResourceId'] as String?,
-      imageData: (json['imageData'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      imageData: const BytesConverter().fromJson(json['imageData'] as String?),
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -233,7 +229,7 @@ Map<String, dynamic> _$ImageDataResourceToJson(ImageDataResource instance) {
   }
 
   writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('imageData', instance.imageData);
+  writeNotNull('imageData', const BytesConverter().toJson(instance.imageData));
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
@@ -279,9 +275,7 @@ Map<String, dynamic> _$DataResourceSlotToJson(DataResourceSlot instance) {
 VideoDataResource _$VideoDataResourceFromJson(Map<String, dynamic> json) =>
     VideoDataResource(
       dataResourceId: json['dataResourceId'] as String?,
-      videoData: (json['videoData'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      videoData: const BytesConverter().fromJson(json['videoData'] as String?),
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
           : DateTime.parse(json['lastUpdatedTxStamp'] as String),
@@ -301,7 +295,7 @@ Map<String, dynamic> _$VideoDataResourceToJson(VideoDataResource instance) {
   }
 
   writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('videoData', instance.videoData);
+  writeNotNull('videoData', const BytesConverter().toJson(instance.videoData));
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());

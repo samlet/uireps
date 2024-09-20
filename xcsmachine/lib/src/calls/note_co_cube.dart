@@ -22,6 +22,18 @@ class NoteCoCube extends _$NoteCoCube {
    
 
   
+  Future<void> setContent({
+    
+    required String cnt, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
+      cnt: cnt,
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
   Future<void> attachToParty({
     
     required String partyId, 
@@ -48,18 +60,6 @@ class NoteCoCube extends _$NoteCoCube {
   
   Future<void> revokeContent() async { 
     await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> setContent({
-    
-    required String cnt, 
-
-  }) async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
-      cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();

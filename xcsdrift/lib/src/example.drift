@@ -22,22 +22,24 @@ CREATE TABLE example (
     extra_time VARCHAR(20) MAPPED BY `const TimeConverter()`,
     extra_currency DECIMAL(18,2),
     extra_amount DECIMAL(18,6),
-    extra_blob LongBlob,
-    extra_strings TEXT,
-    extra_ints TEXT,
-    extra_bools TEXT,
-    extra_decimals TEXT,
-    extra_timestamps TEXT,
-    extra_buffers TEXT,
-    measures TEXT,
-    series TEXT,
-    describes TEXT,
-    refs TEXT,
-    options TEXT,
-    media_links TEXT,
+    extra_blob LongBlob MAPPED BY `const BytesFldConverter()`,
+    extra_strings TEXT MAPPED BY `const StringListConverter()`,
+    extra_ints TEXT MAPPED BY `const IntListConverter()`,
+    extra_bools TEXT MAPPED BY `const BoolListConverter()`,
+    extra_decimals TEXT MAPPED BY `const DoubleListConverter()`,
+    extra_timestamps TEXT MAPPED BY `const DateTimeListConverter()`,
+    extra_buffers TEXT MAPPED BY `const StringListConverter()`,
+
+    measures TEXT MAPPED BY `const DoubleMapConverter()`,
+    series TEXT MAPPED BY `const IntMapConverter()`,
+    describes TEXT MAPPED BY `const StringMapConverter()`,
+    refs TEXT MAPPED BY `const StringMapConverter()`,
+    options TEXT MAPPED BY `const BoolMapConverter()`,
+    media_links TEXT MAPPED BY `const StringMapConverter()`,
+
     bookmarks TEXT MAPPED BY `const StringMultimapConverter()`,
     symbols TEXT MAPPED BY `const SymbolMultimapConverter()`,
-    detail TEXT,
+    detail TEXT MAPPED BY `const ObjectMapConverter()`,
     metadata TEXT,
     slot_id VARCHAR(22),
     customer_confirmation CHAR(1),
@@ -58,6 +60,7 @@ allExamples: SELECT * FROM example;
 clearExamples: DELETE FROM example;
 addExample: INSERT INTO example $el;
 getExample: SELECT * FROM example WHERE example_id = ?;
+deleteExample: DELETE FROM example WHERE example_id = :id;
 
 
 

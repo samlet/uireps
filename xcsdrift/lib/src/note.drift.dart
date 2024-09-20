@@ -1175,6 +1175,15 @@ class NoteDrift extends i6.ModularAccessor {
         }).asyncMap(noteData.mapFromRow);
   }
 
+  Future<int> deleteNoteData({required String id}) {
+    return customUpdate(
+      'DELETE FROM note_data WHERE note_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {noteData},
+      updateKind: i0.UpdateKind.delete,
+    );
+  }
+
   i1.NoteData get noteData => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.NoteData>('note_data');
 }

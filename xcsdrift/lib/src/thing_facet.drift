@@ -24,6 +24,7 @@ allThingFacets: SELECT * FROM thing_facet;
 clearThingFacets: DELETE FROM thing_facet;
 addThingFacet: INSERT INTO thing_facet $el;
 getThingFacet: SELECT * FROM thing_facet WHERE thing_id = ?;
+deleteThingFacet: DELETE FROM thing_facet WHERE thing_id = :id;
 
 
 

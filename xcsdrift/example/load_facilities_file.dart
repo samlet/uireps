@@ -6,6 +6,7 @@ import 'package:drift/native.dart';
 import 'package:recase/recase.dart';
 import 'package:xcsdrift/database.dart';
 import 'package:xcsdrift/src/facility.drift.dart';
+import 'package:xcsmachine/src/calls/calls.dart';
 import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
@@ -40,7 +41,7 @@ Future<void> storeFromLocalFile(Database database) async {
 }
 
 Future<void> storeFromSrv(Database database) async {
-  var facs = await loadFacilities();
+  List<BiFacetBi> facs = await loadFacilities();
   await database.batch((batch) {
     for (var el in facs) {
       // 不加"fromJson->toJson"的转换会导致drift无法处理list元素的cast.

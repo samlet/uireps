@@ -57,6 +57,7 @@ allInventoryItems: SELECT * FROM inventory_item;
 clearInventoryItems: DELETE FROM inventory_item;
 addInventoryItem: INSERT INTO inventory_item $el;
 getInventoryItem: SELECT * FROM inventory_item WHERE inventory_item_id = ?;
+deleteInventoryItem: DELETE FROM inventory_item WHERE inventory_item_id = :id;
 
 
 

@@ -1,4 +1,5 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
@@ -494,11 +495,11 @@ class Shipment {
     String? shipmentRouteSegmentId_,
     String? trackingCode_,
     String? boxNumber_,
-    List<int>? labelImage_,
-    List<int>? labelIntlSignImage_,
+    Uint8List? labelImage_,
+    Uint8List? labelIntlSignImage_,
     String? labelHtml_,
     String? labelPrinted_,
-    List<int>? internationalInvoice_,
+    Uint8List? internationalInvoice_,
     double? packageTransportCost_,
     double? packageServiceCost_,
     double? packageOtherCost_,
@@ -586,7 +587,7 @@ class Shipment {
     String? thirdPartyAccountNumber_,
     String? thirdPartyPostalCode_,
     String? thirdPartyCountryGeoCode_,
-    List<int>? upsHighValueReport_,
+    Uint8List? upsHighValueReport_,
     DateTime? lastUpdatedTxStamp_,
     DateTime? createdTxStamp_,
   }) {
@@ -995,11 +996,11 @@ class ShipmentPackageRouteSeg {
     String? shipmentRouteSegmentId,
     String? trackingCode,
     String? boxNumber,
-    List<int>? labelImage,
-    List<int>? labelIntlSignImage,
+    Uint8List? labelImage,
+    Uint8List? labelIntlSignImage,
     String? labelHtml,
     String? labelPrinted,
-    List<int>? internationalInvoice,
+    Uint8List? internationalInvoice,
     double? packageTransportCost,
     double? packageServiceCost,
     double? packageOtherCost,
@@ -1057,11 +1058,13 @@ class ShipmentPackageRouteSeg {
    
   String? boxNumber;
 
-   
-  List<int>? labelImage;
+  
+  @BytesConverter() 
+  Uint8List? labelImage;
 
-   
-  List<int>? labelIntlSignImage;
+  
+  @BytesConverter() 
+  Uint8List? labelIntlSignImage;
 
    
   String? labelHtml;
@@ -1069,8 +1072,9 @@ class ShipmentPackageRouteSeg {
    
   String? labelPrinted;
 
-   
-  List<int>? internationalInvoice;
+  
+  @BytesConverter() 
+  Uint8List? internationalInvoice;
 
    
   double? packageTransportCost;
@@ -1183,7 +1187,7 @@ class ShipmentRouteSegment {
     String? thirdPartyAccountNumber,
     String? thirdPartyPostalCode,
     String? thirdPartyCountryGeoCode,
-    List<int>? upsHighValueReport,
+    Uint8List? upsHighValueReport,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     String? id,
@@ -1345,8 +1349,9 @@ class ShipmentRouteSegment {
    
   String? thirdPartyCountryGeoCode;
 
-   
-  List<int>? upsHighValueReport;
+  
+  @BytesConverter() 
+  Uint8List? upsHighValueReport;
 
    
   DateTime? lastUpdatedTxStamp;

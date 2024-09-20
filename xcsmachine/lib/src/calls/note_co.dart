@@ -66,6 +66,25 @@ class NoteCoRepository {
   }
    
   // Mutation
+  Future<void> setContent({
+    
+    required String cnt, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "setContent",
+      "bundleName" : "Note",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "cnt": cnt, 
+    });
+    
+  }
+   
+  // Mutation
   Future<void> attachToParty({
     
     required String partyId, 
@@ -113,25 +132,6 @@ class NoteCoRepository {
       "regionId": regionOrNs,
       "id": id,
     }, { 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> setContent({
-    
-    required String cnt, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "setContent",
-      "bundleName" : "Note",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "cnt": cnt, 
     });
     
   }

@@ -20,21 +20,6 @@ class UserPalRepository {
   final String id;
 
    
-  // Query
-  Future<Wallet> wallet() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "wallet",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Wallet.fromJson(resp);
-  }
-   
   // Mutation
   Future<String> createNote({
     
@@ -112,6 +97,21 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<Wallet> wallet() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "wallet",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Wallet.fromJson(resp);
   }
    
   // Query
@@ -245,6 +245,21 @@ class UserPalRepository {
   }
    
   // Query
+  Future<bool> isPerson() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isPerson",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
   Future<List<String>> noteIds() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -365,21 +380,6 @@ class UserPalRepository {
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<bool> isPerson() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isPerson",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asBool(resp);
   }
    
   // Query

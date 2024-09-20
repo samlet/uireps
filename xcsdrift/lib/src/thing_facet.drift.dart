@@ -895,6 +895,15 @@ class ThingFacetDrift extends i2.ModularAccessor {
         }).asyncMap(thingFacet.mapFromRow);
   }
 
+  Future<int> deleteThingFacet({required String id}) {
+    return customUpdate(
+      'DELETE FROM thing_facet WHERE thing_id = ?1',
+      variables: [i0.Variable<String>(id)],
+      updates: {thingFacet},
+      updateKind: i0.UpdateKind.delete,
+    );
+  }
+
   i1.ThingFacet get thingFacet => i2.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.ThingFacet>('thing_facet');
 }
