@@ -10,6 +10,7 @@ import 'package:xcsmachine/src/calls/portal_manager.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../drift_util.dart';
 import 'facility.drift.dart';
 
 final _logger = Logger('FacilityRepository');
@@ -83,6 +84,12 @@ class FacilityRepository {
 
   Future<FacilityData> get(String id) async{
     return await tbl.getFacility(id).getSingle();
+  }
+
+  Future<ent.Facility> getAsEnt(String id) async{
+    var rec = await get(id);
+    Map<String, dynamic> normMap = normalizeMap(rec);
+    return ent.Facility.fromJson(normMap);
   }
 
   Future<int> remove(String id) async{

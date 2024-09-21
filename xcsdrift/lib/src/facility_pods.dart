@@ -5,6 +5,7 @@ import 'facility_repository.dart';
 import 'facility.drift.dart';
 part 'facility_pods.g.dart';
 
+// repository pod
 @Riverpod(keepAlive: true)
 FacilityRepository facilityRepository(FacilityRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
@@ -26,4 +27,8 @@ class FacilityBucket extends _$FacilityBucket {
 Future<FacilityData> getFacility(GetFacilityRef ref, {required String id}) async {
   return ref.watch(facilityRepositoryProvider).get(id);
 }
+
+/*
+final facility = ref.watch(getFacilityProvider(id: facilityId));
+ */
 
