@@ -53,9 +53,13 @@ Future<void> storeFromSrv(Database database) async {
 
 Future<List<ent.Facility>> readFacs() async {
   final file =
-      await File.fromUri(Uri.file('/opt/app/dump/oras/webStore/Facility.json'))
-          .readAsString();
-  final rs = json.decode(file) as List;
+      File.fromUri(Uri.file('/opt/app/dump/oras/webStore/Facility.json'));
+  return await readFromFile(file);
+}
+
+Future<List<ent.Facility>> readFromFile(File file) async {
+  final String fileCnt = await file.readAsString();
+  final rs = json.decode(fileCnt) as List;
   List<ent.Facility> facs = ent.asFacilities(rs);
   return facs;
 }
@@ -68,7 +72,7 @@ Future<void> queryFac(Database database) async {
 }
 
 Future<void> printAllFacs(Database database) async {
-  var ds = await database.facilityDrift.allFacilities().get();
+  List<FacilityData> ds = await database.facilityDrift.allFacilities().get();
   for (var value in ds) {
     print("${value.facilityId} -> ${value.acl?.asMap().keys}");
   }

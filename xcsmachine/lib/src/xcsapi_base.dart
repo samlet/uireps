@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:xcsmachine/src/common/services/srv_base.dart';
+import 'common/services/srv_base.dart';
 import 'web_call.dart';
 
 export 'web_call.dart';
