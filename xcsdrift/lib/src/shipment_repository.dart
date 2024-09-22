@@ -12,33 +12,33 @@ import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
 import '../drift_util.dart';
-import 'facility.drift.dart';
+import 'shipment.drift.dart';
 
-final _logger = Logger('FacilityRepository');
-const _bundleName = 'Facility';
+final _logger = Logger('ShipmentRepository');
+const _bundleName = 'Shipment';
 
-class FacilityRepository {
+class ShipmentRepository {
   final Dio dio;
   final Database database;
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
 
-  FacilityRepository(this.dio, this.database) {
+  ShipmentRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
   }
 
-  Future<List<BiFacetBi>> loadFacilities({String tenantId = 'default'}) async {
+  Future<List<BiFacetBi>> loadShipments({String tenantId = 'default'}) async {
     var rs = await portalManager.loadAsBiFacetsByTenant(
         bundleName: _bundleName, tenantId: tenantId);
     return rs;
   }
 
-  Future<List<ent.Facility>> readFromFile(File file) async {
+  Future<List<ent.Shipment>> readFromFile(File file) async {
     final String fileCnt = await file.readAsString();
     final rs = json.decode(fileCnt) as List;
-    List<ent.Facility> facs = ent.asFacilities(rs);
+    List<ent.Shipment> facs = ent.asShipments(rs);
     return facs;
   }
 
@@ -48,54 +48,54 @@ class FacilityRepository {
       return MapEntry(rec.snakeCase, v);
     });
 
-    _logger.info("insert ${dataMap['facility_id']}");
-    var entry = FacilityData.fromJson(dataMap);
+    _logger.info("insert ${dataMap['shipment_id']}");
+    var entry = ShipmentData.fromJson(dataMap);
     if (batch == null) {
       await database.batch((batch) {
-        batch.insert(database.facility, entry,
+        batch.insert(database.shipment, entry,
             onConflict: DoUpdate((old) => entry));
       });
     } else {
-      batch.insert(database.facility, entry,
+      batch.insert(database.shipment, entry,
           onConflict: DoUpdate((old) => entry));
     }
   }
 
-  Future<ent.Facility> fetchSingle(String bundleId) async {
+  Future<ent.Shipment> fetchSingle(String bundleId) async {
     final el = await portalManager.loadAsBiFacet(
         bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Facility.fromJson(el.data!);
+    final elData = ent.Shipment.fromJson(el.data!);
     var jsonEl = elData.toJson();
     storeEntry(jsonEl);
     return elData;
   }
 
-  Future<List<ent.Facility>> fetchFromReg(String regNode) async {
+  Future<List<ent.Shipment>> fetchFromReg(String regNode) async {
     List<BiFacetBi> elements = await portals.getPublicElements(
         parentNode: regNode, bundleName: _bundleName);
     return await storeEntries(elements);
   }
 
-  Future<List<ent.Facility>> fetchFromSrv({String tenantId = 'default'}) async {
-    List<BiFacetBi> elements = await loadFacilities(tenantId: tenantId);
+  Future<List<ent.Shipment>> fetchFromSrv({String tenantId = 'default'}) async {
+    List<BiFacetBi> elements = await loadShipments(tenantId: tenantId);
     return await storeEntries(elements);
   }
 
-  Future<void> push(ent.Facility data) async {
+  Future<void> push(ent.Shipment data) async {
     await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
   }
 
-  Future<void> storeAndPush(ent.Facility data) async {
+  Future<void> storeAndPush(ent.Shipment data) async {
     await storeEntry(data.toJson());
     await push(data);
   }
 
-  Future<List<ent.Facility>> storeEntries(List<BiFacetBi> elements) async {
-    var rs=<ent.Facility>[];
+  Future<List<ent.Shipment>> storeEntries(List<BiFacetBi> elements) async {
+    var rs=<ent.Shipment>[];
     await database.batch((batch) {
       for (var el in elements) {
         // 不加"fromJson->toJson"的转换会导致drift无法处理list元素的cast.
-        final elData=ent.Facility.fromJson(el.data!);
+        final elData=ent.Shipment.fromJson(el.data!);
         rs.add(elData);
         var jsonEl = elData.toJson();
         storeEntry(jsonEl, batch: batch);
@@ -104,8 +104,8 @@ class FacilityRepository {
     return rs;
   }
 
-  Future<List<ent.Facility>> fetchFromLocalFile(File file) async {
-    List<ent.Facility> ds = await readFromFile(file);
+  Future<List<ent.Shipment>> fetchFromLocalFile(File file) async {
+    List<ent.Shipment> ds = await readFromFile(file);
     await database.batch((batch) {
       for (var el in ds) {
         var jsonEl = el.toJson();
@@ -115,33 +115,33 @@ class FacilityRepository {
     return ds;
   }
 
-  FacilityDrift get tbl => database.facilityDrift;
+  ShipmentDrift get tbl => database.shipmentDrift;
 
-  Future<String> add(ent.Facility rec) async {
+  Future<String> add(ent.Shipment rec) async {
     await storeEntry(rec.toJson());
-    return rec.facilityId!;
+    return rec.shipmentId!;
   }
 
-  Future<FacilityData> get(String id) async {
-    return await tbl.getFacility(id).getSingle();
+  Future<ShipmentData> get(String id) async {
+    return await tbl.getShipment(id).getSingle();
   }
 
-  Future<ent.Facility> getAsEnt(String id) async {
+  Future<ent.Shipment> getAsEnt(String id) async {
     var rec = await get(id);
     Map<String, dynamic> normMap = normalizeMap(rec);
-    return ent.Facility.fromJson(normMap);
+    return ent.Shipment.fromJson(normMap);
   }
 
   Future<int> remove(String id) async {
-    return await tbl.deleteFacility(id: id);
+    return await tbl.deleteShipment(id: id);
   }
 
-  Future<List<FacilityData>> all() async {
-    return await tbl.allFacilities().get();
+  Future<List<ShipmentData>> all() async {
+    return await tbl.allShipments().get();
   }
 
-  Stream<List<FacilityData>> watchAll() {
-    return tbl.allFacilities().watch();
+  Stream<List<ShipmentData>> watchAll() {
+    return tbl.allShipments().watch();
   }
 }
 

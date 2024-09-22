@@ -1,3 +1,4 @@
+// drift_pods.j2
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:xcsmachine/generic_srv.dart';
 import '../provider.dart';
@@ -31,4 +32,5 @@ Future<FacilityData> getFacility(GetFacilityRef ref, {required String id}) async
 /*
 final facility = ref.watch(getFacilityProvider(id: facilityId));
  */
+
 

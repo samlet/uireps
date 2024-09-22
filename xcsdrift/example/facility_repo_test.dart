@@ -30,7 +30,8 @@ Future<void> main(List<String> arguments) async {
 
   // facEnt.facilityName=facEnt.facilityName??""+"(upd)";
   facEnt=facEnt.copyWith(facilityName: "(upd)");
-  await pushEnt(facEnt);
+  // await pushEnt(facEnt);
+  await repo.push(facEnt);
 
   printFac(await repo.getAsEnt("facility_2"));
   print('get upd back -->');

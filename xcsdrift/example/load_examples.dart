@@ -16,6 +16,7 @@ Future<void> main(List<String> arguments) async {
   if (trace) {
     database.exampleDrift.allExamples().watch().listen(print);
   }
+  // database.inventoryItem
 
   // final database = Database(NativeDatabase.memory(logStatements: false));
 
