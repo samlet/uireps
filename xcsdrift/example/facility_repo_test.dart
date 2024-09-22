@@ -5,6 +5,7 @@ import 'package:xcsdrift/database.dart';
 import 'package:xcsdrift/drift_util.dart';
 import 'package:xcsdrift/src/facility.drift.dart';
 import 'package:xcsdrift/src/facility_repository.dart';
+import 'package:xcsmachine/generic_srv.dart';
 import 'package:xcsmachine/util.dart';
 import 'tokens.dart';
 import 'package:xcsmachine/src/common/services/srv_base.dart';
@@ -24,10 +25,23 @@ Future<void> main(List<String> arguments) async {
   // convert to entity
   Map<String, dynamic> normMap = normalizeMap(rec);
   prettyPrint(normMap);
-  final facEnt = ent.Facility.fromJson(normMap);
+  var facEnt = ent.Facility.fromJson(normMap);
   printFac(facEnt);
 
+  // facEnt.facilityName=facEnt.facilityName??""+"(upd)";
+  facEnt=facEnt.copyWith(facilityName: "(upd)");
+  await pushEnt(facEnt);
+
   printFac(await repo.getAsEnt("facility_2"));
+  print('get upd back -->');
+  printFac(await repo.fetchSingle('facility_1'));
+}
+
+Future<void> pushEnt(ent.Facility facEnt) async {
+  print("push ==> ");
+  printFac(facEnt);
+  var portalmgr = PortalManagerRepository(dio);
+  await portalmgr.storeBundleSpec(bundleName: "Facility", spec: facEnt.toJson());
 }
 
 void printFac(ent.Facility facEnt) {
@@ -35,3 +49,4 @@ void printFac(ent.Facility facEnt) {
       "facility: ${facEnt.facilityId}, ${facEnt.facilityName}, "
           "with contact ${facEnt.facilityContactMech?.first.contactMechId}");
 }
+

@@ -29,14 +29,12 @@ CREATE TABLE example (
     extra_decimals TEXT MAPPED BY `const DoubleListConverter()`,
     extra_timestamps TEXT MAPPED BY `const DateTimeListConverter()`,
     extra_buffers TEXT MAPPED BY `const StringListConverter()`,
-
     measures TEXT MAPPED BY `const DoubleMapConverter()`,
     series TEXT MAPPED BY `const IntMapConverter()`,
     describes TEXT MAPPED BY `const StringMapConverter()`,
     refs TEXT MAPPED BY `const StringMapConverter()`,
     options TEXT MAPPED BY `const BoolMapConverter()`,
     media_links TEXT MAPPED BY `const StringMapConverter()`,
-
     bookmarks TEXT MAPPED BY `const StringMultimapConverter()`,
     symbols TEXT MAPPED BY `const SymbolMultimapConverter()`,
     detail TEXT MAPPED BY `const ObjectMapConverter()`,

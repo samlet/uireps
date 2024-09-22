@@ -130,6 +130,27 @@ class PortalsOnChainRepository {
     return convList(resp, BiFacetBi.fromJson);
   }
    
+  // Query
+  Future<List<BiFacetBi>> getPublicElements({
+    
+    required String parentNode,
+    required String bundleName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPublicElements",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "parentNode": parentNode,
+      "bundleName": bundleName, 
+    });
+    
+    return convList(resp, BiFacetBi.fromJson);
+  }
+   
   // Mutation
   Future<void> storePublicNote({
     

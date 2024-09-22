@@ -7,7 +7,7 @@ CREATE TABLE thing_facet (
     name VARCHAR(100),
     description VARCHAR(255),
     url VARCHAR(2000),
-    image TEXT,
+    image TEXT MAPPED BY `const StringListConverter()`,
     same_as VARCHAR(2000),
     tenant_id VARCHAR(22),
     last_updated_tx_stamp DATETIME(3),

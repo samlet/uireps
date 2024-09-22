@@ -608,6 +608,176 @@ class _PortalsChildrenAsBundlesProviderElement
       (origin as PortalsChildrenAsBundlesProvider).bundleName;
 }
 
+String _$portalsGetPublicElementsHash() =>
+    r'16d8714e40ec9d8b224fbde46d0bd37eb2d8126a';
+
+/// See also [portalsGetPublicElements].
+@ProviderFor(portalsGetPublicElements)
+const portalsGetPublicElementsProvider = PortalsGetPublicElementsFamily();
+
+/// See also [portalsGetPublicElements].
+class PortalsGetPublicElementsFamily
+    extends Family<AsyncValue<List<BiFacetBi>>> {
+  /// See also [portalsGetPublicElements].
+  const PortalsGetPublicElementsFamily();
+
+  /// See also [portalsGetPublicElements].
+  PortalsGetPublicElementsProvider call({
+    String regionOrNs = 'default',
+    required String parentNode,
+    required String bundleName,
+  }) {
+    return PortalsGetPublicElementsProvider(
+      regionOrNs: regionOrNs,
+      parentNode: parentNode,
+      bundleName: bundleName,
+    );
+  }
+
+  @override
+  PortalsGetPublicElementsProvider getProviderOverride(
+    covariant PortalsGetPublicElementsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      parentNode: provider.parentNode,
+      bundleName: provider.bundleName,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'portalsGetPublicElementsProvider';
+}
+
+/// See also [portalsGetPublicElements].
+class PortalsGetPublicElementsProvider
+    extends AutoDisposeFutureProvider<List<BiFacetBi>> {
+  /// See also [portalsGetPublicElements].
+  PortalsGetPublicElementsProvider({
+    String regionOrNs = 'default',
+    required String parentNode,
+    required String bundleName,
+  }) : this._internal(
+          (ref) => portalsGetPublicElements(
+            ref as PortalsGetPublicElementsRef,
+            regionOrNs: regionOrNs,
+            parentNode: parentNode,
+            bundleName: bundleName,
+          ),
+          from: portalsGetPublicElementsProvider,
+          name: r'portalsGetPublicElementsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$portalsGetPublicElementsHash,
+          dependencies: PortalsGetPublicElementsFamily._dependencies,
+          allTransitiveDependencies:
+              PortalsGetPublicElementsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          parentNode: parentNode,
+          bundleName: bundleName,
+        );
+
+  PortalsGetPublicElementsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.parentNode,
+    required this.bundleName,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String parentNode;
+  final String bundleName;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<BiFacetBi>> Function(PortalsGetPublicElementsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PortalsGetPublicElementsProvider._internal(
+        (ref) => create(ref as PortalsGetPublicElementsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        parentNode: parentNode,
+        bundleName: bundleName,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<BiFacetBi>> createElement() {
+    return _PortalsGetPublicElementsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PortalsGetPublicElementsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.parentNode == parentNode &&
+        other.bundleName == bundleName;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, parentNode.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin PortalsGetPublicElementsRef
+    on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `parentNode` of this provider.
+  String get parentNode;
+
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
+}
+
+class _PortalsGetPublicElementsProviderElement
+    extends AutoDisposeFutureProviderElement<List<BiFacetBi>>
+    with PortalsGetPublicElementsRef {
+  _PortalsGetPublicElementsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as PortalsGetPublicElementsProvider).regionOrNs;
+  @override
+  String get parentNode =>
+      (origin as PortalsGetPublicElementsProvider).parentNode;
+  @override
+  String get bundleName =>
+      (origin as PortalsGetPublicElementsProvider).bundleName;
+}
+
 String _$portalsOnChainPodHash() => r'1b66fe02a805bff873d1471414ba84ecea467e1d';
 
 abstract class _$PortalsOnChainPod

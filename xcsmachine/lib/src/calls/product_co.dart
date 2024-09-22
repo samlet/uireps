@@ -51,18 +51,23 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<CurrencyMap> getPrices() async { 
+  Future<double> price({
+    
+    required String priceType, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getPrices",
+      "action": "price",
       "bundleName" : "Product",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, { 
+    }, {
+      "priceType": priceType, 
     });
     
-    return CurrencyMap()..mergeFromProto3Json(resp);
+    return ResultConv.asDouble(resp);
   }
    
   // Mutation
@@ -250,23 +255,38 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<double> price({
+  Future<CurrencyMap> getPrices() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPrices",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
     
-    required String priceType, 
+    return CurrencyMap()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<List<String>> getComponentIds({
+    
+    required String assocType, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "price",
+      "action": "getComponentIds",
       "bundleName" : "Product",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
     }, {
-      "priceType": priceType, 
+      "assocType": assocType, 
     });
     
-    return ResultConv.asDouble(resp);
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query
@@ -331,26 +351,6 @@ class ProductCoRepository {
     });
     
     return ResultConv.asDouble(resp);
-  }
-   
-  // Query
-  Future<List<String>> getComponentIds({
-    
-    required String assocType, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getComponentIds",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "assocType": assocType, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query

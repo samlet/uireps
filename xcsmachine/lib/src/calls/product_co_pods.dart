@@ -134,12 +134,16 @@ Future<ThingWithPrice> prodGetInfo(ProdGetInfoRef ref, {
 }
   
 @riverpod
-Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
+Future<double> prodPrice(ProdPriceRef ref, {
   String regionOrNs='default',
   required String id,
+  
+    required String priceType, 
+
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getPrices(
+  return await pod.price(
+      priceType: priceType,
   );
 }
   
@@ -204,16 +208,26 @@ Future<bool> prodIsFeatured(ProdIsFeaturedRef ref, {
 }
   
 @riverpod
-Future<double> prodPrice(ProdPriceRef ref, {
+Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getPrices(
+  );
+}
+  
+@riverpod
+Future<List<String>> prodGetComponentIds(ProdGetComponentIdsRef ref, {
   String regionOrNs='default',
   required String id,
   
-    required String priceType, 
+    required String assocType, 
 
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.price(
-      priceType: priceType,
+  return await pod.getComponentIds(
+      assocType: assocType,
   );
 }
   
@@ -244,20 +258,6 @@ Future<double> prodGetDefaultPrice(ProdGetDefaultPriceRef ref, {
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getDefaultPrice(
-  );
-}
-  
-@riverpod
-Future<List<String>> prodGetComponentIds(ProdGetComponentIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String assocType, 
-
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getComponentIds(
-      assocType: assocType,
   );
 }
   

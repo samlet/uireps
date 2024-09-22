@@ -322,11 +322,12 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
       $customConstraints: '');
   static const i0.VerificationMeta _moreTagsMeta =
       const i0.VerificationMeta('moreTags');
-  late final i0.GeneratedColumn<String> moreTags = i0.GeneratedColumn<String>(
-      'more_tags', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Shipment.$convertermoreTagsn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?,
       String> acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
@@ -790,10 +791,7 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
       context.handle(
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
-    if (data.containsKey('more_tags')) {
-      context.handle(_moreTagsMeta,
-          moreTags.isAcceptableOrUnknown(data['more_tags']!, _moreTagsMeta));
-    }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
     context.handle(
         _shipmentItemBillingMeta, const i0.VerificationResult.success());
@@ -936,8 +934,9 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
       tag3: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
-      moreTags: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags']),
+      moreTags: i1.Shipment.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       acl: i1.Shipment.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
       shipmentItemBilling: i1.Shipment.$convertershipmentItemBillingn.fromSql(
@@ -986,6 +985,11 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
     return Shipment(attachedDatabase, alias);
   }
 
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i4.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
@@ -1112,7 +1116,7 @@ class ShipmentData extends i0.DataClass
   final String? tag1;
   final String? tag2;
   final String? tag3;
-  final String? moreTags;
+  final List<String>? moreTags;
   final i2.Multimap<String, String>? acl;
 
   /// rel: many
@@ -1331,7 +1335,8 @@ class ShipmentData extends i0.DataClass
       map['tag3'] = i0.Variable<String>(tag3);
     }
     if (!nullToAbsent || moreTags != null) {
-      map['more_tags'] = i0.Variable<String>(moreTags);
+      map['more_tags'] =
+          i0.Variable<String>(i1.Shipment.$convertermoreTagsn.toSql(moreTags));
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Shipment.$converteracln.toSql(acl));
@@ -1641,7 +1646,8 @@ class ShipmentData extends i0.DataClass
       tag1: serializer.fromJson<String?>(json['tag1']),
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
-      moreTags: serializer.fromJson<String?>(json['more_tags']),
+      moreTags: i1.Shipment.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       acl: i1.Shipment.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       shipmentItemBilling: i1.Shipment.$convertershipmentItemBillingn.fromJson(
@@ -1739,7 +1745,8 @@ class ShipmentData extends i0.DataClass
       'tag1': serializer.toJson<String?>(tag1),
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
-      'more_tags': serializer.toJson<String?>(moreTags),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.Shipment.$convertermoreTagsn.toJson(moreTags)),
       'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.Shipment.$converteracln.toJson(acl)),
       'shipment_item_billing': serializer.toJson<List<Map<String, dynamic>>?>(i1
@@ -1822,7 +1829,7 @@ class ShipmentData extends i0.DataClass
           i0.Value<String?> tag1 = const i0.Value.absent(),
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
-          i0.Value<String?> moreTags = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
           i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
               const i0.Value.absent(),
@@ -2364,7 +2371,7 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
   final i0.Value<String?> tag1;
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
-  final i0.Value<String?> moreTags;
+  final i0.Value<List<String>?> moreTags;
   final i0.Value<i2.Multimap<String, String>?> acl;
   final i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling;
   final i0.Value<List<i3.ShippingDocument>?> shippingDocument;
@@ -2691,7 +2698,7 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
       i0.Value<String?>? tag1,
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
-      i0.Value<String?>? moreTags,
+      i0.Value<List<String>?>? moreTags,
       i0.Value<i2.Multimap<String, String>?>? acl,
       i0.Value<List<i3.ShipmentItemBilling>?>? shipmentItemBilling,
       i0.Value<List<i3.ShippingDocument>?>? shippingDocument,
@@ -2932,7 +2939,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
       map['tag3'] = i0.Variable<String>(tag3.value);
     }
     if (moreTags.present) {
-      map['more_tags'] = i0.Variable<String>(moreTags.value);
+      map['more_tags'] = i0.Variable<String>(
+          i1.Shipment.$convertermoreTagsn.toSql(moreTags.value));
     }
     if (acl.present) {
       map['acl'] =
@@ -3114,7 +3122,7 @@ typedef $ShipmentCreateCompanionBuilder = i1.ShipmentCompanion Function({
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
-  i0.Value<String?> moreTags,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
   i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
   i0.Value<List<i3.ShippingDocument>?> shippingDocument,
@@ -3175,7 +3183,7 @@ typedef $ShipmentUpdateCompanionBuilder = i1.ShipmentCompanion Function({
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
-  i0.Value<String?> moreTags,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
   i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
   i0.Value<List<i3.ShippingDocument>?> shippingDocument,
@@ -3422,10 +3430,12 @@ class $ShipmentFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $state.composableBuilder(
+          column: $state.table.moreTags,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
   i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
           i2.Multimap<String, String>, String>
@@ -3922,7 +3932,7 @@ class $ShipmentTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> moreTags = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
             i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
@@ -4061,7 +4071,7 @@ class $ShipmentTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> moreTags = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
             i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =

@@ -2,8 +2,9 @@
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/inventory.drift.dart' as i1;
 import 'package:xcsmachine/src/ent/inventory.dart' as i2;
-import 'package:xcsdrift/src/inventory_conv.dart' as i3;
-import 'package:drift/internal/modular.dart' as i4;
+import 'package:xcsdrift/fldconv.dart' as i3;
+import 'package:xcsdrift/src/inventory_conv.dart' as i4;
+import 'package:drift/internal/modular.dart' as i5;
 
 class InventoryItem extends i0.Table
     with i0.TableInfo<InventoryItem, i1.InventoryItemData> {
@@ -266,11 +267,12 @@ class InventoryItem extends i0.Table
       $customConstraints: '');
   static const i0.VerificationMeta _moreTagsMeta =
       const i0.VerificationMeta('moreTags');
-  late final i0.GeneratedColumn<String> moreTags = i0.GeneratedColumn<String>(
-      'more_tags', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.InventoryItem.$convertermoreTagsn);
   static const i0.VerificationMeta _inventoryItemTypeMeta =
       const i0.VerificationMeta('inventoryItemType');
   late final i0.GeneratedColumnWithTypeConverter<i2.InventoryItemType?, String>
@@ -589,10 +591,7 @@ class InventoryItem extends i0.Table
       context.handle(
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
-    if (data.containsKey('more_tags')) {
-      context.handle(_moreTagsMeta,
-          moreTags.isAcceptableOrUnknown(data['more_tags']!, _moreTagsMeta));
-    }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(
         _inventoryItemTypeMeta, const i0.VerificationResult.success());
     context.handle(
@@ -700,8 +699,9 @@ class InventoryItem extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
       tag3: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
-      moreTags: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags']),
+      moreTags: i1.InventoryItem.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       inventoryItemType: i1.InventoryItem.$converterinventoryItemTypen.fromSql(
           attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
               data['${effectivePrefix}inventory_item_type'])),
@@ -730,40 +730,45 @@ class InventoryItem extends i0.Table
     return InventoryItem(attachedDatabase, alias);
   }
 
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i3.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
   static i0
       .JsonTypeConverter2<i2.InventoryItemType, String, Map<String, dynamic>>
-      $converterinventoryItemType = const i3.InventoryItemTypeConverter();
+      $converterinventoryItemType = const i4.InventoryItemTypeConverter();
   static i0
       .JsonTypeConverter2<i2.InventoryItemType?, String?, Map<String, dynamic>?>
       $converterinventoryItemTypen =
       i0.JsonTypeConverter2.asNullable($converterinventoryItemType);
   static i0.JsonTypeConverter2<List<i2.InventoryTransfer>, String,
           List<Map<String, dynamic>>> $converterinventoryTransfer =
-      const i3.InventoryTransferListConverter();
+      const i4.InventoryTransferListConverter();
   static i0.JsonTypeConverter2<List<i2.InventoryTransfer>?, String?,
           List<Map<String, dynamic>>?> $converterinventoryTransfern =
       i0.JsonTypeConverter2.asNullable($converterinventoryTransfer);
   static i0.JsonTypeConverter2<List<i2.InventoryItemSlot>, String,
           List<Map<String, dynamic>>> $converterinventoryItemSlot =
-      const i3.InventoryItemSlotListConverter();
+      const i4.InventoryItemSlotListConverter();
   static i0.JsonTypeConverter2<List<i2.InventoryItemSlot>?, String?,
           List<Map<String, dynamic>>?> $converterinventoryItemSlotn =
       i0.JsonTypeConverter2.asNullable($converterinventoryItemSlot);
   static i0.JsonTypeConverter2<List<i2.InventoryItemDetail>, String,
           List<Map<String, dynamic>>> $converterinventoryItemDetail =
-      const i3.InventoryItemDetailListConverter();
+      const i4.InventoryItemDetailListConverter();
   static i0.JsonTypeConverter2<List<i2.InventoryItemDetail>?, String?,
           List<Map<String, dynamic>>?> $converterinventoryItemDetailn =
       i0.JsonTypeConverter2.asNullable($converterinventoryItemDetail);
   static i0.JsonTypeConverter2<List<i2.InventoryItemStatus>, String,
           List<Map<String, dynamic>>> $converterinventoryItemStatus =
-      const i3.InventoryItemStatusListConverter();
+      const i4.InventoryItemStatusListConverter();
   static i0.JsonTypeConverter2<List<i2.InventoryItemStatus>?, String?,
           List<Map<String, dynamic>>?> $converterinventoryItemStatusn =
       i0.JsonTypeConverter2.asNullable($converterinventoryItemStatus);
   static i0.JsonTypeConverter2<List<i2.InventoryItemVariance>, String,
           List<Map<String, dynamic>>> $converterinventoryItemVariance =
-      const i3.InventoryItemVarianceListConverter();
+      const i4.InventoryItemVarianceListConverter();
   static i0.JsonTypeConverter2<List<i2.InventoryItemVariance>?, String?,
           List<Map<String, dynamic>>?> $converterinventoryItemVariancen =
       i0.JsonTypeConverter2.asNullable($converterinventoryItemVariance);
@@ -809,7 +814,7 @@ class InventoryItemData extends i0.DataClass
   final String? tag1;
   final String? tag2;
   final String? tag3;
-  final String? moreTags;
+  final List<String>? moreTags;
 
   /// rel: one (no public-types)
   final i2.InventoryItemType? inventoryItemType;
@@ -979,7 +984,8 @@ class InventoryItemData extends i0.DataClass
       map['tag3'] = i0.Variable<String>(tag3);
     }
     if (!nullToAbsent || moreTags != null) {
-      map['more_tags'] = i0.Variable<String>(moreTags);
+      map['more_tags'] = i0.Variable<String>(
+          i1.InventoryItem.$convertermoreTagsn.toSql(moreTags));
     }
     if (!nullToAbsent || inventoryItemType != null) {
       map['inventory_item_type'] = i0.Variable<String>(i1
@@ -1200,7 +1206,8 @@ class InventoryItemData extends i0.DataClass
       tag1: serializer.fromJson<String?>(json['tag1']),
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
-      moreTags: serializer.fromJson<String?>(json['more_tags']),
+      moreTags: i1.InventoryItem.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       inventoryItemType: i1.InventoryItem.$converterinventoryItemTypen.fromJson(
           serializer
               .fromJson<Map<String, dynamic>?>(json['inventory_item_type'])),
@@ -1266,7 +1273,8 @@ class InventoryItemData extends i0.DataClass
       'tag1': serializer.toJson<String?>(tag1),
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
-      'more_tags': serializer.toJson<String?>(moreTags),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.InventoryItem.$convertermoreTagsn.toJson(moreTags)),
       'inventory_item_type': serializer.toJson<Map<String, dynamic>?>(i1
           .InventoryItem.$converterinventoryItemTypen
           .toJson(inventoryItemType)),
@@ -1326,7 +1334,7 @@ class InventoryItemData extends i0.DataClass
           i0.Value<String?> tag1 = const i0.Value.absent(),
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
-          i0.Value<String?> moreTags = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<i2.InventoryItemType?> inventoryItemType =
               const i0.Value.absent(),
           i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
@@ -1709,7 +1717,7 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
   final i0.Value<String?> tag1;
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
-  final i0.Value<String?> moreTags;
+  final i0.Value<List<String>?> moreTags;
   final i0.Value<i2.InventoryItemType?> inventoryItemType;
   final i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer;
   final i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot;
@@ -1955,7 +1963,7 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       i0.Value<String?>? tag1,
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
-      i0.Value<String?>? moreTags,
+      i0.Value<List<String>?>? moreTags,
       i0.Value<i2.InventoryItemType?>? inventoryItemType,
       i0.Value<List<i2.InventoryTransfer>?>? inventoryTransfer,
       i0.Value<List<i2.InventoryItemSlot>?>? inventoryItemSlot,
@@ -2135,7 +2143,8 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
       map['tag3'] = i0.Variable<String>(tag3.value);
     }
     if (moreTags.present) {
-      map['more_tags'] = i0.Variable<String>(moreTags.value);
+      map['more_tags'] = i0.Variable<String>(
+          i1.InventoryItem.$convertermoreTagsn.toSql(moreTags.value));
     }
     if (inventoryItemType.present) {
       map['inventory_item_type'] = i0.Variable<String>(i1
@@ -2267,7 +2276,7 @@ typedef $InventoryItemCreateCompanionBuilder = i1.InventoryItemCompanion
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
-  i0.Value<String?> moreTags,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i2.InventoryItemType?> inventoryItemType,
   i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
   i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
@@ -2315,7 +2324,7 @@ typedef $InventoryItemUpdateCompanionBuilder = i1.InventoryItemCompanion
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
-  i0.Value<String?> moreTags,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i2.InventoryItemType?> inventoryItemType,
   i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
   i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
@@ -2513,10 +2522,12 @@ class $InventoryItemFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $state.composableBuilder(
+          column: $state.table.moreTags,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
   i0.ColumnWithTypeConverterFilters<i2.InventoryItemType?, i2.InventoryItemType,
           String>
@@ -2866,7 +2877,7 @@ class $InventoryItemTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> moreTags = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.InventoryItemType?> inventoryItemType =
                 const i0.Value.absent(),
             i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
@@ -2966,7 +2977,7 @@ class $InventoryItemTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> moreTags = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.InventoryItemType?> inventoryItemType =
                 const i0.Value.absent(),
             i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
@@ -3052,7 +3063,7 @@ typedef $InventoryItemProcessedTableManager = i0.ProcessedTableManager<
     i1.InventoryItemData,
     i0.PrefetchHooks Function()>;
 
-class InventoryDrift extends i4.ModularAccessor {
+class InventoryDrift extends i5.ModularAccessor {
   InventoryDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.InventoryItemData> allInventoryItems() {
     return customSelect('SELECT * FROM inventory_item',
@@ -3105,6 +3116,6 @@ class InventoryDrift extends i4.ModularAccessor {
   }
 
   i1.InventoryItem get inventoryItem =>
-      i4.ReadDatabaseContainer(attachedDatabase)
+      i5.ReadDatabaseContainer(attachedDatabase)
           .resultSet<i1.InventoryItem>('inventory_item');
 }

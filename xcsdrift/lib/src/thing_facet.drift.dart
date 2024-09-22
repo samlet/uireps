@@ -1,7 +1,8 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/thing_facet.drift.dart' as i1;
-import 'package:drift/internal/modular.dart' as i2;
+import 'package:xcsdrift/fldconv.dart' as i2;
+import 'package:drift/internal/modular.dart' as i3;
 
 class ThingFacet extends i0.Table
     with i0.TableInfo<ThingFacet, i1.ThingFacetData> {
@@ -38,11 +39,12 @@ class ThingFacet extends i0.Table
       $customConstraints: '');
   static const i0.VerificationMeta _imageMeta =
       const i0.VerificationMeta('image');
-  late final i0.GeneratedColumn<String> image = i0.GeneratedColumn<String>(
-      'image', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String> image =
+      i0.GeneratedColumn<String>('image', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.ThingFacet.$converterimagen);
   static const i0.VerificationMeta _sameAsMeta =
       const i0.VerificationMeta('sameAs');
   late final i0.GeneratedColumn<String> sameAs = i0.GeneratedColumn<String>(
@@ -130,10 +132,7 @@ class ThingFacet extends i0.Table
       context.handle(
           _urlMeta, url.isAcceptableOrUnknown(data['url']!, _urlMeta));
     }
-    if (data.containsKey('image')) {
-      context.handle(
-          _imageMeta, image.isAcceptableOrUnknown(data['image']!, _imageMeta));
-    }
+    context.handle(_imageMeta, const i0.VerificationResult.success());
     if (data.containsKey('same_as')) {
       context.handle(_sameAsMeta,
           sameAs.isAcceptableOrUnknown(data['same_as']!, _sameAsMeta));
@@ -181,8 +180,8 @@ class ThingFacet extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}description']),
       url: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}url']),
-      image: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}image']),
+      image: i1.ThingFacet.$converterimagen.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}image'])),
       sameAs: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}same_as']),
       tenantId: attachedDatabase.typeMapping
@@ -204,6 +203,10 @@ class ThingFacet extends i0.Table
     return ThingFacet(attachedDatabase, alias);
   }
 
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $converterimage = const i2.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $converterimagen = i0.JsonTypeConverter2.asNullable($converterimage);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -214,7 +217,7 @@ class ThingFacetData extends i0.DataClass
   final String? name;
   final String? description;
   final String? url;
-  final String? image;
+  final List<String>? image;
   final String? sameAs;
   final String? tenantId;
   final DateTime? lastUpdatedTxStamp;
@@ -250,7 +253,8 @@ class ThingFacetData extends i0.DataClass
       map['url'] = i0.Variable<String>(url);
     }
     if (!nullToAbsent || image != null) {
-      map['image'] = i0.Variable<String>(image);
+      map['image'] =
+          i0.Variable<String>(i1.ThingFacet.$converterimagen.toSql(image));
     }
     if (!nullToAbsent || sameAs != null) {
       map['same_as'] = i0.Variable<String>(sameAs);
@@ -316,7 +320,8 @@ class ThingFacetData extends i0.DataClass
       name: serializer.fromJson<String?>(json['name']),
       description: serializer.fromJson<String?>(json['description']),
       url: serializer.fromJson<String?>(json['url']),
-      image: serializer.fromJson<String?>(json['image']),
+      image: i1.ThingFacet.$converterimagen
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['image'])),
       sameAs: serializer.fromJson<String?>(json['same_as']),
       tenantId: serializer.fromJson<String?>(json['tenant_id']),
       lastUpdatedTxStamp:
@@ -334,7 +339,8 @@ class ThingFacetData extends i0.DataClass
       'name': serializer.toJson<String?>(name),
       'description': serializer.toJson<String?>(description),
       'url': serializer.toJson<String?>(url),
-      'image': serializer.toJson<String?>(image),
+      'image': serializer
+          .toJson<List<dynamic>?>(i1.ThingFacet.$converterimagen.toJson(image)),
       'same_as': serializer.toJson<String?>(sameAs),
       'tenant_id': serializer.toJson<String?>(tenantId),
       'last_updated_tx_stamp': serializer.toJson<DateTime?>(lastUpdatedTxStamp),
@@ -349,7 +355,7 @@ class ThingFacetData extends i0.DataClass
           i0.Value<String?> name = const i0.Value.absent(),
           i0.Value<String?> description = const i0.Value.absent(),
           i0.Value<String?> url = const i0.Value.absent(),
-          i0.Value<String?> image = const i0.Value.absent(),
+          i0.Value<List<String>?> image = const i0.Value.absent(),
           i0.Value<String?> sameAs = const i0.Value.absent(),
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
@@ -449,7 +455,7 @@ class ThingFacetCompanion extends i0.UpdateCompanion<i1.ThingFacetData> {
   final i0.Value<String?> name;
   final i0.Value<String?> description;
   final i0.Value<String?> url;
-  final i0.Value<String?> image;
+  final i0.Value<List<String>?> image;
   final i0.Value<String?> sameAs;
   final i0.Value<String?> tenantId;
   final i0.Value<DateTime?> lastUpdatedTxStamp;
@@ -521,7 +527,7 @@ class ThingFacetCompanion extends i0.UpdateCompanion<i1.ThingFacetData> {
       i0.Value<String?>? name,
       i0.Value<String?>? description,
       i0.Value<String?>? url,
-      i0.Value<String?>? image,
+      i0.Value<List<String>?>? image,
       i0.Value<String?>? sameAs,
       i0.Value<String?>? tenantId,
       i0.Value<DateTime?>? lastUpdatedTxStamp,
@@ -561,7 +567,8 @@ class ThingFacetCompanion extends i0.UpdateCompanion<i1.ThingFacetData> {
       map['url'] = i0.Variable<String>(url.value);
     }
     if (image.present) {
-      map['image'] = i0.Variable<String>(image.value);
+      map['image'] = i0.Variable<String>(
+          i1.ThingFacet.$converterimagen.toSql(image.value));
     }
     if (sameAs.present) {
       map['same_as'] = i0.Variable<String>(sameAs.value);
@@ -613,7 +620,7 @@ typedef $ThingFacetCreateCompanionBuilder = i1.ThingFacetCompanion Function({
   i0.Value<String?> name,
   i0.Value<String?> description,
   i0.Value<String?> url,
-  i0.Value<String?> image,
+  i0.Value<List<String>?> image,
   i0.Value<String?> sameAs,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
@@ -627,7 +634,7 @@ typedef $ThingFacetUpdateCompanionBuilder = i1.ThingFacetCompanion Function({
   i0.Value<String?> name,
   i0.Value<String?> description,
   i0.Value<String?> url,
-  i0.Value<String?> image,
+  i0.Value<List<String>?> image,
   i0.Value<String?> sameAs,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
@@ -660,10 +667,12 @@ class $ThingFacetFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get image => $state.composableBuilder(
+          column: $state.table.image,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
   i0.ColumnFilters<String> get sameAs => $state.composableBuilder(
       column: $state.table.sameAs,
@@ -783,7 +792,7 @@ class $ThingFacetTableManager extends i0.RootTableManager<
             i0.Value<String?> name = const i0.Value.absent(),
             i0.Value<String?> description = const i0.Value.absent(),
             i0.Value<String?> url = const i0.Value.absent(),
-            i0.Value<String?> image = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
             i0.Value<String?> sameAs = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
@@ -811,7 +820,7 @@ class $ThingFacetTableManager extends i0.RootTableManager<
             i0.Value<String?> name = const i0.Value.absent(),
             i0.Value<String?> description = const i0.Value.absent(),
             i0.Value<String?> url = const i0.Value.absent(),
-            i0.Value<String?> image = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
             i0.Value<String?> sameAs = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
@@ -856,7 +865,7 @@ typedef $ThingFacetProcessedTableManager = i0.ProcessedTableManager<
     i1.ThingFacetData,
     i0.PrefetchHooks Function()>;
 
-class ThingFacetDrift extends i2.ModularAccessor {
+class ThingFacetDrift extends i3.ModularAccessor {
   ThingFacetDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.ThingFacetData> allThingFacets() {
     return customSelect('SELECT * FROM thing_facet', variables: [], readsFrom: {
@@ -904,6 +913,6 @@ class ThingFacetDrift extends i2.ModularAccessor {
     );
   }
 
-  i1.ThingFacet get thingFacet => i2.ReadDatabaseContainer(attachedDatabase)
+  i1.ThingFacet get thingFacet => i3.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.ThingFacet>('thing_facet');
 }

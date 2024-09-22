@@ -171,7 +171,7 @@ class _GetFacilityProviderElement
   String get id => (origin as GetFacilityProvider).id;
 }
 
-String _$facilityBucketHash() => r'd2356fedd2591ffb94113250906c970e0a3273e2';
+String _$facilityBucketHash() => r'd6e3a34b7ed5f059553b78e0dc8ed26b906630bc';
 
 /// See also [FacilityBucket].
 @ProviderFor(FacilityBucket)

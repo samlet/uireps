@@ -34,7 +34,7 @@ Future<void> queryExample(Database database) async {
 }
 
 Future<void> storeFromLocalFile(Database database) async {
-  List<ent.Example> facs = await readFacs();
+  List<ent.Example> facs = await readDataSet();
   await database.batch((batch) {
     for (var el in facs) {
       var jsonEl = el.toJson();
@@ -54,7 +54,7 @@ void storeEntry(Map<String, dynamic>? jsonEl, Batch batch, Database database) {
   batch.insert(database.example, entry, onConflict: DoUpdate((old) => entry));
 }
 
-Future<List<ent.Example>> readFacs() async {
+Future<List<ent.Example>> readDataSet() async {
   final file =
       await File.fromUri(Uri.file('/opt/app/dump/oras/webStore/Example.json'))
           .readAsString();

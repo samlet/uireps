@@ -126,6 +126,21 @@ Future<List<BiFacetBi>> portalsChildrenAsBundles(PortalsChildrenAsBundlesRef ref
       bundleName: bundleName,
   );
 }
+  
+@riverpod
+Future<List<BiFacetBi>> portalsGetPublicElements(PortalsGetPublicElementsRef ref, {
+  String regionOrNs='default',
+  
+    required String parentNode,
+    required String bundleName, 
+
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.getPublicElements(
+      parentNode: parentNode,
+      bundleName: bundleName,
+  );
+}
 
 
 

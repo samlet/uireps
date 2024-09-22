@@ -39,7 +39,7 @@ CREATE TABLE inventory_item (
     tag1 VARCHAR(100),
     tag2 VARCHAR(100),
     tag3 VARCHAR(100),
-    more_tags TEXT,
+    more_tags TEXT MAPPED BY `const StringListConverter()`,
 
     -- rel: one (no public-types)
     inventory_item_type TEXT MAPPED BY `const InventoryItemTypeConverter()`,

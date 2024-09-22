@@ -1,7 +1,8 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/bi_facet.drift.dart' as i1;
-import 'package:drift/internal/modular.dart' as i2;
+import 'package:xcsdrift/fldconv.dart' as i2;
+import 'package:drift/internal/modular.dart' as i3;
 
 class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
   @override
@@ -38,11 +39,12 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
       $customConstraints: '');
   static const i0.VerificationMeta _tagsMeta =
       const i0.VerificationMeta('tags');
-  late final i0.GeneratedColumn<String> tags = i0.GeneratedColumn<String>(
-      'tags', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String> tags =
+      i0.GeneratedColumn<String>('tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.BiFacet.$convertertagsn);
   static const i0.VerificationMeta _modifiedMeta =
       const i0.VerificationMeta('modified');
   late final i0.GeneratedColumn<bool> modified = i0.GeneratedColumn<bool>(
@@ -130,10 +132,7 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
       context.handle(
           _dataMeta, this.data.isAcceptableOrUnknown(data['data']!, _dataMeta));
     }
-    if (data.containsKey('tags')) {
-      context.handle(
-          _tagsMeta, tags.isAcceptableOrUnknown(data['tags']!, _tagsMeta));
-    }
+    context.handle(_tagsMeta, const i0.VerificationResult.success());
     if (data.containsKey('modified')) {
       context.handle(_modifiedMeta,
           modified.isAcceptableOrUnknown(data['modified']!, _modifiedMeta));
@@ -181,8 +180,8 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}region_id']),
       data: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}data']),
-      tags: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}tags']),
+      tags: i1.BiFacet.$convertertagsn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tags'])),
       modified: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}modified']),
       tenantId: attachedDatabase.typeMapping
@@ -204,6 +203,10 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
     return BiFacet(attachedDatabase, alias);
   }
 
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertertags = const i2.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertertagsn = i0.JsonTypeConverter2.asNullable($convertertags);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -214,7 +217,7 @@ class BiFacetData extends i0.DataClass
   final String? bundleName;
   final String? regionId;
   final String? data;
-  final String? tags;
+  final List<String>? tags;
   final bool? modified;
   final String? tenantId;
   final DateTime? lastUpdatedTxStamp;
@@ -250,7 +253,7 @@ class BiFacetData extends i0.DataClass
       map['data'] = i0.Variable<String>(data);
     }
     if (!nullToAbsent || tags != null) {
-      map['tags'] = i0.Variable<String>(tags);
+      map['tags'] = i0.Variable<String>(i1.BiFacet.$convertertagsn.toSql(tags));
     }
     if (!nullToAbsent || modified != null) {
       map['modified'] = i0.Variable<bool>(modified);
@@ -317,7 +320,8 @@ class BiFacetData extends i0.DataClass
       bundleName: serializer.fromJson<String?>(json['bundle_name']),
       regionId: serializer.fromJson<String?>(json['region_id']),
       data: serializer.fromJson<String?>(json['data']),
-      tags: serializer.fromJson<String?>(json['tags']),
+      tags: i1.BiFacet.$convertertagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['tags'])),
       modified: serializer.fromJson<bool?>(json['modified']),
       tenantId: serializer.fromJson<String?>(json['tenant_id']),
       lastUpdatedTxStamp:
@@ -335,7 +339,8 @@ class BiFacetData extends i0.DataClass
       'bundle_name': serializer.toJson<String?>(bundleName),
       'region_id': serializer.toJson<String?>(regionId),
       'data': serializer.toJson<String?>(data),
-      'tags': serializer.toJson<String?>(tags),
+      'tags': serializer
+          .toJson<List<dynamic>?>(i1.BiFacet.$convertertagsn.toJson(tags)),
       'modified': serializer.toJson<bool?>(modified),
       'tenant_id': serializer.toJson<String?>(tenantId),
       'last_updated_tx_stamp': serializer.toJson<DateTime?>(lastUpdatedTxStamp),
@@ -350,7 +355,7 @@ class BiFacetData extends i0.DataClass
           i0.Value<String?> bundleName = const i0.Value.absent(),
           i0.Value<String?> regionId = const i0.Value.absent(),
           i0.Value<String?> data = const i0.Value.absent(),
-          i0.Value<String?> tags = const i0.Value.absent(),
+          i0.Value<List<String>?> tags = const i0.Value.absent(),
           i0.Value<bool?> modified = const i0.Value.absent(),
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
@@ -450,7 +455,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
   final i0.Value<String?> bundleName;
   final i0.Value<String?> regionId;
   final i0.Value<String?> data;
-  final i0.Value<String?> tags;
+  final i0.Value<List<String>?> tags;
   final i0.Value<bool?> modified;
   final i0.Value<String?> tenantId;
   final i0.Value<DateTime?> lastUpdatedTxStamp;
@@ -522,7 +527,7 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       i0.Value<String?>? bundleName,
       i0.Value<String?>? regionId,
       i0.Value<String?>? data,
-      i0.Value<String?>? tags,
+      i0.Value<List<String>?>? tags,
       i0.Value<bool?>? modified,
       i0.Value<String?>? tenantId,
       i0.Value<DateTime?>? lastUpdatedTxStamp,
@@ -562,7 +567,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       map['data'] = i0.Variable<String>(data.value);
     }
     if (tags.present) {
-      map['tags'] = i0.Variable<String>(tags.value);
+      map['tags'] =
+          i0.Variable<String>(i1.BiFacet.$convertertagsn.toSql(tags.value));
     }
     if (modified.present) {
       map['modified'] = i0.Variable<bool>(modified.value);
@@ -614,7 +620,7 @@ typedef $BiFacetCreateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<String?> bundleName,
   i0.Value<String?> regionId,
   i0.Value<String?> data,
-  i0.Value<String?> tags,
+  i0.Value<List<String>?> tags,
   i0.Value<bool?> modified,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
@@ -628,7 +634,7 @@ typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<String?> bundleName,
   i0.Value<String?> regionId,
   i0.Value<String?> data,
-  i0.Value<String?> tags,
+  i0.Value<List<String>?> tags,
   i0.Value<bool?> modified,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
@@ -661,10 +667,12 @@ class $BiFacetFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get tags => $state.composableBuilder(
-      column: $state.table.tags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get tags => $state.composableBuilder(
+          column: $state.table.tags,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
   i0.ColumnFilters<bool> get modified => $state.composableBuilder(
       column: $state.table.modified,
@@ -784,7 +792,7 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<String?> bundleName = const i0.Value.absent(),
             i0.Value<String?> regionId = const i0.Value.absent(),
             i0.Value<String?> data = const i0.Value.absent(),
-            i0.Value<String?> tags = const i0.Value.absent(),
+            i0.Value<List<String>?> tags = const i0.Value.absent(),
             i0.Value<bool?> modified = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
@@ -812,7 +820,7 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<String?> bundleName = const i0.Value.absent(),
             i0.Value<String?> regionId = const i0.Value.absent(),
             i0.Value<String?> data = const i0.Value.absent(),
-            i0.Value<String?> tags = const i0.Value.absent(),
+            i0.Value<List<String>?> tags = const i0.Value.absent(),
             i0.Value<bool?> modified = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
@@ -857,7 +865,7 @@ typedef $BiFacetProcessedTableManager = i0.ProcessedTableManager<
     i1.BiFacetData,
     i0.PrefetchHooks Function()>;
 
-class BiFacetDrift extends i2.ModularAccessor {
+class BiFacetDrift extends i3.ModularAccessor {
   BiFacetDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.BiFacetData> allBiFacets() {
     return customSelect('SELECT * FROM bi_facet', variables: [], readsFrom: {
@@ -903,6 +911,6 @@ class BiFacetDrift extends i2.ModularAccessor {
     );
   }
 
-  i1.BiFacet get biFacet => i2.ReadDatabaseContainer(attachedDatabase)
+  i1.BiFacet get biFacet => i3.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.BiFacet>('bi_facet');
 }
