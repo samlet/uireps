@@ -1,15 +1,9 @@
-import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:recase/recase.dart';
-import 'package:xcsdrift/database.dart';
-import 'package:xcsdrift/drift_util.dart';
-import 'package:xcsdrift/src/facility.drift.dart';
-import 'package:xcsdrift/src/facility_repository.dart';
-import 'package:xcsmachine/generic_srv.dart';
-import 'package:xcsmachine/util.dart';
-import 'tokens.dart';
-import 'package:xcsmachine/src/common/services/srv_base.dart';
+import 'package:xcsdrift/xcsdrift.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
+import 'package:xcsmachine/xcsmachine.dart';
+
+import 'tokens.dart';
 
 var dio = createAuthDioWithToken(samletToken);
 
@@ -31,7 +25,8 @@ Future<void> main(List<String> arguments) async {
   // facEnt.facilityName=facEnt.facilityName??""+"(upd)";
   facEnt=facEnt.copyWith(facilityName: "(upd)");
   // await pushEnt(facEnt);
-  await repo.push(facEnt);
+  // await repo.push(facEnt);
+  await repo.storeAndPush(facEnt);
 
   printFac(await repo.getAsEnt("facility_2"));
   print('get upd back -->');

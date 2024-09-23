@@ -32,7 +32,7 @@ class CardAnnounceMedium extends StatelessWidget {
           title,
           style: Theme.of(context)
               .textTheme
-              .headline5!
+              .headlineSmall!
               .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         subtitle: subtitle != null
@@ -40,7 +40,7 @@ class CardAnnounceMedium extends StatelessWidget {
                 subtitle!,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText1!
+                    .bodyLarge!
                     .copyWith(color: Colors.grey, fontWeight: FontWeight.bold),
               )
             : null,

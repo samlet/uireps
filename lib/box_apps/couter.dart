@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
               builder: (context, box, _) {
                 return Text(
                   '${box.get('counter', defaultValue: 0)}',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 );
               },
             )

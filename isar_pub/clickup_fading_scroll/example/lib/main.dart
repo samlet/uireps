@@ -159,7 +159,7 @@ class _PageViewExampleState extends State<PageViewExample> {
                     ),
                     Text('Color $i',
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headline5),
+                        style: Theme.of(context).textTheme.headlineSmall),
                   ],
                 ),
               ),

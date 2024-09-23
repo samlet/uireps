@@ -42,7 +42,7 @@ class CardWithTransparentAndBorder extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               title,
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: selected ? Colors.white : Colors.black,
                   fontWeight: FontWeight.bold),
             ),
@@ -51,7 +51,7 @@ class CardWithTransparentAndBorder extends StatelessWidget {
               description,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2!
+                  .titleSmall!
                   .copyWith(color: Colors.grey),
             ),
             const SizedBox(height: 10),
@@ -59,7 +59,7 @@ class CardWithTransparentAndBorder extends StatelessWidget {
               children: [
                 Text(
                   "Voir les details",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: selected ? secondaryColor : Colors.black),
                 ),

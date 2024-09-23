@@ -12,7 +12,7 @@ class Subtitle extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           // https://docs.flutter.dev/release/breaking-changes/3-19-deprecations
-          // .headline6!
+          // .titleLarge!
           .titleLarge!
           .copyWith(fontWeight: FontWeight.bold),
     );

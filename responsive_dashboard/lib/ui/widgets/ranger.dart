@@ -18,7 +18,7 @@ class Ranger extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           "$from - $to",
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
         ),
       ],
     );

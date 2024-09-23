@@ -24,7 +24,7 @@ class Headline extends StatelessWidget {
               title,
               style: Theme.of(context)
                   .textTheme
-                  .headline5!
+                  .headlineSmall!
                   .copyWith(fontWeight: FontWeight.bold),
             ),
             caption != null
@@ -32,7 +32,7 @@ class Headline extends StatelessWidget {
                     caption!,
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText1!
+                        .bodyLarge!
                         .copyWith(fontWeight: FontWeight.bold, fontSize: 12),
                   )
                 : const SizedBox.shrink(),
@@ -47,7 +47,7 @@ class Headline extends StatelessWidget {
                   title,
                   style: Theme.of(context)
                       .textTheme
-                      .headline4!
+                      .headlineMedium!
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
                 Container(
@@ -59,7 +59,7 @@ class Headline extends StatelessWidget {
                   caption!,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ],
@@ -68,7 +68,7 @@ class Headline extends StatelessWidget {
               title,
               style: Theme.of(context)
                   .textTheme
-                  .headline4!
+                  .headlineMedium!
                   .copyWith(fontWeight: FontWeight.bold),
             );
     }
