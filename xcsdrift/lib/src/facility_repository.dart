@@ -143,6 +143,10 @@ class FacilityRepository {
   Stream<List<FacilityData>> watchAll() {
     return tbl.allFacilities().watch();
   }
+
+  Stream<FacilityData> watchSingle(String id){
+    return tbl.getFacility(id).watchSingle();
+  }
 }
 
 

@@ -143,6 +143,10 @@ class ExampleRepository {
   Stream<List<ExampleData>> watchAll() {
     return tbl.allExamples().watch();
   }
+
+  Stream<ExampleData> watchSingle(String id){
+    return tbl.getExample(id).watchSingle();
+  }
 }
 
 

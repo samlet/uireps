@@ -143,6 +143,10 @@ class NoteRepository {
   Stream<List<NoteDataData>> watchAll() {
     return tbl.allNoteData().watch();
   }
+
+  Stream<NoteDataData> watchSingle(String id){
+    return tbl.getNoteData(id).watchSingle();
+  }
 }
 
 

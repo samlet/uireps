@@ -143,6 +143,10 @@ class InventoryRepository {
   Stream<List<InventoryItemData>> watchAll() {
     return tbl.allInventoryItems().watch();
   }
+
+  Stream<InventoryItemData> watchSingle(String id){
+    return tbl.getInventoryItem(id).watchSingle();
+  }
 }
 
 

@@ -143,6 +143,10 @@ class ShipmentRepository {
   Stream<List<ShipmentData>> watchAll() {
     return tbl.allShipments().watch();
   }
+
+  Stream<ShipmentData> watchSingle(String id){
+    return tbl.getShipment(id).watchSingle();
+  }
 }
 
 
