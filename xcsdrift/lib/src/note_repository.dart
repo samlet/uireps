@@ -85,8 +85,12 @@ class NoteRepository {
     await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
   }
 
-  Future<void> storeAndPush(ent.Note data) async {
+  Future<void> store(ent.Note data) async {
     await storeEntry(data.toJson());
+  }
+
+  Future<void> storeAndPush(ent.Note data) async {
+    await store(data);
     await push(data);
   }
 
@@ -148,5 +152,11 @@ class NoteRepository {
     return tbl.getNoteData(id).watchSingle();
   }
 }
+
+
+extension GetNoteEnt on NoteDataData {
+  ent.Note get asEnt => ent.Note.fromJson(normalizeMap(this));
+}
+
 
 

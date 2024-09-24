@@ -128,6 +128,47 @@ class AclOnChainRepository {
     
     return convScalars(resp, (e)=> e.toString());
   }
+   
+  // Mutation
+  Future<Linkage> enableMutBundles({
+    
+    required String login,
+    required String bundleName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "enableMutBundles",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "login": login,
+      "bundleName": bundleName, 
+    });
+    
+    return Linkage.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> enableMutMultiBundles({
+    
+    required String login,
+    required List<String> bundleNames, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "enableMutMultiBundles",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "login": login,
+      "bundleNames": bundleNames, 
+    });
+    
+  }
   
 }
 

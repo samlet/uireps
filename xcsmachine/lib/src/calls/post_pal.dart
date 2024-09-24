@@ -36,61 +36,67 @@ class PostPalRepository {
   }
    
   // Mutation
-  Future<void> like() async { 
+  Future<void> setCharge({
+    
+    required double fee, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "like",
+      "action": "setCharge",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, { 
+    }, {
+      "fee": fee, 
     });
     
-  }
-   
-  // Query
-  Future<double> likes() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "likes",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asDouble(resp);
   }
    
   // Mutation
-  Future<void> unlike() async { 
+  Future<void> updateText({
+    
+    required String text, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "unlike",
+      "action": "updateText",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, { 
+    }, {
+      "text": text, 
     });
     
   }
    
-  // Query
-  Future<PostBundle> fetch() async { 
+  // Mutation
+  Future<String> postComment({
+    
+    required String subject,
+    required String review,
+    required double rating,
+    required double reward, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "fetch",
+      "action": "postComment",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, { 
+    }, {
+      "subject": subject,
+      "review": review,
+      "rating": rating,
+      "reward": reward, 
     });
     
-    return PostBundle.fromJson(resp);
+    return ResultConv.asString(resp);
   }
    
   // Mutation
@@ -153,67 +159,61 @@ class PostPalRepository {
   }
    
   // Mutation
-  Future<void> setCharge({
-    
-    required double fee, 
-
-  }) async { 
+  Future<void> like() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "setCharge",
+      "action": "like",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, {
-      "fee": fee, 
+    }, { 
     });
     
   }
    
-  // Mutation
-  Future<void> updateText({
-    
-    required String text, 
-
-  }) async { 
+  // Query
+  Future<double> likes() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "updateText",
+      "action": "likes",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, {
-      "text": text, 
+    }, { 
+    });
+    
+    return ResultConv.asDouble(resp);
+  }
+   
+  // Mutation
+  Future<void> unlike() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "unlike",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
     });
     
   }
    
-  // Mutation
-  Future<String> postComment({
-    
-    required String subject,
-    required String review,
-    required double rating,
-    required double reward, 
-
-  }) async { 
+  // Query
+  Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "postComment",
+      "action": "fetch",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, {
-      "subject": subject,
-      "review": review,
-      "rating": rating,
-      "reward": reward, 
+    }, { 
     });
     
-    return ResultConv.asString(resp);
+    return PostBundle.fromJson(resp);
   }
    
   // Query

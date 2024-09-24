@@ -155,35 +155,36 @@ class _FixtureObjectsProviderElement
   String get regionOrNs => (origin as FixtureObjectsProvider).regionOrNs;
 }
 
-String _$fixturesPingHash() => r'37aa07767b9dcc4e158e44b0f35c36fdc49fab94';
+String _$fixturesPublicNotesHash() =>
+    r'9da94f63e5b9f14f56b55641366fcfd90538568e';
 
-/// See also [fixturesPing].
-@ProviderFor(fixturesPing)
-const fixturesPingProvider = FixturesPingFamily();
+/// See also [fixturesPublicNotes].
+@ProviderFor(fixturesPublicNotes)
+const fixturesPublicNotesProvider = FixturesPublicNotesFamily();
 
-/// See also [fixturesPing].
-class FixturesPingFamily extends Family<AsyncValue<String>> {
-  /// See also [fixturesPing].
-  const FixturesPingFamily();
+/// See also [fixturesPublicNotes].
+class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
+  /// See also [fixturesPublicNotes].
+  const FixturesPublicNotesFamily();
 
-  /// See also [fixturesPing].
-  FixturesPingProvider call({
+  /// See also [fixturesPublicNotes].
+  FixturesPublicNotesProvider call({
     String regionOrNs = 'default',
-    required String req,
+    required String author,
   }) {
-    return FixturesPingProvider(
+    return FixturesPublicNotesProvider(
       regionOrNs: regionOrNs,
-      req: req,
+      author: author,
     );
   }
 
   @override
-  FixturesPingProvider getProviderOverride(
-    covariant FixturesPingProvider provider,
+  FixturesPublicNotesProvider getProviderOverride(
+    covariant FixturesPublicNotesProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
-      req: provider.req,
+      author: provider.author,
     );
   }
 
@@ -199,35 +200,36 @@ class FixturesPingFamily extends Family<AsyncValue<String>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fixturesPingProvider';
+  String? get name => r'fixturesPublicNotesProvider';
 }
 
-/// See also [fixturesPing].
-class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [fixturesPing].
-  FixturesPingProvider({
+/// See also [fixturesPublicNotes].
+class FixturesPublicNotesProvider
+    extends AutoDisposeFutureProvider<List<Note>> {
+  /// See also [fixturesPublicNotes].
+  FixturesPublicNotesProvider({
     String regionOrNs = 'default',
-    required String req,
+    required String author,
   }) : this._internal(
-          (ref) => fixturesPing(
-            ref as FixturesPingRef,
+          (ref) => fixturesPublicNotes(
+            ref as FixturesPublicNotesRef,
             regionOrNs: regionOrNs,
-            req: req,
+            author: author,
           ),
-          from: fixturesPingProvider,
-          name: r'fixturesPingProvider',
+          from: fixturesPublicNotesProvider,
+          name: r'fixturesPublicNotesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fixturesPingHash,
-          dependencies: FixturesPingFamily._dependencies,
+                  : _$fixturesPublicNotesHash,
+          dependencies: FixturesPublicNotesFamily._dependencies,
           allTransitiveDependencies:
-              FixturesPingFamily._allTransitiveDependencies,
+              FixturesPublicNotesFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
-          req: req,
+          author: author,
         );
 
-  FixturesPingProvider._internal(
+  FixturesPublicNotesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -235,363 +237,201 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.regionOrNs,
-    required this.req,
+    required this.author,
   }) : super.internal();
 
   final String regionOrNs;
-  final String req;
+  final String author;
 
   @override
   Override overrideWith(
-    FutureOr<String> Function(FixturesPingRef provider) create,
+    FutureOr<List<Note>> Function(FixturesPublicNotesRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FixturesPingProvider._internal(
-        (ref) => create(ref as FixturesPingRef),
+      override: FixturesPublicNotesProvider._internal(
+        (ref) => create(ref as FixturesPublicNotesRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         regionOrNs: regionOrNs,
-        req: req,
+        author: author,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Note>> createElement() {
+    return _FixturesPublicNotesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesPublicNotesProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.author == author;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, author.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesPublicNotesRef on AutoDisposeFutureProviderRef<List<Note>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `author` of this provider.
+  String get author;
+}
+
+class _FixturesPublicNotesProviderElement
+    extends AutoDisposeFutureProviderElement<List<Note>>
+    with FixturesPublicNotesRef {
+  _FixturesPublicNotesProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesPublicNotesProvider).regionOrNs;
+  @override
+  String get author => (origin as FixturesPublicNotesProvider).author;
+}
+
+String _$fixturesGetFreeNameHash() =>
+    r'124115b59083c34d0b38aab78fcd9b5c69e8a2e6';
+
+/// See also [fixturesGetFreeName].
+@ProviderFor(fixturesGetFreeName)
+const fixturesGetFreeNameProvider = FixturesGetFreeNameFamily();
+
+/// See also [fixturesGetFreeName].
+class FixturesGetFreeNameFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetFreeName].
+  const FixturesGetFreeNameFamily();
+
+  /// See also [fixturesGetFreeName].
+  FixturesGetFreeNameProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return FixturesGetFreeNameProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  FixturesGetFreeNameProvider getProviderOverride(
+    covariant FixturesGetFreeNameProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetFreeNameProvider';
+}
+
+/// See also [fixturesGetFreeName].
+class FixturesGetFreeNameProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetFreeName].
+  FixturesGetFreeNameProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => fixturesGetFreeName(
+            ref as FixturesGetFreeNameRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: fixturesGetFreeNameProvider,
+          name: r'fixturesGetFreeNameProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetFreeNameHash,
+          dependencies: FixturesGetFreeNameFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetFreeNameFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  FixturesGetFreeNameProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(FixturesGetFreeNameRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesGetFreeNameProvider._internal(
+        (ref) => create(ref as FixturesGetFreeNameRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
       ),
     );
   }
 
   @override
   AutoDisposeFutureProviderElement<String> createElement() {
-    return _FixturesPingProviderElement(this);
+    return _FixturesGetFreeNameProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FixturesPingProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.req == req;
+    return other is FixturesGetFreeNameProvider &&
+        other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, req.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin FixturesPingRef on AutoDisposeFutureProviderRef<String> {
+mixin FixturesGetFreeNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
-
-  /// The parameter `req` of this provider.
-  String get req;
 }
 
-class _FixturesPingProviderElement
-    extends AutoDisposeFutureProviderElement<String> with FixturesPingRef {
-  _FixturesPingProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as FixturesPingProvider).regionOrNs;
-  @override
-  String get req => (origin as FixturesPingProvider).req;
-}
-
-String _$fixturesEchoHash() => r'739f5a2992a2a5c8dc15d7dd3df5ce0ac59a814f';
-
-/// See also [fixturesEcho].
-@ProviderFor(fixturesEcho)
-const fixturesEchoProvider = FixturesEchoFamily();
-
-/// See also [fixturesEcho].
-class FixturesEchoFamily extends Family<AsyncValue<Map<String, Object?>>> {
-  /// See also [fixturesEcho].
-  const FixturesEchoFamily();
-
-  /// See also [fixturesEcho].
-  FixturesEchoProvider call({
-    String regionOrNs = 'default',
-    required Map<String, Object?> input,
-  }) {
-    return FixturesEchoProvider(
-      regionOrNs: regionOrNs,
-      input: input,
-    );
-  }
-
-  @override
-  FixturesEchoProvider getProviderOverride(
-    covariant FixturesEchoProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      input: provider.input,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesEchoProvider';
-}
-
-/// See also [fixturesEcho].
-class FixturesEchoProvider
-    extends AutoDisposeFutureProvider<Map<String, Object?>> {
-  /// See also [fixturesEcho].
-  FixturesEchoProvider({
-    String regionOrNs = 'default',
-    required Map<String, Object?> input,
-  }) : this._internal(
-          (ref) => fixturesEcho(
-            ref as FixturesEchoRef,
-            regionOrNs: regionOrNs,
-            input: input,
-          ),
-          from: fixturesEchoProvider,
-          name: r'fixturesEchoProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesEchoHash,
-          dependencies: FixturesEchoFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesEchoFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          input: input,
-        );
-
-  FixturesEchoProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.input,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final Map<String, Object?> input;
-
-  @override
-  Override overrideWith(
-    FutureOr<Map<String, Object?>> Function(FixturesEchoRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesEchoProvider._internal(
-        (ref) => create(ref as FixturesEchoRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        input: input,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Map<String, Object?>> createElement() {
-    return _FixturesEchoProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesEchoProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.input == input;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, input.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FixturesEchoRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `input` of this provider.
-  Map<String, Object?> get input;
-}
-
-class _FixturesEchoProviderElement
-    extends AutoDisposeFutureProviderElement<Map<String, Object?>>
-    with FixturesEchoRef {
-  _FixturesEchoProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as FixturesEchoProvider).regionOrNs;
-  @override
-  Map<String, Object?> get input => (origin as FixturesEchoProvider).input;
-}
-
-String _$fixturesGetNoteProtoHash() =>
-    r'8d0dc18bf82e48e25e28f090ac99ae13a245ac96';
-
-/// See also [fixturesGetNoteProto].
-@ProviderFor(fixturesGetNoteProto)
-const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
-
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
-  /// See also [fixturesGetNoteProto].
-  const FixturesGetNoteProtoFamily();
-
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider call({
-    String regionOrNs = 'default',
-    required String noteId,
-  }) {
-    return FixturesGetNoteProtoProvider(
-      regionOrNs: regionOrNs,
-      noteId: noteId,
-    );
-  }
-
-  @override
-  FixturesGetNoteProtoProvider getProviderOverride(
-    covariant FixturesGetNoteProtoProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      noteId: provider.noteId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesGetNoteProtoProvider';
-}
-
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider({
-    String regionOrNs = 'default',
-    required String noteId,
-  }) : this._internal(
-          (ref) => fixturesGetNoteProto(
-            ref as FixturesGetNoteProtoRef,
-            regionOrNs: regionOrNs,
-            noteId: noteId,
-          ),
-          from: fixturesGetNoteProtoProvider,
-          name: r'fixturesGetNoteProtoProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesGetNoteProtoHash,
-          dependencies: FixturesGetNoteProtoFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesGetNoteProtoFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          noteId: noteId,
-        );
-
-  FixturesGetNoteProtoProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.noteId,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String noteId;
-
-  @override
-  Override overrideWith(
-    FutureOr<String> Function(FixturesGetNoteProtoRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesGetNoteProtoProvider._internal(
-        (ref) => create(ref as FixturesGetNoteProtoRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        noteId: noteId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<String> createElement() {
-    return _FixturesGetNoteProtoProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesGetNoteProtoProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.noteId == noteId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, noteId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FixturesGetNoteProtoRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `noteId` of this provider.
-  String get noteId;
-}
-
-class _FixturesGetNoteProtoProviderElement
+class _FixturesGetFreeNameProviderElement
     extends AutoDisposeFutureProviderElement<String>
-    with FixturesGetNoteProtoRef {
-  _FixturesGetNoteProtoProviderElement(super.provider);
+    with FixturesGetFreeNameRef {
+  _FixturesGetFreeNameProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as FixturesGetNoteProtoProvider).regionOrNs;
-  @override
-  String get noteId => (origin as FixturesGetNoteProtoProvider).noteId;
+  String get regionOrNs => (origin as FixturesGetFreeNameProvider).regionOrNs;
 }
 
 String _$fixturesPartyBundleHash() =>
@@ -888,6 +728,396 @@ class _FixturesStoreBundleProviderElement
   String get regionOrNs => (origin as FixturesStoreBundleProvider).regionOrNs;
   @override
   String get storeId => (origin as FixturesStoreBundleProvider).storeId;
+}
+
+String _$fixturesGetSentenceHash() =>
+    r'3390013c3a47d2856a87ed4c858d08137c29b351';
+
+/// See also [fixturesGetSentence].
+@ProviderFor(fixturesGetSentence)
+const fixturesGetSentenceProvider = FixturesGetSentenceFamily();
+
+/// See also [fixturesGetSentence].
+class FixturesGetSentenceFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetSentence].
+  const FixturesGetSentenceFamily();
+
+  /// See also [fixturesGetSentence].
+  FixturesGetSentenceProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return FixturesGetSentenceProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  FixturesGetSentenceProvider getProviderOverride(
+    covariant FixturesGetSentenceProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetSentenceProvider';
+}
+
+/// See also [fixturesGetSentence].
+class FixturesGetSentenceProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetSentence].
+  FixturesGetSentenceProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => fixturesGetSentence(
+            ref as FixturesGetSentenceRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: fixturesGetSentenceProvider,
+          name: r'fixturesGetSentenceProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetSentenceHash,
+          dependencies: FixturesGetSentenceFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetSentenceFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  FixturesGetSentenceProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(FixturesGetSentenceRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesGetSentenceProvider._internal(
+        (ref) => create(ref as FixturesGetSentenceRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesGetSentenceProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetSentenceProvider &&
+        other.regionOrNs == regionOrNs;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesGetSentenceRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+}
+
+class _FixturesGetSentenceProviderElement
+    extends AutoDisposeFutureProviderElement<String>
+    with FixturesGetSentenceRef {
+  _FixturesGetSentenceProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesGetSentenceProvider).regionOrNs;
+}
+
+String _$fixturesGetNickNameHash() =>
+    r'e41df19f2e97a89265c8aca37c963cac86815d25';
+
+/// See also [fixturesGetNickName].
+@ProviderFor(fixturesGetNickName)
+const fixturesGetNickNameProvider = FixturesGetNickNameFamily();
+
+/// See also [fixturesGetNickName].
+class FixturesGetNickNameFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetNickName].
+  const FixturesGetNickNameFamily();
+
+  /// See also [fixturesGetNickName].
+  FixturesGetNickNameProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return FixturesGetNickNameProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  FixturesGetNickNameProvider getProviderOverride(
+    covariant FixturesGetNickNameProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetNickNameProvider';
+}
+
+/// See also [fixturesGetNickName].
+class FixturesGetNickNameProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetNickName].
+  FixturesGetNickNameProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => fixturesGetNickName(
+            ref as FixturesGetNickNameRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: fixturesGetNickNameProvider,
+          name: r'fixturesGetNickNameProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetNickNameHash,
+          dependencies: FixturesGetNickNameFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetNickNameFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  FixturesGetNickNameProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(FixturesGetNickNameRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesGetNickNameProvider._internal(
+        (ref) => create(ref as FixturesGetNickNameRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesGetNickNameProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetNickNameProvider &&
+        other.regionOrNs == regionOrNs;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesGetNickNameRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+}
+
+class _FixturesGetNickNameProviderElement
+    extends AutoDisposeFutureProviderElement<String>
+    with FixturesGetNickNameRef {
+  _FixturesGetNickNameProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesGetNickNameProvider).regionOrNs;
+}
+
+String _$fixturesPickNameHash() => r'37dd76ca4b9541305655dcd8101fcd148ad674e1';
+
+/// See also [fixturesPickName].
+@ProviderFor(fixturesPickName)
+const fixturesPickNameProvider = FixturesPickNameFamily();
+
+/// See also [fixturesPickName].
+class FixturesPickNameFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesPickName].
+  const FixturesPickNameFamily();
+
+  /// See also [fixturesPickName].
+  FixturesPickNameProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return FixturesPickNameProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  FixturesPickNameProvider getProviderOverride(
+    covariant FixturesPickNameProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesPickNameProvider';
+}
+
+/// See also [fixturesPickName].
+class FixturesPickNameProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesPickName].
+  FixturesPickNameProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => fixturesPickName(
+            ref as FixturesPickNameRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: fixturesPickNameProvider,
+          name: r'fixturesPickNameProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesPickNameHash,
+          dependencies: FixturesPickNameFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesPickNameFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  FixturesPickNameProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(FixturesPickNameRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesPickNameProvider._internal(
+        (ref) => create(ref as FixturesPickNameRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesPickNameProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesPickNameProvider && other.regionOrNs == regionOrNs;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesPickNameRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+}
+
+class _FixturesPickNameProviderElement
+    extends AutoDisposeFutureProviderElement<String> with FixturesPickNameRef {
+  _FixturesPickNameProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesPickNameProvider).regionOrNs;
 }
 
 String _$fixturesEchoDecimalMapHash() =>
@@ -1898,36 +2128,36 @@ class _FixturesProtoInputProviderElement
       (origin as FixturesProtoInputProvider).decimalMap;
 }
 
-String _$fixturesPublicNotesHash() =>
-    r'9da94f63e5b9f14f56b55641366fcfd90538568e';
+String _$fixturesGetNoteProtoHash() =>
+    r'8d0dc18bf82e48e25e28f090ac99ae13a245ac96';
 
-/// See also [fixturesPublicNotes].
-@ProviderFor(fixturesPublicNotes)
-const fixturesPublicNotesProvider = FixturesPublicNotesFamily();
+/// See also [fixturesGetNoteProto].
+@ProviderFor(fixturesGetNoteProto)
+const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
 
-/// See also [fixturesPublicNotes].
-class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
-  /// See also [fixturesPublicNotes].
-  const FixturesPublicNotesFamily();
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetNoteProto].
+  const FixturesGetNoteProtoFamily();
 
-  /// See also [fixturesPublicNotes].
-  FixturesPublicNotesProvider call({
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider call({
     String regionOrNs = 'default',
-    required String author,
+    required String noteId,
   }) {
-    return FixturesPublicNotesProvider(
+    return FixturesGetNoteProtoProvider(
       regionOrNs: regionOrNs,
-      author: author,
+      noteId: noteId,
     );
   }
 
   @override
-  FixturesPublicNotesProvider getProviderOverride(
-    covariant FixturesPublicNotesProvider provider,
+  FixturesGetNoteProtoProvider getProviderOverride(
+    covariant FixturesGetNoteProtoProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
-      author: provider.author,
+      noteId: provider.noteId,
     );
   }
 
@@ -1943,36 +2173,35 @@ class FixturesPublicNotesFamily extends Family<AsyncValue<List<Note>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fixturesPublicNotesProvider';
+  String? get name => r'fixturesGetNoteProtoProvider';
 }
 
-/// See also [fixturesPublicNotes].
-class FixturesPublicNotesProvider
-    extends AutoDisposeFutureProvider<List<Note>> {
-  /// See also [fixturesPublicNotes].
-  FixturesPublicNotesProvider({
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider({
     String regionOrNs = 'default',
-    required String author,
+    required String noteId,
   }) : this._internal(
-          (ref) => fixturesPublicNotes(
-            ref as FixturesPublicNotesRef,
+          (ref) => fixturesGetNoteProto(
+            ref as FixturesGetNoteProtoRef,
             regionOrNs: regionOrNs,
-            author: author,
+            noteId: noteId,
           ),
-          from: fixturesPublicNotesProvider,
-          name: r'fixturesPublicNotesProvider',
+          from: fixturesGetNoteProtoProvider,
+          name: r'fixturesGetNoteProtoProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fixturesPublicNotesHash,
-          dependencies: FixturesPublicNotesFamily._dependencies,
+                  : _$fixturesGetNoteProtoHash,
+          dependencies: FixturesGetNoteProtoFamily._dependencies,
           allTransitiveDependencies:
-              FixturesPublicNotesFamily._allTransitiveDependencies,
+              FixturesGetNoteProtoFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
-          author: author,
+          noteId: noteId,
         );
 
-  FixturesPublicNotesProvider._internal(
+  FixturesGetNoteProtoProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1980,70 +2209,362 @@ class FixturesPublicNotesProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.regionOrNs,
-    required this.author,
+    required this.noteId,
   }) : super.internal();
 
   final String regionOrNs;
-  final String author;
+  final String noteId;
 
   @override
   Override overrideWith(
-    FutureOr<List<Note>> Function(FixturesPublicNotesRef provider) create,
+    FutureOr<String> Function(FixturesGetNoteProtoRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FixturesPublicNotesProvider._internal(
-        (ref) => create(ref as FixturesPublicNotesRef),
+      override: FixturesGetNoteProtoProvider._internal(
+        (ref) => create(ref as FixturesGetNoteProtoRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         regionOrNs: regionOrNs,
-        author: author,
+        noteId: noteId,
       ),
     );
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<Note>> createElement() {
-    return _FixturesPublicNotesProviderElement(this);
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesGetNoteProtoProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FixturesPublicNotesProvider &&
+    return other is FixturesGetNoteProtoProvider &&
         other.regionOrNs == regionOrNs &&
-        other.author == author;
+        other.noteId == noteId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, author.hashCode);
+    hash = _SystemHash.combine(hash, noteId.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin FixturesPublicNotesRef on AutoDisposeFutureProviderRef<List<Note>> {
+mixin FixturesGetNoteProtoRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
-  /// The parameter `author` of this provider.
-  String get author;
+  /// The parameter `noteId` of this provider.
+  String get noteId;
 }
 
-class _FixturesPublicNotesProviderElement
-    extends AutoDisposeFutureProviderElement<List<Note>>
-    with FixturesPublicNotesRef {
-  _FixturesPublicNotesProviderElement(super.provider);
+class _FixturesGetNoteProtoProviderElement
+    extends AutoDisposeFutureProviderElement<String>
+    with FixturesGetNoteProtoRef {
+  _FixturesGetNoteProtoProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as FixturesPublicNotesProvider).regionOrNs;
+  String get regionOrNs => (origin as FixturesGetNoteProtoProvider).regionOrNs;
   @override
-  String get author => (origin as FixturesPublicNotesProvider).author;
+  String get noteId => (origin as FixturesGetNoteProtoProvider).noteId;
+}
+
+String _$fixturesPingHash() => r'37aa07767b9dcc4e158e44b0f35c36fdc49fab94';
+
+/// See also [fixturesPing].
+@ProviderFor(fixturesPing)
+const fixturesPingProvider = FixturesPingFamily();
+
+/// See also [fixturesPing].
+class FixturesPingFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesPing].
+  const FixturesPingFamily();
+
+  /// See also [fixturesPing].
+  FixturesPingProvider call({
+    String regionOrNs = 'default',
+    required String req,
+  }) {
+    return FixturesPingProvider(
+      regionOrNs: regionOrNs,
+      req: req,
+    );
+  }
+
+  @override
+  FixturesPingProvider getProviderOverride(
+    covariant FixturesPingProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      req: provider.req,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesPingProvider';
+}
+
+/// See also [fixturesPing].
+class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesPing].
+  FixturesPingProvider({
+    String regionOrNs = 'default',
+    required String req,
+  }) : this._internal(
+          (ref) => fixturesPing(
+            ref as FixturesPingRef,
+            regionOrNs: regionOrNs,
+            req: req,
+          ),
+          from: fixturesPingProvider,
+          name: r'fixturesPingProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesPingHash,
+          dependencies: FixturesPingFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesPingFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          req: req,
+        );
+
+  FixturesPingProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.req,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String req;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(FixturesPingRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesPingProvider._internal(
+        (ref) => create(ref as FixturesPingRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        req: req,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesPingProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesPingProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.req == req;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, req.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesPingRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `req` of this provider.
+  String get req;
+}
+
+class _FixturesPingProviderElement
+    extends AutoDisposeFutureProviderElement<String> with FixturesPingRef {
+  _FixturesPingProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesPingProvider).regionOrNs;
+  @override
+  String get req => (origin as FixturesPingProvider).req;
+}
+
+String _$fixturesEchoHash() => r'739f5a2992a2a5c8dc15d7dd3df5ce0ac59a814f';
+
+/// See also [fixturesEcho].
+@ProviderFor(fixturesEcho)
+const fixturesEchoProvider = FixturesEchoFamily();
+
+/// See also [fixturesEcho].
+class FixturesEchoFamily extends Family<AsyncValue<Map<String, Object?>>> {
+  /// See also [fixturesEcho].
+  const FixturesEchoFamily();
+
+  /// See also [fixturesEcho].
+  FixturesEchoProvider call({
+    String regionOrNs = 'default',
+    required Map<String, Object?> input,
+  }) {
+    return FixturesEchoProvider(
+      regionOrNs: regionOrNs,
+      input: input,
+    );
+  }
+
+  @override
+  FixturesEchoProvider getProviderOverride(
+    covariant FixturesEchoProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      input: provider.input,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesEchoProvider';
+}
+
+/// See also [fixturesEcho].
+class FixturesEchoProvider
+    extends AutoDisposeFutureProvider<Map<String, Object?>> {
+  /// See also [fixturesEcho].
+  FixturesEchoProvider({
+    String regionOrNs = 'default',
+    required Map<String, Object?> input,
+  }) : this._internal(
+          (ref) => fixturesEcho(
+            ref as FixturesEchoRef,
+            regionOrNs: regionOrNs,
+            input: input,
+          ),
+          from: fixturesEchoProvider,
+          name: r'fixturesEchoProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesEchoHash,
+          dependencies: FixturesEchoFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesEchoFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          input: input,
+        );
+
+  FixturesEchoProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.input,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final Map<String, Object?> input;
+
+  @override
+  Override overrideWith(
+    FutureOr<Map<String, Object?>> Function(FixturesEchoRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesEchoProvider._internal(
+        (ref) => create(ref as FixturesEchoRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        input: input,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Map<String, Object?>> createElement() {
+    return _FixturesEchoProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesEchoProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.input == input;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, input.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesEchoRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `input` of this provider.
+  Map<String, Object?> get input;
+}
+
+class _FixturesEchoProviderElement
+    extends AutoDisposeFutureProviderElement<Map<String, Object?>>
+    with FixturesEchoRef {
+  _FixturesEchoProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesEchoProvider).regionOrNs;
+  @override
+  Map<String, Object?> get input => (origin as FixturesEchoProvider).input;
 }
 
 String _$fixturesEchoStringMultiMapHash() =>
@@ -2349,7 +2870,7 @@ class _FixturesGetNoteSlotDataProviderElement
   String get noteId => (origin as FixturesGetNoteSlotDataProvider).noteId;
 }
 
-String _$fixtureObjectsPodHash() => r'11830c819ac67a75b0c5e9f53c24f6ebcc0e5278';
+String _$fixtureObjectsPodHash() => r'3b56ed37d528991a0e4867eacb1486b7b69b0c7d';
 
 abstract class _$FixtureObjectsPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

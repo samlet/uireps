@@ -134,20 +134,6 @@ Future<ThingWithPrice> prodGetInfo(ProdGetInfoRef ref, {
 }
   
 @riverpod
-Future<double> prodPrice(ProdPriceRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String priceType, 
-
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.price(
-      priceType: priceType,
-  );
-}
-  
-@riverpod
 Future<Map<String, Object?>> prodGetPriceMap(ProdGetPriceMapRef ref, {
   String regionOrNs='default',
   required String id,
@@ -218,6 +204,30 @@ Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
 }
   
 @riverpod
+Future<double> prodPrice(ProdPriceRef ref, {
+  String regionOrNs='default',
+  required String id,
+  
+    required String priceType, 
+
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.price(
+      priceType: priceType,
+  );
+}
+  
+@riverpod
+Future<double> prodGetDefaultPrice(ProdGetDefaultPriceRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getDefaultPrice(
+  );
+}
+  
+@riverpod
 Future<List<String>> prodGetComponentIds(ProdGetComponentIdsRef ref, {
   String regionOrNs='default',
   required String id,
@@ -248,16 +258,6 @@ Future<StringMap> prodGetFixedAssetMap(ProdGetFixedAssetMapRef ref, {
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getFixedAssetMap(
-  );
-}
-  
-@riverpod
-Future<double> prodGetDefaultPrice(ProdGetDefaultPriceRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getDefaultPrice(
   );
 }
   

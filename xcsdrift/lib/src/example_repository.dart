@@ -85,8 +85,12 @@ class ExampleRepository {
     await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
   }
 
-  Future<void> storeAndPush(ent.Example data) async {
+  Future<void> store(ent.Example data) async {
     await storeEntry(data.toJson());
+  }
+
+  Future<void> storeAndPush(ent.Example data) async {
+    await store(data);
     await push(data);
   }
 
@@ -148,5 +152,11 @@ class ExampleRepository {
     return tbl.getExample(id).watchSingle();
   }
 }
+
+
+extension GetExampleEnt on ExampleData {
+  ent.Example get asEnt => ent.Example.fromJson(normalizeMap(this));
+}
+
 
 

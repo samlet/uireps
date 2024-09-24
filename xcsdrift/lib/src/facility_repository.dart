@@ -85,8 +85,12 @@ class FacilityRepository {
     await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
   }
 
-  Future<void> storeAndPush(ent.Facility data) async {
+  Future<void> store(ent.Facility data) async {
     await storeEntry(data.toJson());
+  }
+
+  Future<void> storeAndPush(ent.Facility data) async {
+    await store(data);
     await push(data);
   }
 
@@ -148,5 +152,11 @@ class FacilityRepository {
     return tbl.getFacility(id).watchSingle();
   }
 }
+
+
+extension GetFacilityEnt on FacilityData {
+  ent.Facility get asEnt => ent.Facility.fromJson(normalizeMap(this));
+}
+
 
 

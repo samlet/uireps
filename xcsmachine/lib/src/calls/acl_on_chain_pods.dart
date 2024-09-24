@@ -68,6 +68,36 @@ class AclOnChainPod extends _$AclOnChainPod {
             ));
     return state.hasError == false;
   }
+  
+  Future<bool> enableMutBundles({
+    
+    required String login,
+    required String bundleName, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutBundles(
+              login: login,
+              bundleName: bundleName,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> enableMutMultiBundles({
+    
+    required String login,
+    required List<String> bundleNames, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutMultiBundles(
+              login: login,
+              bundleNames: bundleNames,
+            ));
+    return state.hasError == false;
+  }
     
 }
 

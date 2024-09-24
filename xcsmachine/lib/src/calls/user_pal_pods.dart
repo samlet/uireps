@@ -166,22 +166,22 @@ class UserPalPod extends _$UserPalPod {
 
   
 @riverpod
-Future<Wallet> userPalWallet(UserPalWalletRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.wallet(
-  );
-}
-  
-@riverpod
 Future<List<String>> userPalGetAllNotes(UserPalGetAllNotesRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getAllNotes(
+  );
+}
+  
+@riverpod
+Future<Wallet> userPalWallet(UserPalWalletRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.wallet(
   );
 }
   
@@ -304,7 +304,7 @@ Future<String> userPalFirstName(UserPalFirstNameRef ref, {
 }
   
 @riverpod
-Future<List> userPalGetNotes(UserPalGetNotesRef ref, {
+Future<List<Note>> userPalGetNotes(UserPalGetNotesRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {

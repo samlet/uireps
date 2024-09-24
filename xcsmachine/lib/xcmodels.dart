@@ -16,3 +16,4 @@ export 'src/ent/shipment.dart';
 export 'src/ent/order.dart';
 export 'src/ent/user_login.dart';
 export 'src/ent/wallet.dart';
+export 'src/ent/linkage.dart';

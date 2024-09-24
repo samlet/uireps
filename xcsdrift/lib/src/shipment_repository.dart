@@ -85,8 +85,12 @@ class ShipmentRepository {
     await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
   }
 
-  Future<void> storeAndPush(ent.Shipment data) async {
+  Future<void> store(ent.Shipment data) async {
     await storeEntry(data.toJson());
+  }
+
+  Future<void> storeAndPush(ent.Shipment data) async {
+    await store(data);
     await push(data);
   }
 
@@ -148,5 +152,11 @@ class ShipmentRepository {
     return tbl.getShipment(id).watchSingle();
   }
 }
+
+
+extension GetShipmentEnt on ShipmentData {
+  ent.Shipment get asEnt => ent.Shipment.fromJson(normalizeMap(this));
+}
+
 
 

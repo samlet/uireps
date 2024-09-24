@@ -20,21 +20,6 @@ class UserPalRepository {
   final String id;
 
    
-  // Query
-  Future<Wallet> wallet() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "wallet",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Wallet.fromJson(resp);
-  }
-   
   // Mutation
   Future<String> createNote({
     
@@ -112,6 +97,21 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<Wallet> wallet() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "wallet",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Wallet.fromJson(resp);
   }
    
   // Query
@@ -309,7 +309,7 @@ class UserPalRepository {
   }
    
   // Query
-  Future<List> getNotes() async { 
+  Future<List<Note>> getNotes() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
       "action": "getNotes",
@@ -320,7 +320,7 @@ class UserPalRepository {
     }, { 
     });
     
-    return resp as List;
+    return convList(resp, Note.fromJson);
   }
    
   // Mutation

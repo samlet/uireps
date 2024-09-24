@@ -6,8 +6,6 @@ import '../provider/note_pods.dart';
 
 part 'main.g.dart';
 
-// A Counter example implemented with riverpod
-
 void main() {
   runApp(
     // Adding ProviderScope enables Riverpod for the entire project

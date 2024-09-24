@@ -16,3 +16,4 @@ export 'shipment_pod.dart';
 export 'order_pod.dart';
 export 'user_login_pod.dart';
 export 'wallet_pod.dart';
+export 'linkage_pod.dart';

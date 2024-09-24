@@ -13,9 +13,13 @@ Future<void> main(List<String> arguments) async {
   await repo.fetchFromSrv();
   var rec = await repo.get('note_1');
   print("query result: ${rec.noteId} -> ${rec.acl?.asMap().keys}");
+  var recEnt=rec.asEnt;
+  print('--> recEnt: ${recEnt.noteName}, ${recEnt.noteInfo}');
 
   var rs=await repo.fetchFromReg('publicNotes');
   for (var value in rs) {
     print('- ${value.noteId}: ${value.noteName} | ${value.noteInfo}');
   }
 }
+
+

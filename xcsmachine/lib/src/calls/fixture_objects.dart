@@ -43,78 +43,34 @@ class FixtureObjectsRepository {
     return WorkEffort.fromJson(resp);
   }
    
-  // Mutation
-  Future<void> touch({
+  // Query
+  Future<List<Note>> publicNotes({
     
-    required String bundleName,
-    required String bundleId, 
+    required String author, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "touch",
+      "action": "publicNotes",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
+      "author": author, 
     });
     
+    return convList(resp, Note.fromJson);
   }
    
   // Query
-  Future<String> ping({
-    
-    required String req, 
-
-  }) async { 
+  Future<String> getFreeName() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "ping",
+      "action": "getFreeName",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
-    }, {
-      "req": req, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<Map<String, Object?>> echo({
-    
-    required Map<String, Object?> input, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "echo",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "input": input, 
-    });
-    
-    return asTypedMap(resp);
-  }
-   
-  // Query
-  Future<String> getNoteProto({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNoteProto",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "noteId": noteId, 
+    }, { 
     });
     
     return ResultConv.asString(resp);
@@ -227,6 +183,48 @@ class FixtureObjectsRepository {
     });
     
     return StoreBundle.fromJson(resp);
+  }
+   
+  // Query
+  Future<String> getSentence() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getSentence",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<String> getNickName() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNickName",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<String> pickName() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "pickName",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
   }
    
   // Mutation
@@ -443,22 +441,80 @@ class FixtureObjectsRepository {
   }
    
   // Query
-  Future<List<Note>> publicNotes({
+  Future<String> getNoteProto({
     
-    required String author, 
+    required String noteId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "publicNotes",
+      "action": "getNoteProto",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "author": author, 
+      "noteId": noteId, 
     });
     
-    return convList(resp, Note.fromJson);
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<String> ping({
+    
+    required String req, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "ping",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "req": req, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<Map<String, Object?>> echo({
+    
+    required Map<String, Object?> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echo",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asTypedMap(resp);
+  }
+   
+  // Mutation
+  Future<void> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
   }
    
   // Query

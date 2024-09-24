@@ -85,8 +85,12 @@ class InventoryRepository {
     await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
   }
 
-  Future<void> storeAndPush(ent.Inventory data) async {
+  Future<void> store(ent.Inventory data) async {
     await storeEntry(data.toJson());
+  }
+
+  Future<void> storeAndPush(ent.Inventory data) async {
+    await store(data);
     await push(data);
   }
 
@@ -148,5 +152,11 @@ class InventoryRepository {
     return tbl.getInventoryItem(id).watchSingle();
   }
 }
+
+
+extension GetInventoryEnt on InventoryItemData {
+  ent.Inventory get asEnt => ent.Inventory.fromJson(normalizeMap(this));
+}
+
 
 
