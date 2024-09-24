@@ -152,6 +152,169 @@ class _AuthProviderElement extends ProviderElement<AuthRepository>
   String get regionOrNs => (origin as AuthProvider).regionOrNs;
 }
 
+String _$authGenerateTokenHash() => r'c2cc8469e2df870d53f7d650deaa02f3c6949fd3';
+
+/// See also [authGenerateToken].
+@ProviderFor(authGenerateToken)
+const authGenerateTokenProvider = AuthGenerateTokenFamily();
+
+/// See also [authGenerateToken].
+class AuthGenerateTokenFamily extends Family<AsyncValue<ExtractedToken>> {
+  /// See also [authGenerateToken].
+  const AuthGenerateTokenFamily();
+
+  /// See also [authGenerateToken].
+  AuthGenerateTokenProvider call({
+    String regionOrNs = 'default',
+    String? regionId = 'default',
+    required String loginId,
+  }) {
+    return AuthGenerateTokenProvider(
+      regionOrNs: regionOrNs,
+      regionId: regionId,
+      loginId: loginId,
+    );
+  }
+
+  @override
+  AuthGenerateTokenProvider getProviderOverride(
+    covariant AuthGenerateTokenProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      regionId: provider.regionId,
+      loginId: provider.loginId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'authGenerateTokenProvider';
+}
+
+/// See also [authGenerateToken].
+class AuthGenerateTokenProvider
+    extends AutoDisposeFutureProvider<ExtractedToken> {
+  /// See also [authGenerateToken].
+  AuthGenerateTokenProvider({
+    String regionOrNs = 'default',
+    String? regionId = 'default',
+    required String loginId,
+  }) : this._internal(
+          (ref) => authGenerateToken(
+            ref as AuthGenerateTokenRef,
+            regionOrNs: regionOrNs,
+            regionId: regionId,
+            loginId: loginId,
+          ),
+          from: authGenerateTokenProvider,
+          name: r'authGenerateTokenProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$authGenerateTokenHash,
+          dependencies: AuthGenerateTokenFamily._dependencies,
+          allTransitiveDependencies:
+              AuthGenerateTokenFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          regionId: regionId,
+          loginId: loginId,
+        );
+
+  AuthGenerateTokenProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.regionId,
+    required this.loginId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String? regionId;
+  final String loginId;
+
+  @override
+  Override overrideWith(
+    FutureOr<ExtractedToken> Function(AuthGenerateTokenRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AuthGenerateTokenProvider._internal(
+        (ref) => create(ref as AuthGenerateTokenRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        regionId: regionId,
+        loginId: loginId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<ExtractedToken> createElement() {
+    return _AuthGenerateTokenProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AuthGenerateTokenProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.regionId == regionId &&
+        other.loginId == loginId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, loginId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin AuthGenerateTokenRef on AutoDisposeFutureProviderRef<ExtractedToken> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+
+  /// The parameter `loginId` of this provider.
+  String get loginId;
+}
+
+class _AuthGenerateTokenProviderElement
+    extends AutoDisposeFutureProviderElement<ExtractedToken>
+    with AuthGenerateTokenRef {
+  _AuthGenerateTokenProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as AuthGenerateTokenProvider).regionOrNs;
+  @override
+  String? get regionId => (origin as AuthGenerateTokenProvider).regionId;
+  @override
+  String get loginId => (origin as AuthGenerateTokenProvider).loginId;
+}
+
 String _$authPodHash() => r'a4713d1c164c038a1fb4bc461cd7a4881c7f4584';
 
 abstract class _$AuthPod extends BuildlessAutoDisposeAsyncNotifier<void> {

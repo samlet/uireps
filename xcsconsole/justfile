@@ -1,0 +1,11 @@
+b file:
+  dart compile exe {{file}}
+
+cli:
+  dart compile exe bin/xcscli.dart
+  ./bin/xcscli.exe
+
+gen:
+  dart compile exe bin/xcsgen.dart
+  ./bin/xcsgen.exe faker -n nick
+

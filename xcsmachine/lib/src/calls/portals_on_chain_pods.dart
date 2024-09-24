@@ -76,6 +76,21 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> registerPublicElements({
+    
+    required String parentNode,
+    required List<String> ids, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).registerPublicElements(
+              parentNode: parentNode,
+              ids: ids,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> storePublicNote({
     
     required Map<String, Object?> spec, 
@@ -93,11 +108,33 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
 
   
 @riverpod
+Future<List<String>> portalsAllLoginIds(PortalsAllLoginIdsRef ref, {
+  String regionOrNs='default',
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.allLoginIds(
+  );
+}
+  
+@riverpod
 Future<List<BiFacetBi>> portalsGetPublicNotes(PortalsGetPublicNotesRef ref, {
   String regionOrNs='default',
 }) async {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
   return await pod.getPublicNotes(
+  );
+}
+  
+@riverpod
+Future<List<String>> portalsGetPublicElementIds(PortalsGetPublicElementIdsRef ref, {
+  String regionOrNs='default',
+  
+    required String parentNode, 
+
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.getPublicElementIds(
+      parentNode: parentNode,
   );
 }
   

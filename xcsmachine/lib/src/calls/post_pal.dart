@@ -36,6 +36,65 @@ class PostPalRepository {
   }
    
   // Mutation
+  Future<void> featured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "featured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+  }
+   
+  // Query
+  Future<bool> isFeatured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isFeatured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<Map<String, double>> getStats() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getStats",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return asTypedMap<double>(resp);
+  }
+   
+  // Query
+  Future<bool> isLiked() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isLiked",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Mutation
   Future<void> setCharge({
     
     required double fee, 
@@ -97,65 +156,6 @@ class PostPalRepository {
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "featured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
-  // Query
-  Future<bool> isFeatured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isFeatured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
-  Future<Map<String, double>> getStats() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getStats",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return asTypedMap<double>(resp);
-  }
-   
-  // Query
-  Future<bool> isLiked() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isLiked",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asBool(resp);
   }
    
   // Mutation

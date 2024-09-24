@@ -75,6 +75,21 @@ class AuthPod extends _$AuthPod {
     
 }
 
+  
+@riverpod
+Future<ExtractedToken> authGenerateToken(AuthGenerateTokenRef ref, {
+  String regionOrNs='default',
+  
+    String? regionId='default',
+    required String loginId, 
+
+}) async {
+  var pod=ref.watch(authProvider(regionOrNs: regionOrNs));
+  return await pod.generateToken(
+      regionId: regionId,
+      loginId: loginId,
+  );
+}
 
 
 
