@@ -25,7 +25,7 @@ class InventoryBucket extends _$InventoryBucket {
 
 // watch single
 @riverpod
-Future<InventoryItemData> getInventory(GetInventoryRef ref, {required String id}) async {
+Future<InventoryItemData?> getInventory(GetInventoryRef ref, {required String id}) async {
   return ref.watch(inventoryRepositoryProvider).get(id);
 }
 

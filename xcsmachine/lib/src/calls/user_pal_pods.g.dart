@@ -171,6 +171,151 @@ class _UserPalProviderElement
   String get id => (origin as UserPalProvider).id;
 }
 
+String _$userPalWalletHash() => r'1085f033d214e0ca6aa4705d14c33d943fe49326';
+
+/// See also [userPalWallet].
+@ProviderFor(userPalWallet)
+const userPalWalletProvider = UserPalWalletFamily();
+
+/// See also [userPalWallet].
+class UserPalWalletFamily extends Family<AsyncValue<Wallet>> {
+  /// See also [userPalWallet].
+  const UserPalWalletFamily();
+
+  /// See also [userPalWallet].
+  UserPalWalletProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return UserPalWalletProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  UserPalWalletProvider getProviderOverride(
+    covariant UserPalWalletProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userPalWalletProvider';
+}
+
+/// See also [userPalWallet].
+class UserPalWalletProvider extends AutoDisposeFutureProvider<Wallet> {
+  /// See also [userPalWallet].
+  UserPalWalletProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => userPalWallet(
+            ref as UserPalWalletRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: userPalWalletProvider,
+          name: r'userPalWalletProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$userPalWalletHash,
+          dependencies: UserPalWalletFamily._dependencies,
+          allTransitiveDependencies:
+              UserPalWalletFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  UserPalWalletProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<Wallet> Function(UserPalWalletRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UserPalWalletProvider._internal(
+        (ref) => create(ref as UserPalWalletRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Wallet> createElement() {
+    return _UserPalWalletProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserPalWalletProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UserPalWalletRef on AutoDisposeFutureProviderRef<Wallet> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _UserPalWalletProviderElement
+    extends AutoDisposeFutureProviderElement<Wallet> with UserPalWalletRef {
+  _UserPalWalletProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as UserPalWalletProvider).regionOrNs;
+  @override
+  String get id => (origin as UserPalWalletProvider).id;
+}
+
 String _$userPalGetAllNotesHash() =>
     r'fbc39ad6e816229ec476d51754f44ef3f03f80c1';
 
@@ -317,151 +462,6 @@ class _UserPalGetAllNotesProviderElement
   String get regionOrNs => (origin as UserPalGetAllNotesProvider).regionOrNs;
   @override
   String get id => (origin as UserPalGetAllNotesProvider).id;
-}
-
-String _$userPalWalletHash() => r'1085f033d214e0ca6aa4705d14c33d943fe49326';
-
-/// See also [userPalWallet].
-@ProviderFor(userPalWallet)
-const userPalWalletProvider = UserPalWalletFamily();
-
-/// See also [userPalWallet].
-class UserPalWalletFamily extends Family<AsyncValue<Wallet>> {
-  /// See also [userPalWallet].
-  const UserPalWalletFamily();
-
-  /// See also [userPalWallet].
-  UserPalWalletProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return UserPalWalletProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  UserPalWalletProvider getProviderOverride(
-    covariant UserPalWalletProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'userPalWalletProvider';
-}
-
-/// See also [userPalWallet].
-class UserPalWalletProvider extends AutoDisposeFutureProvider<Wallet> {
-  /// See also [userPalWallet].
-  UserPalWalletProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => userPalWallet(
-            ref as UserPalWalletRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: userPalWalletProvider,
-          name: r'userPalWalletProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$userPalWalletHash,
-          dependencies: UserPalWalletFamily._dependencies,
-          allTransitiveDependencies:
-              UserPalWalletFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  UserPalWalletProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<Wallet> Function(UserPalWalletRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: UserPalWalletProvider._internal(
-        (ref) => create(ref as UserPalWalletRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Wallet> createElement() {
-    return _UserPalWalletProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is UserPalWalletProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin UserPalWalletRef on AutoDisposeFutureProviderRef<Wallet> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _UserPalWalletProviderElement
-    extends AutoDisposeFutureProviderElement<Wallet> with UserPalWalletRef {
-  _UserPalWalletProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as UserPalWalletProvider).regionOrNs;
-  @override
-  String get id => (origin as UserPalWalletProvider).id;
 }
 
 String _$userPalGetOrdersAsRoleHash() =>

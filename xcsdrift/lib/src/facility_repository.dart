@@ -126,14 +126,17 @@ class FacilityRepository {
     return rec.facilityId!;
   }
 
-  Future<FacilityData> get(String id) async {
-    return await tbl.getFacility(id).getSingle();
+  Future<FacilityData?> get(String id) async {
+    return await tbl.getFacility(id).getSingleOrNull();
   }
 
-  Future<ent.Facility> getAsEnt(String id) async {
+  Future<ent.Facility?> getAsEnt(String id) async {
     var rec = await get(id);
-    Map<String, dynamic> normMap = normalizeMap(rec);
-    return ent.Facility.fromJson(normMap);
+    if(rec!=null) {
+	    Map<String, dynamic> normMap = normalizeMap(rec);
+	    return ent.Facility.fromJson(normMap);
+	}
+	return null;
   }
 
   Future<int> remove(String id) async {

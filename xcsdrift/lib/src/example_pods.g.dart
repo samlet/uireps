@@ -21,7 +21,7 @@ final exampleRepositoryProvider = Provider<ExampleRepository>.internal(
 );
 
 typedef ExampleRepositoryRef = ProviderRef<ExampleRepository>;
-String _$getExampleHash() => r'2399156febb0ba729b9d5aee3dc5ab8cf539fb32';
+String _$getExampleHash() => r'1bc4ddb761f5821b4109665617dcc1c80ddd47fb';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -49,7 +49,7 @@ class _SystemHash {
 const getExampleProvider = GetExampleFamily();
 
 /// See also [getExample].
-class GetExampleFamily extends Family<AsyncValue<ExampleData>> {
+class GetExampleFamily extends Family<AsyncValue<ExampleData?>> {
   /// See also [getExample].
   const GetExampleFamily();
 
@@ -87,7 +87,7 @@ class GetExampleFamily extends Family<AsyncValue<ExampleData>> {
 }
 
 /// See also [getExample].
-class GetExampleProvider extends AutoDisposeFutureProvider<ExampleData> {
+class GetExampleProvider extends AutoDisposeFutureProvider<ExampleData?> {
   /// See also [getExample].
   GetExampleProvider({
     required String id,
@@ -122,7 +122,7 @@ class GetExampleProvider extends AutoDisposeFutureProvider<ExampleData> {
 
   @override
   Override overrideWith(
-    FutureOr<ExampleData> Function(GetExampleRef provider) create,
+    FutureOr<ExampleData?> Function(GetExampleRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -139,7 +139,7 @@ class GetExampleProvider extends AutoDisposeFutureProvider<ExampleData> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ExampleData> createElement() {
+  AutoDisposeFutureProviderElement<ExampleData?> createElement() {
     return _GetExampleProviderElement(this);
   }
 
@@ -157,13 +157,13 @@ class GetExampleProvider extends AutoDisposeFutureProvider<ExampleData> {
   }
 }
 
-mixin GetExampleRef on AutoDisposeFutureProviderRef<ExampleData> {
+mixin GetExampleRef on AutoDisposeFutureProviderRef<ExampleData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
 class _GetExampleProviderElement
-    extends AutoDisposeFutureProviderElement<ExampleData> with GetExampleRef {
+    extends AutoDisposeFutureProviderElement<ExampleData?> with GetExampleRef {
   _GetExampleProviderElement(super.provider);
 
   @override

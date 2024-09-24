@@ -17,3 +17,8 @@ export 'src/ent/order.dart';
 export 'src/ent/user_login.dart';
 export 'src/ent/wallet.dart';
 export 'src/ent/linkage.dart';
+export 'src/ent/config.dart';
+export 'src/ent/metadata.dart';
+export 'src/ent/shopping_cart.dart';
+export 'src/ent/billboard.dart';
+export 'src/ent/marketplace.dart';

@@ -73,6 +73,25 @@ class PortalsOnChainRepository {
   }
    
   // Query
+  Future<List<String>> allBundleIds({
+    
+    required String bundleName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "allBundleIds",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
   Future<List<BiFacetBi>> getPublicNotes() async { 
     var resp = await performCall(dio, {
       "module": moduleName,

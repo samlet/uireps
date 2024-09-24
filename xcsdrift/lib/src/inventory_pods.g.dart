@@ -22,7 +22,7 @@ final inventoryRepositoryProvider = Provider<InventoryRepository>.internal(
 );
 
 typedef InventoryRepositoryRef = ProviderRef<InventoryRepository>;
-String _$getInventoryHash() => r'efcb1af58ad1f7031cc0e7ec8f163220589f2d29';
+String _$getInventoryHash() => r'e868e0eaf48ccf133311b22e5443d533ebcbf166';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -50,7 +50,7 @@ class _SystemHash {
 const getInventoryProvider = GetInventoryFamily();
 
 /// See also [getInventory].
-class GetInventoryFamily extends Family<AsyncValue<InventoryItemData>> {
+class GetInventoryFamily extends Family<AsyncValue<InventoryItemData?>> {
   /// See also [getInventory].
   const GetInventoryFamily();
 
@@ -89,7 +89,7 @@ class GetInventoryFamily extends Family<AsyncValue<InventoryItemData>> {
 
 /// See also [getInventory].
 class GetInventoryProvider
-    extends AutoDisposeFutureProvider<InventoryItemData> {
+    extends AutoDisposeFutureProvider<InventoryItemData?> {
   /// See also [getInventory].
   GetInventoryProvider({
     required String id,
@@ -124,7 +124,7 @@ class GetInventoryProvider
 
   @override
   Override overrideWith(
-    FutureOr<InventoryItemData> Function(GetInventoryRef provider) create,
+    FutureOr<InventoryItemData?> Function(GetInventoryRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -141,7 +141,7 @@ class GetInventoryProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<InventoryItemData> createElement() {
+  AutoDisposeFutureProviderElement<InventoryItemData?> createElement() {
     return _GetInventoryProviderElement(this);
   }
 
@@ -159,13 +159,13 @@ class GetInventoryProvider
   }
 }
 
-mixin GetInventoryRef on AutoDisposeFutureProviderRef<InventoryItemData> {
+mixin GetInventoryRef on AutoDisposeFutureProviderRef<InventoryItemData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
 class _GetInventoryProviderElement
-    extends AutoDisposeFutureProviderElement<InventoryItemData>
+    extends AutoDisposeFutureProviderElement<InventoryItemData?>
     with GetInventoryRef {
   _GetInventoryProviderElement(super.provider);
 

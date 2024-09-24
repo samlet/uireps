@@ -25,7 +25,7 @@ class ShipmentBucket extends _$ShipmentBucket {
 
 // watch single
 @riverpod
-Future<ShipmentData> getShipment(GetShipmentRef ref, {required String id}) async {
+Future<ShipmentData?> getShipment(GetShipmentRef ref, {required String id}) async {
   return ref.watch(shipmentRepositoryProvider).get(id);
 }
 

@@ -22,7 +22,7 @@ final shipmentRepositoryProvider = Provider<ShipmentRepository>.internal(
 );
 
 typedef ShipmentRepositoryRef = ProviderRef<ShipmentRepository>;
-String _$getShipmentHash() => r'3b8c73ff37adde62b8b1b29ac35b893a050c9b01';
+String _$getShipmentHash() => r'60fa800f1de20e5be82b49b1c2f3cf109bf5153c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -50,7 +50,7 @@ class _SystemHash {
 const getShipmentProvider = GetShipmentFamily();
 
 /// See also [getShipment].
-class GetShipmentFamily extends Family<AsyncValue<ShipmentData>> {
+class GetShipmentFamily extends Family<AsyncValue<ShipmentData?>> {
   /// See also [getShipment].
   const GetShipmentFamily();
 
@@ -88,7 +88,7 @@ class GetShipmentFamily extends Family<AsyncValue<ShipmentData>> {
 }
 
 /// See also [getShipment].
-class GetShipmentProvider extends AutoDisposeFutureProvider<ShipmentData> {
+class GetShipmentProvider extends AutoDisposeFutureProvider<ShipmentData?> {
   /// See also [getShipment].
   GetShipmentProvider({
     required String id,
@@ -123,7 +123,7 @@ class GetShipmentProvider extends AutoDisposeFutureProvider<ShipmentData> {
 
   @override
   Override overrideWith(
-    FutureOr<ShipmentData> Function(GetShipmentRef provider) create,
+    FutureOr<ShipmentData?> Function(GetShipmentRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -140,7 +140,7 @@ class GetShipmentProvider extends AutoDisposeFutureProvider<ShipmentData> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ShipmentData> createElement() {
+  AutoDisposeFutureProviderElement<ShipmentData?> createElement() {
     return _GetShipmentProviderElement(this);
   }
 
@@ -158,13 +158,14 @@ class GetShipmentProvider extends AutoDisposeFutureProvider<ShipmentData> {
   }
 }
 
-mixin GetShipmentRef on AutoDisposeFutureProviderRef<ShipmentData> {
+mixin GetShipmentRef on AutoDisposeFutureProviderRef<ShipmentData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
 class _GetShipmentProviderElement
-    extends AutoDisposeFutureProviderElement<ShipmentData> with GetShipmentRef {
+    extends AutoDisposeFutureProviderElement<ShipmentData?>
+    with GetShipmentRef {
   _GetShipmentProviderElement(super.provider);
 
   @override

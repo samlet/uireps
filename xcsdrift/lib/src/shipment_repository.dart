@@ -126,14 +126,17 @@ class ShipmentRepository {
     return rec.shipmentId!;
   }
 
-  Future<ShipmentData> get(String id) async {
-    return await tbl.getShipment(id).getSingle();
+  Future<ShipmentData?> get(String id) async {
+    return await tbl.getShipment(id).getSingleOrNull();
   }
 
-  Future<ent.Shipment> getAsEnt(String id) async {
+  Future<ent.Shipment?> getAsEnt(String id) async {
     var rec = await get(id);
-    Map<String, dynamic> normMap = normalizeMap(rec);
-    return ent.Shipment.fromJson(normMap);
+    if(rec!=null) {
+	    Map<String, dynamic> normMap = normalizeMap(rec);
+	    return ent.Shipment.fromJson(normMap);
+	}
+	return null;
   }
 
   Future<int> remove(String id) async {

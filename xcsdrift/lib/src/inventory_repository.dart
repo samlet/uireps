@@ -126,14 +126,17 @@ class InventoryRepository {
     return rec.inventoryItemId!;
   }
 
-  Future<InventoryItemData> get(String id) async {
-    return await tbl.getInventoryItem(id).getSingle();
+  Future<InventoryItemData?> get(String id) async {
+    return await tbl.getInventoryItem(id).getSingleOrNull();
   }
 
-  Future<ent.Inventory> getAsEnt(String id) async {
+  Future<ent.Inventory?> getAsEnt(String id) async {
     var rec = await get(id);
-    Map<String, dynamic> normMap = normalizeMap(rec);
-    return ent.Inventory.fromJson(normMap);
+    if(rec!=null) {
+	    Map<String, dynamic> normMap = normalizeMap(rec);
+	    return ent.Inventory.fromJson(normMap);
+	}
+	return null;
   }
 
   Future<int> remove(String id) async {

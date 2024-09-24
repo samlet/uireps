@@ -126,14 +126,17 @@ class NoteRepository {
     return rec.noteId!;
   }
 
-  Future<NoteDataData> get(String id) async {
-    return await tbl.getNoteData(id).getSingle();
+  Future<NoteDataData?> get(String id) async {
+    return await tbl.getNoteData(id).getSingleOrNull();
   }
 
-  Future<ent.Note> getAsEnt(String id) async {
+  Future<ent.Note?> getAsEnt(String id) async {
     var rec = await get(id);
-    Map<String, dynamic> normMap = normalizeMap(rec);
-    return ent.Note.fromJson(normMap);
+    if(rec!=null) {
+	    Map<String, dynamic> normMap = normalizeMap(rec);
+	    return ent.Note.fromJson(normMap);
+	}
+	return null;
   }
 
   Future<int> remove(String id) async {

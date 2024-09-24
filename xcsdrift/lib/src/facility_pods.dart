@@ -25,7 +25,7 @@ class FacilityBucket extends _$FacilityBucket {
 
 // watch single
 @riverpod
-Future<FacilityData> getFacility(GetFacilityRef ref, {required String id}) async {
+Future<FacilityData?> getFacility(GetFacilityRef ref, {required String id}) async {
   return ref.watch(facilityRepositoryProvider).get(id);
 }
 

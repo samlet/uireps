@@ -22,7 +22,7 @@ final facilityRepositoryProvider = Provider<FacilityRepository>.internal(
 );
 
 typedef FacilityRepositoryRef = ProviderRef<FacilityRepository>;
-String _$getFacilityHash() => r'a0c687257c996eb33f34c270f703cacf7b951e65';
+String _$getFacilityHash() => r'a8ef588274b4efa18058a3f7a40601b9331c3208';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -50,7 +50,7 @@ class _SystemHash {
 const getFacilityProvider = GetFacilityFamily();
 
 /// See also [getFacility].
-class GetFacilityFamily extends Family<AsyncValue<FacilityData>> {
+class GetFacilityFamily extends Family<AsyncValue<FacilityData?>> {
   /// See also [getFacility].
   const GetFacilityFamily();
 
@@ -88,7 +88,7 @@ class GetFacilityFamily extends Family<AsyncValue<FacilityData>> {
 }
 
 /// See also [getFacility].
-class GetFacilityProvider extends AutoDisposeFutureProvider<FacilityData> {
+class GetFacilityProvider extends AutoDisposeFutureProvider<FacilityData?> {
   /// See also [getFacility].
   GetFacilityProvider({
     required String id,
@@ -123,7 +123,7 @@ class GetFacilityProvider extends AutoDisposeFutureProvider<FacilityData> {
 
   @override
   Override overrideWith(
-    FutureOr<FacilityData> Function(GetFacilityRef provider) create,
+    FutureOr<FacilityData?> Function(GetFacilityRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -140,7 +140,7 @@ class GetFacilityProvider extends AutoDisposeFutureProvider<FacilityData> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<FacilityData> createElement() {
+  AutoDisposeFutureProviderElement<FacilityData?> createElement() {
     return _GetFacilityProviderElement(this);
   }
 
@@ -158,13 +158,14 @@ class GetFacilityProvider extends AutoDisposeFutureProvider<FacilityData> {
   }
 }
 
-mixin GetFacilityRef on AutoDisposeFutureProviderRef<FacilityData> {
+mixin GetFacilityRef on AutoDisposeFutureProviderRef<FacilityData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
 class _GetFacilityProviderElement
-    extends AutoDisposeFutureProviderElement<FacilityData> with GetFacilityRef {
+    extends AutoDisposeFutureProviderElement<FacilityData?>
+    with GetFacilityRef {
   _GetFacilityProviderElement(super.provider);
 
   @override

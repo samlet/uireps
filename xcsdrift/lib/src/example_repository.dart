@@ -126,14 +126,17 @@ class ExampleRepository {
     return rec.exampleId!;
   }
 
-  Future<ExampleData> get(String id) async {
-    return await tbl.getExample(id).getSingle();
+  Future<ExampleData?> get(String id) async {
+    return await tbl.getExample(id).getSingleOrNull();
   }
 
-  Future<ent.Example> getAsEnt(String id) async {
+  Future<ent.Example?> getAsEnt(String id) async {
     var rec = await get(id);
-    Map<String, dynamic> normMap = normalizeMap(rec);
-    return ent.Example.fromJson(normMap);
+    if(rec!=null) {
+	    Map<String, dynamic> normMap = normalizeMap(rec);
+	    return ent.Example.fromJson(normMap);
+	}
+	return null;
   }
 
   Future<int> remove(String id) async {

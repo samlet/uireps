@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
+import 'package:xcsconsole/cmdbase.dart';
 import 'package:xcsmachine/src/calls/fixture_objects.dart';
 import 'package:xcsmachine/xcsmachine.dart';
 
-import 'tokens.dart';
+import '../lib/tokens.dart';
 
 var dio = createAuthDioWithToken(samletToken);
 
@@ -14,23 +14,51 @@ Future<void> main(List<String> args) async {
     ..addCommand(GenEntCommand())
     ..addCommand(FakerCommand())
     ..addCommand(RegCommand())
-    ..addCommand(SecurityCommand());
+    ..addCommand(SecurityCommand())
+    ..addCommand(DataCommand());
 
   await runner.run(args);
   exit(0);
 }
 
-class SecurityCommand extends Command {
+class DataCommand extends XcsCommand {
+  final name = "data";
+  final description = "Get entity data.";
+
+  DataCommand() {
+    argParser.addOption('name', abbr: 'n', defaultsTo: 'get');
+    argParser.addOption('bundle', abbr: 'b', defaultsTo: 'Note');
+    argParser.addOption('id', abbr: 'i', defaultsTo: 'note_1');
+  }
+
+  // [run] may also return a Future.
+  Future<void> run() async {
+    final name = argResults?.option('name');
+    print('proc name = $name');
+    switch (name) {
+      case 'get':
+        var r = await PortalManagerRepository(dio)
+            .loadAsBiFacet(bundleName: opt('bundle')!, bundleId: opt('id')!);
+        prettyPrint(r);
+        break;
+      case "ids":
+        var rs = await PortalsOnChainRepository(dio)
+            .allBundleIds(bundleName: opt('bundle')!);
+        printLines(rs);
+        break;
+      default:
+        print('unknown data command: $name');
+    }
+  }
+}
+
+class SecurityCommand extends XcsCommand {
   final name = "security";
   final description = "Generate entity.";
 
   SecurityCommand() {
     argParser.addOption('name', abbr: 'n', defaultsTo: 'logins');
     argParser.addOption('login', abbr: 'l', defaultsTo: 'samlet');
-  }
-
-  String? opt(String optName) {
-    return argResults?.option(optName);
   }
 
   // [run] may also return a Future.
@@ -123,9 +151,11 @@ class GenEntCommand extends Command {
 % xcsgen.exe reg -n publicNotes
 % xcsgen.exe security -n logins
 % xcsgen.exe security -n gentoken -l alice
+% xcsgen.exe data -n get -b Note -i note_2
+% xcsgen.exe data -n ids -b Note
+% xcsgen.exe data -n ids -b Marketplace
  */
 
 // register public elements:
 // publicNotes, examples, stores, autoOrgans
 // someOrders
-

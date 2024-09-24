@@ -13,11 +13,11 @@ Future<void> main(List<String> arguments) async {
   await repo.fetchFromSrv();
   var rec = await repo.get('facility_1');
 
-  print("query result: ${rec.facilityId} -> ${rec.acl?.asMap().keys}");
+  print("query result: ${rec?.facilityId} -> ${rec?.acl?.asMap().keys}");
   // prettyPrint(rec);
 
   // convert to entity
-  Map<String, dynamic> normMap = normalizeMap(rec);
+  Map<String, dynamic> normMap = normalizeMap(rec!);
   prettyPrint(normMap);
   var facEnt = ent.Facility.fromJson(normMap);
   printFac(facEnt);
@@ -40,9 +40,9 @@ Future<void> pushEnt(ent.Facility facEnt) async {
   await portalmgr.storeBundleSpec(bundleName: "Facility", spec: facEnt.toJson());
 }
 
-void printFac(ent.Facility facEnt) {
+void printFac(ent.Facility? facEnt) {
   print(
-      "facility: ${facEnt.facilityId}, ${facEnt.facilityName}, "
-          "with contact ${facEnt.facilityContactMech?.first.contactMechId}");
+      "facility: ${facEnt?.facilityId}, ${facEnt?.facilityName}, "
+          "with contact ${facEnt?.facilityContactMech?.first.contactMechId}");
 }
 

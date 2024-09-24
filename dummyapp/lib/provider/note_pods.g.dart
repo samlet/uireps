@@ -21,7 +21,7 @@ final noteRepositoryProvider = Provider<NoteRepository>.internal(
 );
 
 typedef NoteRepositoryRef = ProviderRef<NoteRepository>;
-String _$getNoteHash() => r'93c6c7eaefad8c38a007987d63b3b2ab83d96c07';
+String _$getNoteHash() => r'af522d062f9649f4011504d849117ea94e234d8f';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -49,7 +49,7 @@ class _SystemHash {
 const getNoteProvider = GetNoteFamily();
 
 /// See also [getNote].
-class GetNoteFamily extends Family<AsyncValue<NoteDataData>> {
+class GetNoteFamily extends Family<AsyncValue<NoteDataData?>> {
   /// See also [getNote].
   const GetNoteFamily();
 
@@ -87,7 +87,7 @@ class GetNoteFamily extends Family<AsyncValue<NoteDataData>> {
 }
 
 /// See also [getNote].
-class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData> {
+class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   /// See also [getNote].
   GetNoteProvider({
     required String id,
@@ -121,7 +121,7 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData> {
 
   @override
   Override overrideWith(
-    FutureOr<NoteDataData> Function(GetNoteRef provider) create,
+    FutureOr<NoteDataData?> Function(GetNoteRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -138,7 +138,7 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<NoteDataData> createElement() {
+  AutoDisposeFutureProviderElement<NoteDataData?> createElement() {
     return _GetNoteProviderElement(this);
   }
 
@@ -156,13 +156,13 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData> {
   }
 }
 
-mixin GetNoteRef on AutoDisposeFutureProviderRef<NoteDataData> {
+mixin GetNoteRef on AutoDisposeFutureProviderRef<NoteDataData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
 class _GetNoteProviderElement
-    extends AutoDisposeFutureProviderElement<NoteDataData> with GetNoteRef {
+    extends AutoDisposeFutureProviderElement<NoteDataData?> with GetNoteRef {
   _GetNoteProviderElement(super.provider);
 
   @override

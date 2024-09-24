@@ -117,6 +117,19 @@ Future<List<String>> portalsAllLoginIds(PortalsAllLoginIdsRef ref, {
 }
   
 @riverpod
+Future<List<String>> portalsAllBundleIds(PortalsAllBundleIdsRef ref, {
+  String regionOrNs='default',
+  
+    required String bundleName, 
+
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.allBundleIds(
+      bundleName: bundleName,
+  );
+}
+  
+@riverpod
 Future<List<BiFacetBi>> portalsGetPublicNotes(PortalsGetPublicNotesRef ref, {
   String regionOrNs='default',
 }) async {

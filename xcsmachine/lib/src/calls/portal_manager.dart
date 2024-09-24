@@ -19,6 +19,29 @@ class PortalManagerRepository {
 
    
   // Query
+  Future<BiFacetBi> loadAsBiFacet({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacet",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "bundleId": bundleId, 
+    });
+    
+    return BiFacetBi.fromJson(resp);
+  }
+   
+  // Query
   Future<List<BiFacetBi>> loadAsBiFacets({
     
     required String bundleName,
@@ -42,26 +65,26 @@ class PortalManagerRepository {
   }
    
   // Query
-  Future<BiFacetBi> loadAsBiFacet({
+  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
     
     required String bundleName,
     String? regionId='default',
-    required String bundleId, 
+    required String tenantId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "loadAsBiFacet",
+      "action": "loadAsBiFacetsByTenant",
       "bundleName" : "PortalManager",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
       "bundleName": bundleName,
       if(regionId!=null) "regionId": regionId,
-      "bundleId": bundleId, 
+      "tenantId": tenantId, 
     });
     
-    return BiFacetBi.fromJson(resp);
+    return convList(resp, BiFacetBi.fromJson);
   }
    
   // Mutation
@@ -85,29 +108,6 @@ class PortalManagerRepository {
     });
     
     return BundleModifiedResult.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
-    
-    required String bundleName,
-    String? regionId='default',
-    required String tenantId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadAsBiFacetsByTenant",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "tenantId": tenantId, 
-    });
-    
-    return convList(resp, BiFacetBi.fromJson);
   }
   
 }

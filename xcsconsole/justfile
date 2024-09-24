@@ -9,3 +9,6 @@ gen:
   dart compile exe bin/xcsgen.dart
   ./bin/xcsgen.exe faker -n nick
 
+buy:
+  dart compile exe bin/xcsbuy.dart
+  ./bin/xcsbuy.exe get

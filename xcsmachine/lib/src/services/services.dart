@@ -17,3 +17,8 @@ export 'order_pod.dart';
 export 'user_login_pod.dart';
 export 'wallet_pod.dart';
 export 'linkage_pod.dart';
+export 'config_pod.dart';
+export 'metadata_pod.dart';
+export 'shopping_cart_pod.dart';
+export 'billboard_pod.dart';
+export 'marketplace_pod.dart';

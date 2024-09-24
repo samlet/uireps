@@ -25,7 +25,7 @@ class ExampleBucket extends _$ExampleBucket {
 
 // watch single
 @riverpod
-Future<ExampleData> getExample(GetExampleRef ref, {required String id}) async {
+Future<ExampleData?> getExample(GetExampleRef ref, {required String id}) async {
   return ref.watch(exampleRepositoryProvider).get(id);
 }
 

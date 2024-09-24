@@ -33,7 +33,7 @@ class NoteEl extends _$NoteEl {
 
 // watch single
 @riverpod
-Future<NoteDataData> getNote(GetNoteRef ref, {required String id}) async {
+Future<NoteDataData?> getNote(GetNoteRef ref, {required String id}) async {
   return ref.watch(noteRepositoryProvider).get(id);
 }
 

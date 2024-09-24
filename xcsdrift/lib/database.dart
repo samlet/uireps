@@ -9,6 +9,11 @@ import 'database.drift.dart';
   'src/example.drift',
   'src/facility.drift',
   'src/inventory.drift',
+  'src/metadata.drift',
+  'src/config.drift',
+  'src/shopping_cart.drift',
+  'src/billboard.drift',
+  'src/marketplace.drift',
 })
 class Database extends $Database {
   Database(super.e);
