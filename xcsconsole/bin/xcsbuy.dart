@@ -5,7 +5,7 @@ import 'package:xcsconsole/cmdbase.dart';
 import 'package:xcsdrift/xcsdrift.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 import 'package:xcsmachine/xcsmachine.dart';
-
+import 'package:xcsmachine/extents.dart';
 import 'package:xcsconsole/tokens.dart';
 
 var dio = createAuthDioWithToken(samletToken);
@@ -61,16 +61,12 @@ class StoreCommand extends SessionCommand {
           print('show products detail.');
           var rs=await ProductRepository(dio, db).fetchMulti(prods!.toList());
           for (var prod in rs) {
-            var prices=getPrices(prod);
+            var prices=prod.prices;
             print('- ${prod.productId}: ${prod.productName}, ${prices}');
           }
         }
         break;
     }
-  }
-
-  List<(String, double)>? getPrices(ent.Product prod) {
-    return prod.productPrice?.map((el)=>(el.productPriceTypeId!, el.price!)).toList();
   }
 }
 
