@@ -1,55 +1,65 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
-import 'package:xcsdrift/src/marketplace.drift.dart' as i1;
-import 'package:xcsdrift/src/billboard.drift.dart' as i2;
-import 'package:xcsdrift/src/shopping_cart.drift.dart' as i3;
-import 'package:xcsdrift/src/config.drift.dart' as i4;
-import 'package:xcsdrift/src/metadata.drift.dart' as i5;
-import 'package:xcsdrift/src/inventory.drift.dart' as i6;
-import 'package:xcsdrift/src/facility.drift.dart' as i7;
-import 'package:xcsdrift/src/example.drift.dart' as i8;
-import 'package:xcsdrift/src/shipment.drift.dart' as i9;
-import 'package:xcsdrift/src/note.drift.dart' as i10;
-import 'package:drift/internal/modular.dart' as i11;
+import 'package:xcsdrift/src/product.drift.dart' as i1;
+import 'package:xcsdrift/src/store.drift.dart' as i2;
+import 'package:xcsdrift/src/marketplace.drift.dart' as i3;
+import 'package:xcsdrift/src/billboard.drift.dart' as i4;
+import 'package:xcsdrift/src/shopping_cart.drift.dart' as i5;
+import 'package:xcsdrift/src/config.drift.dart' as i6;
+import 'package:xcsdrift/src/metadata.drift.dart' as i7;
+import 'package:xcsdrift/src/inventory.drift.dart' as i8;
+import 'package:xcsdrift/src/facility.drift.dart' as i9;
+import 'package:xcsdrift/src/example.drift.dart' as i10;
+import 'package:xcsdrift/src/shipment.drift.dart' as i11;
+import 'package:xcsdrift/src/note.drift.dart' as i12;
+import 'package:drift/internal/modular.dart' as i13;
 
 abstract class $Database extends i0.GeneratedDatabase {
   $Database(i0.QueryExecutor e) : super(e);
   $DatabaseManager get managers => $DatabaseManager(this);
-  late final i1.Marketplace marketplace = i1.Marketplace(this);
-  late final i2.Billboard billboard = i2.Billboard(this);
-  late final i3.ShoppingCart shoppingCart = i3.ShoppingCart(this);
-  late final i4.Config config = i4.Config(this);
-  late final i5.Metadata metadata = i5.Metadata(this);
-  late final i6.InventoryItem inventoryItem = i6.InventoryItem(this);
-  late final i7.Facility facility = i7.Facility(this);
-  late final i8.Example example = i8.Example(this);
-  late final i9.Shipment shipment = i9.Shipment(this);
-  late final i10.NoteData noteData = i10.NoteData(this);
-  i10.NoteDrift get noteDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i10.NoteDrift>(i10.NoteDrift.new);
-  i9.ShipmentDrift get shipmentDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i9.ShipmentDrift>(i9.ShipmentDrift.new);
-  i8.ExampleDrift get exampleDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i8.ExampleDrift>(i8.ExampleDrift.new);
-  i7.FacilityDrift get facilityDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i7.FacilityDrift>(i7.FacilityDrift.new);
-  i6.InventoryDrift get inventoryDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i6.InventoryDrift>(i6.InventoryDrift.new);
-  i5.MetadataDrift get metadataDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i5.MetadataDrift>(i5.MetadataDrift.new);
-  i4.ConfigDrift get configDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i4.ConfigDrift>(i4.ConfigDrift.new);
-  i3.ShoppingCartDrift get shoppingCartDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i3.ShoppingCartDrift>(i3.ShoppingCartDrift.new);
-  i2.BillboardDrift get billboardDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i2.BillboardDrift>(i2.BillboardDrift.new);
-  i1.MarketplaceDrift get marketplaceDrift => i11.ReadDatabaseContainer(this)
-      .accessor<i1.MarketplaceDrift>(i1.MarketplaceDrift.new);
+  late final i1.Product product = i1.Product(this);
+  late final i2.ProductStore productStore = i2.ProductStore(this);
+  late final i3.Marketplace marketplace = i3.Marketplace(this);
+  late final i4.Billboard billboard = i4.Billboard(this);
+  late final i5.ShoppingCart shoppingCart = i5.ShoppingCart(this);
+  late final i6.Config config = i6.Config(this);
+  late final i7.Metadata metadata = i7.Metadata(this);
+  late final i8.InventoryItem inventoryItem = i8.InventoryItem(this);
+  late final i9.Facility facility = i9.Facility(this);
+  late final i10.Example example = i10.Example(this);
+  late final i11.Shipment shipment = i11.Shipment(this);
+  late final i12.NoteData noteData = i12.NoteData(this);
+  i12.NoteDrift get noteDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i12.NoteDrift>(i12.NoteDrift.new);
+  i11.ShipmentDrift get shipmentDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i11.ShipmentDrift>(i11.ShipmentDrift.new);
+  i10.ExampleDrift get exampleDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i10.ExampleDrift>(i10.ExampleDrift.new);
+  i9.FacilityDrift get facilityDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i9.FacilityDrift>(i9.FacilityDrift.new);
+  i8.InventoryDrift get inventoryDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i8.InventoryDrift>(i8.InventoryDrift.new);
+  i7.MetadataDrift get metadataDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i7.MetadataDrift>(i7.MetadataDrift.new);
+  i6.ConfigDrift get configDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i6.ConfigDrift>(i6.ConfigDrift.new);
+  i5.ShoppingCartDrift get shoppingCartDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i5.ShoppingCartDrift>(i5.ShoppingCartDrift.new);
+  i4.BillboardDrift get billboardDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i4.BillboardDrift>(i4.BillboardDrift.new);
+  i3.MarketplaceDrift get marketplaceDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i3.MarketplaceDrift>(i3.MarketplaceDrift.new);
+  i2.StoreDrift get storeDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i2.StoreDrift>(i2.StoreDrift.new);
+  i1.ProductDrift get productDrift => i13.ReadDatabaseContainer(this)
+      .accessor<i1.ProductDrift>(i1.ProductDrift.new);
   @override
   Iterable<i0.TableInfo<i0.Table, Object?>> get allTables =>
       allSchemaEntities.whereType<i0.TableInfo<i0.Table, Object?>>();
   @override
   List<i0.DatabaseSchemaEntity> get allSchemaEntities => [
+        product,
+        productStore,
         marketplace,
         billboard,
         shoppingCart,
@@ -69,23 +79,27 @@ abstract class $Database extends i0.GeneratedDatabase {
 class $DatabaseManager {
   final $Database _db;
   $DatabaseManager(this._db);
-  i1.$MarketplaceTableManager get marketplace =>
-      i1.$MarketplaceTableManager(_db, _db.marketplace);
-  i2.$BillboardTableManager get billboard =>
-      i2.$BillboardTableManager(_db, _db.billboard);
-  i3.$ShoppingCartTableManager get shoppingCart =>
-      i3.$ShoppingCartTableManager(_db, _db.shoppingCart);
-  i4.$ConfigTableManager get config => i4.$ConfigTableManager(_db, _db.config);
-  i5.$MetadataTableManager get metadata =>
-      i5.$MetadataTableManager(_db, _db.metadata);
-  i6.$InventoryItemTableManager get inventoryItem =>
-      i6.$InventoryItemTableManager(_db, _db.inventoryItem);
-  i7.$FacilityTableManager get facility =>
-      i7.$FacilityTableManager(_db, _db.facility);
-  i8.$ExampleTableManager get example =>
-      i8.$ExampleTableManager(_db, _db.example);
-  i9.$ShipmentTableManager get shipment =>
-      i9.$ShipmentTableManager(_db, _db.shipment);
-  i10.$NoteDataTableManager get noteData =>
-      i10.$NoteDataTableManager(_db, _db.noteData);
+  i1.$ProductTableManager get product =>
+      i1.$ProductTableManager(_db, _db.product);
+  i2.$ProductStoreTableManager get productStore =>
+      i2.$ProductStoreTableManager(_db, _db.productStore);
+  i3.$MarketplaceTableManager get marketplace =>
+      i3.$MarketplaceTableManager(_db, _db.marketplace);
+  i4.$BillboardTableManager get billboard =>
+      i4.$BillboardTableManager(_db, _db.billboard);
+  i5.$ShoppingCartTableManager get shoppingCart =>
+      i5.$ShoppingCartTableManager(_db, _db.shoppingCart);
+  i6.$ConfigTableManager get config => i6.$ConfigTableManager(_db, _db.config);
+  i7.$MetadataTableManager get metadata =>
+      i7.$MetadataTableManager(_db, _db.metadata);
+  i8.$InventoryItemTableManager get inventoryItem =>
+      i8.$InventoryItemTableManager(_db, _db.inventoryItem);
+  i9.$FacilityTableManager get facility =>
+      i9.$FacilityTableManager(_db, _db.facility);
+  i10.$ExampleTableManager get example =>
+      i10.$ExampleTableManager(_db, _db.example);
+  i11.$ShipmentTableManager get shipment =>
+      i11.$ShipmentTableManager(_db, _db.shipment);
+  i12.$NoteDataTableManager get noteData =>
+      i12.$NoteDataTableManager(_db, _db.noteData);
 }

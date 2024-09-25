@@ -14,6 +14,8 @@ import 'database.drift.dart';
   'src/shopping_cart.drift',
   'src/billboard.drift',
   'src/marketplace.drift',
+  'src/store.drift',
+  'src/product.drift',
 })
 class Database extends $Database {
   Database(super.e);

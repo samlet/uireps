@@ -23,6 +23,10 @@ export 'src/billboard_repository.dart';
 export 'src/billboard.drift.dart';
 export 'src/marketplace_repository.dart';
 export 'src/marketplace.drift.dart';
+export 'src/store_repository.dart';
+export 'src/store.drift.dart';
+export 'src/product_repository.dart';
+export 'src/product.drift.dart';
 
 
 

@@ -148,7 +148,10 @@ class GenEntCommand extends Command {
 % dart run bin/xcsgen.dart ent -n Party
 % dart run bin/xcsgen.dart faker -n nick
 % xcsgen.exe faker -n name
+
 % xcsgen.exe reg -n publicNotes
+% xcsgen.exe reg -n stores
+
 % xcsgen.exe security -n logins
 % xcsgen.exe security -n gentoken -l alice
 % xcsgen.exe data -n get -b Note -i note_2

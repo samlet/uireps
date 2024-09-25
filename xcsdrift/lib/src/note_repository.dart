@@ -70,6 +70,12 @@ class NoteRepository {
     return elData;
   }
 
+  Future<List<ent.Note>> fetchMulti(List<String> ids) async {
+    final elements = await portalManager.loadAsBiFacets(
+        bundleName: _bundleName, bundleIds: ids);
+    return await storeEntries(elements);
+  }
+
   Future<List<ent.Note>> fetchFromReg(String regNode) async {
     List<BiFacetBi> elements = await portals.getPublicElements(
         parentNode: regNode, bundleName: _bundleName);

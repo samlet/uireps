@@ -1,3 +1,5 @@
 app:
   open build/macos/Build/Products/Debug/dummyapp.app
+dbdir:
+  open /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/
 
