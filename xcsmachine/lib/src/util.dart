@@ -128,3 +128,24 @@ List<T> convList<T>(resp, T Function(Map<String, dynamic>) conv){
 List<T> convScalars<T>(resp, T Function(dynamic) conv){
   return (resp as List).map((e) => conv(e)).toList();
 }
+
+// Remove nulls
+Map<String, dynamic> removeNullsFromMap(Map<String, dynamic> json) => json
+  ..removeWhere((String key, dynamic value) => value == null)
+  ..map<String, dynamic>((key, value) => MapEntry(key, removeNulls(value)));
+
+List removeNullsFromList(List list) => list
+  ..removeWhere((value) => value == null)
+  ..map((e) => removeNulls(e)).toList();
+
+removeNulls(e) => (e is List)
+    ? removeNullsFromList(e)
+    : (e is Map<String, dynamic> ? removeNullsFromMap(e) : e);
+
+extension ListExtension on List {
+  List removeNulls() => removeNullsFromList(this);
+}
+
+extension MapExtension on Map<String, dynamic> {
+  Map<String, dynamic> removeNulls() => removeNullsFromMap(this);
+}
