@@ -33,19 +33,6 @@ class ProductCoPod extends _$ProductCoPod {
   }
 
   
-  Future<bool> modifyDefaultPrice({
-    
-    required double price, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).modifyDefaultPrice(
-              price: price,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> modifyPrice({
     
     required double price,
@@ -109,6 +96,19 @@ class ProductCoPod extends _$ProductCoPod {
             ));
     return state.hasError == false;
   }
+  
+  Future<bool> modifyDefaultPrice({
+    
+    required double price, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).modifyDefaultPrice(
+              price: price,
+            ));
+    return state.hasError == false;
+  }
     
 }
 
@@ -134,60 +134,12 @@ Future<ThingWithPrice> prodGetInfo(ProdGetInfoRef ref, {
 }
   
 @riverpod
-Future<double> prodGetDefaultPrice(ProdGetDefaultPriceRef ref, {
+Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getDefaultPrice(
-  );
-}
-  
-@riverpod
-Future<List<String>> prodGetComponentIds(ProdGetComponentIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String assocType, 
-
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getComponentIds(
-      assocType: assocType,
-  );
-}
-  
-@riverpod
-Future<List<String>> prodGetSelectableFeatures(ProdGetSelectableFeaturesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getSelectableFeatures(
-  );
-}
-  
-@riverpod
-Future<StringMap> prodGetFixedAssetMap(ProdGetFixedAssetMapRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getFixedAssetMap(
-  );
-}
-  
-@riverpod
-Future<double> prodPrice(ProdPriceRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String priceType, 
-
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.price(
-      priceType: priceType,
+  return await pod.getPrices(
   );
 }
   
@@ -252,12 +204,60 @@ Future<bool> prodIsFeatured(ProdIsFeaturedRef ref, {
 }
   
 @riverpod
-Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
+Future<double> prodPrice(ProdPriceRef ref, {
+  String regionOrNs='default',
+  required String id,
+  
+    required String priceType, 
+
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.price(
+      priceType: priceType,
+  );
+}
+  
+@riverpod
+Future<List<String>> prodGetSelectableFeatures(ProdGetSelectableFeaturesRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getPrices(
+  return await pod.getSelectableFeatures(
+  );
+}
+  
+@riverpod
+Future<StringMap> prodGetFixedAssetMap(ProdGetFixedAssetMapRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getFixedAssetMap(
+  );
+}
+  
+@riverpod
+Future<double> prodGetDefaultPrice(ProdGetDefaultPriceRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getDefaultPrice(
+  );
+}
+  
+@riverpod
+Future<List<String>> prodGetComponentIds(ProdGetComponentIdsRef ref, {
+  String regionOrNs='default',
+  required String id,
+  
+    required String assocType, 
+
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getComponentIds(
+      assocType: assocType,
   );
 }
   

@@ -27,6 +27,8 @@ export 'src/store_repository.dart';
 export 'src/store.drift.dart';
 export 'src/product_repository.dart';
 export 'src/product.drift.dart';
+export 'src/carrier_repository.dart';
+export 'src/carrier.drift.dart';
 
 
 

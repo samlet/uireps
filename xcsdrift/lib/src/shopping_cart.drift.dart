@@ -90,6 +90,13 @@ class ShoppingCart extends i0.Table
           type: i0.DriftSqlType.string,
           requiredDuringInsert: false,
           $customConstraints: '');
+  static const i0.VerificationMeta _orderIdMeta =
+      const i0.VerificationMeta('orderId');
+  late final i0.GeneratedColumn<String> orderId = i0.GeneratedColumn<String>(
+      'order_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   static const i0.VerificationMeta _shipMethTypeMeta =
       const i0.VerificationMeta('shipMethType');
   late final i0.GeneratedColumn<String> shipMethType =
@@ -236,6 +243,7 @@ class ShoppingCart extends i0.Table
         walletId,
         partyId,
         userLoginId,
+        orderId,
         shipMethType,
         shipMethProvider,
         slotId,
@@ -319,6 +327,10 @@ class ShoppingCart extends i0.Table
           _userLoginIdMeta,
           userLoginId.isAcceptableOrUnknown(
               data['user_login_id']!, _userLoginIdMeta));
+    }
+    if (data.containsKey('order_id')) {
+      context.handle(_orderIdMeta,
+          orderId.isAcceptableOrUnknown(data['order_id']!, _orderIdMeta));
     }
     if (data.containsKey('ship_meth_type')) {
       context.handle(
@@ -410,6 +422,8 @@ class ShoppingCart extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}party_id']),
       userLoginId: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}user_login_id']),
+      orderId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}order_id']),
       shipMethType: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}ship_meth_type']),
       shipMethProvider: attachedDatabase.typeMapping.read(
@@ -509,6 +523,7 @@ class ShoppingCartData extends i0.DataClass
   final String? walletId;
   final String? partyId;
   final String? userLoginId;
+  final String? orderId;
   final String? shipMethType;
   final String? shipMethProvider;
   final String? slotId;
@@ -541,6 +556,7 @@ class ShoppingCartData extends i0.DataClass
       this.walletId,
       this.partyId,
       this.userLoginId,
+      this.orderId,
       this.shipMethType,
       this.shipMethProvider,
       this.slotId,
@@ -590,6 +606,9 @@ class ShoppingCartData extends i0.DataClass
     }
     if (!nullToAbsent || userLoginId != null) {
       map['user_login_id'] = i0.Variable<String>(userLoginId);
+    }
+    if (!nullToAbsent || orderId != null) {
+      map['order_id'] = i0.Variable<String>(orderId);
     }
     if (!nullToAbsent || shipMethType != null) {
       map['ship_meth_type'] = i0.Variable<String>(shipMethType);
@@ -682,6 +701,9 @@ class ShoppingCartData extends i0.DataClass
       userLoginId: userLoginId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(userLoginId),
+      orderId: orderId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(orderId),
       shipMethType: shipMethType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(shipMethType),
@@ -748,6 +770,7 @@ class ShoppingCartData extends i0.DataClass
       walletId: serializer.fromJson<String?>(json['wallet_id']),
       partyId: serializer.fromJson<String?>(json['party_id']),
       userLoginId: serializer.fromJson<String?>(json['user_login_id']),
+      orderId: serializer.fromJson<String?>(json['order_id']),
       shipMethType: serializer.fromJson<String?>(json['ship_meth_type']),
       shipMethProvider:
           serializer.fromJson<String?>(json['ship_meth_provider']),
@@ -793,6 +816,7 @@ class ShoppingCartData extends i0.DataClass
       'wallet_id': serializer.toJson<String?>(walletId),
       'party_id': serializer.toJson<String?>(partyId),
       'user_login_id': serializer.toJson<String?>(userLoginId),
+      'order_id': serializer.toJson<String?>(orderId),
       'ship_meth_type': serializer.toJson<String?>(shipMethType),
       'ship_meth_provider': serializer.toJson<String?>(shipMethProvider),
       'slot_id': serializer.toJson<String?>(slotId),
@@ -831,6 +855,7 @@ class ShoppingCartData extends i0.DataClass
           i0.Value<String?> walletId = const i0.Value.absent(),
           i0.Value<String?> partyId = const i0.Value.absent(),
           i0.Value<String?> userLoginId = const i0.Value.absent(),
+          i0.Value<String?> orderId = const i0.Value.absent(),
           i0.Value<String?> shipMethType = const i0.Value.absent(),
           i0.Value<String?> shipMethProvider = const i0.Value.absent(),
           i0.Value<String?> slotId = const i0.Value.absent(),
@@ -867,6 +892,7 @@ class ShoppingCartData extends i0.DataClass
         walletId: walletId.present ? walletId.value : this.walletId,
         partyId: partyId.present ? partyId.value : this.partyId,
         userLoginId: userLoginId.present ? userLoginId.value : this.userLoginId,
+        orderId: orderId.present ? orderId.value : this.orderId,
         shipMethType:
             shipMethType.present ? shipMethType.value : this.shipMethType,
         shipMethProvider: shipMethProvider.present
@@ -920,6 +946,7 @@ class ShoppingCartData extends i0.DataClass
       partyId: data.partyId.present ? data.partyId.value : this.partyId,
       userLoginId:
           data.userLoginId.present ? data.userLoginId.value : this.userLoginId,
+      orderId: data.orderId.present ? data.orderId.value : this.orderId,
       shipMethType: data.shipMethType.present
           ? data.shipMethType.value
           : this.shipMethType,
@@ -971,6 +998,7 @@ class ShoppingCartData extends i0.DataClass
           ..write('walletId: $walletId, ')
           ..write('partyId: $partyId, ')
           ..write('userLoginId: $userLoginId, ')
+          ..write('orderId: $orderId, ')
           ..write('shipMethType: $shipMethType, ')
           ..write('shipMethProvider: $shipMethProvider, ')
           ..write('slotId: $slotId, ')
@@ -1004,6 +1032,7 @@ class ShoppingCartData extends i0.DataClass
         walletId,
         partyId,
         userLoginId,
+        orderId,
         shipMethType,
         shipMethProvider,
         slotId,
@@ -1036,6 +1065,7 @@ class ShoppingCartData extends i0.DataClass
           other.walletId == this.walletId &&
           other.partyId == this.partyId &&
           other.userLoginId == this.userLoginId &&
+          other.orderId == this.orderId &&
           other.shipMethType == this.shipMethType &&
           other.shipMethProvider == this.shipMethProvider &&
           other.slotId == this.slotId &&
@@ -1066,6 +1096,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   final i0.Value<String?> walletId;
   final i0.Value<String?> partyId;
   final i0.Value<String?> userLoginId;
+  final i0.Value<String?> orderId;
   final i0.Value<String?> shipMethType;
   final i0.Value<String?> shipMethProvider;
   final i0.Value<String?> slotId;
@@ -1095,6 +1126,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     this.walletId = const i0.Value.absent(),
     this.partyId = const i0.Value.absent(),
     this.userLoginId = const i0.Value.absent(),
+    this.orderId = const i0.Value.absent(),
     this.shipMethType = const i0.Value.absent(),
     this.shipMethProvider = const i0.Value.absent(),
     this.slotId = const i0.Value.absent(),
@@ -1125,6 +1157,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     this.walletId = const i0.Value.absent(),
     this.partyId = const i0.Value.absent(),
     this.userLoginId = const i0.Value.absent(),
+    this.orderId = const i0.Value.absent(),
     this.shipMethType = const i0.Value.absent(),
     this.shipMethProvider = const i0.Value.absent(),
     this.slotId = const i0.Value.absent(),
@@ -1155,6 +1188,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     i0.Expression<String>? walletId,
     i0.Expression<String>? partyId,
     i0.Expression<String>? userLoginId,
+    i0.Expression<String>? orderId,
     i0.Expression<String>? shipMethType,
     i0.Expression<String>? shipMethProvider,
     i0.Expression<String>? slotId,
@@ -1186,6 +1220,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       if (walletId != null) 'wallet_id': walletId,
       if (partyId != null) 'party_id': partyId,
       if (userLoginId != null) 'user_login_id': userLoginId,
+      if (orderId != null) 'order_id': orderId,
       if (shipMethType != null) 'ship_meth_type': shipMethType,
       if (shipMethProvider != null) 'ship_meth_provider': shipMethProvider,
       if (slotId != null) 'slot_id': slotId,
@@ -1220,6 +1255,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       i0.Value<String?>? walletId,
       i0.Value<String?>? partyId,
       i0.Value<String?>? userLoginId,
+      i0.Value<String?>? orderId,
       i0.Value<String?>? shipMethType,
       i0.Value<String?>? shipMethProvider,
       i0.Value<String?>? slotId,
@@ -1249,6 +1285,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       walletId: walletId ?? this.walletId,
       partyId: partyId ?? this.partyId,
       userLoginId: userLoginId ?? this.userLoginId,
+      orderId: orderId ?? this.orderId,
       shipMethType: shipMethType ?? this.shipMethType,
       shipMethProvider: shipMethProvider ?? this.shipMethProvider,
       slotId: slotId ?? this.slotId,
@@ -1305,6 +1342,9 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     }
     if (userLoginId.present) {
       map['user_login_id'] = i0.Variable<String>(userLoginId.value);
+    }
+    if (orderId.present) {
+      map['order_id'] = i0.Variable<String>(orderId.value);
     }
     if (shipMethType.present) {
       map['ship_meth_type'] = i0.Variable<String>(shipMethType.value);
@@ -1385,6 +1425,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
           ..write('walletId: $walletId, ')
           ..write('partyId: $partyId, ')
           ..write('userLoginId: $userLoginId, ')
+          ..write('orderId: $orderId, ')
           ..write('shipMethType: $shipMethType, ')
           ..write('shipMethProvider: $shipMethProvider, ')
           ..write('slotId: $slotId, ')
@@ -1420,6 +1461,7 @@ typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
   i0.Value<String?> walletId,
   i0.Value<String?> partyId,
   i0.Value<String?> userLoginId,
+  i0.Value<String?> orderId,
   i0.Value<String?> shipMethType,
   i0.Value<String?> shipMethProvider,
   i0.Value<String?> slotId,
@@ -1451,6 +1493,7 @@ typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
   i0.Value<String?> walletId,
   i0.Value<String?> partyId,
   i0.Value<String?> userLoginId,
+  i0.Value<String?> orderId,
   i0.Value<String?> shipMethType,
   i0.Value<String?> shipMethProvider,
   i0.Value<String?> slotId,
@@ -1525,6 +1568,11 @@ class $ShoppingCartFilterComposer
 
   i0.ColumnFilters<String> get userLoginId => $state.composableBuilder(
       column: $state.table.userLoginId,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<String> get orderId => $state.composableBuilder(
+      column: $state.table.orderId,
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
@@ -1686,6 +1734,11 @@ class $ShoppingCartOrderingComposer
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 
+  i0.ColumnOrderings<String> get orderId => $state.composableBuilder(
+      column: $state.table.orderId,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
   i0.ColumnOrderings<String> get shipMethType => $state.composableBuilder(
       column: $state.table.shipMethType,
       builder: (column, joinBuilders) =>
@@ -1802,6 +1855,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             i0.Value<String?> walletId = const i0.Value.absent(),
             i0.Value<String?> partyId = const i0.Value.absent(),
             i0.Value<String?> userLoginId = const i0.Value.absent(),
+            i0.Value<String?> orderId = const i0.Value.absent(),
             i0.Value<String?> shipMethType = const i0.Value.absent(),
             i0.Value<String?> shipMethProvider = const i0.Value.absent(),
             i0.Value<String?> slotId = const i0.Value.absent(),
@@ -1838,6 +1892,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             walletId: walletId,
             partyId: partyId,
             userLoginId: userLoginId,
+            orderId: orderId,
             shipMethType: shipMethType,
             shipMethProvider: shipMethProvider,
             slotId: slotId,
@@ -1868,6 +1923,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             i0.Value<String?> walletId = const i0.Value.absent(),
             i0.Value<String?> partyId = const i0.Value.absent(),
             i0.Value<String?> userLoginId = const i0.Value.absent(),
+            i0.Value<String?> orderId = const i0.Value.absent(),
             i0.Value<String?> shipMethType = const i0.Value.absent(),
             i0.Value<String?> shipMethProvider = const i0.Value.absent(),
             i0.Value<String?> slotId = const i0.Value.absent(),
@@ -1904,6 +1960,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             walletId: walletId,
             partyId: partyId,
             userLoginId: userLoginId,
+            orderId: orderId,
             shipMethType: shipMethType,
             shipMethProvider: shipMethProvider,
             slotId: slotId,

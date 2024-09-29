@@ -52,19 +52,19 @@ class PortalManagerPod extends _$PortalManagerPod {
 
   
 @riverpod
-Future<List<BiFacetBi>> portalManagerLoadAsBiFacetsByTenant(PortalManagerLoadAsBiFacetsByTenantRef ref, {
+Future<BiFacetBi> portalManagerLoadAsBiFacet(PortalManagerLoadAsBiFacetRef ref, {
   String regionOrNs='default',
   
     required String bundleName,
     String? regionId='default',
-    required String tenantId, 
+    required String bundleId, 
 
 }) async {
   var pod=ref.watch(portalManagerProvider(regionOrNs: regionOrNs));
-  return await pod.loadAsBiFacetsByTenant(
+  return await pod.loadAsBiFacet(
       bundleName: bundleName,
       regionId: regionId,
-      tenantId: tenantId,
+      bundleId: bundleId,
   );
 }
   
@@ -86,19 +86,19 @@ Future<List<BiFacetBi>> portalManagerLoadAsBiFacets(PortalManagerLoadAsBiFacetsR
 }
   
 @riverpod
-Future<BiFacetBi> portalManagerLoadAsBiFacet(PortalManagerLoadAsBiFacetRef ref, {
+Future<List<BiFacetBi>> portalManagerLoadAsBiFacetsByTenant(PortalManagerLoadAsBiFacetsByTenantRef ref, {
   String regionOrNs='default',
   
     required String bundleName,
     String? regionId='default',
-    required String bundleId, 
+    required String tenantId, 
 
 }) async {
   var pod=ref.watch(portalManagerProvider(regionOrNs: regionOrNs));
-  return await pod.loadAsBiFacet(
+  return await pod.loadAsBiFacetsByTenant(
       bundleName: bundleName,
       regionId: regionId,
-      bundleId: bundleId,
+      tenantId: tenantId,
   );
 }
 

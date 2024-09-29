@@ -69,6 +69,27 @@ Map<String, dynamic> _$WebSiteCubeDataToJson(WebSiteCubeData instance) {
   return val;
 }
 
+Position _$PositionFromJson(Map<String, dynamic> json) => Position(
+      lat: (json['lat'] as num?)?.toDouble(),
+      lon: (json['lon'] as num?)?.toDouble(),
+      z: (json['z'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$PositionToJson(Position instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('lat', instance.lat);
+  writeNotNull('lon', instance.lon);
+  writeNotNull('z', instance.z);
+  return val;
+}
+
 TestRec _$TestRecFromJson(Map<String, dynamic> json) => TestRec(
       stringFld: json['stringFld'] as String?,
       numFld: (json['numFld'] as num?)?.toDouble(),

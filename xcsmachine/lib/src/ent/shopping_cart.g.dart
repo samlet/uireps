@@ -23,6 +23,7 @@ ShoppingCart _$ShoppingCartFromJson(Map<String, dynamic> json) => ShoppingCart(
       walletId: json['walletId'] as String?,
       partyId: json['partyId'] as String?,
       userLoginId: json['userLoginId'] as String?,
+      orderId: json['orderId'] as String?,
       shipMethType: json['shipMethType'] as String?,
       shipMethProvider: json['shipMethProvider'] as String?,
       slotId: json['slotId'] as String?,
@@ -71,6 +72,7 @@ Map<String, dynamic> _$ShoppingCartToJson(ShoppingCart instance) {
   writeNotNull('walletId', instance.walletId);
   writeNotNull('partyId', instance.partyId);
   writeNotNull('userLoginId', instance.userLoginId);
+  writeNotNull('orderId', instance.orderId);
   writeNotNull('shipMethType', instance.shipMethType);
   writeNotNull('shipMethProvider', instance.shipMethProvider);
   writeNotNull('slotId', instance.slotId);
@@ -208,6 +210,7 @@ ShoppingCartItem _$ShoppingCartItemFromJson(Map<String, dynamic> json) =>
     ShoppingCartItem(
       itemId: json['itemId'] as String?,
       tokenId: json['tokenId'] as String?,
+      itemType: json['itemType'] as String?,
       statusId: json['statusId'] as String?,
       quantity: (json['quantity'] as num?)?.toDouble(),
       unitPrice: (json['unitPrice'] as num?)?.toDouble(),
@@ -247,6 +250,7 @@ Map<String, dynamic> _$ShoppingCartItemToJson(ShoppingCartItem instance) {
 
   writeNotNull('itemId', instance.itemId);
   writeNotNull('tokenId', instance.tokenId);
+  writeNotNull('itemType', instance.itemType);
   writeNotNull('statusId', instance.statusId);
   writeNotNull('quantity', instance.quantity);
   writeNotNull('unitPrice', instance.unitPrice);

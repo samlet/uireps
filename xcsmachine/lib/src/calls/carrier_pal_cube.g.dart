@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_co_cube.dart';
+part of 'carrier_pal_cube.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteCoCubeHash() => r'd703a6e7e0e640f755132a7bcf3ca0e9c2462bad';
+String _$carrierPalCubeHash() => r'bb820e4f5892f9aa210b6dd0cd58c869e6180c0f';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,39 +29,40 @@ class _SystemHash {
   }
 }
 
-abstract class _$NoteCoCube extends BuildlessAutoDisposeAsyncNotifier<Note> {
+abstract class _$CarrierPalCube
+    extends BuildlessAutoDisposeAsyncNotifier<Carrier> {
   late final String regionOrNs;
   late final String id;
 
-  FutureOr<Note> build({
+  FutureOr<Carrier> build({
     String regionOrNs = 'default',
     required String id,
   });
 }
 
-/// See also [NoteCoCube].
-@ProviderFor(NoteCoCube)
-const noteCoCubeProvider = NoteCoCubeFamily();
+/// See also [CarrierPalCube].
+@ProviderFor(CarrierPalCube)
+const carrierPalCubeProvider = CarrierPalCubeFamily();
 
-/// See also [NoteCoCube].
-class NoteCoCubeFamily extends Family<AsyncValue<Note>> {
-  /// See also [NoteCoCube].
-  const NoteCoCubeFamily();
+/// See also [CarrierPalCube].
+class CarrierPalCubeFamily extends Family<AsyncValue<Carrier>> {
+  /// See also [CarrierPalCube].
+  const CarrierPalCubeFamily();
 
-  /// See also [NoteCoCube].
-  NoteCoCubeProvider call({
+  /// See also [CarrierPalCube].
+  CarrierPalCubeProvider call({
     String regionOrNs = 'default',
     required String id,
   }) {
-    return NoteCoCubeProvider(
+    return CarrierPalCubeProvider(
       regionOrNs: regionOrNs,
       id: id,
     );
   }
 
   @override
-  NoteCoCubeProvider getProviderOverride(
-    covariant NoteCoCubeProvider provider,
+  CarrierPalCubeProvider getProviderOverride(
+    covariant CarrierPalCubeProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
@@ -81,34 +82,34 @@ class NoteCoCubeFamily extends Family<AsyncValue<Note>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteCoCubeProvider';
+  String? get name => r'carrierPalCubeProvider';
 }
 
-/// See also [NoteCoCube].
-class NoteCoCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<NoteCoCube, Note> {
-  /// See also [NoteCoCube].
-  NoteCoCubeProvider({
+/// See also [CarrierPalCube].
+class CarrierPalCubeProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<CarrierPalCube, Carrier> {
+  /// See also [CarrierPalCube].
+  CarrierPalCubeProvider({
     String regionOrNs = 'default',
     required String id,
   }) : this._internal(
-          () => NoteCoCube()
+          () => CarrierPalCube()
             ..regionOrNs = regionOrNs
             ..id = id,
-          from: noteCoCubeProvider,
-          name: r'noteCoCubeProvider',
+          from: carrierPalCubeProvider,
+          name: r'carrierPalCubeProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteCoCubeHash,
-          dependencies: NoteCoCubeFamily._dependencies,
+                  : _$carrierPalCubeHash,
+          dependencies: CarrierPalCubeFamily._dependencies,
           allTransitiveDependencies:
-              NoteCoCubeFamily._allTransitiveDependencies,
+              CarrierPalCubeFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
           id: id,
         );
 
-  NoteCoCubeProvider._internal(
+  CarrierPalCubeProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -123,8 +124,8 @@ class NoteCoCubeProvider
   final String id;
 
   @override
-  FutureOr<Note> runNotifierBuild(
-    covariant NoteCoCube notifier,
+  FutureOr<Carrier> runNotifierBuild(
+    covariant CarrierPalCube notifier,
   ) {
     return notifier.build(
       regionOrNs: regionOrNs,
@@ -133,10 +134,10 @@ class NoteCoCubeProvider
   }
 
   @override
-  Override overrideWith(NoteCoCube Function() create) {
+  Override overrideWith(CarrierPalCube Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteCoCubeProvider._internal(
+      override: CarrierPalCubeProvider._internal(
         () => create()
           ..regionOrNs = regionOrNs
           ..id = id,
@@ -152,13 +153,14 @@ class NoteCoCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<NoteCoCube, Note> createElement() {
-    return _NoteCoCubeProviderElement(this);
+  AutoDisposeAsyncNotifierProviderElement<CarrierPalCube, Carrier>
+      createElement() {
+    return _CarrierPalCubeProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteCoCubeProvider &&
+    return other is CarrierPalCubeProvider &&
         other.regionOrNs == regionOrNs &&
         other.id == id;
   }
@@ -173,7 +175,7 @@ class NoteCoCubeProvider
   }
 }
 
-mixin NoteCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Note> {
+mixin CarrierPalCubeRef on AutoDisposeAsyncNotifierProviderRef<Carrier> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
@@ -181,15 +183,15 @@ mixin NoteCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Note> {
   String get id;
 }
 
-class _NoteCoCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<NoteCoCube, Note>
-    with NoteCoCubeRef {
-  _NoteCoCubeProviderElement(super.provider);
+class _CarrierPalCubeProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<CarrierPalCube, Carrier>
+    with CarrierPalCubeRef {
+  _CarrierPalCubeProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as NoteCoCubeProvider).regionOrNs;
+  String get regionOrNs => (origin as CarrierPalCubeProvider).regionOrNs;
   @override
-  String get id => (origin as NoteCoCubeProvider).id;
+  String get id => (origin as CarrierPalCubeProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

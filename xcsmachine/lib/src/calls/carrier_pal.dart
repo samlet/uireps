@@ -7,10 +7,10 @@ import '../../xcsapi.dart';
 import 'calls.dart';
 
 
-class WebSiteCoRepository {
-  WebSiteCoRepository(this.dio, {
+class CarrierPalRepository {
+  CarrierPalRepository(this.dio, {
     this.regionOrNs='default',
-    this.moduleName='webSiteCo',
+    this.moduleName='carrierPal',
     required this.id,
   });
 
@@ -20,95 +20,91 @@ class WebSiteCoRepository {
   final String id;
 
    
-  // Query
-  Future<String> name() async { 
+  // Mutation
+  Future<void> setPosition({
+    
+    required Position pos, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "name",
-      "bundleName" : "WebSite",
+      "action": "setPosition",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "pos": pos, 
+    });
+    
+  }
+   
+  // Query
+  Future<List<String>> getOrders() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrders",
+      "bundleName" : "Carrier",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
-    return ResultConv.asString(resp);
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Mutation
-  Future<void> updateHttpUrl({
+  Future<void> addOrder({
     
-    required String host,
-    required int port, 
+    required String orderId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "updateHttpUrl",
-      "bundleName" : "WebSite",
+      "action": "addOrder",
+      "bundleName" : "Carrier",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
     }, {
-      "host": host,
-      "port": port, 
+      "orderId": orderId, 
     });
     
   }
    
   // Mutation
-  Future<void> updateHttpsUrl({
+  Future<void> removeOrder({
     
-    required String host,
-    required int port, 
+    required String orderId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "updateHttpsUrl",
-      "bundleName" : "WebSite",
+      "action": "removeOrder",
+      "bundleName" : "Carrier",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
     }, {
-      "host": host,
-      "port": port, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> updateSiteName({
-    
-    required String name, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "updateSiteName",
-      "bundleName" : "WebSite",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "name": name, 
+      "orderId": orderId, 
     });
     
   }
    
   // Query
-  Future<WebSiteCubeData> fetch() async { 
+  Future<Position> getCurrentPosition() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "fetch",
-      "bundleName" : "WebSite",
+      "action": "getCurrentPosition",
+      "bundleName" : "Carrier",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
     }, { 
     });
     
-    return WebSiteCubeData.fromJson(resp);
+    return Position.fromJson(resp);
   }
    
   // Query
@@ -116,7 +112,7 @@ class WebSiteCoRepository {
     var resp = await performCall(dio, {
       "module": moduleName,
       "action": "getDecimals",
-      "bundleName" : "WebSite",
+      "bundleName" : "Carrier",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
@@ -129,7 +125,7 @@ class WebSiteCoRepository {
 }
 
 /*
-proto-files: [web_site.proto]
+proto-files: []
 */
 
 

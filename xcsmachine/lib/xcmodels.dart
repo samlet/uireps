@@ -6,6 +6,7 @@ export 'src/ent/note.dart';
 export 'src/ent/web_site.dart';
 export 'src/ent/product.dart';
 export 'src/ent/data_resource.dart';
+export 'src/ent/carrier.dart';
 export 'src/ent/store.dart';
 export 'src/ent/facility.dart';
 export 'src/ent/inventory.dart';

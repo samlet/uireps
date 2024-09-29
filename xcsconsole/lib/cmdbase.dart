@@ -7,6 +7,7 @@ import 'package:quiver/collection.dart';
 import 'package:xcsdrift/xcsdrift.dart';
 import 'package:xcsmachine/generic_srv.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
+import 'package:xcsmachine/xcsrout.dart';
 
 import 'tokens.dart';
 
@@ -18,6 +19,14 @@ abstract class XcsCommand<T> extends Command<T> {
   bool flag(String optName){
     return argResults?.flag(optName)??false;
   }
+
+  double doubleOpt(String optName){
+    var val=opt(optName);
+    if(val!=null) {
+      return double.parse(val);
+    }
+    return 0;
+  }
 }
 
 abstract class SessionCommand<T> extends XcsCommand<T> {
@@ -28,6 +37,9 @@ abstract class SessionCommand<T> extends XcsCommand<T> {
   late PortalManagerRepository portalManager;
   SessionCommand(this.db, this.dio) {
     argParser.addOption('name', abbr: 'n', defaultsTo: 'default', help: 'Session name');
+    argParser.addOption('id', abbr: 'i', defaultsTo: 'people_1');
+    argParser.addOption('alias', abbr: 'a');
+
     repo=ConfigRepository(dio, db);
     portals=PortalsOnChainRepository(dio);
     portalManager=PortalManagerRepository(dio);
@@ -54,6 +66,23 @@ abstract class SessionCommand<T> extends XcsCommand<T> {
     ent.Config session = await getSessionPrefs(opt('name')!);
     var val= session.elements?['login'].first;
     return val!;
+  }
+
+
+  String? get alias {
+    return opt('alias');
+  }
+
+  Future<String> aliasOr(String defVal) async{
+    if(alias!=null){
+      var aliases=await getAliasMap(dio);
+      return aliases[alias!]??defVal;
+    }
+    return defVal;
+  }
+
+  Future<String> aliasOrId() async{
+    return await aliasOr(opt('id')??'NA');
   }
 }
 

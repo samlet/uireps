@@ -26,6 +26,7 @@ class ShoppingCart {
     this.walletId,
     this.partyId,
     this.userLoginId,
+    this.orderId,
     this.shipMethType,
     this.shipMethProvider,
     this.slotId,
@@ -55,6 +56,7 @@ class ShoppingCart {
     String? walletId,
     String? partyId,
     String? userLoginId,
+    String? orderId,
     String? shipMethType,
     String? shipMethProvider,
     String? slotId,
@@ -83,6 +85,7 @@ class ShoppingCart {
       walletId: walletId ?? this.walletId,
       partyId: partyId ?? this.partyId,
       userLoginId: userLoginId ?? this.userLoginId,
+      orderId: orderId ?? this.orderId,
       shipMethType: shipMethType ?? this.shipMethType,
       shipMethProvider: shipMethProvider ?? this.shipMethProvider,
       slotId: slotId ?? this.slotId,
@@ -146,6 +149,9 @@ class ShoppingCart {
 
    
   String? userLoginId;
+
+   
+  String? orderId;
 
    
   String? shipMethType;
@@ -289,6 +295,7 @@ class ShoppingCart {
   void updateShoppingCartItem(String id, {
     String? itemId_,
     String? tokenId_,
+    String? itemType_,
     String? statusId_,
     double? quantity_,
     double? unitPrice_,
@@ -314,6 +321,7 @@ class ShoppingCart {
             shoppingCartItemId: id,
             itemId: itemId_??el.itemId,
             tokenId: tokenId_??el.tokenId,
+            itemType: itemType_??el.itemType,
             statusId: statusId_??el.statusId,
             quantity: quantity_??el.quantity,
             unitPrice: unitPrice_??el.unitPrice,
@@ -554,6 +562,7 @@ class ShoppingCartItem {
   ShoppingCartItem({
     this.itemId,
     this.tokenId,
+    this.itemType,
     this.statusId,
     this.quantity,
     this.unitPrice,
@@ -577,6 +586,7 @@ class ShoppingCartItem {
   ShoppingCartItem copyWith({
     String? itemId,
     String? tokenId,
+    String? itemType,
     String? statusId,
     double? quantity,
     double? unitPrice,
@@ -599,6 +609,7 @@ class ShoppingCartItem {
     return ShoppingCartItem(
       itemId: itemId ?? this.itemId,
       tokenId: tokenId ?? this.tokenId,
+      itemType: itemType ?? this.itemType,
       statusId: statusId ?? this.statusId,
       quantity: quantity ?? this.quantity,
       unitPrice: unitPrice ?? this.unitPrice,
@@ -634,6 +645,9 @@ class ShoppingCartItem {
 
    
   String? tokenId;
+
+   
+  String? itemType;
 
    
   String? statusId;

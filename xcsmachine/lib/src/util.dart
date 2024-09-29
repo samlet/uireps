@@ -149,3 +149,7 @@ extension ListExtension on List {
 extension MapExtension on Map<String, dynamic> {
   Map<String, dynamic> removeNulls() => removeNullsFromMap(this);
 }
+
+extension IterableToMap<K, V> on Iterable<MapEntry<K, V>> {
+  Map<K, V> toMap() => Map<K, V>.fromEntries(this);
+}

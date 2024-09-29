@@ -14,6 +14,7 @@ CREATE TABLE shopping_cart (
     wallet_id VARCHAR(22),
     party_id VARCHAR(22),
     user_login_id VARCHAR(22),
+    order_id VARCHAR(22),
     ship_meth_type VARCHAR(22),
     ship_meth_provider VARCHAR(22),
     slot_id VARCHAR(22),
