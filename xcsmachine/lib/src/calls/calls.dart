@@ -13,5 +13,6 @@ part 'complicated_rec.dart';
 part 'load_bundle.dart';
 part 'bundle_modified_result.dart';
 part 'bi_facet_bi.dart';
+part 'contact_profile.dart';
 
 part 'calls.g.dart';

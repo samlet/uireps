@@ -8,6 +8,7 @@ part of 'shopping_cart.dart';
 
 ShoppingCart _$ShoppingCartFromJson(Map<String, dynamic> json) => ShoppingCart(
       storeId: json['storeId'] as String?,
+      contacts: json['contacts'] as Map<String, dynamic>?,
       createDate: json['createDate'] == null
           ? null
           : DateTime.parse(json['createDate'] as String),
@@ -62,6 +63,7 @@ Map<String, dynamic> _$ShoppingCartToJson(ShoppingCart instance) {
   }
 
   writeNotNull('storeId', instance.storeId);
+  writeNotNull('contacts', instance.contacts);
   writeNotNull('createDate', instance.createDate?.toIso8601String());
   writeNotNull('name', instance.name);
   writeNotNull('info', instance.info);

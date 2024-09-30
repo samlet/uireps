@@ -5,6 +5,7 @@ import 'shopping_cart_conv.dart';
 CREATE TABLE shopping_cart (
     shopping_cart_id VARCHAR(255) NOT NULL PRIMARY KEY,
     store_id VARCHAR(22),
+    contacts TEXT,
     create_date DATETIME(3),
     name VARCHAR(100),
     info TEXT,

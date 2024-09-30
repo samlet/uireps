@@ -302,3 +302,29 @@ Json? _$JsonConverterToJson<Json, Value>(
   Json? Function(Value value) toJson,
 ) =>
     value == null ? null : toJson(value);
+
+ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
+    ContactProfile(
+      telephone: json['telephone'] as String?,
+      email: json['email'] as String?,
+      placeId: json['placeId'] as String?,
+      placeType: json['placeType'] as String?,
+      note: json['note'] as String?,
+    );
+
+Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('telephone', instance.telephone);
+  writeNotNull('email', instance.email);
+  writeNotNull('placeId', instance.placeId);
+  writeNotNull('placeType', instance.placeType);
+  writeNotNull('note', instance.note);
+  return val;
+}

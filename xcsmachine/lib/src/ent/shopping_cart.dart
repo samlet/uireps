@@ -17,6 +17,7 @@ List<ShoppingCart> asShoppingCarts(List rs){
 class ShoppingCart {
   ShoppingCart({
     this.storeId,
+    this.contacts,
     this.createDate,
     this.name,
     this.info,
@@ -47,6 +48,7 @@ class ShoppingCart {
 
   ShoppingCart copyWith({
     String? storeId,
+    Map<String, dynamic>? contacts,
     DateTime? createDate,
     String? name,
     String? info,
@@ -76,6 +78,7 @@ class ShoppingCart {
   }) {
     return ShoppingCart(
       storeId: storeId ?? this.storeId,
+      contacts: contacts ?? this.contacts,
       createDate: createDate ?? this.createDate,
       name: name ?? this.name,
       info: info ?? this.info,
@@ -122,6 +125,9 @@ class ShoppingCart {
   int get hashId => fastHash(shoppingCartId!);
    
   String? storeId;
+
+   
+  Map<String, dynamic>? contacts;
 
    
   DateTime? createDate;

@@ -51,6 +51,7 @@ class Order {
     this.tenantId,
     this.partyId,
     this.walletId,
+    this.contacts,
     this.orderBinId,
     this.ncopies,
     this.accountId,
@@ -119,6 +120,7 @@ class Order {
     String? tenantId,
     String? partyId,
     String? walletId,
+    Map<String, dynamic>? contacts,
     String? orderBinId,
     double? ncopies,
     String? accountId,
@@ -186,6 +188,7 @@ class Order {
       tenantId: tenantId ?? this.tenantId,
       partyId: partyId ?? this.partyId,
       walletId: walletId ?? this.walletId,
+      contacts: contacts ?? this.contacts,
       orderBinId: orderBinId ?? this.orderBinId,
       ncopies: ncopies ?? this.ncopies,
       accountId: accountId ?? this.accountId,
@@ -338,6 +341,9 @@ class Order {
 
    
   String? walletId;
+
+   
+  Map<String, dynamic>? contacts;
 
    
   String? orderBinId;
