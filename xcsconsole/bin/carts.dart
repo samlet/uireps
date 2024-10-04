@@ -21,11 +21,14 @@ Future<void> main(List<String> args) async {
       createDate: DateTime.now(),
       userLoginId: 'samlet',
       statusId: 'DRAFT');
+
   cart.addShoppingCartItem(ent.ShoppingCartItem(
       productId: 'product_1', quantity: 2, dateAdded: DateTime.now()));
   cart.addShoppingCartItem(ent.ShoppingCartItem(
       productId: 'product_2', quantity: 3, dateAdded: DateTime.now()));
+
   await cartRepo.store(cart);
+
   var ds = await cartRepo.all();
   for (var cartEl in ds) {
     print('--- cart: ${cartEl.name}, store: ${cartEl.storeId} ---');

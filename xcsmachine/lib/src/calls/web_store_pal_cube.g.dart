@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product_co_cube.dart';
+part of 'web_store_pal_cube.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productCoCubeHash() => r'6447e911e086781e1737e929aa3d4fc3d96069b7';
+String _$webStorePalCubeHash() => r'b704253a2e8afdde8eab273c38309a5a1bca0b22';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,40 +29,40 @@ class _SystemHash {
   }
 }
 
-abstract class _$ProductCoCube
-    extends BuildlessAutoDisposeAsyncNotifier<Product> {
+abstract class _$WebStorePalCube
+    extends BuildlessAutoDisposeAsyncNotifier<Store> {
   late final String regionOrNs;
   late final String id;
 
-  FutureOr<Product> build({
+  FutureOr<Store> build({
     String regionOrNs = 'default',
     required String id,
   });
 }
 
-/// See also [ProductCoCube].
-@ProviderFor(ProductCoCube)
-const productCoCubeProvider = ProductCoCubeFamily();
+/// See also [WebStorePalCube].
+@ProviderFor(WebStorePalCube)
+const webStorePalCubeProvider = WebStorePalCubeFamily();
 
-/// See also [ProductCoCube].
-class ProductCoCubeFamily extends Family<AsyncValue<Product>> {
-  /// See also [ProductCoCube].
-  const ProductCoCubeFamily();
+/// See also [WebStorePalCube].
+class WebStorePalCubeFamily extends Family<AsyncValue<Store>> {
+  /// See also [WebStorePalCube].
+  const WebStorePalCubeFamily();
 
-  /// See also [ProductCoCube].
-  ProductCoCubeProvider call({
+  /// See also [WebStorePalCube].
+  WebStorePalCubeProvider call({
     String regionOrNs = 'default',
     required String id,
   }) {
-    return ProductCoCubeProvider(
+    return WebStorePalCubeProvider(
       regionOrNs: regionOrNs,
       id: id,
     );
   }
 
   @override
-  ProductCoCubeProvider getProviderOverride(
-    covariant ProductCoCubeProvider provider,
+  WebStorePalCubeProvider getProviderOverride(
+    covariant WebStorePalCubeProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
@@ -82,34 +82,34 @@ class ProductCoCubeFamily extends Family<AsyncValue<Product>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'productCoCubeProvider';
+  String? get name => r'webStorePalCubeProvider';
 }
 
-/// See also [ProductCoCube].
-class ProductCoCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<ProductCoCube, Product> {
-  /// See also [ProductCoCube].
-  ProductCoCubeProvider({
+/// See also [WebStorePalCube].
+class WebStorePalCubeProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<WebStorePalCube, Store> {
+  /// See also [WebStorePalCube].
+  WebStorePalCubeProvider({
     String regionOrNs = 'default',
     required String id,
   }) : this._internal(
-          () => ProductCoCube()
+          () => WebStorePalCube()
             ..regionOrNs = regionOrNs
             ..id = id,
-          from: productCoCubeProvider,
-          name: r'productCoCubeProvider',
+          from: webStorePalCubeProvider,
+          name: r'webStorePalCubeProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$productCoCubeHash,
-          dependencies: ProductCoCubeFamily._dependencies,
+                  : _$webStorePalCubeHash,
+          dependencies: WebStorePalCubeFamily._dependencies,
           allTransitiveDependencies:
-              ProductCoCubeFamily._allTransitiveDependencies,
+              WebStorePalCubeFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
           id: id,
         );
 
-  ProductCoCubeProvider._internal(
+  WebStorePalCubeProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -124,8 +124,8 @@ class ProductCoCubeProvider
   final String id;
 
   @override
-  FutureOr<Product> runNotifierBuild(
-    covariant ProductCoCube notifier,
+  FutureOr<Store> runNotifierBuild(
+    covariant WebStorePalCube notifier,
   ) {
     return notifier.build(
       regionOrNs: regionOrNs,
@@ -134,10 +134,10 @@ class ProductCoCubeProvider
   }
 
   @override
-  Override overrideWith(ProductCoCube Function() create) {
+  Override overrideWith(WebStorePalCube Function() create) {
     return ProviderOverride(
       origin: this,
-      override: ProductCoCubeProvider._internal(
+      override: WebStorePalCubeProvider._internal(
         () => create()
           ..regionOrNs = regionOrNs
           ..id = id,
@@ -153,14 +153,14 @@ class ProductCoCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<ProductCoCube, Product>
+  AutoDisposeAsyncNotifierProviderElement<WebStorePalCube, Store>
       createElement() {
-    return _ProductCoCubeProviderElement(this);
+    return _WebStorePalCubeProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is ProductCoCubeProvider &&
+    return other is WebStorePalCubeProvider &&
         other.regionOrNs == regionOrNs &&
         other.id == id;
   }
@@ -175,7 +175,7 @@ class ProductCoCubeProvider
   }
 }
 
-mixin ProductCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Product> {
+mixin WebStorePalCubeRef on AutoDisposeAsyncNotifierProviderRef<Store> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
@@ -183,15 +183,15 @@ mixin ProductCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Product> {
   String get id;
 }
 
-class _ProductCoCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<ProductCoCube, Product>
-    with ProductCoCubeRef {
-  _ProductCoCubeProviderElement(super.provider);
+class _WebStorePalCubeProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<WebStorePalCube, Store>
+    with WebStorePalCubeRef {
+  _WebStorePalCubeProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as ProductCoCubeProvider).regionOrNs;
+  String get regionOrNs => (origin as WebStorePalCubeProvider).regionOrNs;
   @override
-  String get id => (origin as ProductCoCubeProvider).id;
+  String get id => (origin as WebStorePalCubeProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

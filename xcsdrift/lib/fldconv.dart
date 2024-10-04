@@ -325,7 +325,7 @@ class TimeConverter extends TypeConverter<Time, String>
 
   @override
   Time fromJson(String json) {
-    return timeFromJson(json)!;
+    return json.isEmpty?Time(0, 0, 0):timeFromJson(json)!;
   }
 
   @override

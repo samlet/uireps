@@ -39,6 +39,7 @@ abstract class SessionCommand<T> extends XcsCommand<T> {
     argParser.addOption('name', abbr: 'n', defaultsTo: 'default', help: 'Session name');
     argParser.addOption('id', abbr: 'i', defaultsTo: 'people_1');
     argParser.addOption('alias', abbr: 'a');
+    argParser.addFlag('detail', abbr: 'd', defaultsTo: false);
 
     repo=ConfigRepository(dio, db);
     portals=PortalsOnChainRepository(dio);

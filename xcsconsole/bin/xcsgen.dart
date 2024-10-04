@@ -154,6 +154,8 @@ class GenEntCommand extends Command {
 
 % xcsgen.exe security -n logins
 % xcsgen.exe security -n gentoken -l alice
+% dart run bin/xcsgen.dart security -n gentoken -l login
+
 % xcsgen.exe data -n get -b Note -i note_2
 % xcsgen.exe data -n ids -b Note
 % xcsgen.exe data -n ids -b Marketplace

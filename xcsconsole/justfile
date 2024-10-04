@@ -12,3 +12,11 @@ gen:
 buy:
   dart compile exe bin/xcsbuy.dart
   ./bin/xcsbuy.exe get
+
+exa:
+  dart compile exe bin/xcsexa.dart
+  ./bin/xcsexa.exe example -s pub
+
+genlogin:
+  dart run bin/xcsgen.dart security -n gentoken -l login
+

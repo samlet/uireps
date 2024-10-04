@@ -9,10 +9,18 @@ var dio = createAuthDioWithToken(samletToken);
 Future<void> main(List<String> args) async {
   Database database = localDb('t2');
   var portals=PortalsOnChainRepository(dio);
+  await printCarrier(portals);
+
+  await printStartEls(portals);
+}
+
+Future<void> printCarrier(PortalsOnChainRepository portals) async {
   var carrier=await portals.getStarterElement(elementName: 'startCarrier');
   carrier.data?.removeNulls();
   prettyPrint(carrier);
+}
 
+Future<void> printStartEls(PortalsOnChainRepository portals) async {
   var rs=await portals.getAllStarterElements();
   var aliasMap=rs.map((el)=>(el.nodeIdTo, el.nodeIdFrom));
   print('alias-map: $aliasMap');

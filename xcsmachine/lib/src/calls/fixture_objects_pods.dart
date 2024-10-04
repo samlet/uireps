@@ -231,6 +231,19 @@ Future<Map<String, Object?>> fixturesEcho(FixturesEchoRef ref, {
 }
   
 @riverpod
+Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
+  String regionOrNs='default',
+  
+    required String noteId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.getNoteProto(
+      noteId: noteId,
+  );
+}
+  
+@riverpod
 Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
   String regionOrNs='default',
   
@@ -394,19 +407,6 @@ Future<IntMap> fixturesProtoInput(FixturesProtoInputRef ref, {
       timestamps: timestamps,
       stringMap: stringMap,
       decimalMap: decimalMap,
-  );
-}
-  
-@riverpod
-Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
-  String regionOrNs='default',
-  
-    required String noteId, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.getNoteProto(
-      noteId: noteId,
   );
 }
   

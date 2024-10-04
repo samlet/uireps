@@ -31,3 +31,6 @@ ents:
 
 domain:
     just gen_proto "/opt/app/apiset/domain/src/main/proto/*.proto"
+
+mods:
+    just gen_proto "/opt/app/apiset/mods/src/main/proto/extra/*.proto"
