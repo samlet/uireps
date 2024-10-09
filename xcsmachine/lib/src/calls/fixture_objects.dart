@@ -43,26 +43,6 @@ class FixtureObjectsRepository {
     return WorkEffort.fromJson(resp);
   }
    
-  // Mutation
-  Future<void> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-  }
-   
   // Query
   Future<String> ping({
     
@@ -99,6 +79,26 @@ class FixtureObjectsRepository {
     });
     
     return asTypedMap(resp);
+  }
+   
+  // Mutation
+  Future<void> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
   }
    
   // Query

@@ -2882,6 +2882,312 @@ class _UserPalGetUserLoginIdsProviderElement
   String get id => (origin as UserPalGetUserLoginIdsProvider).id;
 }
 
+String _$userPalGetNotificationsHash() =>
+    r'a41b58dffb8196684fb0c2e0eda9f737c5570c9f';
+
+/// See also [userPalGetNotifications].
+@ProviderFor(userPalGetNotifications)
+const userPalGetNotificationsProvider = UserPalGetNotificationsFamily();
+
+/// See also [userPalGetNotifications].
+class UserPalGetNotificationsFamily
+    extends Family<AsyncValue<List<Notification>>> {
+  /// See also [userPalGetNotifications].
+  const UserPalGetNotificationsFamily();
+
+  /// See also [userPalGetNotifications].
+  UserPalGetNotificationsProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return UserPalGetNotificationsProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  UserPalGetNotificationsProvider getProviderOverride(
+    covariant UserPalGetNotificationsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userPalGetNotificationsProvider';
+}
+
+/// See also [userPalGetNotifications].
+class UserPalGetNotificationsProvider
+    extends AutoDisposeFutureProvider<List<Notification>> {
+  /// See also [userPalGetNotifications].
+  UserPalGetNotificationsProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => userPalGetNotifications(
+            ref as UserPalGetNotificationsRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: userPalGetNotificationsProvider,
+          name: r'userPalGetNotificationsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$userPalGetNotificationsHash,
+          dependencies: UserPalGetNotificationsFamily._dependencies,
+          allTransitiveDependencies:
+              UserPalGetNotificationsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  UserPalGetNotificationsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Notification>> Function(UserPalGetNotificationsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UserPalGetNotificationsProvider._internal(
+        (ref) => create(ref as UserPalGetNotificationsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Notification>> createElement() {
+    return _UserPalGetNotificationsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserPalGetNotificationsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UserPalGetNotificationsRef
+    on AutoDisposeFutureProviderRef<List<Notification>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _UserPalGetNotificationsProviderElement
+    extends AutoDisposeFutureProviderElement<List<Notification>>
+    with UserPalGetNotificationsRef {
+  _UserPalGetNotificationsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as UserPalGetNotificationsProvider).regionOrNs;
+  @override
+  String get id => (origin as UserPalGetNotificationsProvider).id;
+}
+
+String _$userPalGetUnreadNotificationsHash() =>
+    r'd0dc107522ba3352346e532cfc45d77142cf428b';
+
+/// See also [userPalGetUnreadNotifications].
+@ProviderFor(userPalGetUnreadNotifications)
+const userPalGetUnreadNotificationsProvider =
+    UserPalGetUnreadNotificationsFamily();
+
+/// See also [userPalGetUnreadNotifications].
+class UserPalGetUnreadNotificationsFamily
+    extends Family<AsyncValue<List<Notification>>> {
+  /// See also [userPalGetUnreadNotifications].
+  const UserPalGetUnreadNotificationsFamily();
+
+  /// See also [userPalGetUnreadNotifications].
+  UserPalGetUnreadNotificationsProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return UserPalGetUnreadNotificationsProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  UserPalGetUnreadNotificationsProvider getProviderOverride(
+    covariant UserPalGetUnreadNotificationsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userPalGetUnreadNotificationsProvider';
+}
+
+/// See also [userPalGetUnreadNotifications].
+class UserPalGetUnreadNotificationsProvider
+    extends AutoDisposeFutureProvider<List<Notification>> {
+  /// See also [userPalGetUnreadNotifications].
+  UserPalGetUnreadNotificationsProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => userPalGetUnreadNotifications(
+            ref as UserPalGetUnreadNotificationsRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: userPalGetUnreadNotificationsProvider,
+          name: r'userPalGetUnreadNotificationsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$userPalGetUnreadNotificationsHash,
+          dependencies: UserPalGetUnreadNotificationsFamily._dependencies,
+          allTransitiveDependencies:
+              UserPalGetUnreadNotificationsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  UserPalGetUnreadNotificationsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Notification>> Function(
+            UserPalGetUnreadNotificationsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UserPalGetUnreadNotificationsProvider._internal(
+        (ref) => create(ref as UserPalGetUnreadNotificationsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Notification>> createElement() {
+    return _UserPalGetUnreadNotificationsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserPalGetUnreadNotificationsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UserPalGetUnreadNotificationsRef
+    on AutoDisposeFutureProviderRef<List<Notification>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _UserPalGetUnreadNotificationsProviderElement
+    extends AutoDisposeFutureProviderElement<List<Notification>>
+    with UserPalGetUnreadNotificationsRef {
+  _UserPalGetUnreadNotificationsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as UserPalGetUnreadNotificationsProvider).regionOrNs;
+  @override
+  String get id => (origin as UserPalGetUnreadNotificationsProvider).id;
+}
+
 String _$userPalGetAddressDataHash() =>
     r'9a731b53e5f3d4318ca5291b56f1b6dabf6a1ed6';
 
@@ -4394,7 +4700,7 @@ class _UserPalHasSlotValueProviderElement
   String get slotName => (origin as UserPalHasSlotValueProvider).slotName;
 }
 
-String _$userPalPodHash() => r'67633c574fce6d830a8ccb7d3bbf4438b123b414';
+String _$userPalPodHash() => r'9e08884c4e135c3d919bd912fa7f534bc7fffe70';
 
 abstract class _$UserPalPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionOrNs;

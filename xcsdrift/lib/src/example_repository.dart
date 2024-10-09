@@ -114,6 +114,15 @@ class ExampleRepository {
     return rs;
   }
 
+
+  Future<void> storeEnts(List<ent.Example> elements) async{
+    await database.batch((batch) {
+      for (var el in elements) {
+        storeEntry(el.toJson(), batch: batch);
+      }
+    });
+  }
+
   Future<List<ent.Example>> fetchFromLocalFile(File file) async {
     List<ent.Example> ds = await readFromFile(file);
     await database.batch((batch) {
@@ -141,8 +150,8 @@ class ExampleRepository {
     if(rec!=null) {
 	    Map<String, dynamic> normMap = normalizeMap(rec);
 	    return ent.Example.fromJson(normMap);
-	}
-	return null;
+  	}
+  	return null;
   }
 
   Future<int> remove(String id) async {

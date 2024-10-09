@@ -382,6 +382,25 @@ class UserPalRepository {
     return ResultConv.asString(resp);
   }
    
+  // Mutation
+  Future<void> markRead({
+    
+    required String notiId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "markRead",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "notiId": notiId, 
+    });
+    
+  }
+   
   // Query
   Future<String> getDefaultPayMeth({
     
@@ -474,6 +493,36 @@ class UserPalRepository {
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<List<Notification>> getNotifications() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNotifications",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Notification.fromJson);
+  }
+   
+  // Query
+  Future<List<Notification>> getUnreadNotifications() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getUnreadNotifications",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Notification.fromJson);
   }
    
   // Query

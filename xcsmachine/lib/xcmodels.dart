@@ -23,3 +23,4 @@ export 'src/ent/metadata.dart';
 export 'src/ent/shopping_cart.dart';
 export 'src/ent/billboard.dart';
 export 'src/ent/marketplace.dart';
+export 'src/ent/notification.dart';

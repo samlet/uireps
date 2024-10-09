@@ -102,6 +102,18 @@ class UserPalCube extends _$UserPalCube {
     ref.invalidateSelf();
   }
   
+  Future<void> markRead({
+    
+    required String notiId, 
+
+  }) async { 
+    await ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).markRead(
+      notiId: notiId,
+    );
+    ref.invalidate(loadPartyProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
   Future<void> setDefaultPayMeth({
     
     required String storeId,

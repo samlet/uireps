@@ -114,6 +114,15 @@ class ConfigRepository {
     return rs;
   }
 
+
+  Future<void> storeEnts(List<ent.Config> elements) async{
+    await database.batch((batch) {
+      for (var el in elements) {
+        storeEntry(el.toJson(), batch: batch);
+      }
+    });
+  }
+
   Future<List<ent.Config>> fetchFromLocalFile(File file) async {
     List<ent.Config> ds = await readFromFile(file);
     await database.batch((batch) {
@@ -141,8 +150,8 @@ class ConfigRepository {
     if(rec!=null) {
 	    Map<String, dynamic> normMap = normalizeMap(rec);
 	    return ent.Config.fromJson(normMap);
-	}
-	return null;
+  	}
+  	return null;
   }
 
   Future<int> remove(String id) async {

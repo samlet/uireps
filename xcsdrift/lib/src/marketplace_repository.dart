@@ -114,6 +114,15 @@ class MarketplaceRepository {
     return rs;
   }
 
+
+  Future<void> storeEnts(List<ent.Marketplace> elements) async{
+    await database.batch((batch) {
+      for (var el in elements) {
+        storeEntry(el.toJson(), batch: batch);
+      }
+    });
+  }
+
   Future<List<ent.Marketplace>> fetchFromLocalFile(File file) async {
     List<ent.Marketplace> ds = await readFromFile(file);
     await database.batch((batch) {
@@ -141,8 +150,8 @@ class MarketplaceRepository {
     if(rec!=null) {
 	    Map<String, dynamic> normMap = normalizeMap(rec);
 	    return ent.Marketplace.fromJson(normMap);
-	}
-	return null;
+  	}
+  	return null;
   }
 
   Future<int> remove(String id) async {

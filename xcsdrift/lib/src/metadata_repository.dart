@@ -114,6 +114,15 @@ class MetadataRepository {
     return rs;
   }
 
+
+  Future<void> storeEnts(List<ent.Metadata> elements) async{
+    await database.batch((batch) {
+      for (var el in elements) {
+        storeEntry(el.toJson(), batch: batch);
+      }
+    });
+  }
+
   Future<List<ent.Metadata>> fetchFromLocalFile(File file) async {
     List<ent.Metadata> ds = await readFromFile(file);
     await database.batch((batch) {
@@ -141,8 +150,8 @@ class MetadataRepository {
     if(rec!=null) {
 	    Map<String, dynamic> normMap = normalizeMap(rec);
 	    return ent.Metadata.fromJson(normMap);
-	}
-	return null;
+  	}
+  	return null;
   }
 
   Future<int> remove(String id) async {

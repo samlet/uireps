@@ -114,6 +114,15 @@ class ShipmentRepository {
     return rs;
   }
 
+
+  Future<void> storeEnts(List<ent.Shipment> elements) async{
+    await database.batch((batch) {
+      for (var el in elements) {
+        storeEntry(el.toJson(), batch: batch);
+      }
+    });
+  }
+
   Future<List<ent.Shipment>> fetchFromLocalFile(File file) async {
     List<ent.Shipment> ds = await readFromFile(file);
     await database.batch((batch) {
@@ -141,8 +150,8 @@ class ShipmentRepository {
     if(rec!=null) {
 	    Map<String, dynamic> normMap = normalizeMap(rec);
 	    return ent.Shipment.fromJson(normMap);
-	}
-	return null;
+  	}
+  	return null;
   }
 
   Future<int> remove(String id) async {

@@ -12,6 +12,7 @@ export 'fixture_objects.dart';
 export 'bundles_query_dealer.dart';
 export 'portal_manager.dart';
 export 'auth.dart';
+export 'facet_storage.dart';
 export 'acl_on_chain.dart';
 export 'portals_on_chain.dart';
 export 'counter_comp.dart';

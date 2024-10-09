@@ -119,6 +119,19 @@ class UserPalPod extends _$UserPalPod {
     return state.hasError == false;
   }
   
+  Future<bool> markRead({
+    
+    required String notiId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).markRead(
+              notiId: notiId,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> setDefaultPayMeth({
     
     required String storeId,
@@ -354,6 +367,26 @@ Future<List<String>> userPalGetUserLoginIds(UserPalGetUserLoginIdsRef ref, {
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getUserLoginIds(
+  );
+}
+  
+@riverpod
+Future<List<Notification>> userPalGetNotifications(UserPalGetNotificationsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getNotifications(
+  );
+}
+  
+@riverpod
+Future<List<Notification>> userPalGetUnreadNotifications(UserPalGetUnreadNotificationsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getUnreadNotifications(
   );
 }
   

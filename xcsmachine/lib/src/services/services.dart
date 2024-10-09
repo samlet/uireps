@@ -23,3 +23,4 @@ export 'metadata_pod.dart';
 export 'shopping_cart_pod.dart';
 export 'billboard_pod.dart';
 export 'marketplace_pod.dart';
+export 'notification_pod.dart';

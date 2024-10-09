@@ -38,6 +38,12 @@ class PostPalCube extends _$PostPalCube {
     ref.invalidateSelf();
   }
   
+  Future<void> featured() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
+    );
+    ref.invalidateSelf();
+  }
+  
   Future<void> setCharge({
     
     required double fee, 
@@ -73,12 +79,6 @@ class PostPalCube extends _$PostPalCube {
       review: review,
       rating: rating,
       reward: reward,
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> featured() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
     );
     ref.invalidateSelf();
   }

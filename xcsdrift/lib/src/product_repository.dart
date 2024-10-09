@@ -114,6 +114,15 @@ class ProductRepository {
     return rs;
   }
 
+
+  Future<void> storeEnts(List<ent.Product> elements) async{
+    await database.batch((batch) {
+      for (var el in elements) {
+        storeEntry(el.toJson(), batch: batch);
+      }
+    });
+  }
+
   Future<List<ent.Product>> fetchFromLocalFile(File file) async {
     List<ent.Product> ds = await readFromFile(file);
     await database.batch((batch) {
@@ -141,8 +150,8 @@ class ProductRepository {
     if(rec!=null) {
 	    Map<String, dynamic> normMap = normalizeMap(rec);
 	    return ent.Product.fromJson(normMap);
-	}
-	return null;
+  	}
+  	return null;
   }
 
   Future<int> remove(String id) async {
