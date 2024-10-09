@@ -1,7 +1,10 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'thing_facet.g.dart';
 
@@ -54,6 +57,12 @@ class ThingFacet {
   factory ThingFacet.fromJson(Map<String, dynamic> json) => _$ThingFacetFromJson(json);
   Map<String, dynamic> toJson() => _$ThingFacetToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<ThingFacet, String> converter = df.TypeConverter.json(
+    fromJson: (json) => ThingFacet.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
   @override
   String toString() {
     return 'ThingFacet(thingId: $thingId)';
@@ -97,8 +106,7 @@ class ThingFacet {
   // rel: many
   
 
-  // rel: many ops
-      
+  // rel: many ops    
 }
 
 

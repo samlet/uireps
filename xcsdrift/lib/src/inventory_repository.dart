@@ -16,6 +16,7 @@ import 'inventory.drift.dart';
 
 final _logger = Logger('InventoryRepository');
 const _bundleName = 'Inventory';
+const _fullBundleName='default:Inventory';
 
 class InventoryRepository {
   final Dio dio;
@@ -23,10 +24,12 @@ class InventoryRepository {
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
+  late FacetStorageRepository facetStorage;
 
   InventoryRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
+    facetStorage=FacetStorageRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadInventories({String tenantId = 'default'}) async {
@@ -62,18 +65,16 @@ class InventoryRepository {
   }
 
   Future<ent.Inventory> fetchSingle(String bundleId) async {
-    final el = await portalManager.loadAsBiFacet(
-        bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Inventory.fromJson(el.data!);
-    var jsonEl = elData.toJson();
-    storeEntry(jsonEl);
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.Inventory.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
     return elData;
   }
 
   Future<List<ent.Inventory>> fetchMulti(List<String> ids) async {
-    final elements = await portalManager.loadAsBiFacets(
-        bundleName: _bundleName, bundleIds: ids);
-    return await storeEntries(elements);
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements);
   }
 
   Future<List<ent.Inventory>> fetchFromReg(String regNode) async {
@@ -88,7 +89,7 @@ class InventoryRepository {
   }
 
   Future<void> push(ent.Inventory data) async {
-    await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.inventoryItemId!, val: data.toJson());
   }
 
   Future<void> store(ent.Inventory data) async {
@@ -114,6 +115,19 @@ class InventoryRepository {
     return rs;
   }
 
+
+  Future<List<ent.Inventory>> storeDs(List<Map<String, dynamic>> ds) async{
+    var rs=<ent.Inventory>[];
+    await database.batch((batch) {
+      for (var el in ds) {
+        final elData=ent.Inventory.fromJson(el);
+        rs.add(elData);
+        var jsonEl = elData.toJson();
+        storeEntry(jsonEl, batch: batch);
+      }
+    });
+    return rs;
+  }
 
   Future<void> storeEnts(List<ent.Inventory> elements) async{
     await database.batch((batch) {

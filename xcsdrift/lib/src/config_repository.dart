@@ -16,6 +16,7 @@ import 'config.drift.dart';
 
 final _logger = Logger('ConfigRepository');
 const _bundleName = 'Config';
+const _fullBundleName='default:Config';
 
 class ConfigRepository {
   final Dio dio;
@@ -23,10 +24,12 @@ class ConfigRepository {
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
+  late FacetStorageRepository facetStorage;
 
   ConfigRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
+    facetStorage=FacetStorageRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadConfigs({String tenantId = 'default'}) async {
@@ -62,18 +65,16 @@ class ConfigRepository {
   }
 
   Future<ent.Config> fetchSingle(String bundleId) async {
-    final el = await portalManager.loadAsBiFacet(
-        bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Config.fromJson(el.data!);
-    var jsonEl = elData.toJson();
-    storeEntry(jsonEl);
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.Config.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
     return elData;
   }
 
   Future<List<ent.Config>> fetchMulti(List<String> ids) async {
-    final elements = await portalManager.loadAsBiFacets(
-        bundleName: _bundleName, bundleIds: ids);
-    return await storeEntries(elements);
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements);
   }
 
   Future<List<ent.Config>> fetchFromReg(String regNode) async {
@@ -88,7 +89,7 @@ class ConfigRepository {
   }
 
   Future<void> push(ent.Config data) async {
-    await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.configId!, val: data.toJson());
   }
 
   Future<void> store(ent.Config data) async {
@@ -114,6 +115,19 @@ class ConfigRepository {
     return rs;
   }
 
+
+  Future<List<ent.Config>> storeDs(List<Map<String, dynamic>> ds) async{
+    var rs=<ent.Config>[];
+    await database.batch((batch) {
+      for (var el in ds) {
+        final elData=ent.Config.fromJson(el);
+        rs.add(elData);
+        var jsonEl = elData.toJson();
+        storeEntry(jsonEl, batch: batch);
+      }
+    });
+    return rs;
+  }
 
   Future<void> storeEnts(List<ent.Config> elements) async{
     await database.batch((batch) {

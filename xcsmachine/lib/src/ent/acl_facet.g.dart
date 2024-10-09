@@ -9,9 +9,7 @@ part of 'acl_facet.dart';
 AclFacet _$AclFacetFromJson(Map<String, dynamic> json) => AclFacet(
       aclId: json['aclId'] as String?,
       owner: json['owner'] as String?,
-      acl: json['acl'] == null
-          ? null
-          : MultimapOra.fromJson(json['acl'] as Map<String, dynamic>),
+      acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       tenantId: json['tenantId'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -35,7 +33,7 @@ Map<String, dynamic> _$AclFacetToJson(AclFacet instance) {
 
   writeNotNull('aclId', instance.aclId);
   writeNotNull('owner', instance.owner);
-  writeNotNull('acl', instance.acl?.toJson());
+  val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());

@@ -33,6 +33,19 @@ class CarrierPalPod extends _$CarrierPalPod {
   }
 
   
+  Future<bool> setPosition({
+    
+    required Position pos, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).setPosition(
+              pos: pos,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> addOrder({
     
     required String orderId, 
@@ -58,32 +71,9 @@ class CarrierPalPod extends _$CarrierPalPod {
             ));
     return state.hasError == false;
   }
-  
-  Future<bool> setPosition({
-    
-    required Position pos, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).setPosition(
-              pos: pos,
-            ));
-    return state.hasError == false;
-  }
     
 }
 
-  
-@riverpod
-Future<List<String>> carrierPalGetOrders(CarrierPalGetOrdersRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(carrierPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getOrders(
-  );
-}
   
 @riverpod
 Future<Position> carrierPalGetCurrentPosition(CarrierPalGetCurrentPositionRef ref, {
@@ -92,6 +82,16 @@ Future<Position> carrierPalGetCurrentPosition(CarrierPalGetCurrentPositionRef re
 }) async {
   var pod=ref.watch(carrierPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getCurrentPosition(
+  );
+}
+  
+@riverpod
+Future<List<String>> carrierPalGetOrders(CarrierPalGetOrdersRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(carrierPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getOrders(
   );
 }
   

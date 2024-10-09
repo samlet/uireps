@@ -16,6 +16,7 @@ import 'metadata.drift.dart';
 
 final _logger = Logger('MetadataRepository');
 const _bundleName = 'Metadata';
+const _fullBundleName='default:Metadata';
 
 class MetadataRepository {
   final Dio dio;
@@ -23,10 +24,12 @@ class MetadataRepository {
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
+  late FacetStorageRepository facetStorage;
 
   MetadataRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
+    facetStorage=FacetStorageRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadMetadata({String tenantId = 'default'}) async {
@@ -62,18 +65,16 @@ class MetadataRepository {
   }
 
   Future<ent.Metadata> fetchSingle(String bundleId) async {
-    final el = await portalManager.loadAsBiFacet(
-        bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Metadata.fromJson(el.data!);
-    var jsonEl = elData.toJson();
-    storeEntry(jsonEl);
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.Metadata.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
     return elData;
   }
 
   Future<List<ent.Metadata>> fetchMulti(List<String> ids) async {
-    final elements = await portalManager.loadAsBiFacets(
-        bundleName: _bundleName, bundleIds: ids);
-    return await storeEntries(elements);
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements);
   }
 
   Future<List<ent.Metadata>> fetchFromReg(String regNode) async {
@@ -88,7 +89,7 @@ class MetadataRepository {
   }
 
   Future<void> push(ent.Metadata data) async {
-    await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.metadataId!, val: data.toJson());
   }
 
   Future<void> store(ent.Metadata data) async {
@@ -114,6 +115,19 @@ class MetadataRepository {
     return rs;
   }
 
+
+  Future<List<ent.Metadata>> storeDs(List<Map<String, dynamic>> ds) async{
+    var rs=<ent.Metadata>[];
+    await database.batch((batch) {
+      for (var el in ds) {
+        final elData=ent.Metadata.fromJson(el);
+        rs.add(elData);
+        var jsonEl = elData.toJson();
+        storeEntry(jsonEl, batch: batch);
+      }
+    });
+    return rs;
+  }
 
   Future<void> storeEnts(List<ent.Metadata> elements) async{
     await database.batch((batch) {

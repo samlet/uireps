@@ -22,6 +22,18 @@ class CarrierPalCube extends _$CarrierPalCube {
    
 
   
+  Future<void> setPosition({
+    
+    required Position pos, 
+
+  }) async { 
+    await ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).setPosition(
+      pos: pos,
+    );
+    ref.invalidate(loadCarrierProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
   Future<void> addOrder({
     
     required String orderId, 
@@ -41,18 +53,6 @@ class CarrierPalCube extends _$CarrierPalCube {
   }) async { 
     await ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).removeOrder(
       orderId: orderId,
-    );
-    ref.invalidate(loadCarrierProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> setPosition({
-    
-    required Position pos, 
-
-  }) async { 
-    await ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).setPosition(
-      pos: pos,
     );
     ref.invalidate(loadCarrierProvider(bundleId: id));
     ref.invalidateSelf();

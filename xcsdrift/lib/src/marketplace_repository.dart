@@ -16,6 +16,7 @@ import 'marketplace.drift.dart';
 
 final _logger = Logger('MarketplaceRepository');
 const _bundleName = 'Marketplace';
+const _fullBundleName='default:Marketplace';
 
 class MarketplaceRepository {
   final Dio dio;
@@ -23,10 +24,12 @@ class MarketplaceRepository {
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
+  late FacetStorageRepository facetStorage;
 
   MarketplaceRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
+    facetStorage=FacetStorageRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadMarketplaces({String tenantId = 'default'}) async {
@@ -62,18 +65,16 @@ class MarketplaceRepository {
   }
 
   Future<ent.Marketplace> fetchSingle(String bundleId) async {
-    final el = await portalManager.loadAsBiFacet(
-        bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Marketplace.fromJson(el.data!);
-    var jsonEl = elData.toJson();
-    storeEntry(jsonEl);
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.Marketplace.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
     return elData;
   }
 
   Future<List<ent.Marketplace>> fetchMulti(List<String> ids) async {
-    final elements = await portalManager.loadAsBiFacets(
-        bundleName: _bundleName, bundleIds: ids);
-    return await storeEntries(elements);
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements);
   }
 
   Future<List<ent.Marketplace>> fetchFromReg(String regNode) async {
@@ -88,7 +89,7 @@ class MarketplaceRepository {
   }
 
   Future<void> push(ent.Marketplace data) async {
-    await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.marketplaceId!, val: data.toJson());
   }
 
   Future<void> store(ent.Marketplace data) async {
@@ -114,6 +115,19 @@ class MarketplaceRepository {
     return rs;
   }
 
+
+  Future<List<ent.Marketplace>> storeDs(List<Map<String, dynamic>> ds) async{
+    var rs=<ent.Marketplace>[];
+    await database.batch((batch) {
+      for (var el in ds) {
+        final elData=ent.Marketplace.fromJson(el);
+        rs.add(elData);
+        var jsonEl = elData.toJson();
+        storeEntry(jsonEl, batch: batch);
+      }
+    });
+    return rs;
+  }
 
   Future<void> storeEnts(List<ent.Marketplace> elements) async{
     await database.batch((batch) {

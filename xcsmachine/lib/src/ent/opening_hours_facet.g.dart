@@ -9,13 +9,8 @@ part of 'opening_hours_facet.dart';
 OpeningHoursFacet _$OpeningHoursFacetFromJson(Map<String, dynamic> json) =>
     OpeningHoursFacet(
       openingHoursId: json['openingHoursId'] as String?,
-      openingHoursStart: json['openingHoursStart'] == null
-          ? null
-          : TimeOfDay.fromJson(
-              json['openingHoursStart'] as Map<String, dynamic>),
-      openingHoursEnd: json['openingHoursEnd'] == null
-          ? null
-          : TimeOfDay.fromJson(json['openingHoursEnd'] as Map<String, dynamic>),
+      openingHoursStart: timeFromJson(json['openingHoursStart'] as String?),
+      openingHoursEnd: timeFromJson(json['openingHoursEnd'] as String?),
       openingWeekdays: (json['openingWeekdays'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
@@ -39,8 +34,8 @@ Map<String, dynamic> _$OpeningHoursFacetToJson(OpeningHoursFacet instance) {
   }
 
   writeNotNull('openingHoursId', instance.openingHoursId);
-  writeNotNull('openingHoursStart', instance.openingHoursStart?.toJson());
-  writeNotNull('openingHoursEnd', instance.openingHoursEnd?.toJson());
+  writeNotNull('openingHoursStart', timeToJson(instance.openingHoursStart));
+  writeNotNull('openingHoursEnd', timeToJson(instance.openingHoursEnd));
   writeNotNull('openingWeekdays', instance.openingWeekdays);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull(

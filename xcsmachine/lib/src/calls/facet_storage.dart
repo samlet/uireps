@@ -60,6 +60,27 @@ class FacetStorageRepository {
     });
     
   }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> multiGet({
+    
+    required String fullBundleName,
+    required List<String> keys, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "multiGet",
+      "bundleName" : "FacetStorage",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "fullBundleName": fullBundleName,
+      "keys": keys, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
   
 }
 

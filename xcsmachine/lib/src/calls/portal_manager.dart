@@ -19,52 +19,6 @@ class PortalManagerRepository {
 
    
   // Query
-  Future<BiFacetBi> loadAsBiFacet({
-    
-    required String bundleName,
-    String? regionId='default',
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadAsBiFacet",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "bundleId": bundleId, 
-    });
-    
-    return BiFacetBi.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<BiFacetBi>> loadAsBiFacets({
-    
-    required String bundleName,
-    String? regionId='default',
-    required List<String> bundleIds, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadAsBiFacets",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "bundleIds": bundleIds, 
-    });
-    
-    return convList(resp, BiFacetBi.fromJson);
-  }
-   
-  // Query
   Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
     
     required String bundleName,
@@ -108,6 +62,52 @@ class PortalManagerRepository {
     });
     
     return BundleModifiedResult.fromJson(resp);
+  }
+   
+  // Query
+  Future<BiFacetBi> loadAsBiFacet({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacet",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "bundleId": bundleId, 
+    });
+    
+    return BiFacetBi.fromJson(resp);
+  }
+   
+  // Query
+  Future<List<BiFacetBi>> loadAsBiFacets({
+    
+    required String bundleName,
+    String? regionId='default',
+    required List<String> bundleIds, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacets",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "bundleIds": bundleIds, 
+    });
+    
+    return convList(resp, BiFacetBi.fromJson);
   }
   
 }

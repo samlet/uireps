@@ -65,6 +65,21 @@ Future<Map<String, Object?>> facetStorageGet(FacetStorageGetRef ref, {
       key: key,
   );
 }
+  
+@riverpod
+Future<List<Map<String, dynamic>>> facetStorageMultiGet(FacetStorageMultiGetRef ref, {
+  String regionOrNs='default',
+  
+    required String fullBundleName,
+    required List<String> keys, 
+
+}) async {
+  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
+  return await pod.multiGet(
+      fullBundleName: fullBundleName,
+      keys: keys,
+  );
+}
 
 
 

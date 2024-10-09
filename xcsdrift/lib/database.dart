@@ -17,6 +17,10 @@ import 'database.drift.dart';
   'src/store.drift',
   'src/product.drift',
   'src/carrier.drift',
+  'src/bi_facet.drift',
+  'src/thing_facet.drift',
+  'src/session_cache.drift',
+  'src/all_facets.drift'
 })
 class Database extends $Database {
   Database(super.e);

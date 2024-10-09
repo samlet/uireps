@@ -29,6 +29,12 @@ export 'src/product_repository.dart';
 export 'src/product.drift.dart';
 export 'src/carrier_repository.dart';
 export 'src/carrier.drift.dart';
+export 'src/bi_facet_repository.dart';
+export 'src/bi_facet.drift.dart';
+export 'src/thing_facet_repository.dart';
+export 'src/thing_facet.drift.dart';
+export 'src/session_cache_repository.dart';
+export 'src/session_cache.drift.dart';
 
 
 

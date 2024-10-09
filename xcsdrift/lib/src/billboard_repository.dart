@@ -16,6 +16,7 @@ import 'billboard.drift.dart';
 
 final _logger = Logger('BillboardRepository');
 const _bundleName = 'Billboard';
+const _fullBundleName='default:Billboard';
 
 class BillboardRepository {
   final Dio dio;
@@ -23,10 +24,12 @@ class BillboardRepository {
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
+  late FacetStorageRepository facetStorage;
 
   BillboardRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
+    facetStorage=FacetStorageRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadBillboards({String tenantId = 'default'}) async {
@@ -62,18 +65,16 @@ class BillboardRepository {
   }
 
   Future<ent.Billboard> fetchSingle(String bundleId) async {
-    final el = await portalManager.loadAsBiFacet(
-        bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Billboard.fromJson(el.data!);
-    var jsonEl = elData.toJson();
-    storeEntry(jsonEl);
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.Billboard.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
     return elData;
   }
 
   Future<List<ent.Billboard>> fetchMulti(List<String> ids) async {
-    final elements = await portalManager.loadAsBiFacets(
-        bundleName: _bundleName, bundleIds: ids);
-    return await storeEntries(elements);
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements);
   }
 
   Future<List<ent.Billboard>> fetchFromReg(String regNode) async {
@@ -88,7 +89,7 @@ class BillboardRepository {
   }
 
   Future<void> push(ent.Billboard data) async {
-    await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.billboardId!, val: data.toJson());
   }
 
   Future<void> store(ent.Billboard data) async {
@@ -114,6 +115,19 @@ class BillboardRepository {
     return rs;
   }
 
+
+  Future<List<ent.Billboard>> storeDs(List<Map<String, dynamic>> ds) async{
+    var rs=<ent.Billboard>[];
+    await database.batch((batch) {
+      for (var el in ds) {
+        final elData=ent.Billboard.fromJson(el);
+        rs.add(elData);
+        var jsonEl = elData.toJson();
+        storeEntry(jsonEl, batch: batch);
+      }
+    });
+    return rs;
+  }
 
   Future<void> storeEnts(List<ent.Billboard> elements) async{
     await database.batch((batch) {

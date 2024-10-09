@@ -1,0 +1,36 @@
+import '../fldconv.dart';
+import 'session_cache_conv.dart';
+
+
+CREATE TABLE session_cache (
+    session_cache_id VARCHAR(255) NOT NULL PRIMARY KEY,
+    fetch_time DATETIME(3),
+    thru_time DATETIME(3),
+    elements TEXT MAPPED BY `const StringListConverter()`,
+    subject VARCHAR(100),
+    bundle_name VARCHAR(100),
+    tenant_key VARCHAR(250),
+    reg_key VARCHAR(250),
+    bundle_id VARCHAR(250),
+    tenant_id VARCHAR(22),
+    last_updated_tx_stamp DATETIME(3),
+    created_tx_stamp DATETIME(3),
+    session_cache_type_id VARCHAR(22),
+    status_id VARCHAR(22),
+    evict BOOLEAN,
+
+    -- rel: one (no public-types)
+
+    -- rel: many
+    reserved_flag INTEGER
+);
+
+allSessionCaches: SELECT * FROM session_cache;
+clearSessionCaches: DELETE FROM session_cache;
+addSessionCache: INSERT INTO session_cache $el;
+getSessionCache: SELECT * FROM session_cache WHERE session_cache_id = ?;
+deleteSessionCache: DELETE FROM session_cache WHERE session_cache_id = :id;
+
+
+
+

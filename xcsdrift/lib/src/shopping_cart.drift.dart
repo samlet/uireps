@@ -27,6 +27,13 @@ class ShoppingCart extends i0.Table
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _contactsMeta =
+      const i0.VerificationMeta('contacts');
+  late final i0.GeneratedColumn<String> contacts = i0.GeneratedColumn<String>(
+      'contacts', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   static const i0.VerificationMeta _createDateMeta =
       const i0.VerificationMeta('createDate');
   late final i0.GeneratedColumn<DateTime> createDate =
@@ -234,6 +241,7 @@ class ShoppingCart extends i0.Table
   List<i0.GeneratedColumn> get $columns => [
         shoppingCartId,
         storeId,
+        contacts,
         createDate,
         name,
         info,
@@ -283,6 +291,10 @@ class ShoppingCart extends i0.Table
     if (data.containsKey('store_id')) {
       context.handle(_storeIdMeta,
           storeId.isAcceptableOrUnknown(data['store_id']!, _storeIdMeta));
+    }
+    if (data.containsKey('contacts')) {
+      context.handle(_contactsMeta,
+          contacts.isAcceptableOrUnknown(data['contacts']!, _contactsMeta));
     }
     if (data.containsKey('create_date')) {
       context.handle(
@@ -403,6 +415,8 @@ class ShoppingCart extends i0.Table
           i0.DriftSqlType.string, data['${effectivePrefix}shopping_cart_id'])!,
       storeId: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}store_id']),
+      contacts: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}contacts']),
       createDate: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.dateTime, data['${effectivePrefix}create_date']),
       name: attachedDatabase.typeMapping
@@ -514,6 +528,7 @@ class ShoppingCartData extends i0.DataClass
     implements i0.Insertable<i1.ShoppingCartData> {
   final String shoppingCartId;
   final String? storeId;
+  final String? contacts;
   final DateTime? createDate;
   final String? name;
   final String? info;
@@ -547,6 +562,7 @@ class ShoppingCartData extends i0.DataClass
   const ShoppingCartData(
       {required this.shoppingCartId,
       this.storeId,
+      this.contacts,
       this.createDate,
       this.name,
       this.info,
@@ -579,6 +595,9 @@ class ShoppingCartData extends i0.DataClass
     map['shopping_cart_id'] = i0.Variable<String>(shoppingCartId);
     if (!nullToAbsent || storeId != null) {
       map['store_id'] = i0.Variable<String>(storeId);
+    }
+    if (!nullToAbsent || contacts != null) {
+      map['contacts'] = i0.Variable<String>(contacts);
     }
     if (!nullToAbsent || createDate != null) {
       map['create_date'] = i0.Variable<DateTime>(createDate);
@@ -674,6 +693,9 @@ class ShoppingCartData extends i0.DataClass
       storeId: storeId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(storeId),
+      contacts: contacts == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(contacts),
       createDate: createDate == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(createDate),
@@ -760,6 +782,7 @@ class ShoppingCartData extends i0.DataClass
     return ShoppingCartData(
       shoppingCartId: serializer.fromJson<String>(json['shopping_cart_id']),
       storeId: serializer.fromJson<String?>(json['store_id']),
+      contacts: serializer.fromJson<String?>(json['contacts']),
       createDate: serializer.fromJson<DateTime?>(json['create_date']),
       name: serializer.fromJson<String?>(json['name']),
       info: serializer.fromJson<String?>(json['info']),
@@ -807,6 +830,7 @@ class ShoppingCartData extends i0.DataClass
     return <String, dynamic>{
       'shopping_cart_id': serializer.toJson<String>(shoppingCartId),
       'store_id': serializer.toJson<String?>(storeId),
+      'contacts': serializer.toJson<String?>(contacts),
       'create_date': serializer.toJson<DateTime?>(createDate),
       'name': serializer.toJson<String?>(name),
       'info': serializer.toJson<String?>(info),
@@ -846,6 +870,7 @@ class ShoppingCartData extends i0.DataClass
   i1.ShoppingCartData copyWith(
           {String? shoppingCartId,
           i0.Value<String?> storeId = const i0.Value.absent(),
+          i0.Value<String?> contacts = const i0.Value.absent(),
           i0.Value<DateTime?> createDate = const i0.Value.absent(),
           i0.Value<String?> name = const i0.Value.absent(),
           i0.Value<String?> info = const i0.Value.absent(),
@@ -880,6 +905,7 @@ class ShoppingCartData extends i0.DataClass
       i1.ShoppingCartData(
         shoppingCartId: shoppingCartId ?? this.shoppingCartId,
         storeId: storeId.present ? storeId.value : this.storeId,
+        contacts: contacts.present ? contacts.value : this.contacts,
         createDate: createDate.present ? createDate.value : this.createDate,
         name: name.present ? name.value : this.name,
         info: info.present ? info.value : this.info,
@@ -931,6 +957,7 @@ class ShoppingCartData extends i0.DataClass
           ? data.shoppingCartId.value
           : this.shoppingCartId,
       storeId: data.storeId.present ? data.storeId.value : this.storeId,
+      contacts: data.contacts.present ? data.contacts.value : this.contacts,
       createDate:
           data.createDate.present ? data.createDate.value : this.createDate,
       name: data.name.present ? data.name.value : this.name,
@@ -989,6 +1016,7 @@ class ShoppingCartData extends i0.DataClass
     return (StringBuffer('ShoppingCartData(')
           ..write('shoppingCartId: $shoppingCartId, ')
           ..write('storeId: $storeId, ')
+          ..write('contacts: $contacts, ')
           ..write('createDate: $createDate, ')
           ..write('name: $name, ')
           ..write('info: $info, ')
@@ -1023,6 +1051,7 @@ class ShoppingCartData extends i0.DataClass
   int get hashCode => Object.hashAll([
         shoppingCartId,
         storeId,
+        contacts,
         createDate,
         name,
         info,
@@ -1056,6 +1085,7 @@ class ShoppingCartData extends i0.DataClass
       (other is i1.ShoppingCartData &&
           other.shoppingCartId == this.shoppingCartId &&
           other.storeId == this.storeId &&
+          other.contacts == this.contacts &&
           other.createDate == this.createDate &&
           other.name == this.name &&
           other.info == this.info &&
@@ -1087,6 +1117,7 @@ class ShoppingCartData extends i0.DataClass
 class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   final i0.Value<String> shoppingCartId;
   final i0.Value<String?> storeId;
+  final i0.Value<String?> contacts;
   final i0.Value<DateTime?> createDate;
   final i0.Value<String?> name;
   final i0.Value<String?> info;
@@ -1117,6 +1148,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   const ShoppingCartCompanion({
     this.shoppingCartId = const i0.Value.absent(),
     this.storeId = const i0.Value.absent(),
+    this.contacts = const i0.Value.absent(),
     this.createDate = const i0.Value.absent(),
     this.name = const i0.Value.absent(),
     this.info = const i0.Value.absent(),
@@ -1148,6 +1180,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   ShoppingCartCompanion.insert({
     required String shoppingCartId,
     this.storeId = const i0.Value.absent(),
+    this.contacts = const i0.Value.absent(),
     this.createDate = const i0.Value.absent(),
     this.name = const i0.Value.absent(),
     this.info = const i0.Value.absent(),
@@ -1179,6 +1212,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   static i0.Insertable<i1.ShoppingCartData> custom({
     i0.Expression<String>? shoppingCartId,
     i0.Expression<String>? storeId,
+    i0.Expression<String>? contacts,
     i0.Expression<DateTime>? createDate,
     i0.Expression<String>? name,
     i0.Expression<String>? info,
@@ -1210,6 +1244,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     return i0.RawValuesInsertable({
       if (shoppingCartId != null) 'shopping_cart_id': shoppingCartId,
       if (storeId != null) 'store_id': storeId,
+      if (contacts != null) 'contacts': contacts,
       if (createDate != null) 'create_date': createDate,
       if (name != null) 'name': name,
       if (info != null) 'info': info,
@@ -1246,6 +1281,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   i1.ShoppingCartCompanion copyWith(
       {i0.Value<String>? shoppingCartId,
       i0.Value<String?>? storeId,
+      i0.Value<String?>? contacts,
       i0.Value<DateTime?>? createDate,
       i0.Value<String?>? name,
       i0.Value<String?>? info,
@@ -1276,6 +1312,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     return i1.ShoppingCartCompanion(
       shoppingCartId: shoppingCartId ?? this.shoppingCartId,
       storeId: storeId ?? this.storeId,
+      contacts: contacts ?? this.contacts,
       createDate: createDate ?? this.createDate,
       name: name ?? this.name,
       info: info ?? this.info,
@@ -1314,6 +1351,9 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     }
     if (storeId.present) {
       map['store_id'] = i0.Variable<String>(storeId.value);
+    }
+    if (contacts.present) {
+      map['contacts'] = i0.Variable<String>(contacts.value);
     }
     if (createDate.present) {
       map['create_date'] = i0.Variable<DateTime>(createDate.value);
@@ -1416,6 +1456,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     return (StringBuffer('ShoppingCartCompanion(')
           ..write('shoppingCartId: $shoppingCartId, ')
           ..write('storeId: $storeId, ')
+          ..write('contacts: $contacts, ')
           ..write('createDate: $createDate, ')
           ..write('name: $name, ')
           ..write('info: $info, ')
@@ -1452,6 +1493,7 @@ typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
     Function({
   required String shoppingCartId,
   i0.Value<String?> storeId,
+  i0.Value<String?> contacts,
   i0.Value<DateTime?> createDate,
   i0.Value<String?> name,
   i0.Value<String?> info,
@@ -1484,6 +1526,7 @@ typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
     Function({
   i0.Value<String> shoppingCartId,
   i0.Value<String?> storeId,
+  i0.Value<String?> contacts,
   i0.Value<DateTime?> createDate,
   i0.Value<String?> name,
   i0.Value<String?> info,
@@ -1523,6 +1566,11 @@ class $ShoppingCartFilterComposer
 
   i0.ColumnFilters<String> get storeId => $state.composableBuilder(
       column: $state.table.storeId,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<String> get contacts => $state.composableBuilder(
+      column: $state.table.contacts,
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
@@ -1688,6 +1736,11 @@ class $ShoppingCartOrderingComposer
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 
+  i0.ColumnOrderings<String> get contacts => $state.composableBuilder(
+      column: $state.table.contacts,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
   i0.ColumnOrderings<DateTime> get createDate => $state.composableBuilder(
       column: $state.table.createDate,
       builder: (column, joinBuilders) =>
@@ -1846,6 +1899,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
           updateCompanionCallback: ({
             i0.Value<String> shoppingCartId = const i0.Value.absent(),
             i0.Value<String?> storeId = const i0.Value.absent(),
+            i0.Value<String?> contacts = const i0.Value.absent(),
             i0.Value<DateTime?> createDate = const i0.Value.absent(),
             i0.Value<String?> name = const i0.Value.absent(),
             i0.Value<String?> info = const i0.Value.absent(),
@@ -1883,6 +1937,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
               i1.ShoppingCartCompanion(
             shoppingCartId: shoppingCartId,
             storeId: storeId,
+            contacts: contacts,
             createDate: createDate,
             name: name,
             info: info,
@@ -1914,6 +1969,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
           createCompanionCallback: ({
             required String shoppingCartId,
             i0.Value<String?> storeId = const i0.Value.absent(),
+            i0.Value<String?> contacts = const i0.Value.absent(),
             i0.Value<DateTime?> createDate = const i0.Value.absent(),
             i0.Value<String?> name = const i0.Value.absent(),
             i0.Value<String?> info = const i0.Value.absent(),
@@ -1951,6 +2007,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
               i1.ShoppingCartCompanion.insert(
             shoppingCartId: shoppingCartId,
             storeId: storeId,
+            contacts: contacts,
             createDate: createDate,
             name: name,
             info: info,

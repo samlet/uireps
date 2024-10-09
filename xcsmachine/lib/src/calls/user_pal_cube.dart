@@ -62,6 +62,34 @@ class UserPalCube extends _$UserPalCube {
     ref.invalidateSelf();
   }
   
+  Future<void> setDefaultPayMeth({
+    
+    required String storeId,
+    required String defaultPayMeth, 
+
+  }) async { 
+    await ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).setDefaultPayMeth(
+      storeId: storeId,
+      defaultPayMeth: defaultPayMeth,
+    );
+    ref.invalidate(loadPartyProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addNotification({
+    
+    required String typeId,
+    required String content, 
+
+  }) async { 
+    await ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).addNotification(
+      typeId: typeId,
+      content: content,
+    );
+    ref.invalidate(loadPartyProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
   Future<void> addRole({
     
     required String roleTypeId, 
@@ -109,34 +137,6 @@ class UserPalCube extends _$UserPalCube {
   }) async { 
     await ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).markRead(
       notiId: notiId,
-    );
-    ref.invalidate(loadPartyProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> setDefaultPayMeth({
-    
-    required String storeId,
-    required String defaultPayMeth, 
-
-  }) async { 
-    await ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).setDefaultPayMeth(
-      storeId: storeId,
-      defaultPayMeth: defaultPayMeth,
-    );
-    ref.invalidate(loadPartyProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> addNotification({
-    
-    required String typeId,
-    required String content, 
-
-  }) async { 
-    await ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).addNotification(
-      typeId: typeId,
-      content: content,
     );
     ref.invalidate(loadPartyProvider(bundleId: id));
     ref.invalidateSelf();

@@ -1,7 +1,10 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'acl_facet.g.dart';
 
@@ -27,7 +30,7 @@ class AclFacet {
   AclFacet copyWith({
     String? aclId,
     String? owner,
-    MultimapOra? acl,
+    Multimap<String, String>? acl,
     String? tenantId,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -51,6 +54,12 @@ class AclFacet {
   factory AclFacet.fromJson(Map<String, dynamic> json) => _$AclFacetFromJson(json);
   Map<String, dynamic> toJson() => _$AclFacetToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<AclFacet, String> converter = df.TypeConverter.json(
+    fromJson: (json) => AclFacet.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
   @override
   String toString() {
     return 'AclFacet(aclId: $aclId)';
@@ -63,8 +72,9 @@ class AclFacet {
    
   String? owner;
 
-   
-  MultimapOra? acl;
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? acl;
 
    
   String? tenantId;
@@ -91,8 +101,7 @@ class AclFacet {
   // rel: many
   
 
-  // rel: many ops
-      
+  // rel: many ops    
 }
 
 

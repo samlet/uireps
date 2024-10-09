@@ -1,7 +1,10 @@
 // gentool: DartJsonEntityGenTool, json_ent.j2
+import 'dart:typed_data';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:quiver/collection.dart';
+import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
-import '../util.dart';
+import '../../util.dart';
 
 part 'opening_hours_facet.g.dart';
 
@@ -25,8 +28,8 @@ class OpeningHoursFacet {
 
   OpeningHoursFacet copyWith({
     String? openingHoursId,
-    TimeOfDay? openingHoursStart,
-    TimeOfDay? openingHoursEnd,
+    Time? openingHoursStart,
+    Time? openingHoursEnd,
     List<String?>? openingWeekdays,
     String? tenantId,
     DateTime? lastUpdatedTxStamp,
@@ -48,6 +51,12 @@ class OpeningHoursFacet {
   factory OpeningHoursFacet.fromJson(Map<String, dynamic> json) => _$OpeningHoursFacetFromJson(json);
   Map<String, dynamic> toJson() => _$OpeningHoursFacetToJson(this);
 
+  // for drift serde
+  static df.TypeConverter<OpeningHoursFacet, String> converter = df.TypeConverter.json(
+    fromJson: (json) => OpeningHoursFacet.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
   @override
   String toString() {
     return 'OpeningHoursFacet(openingHoursId: $openingHoursId)';
@@ -57,11 +66,13 @@ class OpeningHoursFacet {
    
   String? openingHoursId;
 
-   
-  TimeOfDay? openingHoursStart;
+  
+  @JsonKey(toJson: timeToJson, fromJson: timeFromJson) 
+  Time? openingHoursStart;
 
-   
-  TimeOfDay? openingHoursEnd;
+  
+  @JsonKey(toJson: timeToJson, fromJson: timeFromJson) 
+  Time? openingHoursEnd;
 
    
   List<String?>? openingWeekdays;
@@ -85,8 +96,7 @@ class OpeningHoursFacet {
   // rel: many
   
 
-  // rel: many ops
-      
+  // rel: many ops    
 }
 
 

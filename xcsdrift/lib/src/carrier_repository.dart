@@ -16,6 +16,7 @@ import 'carrier.drift.dart';
 
 final _logger = Logger('CarrierRepository');
 const _bundleName = 'Carrier';
+const _fullBundleName='default:Carrier';
 
 class CarrierRepository {
   final Dio dio;
@@ -23,10 +24,12 @@ class CarrierRepository {
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
+  late FacetStorageRepository facetStorage;
 
   CarrierRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
+    facetStorage=FacetStorageRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadCarriers({String tenantId = 'default'}) async {
@@ -62,18 +65,16 @@ class CarrierRepository {
   }
 
   Future<ent.Carrier> fetchSingle(String bundleId) async {
-    final el = await portalManager.loadAsBiFacet(
-        bundleName: _bundleName, bundleId: bundleId);
-    final elData = ent.Carrier.fromJson(el.data!);
-    var jsonEl = elData.toJson();
-    storeEntry(jsonEl);
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.Carrier.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
     return elData;
   }
 
   Future<List<ent.Carrier>> fetchMulti(List<String> ids) async {
-    final elements = await portalManager.loadAsBiFacets(
-        bundleName: _bundleName, bundleIds: ids);
-    return await storeEntries(elements);
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements);
   }
 
   Future<List<ent.Carrier>> fetchFromReg(String regNode) async {
@@ -88,7 +89,7 @@ class CarrierRepository {
   }
 
   Future<void> push(ent.Carrier data) async {
-    await portalManager.storeBundleSpec(bundleName: _bundleName, spec: data.toJson());
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.carrierId!, val: data.toJson());
   }
 
   Future<void> store(ent.Carrier data) async {
@@ -114,6 +115,19 @@ class CarrierRepository {
     return rs;
   }
 
+
+  Future<List<ent.Carrier>> storeDs(List<Map<String, dynamic>> ds) async{
+    var rs=<ent.Carrier>[];
+    await database.batch((batch) {
+      for (var el in ds) {
+        final elData=ent.Carrier.fromJson(el);
+        rs.add(elData);
+        var jsonEl = elData.toJson();
+        storeEntry(jsonEl, batch: batch);
+      }
+    });
+    return rs;
+  }
 
   Future<void> storeEnts(List<ent.Carrier> elements) async{
     await database.batch((batch) {

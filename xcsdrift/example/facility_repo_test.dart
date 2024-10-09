@@ -30,7 +30,9 @@ Future<void> main(List<String> arguments) async {
 
   printFac(await repo.getAsEnt("facility_2"));
   print('get upd back -->');
-  printFac(await repo.fetchSingle('facility_1'));
+
+  var r=await repo.fetchSingle('facility_1');
+  printFac(r);
 }
 
 Future<void> pushEnt(ent.Facility facEnt) async {

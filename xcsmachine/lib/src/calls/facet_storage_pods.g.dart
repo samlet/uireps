@@ -319,6 +319,175 @@ class _FacetStorageGetProviderElement
   String get key => (origin as FacetStorageGetProvider).key;
 }
 
+String _$facetStorageMultiGetHash() =>
+    r'9cfb58d51f549edc34392f90ad1273e786f4afa3';
+
+/// See also [facetStorageMultiGet].
+@ProviderFor(facetStorageMultiGet)
+const facetStorageMultiGetProvider = FacetStorageMultiGetFamily();
+
+/// See also [facetStorageMultiGet].
+class FacetStorageMultiGetFamily
+    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
+  /// See also [facetStorageMultiGet].
+  const FacetStorageMultiGetFamily();
+
+  /// See also [facetStorageMultiGet].
+  FacetStorageMultiGetProvider call({
+    String regionOrNs = 'default',
+    required String fullBundleName,
+    required List<String> keys,
+  }) {
+    return FacetStorageMultiGetProvider(
+      regionOrNs: regionOrNs,
+      fullBundleName: fullBundleName,
+      keys: keys,
+    );
+  }
+
+  @override
+  FacetStorageMultiGetProvider getProviderOverride(
+    covariant FacetStorageMultiGetProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      fullBundleName: provider.fullBundleName,
+      keys: provider.keys,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'facetStorageMultiGetProvider';
+}
+
+/// See also [facetStorageMultiGet].
+class FacetStorageMultiGetProvider
+    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
+  /// See also [facetStorageMultiGet].
+  FacetStorageMultiGetProvider({
+    String regionOrNs = 'default',
+    required String fullBundleName,
+    required List<String> keys,
+  }) : this._internal(
+          (ref) => facetStorageMultiGet(
+            ref as FacetStorageMultiGetRef,
+            regionOrNs: regionOrNs,
+            fullBundleName: fullBundleName,
+            keys: keys,
+          ),
+          from: facetStorageMultiGetProvider,
+          name: r'facetStorageMultiGetProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$facetStorageMultiGetHash,
+          dependencies: FacetStorageMultiGetFamily._dependencies,
+          allTransitiveDependencies:
+              FacetStorageMultiGetFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          fullBundleName: fullBundleName,
+          keys: keys,
+        );
+
+  FacetStorageMultiGetProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.fullBundleName,
+    required this.keys,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String fullBundleName;
+  final List<String> keys;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Map<String, dynamic>>> Function(
+            FacetStorageMultiGetRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FacetStorageMultiGetProvider._internal(
+        (ref) => create(ref as FacetStorageMultiGetRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        fullBundleName: fullBundleName,
+        keys: keys,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
+    return _FacetStorageMultiGetProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FacetStorageMultiGetProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.fullBundleName == fullBundleName &&
+        other.keys == keys;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, fullBundleName.hashCode);
+    hash = _SystemHash.combine(hash, keys.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FacetStorageMultiGetRef
+    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `fullBundleName` of this provider.
+  String get fullBundleName;
+
+  /// The parameter `keys` of this provider.
+  List<String> get keys;
+}
+
+class _FacetStorageMultiGetProviderElement
+    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
+    with FacetStorageMultiGetRef {
+  _FacetStorageMultiGetProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FacetStorageMultiGetProvider).regionOrNs;
+  @override
+  String get fullBundleName =>
+      (origin as FacetStorageMultiGetProvider).fullBundleName;
+  @override
+  List<String> get keys => (origin as FacetStorageMultiGetProvider).keys;
+}
+
 String _$facetStoragePodHash() => r'9142245c8d417c542ef5eed971a878bb3a3285e9';
 
 abstract class _$FacetStoragePod
