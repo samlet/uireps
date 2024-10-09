@@ -21,6 +21,16 @@ class AllFacetsDrift extends i1.ModularAccessor {
         }).asyncMap(sessionCache.mapFromRow);
   }
 
+  i0.Selectable<i2.SessionCacheData> getCacheBySubject({String? subject}) {
+    return customSelect('SELECT * FROM session_cache WHERE subject = ?1',
+        variables: [
+          i0.Variable<String>(subject)
+        ],
+        readsFrom: {
+          sessionCache,
+        }).asyncMap(sessionCache.mapFromRow);
+  }
+
   i2.SessionCache get sessionCache => i1.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i2.SessionCache>('session_cache');
 }
