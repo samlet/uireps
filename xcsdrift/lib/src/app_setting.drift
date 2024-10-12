@@ -4,6 +4,7 @@ import 'app_setting_conv.dart';
 
 CREATE TABLE app_setting (
     app_setting_id VARCHAR(255) NOT NULL PRIMARY KEY,
+    app_id VARCHAR(22),
     current_login_id VARCHAR(22),
     all_login_ids TEXT MAPPED BY `const StringListConverter()`,
     current_party_id VARCHAR(22),
@@ -29,5 +30,7 @@ clearAppSettings: DELETE FROM app_setting;
 addAppSetting: INSERT INTO app_setting $el;
 getAppSetting: SELECT * FROM app_setting WHERE app_setting_id = ?;
 deleteAppSetting: DELETE FROM app_setting WHERE app_setting_id = :id;
+
+
 
 

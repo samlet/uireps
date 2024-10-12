@@ -22,7 +22,7 @@ CREATE TABLE example (
     extra_time VARCHAR(20) MAPPED BY `const TimeConverter()`,
     extra_currency DECIMAL(18,2),
     extra_amount DECIMAL(18,6),
-    extra_blob LongBlob MAPPED BY `const BytesFldConverter()`,
+    extra_blob LongBlob MAPPED BY `const NativeFldConverter()`,
     extra_strings TEXT MAPPED BY `const StringListConverter()`,
     extra_ints TEXT MAPPED BY `const IntListConverter()`,
     extra_bools TEXT MAPPED BY `const BoolListConverter()`,

@@ -1,5 +1,9 @@
 import 'session_cache.drift';
+import 'app_setting.drift';
+import 'user_pref.drift';
 
 allCaches: SELECT * FROM session_cache LIMIT $limit;
 getCacheBySubject: SELECT * FROM session_cache WHERE subject = :subject;
 
+defaultApp: SELECT * FROM app_setting WHERE app_id='default' LIMIT 1;
+getUserPrefValue: SELECT pref_value FROM user_pref WHERE login_id=:login AND pref_key=:key LIMIT 1;

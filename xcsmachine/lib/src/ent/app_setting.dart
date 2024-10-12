@@ -17,6 +17,7 @@ List<AppSetting> asAppSettings(List rs){
 class AppSetting {
   AppSetting({
     this.appSettingId,
+    this.appId,
     this.currentLoginId,
     this.allLoginIds,
     this.currentPartyId,
@@ -34,6 +35,7 @@ class AppSetting {
 
   AppSetting copyWith({
     String? appSettingId,
+    String? appId,
     String? currentLoginId,
     List<String?>? allLoginIds,
     String? currentPartyId,
@@ -50,6 +52,7 @@ class AppSetting {
   }) {
     return AppSetting(
       appSettingId: appSettingId ?? this.appSettingId,
+      appId: appId ?? this.appId,
       currentLoginId: currentLoginId ?? this.currentLoginId,
       allLoginIds: allLoginIds ?? this.allLoginIds,
       currentPartyId: currentPartyId ?? this.currentPartyId,
@@ -83,6 +86,9 @@ class AppSetting {
   int get hashId => fastHash(appSettingId!);
    
   String? appSettingId;
+
+   
+  String? appId;
 
    
   String? currentLoginId;

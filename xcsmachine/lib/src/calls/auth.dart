@@ -43,20 +43,6 @@ class AuthRepository {
     return ExtractedToken()..mergeFromProto3Json(resp);
   }
    
-  // Mutation
-  Future<ExtractedToken> quickRegister() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "quickRegister",
-      "bundleName" : "Auth",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return ExtractedToken()..mergeFromProto3Json(resp);
-  }
-   
   // Query
   Future<ExtractedToken> generateToken({
     
@@ -73,6 +59,20 @@ class AuthRepository {
     }, {
       if(regionId!=null) "regionId": regionId,
       "loginId": loginId, 
+    });
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<ExtractedToken> quickRegister() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "quickRegister",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
     });
     
     return ExtractedToken()..mergeFromProto3Json(resp);

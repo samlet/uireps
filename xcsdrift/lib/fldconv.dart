@@ -334,6 +334,31 @@ class TimeConverter extends TypeConverter<Time, String>
   }
 }
 
+class NativeFldConverter extends TypeConverter<Uint8List, Uint8List>
+    with JsonTypeConverter2<Uint8List, Uint8List, String> {
+  const NativeFldConverter();
+
+  @override
+  Uint8List fromSql(Uint8List fromDb) {
+    return fromDb;
+  }
+
+  @override
+  Uint8List toSql(Uint8List value) {
+    return value;
+  }
+
+  @override
+  Uint8List fromJson(String json) {
+    return bytesFromJson(json)??Uint8List.fromList([]);
+  }
+
+  @override
+  String toJson(Uint8List value) {
+    return bytesToJson(value)??'';
+  }
+}
+
 class BytesFldConverter extends TypeConverter<String, Uint8List>{
   const BytesFldConverter();
 

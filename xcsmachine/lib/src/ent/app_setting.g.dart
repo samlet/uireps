@@ -8,6 +8,7 @@ part of 'app_setting.dart';
 
 AppSetting _$AppSettingFromJson(Map<String, dynamic> json) => AppSetting(
       appSettingId: json['appSettingId'] as String?,
+      appId: json['appId'] as String?,
       currentLoginId: json['currentLoginId'] as String?,
       allLoginIds: (json['allLoginIds'] as List<dynamic>?)
           ?.map((e) => e as String?)
@@ -43,6 +44,7 @@ Map<String, dynamic> _$AppSettingToJson(AppSetting instance) {
   }
 
   writeNotNull('appSettingId', instance.appSettingId);
+  writeNotNull('appId', instance.appId);
   writeNotNull('currentLoginId', instance.currentLoginId);
   writeNotNull('allLoginIds', instance.allLoginIds);
   writeNotNull('currentPartyId', instance.currentPartyId);

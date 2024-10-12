@@ -17,6 +17,13 @@ class AppSetting extends i0.Table
           type: i0.DriftSqlType.string,
           requiredDuringInsert: true,
           $customConstraints: 'NOT NULL PRIMARY KEY');
+  static const i0.VerificationMeta _appIdMeta =
+      const i0.VerificationMeta('appId');
+  late final i0.GeneratedColumn<String> appId = i0.GeneratedColumn<String>(
+      'app_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   static const i0.VerificationMeta _currentLoginIdMeta =
       const i0.VerificationMeta('currentLoginId');
   late final i0.GeneratedColumn<String> currentLoginId =
@@ -120,6 +127,7 @@ class AppSetting extends i0.Table
   @override
   List<i0.GeneratedColumn> get $columns => [
         appSettingId,
+        appId,
         currentLoginId,
         allLoginIds,
         currentPartyId,
@@ -153,6 +161,10 @@ class AppSetting extends i0.Table
               data['app_setting_id']!, _appSettingIdMeta));
     } else if (isInserting) {
       context.missing(_appSettingIdMeta);
+    }
+    if (data.containsKey('app_id')) {
+      context.handle(
+          _appIdMeta, appId.isAcceptableOrUnknown(data['app_id']!, _appIdMeta));
     }
     if (data.containsKey('current_login_id')) {
       context.handle(
@@ -236,6 +248,8 @@ class AppSetting extends i0.Table
     return i1.AppSettingData(
       appSettingId: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}app_setting_id'])!,
+      appId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}app_id']),
       currentLoginId: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}current_login_id']),
       allLoginIds: i1.AppSetting.$converterallLoginIdsn.fromSql(
@@ -288,6 +302,7 @@ class AppSetting extends i0.Table
 class AppSettingData extends i0.DataClass
     implements i0.Insertable<i1.AppSettingData> {
   final String appSettingId;
+  final String? appId;
   final String? currentLoginId;
   final List<String>? allLoginIds;
   final String? currentPartyId;
@@ -307,6 +322,7 @@ class AppSettingData extends i0.DataClass
   final int? reservedFlag;
   const AppSettingData(
       {required this.appSettingId,
+      this.appId,
       this.currentLoginId,
       this.allLoginIds,
       this.currentPartyId,
@@ -325,6 +341,9 @@ class AppSettingData extends i0.DataClass
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
     final map = <String, i0.Expression>{};
     map['app_setting_id'] = i0.Variable<String>(appSettingId);
+    if (!nullToAbsent || appId != null) {
+      map['app_id'] = i0.Variable<String>(appId);
+    }
     if (!nullToAbsent || currentLoginId != null) {
       map['current_login_id'] = i0.Variable<String>(currentLoginId);
     }
@@ -374,6 +393,9 @@ class AppSettingData extends i0.DataClass
   i1.AppSettingCompanion toCompanion(bool nullToAbsent) {
     return i1.AppSettingCompanion(
       appSettingId: i0.Value(appSettingId),
+      appId: appId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(appId),
       currentLoginId: currentLoginId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(currentLoginId),
@@ -424,6 +446,7 @@ class AppSettingData extends i0.DataClass
     serializer ??= i0.driftRuntimeOptions.defaultSerializer;
     return AppSettingData(
       appSettingId: serializer.fromJson<String>(json['app_setting_id']),
+      appId: serializer.fromJson<String?>(json['app_id']),
       currentLoginId: serializer.fromJson<String?>(json['current_login_id']),
       allLoginIds: i1.AppSetting.$converterallLoginIdsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['all_login_ids'])),
@@ -449,6 +472,7 @@ class AppSettingData extends i0.DataClass
     serializer ??= i0.driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'app_setting_id': serializer.toJson<String>(appSettingId),
+      'app_id': serializer.toJson<String?>(appId),
       'current_login_id': serializer.toJson<String?>(currentLoginId),
       'all_login_ids': serializer.toJson<List<dynamic>?>(
           i1.AppSetting.$converterallLoginIdsn.toJson(allLoginIds)),
@@ -469,6 +493,7 @@ class AppSettingData extends i0.DataClass
 
   i1.AppSettingData copyWith(
           {String? appSettingId,
+          i0.Value<String?> appId = const i0.Value.absent(),
           i0.Value<String?> currentLoginId = const i0.Value.absent(),
           i0.Value<List<String>?> allLoginIds = const i0.Value.absent(),
           i0.Value<String?> currentPartyId = const i0.Value.absent(),
@@ -485,6 +510,7 @@ class AppSettingData extends i0.DataClass
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.AppSettingData(
         appSettingId: appSettingId ?? this.appSettingId,
+        appId: appId.present ? appId.value : this.appId,
         currentLoginId:
             currentLoginId.present ? currentLoginId.value : this.currentLoginId,
         allLoginIds: allLoginIds.present ? allLoginIds.value : this.allLoginIds,
@@ -518,6 +544,7 @@ class AppSettingData extends i0.DataClass
       appSettingId: data.appSettingId.present
           ? data.appSettingId.value
           : this.appSettingId,
+      appId: data.appId.present ? data.appId.value : this.appId,
       currentLoginId: data.currentLoginId.present
           ? data.currentLoginId.value
           : this.currentLoginId,
@@ -558,6 +585,7 @@ class AppSettingData extends i0.DataClass
   String toString() {
     return (StringBuffer('AppSettingData(')
           ..write('appSettingId: $appSettingId, ')
+          ..write('appId: $appId, ')
           ..write('currentLoginId: $currentLoginId, ')
           ..write('allLoginIds: $allLoginIds, ')
           ..write('currentPartyId: $currentPartyId, ')
@@ -579,6 +607,7 @@ class AppSettingData extends i0.DataClass
   @override
   int get hashCode => Object.hash(
       appSettingId,
+      appId,
       currentLoginId,
       allLoginIds,
       currentPartyId,
@@ -598,6 +627,7 @@ class AppSettingData extends i0.DataClass
       identical(this, other) ||
       (other is i1.AppSettingData &&
           other.appSettingId == this.appSettingId &&
+          other.appId == this.appId &&
           other.currentLoginId == this.currentLoginId &&
           other.allLoginIds == this.allLoginIds &&
           other.currentPartyId == this.currentPartyId &&
@@ -616,6 +646,7 @@ class AppSettingData extends i0.DataClass
 
 class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
   final i0.Value<String> appSettingId;
+  final i0.Value<String?> appId;
   final i0.Value<String?> currentLoginId;
   final i0.Value<List<String>?> allLoginIds;
   final i0.Value<String?> currentPartyId;
@@ -633,6 +664,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
   final i0.Value<int> rowid;
   const AppSettingCompanion({
     this.appSettingId = const i0.Value.absent(),
+    this.appId = const i0.Value.absent(),
     this.currentLoginId = const i0.Value.absent(),
     this.allLoginIds = const i0.Value.absent(),
     this.currentPartyId = const i0.Value.absent(),
@@ -651,6 +683,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
   });
   AppSettingCompanion.insert({
     required String appSettingId,
+    this.appId = const i0.Value.absent(),
     this.currentLoginId = const i0.Value.absent(),
     this.allLoginIds = const i0.Value.absent(),
     this.currentPartyId = const i0.Value.absent(),
@@ -669,6 +702,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
   }) : appSettingId = i0.Value(appSettingId);
   static i0.Insertable<i1.AppSettingData> custom({
     i0.Expression<String>? appSettingId,
+    i0.Expression<String>? appId,
     i0.Expression<String>? currentLoginId,
     i0.Expression<String>? allLoginIds,
     i0.Expression<String>? currentPartyId,
@@ -687,6 +721,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
   }) {
     return i0.RawValuesInsertable({
       if (appSettingId != null) 'app_setting_id': appSettingId,
+      if (appId != null) 'app_id': appId,
       if (currentLoginId != null) 'current_login_id': currentLoginId,
       if (allLoginIds != null) 'all_login_ids': allLoginIds,
       if (currentPartyId != null) 'current_party_id': currentPartyId,
@@ -708,6 +743,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
 
   i1.AppSettingCompanion copyWith(
       {i0.Value<String>? appSettingId,
+      i0.Value<String?>? appId,
       i0.Value<String?>? currentLoginId,
       i0.Value<List<String>?>? allLoginIds,
       i0.Value<String?>? currentPartyId,
@@ -725,6 +761,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
       i0.Value<int>? rowid}) {
     return i1.AppSettingCompanion(
       appSettingId: appSettingId ?? this.appSettingId,
+      appId: appId ?? this.appId,
       currentLoginId: currentLoginId ?? this.currentLoginId,
       allLoginIds: allLoginIds ?? this.allLoginIds,
       currentPartyId: currentPartyId ?? this.currentPartyId,
@@ -748,6 +785,9 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
     final map = <String, i0.Expression>{};
     if (appSettingId.present) {
       map['app_setting_id'] = i0.Variable<String>(appSettingId.value);
+    }
+    if (appId.present) {
+      map['app_id'] = i0.Variable<String>(appId.value);
     }
     if (currentLoginId.present) {
       map['current_login_id'] = i0.Variable<String>(currentLoginId.value);
@@ -803,6 +843,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
   String toString() {
     return (StringBuffer('AppSettingCompanion(')
           ..write('appSettingId: $appSettingId, ')
+          ..write('appId: $appId, ')
           ..write('currentLoginId: $currentLoginId, ')
           ..write('allLoginIds: $allLoginIds, ')
           ..write('currentPartyId: $currentPartyId, ')
@@ -825,6 +866,7 @@ class AppSettingCompanion extends i0.UpdateCompanion<i1.AppSettingData> {
 
 typedef $AppSettingCreateCompanionBuilder = i1.AppSettingCompanion Function({
   required String appSettingId,
+  i0.Value<String?> appId,
   i0.Value<String?> currentLoginId,
   i0.Value<List<String>?> allLoginIds,
   i0.Value<String?> currentPartyId,
@@ -843,6 +885,7 @@ typedef $AppSettingCreateCompanionBuilder = i1.AppSettingCompanion Function({
 });
 typedef $AppSettingUpdateCompanionBuilder = i1.AppSettingCompanion Function({
   i0.Value<String> appSettingId,
+  i0.Value<String?> appId,
   i0.Value<String?> currentLoginId,
   i0.Value<List<String>?> allLoginIds,
   i0.Value<String?> currentPartyId,
@@ -865,6 +908,11 @@ class $AppSettingFilterComposer
   $AppSettingFilterComposer(super.$state);
   i0.ColumnFilters<String> get appSettingId => $state.composableBuilder(
       column: $state.table.appSettingId,
+      builder: (column, joinBuilders) =>
+          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+
+  i0.ColumnFilters<String> get appId => $state.composableBuilder(
+      column: $state.table.appId,
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
@@ -946,6 +994,11 @@ class $AppSettingOrderingComposer
   $AppSettingOrderingComposer(super.$state);
   i0.ColumnOrderings<String> get appSettingId => $state.composableBuilder(
       column: $state.table.appSettingId,
+      builder: (column, joinBuilders) =>
+          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  i0.ColumnOrderings<String> get appId => $state.composableBuilder(
+      column: $state.table.appId,
       builder: (column, joinBuilders) =>
           i0.ColumnOrderings(column, joinBuilders: joinBuilders));
 
@@ -1045,6 +1098,7 @@ class $AppSettingTableManager extends i0.RootTableManager<
               i1.$AppSettingOrderingComposer(i0.ComposerState(db, table)),
           updateCompanionCallback: ({
             i0.Value<String> appSettingId = const i0.Value.absent(),
+            i0.Value<String?> appId = const i0.Value.absent(),
             i0.Value<String?> currentLoginId = const i0.Value.absent(),
             i0.Value<List<String>?> allLoginIds = const i0.Value.absent(),
             i0.Value<String?> currentPartyId = const i0.Value.absent(),
@@ -1063,6 +1117,7 @@ class $AppSettingTableManager extends i0.RootTableManager<
           }) =>
               i1.AppSettingCompanion(
             appSettingId: appSettingId,
+            appId: appId,
             currentLoginId: currentLoginId,
             allLoginIds: allLoginIds,
             currentPartyId: currentPartyId,
@@ -1081,6 +1136,7 @@ class $AppSettingTableManager extends i0.RootTableManager<
           ),
           createCompanionCallback: ({
             required String appSettingId,
+            i0.Value<String?> appId = const i0.Value.absent(),
             i0.Value<String?> currentLoginId = const i0.Value.absent(),
             i0.Value<List<String>?> allLoginIds = const i0.Value.absent(),
             i0.Value<String?> currentPartyId = const i0.Value.absent(),
@@ -1099,6 +1155,7 @@ class $AppSettingTableManager extends i0.RootTableManager<
           }) =>
               i1.AppSettingCompanion.insert(
             appSettingId: appSettingId,
+            appId: appId,
             currentLoginId: currentLoginId,
             allLoginIds: allLoginIds,
             currentPartyId: currentPartyId,

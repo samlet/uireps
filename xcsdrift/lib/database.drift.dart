@@ -1,8 +1,8 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/session_cache.drift.dart' as i1;
-import 'package:xcsdrift/src/user_pref.drift.dart' as i2;
-import 'package:xcsdrift/src/app_setting.drift.dart' as i3;
+import 'package:xcsdrift/src/app_setting.drift.dart' as i2;
+import 'package:xcsdrift/src/user_pref.drift.dart' as i3;
 import 'package:xcsdrift/src/thing_facet.drift.dart' as i4;
 import 'package:xcsdrift/src/bi_facet.drift.dart' as i5;
 import 'package:xcsdrift/src/carrier.drift.dart' as i6;
@@ -25,8 +25,8 @@ abstract class $Database extends i0.GeneratedDatabase {
   $Database(i0.QueryExecutor e) : super(e);
   $DatabaseManager get managers => $DatabaseManager(this);
   late final i1.SessionCache sessionCache = i1.SessionCache(this);
-  late final i2.UserPref userPref = i2.UserPref(this);
-  late final i3.AppSetting appSetting = i3.AppSetting(this);
+  late final i2.AppSetting appSetting = i2.AppSetting(this);
+  late final i3.UserPref userPref = i3.UserPref(this);
   late final i4.ThingFacet thingFacet = i4.ThingFacet(this);
   late final i5.BiFacet biFacet = i5.BiFacet(this);
   late final i6.Carrier carrier = i6.Carrier(this);
@@ -74,10 +74,10 @@ abstract class $Database extends i0.GeneratedDatabase {
       .accessor<i4.ThingFacetDrift>(i4.ThingFacetDrift.new);
   i1.SessionCacheDrift get sessionCacheDrift => i19.ReadDatabaseContainer(this)
       .accessor<i1.SessionCacheDrift>(i1.SessionCacheDrift.new);
-  i3.AppSettingDrift get appSettingDrift => i19.ReadDatabaseContainer(this)
-      .accessor<i3.AppSettingDrift>(i3.AppSettingDrift.new);
-  i2.UserPrefDrift get userPrefDrift => i19.ReadDatabaseContainer(this)
-      .accessor<i2.UserPrefDrift>(i2.UserPrefDrift.new);
+  i2.AppSettingDrift get appSettingDrift => i19.ReadDatabaseContainer(this)
+      .accessor<i2.AppSettingDrift>(i2.AppSettingDrift.new);
+  i3.UserPrefDrift get userPrefDrift => i19.ReadDatabaseContainer(this)
+      .accessor<i3.UserPrefDrift>(i3.UserPrefDrift.new);
   i20.AllFacetsDrift get allFacetsDrift => i19.ReadDatabaseContainer(this)
       .accessor<i20.AllFacetsDrift>(i20.AllFacetsDrift.new);
   @override
@@ -86,8 +86,8 @@ abstract class $Database extends i0.GeneratedDatabase {
   @override
   List<i0.DatabaseSchemaEntity> get allSchemaEntities => [
         sessionCache,
-        userPref,
         appSetting,
+        userPref,
         thingFacet,
         biFacet,
         carrier,
@@ -114,10 +114,10 @@ class $DatabaseManager {
   $DatabaseManager(this._db);
   i1.$SessionCacheTableManager get sessionCache =>
       i1.$SessionCacheTableManager(_db, _db.sessionCache);
-  i2.$UserPrefTableManager get userPref =>
-      i2.$UserPrefTableManager(_db, _db.userPref);
-  i3.$AppSettingTableManager get appSetting =>
-      i3.$AppSettingTableManager(_db, _db.appSetting);
+  i2.$AppSettingTableManager get appSetting =>
+      i2.$AppSettingTableManager(_db, _db.appSetting);
+  i3.$UserPrefTableManager get userPref =>
+      i3.$UserPrefTableManager(_db, _db.userPref);
   i4.$ThingFacetTableManager get thingFacet =>
       i4.$ThingFacetTableManager(_db, _db.thingFacet);
   i5.$BiFacetTableManager get biFacet =>

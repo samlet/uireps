@@ -6,7 +6,7 @@ CREATE TABLE user_pref (
     user_pref_id VARCHAR(255) NOT NULL PRIMARY KEY,
     login_id VARCHAR(250),
     pref_key VARCHAR(100),
-    pref_value MediumBlob MAPPED BY `const BytesFldConverter()`,
+    pref_value MediumBlob MAPPED BY `const NativeFldConverter()`,
     tenant_id VARCHAR(22),
     last_updated_tx_stamp DATETIME(3),
     created_tx_stamp DATETIME(3),

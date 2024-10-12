@@ -33,13 +33,13 @@ class UserPref extends i0.Table with i0.TableInfo<UserPref, i1.UserPrefData> {
       $customConstraints: '');
   static const i0.VerificationMeta _prefValueMeta =
       const i0.VerificationMeta('prefValue');
-  late final i0.GeneratedColumnWithTypeConverter<String?, i2.Uint8List>
+  late final i0.GeneratedColumnWithTypeConverter<i2.Uint8List?, i2.Uint8List>
       prefValue = i0.GeneratedColumn<i2.Uint8List>(
               'pref_value', aliasedName, true,
               type: i0.DriftSqlType.blob,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<String?>(i1.UserPref.$converterprefValuen);
+          .withConverter<i2.Uint8List?>(i1.UserPref.$converterprefValuen);
   static const i0.VerificationMeta _tenantIdMeta =
       const i0.VerificationMeta('tenantId');
   late final i0.GeneratedColumn<String> tenantId = i0.GeneratedColumn<String>(
@@ -208,10 +208,11 @@ class UserPref extends i0.Table with i0.TableInfo<UserPref, i1.UserPrefData> {
     return UserPref(attachedDatabase, alias);
   }
 
-  static i0.TypeConverter<String, i2.Uint8List> $converterprefValue =
-      const i3.BytesFldConverter();
-  static i0.TypeConverter<String?, i2.Uint8List?> $converterprefValuen =
-      i0.NullAwareTypeConverter.wrap($converterprefValue);
+  static i0.JsonTypeConverter2<i2.Uint8List, i2.Uint8List, String>
+      $converterprefValue = const i3.NativeFldConverter();
+  static i0.JsonTypeConverter2<i2.Uint8List?, i2.Uint8List?, String?>
+      $converterprefValuen =
+      i0.JsonTypeConverter2.asNullable($converterprefValue);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -221,7 +222,7 @@ class UserPrefData extends i0.DataClass
   final String userPrefId;
   final String? loginId;
   final String? prefKey;
-  final String? prefValue;
+  final i2.Uint8List? prefValue;
   final String? tenantId;
   final DateTime? lastUpdatedTxStamp;
   final DateTime? createdTxStamp;
@@ -325,7 +326,8 @@ class UserPrefData extends i0.DataClass
       userPrefId: serializer.fromJson<String>(json['user_pref_id']),
       loginId: serializer.fromJson<String?>(json['login_id']),
       prefKey: serializer.fromJson<String?>(json['pref_key']),
-      prefValue: serializer.fromJson<String?>(json['pref_value']),
+      prefValue: i1.UserPref.$converterprefValuen
+          .fromJson(serializer.fromJson<String?>(json['pref_value'])),
       tenantId: serializer.fromJson<String?>(json['tenant_id']),
       lastUpdatedTxStamp:
           serializer.fromJson<DateTime?>(json['last_updated_tx_stamp']),
@@ -343,7 +345,8 @@ class UserPrefData extends i0.DataClass
       'user_pref_id': serializer.toJson<String>(userPrefId),
       'login_id': serializer.toJson<String?>(loginId),
       'pref_key': serializer.toJson<String?>(prefKey),
-      'pref_value': serializer.toJson<String?>(prefValue),
+      'pref_value': serializer
+          .toJson<String?>(i1.UserPref.$converterprefValuen.toJson(prefValue)),
       'tenant_id': serializer.toJson<String?>(tenantId),
       'last_updated_tx_stamp': serializer.toJson<DateTime?>(lastUpdatedTxStamp),
       'created_tx_stamp': serializer.toJson<DateTime?>(createdTxStamp),
@@ -358,7 +361,7 @@ class UserPrefData extends i0.DataClass
           {String? userPrefId,
           i0.Value<String?> loginId = const i0.Value.absent(),
           i0.Value<String?> prefKey = const i0.Value.absent(),
-          i0.Value<String?> prefValue = const i0.Value.absent(),
+          i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
           i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
@@ -461,7 +464,7 @@ class UserPrefCompanion extends i0.UpdateCompanion<i1.UserPrefData> {
   final i0.Value<String> userPrefId;
   final i0.Value<String?> loginId;
   final i0.Value<String?> prefKey;
-  final i0.Value<String?> prefValue;
+  final i0.Value<i2.Uint8List?> prefValue;
   final i0.Value<String?> tenantId;
   final i0.Value<DateTime?> lastUpdatedTxStamp;
   final i0.Value<DateTime?> createdTxStamp;
@@ -533,7 +536,7 @@ class UserPrefCompanion extends i0.UpdateCompanion<i1.UserPrefData> {
       {i0.Value<String>? userPrefId,
       i0.Value<String?>? loginId,
       i0.Value<String?>? prefKey,
-      i0.Value<String?>? prefValue,
+      i0.Value<i2.Uint8List?>? prefValue,
       i0.Value<String?>? tenantId,
       i0.Value<DateTime?>? lastUpdatedTxStamp,
       i0.Value<DateTime?>? createdTxStamp,
@@ -626,7 +629,7 @@ typedef $UserPrefCreateCompanionBuilder = i1.UserPrefCompanion Function({
   required String userPrefId,
   i0.Value<String?> loginId,
   i0.Value<String?> prefKey,
-  i0.Value<String?> prefValue,
+  i0.Value<i2.Uint8List?> prefValue,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
   i0.Value<DateTime?> createdTxStamp,
@@ -640,7 +643,7 @@ typedef $UserPrefUpdateCompanionBuilder = i1.UserPrefCompanion Function({
   i0.Value<String> userPrefId,
   i0.Value<String?> loginId,
   i0.Value<String?> prefKey,
-  i0.Value<String?> prefValue,
+  i0.Value<i2.Uint8List?> prefValue,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
   i0.Value<DateTime?> createdTxStamp,
@@ -669,7 +672,7 @@ class $UserPrefFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<String?, String, i2.Uint8List>
+  i0.ColumnWithTypeConverterFilters<i2.Uint8List?, i2.Uint8List, i2.Uint8List>
       get prefValue => $state.composableBuilder(
           column: $state.table.prefValue,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
@@ -798,7 +801,7 @@ class $UserPrefTableManager extends i0.RootTableManager<
             i0.Value<String> userPrefId = const i0.Value.absent(),
             i0.Value<String?> loginId = const i0.Value.absent(),
             i0.Value<String?> prefKey = const i0.Value.absent(),
-            i0.Value<String?> prefValue = const i0.Value.absent(),
+            i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
             i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
@@ -826,7 +829,7 @@ class $UserPrefTableManager extends i0.RootTableManager<
             required String userPrefId,
             i0.Value<String?> loginId = const i0.Value.absent(),
             i0.Value<String?> prefKey = const i0.Value.absent(),
-            i0.Value<String?> prefValue = const i0.Value.absent(),
+            i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
             i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
