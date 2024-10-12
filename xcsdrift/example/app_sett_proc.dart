@@ -8,12 +8,12 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:xcsdrift/fldconv.dart';
+import 'package:xcsdrift/prefs_mediator.dart';
 import 'package:xcsdrift/session_mediator.dart';
 import 'package:xcsdrift/xcsdrift.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 import 'package:xcsmachine/xcsmachine.dart';
 import 'package:xcsproto/common_proto.dart';
-import 'package:protobuf/protobuf.dart';
 
 import 'tokens.dart';
 
@@ -52,75 +52,14 @@ Future<void> main(List<String> arguments) async {
 
   print('test prefs-mediator ...');
   PrefsMediator prefs = PrefsMediator(dio, database);
+  // set
   await prefs.setValue('k1', StringValue(value: 'v1'));
+  // get
   var value = await prefs.getValue(
-      'k1',
-      (el) =>
-          el != null ? StringValue.fromBuffer(el) : StringValue.getDefault());
-  print(value.value);
+      'k1', (el) => el != null ? StringValue.fromBuffer(el) : null);
+  print(value?.value);
 }
 
-class PrefsMediator {
-  final Dio dio;
-  final Database database;
-  late UserPrefRepository prefRepo;
-
-  Future<String> get prefLoginId async {
-    AppSettingData? r = await defaultSett(database);
-    return r?.currentLoginId ?? 'samlet';
-  }
-
-  PrefsMediator(this.dio, this.database) {
-    prefRepo = UserPrefRepository(dio, database);
-  }
-
-  Future<String> setValue(String key, GeneratedMessage val) async {
-    var loginId = await prefLoginId;
-    final prefId = slugId();
-    await prefRepo.store(ent.UserPref(
-        userPrefId: prefId,
-        loginId: loginId,
-        prefKey: key,
-        prefValue: val.writeToBuffer()));
-    return prefId;
-  }
-
-  Future<T> getValue<T>(String key, T Function(List<int>?) conv) async {
-    var loginId = await prefLoginId;
-    List<int>? pvBytes = await getPrefValue(database, loginId, key);
-    return conv(pvBytes);
-  }
-}
-
-Future<int> getIntPrefValue(
-    Database database, String loginId, String prefKey) async {
-  List<int>? pvBytes = await getPrefValue(database, loginId, prefKey);
-  if (pvBytes != null) {
-    var pvTs = Int64Value.fromBuffer(pvBytes);
-    var pvTsv = pvTs.value;
-    return pvTsv.toInt();
-  }
-  return 0;
-}
-
-Future<List<int>?> getPrefValue(
-    Database database, String loginId, String prefKey) async {
-  Uint8List? pv = await database.allFacetsDrift
-      .getUserPrefValue(login: loginId, key: prefKey)
-      .getSingleOrNull();
-  // var pvBytes = base64.decode(pv!);
-  var pvBytes = pv?.toList();
-  return pvBytes;
-}
-
-Uint8List intToBytes(int value) {
-  return Int64Value(value: Int64(value)).writeToBuffer();
-}
-
-Future<AppSettingData?> defaultSett(Database database) async {
-  var r = await database.allFacetsDrift.defaultApp().getSingleOrNull();
-  return r;
-}
 
 // ---
 Future<void> storeDefaultSett(AppSettingRepository repo) async {
