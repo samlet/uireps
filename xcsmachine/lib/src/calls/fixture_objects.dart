@@ -43,64 +43,6 @@ class FixtureObjectsRepository {
     return WorkEffort.fromJson(resp);
   }
    
-  // Mutation
-  Future<void> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-  }
-   
-  // Query
-  Future<String> ping({
-    
-    required String req, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "ping",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "req": req, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<Map<String, Object?>> echo({
-    
-    required Map<String, Object?> input, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "echo",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "input": input, 
-    });
-    
-    return asTypedMap(resp);
-  }
-   
   // Query
   Future<List<Note>> publicNotes({
     
@@ -118,6 +60,153 @@ class FixtureObjectsRepository {
     });
     
     return convList(resp, Note.fromJson);
+  }
+   
+  // Query
+  Future<String> getNoteProto({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNoteProto",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "noteId": noteId, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<Map<String, double>> echoDecimalMap({
+    
+    required Map<String, double> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echoDecimalMap",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asTypedMap<double>(resp);
+  }
+   
+  // Query
+  Future<Map<String, int>> echoIntMap({
+    
+    required Map<String, int> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echoIntMap",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asTypedMap<int>(resp);
+  }
+   
+  // Query
+  Future<Map<String, bool>> echoBoolMap({
+    
+    required Map<String, bool> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echoBoolMap",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asTypedMap<bool>(resp);
+  }
+   
+  // Query
+  Future<TestRec> makeTestRec({
+    
+    required String stringFld,
+    required double numFld,
+    required Map<String, double> numMap,
+    List<double>? nums, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "makeTestRec",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "stringFld": stringFld,
+      "numFld": numFld,
+      "numMap": numMap,
+      if(nums!=null) "nums": nums, 
+    });
+    
+    return TestRec.fromJson(resp);
+  }
+   
+  // Query
+  Future<List<TestRec>> makeSomeRecs({
+    
+    int? total=5, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "makeSomeRecs",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      if(total!=null) "total": total, 
+    });
+    
+    return convList(resp, TestRec.fromJson);
+  }
+   
+  // Query
+  Future<IntMap> protoInput({
+    
+    required Strings strings,
+    required Decimals decimals,
+    required Timestamps timestamps,
+    required StringMap stringMap,
+    required DecimalMap decimalMap, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "protoInput",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "strings": strings.toProto3Json()!,
+      "decimals": decimals.toProto3Json()!,
+      "timestamps": timestamps.toProto3Json()!,
+      "stringMap": stringMap.toProto3Json()!,
+      "decimalMap": decimalMap.toProto3Json()!, 
+    });
+    
+    return IntMap()..mergeFromProto3Json(resp);
   }
    
   // Query
@@ -371,150 +460,61 @@ class FixtureObjectsRepository {
   }
    
   // Query
-  Future<Map<String, double>> echoDecimalMap({
+  Future<String> ping({
     
-    required Map<String, double> input, 
+    required String req, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "echoDecimalMap",
+      "action": "ping",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "input": input, 
-    });
-    
-    return asTypedMap<double>(resp);
-  }
-   
-  // Query
-  Future<Map<String, int>> echoIntMap({
-    
-    required Map<String, int> input, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "echoIntMap",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "input": input, 
-    });
-    
-    return asTypedMap<int>(resp);
-  }
-   
-  // Query
-  Future<Map<String, bool>> echoBoolMap({
-    
-    required Map<String, bool> input, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "echoBoolMap",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "input": input, 
-    });
-    
-    return asTypedMap<bool>(resp);
-  }
-   
-  // Query
-  Future<TestRec> makeTestRec({
-    
-    required String stringFld,
-    required double numFld,
-    required Map<String, double> numMap,
-    List<double>? nums, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "makeTestRec",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "stringFld": stringFld,
-      "numFld": numFld,
-      "numMap": numMap,
-      if(nums!=null) "nums": nums, 
-    });
-    
-    return TestRec.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<TestRec>> makeSomeRecs({
-    
-    int? total=5, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "makeSomeRecs",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      if(total!=null) "total": total, 
-    });
-    
-    return convList(resp, TestRec.fromJson);
-  }
-   
-  // Query
-  Future<IntMap> protoInput({
-    
-    required Strings strings,
-    required Decimals decimals,
-    required Timestamps timestamps,
-    required StringMap stringMap,
-    required DecimalMap decimalMap, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "protoInput",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "strings": strings.toProto3Json()!,
-      "decimals": decimals.toProto3Json()!,
-      "timestamps": timestamps.toProto3Json()!,
-      "stringMap": stringMap.toProto3Json()!,
-      "decimalMap": decimalMap.toProto3Json()!, 
-    });
-    
-    return IntMap()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<String> getNoteProto({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNoteProto",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "noteId": noteId, 
+      "req": req, 
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<Map<String, Object?>> echo({
+    
+    required Map<String, Object?> input, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "echo",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "input": input, 
+    });
+    
+    return asTypedMap(resp);
+  }
+   
+  // Mutation
+  Future<void> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
   }
    
   // Query

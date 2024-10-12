@@ -44,21 +44,14 @@ class AuthRepository {
   }
    
   // Mutation
-  Future<ExtractedToken> login({
-    
-    required String loginId,
-    required String passwd, 
-
-  }) async { 
+  Future<ExtractedToken> quickRegister() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "login",
+      "action": "quickRegister",
       "bundleName" : "Auth",
       "call-type": "slab",
       "regionId": regionOrNs,
-    }, {
-      "loginId": loginId,
-      "passwd": passwd, 
+    }, { 
     });
     
     return ExtractedToken()..mergeFromProto3Json(resp);
@@ -86,14 +79,21 @@ class AuthRepository {
   }
    
   // Mutation
-  Future<ExtractedToken> quickRegister() async { 
+  Future<ExtractedToken> login({
+    
+    required String loginId,
+    required String passwd, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "quickRegister",
+      "action": "login",
       "bundleName" : "Auth",
       "call-type": "slab",
       "regionId": regionOrNs,
-    }, { 
+    }, {
+      "loginId": loginId,
+      "passwd": passwd, 
     });
     
     return ExtractedToken()..mergeFromProto3Json(resp);

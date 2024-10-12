@@ -8,6 +8,7 @@ part of 'user_pref.dart';
 
 UserPref _$UserPrefFromJson(Map<String, dynamic> json) => UserPref(
       userPrefId: json['userPrefId'] as String?,
+      loginId: json['loginId'] as String?,
       prefKey: json['prefKey'] as String?,
       prefValue: const BytesConverter().fromJson(json['prefValue'] as String?),
       tenantId: json['tenantId'] as String?,
@@ -32,6 +33,7 @@ Map<String, dynamic> _$UserPrefToJson(UserPref instance) {
   }
 
   writeNotNull('userPrefId', instance.userPrefId);
+  writeNotNull('loginId', instance.loginId);
   writeNotNull('prefKey', instance.prefKey);
   writeNotNull('prefValue', const BytesConverter().toJson(instance.prefValue));
   writeNotNull('tenantId', instance.tenantId);

@@ -173,6 +173,154 @@ class _CarrierPalProviderElement
   String get id => (origin as CarrierPalProvider).id;
 }
 
+String _$carrierPalGetOrdersHash() =>
+    r'2d17b30fb6257be2aeed241dcdd5a41883c66b05';
+
+/// See also [carrierPalGetOrders].
+@ProviderFor(carrierPalGetOrders)
+const carrierPalGetOrdersProvider = CarrierPalGetOrdersFamily();
+
+/// See also [carrierPalGetOrders].
+class CarrierPalGetOrdersFamily extends Family<AsyncValue<List<String>>> {
+  /// See also [carrierPalGetOrders].
+  const CarrierPalGetOrdersFamily();
+
+  /// See also [carrierPalGetOrders].
+  CarrierPalGetOrdersProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return CarrierPalGetOrdersProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  CarrierPalGetOrdersProvider getProviderOverride(
+    covariant CarrierPalGetOrdersProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'carrierPalGetOrdersProvider';
+}
+
+/// See also [carrierPalGetOrders].
+class CarrierPalGetOrdersProvider
+    extends AutoDisposeFutureProvider<List<String>> {
+  /// See also [carrierPalGetOrders].
+  CarrierPalGetOrdersProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => carrierPalGetOrders(
+            ref as CarrierPalGetOrdersRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: carrierPalGetOrdersProvider,
+          name: r'carrierPalGetOrdersProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$carrierPalGetOrdersHash,
+          dependencies: CarrierPalGetOrdersFamily._dependencies,
+          allTransitiveDependencies:
+              CarrierPalGetOrdersFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  CarrierPalGetOrdersProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<String>> Function(CarrierPalGetOrdersRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: CarrierPalGetOrdersProvider._internal(
+        (ref) => create(ref as CarrierPalGetOrdersRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<String>> createElement() {
+    return _CarrierPalGetOrdersProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CarrierPalGetOrdersProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CarrierPalGetOrdersRef on AutoDisposeFutureProviderRef<List<String>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _CarrierPalGetOrdersProviderElement
+    extends AutoDisposeFutureProviderElement<List<String>>
+    with CarrierPalGetOrdersRef {
+  _CarrierPalGetOrdersProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as CarrierPalGetOrdersProvider).regionOrNs;
+  @override
+  String get id => (origin as CarrierPalGetOrdersProvider).id;
+}
+
 String _$carrierPalGetCurrentPositionHash() =>
     r'5f876992334546e9afd09d8102673583bf3b5707';
 
@@ -325,154 +473,6 @@ class _CarrierPalGetCurrentPositionProviderElement
   String get id => (origin as CarrierPalGetCurrentPositionProvider).id;
 }
 
-String _$carrierPalGetOrdersHash() =>
-    r'2d17b30fb6257be2aeed241dcdd5a41883c66b05';
-
-/// See also [carrierPalGetOrders].
-@ProviderFor(carrierPalGetOrders)
-const carrierPalGetOrdersProvider = CarrierPalGetOrdersFamily();
-
-/// See also [carrierPalGetOrders].
-class CarrierPalGetOrdersFamily extends Family<AsyncValue<List<String>>> {
-  /// See also [carrierPalGetOrders].
-  const CarrierPalGetOrdersFamily();
-
-  /// See also [carrierPalGetOrders].
-  CarrierPalGetOrdersProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return CarrierPalGetOrdersProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  CarrierPalGetOrdersProvider getProviderOverride(
-    covariant CarrierPalGetOrdersProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'carrierPalGetOrdersProvider';
-}
-
-/// See also [carrierPalGetOrders].
-class CarrierPalGetOrdersProvider
-    extends AutoDisposeFutureProvider<List<String>> {
-  /// See also [carrierPalGetOrders].
-  CarrierPalGetOrdersProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => carrierPalGetOrders(
-            ref as CarrierPalGetOrdersRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: carrierPalGetOrdersProvider,
-          name: r'carrierPalGetOrdersProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$carrierPalGetOrdersHash,
-          dependencies: CarrierPalGetOrdersFamily._dependencies,
-          allTransitiveDependencies:
-              CarrierPalGetOrdersFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  CarrierPalGetOrdersProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<String>> Function(CarrierPalGetOrdersRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: CarrierPalGetOrdersProvider._internal(
-        (ref) => create(ref as CarrierPalGetOrdersRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<String>> createElement() {
-    return _CarrierPalGetOrdersProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is CarrierPalGetOrdersProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin CarrierPalGetOrdersRef on AutoDisposeFutureProviderRef<List<String>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _CarrierPalGetOrdersProviderElement
-    extends AutoDisposeFutureProviderElement<List<String>>
-    with CarrierPalGetOrdersRef {
-  _CarrierPalGetOrdersProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as CarrierPalGetOrdersProvider).regionOrNs;
-  @override
-  String get id => (origin as CarrierPalGetOrdersProvider).id;
-}
-
 String _$carrierPalGetDecimalsHash() =>
     r'f62c35f58e01e8c463a9465f9c277976493f98f0';
 
@@ -621,7 +621,7 @@ class _CarrierPalGetDecimalsProviderElement
   String get id => (origin as CarrierPalGetDecimalsProvider).id;
 }
 
-String _$carrierPalPodHash() => r'10ce0f6d48f34c04604fc7a7733f0c9e013c12e3';
+String _$carrierPalPodHash() => r'1a8543ec6055cee02725158405a757dbe12ac325';
 
 abstract class _$CarrierPalPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionOrNs;

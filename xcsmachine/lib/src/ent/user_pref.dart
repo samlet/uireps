@@ -17,6 +17,7 @@ List<UserPref> asUserPrefs(List rs){
 class UserPref {
   UserPref({
     this.userPrefId,
+    this.loginId,
     this.prefKey,
     this.prefValue,
     this.tenantId,
@@ -29,6 +30,7 @@ class UserPref {
 
   UserPref copyWith({
     String? userPrefId,
+    String? loginId,
     String? prefKey,
     Uint8List? prefValue,
     String? tenantId,
@@ -40,6 +42,7 @@ class UserPref {
   }) {
     return UserPref(
       userPrefId: userPrefId ?? this.userPrefId,
+      loginId: loginId ?? this.loginId,
       prefKey: prefKey ?? this.prefKey,
       prefValue: prefValue ?? this.prefValue,
       tenantId: tenantId ?? this.tenantId,
@@ -68,6 +71,9 @@ class UserPref {
   int get hashId => fastHash(userPrefId!);
    
   String? userPrefId;
+
+   
+  String? loginId;
 
    
   String? prefKey;

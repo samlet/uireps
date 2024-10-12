@@ -35,6 +35,10 @@ export 'src/thing_facet_repository.dart';
 export 'src/thing_facet.drift.dart';
 export 'src/session_cache_repository.dart';
 export 'src/session_cache.drift.dart';
+export 'src/app_setting_repository.dart';
+export 'src/app_setting.drift.dart';
+export 'src/user_pref_repository.dart';
+export 'src/user_pref.drift.dart';
 
 
 

@@ -6,7 +6,7 @@ part of 'post_pal_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postPalCubeHash() => r'8592457bbc4c431c682ef7211bc513e977bdb6f9';
+String _$postPalCubeHash() => r'932bccd6eb817aa6966331663e7949bf542e5272';
 
 /// Copied from Dart SDK
 class _SystemHash {

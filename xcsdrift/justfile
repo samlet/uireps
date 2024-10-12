@@ -1,3 +1,5 @@
 b file:
   dart compile exe {{file}}
   
+clean:
+  dart run build_runner clean

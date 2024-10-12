@@ -6,7 +6,7 @@ part of 'asset_json_pod.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loadFacilitiesHash() => r'8490b67d6f1eff4839a2b9322b4897517ea09c4f';
+String _$loadFacilitiesHash() => r'6acaf2a1e6bf46acc87f98c49b0ab9367364d0f7';
 
 /// See also [loadFacilities].
 @ProviderFor(loadFacilities)

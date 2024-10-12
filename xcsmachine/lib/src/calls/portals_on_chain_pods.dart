@@ -48,6 +48,19 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> addPublicNotes({
+    
+    required List<String> noteIds, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
+              noteIds: noteIds,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> touch({
     
     required String bundleName,
@@ -59,19 +72,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
         () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).touch(
               bundleName: bundleName,
               bundleId: bundleId,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> addPublicNotes({
-    
-    required List<String> noteIds, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
-              noteIds: noteIds,
             ));
     return state.hasError == false;
   }

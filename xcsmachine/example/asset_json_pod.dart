@@ -8,10 +8,10 @@ part 'asset_json_pod.g.dart';
 
 @riverpod
 Future<List<Facility>> loadFacilities(LoadFacilitiesRef ref) async {
-  final file = await File.fromUri(
+  final cnt = await File.fromUri(
       Uri.file('/opt/app/assets/oras/Facility.json')) //
       .readAsString();
-  final rs = json.decode(file) as List;
+  final rs = json.decode(cnt) as List;
   // return rs.map((e) => Facility.fromJson(e)).toList();
   return asFacilities(rs);
 }

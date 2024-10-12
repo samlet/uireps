@@ -20,6 +20,8 @@ import 'database.drift.dart';
   'src/bi_facet.drift',
   'src/thing_facet.drift',
   'src/session_cache.drift',
+  'src/app_setting.drift',
+  'src/user_pref.drift',
   'src/all_facets.drift'
 })
 class Database extends $Database {
