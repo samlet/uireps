@@ -32,6 +32,11 @@ Future<void> queryExample(Database database) async {
   prettyPrint(rec.toJson(
       serializer: const ValueSerializer.defaults(
           serializeDateTimeValuesAsString: true)));
+
+  //
+  var dt=rec.lastUpdatedTxStamp;
+  var dtEpoch=dt?.millisecondsSinceEpoch;
+  print('ts ${dt?.toIso8601String()}, $dtEpoch');
 }
 
 Future<void> storeFromLocalFile(Database database) async {

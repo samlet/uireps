@@ -5,6 +5,7 @@ import 'package:xcsmachine/util.dart';
 import 'database.dart';
 import 'src/session_cache.drift.dart';
 import 'src/session_cache_repository.dart';
+export 'src/session_cache_repository.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 class SessionMediator {
@@ -106,4 +107,9 @@ bool isExpired(SessionCacheData r) {
   var exp = Jiffy.parseFromDateTime(r.thruTime!);
   var expired = Jiffy.now().isAfter(exp);
   return expired;
+}
+
+Future<void> printCacheItem(SessionMediator mediator, (bool, String) result) async {
+  var cacheItem=await mediator.cacheRepo.getAsEnt(result.$2);
+  prettyPrint(cacheItem?.toJson().removeNulls());
 }

@@ -47,6 +47,21 @@ class FacetStoragePod extends _$FacetStoragePod {
             ));
     return state.hasError == false;
   }
+  
+  Future<bool> touch({
+    
+    required String fullBundleName,
+    required String id, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(facetStorageProvider(regionOrNs: regionOrNs)).touch(
+              fullBundleName: fullBundleName,
+              id: id,
+            ));
+    return state.hasError == false;
+  }
     
 }
 
@@ -78,6 +93,21 @@ Future<List<Map<String, dynamic>>> facetStorageMultiGet(FacetStorageMultiGetRef 
   return await pod.multiGet(
       fullBundleName: fullBundleName,
       keys: keys,
+  );
+}
+  
+@riverpod
+Future<DateTime> facetStorageGetLastTs(FacetStorageGetLastTsRef ref, {
+  String regionOrNs='default',
+  
+    required String fullBundleName,
+    required String bundleId, 
+
+}) async {
+  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
+  return await pod.getLastTs(
+      fullBundleName: fullBundleName,
+      bundleId: bundleId,
   );
 }
 

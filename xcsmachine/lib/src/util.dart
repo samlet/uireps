@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:intl/intl.dart';
+import 'package:quiver/collection.dart';
 import 'package:slugid/slugid.dart';
 import 'package:tuple/tuple.dart';
 
@@ -113,6 +114,12 @@ Map<String, List<T>> asMultimap<T>(dynamic resp) {
   return convMap(resp, (e) {
     return (e as List).map((e) => e as T).toList();
   });
+}
+
+ListMultimap<dynamic, dynamic> asListMultimap(Map<String, List<DateTime>> rsMap) {
+  var mm=ListMultimap();
+  rsMap.forEach((k,v)=> mm.addValues(k, v));
+  return mm;
 }
 
 Map<String, List<T>> convMultimap<T>(dynamic resp, T Function(dynamic) conv) {

@@ -155,6 +155,195 @@ class _PortalManagerProviderElement
   String get regionOrNs => (origin as PortalManagerProvider).regionOrNs;
 }
 
+String _$portalManagerLoadAsBiFacetsByTenantHash() =>
+    r'1ccaf62563d82c382c2308ad9b4c99d6583be8ce';
+
+/// See also [portalManagerLoadAsBiFacetsByTenant].
+@ProviderFor(portalManagerLoadAsBiFacetsByTenant)
+const portalManagerLoadAsBiFacetsByTenantProvider =
+    PortalManagerLoadAsBiFacetsByTenantFamily();
+
+/// See also [portalManagerLoadAsBiFacetsByTenant].
+class PortalManagerLoadAsBiFacetsByTenantFamily
+    extends Family<AsyncValue<List<BiFacetBi>>> {
+  /// See also [portalManagerLoadAsBiFacetsByTenant].
+  const PortalManagerLoadAsBiFacetsByTenantFamily();
+
+  /// See also [portalManagerLoadAsBiFacetsByTenant].
+  PortalManagerLoadAsBiFacetsByTenantProvider call({
+    String regionOrNs = 'default',
+    required String bundleName,
+    String? regionId = 'default',
+    required String tenantId,
+  }) {
+    return PortalManagerLoadAsBiFacetsByTenantProvider(
+      regionOrNs: regionOrNs,
+      bundleName: bundleName,
+      regionId: regionId,
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  PortalManagerLoadAsBiFacetsByTenantProvider getProviderOverride(
+    covariant PortalManagerLoadAsBiFacetsByTenantProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      bundleName: provider.bundleName,
+      regionId: provider.regionId,
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'portalManagerLoadAsBiFacetsByTenantProvider';
+}
+
+/// See also [portalManagerLoadAsBiFacetsByTenant].
+class PortalManagerLoadAsBiFacetsByTenantProvider
+    extends AutoDisposeFutureProvider<List<BiFacetBi>> {
+  /// See also [portalManagerLoadAsBiFacetsByTenant].
+  PortalManagerLoadAsBiFacetsByTenantProvider({
+    String regionOrNs = 'default',
+    required String bundleName,
+    String? regionId = 'default',
+    required String tenantId,
+  }) : this._internal(
+          (ref) => portalManagerLoadAsBiFacetsByTenant(
+            ref as PortalManagerLoadAsBiFacetsByTenantRef,
+            regionOrNs: regionOrNs,
+            bundleName: bundleName,
+            regionId: regionId,
+            tenantId: tenantId,
+          ),
+          from: portalManagerLoadAsBiFacetsByTenantProvider,
+          name: r'portalManagerLoadAsBiFacetsByTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$portalManagerLoadAsBiFacetsByTenantHash,
+          dependencies: PortalManagerLoadAsBiFacetsByTenantFamily._dependencies,
+          allTransitiveDependencies: PortalManagerLoadAsBiFacetsByTenantFamily
+              ._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          bundleName: bundleName,
+          regionId: regionId,
+          tenantId: tenantId,
+        );
+
+  PortalManagerLoadAsBiFacetsByTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.bundleName,
+    required this.regionId,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String bundleName;
+  final String? regionId;
+  final String tenantId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<BiFacetBi>> Function(
+            PortalManagerLoadAsBiFacetsByTenantRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PortalManagerLoadAsBiFacetsByTenantProvider._internal(
+        (ref) => create(ref as PortalManagerLoadAsBiFacetsByTenantRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        bundleName: bundleName,
+        regionId: regionId,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<BiFacetBi>> createElement() {
+    return _PortalManagerLoadAsBiFacetsByTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PortalManagerLoadAsBiFacetsByTenantProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.bundleName == bundleName &&
+        other.regionId == regionId &&
+        other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin PortalManagerLoadAsBiFacetsByTenantRef
+    on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _PortalManagerLoadAsBiFacetsByTenantProviderElement
+    extends AutoDisposeFutureProviderElement<List<BiFacetBi>>
+    with PortalManagerLoadAsBiFacetsByTenantRef {
+  _PortalManagerLoadAsBiFacetsByTenantProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).regionOrNs;
+  @override
+  String get bundleName =>
+      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).bundleName;
+  @override
+  String? get regionId =>
+      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).regionId;
+  @override
+  String get tenantId =>
+      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).tenantId;
+}
+
 String _$portalManagerLoadAsBiFacetHash() =>
     r'f7a387cbc0ae6d9d669e180e2d996eb47a82e251';
 
@@ -524,195 +713,6 @@ class _PortalManagerLoadAsBiFacetsProviderElement
   @override
   List<String> get bundleIds =>
       (origin as PortalManagerLoadAsBiFacetsProvider).bundleIds;
-}
-
-String _$portalManagerLoadAsBiFacetsByTenantHash() =>
-    r'1ccaf62563d82c382c2308ad9b4c99d6583be8ce';
-
-/// See also [portalManagerLoadAsBiFacetsByTenant].
-@ProviderFor(portalManagerLoadAsBiFacetsByTenant)
-const portalManagerLoadAsBiFacetsByTenantProvider =
-    PortalManagerLoadAsBiFacetsByTenantFamily();
-
-/// See also [portalManagerLoadAsBiFacetsByTenant].
-class PortalManagerLoadAsBiFacetsByTenantFamily
-    extends Family<AsyncValue<List<BiFacetBi>>> {
-  /// See also [portalManagerLoadAsBiFacetsByTenant].
-  const PortalManagerLoadAsBiFacetsByTenantFamily();
-
-  /// See also [portalManagerLoadAsBiFacetsByTenant].
-  PortalManagerLoadAsBiFacetsByTenantProvider call({
-    String regionOrNs = 'default',
-    required String bundleName,
-    String? regionId = 'default',
-    required String tenantId,
-  }) {
-    return PortalManagerLoadAsBiFacetsByTenantProvider(
-      regionOrNs: regionOrNs,
-      bundleName: bundleName,
-      regionId: regionId,
-      tenantId: tenantId,
-    );
-  }
-
-  @override
-  PortalManagerLoadAsBiFacetsByTenantProvider getProviderOverride(
-    covariant PortalManagerLoadAsBiFacetsByTenantProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      bundleName: provider.bundleName,
-      regionId: provider.regionId,
-      tenantId: provider.tenantId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'portalManagerLoadAsBiFacetsByTenantProvider';
-}
-
-/// See also [portalManagerLoadAsBiFacetsByTenant].
-class PortalManagerLoadAsBiFacetsByTenantProvider
-    extends AutoDisposeFutureProvider<List<BiFacetBi>> {
-  /// See also [portalManagerLoadAsBiFacetsByTenant].
-  PortalManagerLoadAsBiFacetsByTenantProvider({
-    String regionOrNs = 'default',
-    required String bundleName,
-    String? regionId = 'default',
-    required String tenantId,
-  }) : this._internal(
-          (ref) => portalManagerLoadAsBiFacetsByTenant(
-            ref as PortalManagerLoadAsBiFacetsByTenantRef,
-            regionOrNs: regionOrNs,
-            bundleName: bundleName,
-            regionId: regionId,
-            tenantId: tenantId,
-          ),
-          from: portalManagerLoadAsBiFacetsByTenantProvider,
-          name: r'portalManagerLoadAsBiFacetsByTenantProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$portalManagerLoadAsBiFacetsByTenantHash,
-          dependencies: PortalManagerLoadAsBiFacetsByTenantFamily._dependencies,
-          allTransitiveDependencies: PortalManagerLoadAsBiFacetsByTenantFamily
-              ._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          bundleName: bundleName,
-          regionId: regionId,
-          tenantId: tenantId,
-        );
-
-  PortalManagerLoadAsBiFacetsByTenantProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.bundleName,
-    required this.regionId,
-    required this.tenantId,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String bundleName;
-  final String? regionId;
-  final String tenantId;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<BiFacetBi>> Function(
-            PortalManagerLoadAsBiFacetsByTenantRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: PortalManagerLoadAsBiFacetsByTenantProvider._internal(
-        (ref) => create(ref as PortalManagerLoadAsBiFacetsByTenantRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        bundleName: bundleName,
-        regionId: regionId,
-        tenantId: tenantId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<BiFacetBi>> createElement() {
-    return _PortalManagerLoadAsBiFacetsByTenantProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is PortalManagerLoadAsBiFacetsByTenantProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.bundleName == bundleName &&
-        other.regionId == regionId &&
-        other.tenantId == tenantId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, bundleName.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, tenantId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin PortalManagerLoadAsBiFacetsByTenantRef
-    on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `bundleName` of this provider.
-  String get bundleName;
-
-  /// The parameter `regionId` of this provider.
-  String? get regionId;
-
-  /// The parameter `tenantId` of this provider.
-  String get tenantId;
-}
-
-class _PortalManagerLoadAsBiFacetsByTenantProviderElement
-    extends AutoDisposeFutureProviderElement<List<BiFacetBi>>
-    with PortalManagerLoadAsBiFacetsByTenantRef {
-  _PortalManagerLoadAsBiFacetsByTenantProviderElement(super.provider);
-
-  @override
-  String get regionOrNs =>
-      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).regionOrNs;
-  @override
-  String get bundleName =>
-      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).bundleName;
-  @override
-  String? get regionId =>
-      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).regionId;
-  @override
-  String get tenantId =>
-      (origin as PortalManagerLoadAsBiFacetsByTenantProvider).tenantId;
 }
 
 String _$portalManagerPodHash() => r'6d801c0c2de67e978336b28b4242e903aed42087';

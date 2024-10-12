@@ -121,29 +121,6 @@ Map<String, dynamic> _$TestRecToJson(TestRec instance) {
   return val;
 }
 
-PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
-      party: json['party'] == null
-          ? null
-          : Party.fromJson(json['party'] as Map<String, dynamic>),
-      contacts: (json['contacts'] as List<dynamic>?)
-          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('party', instance.party?.toJson());
-  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
-  return val;
-}
-
 StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
       store: json['store'] == null
           ? null
@@ -173,6 +150,29 @@ Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) {
   writeNotNull('products', instance.products?.map((e) => e.toJson()).toList());
   writeNotNull(
       'inventories', instance.inventories?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
+      party: json['party'] == null
+          ? null
+          : Party.fromJson(json['party'] as Map<String, dynamic>),
+      contacts: (json['contacts'] as List<dynamic>?)
+          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('party', instance.party?.toJson());
+  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
   return val;
 }
 

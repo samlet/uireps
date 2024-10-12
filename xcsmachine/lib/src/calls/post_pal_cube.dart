@@ -26,17 +26,6 @@ class PostPalCube extends _$PostPalCube {
   } 
 
   
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).addToContentBin(
-      binId: binId,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> like() async { 
     await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
     );
@@ -45,12 +34,6 @@ class PostPalCube extends _$PostPalCube {
   
   Future<void> unlike() async { 
     await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> featured() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
     );
     ref.invalidateSelf();
   }
@@ -90,6 +73,23 @@ class PostPalCube extends _$PostPalCube {
       review: review,
       rating: rating,
       reward: reward,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> featured() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).addToContentBin(
+      binId: binId,
     );
     ref.invalidateSelf();
   }

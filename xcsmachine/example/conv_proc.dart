@@ -1,3 +1,4 @@
+import 'package:quiver/collection.dart';
 import 'package:xcsmachine/util.dart';
 
 void main(List<String> arguments) {
@@ -38,5 +39,9 @@ void main(List<String> arguments) {
     Map<String, List<DateTime>> rsDt =
         convMultimap(resp, (e) => DateTime.parse(e).toLocal());
     print(rsDt);
+
+    ListMultimap<dynamic, dynamic> mm = asListMultimap(rsDt);
+    print('multimap keys: ${mm.keys}, values: ${mm.values}');
   }
 }
+

@@ -61,6 +61,27 @@ class FacetStorageRepository {
     
   }
    
+  // Mutation
+  Future<DateTime> touch({
+    
+    required String fullBundleName,
+    required String id, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "FacetStorage",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "fullBundleName": fullBundleName,
+      "id": id, 
+    });
+    
+    return DateTime.parse(resp as String);
+  }
+   
   // Query
   Future<List<Map<String, dynamic>>> multiGet({
     
@@ -80,6 +101,27 @@ class FacetStorageRepository {
     });
     
     return convList(resp, (el)=>el);
+  }
+   
+  // Query
+  Future<DateTime> getLastTs({
+    
+    required String fullBundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getLastTs",
+      "bundleName" : "FacetStorage",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "fullBundleName": fullBundleName,
+      "bundleId": bundleId, 
+    });
+    
+    return DateTime.parse(resp as String);
   }
   
 }

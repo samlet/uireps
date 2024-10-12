@@ -14,18 +14,19 @@ var dio = createAuthDioWithToken(samletToken);
 
 Future<void> main(List<String> arguments) async {
   final database = Database(NativeDatabase.memory(logStatements: false));
+
   var cacheRepo = SessionCacheRepository(dio, database);
-  var mediator=SessionMediator(cacheRepo, 'Facility');
+  var mediator = SessionMediator(cacheRepo, 'Facility');
 
   await bySubject(mediator);
   await byId(mediator);
 }
 
 Future<void> bySubject(SessionMediator mediator) async {
-  var result=await mediator.shouldFetchBySubject('publicFacs');
+  var result = await mediator.shouldFetchBySubject('publicFacs');
   print('shoud fetch sub? $result');
   assert(result.$1);
-  result=await mediator.shouldFetchBySubject('publicFacs');
+  result = await mediator.shouldFetchBySubject('publicFacs');
   print('shoud fetch sub? $result');
   assert(!result.$1);
 
@@ -33,17 +34,13 @@ Future<void> bySubject(SessionMediator mediator) async {
 }
 
 Future<void> byId(SessionMediator mediator) async {
-  var result=await mediator.shouldFetchById('publicFacs');
+  var result = await mediator.shouldFetchById('publicFacs',
+      dur: const Duration(minutes: 10));
   print('shoud fetch id? $result');
   assert(result.$1);
-  result=await mediator.shouldFetchById('publicFacs');
+  result = await mediator.shouldFetchById('publicFacs');
   print('shoud fetch id? $result');
   assert(!result.$1);
 
   await printCacheItem(mediator, result);
-}
-
-Future<void> printCacheItem(SessionMediator mediator, (bool, String) result) async {
-  var cacheItem=await mediator.cacheRepo.getAsEnt(result.$2);
-  prettyPrint(cacheItem?.toJson().removeNulls());
 }

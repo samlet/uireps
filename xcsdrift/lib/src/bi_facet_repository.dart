@@ -12,20 +12,20 @@ import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
 import '../drift_util.dart';
+import '../intf.dart';
 import 'bi_facet.drift.dart';
 
 final _logger = Logger('BiFacetRepository');
 const _bundleName = 'BiFacet';
 const _fullBundleName='facet:BiFacet';
 
-class BiFacetRepository {
+class BiFacetRepository implements RepositoryBase {
   final Dio dio;
   final Database database;
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
-
   BiFacetRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
@@ -62,43 +62,10 @@ class BiFacetRepository {
       batch.insert(database.biFacet, entry,
           onConflict: DoUpdate((old) => entry));
     }
-  }
-
-  Future<ent.BiFacet> fetchSingle(String bundleId) async {
-    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
-    final elData = ent.BiFacet.fromJson(jsonEl);
-    // elData.toJson() is required, for drift serde.
-    storeEntry(elData.toJson());
-    return elData;
-  }
-
-  Future<List<ent.BiFacet>> fetchMulti(List<String> ids) async {
-    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
-    return await storeDs(elements);
-  }
-
-  Future<List<ent.BiFacet>> fetchFromReg(String regNode) async {
-    List<BiFacetBi> elements = await portals.getPublicElements(
-        parentNode: regNode, bundleName: _bundleName);
-    return await storeEntries(elements);
-  }
-
-  Future<List<ent.BiFacet>> fetchFromSrv({String tenantId = 'default'}) async {
-    List<BiFacetBi> elements = await loadBiFacets(tenantId: tenantId);
-    return await storeEntries(elements);
-  }
-
-  Future<void> push(ent.BiFacet data) async {
-    await facetStorage.put(fullBundleName: _fullBundleName, key: data.biId!, val: data.toJson());
-  }
+  }  
 
   Future<void> store(ent.BiFacet data) async {
     await storeEntry(data.toJson());
-  }
-
-  Future<void> storeAndPush(ent.BiFacet data) async {
-    await store(data);
-    await push(data);
   }
 
   Future<List<ent.BiFacet>> storeEntries(List<BiFacetBi> elements) async {
@@ -159,13 +126,23 @@ class BiFacetRepository {
     return await tbl.getBiFacet(id).getSingleOrNull();
   }
 
+  @override
+  Future<DateTime?> lastTs(String id) async{
+    final rec=await get(id);
+    return rec?.lastUpdatedTxStamp;
+  }
+
   Future<ent.BiFacet?> getAsEnt(String id) async {
     var rec = await get(id);
-    if(rec!=null) {
-	    Map<String, dynamic> normMap = normalizeMap(rec);
-	    return ent.BiFacet.fromJson(normMap);
-  	}
-  	return null;
+    return convRecord(rec);
+  }
+
+  ent.BiFacet? convRecord(BiFacetData? rec) {
+    if (rec != null) {
+      Map<String, dynamic> normMap = normalizeMap(rec);
+      return ent.BiFacet.fromJson(normMap);
+    }
+    return null;
   }
 
   Future<int> remove(String id) async {

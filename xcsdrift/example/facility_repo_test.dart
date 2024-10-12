@@ -35,12 +35,12 @@ Future<void> main(List<String> arguments) async {
   printFac(r);
 }
 
-Future<void> pushEnt(ent.Facility facEnt) async {
-  print("push ==> ");
-  printFac(facEnt);
-  var portalmgr = PortalManagerRepository(dio);
-  await portalmgr.storeBundleSpec(bundleName: "Facility", spec: facEnt.toJson());
-}
+// Future<void> pushEnt(ent.Facility facEnt) async {
+//   print("push ==> ");
+//   printFac(facEnt);
+//   var portalmgr = PortalManagerRepository(dio);
+//   await portalmgr.storeBundleSpec(bundleName: "Facility", spec: facEnt.toJson());
+// }
 
 void printFac(ent.Facility? facEnt) {
   print(

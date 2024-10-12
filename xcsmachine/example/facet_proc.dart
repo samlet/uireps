@@ -20,7 +20,31 @@ Future<void> main(List<String> arguments) async {
     for (var value in ds) {
       print('- $value');
     }
+
+    await printDiff(result, repo, fn);
+    // await printLastTs(repo, fn);
+    // wait
+    await Future.delayed(const Duration(seconds: 1));
+
+    // touch
+    await repo.touch(fullBundleName: fn, id: 'n1');
+    // await printLastTs(repo, fn);
+    await printDiff(result, repo, fn);
   } on DioException catch (ex, s) {
     errDioProc(ex, s);
   }
+}
+
+Future<void> printDiff(Map<String, Object?> orig, FacetStorageRepository repo, String fn) async {
+  var localTs=orig['lastUpdatedTxStamp'];
+  var remoteTs=await repo.getLastTs(fullBundleName: fn, bundleId: 'n1');
+  var diff=remoteTs.millisecondsSinceEpoch-(localTs as int);
+  var refresh=diff>0;
+  print('remote ts: ${remoteTs.millisecondsSinceEpoch}, local ts: $localTs, '
+      'diff: $diff, refresh: $refresh');
+}
+
+Future<void> printLastTs(FacetStorageRepository repo, String fn) async {
+  var ts=await repo.getLastTs(fullBundleName: fn, bundleId: 'n1');
+  print('ts: $ts');
 }

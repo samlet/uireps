@@ -12,20 +12,20 @@ import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
 import '../drift_util.dart';
+import '../intf.dart';
 import 'session_cache.drift.dart';
 
 final _logger = Logger('SessionCacheRepository');
 const _bundleName = 'SessionCache';
 const _fullBundleName='facet:SessionCache';
 
-class SessionCacheRepository {
+class SessionCacheRepository implements RepositoryBase {
   final Dio dio;
   final Database database;
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
-
   SessionCacheRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
@@ -62,43 +62,10 @@ class SessionCacheRepository {
       batch.insert(database.sessionCache, entry,
           onConflict: DoUpdate((old) => entry));
     }
-  }
-
-  Future<ent.SessionCache> fetchSingle(String bundleId) async {
-    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
-    final elData = ent.SessionCache.fromJson(jsonEl);
-    // elData.toJson() is required, for drift serde.
-    storeEntry(elData.toJson());
-    return elData;
-  }
-
-  Future<List<ent.SessionCache>> fetchMulti(List<String> ids) async {
-    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
-    return await storeDs(elements);
-  }
-
-  Future<List<ent.SessionCache>> fetchFromReg(String regNode) async {
-    List<BiFacetBi> elements = await portals.getPublicElements(
-        parentNode: regNode, bundleName: _bundleName);
-    return await storeEntries(elements);
-  }
-
-  Future<List<ent.SessionCache>> fetchFromSrv({String tenantId = 'default'}) async {
-    List<BiFacetBi> elements = await loadSessionCaches(tenantId: tenantId);
-    return await storeEntries(elements);
-  }
-
-  Future<void> push(ent.SessionCache data) async {
-    await facetStorage.put(fullBundleName: _fullBundleName, key: data.sessionCacheId!, val: data.toJson());
-  }
+  }  
 
   Future<void> store(ent.SessionCache data) async {
     await storeEntry(data.toJson());
-  }
-
-  Future<void> storeAndPush(ent.SessionCache data) async {
-    await store(data);
-    await push(data);
   }
 
   Future<List<ent.SessionCache>> storeEntries(List<BiFacetBi> elements) async {
@@ -159,13 +126,23 @@ class SessionCacheRepository {
     return await tbl.getSessionCache(id).getSingleOrNull();
   }
 
+  @override
+  Future<DateTime?> lastTs(String id) async{
+    final rec=await get(id);
+    return rec?.lastUpdatedTxStamp;
+  }
+
   Future<ent.SessionCache?> getAsEnt(String id) async {
     var rec = await get(id);
-    if(rec!=null) {
-	    Map<String, dynamic> normMap = normalizeMap(rec);
-	    return ent.SessionCache.fromJson(normMap);
-  	}
-  	return null;
+    return convRecord(rec);
+  }
+
+  ent.SessionCache? convRecord(SessionCacheData? rec) {
+    if (rec != null) {
+      Map<String, dynamic> normMap = normalizeMap(rec);
+      return ent.SessionCache.fromJson(normMap);
+    }
+    return null;
   }
 
   Future<int> remove(String id) async {

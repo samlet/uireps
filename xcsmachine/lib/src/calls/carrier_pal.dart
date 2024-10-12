@@ -20,21 +20,6 @@ class CarrierPalRepository {
   final String id;
 
    
-  // Query
-  Future<Position> getCurrentPosition() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getCurrentPosition",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Position.fromJson(resp);
-  }
-   
   // Mutation
   Future<void> setPosition({
     
@@ -105,6 +90,21 @@ class CarrierPalRepository {
       "orderId": orderId, 
     });
     
+  }
+   
+  // Query
+  Future<Position> getCurrentPosition() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getCurrentPosition",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Position.fromJson(resp);
   }
    
   // Query

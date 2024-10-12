@@ -12,24 +12,31 @@ import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
 import '../drift_util.dart';
+import '../intf.dart';
 import 'marketplace.drift.dart';
+import '../session_mediator.dart';
 
 final _logger = Logger('MarketplaceRepository');
 const _bundleName = 'Marketplace';
 const _fullBundleName='default:Marketplace';
 
-class MarketplaceRepository {
+class MarketplaceRepository implements RepositoryBase {
   final Dio dio;
   final Database database;
 
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
-
+  late SessionCacheRepository cacheRepo;
+  late SessionMediator mediator;
+  
   MarketplaceRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    cacheRepo = SessionCacheRepository(dio, database);
+    mediator = SessionMediator(cacheRepo, 'Marketplace');
+    
   }
 
   Future<List<BiFacetBi>> loadMarketplaces({String tenantId = 'default'}) async {
@@ -63,7 +70,6 @@ class MarketplaceRepository {
           onConflict: DoUpdate((old) => entry));
     }
   }
-
   Future<ent.Marketplace> fetchSingle(String bundleId) async {
     var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
     final elData = ent.Marketplace.fromJson(jsonEl);
@@ -71,6 +77,49 @@ class MarketplaceRepository {
     storeEntry(elData.toJson());
     return elData;
   }
+
+
+  /// 智能获取数据: 先检测缓存时效, 只在失效时从远程获取.
+  /// 在获取到远程数据后, 会比对本地和远程条目的时间戳, 
+  /// 如果本地较新(比如已经在本地做了修改), 则返回本地条目, 否则返回从服务端获取的条目.
+  Future<ent.Marketplace?> smartFetchSingle(String bundleId,
+      {Duration dur = const Duration(minutes: 1)}) async {
+    // should fetch?
+    var (result, cacheId) = await mediator.shouldFetchById(bundleId,
+        dur: dur);
+    if (result) {
+      var jsonEl = await facetStorage.get(
+          fullBundleName: _fullBundleName, key: bundleId);
+      final elData = ent.Marketplace.fromJson(jsonEl);
+      return await checkRefresh(elData, bundleId);
+    }
+    // get from localDb.
+    return getAsEnt(bundleId);
+  }
+
+  Future<ent.Marketplace?> checkRefresh(
+      ent.Marketplace remoteData, String bundleId) async {
+    final remoteTs = remoteData.lastUpdatedTxStamp;
+    final remoteTsv = remoteTs?.millisecondsSinceEpoch ?? 0;
+
+    // should replace local item?
+    final origData = await get(bundleId);
+    final localTs = origData?.lastUpdatedTxStamp;
+    final localTsv = localTs?.millisecondsSinceEpoch ?? 0;
+
+    var diff = remoteTsv - localTsv;
+    var refresh = diff > 0;
+    print('remote ts: $remoteTsv, local ts: $localTsv, '
+        'diff: $diff, refresh: $refresh');
+    if (refresh) {
+      storeEntry(remoteData.toJson());
+      return remoteData;
+    } else {
+      // return local. (本地项有更新)
+      return convRecord(origData);
+    }
+  }
+
 
   Future<List<ent.Marketplace>> fetchMulti(List<String> ids) async {
     final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
@@ -92,14 +141,16 @@ class MarketplaceRepository {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.marketplaceId!, val: data.toJson());
   }
 
+    
+
   Future<void> store(ent.Marketplace data) async {
     await storeEntry(data.toJson());
   }
-
   Future<void> storeAndPush(ent.Marketplace data) async {
     await store(data);
     await push(data);
   }
+  
 
   Future<List<ent.Marketplace>> storeEntries(List<BiFacetBi> elements) async {
     var rs=<ent.Marketplace>[];
@@ -159,13 +210,23 @@ class MarketplaceRepository {
     return await tbl.getMarketplace(id).getSingleOrNull();
   }
 
+  @override
+  Future<DateTime?> lastTs(String id) async{
+    final rec=await get(id);
+    return rec?.lastUpdatedTxStamp;
+  }
+
   Future<ent.Marketplace?> getAsEnt(String id) async {
     var rec = await get(id);
-    if(rec!=null) {
-	    Map<String, dynamic> normMap = normalizeMap(rec);
-	    return ent.Marketplace.fromJson(normMap);
-  	}
-  	return null;
+    return convRecord(rec);
+  }
+
+  ent.Marketplace? convRecord(MarketplaceData? rec) {
+    if (rec != null) {
+      Map<String, dynamic> normMap = normalizeMap(rec);
+      return ent.Marketplace.fromJson(normMap);
+    }
+    return null;
   }
 
   Future<int> remove(String id) async {
