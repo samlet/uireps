@@ -66,6 +66,26 @@ class AclOnChainRepository {
     
   }
    
+  // Mutation
+  Future<void> enableMutMultiBundles({
+    
+    required String login,
+    required List<String> bundleNames, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "enableMutMultiBundles",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "login": login,
+      "bundleNames": bundleNames, 
+    });
+    
+  }
+   
   // Query
   Future<List<String>> getPublicMethods({
     
@@ -106,47 +126,6 @@ class AclOnChainRepository {
     return Linkage.fromJson(resp);
   }
    
-  // Mutation
-  Future<void> enableMutMultiBundles({
-    
-    required String login,
-    required List<String> bundleNames, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "enableMutMultiBundles",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "login": login,
-      "bundleNames": bundleNames, 
-    });
-    
-  }
-   
-  // Query
-  Future<bool> hasRole({
-    
-    required String partyId,
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "hasRole",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "partyId": partyId,
-      "role": role, 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
   // Query
   Future<bool> isOwner({
     
@@ -165,6 +144,27 @@ class AclOnChainRepository {
       "biName": biName,
       "bundleId": bundleId,
       "userOrGroup": userOrGroup, 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<bool> hasRole({
+    
+    required String partyId,
+    required String role, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "hasRole",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "partyId": partyId,
+      "role": role, 
     });
     
     return ResultConv.asBool(resp);

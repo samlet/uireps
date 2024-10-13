@@ -923,6 +923,16 @@ class UserPrefDrift extends i4.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.UserPrefData> getUserPrefByLogin({String? login}) {
+    return customSelect('SELECT * FROM user_pref WHERE login_id = ?1',
+        variables: [
+          i0.Variable<String>(login)
+        ],
+        readsFrom: {
+          userPref,
+        }).asyncMap(userPref.mapFromRow);
+  }
+
   i1.UserPref get userPref => i4.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.UserPref>('user_pref');
 }

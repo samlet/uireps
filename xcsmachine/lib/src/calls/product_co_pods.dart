@@ -46,21 +46,6 @@ class ProductCoPod extends _$ProductCoPod {
     return state.hasError == false;
   }
   
-  Future<bool> modifyPrice({
-    
-    required double price,
-    required String priceType, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).modifyPrice(
-              price: price,
-              priceType: priceType,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> featured() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
@@ -109,6 +94,21 @@ class ProductCoPod extends _$ProductCoPod {
             ));
     return state.hasError == false;
   }
+  
+  Future<bool> modifyPrice({
+    
+    required double price,
+    required String priceType, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(productCoProvider(regionOrNs: regionOrNs, id: id)).modifyPrice(
+              price: price,
+              priceType: priceType,
+            ));
+    return state.hasError == false;
+  }
     
 }
 
@@ -130,6 +130,16 @@ Future<ThingWithPrice> prodGetInfo(ProdGetInfoRef ref, {
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getInfo(
+  );
+}
+  
+@riverpod
+Future<StringMap> prodGetFixedAssetMap(ProdGetFixedAssetMapRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getFixedAssetMap(
   );
 }
   
@@ -168,16 +178,6 @@ Future<List<String>> prodGetSelectableFeatures(ProdGetSelectableFeaturesRef ref,
 }
   
 @riverpod
-Future<StringMap> prodGetFixedAssetMap(ProdGetFixedAssetMapRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getFixedAssetMap(
-  );
-}
-  
-@riverpod
 Future<double> prodPrice(ProdPriceRef ref, {
   String regionOrNs='default',
   required String id,
@@ -188,36 +188,6 @@ Future<double> prodPrice(ProdPriceRef ref, {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.price(
       priceType: priceType,
-  );
-}
-  
-@riverpod
-Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getPrices(
-  );
-}
-  
-@riverpod
-Future<Map<String, Object?>> prodGetPriceMap(ProdGetPriceMapRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getPriceMap(
-  );
-}
-  
-@riverpod
-Future<double> prodGetListPrice(ProdGetListPriceRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getListPrice(
   );
 }
   
@@ -258,6 +228,36 @@ Future<bool> prodIsFeatured(ProdIsFeaturedRef ref, {
 }) async {
   var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.isFeatured(
+  );
+}
+  
+@riverpod
+Future<CurrencyMap> prodGetPrices(ProdGetPricesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getPrices(
+  );
+}
+  
+@riverpod
+Future<Map<String, Object?>> prodGetPriceMap(ProdGetPriceMapRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getPriceMap(
+  );
+}
+  
+@riverpod
+Future<double> prodGetListPrice(ProdGetListPriceRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(productCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getListPrice(
   );
 }
   

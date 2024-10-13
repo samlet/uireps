@@ -7,12 +7,13 @@ part 'post_bundle.dart';
 part 'web_site_cube_data.dart';
 part 'position.dart';
 part 'test_rec.dart';
-part 'party_bundle.dart';
 part 'store_bundle.dart';
+part 'party_bundle.dart';
 part 'complicated_rec.dart';
 part 'load_bundle.dart';
 part 'bundle_modified_result.dart';
 part 'bi_facet_bi.dart';
+part 'bundle_joint.dart';
 part 'contact_profile.dart';
 
 part 'calls.g.dart';

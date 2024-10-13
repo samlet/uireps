@@ -1,11 +1,12 @@
 import '../fldconv.dart';
+import 'morph/morph.dart';
 import 'shopping_cart_conv.dart';
 
 
 CREATE TABLE shopping_cart (
     shopping_cart_id VARCHAR(255) NOT NULL PRIMARY KEY,
     store_id VARCHAR(22),
-    contacts TEXT,
+    contacts TEXT MAPPED BY `const ContactProfileConverter()`,
     create_date DATETIME(3),
     name VARCHAR(100),
     info TEXT,
@@ -43,6 +44,8 @@ clearShoppingCarts: DELETE FROM shopping_cart;
 addShoppingCart: INSERT INTO shopping_cart $el;
 getShoppingCart: SELECT * FROM shopping_cart WHERE shopping_cart_id = ?;
 deleteShoppingCart: DELETE FROM shopping_cart WHERE shopping_cart_id = :id;
+
+
 
 
 

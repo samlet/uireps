@@ -52,7 +52,9 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       tenantId: json['tenantId'] as String?,
       partyId: json['partyId'] as String?,
       walletId: json['walletId'] as String?,
-      contacts: json['contacts'] as Map<String, dynamic>?,
+      contacts: json['contacts'] == null
+          ? null
+          : ContactProfile.fromJson(json['contacts'] as Map<String, dynamic>),
       orderBinId: json['orderBinId'] as String?,
       ncopies: (json['ncopies'] as num?)?.toDouble(),
       accountId: json['accountId'] as String?,
@@ -175,7 +177,7 @@ Map<String, dynamic> _$OrderToJson(Order instance) {
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('partyId', instance.partyId);
   writeNotNull('walletId', instance.walletId);
-  writeNotNull('contacts', instance.contacts);
+  writeNotNull('contacts', instance.contacts?.toJson());
   writeNotNull('orderBinId', instance.orderBinId);
   writeNotNull('ncopies', instance.ncopies);
   writeNotNull('accountId', instance.accountId);

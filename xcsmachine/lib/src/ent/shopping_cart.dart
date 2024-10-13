@@ -5,6 +5,7 @@ import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
+import '../calls/calls.dart';
 
 part 'shopping_cart.g.dart';
 
@@ -48,7 +49,7 @@ class ShoppingCart {
 
   ShoppingCart copyWith({
     String? storeId,
-    Map<String, dynamic>? contacts,
+    ContactProfile? contacts,
     DateTime? createDate,
     String? name,
     String? info,
@@ -127,7 +128,7 @@ class ShoppingCart {
   String? storeId;
 
    
-  Map<String, dynamic>? contacts;
+  ContactProfile? contacts;
 
    
   DateTime? createDate;

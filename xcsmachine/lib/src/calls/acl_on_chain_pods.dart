@@ -69,21 +69,6 @@ class AclOnChainPod extends _$AclOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> enableMutBundles({
-    
-    required String login,
-    required String bundleName, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutBundles(
-              login: login,
-              bundleName: bundleName,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> enableMutMultiBundles({
     
     required String login,
@@ -95,6 +80,21 @@ class AclOnChainPod extends _$AclOnChainPod {
         () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutMultiBundles(
               login: login,
               bundleNames: bundleNames,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> enableMutBundles({
+    
+    required String login,
+    required String bundleName, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutBundles(
+              login: login,
+              bundleName: bundleName,
             ));
     return state.hasError == false;
   }
@@ -116,21 +116,6 @@ Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
 }
   
 @riverpod
-Future<bool> aocHasRole(AocHasRoleRef ref, {
-  String regionOrNs='default',
-  
-    required String partyId,
-    required String role, 
-
-}) async {
-  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.hasRole(
-      partyId: partyId,
-      role: role,
-  );
-}
-  
-@riverpod
 Future<bool> aocIsOwner(AocIsOwnerRef ref, {
   String regionOrNs='default',
   
@@ -144,6 +129,21 @@ Future<bool> aocIsOwner(AocIsOwnerRef ref, {
       biName: biName,
       bundleId: bundleId,
       userOrGroup: userOrGroup,
+  );
+}
+  
+@riverpod
+Future<bool> aocHasRole(AocHasRoleRef ref, {
+  String regionOrNs='default',
+  
+    required String partyId,
+    required String role, 
+
+}) async {
+  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.hasRole(
+      partyId: partyId,
+      role: role,
   );
 }
 

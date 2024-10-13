@@ -110,7 +110,7 @@ class CarrierRepository implements RepositoryBase {
 
     var diff = remoteTsv - localTsv;
     var refresh = diff > 0;
-    _logger.info('remote ts: $remoteTsv, local ts: $localTsv, '
+    _logger.info('$_bundleName($bundleId) remote ts: $remoteTsv, local ts: $localTsv, '
         'diff: $diff, refresh: $refresh');
     if (refresh) {
       storeEntry(remoteData.toJson());
@@ -269,6 +269,10 @@ class CarrierRepository implements RepositoryBase {
     var result = await sett
         .write(CarrierCompanion(lastUpdatedTxStamp: Value(DateTime.now())));
     return result;
+  }
+
+  Future<void> touchRemote(String id) async {
+    await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
   }
 
   Future<List<CarrierData>> multiGet(List<String> queryIds) async{

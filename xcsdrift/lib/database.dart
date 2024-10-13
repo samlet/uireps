@@ -22,6 +22,9 @@ import 'database.drift.dart';
   'src/session_cache.drift',
   'src/app_setting.drift',
   'src/user_pref.drift',
+  'src/buyer_pref.drift',
+  'src/seller_pref.drift',
+  'src/carrier_pref.drift',
   'src/all_facets.drift'
 })
 class Database extends $Database {

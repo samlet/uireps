@@ -183,6 +183,10 @@ class AppSettingRepository implements RepositoryBase {
     return result;
   }
 
+  Future<void> touchRemote(String id) async {
+    await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
   Future<List<AppSettingData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.appSetting)..where((el)=>el.appSettingId.isIn(queryIds));
     var rs=await q.get();

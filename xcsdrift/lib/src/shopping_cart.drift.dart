@@ -1,11 +1,13 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/shopping_cart.drift.dart' as i1;
-import 'package:quiver/src/collection/multimap.dart' as i2;
-import 'package:xcsmachine/src/ent/shopping_cart.dart' as i3;
-import 'package:xcsdrift/fldconv.dart' as i4;
-import 'package:xcsdrift/src/shopping_cart_conv.dart' as i5;
-import 'package:drift/internal/modular.dart' as i6;
+import 'package:xcsmachine/src/calls/calls.dart' as i2;
+import 'package:quiver/src/collection/multimap.dart' as i3;
+import 'package:xcsmachine/src/ent/shopping_cart.dart' as i4;
+import 'package:xcsdrift/src/morph/contact_profile_morph.dart' as i5;
+import 'package:xcsdrift/fldconv.dart' as i6;
+import 'package:xcsdrift/src/shopping_cart_conv.dart' as i7;
+import 'package:drift/internal/modular.dart' as i8;
 
 class ShoppingCart extends i0.Table
     with i0.TableInfo<ShoppingCart, i1.ShoppingCartData> {
@@ -29,11 +31,13 @@ class ShoppingCart extends i0.Table
       $customConstraints: '');
   static const i0.VerificationMeta _contactsMeta =
       const i0.VerificationMeta('contacts');
-  late final i0.GeneratedColumn<String> contacts = i0.GeneratedColumn<String>(
-      'contacts', aliasedName, true,
-      type: i0.DriftSqlType.string,
-      requiredDuringInsert: false,
-      $customConstraints: '');
+  late final i0.GeneratedColumnWithTypeConverter<i2.ContactProfile?, String>
+      contacts = i0.GeneratedColumn<String>('contacts', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.ContactProfile?>(
+              i1.ShoppingCart.$convertercontactsn);
   static const i0.VerificationMeta _createDateMeta =
       const i0.VerificationMeta('createDate');
   late final i0.GeneratedColumn<DateTime> createDate =
@@ -170,65 +174,65 @@ class ShoppingCart extends i0.Table
   static const i0.VerificationMeta _multiJointersMeta =
       const i0.VerificationMeta('multiJointers');
   late final i0
-      .GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      .GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
       multiJointers = i0.GeneratedColumn<String>(
               'multi_jointers', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i2.Multimap<String, String>?>(
+          .withConverter<i3.Multimap<String, String>?>(
               i1.ShoppingCart.$convertermultiJointersn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0
-      .GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      .GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
       acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i2.Multimap<String, String>?>(
+          .withConverter<i3.Multimap<String, String>?>(
               i1.ShoppingCart.$converteracln);
   static const i0.VerificationMeta _shoppingCartTypeMeta =
       const i0.VerificationMeta('shoppingCartType');
-  late final i0.GeneratedColumnWithTypeConverter<i3.ShoppingCartType?, String>
+  late final i0.GeneratedColumnWithTypeConverter<i4.ShoppingCartType?, String>
       shoppingCartType = i0.GeneratedColumn<String>(
               'shopping_cart_type', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i3.ShoppingCartType?>(
+          .withConverter<i4.ShoppingCartType?>(
               i1.ShoppingCart.$convertershoppingCartTypen);
   static const i0.VerificationMeta _shoppingCartSlotMeta =
       const i0.VerificationMeta('shoppingCartSlot');
   late final i0
-      .GeneratedColumnWithTypeConverter<List<i3.ShoppingCartSlot>?, String>
+      .GeneratedColumnWithTypeConverter<List<i4.ShoppingCartSlot>?, String>
       shoppingCartSlot = i0.GeneratedColumn<String>(
               'shopping_cart_slot', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i3.ShoppingCartSlot>?>(
+          .withConverter<List<i4.ShoppingCartSlot>?>(
               i1.ShoppingCart.$convertershoppingCartSlotn);
   static const i0.VerificationMeta _shoppingCartStatusMeta =
       const i0.VerificationMeta('shoppingCartStatus');
   late final i0
-      .GeneratedColumnWithTypeConverter<List<i3.ShoppingCartStatus>?, String>
+      .GeneratedColumnWithTypeConverter<List<i4.ShoppingCartStatus>?, String>
       shoppingCartStatus = i0.GeneratedColumn<String>(
               'shopping_cart_status', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i3.ShoppingCartStatus>?>(
+          .withConverter<List<i4.ShoppingCartStatus>?>(
               i1.ShoppingCart.$convertershoppingCartStatusn);
   static const i0.VerificationMeta _shoppingCartItemMeta =
       const i0.VerificationMeta('shoppingCartItem');
   late final i0
-      .GeneratedColumnWithTypeConverter<List<i3.ShoppingCartItem>?, String>
+      .GeneratedColumnWithTypeConverter<List<i4.ShoppingCartItem>?, String>
       shoppingCartItem = i0.GeneratedColumn<String>(
               'shopping_cart_item', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i3.ShoppingCartItem>?>(
+          .withConverter<List<i4.ShoppingCartItem>?>(
               i1.ShoppingCart.$convertershoppingCartItemn);
   static const i0.VerificationMeta _reservedFlagMeta =
       const i0.VerificationMeta('reservedFlag');
@@ -292,10 +296,7 @@ class ShoppingCart extends i0.Table
       context.handle(_storeIdMeta,
           storeId.isAcceptableOrUnknown(data['store_id']!, _storeIdMeta));
     }
-    if (data.containsKey('contacts')) {
-      context.handle(_contactsMeta,
-          contacts.isAcceptableOrUnknown(data['contacts']!, _contactsMeta));
-    }
+    context.handle(_contactsMeta, const i0.VerificationResult.success());
     if (data.containsKey('create_date')) {
       context.handle(
           _createDateMeta,
@@ -415,8 +416,9 @@ class ShoppingCart extends i0.Table
           i0.DriftSqlType.string, data['${effectivePrefix}shopping_cart_id'])!,
       storeId: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}store_id']),
-      contacts: attachedDatabase.typeMapping
-          .read(i0.DriftSqlType.string, data['${effectivePrefix}contacts']),
+      contacts: i1.ShoppingCart.$convertercontactsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}contacts'])),
       createDate: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.dateTime, data['${effectivePrefix}create_date']),
       name: attachedDatabase.typeMapping
@@ -484,40 +486,46 @@ class ShoppingCart extends i0.Table
     return ShoppingCart(attachedDatabase, alias);
   }
 
-  static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
+  static i0.JsonTypeConverter2<i2.ContactProfile, String, Map<String, dynamic>>
+      $convertercontacts = const i5.ContactProfileConverter();
+  static i0
+      .JsonTypeConverter2<i2.ContactProfile?, String?, Map<String, dynamic>?>
+      $convertercontactsn =
+      i0.JsonTypeConverter2.asNullable($convertercontacts);
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
           Map<String, dynamic>> $convertermultiJointers =
-      const i4.StringMultimapConverter();
-  static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
+      const i6.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $convertermultiJointersn =
       i0.JsonTypeConverter2.asNullable($convertermultiJointers);
-  static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
-      Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
-  static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
+      Map<String, dynamic>> $converteracl = const i6.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
   static i0
-      .JsonTypeConverter2<i3.ShoppingCartType, String, Map<String, dynamic>>
-      $convertershoppingCartType = const i5.ShoppingCartTypeConverter();
+      .JsonTypeConverter2<i4.ShoppingCartType, String, Map<String, dynamic>>
+      $convertershoppingCartType = const i7.ShoppingCartTypeConverter();
   static i0
-      .JsonTypeConverter2<i3.ShoppingCartType?, String?, Map<String, dynamic>?>
+      .JsonTypeConverter2<i4.ShoppingCartType?, String?, Map<String, dynamic>?>
       $convertershoppingCartTypen =
       i0.JsonTypeConverter2.asNullable($convertershoppingCartType);
-  static i0.JsonTypeConverter2<List<i3.ShoppingCartSlot>, String,
+  static i0.JsonTypeConverter2<List<i4.ShoppingCartSlot>, String,
           List<Map<String, dynamic>>> $convertershoppingCartSlot =
-      const i5.ShoppingCartSlotListConverter();
-  static i0.JsonTypeConverter2<List<i3.ShoppingCartSlot>?, String?,
+      const i7.ShoppingCartSlotListConverter();
+  static i0.JsonTypeConverter2<List<i4.ShoppingCartSlot>?, String?,
           List<Map<String, dynamic>>?> $convertershoppingCartSlotn =
       i0.JsonTypeConverter2.asNullable($convertershoppingCartSlot);
-  static i0.JsonTypeConverter2<List<i3.ShoppingCartStatus>, String,
+  static i0.JsonTypeConverter2<List<i4.ShoppingCartStatus>, String,
           List<Map<String, dynamic>>> $convertershoppingCartStatus =
-      const i5.ShoppingCartStatusListConverter();
-  static i0.JsonTypeConverter2<List<i3.ShoppingCartStatus>?, String?,
+      const i7.ShoppingCartStatusListConverter();
+  static i0.JsonTypeConverter2<List<i4.ShoppingCartStatus>?, String?,
           List<Map<String, dynamic>>?> $convertershoppingCartStatusn =
       i0.JsonTypeConverter2.asNullable($convertershoppingCartStatus);
-  static i0.JsonTypeConverter2<List<i3.ShoppingCartItem>, String,
+  static i0.JsonTypeConverter2<List<i4.ShoppingCartItem>, String,
           List<Map<String, dynamic>>> $convertershoppingCartItem =
-      const i5.ShoppingCartItemListConverter();
-  static i0.JsonTypeConverter2<List<i3.ShoppingCartItem>?, String?,
+      const i7.ShoppingCartItemListConverter();
+  static i0.JsonTypeConverter2<List<i4.ShoppingCartItem>?, String?,
           List<Map<String, dynamic>>?> $convertershoppingCartItemn =
       i0.JsonTypeConverter2.asNullable($convertershoppingCartItem);
   @override
@@ -528,7 +536,7 @@ class ShoppingCartData extends i0.DataClass
     implements i0.Insertable<i1.ShoppingCartData> {
   final String shoppingCartId;
   final String? storeId;
-  final String? contacts;
+  final i2.ContactProfile? contacts;
   final DateTime? createDate;
   final String? name;
   final String? info;
@@ -548,16 +556,16 @@ class ShoppingCartData extends i0.DataClass
   final String? shoppingCartTypeId;
   final String? statusId;
   final bool? evict;
-  final i2.Multimap<String, String>? multiJointers;
-  final i2.Multimap<String, String>? acl;
+  final i3.Multimap<String, String>? multiJointers;
+  final i3.Multimap<String, String>? acl;
 
   /// rel: one (no public-types)
-  final i3.ShoppingCartType? shoppingCartType;
+  final i4.ShoppingCartType? shoppingCartType;
 
   /// rel: many
-  final List<i3.ShoppingCartSlot>? shoppingCartSlot;
-  final List<i3.ShoppingCartStatus>? shoppingCartStatus;
-  final List<i3.ShoppingCartItem>? shoppingCartItem;
+  final List<i4.ShoppingCartSlot>? shoppingCartSlot;
+  final List<i4.ShoppingCartStatus>? shoppingCartStatus;
+  final List<i4.ShoppingCartItem>? shoppingCartItem;
   final int? reservedFlag;
   const ShoppingCartData(
       {required this.shoppingCartId,
@@ -597,7 +605,8 @@ class ShoppingCartData extends i0.DataClass
       map['store_id'] = i0.Variable<String>(storeId);
     }
     if (!nullToAbsent || contacts != null) {
-      map['contacts'] = i0.Variable<String>(contacts);
+      map['contacts'] = i0.Variable<String>(
+          i1.ShoppingCart.$convertercontactsn.toSql(contacts));
     }
     if (!nullToAbsent || createDate != null) {
       map['create_date'] = i0.Variable<DateTime>(createDate);
@@ -782,7 +791,8 @@ class ShoppingCartData extends i0.DataClass
     return ShoppingCartData(
       shoppingCartId: serializer.fromJson<String>(json['shopping_cart_id']),
       storeId: serializer.fromJson<String?>(json['store_id']),
-      contacts: serializer.fromJson<String?>(json['contacts']),
+      contacts: i1.ShoppingCart.$convertercontactsn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['contacts'])),
       createDate: serializer.fromJson<DateTime?>(json['create_date']),
       name: serializer.fromJson<String?>(json['name']),
       info: serializer.fromJson<String?>(json['info']),
@@ -830,7 +840,8 @@ class ShoppingCartData extends i0.DataClass
     return <String, dynamic>{
       'shopping_cart_id': serializer.toJson<String>(shoppingCartId),
       'store_id': serializer.toJson<String?>(storeId),
-      'contacts': serializer.toJson<String?>(contacts),
+      'contacts': serializer.toJson<Map<String, dynamic>?>(
+          i1.ShoppingCart.$convertercontactsn.toJson(contacts)),
       'create_date': serializer.toJson<DateTime?>(createDate),
       'name': serializer.toJson<String?>(name),
       'info': serializer.toJson<String?>(info),
@@ -870,7 +881,7 @@ class ShoppingCartData extends i0.DataClass
   i1.ShoppingCartData copyWith(
           {String? shoppingCartId,
           i0.Value<String?> storeId = const i0.Value.absent(),
-          i0.Value<String?> contacts = const i0.Value.absent(),
+          i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
           i0.Value<DateTime?> createDate = const i0.Value.absent(),
           i0.Value<String?> name = const i0.Value.absent(),
           i0.Value<String?> info = const i0.Value.absent(),
@@ -890,16 +901,16 @@ class ShoppingCartData extends i0.DataClass
           i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
           i0.Value<String?> statusId = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
-          i0.Value<i2.Multimap<String, String>?> multiJointers =
+          i0.Value<i3.Multimap<String, String>?> multiJointers =
               const i0.Value.absent(),
-          i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
-          i0.Value<i3.ShoppingCartType?> shoppingCartType =
+          i0.Value<i3.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<i4.ShoppingCartType?> shoppingCartType =
               const i0.Value.absent(),
-          i0.Value<List<i3.ShoppingCartSlot>?> shoppingCartSlot =
+          i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
               const i0.Value.absent(),
-          i0.Value<List<i3.ShoppingCartStatus>?> shoppingCartStatus =
+          i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
               const i0.Value.absent(),
-          i0.Value<List<i3.ShoppingCartItem>?> shoppingCartItem =
+          i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
               const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.ShoppingCartData(
@@ -1117,7 +1128,7 @@ class ShoppingCartData extends i0.DataClass
 class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   final i0.Value<String> shoppingCartId;
   final i0.Value<String?> storeId;
-  final i0.Value<String?> contacts;
+  final i0.Value<i2.ContactProfile?> contacts;
   final i0.Value<DateTime?> createDate;
   final i0.Value<String?> name;
   final i0.Value<String?> info;
@@ -1137,12 +1148,12 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   final i0.Value<String?> shoppingCartTypeId;
   final i0.Value<String?> statusId;
   final i0.Value<bool?> evict;
-  final i0.Value<i2.Multimap<String, String>?> multiJointers;
-  final i0.Value<i2.Multimap<String, String>?> acl;
-  final i0.Value<i3.ShoppingCartType?> shoppingCartType;
-  final i0.Value<List<i3.ShoppingCartSlot>?> shoppingCartSlot;
-  final i0.Value<List<i3.ShoppingCartStatus>?> shoppingCartStatus;
-  final i0.Value<List<i3.ShoppingCartItem>?> shoppingCartItem;
+  final i0.Value<i3.Multimap<String, String>?> multiJointers;
+  final i0.Value<i3.Multimap<String, String>?> acl;
+  final i0.Value<i4.ShoppingCartType?> shoppingCartType;
+  final i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot;
+  final i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus;
+  final i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const ShoppingCartCompanion({
@@ -1281,7 +1292,7 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   i1.ShoppingCartCompanion copyWith(
       {i0.Value<String>? shoppingCartId,
       i0.Value<String?>? storeId,
-      i0.Value<String?>? contacts,
+      i0.Value<i2.ContactProfile?>? contacts,
       i0.Value<DateTime?>? createDate,
       i0.Value<String?>? name,
       i0.Value<String?>? info,
@@ -1301,12 +1312,12 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       i0.Value<String?>? shoppingCartTypeId,
       i0.Value<String?>? statusId,
       i0.Value<bool?>? evict,
-      i0.Value<i2.Multimap<String, String>?>? multiJointers,
-      i0.Value<i2.Multimap<String, String>?>? acl,
-      i0.Value<i3.ShoppingCartType?>? shoppingCartType,
-      i0.Value<List<i3.ShoppingCartSlot>?>? shoppingCartSlot,
-      i0.Value<List<i3.ShoppingCartStatus>?>? shoppingCartStatus,
-      i0.Value<List<i3.ShoppingCartItem>?>? shoppingCartItem,
+      i0.Value<i3.Multimap<String, String>?>? multiJointers,
+      i0.Value<i3.Multimap<String, String>?>? acl,
+      i0.Value<i4.ShoppingCartType?>? shoppingCartType,
+      i0.Value<List<i4.ShoppingCartSlot>?>? shoppingCartSlot,
+      i0.Value<List<i4.ShoppingCartStatus>?>? shoppingCartStatus,
+      i0.Value<List<i4.ShoppingCartItem>?>? shoppingCartItem,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.ShoppingCartCompanion(
@@ -1353,7 +1364,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       map['store_id'] = i0.Variable<String>(storeId.value);
     }
     if (contacts.present) {
-      map['contacts'] = i0.Variable<String>(contacts.value);
+      map['contacts'] = i0.Variable<String>(
+          i1.ShoppingCart.$convertercontactsn.toSql(contacts.value));
     }
     if (createDate.present) {
       map['create_date'] = i0.Variable<DateTime>(createDate.value);
@@ -1493,7 +1505,7 @@ typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
     Function({
   required String shoppingCartId,
   i0.Value<String?> storeId,
-  i0.Value<String?> contacts,
+  i0.Value<i2.ContactProfile?> contacts,
   i0.Value<DateTime?> createDate,
   i0.Value<String?> name,
   i0.Value<String?> info,
@@ -1513,12 +1525,12 @@ typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
   i0.Value<String?> shoppingCartTypeId,
   i0.Value<String?> statusId,
   i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> multiJointers,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<i3.ShoppingCartType?> shoppingCartType,
-  i0.Value<List<i3.ShoppingCartSlot>?> shoppingCartSlot,
-  i0.Value<List<i3.ShoppingCartStatus>?> shoppingCartStatus,
-  i0.Value<List<i3.ShoppingCartItem>?> shoppingCartItem,
+  i0.Value<i3.Multimap<String, String>?> multiJointers,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ShoppingCartType?> shoppingCartType,
+  i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot,
+  i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus,
+  i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -1526,7 +1538,7 @@ typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
     Function({
   i0.Value<String> shoppingCartId,
   i0.Value<String?> storeId,
-  i0.Value<String?> contacts,
+  i0.Value<i2.ContactProfile?> contacts,
   i0.Value<DateTime?> createDate,
   i0.Value<String?> name,
   i0.Value<String?> info,
@@ -1546,12 +1558,12 @@ typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
   i0.Value<String?> shoppingCartTypeId,
   i0.Value<String?> statusId,
   i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> multiJointers,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<i3.ShoppingCartType?> shoppingCartType,
-  i0.Value<List<i3.ShoppingCartSlot>?> shoppingCartSlot,
-  i0.Value<List<i3.ShoppingCartStatus>?> shoppingCartStatus,
-  i0.Value<List<i3.ShoppingCartItem>?> shoppingCartItem,
+  i0.Value<i3.Multimap<String, String>?> multiJointers,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ShoppingCartType?> shoppingCartType,
+  i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot,
+  i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus,
+  i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -1569,10 +1581,13 @@ class $ShoppingCartFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnFilters<String> get contacts => $state.composableBuilder(
-      column: $state.table.contacts,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
+  i0.ColumnWithTypeConverterFilters<i2.ContactProfile?, i2.ContactProfile,
+          String>
+      get contacts => $state.composableBuilder(
+          column: $state.table.contacts,
+          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
 
   i0.ColumnFilters<DateTime> get createDate => $state.composableBuilder(
       column: $state.table.createDate,
@@ -1669,23 +1684,23 @@ class $ShoppingCartFilterComposer
       builder: (column, joinBuilders) =>
           i0.ColumnFilters(column, joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
       get multiJointers => $state.composableBuilder(
           column: $state.table.multiJointers,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
       get acl => $state.composableBuilder(
           column: $state.table.acl,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<i3.ShoppingCartType?, i3.ShoppingCartType,
+  i0.ColumnWithTypeConverterFilters<i4.ShoppingCartType?, i4.ShoppingCartType,
           String>
       get shoppingCartType => $state.composableBuilder(
           column: $state.table.shoppingCartType,
@@ -1693,24 +1708,24 @@ class $ShoppingCartFilterComposer
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i3.ShoppingCartSlot>?,
-          List<i3.ShoppingCartSlot>, String>
+  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartSlot>?,
+          List<i4.ShoppingCartSlot>, String>
       get shoppingCartSlot => $state.composableBuilder(
           column: $state.table.shoppingCartSlot,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i3.ShoppingCartStatus>?,
-          List<i3.ShoppingCartStatus>, String>
+  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartStatus>?,
+          List<i4.ShoppingCartStatus>, String>
       get shoppingCartStatus => $state.composableBuilder(
           column: $state.table.shoppingCartStatus,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
               column,
               joinBuilders: joinBuilders));
 
-  i0.ColumnWithTypeConverterFilters<List<i3.ShoppingCartItem>?,
-          List<i3.ShoppingCartItem>, String>
+  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartItem>?,
+          List<i4.ShoppingCartItem>, String>
       get shoppingCartItem => $state.composableBuilder(
           column: $state.table.shoppingCartItem,
           builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
@@ -1899,7 +1914,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
           updateCompanionCallback: ({
             i0.Value<String> shoppingCartId = const i0.Value.absent(),
             i0.Value<String?> storeId = const i0.Value.absent(),
-            i0.Value<String?> contacts = const i0.Value.absent(),
+            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
             i0.Value<DateTime?> createDate = const i0.Value.absent(),
             i0.Value<String?> name = const i0.Value.absent(),
             i0.Value<String?> info = const i0.Value.absent(),
@@ -1919,17 +1934,17 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> multiJointers =
+            i0.Value<i3.Multimap<String, String>?> multiJointers =
                 const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
+            i0.Value<i3.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
-            i0.Value<i3.ShoppingCartType?> shoppingCartType =
+            i0.Value<i4.ShoppingCartType?> shoppingCartType =
                 const i0.Value.absent(),
-            i0.Value<List<i3.ShoppingCartSlot>?> shoppingCartSlot =
+            i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
                 const i0.Value.absent(),
-            i0.Value<List<i3.ShoppingCartStatus>?> shoppingCartStatus =
+            i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
                 const i0.Value.absent(),
-            i0.Value<List<i3.ShoppingCartItem>?> shoppingCartItem =
+            i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -1969,7 +1984,7 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
           createCompanionCallback: ({
             required String shoppingCartId,
             i0.Value<String?> storeId = const i0.Value.absent(),
-            i0.Value<String?> contacts = const i0.Value.absent(),
+            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
             i0.Value<DateTime?> createDate = const i0.Value.absent(),
             i0.Value<String?> name = const i0.Value.absent(),
             i0.Value<String?> info = const i0.Value.absent(),
@@ -1989,17 +2004,17 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> multiJointers =
+            i0.Value<i3.Multimap<String, String>?> multiJointers =
                 const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
+            i0.Value<i3.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
-            i0.Value<i3.ShoppingCartType?> shoppingCartType =
+            i0.Value<i4.ShoppingCartType?> shoppingCartType =
                 const i0.Value.absent(),
-            i0.Value<List<i3.ShoppingCartSlot>?> shoppingCartSlot =
+            i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
                 const i0.Value.absent(),
-            i0.Value<List<i3.ShoppingCartStatus>?> shoppingCartStatus =
+            i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
                 const i0.Value.absent(),
-            i0.Value<List<i3.ShoppingCartItem>?> shoppingCartItem =
+            i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -2059,7 +2074,7 @@ typedef $ShoppingCartProcessedTableManager = i0.ProcessedTableManager<
     i1.ShoppingCartData,
     i0.PrefetchHooks Function()>;
 
-class ShoppingCartDrift extends i6.ModularAccessor {
+class ShoppingCartDrift extends i8.ModularAccessor {
   ShoppingCartDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.ShoppingCartData> allShoppingCarts() {
     return customSelect('SELECT * FROM shopping_cart',
@@ -2111,6 +2126,6 @@ class ShoppingCartDrift extends i6.ModularAccessor {
     );
   }
 
-  i1.ShoppingCart get shoppingCart => i6.ReadDatabaseContainer(attachedDatabase)
+  i1.ShoppingCart get shoppingCart => i8.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.ShoppingCart>('shopping_cart');
 }

@@ -257,6 +257,32 @@ Future<Map<String, Object?>> fixturesEcho(FixturesEchoRef ref, {
 }
   
 @riverpod
+Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
+  String regionOrNs='default',
+  
+    required String noteId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.getNoteProto(
+      noteId: noteId,
+  );
+}
+  
+@riverpod
+Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
+  String regionOrNs='default',
+  
+    required String author, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.publicNotes(
+      author: author,
+  );
+}
+  
+@riverpod
 Future<String> fixturesGetFreeName(FixturesGetFreeNameRef ref, {
   String regionOrNs='default',
 }) async {
@@ -315,32 +341,6 @@ Future<String> fixturesPickName(FixturesPickNameRef ref, {
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
   return await pod.pickName(
-  );
-}
-  
-@riverpod
-Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
-  String regionOrNs='default',
-  
-    required String noteId, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.getNoteProto(
-      noteId: noteId,
-  );
-}
-  
-@riverpod
-Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
-  String regionOrNs='default',
-  
-    required String author, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.publicNotes(
-      author: author,
   );
 }
   

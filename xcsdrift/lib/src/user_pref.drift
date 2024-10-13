@@ -1,4 +1,5 @@
 import '../fldconv.dart';
+import 'morph/morph.dart';
 import 'user_pref_conv.dart';
 
 
@@ -25,6 +26,10 @@ clearUserPrefs: DELETE FROM user_pref;
 addUserPref: INSERT INTO user_pref $el;
 getUserPref: SELECT * FROM user_pref WHERE user_pref_id = ?;
 deleteUserPref: DELETE FROM user_pref WHERE user_pref_id = :id;
+
+
+getUserPrefByLogin: SELECT * FROM user_pref WHERE login_id = :login;
+
 
 
 

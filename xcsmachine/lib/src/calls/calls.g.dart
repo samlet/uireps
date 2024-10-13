@@ -303,6 +303,69 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
+BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(
+      id: json['id'] as String?,
+      from: json['from'] as String?,
+      to: json['to'] as String?,
+      fromRole: json['fromRole'] as String?,
+      toRole: json['toRole'] as String?,
+      fromType: json['fromType'] as String?,
+      toType: json['toType'] as String?,
+      fromDate: _$JsonConverterFromJson<String, DateTime>(
+          json['fromDate'], const OffsetDateTimeConverter().fromJson),
+      thruDate: _$JsonConverterFromJson<String, DateTime>(
+          json['thruDate'], const OffsetDateTimeConverter().fromJson),
+      statusId: json['statusId'] as String?,
+      relationshipName: json['relationshipName'] as String?,
+      comments: json['comments'] as String?,
+      lastUpdatedTxStamp: _$JsonConverterFromJson<String, DateTime>(
+          json['lastUpdatedTxStamp'], const OffsetDateTimeConverter().fromJson),
+      createdTxStamp: _$JsonConverterFromJson<String, DateTime>(
+          json['createdTxStamp'], const OffsetDateTimeConverter().fromJson),
+      regionId: json['regionId'] as String?,
+      tenantId: json['tenantId'] as String?,
+    );
+
+Map<String, dynamic> _$BundleJointToJson(BundleJoint instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('from', instance.from);
+  writeNotNull('to', instance.to);
+  writeNotNull('fromRole', instance.fromRole);
+  writeNotNull('toRole', instance.toRole);
+  writeNotNull('fromType', instance.fromType);
+  writeNotNull('toType', instance.toType);
+  writeNotNull(
+      'fromDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.fromDate, const OffsetDateTimeConverter().toJson));
+  writeNotNull(
+      'thruDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.thruDate, const OffsetDateTimeConverter().toJson));
+  writeNotNull('statusId', instance.statusId);
+  writeNotNull('relationshipName', instance.relationshipName);
+  writeNotNull('comments', instance.comments);
+  writeNotNull(
+      'lastUpdatedTxStamp',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.lastUpdatedTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull(
+      'createdTxStamp',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull('regionId', instance.regionId);
+  writeNotNull('tenantId', instance.tenantId);
+  return val;
+}
+
 ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
     ContactProfile(
       telephone: json['telephone'] as String?,

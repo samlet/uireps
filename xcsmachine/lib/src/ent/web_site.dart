@@ -5,6 +5,7 @@ import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
+import '../calls/calls.dart';
 
 part 'web_site.g.dart';
 

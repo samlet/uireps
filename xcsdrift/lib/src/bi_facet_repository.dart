@@ -183,6 +183,10 @@ class BiFacetRepository implements RepositoryBase {
     return result;
   }
 
+  Future<void> touchRemote(String id) async {
+    await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
   Future<List<BiFacetData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.biFacet)..where((el)=>el.biId.isIn(queryIds));
     var rs=await q.get();

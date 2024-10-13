@@ -33,19 +33,6 @@ class CarrierPalPod extends _$CarrierPalPod {
   }
 
   
-  Future<bool> setPosition({
-    
-    required Position pos, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).setPosition(
-              pos: pos,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> addOrder({
     
     required String orderId, 
@@ -68,6 +55,19 @@ class CarrierPalPod extends _$CarrierPalPod {
     state = await AsyncValue.guard(
         () => ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).removeOrder(
               orderId: orderId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> setPosition({
+    
+    required Position pos, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(carrierPalProvider(regionOrNs: regionOrNs, id: id)).setPosition(
+              pos: pos,
             ));
     return state.hasError == false;
   }

@@ -319,171 +319,6 @@ class _FacetStorageGetProviderElement
   String get key => (origin as FacetStorageGetProvider).key;
 }
 
-String _$facetStorageGetLastTsHash() =>
-    r'3e8d1c8908b4a28b3b03d12fdeae1d31136edcc0';
-
-/// See also [facetStorageGetLastTs].
-@ProviderFor(facetStorageGetLastTs)
-const facetStorageGetLastTsProvider = FacetStorageGetLastTsFamily();
-
-/// See also [facetStorageGetLastTs].
-class FacetStorageGetLastTsFamily extends Family<AsyncValue<DateTime>> {
-  /// See also [facetStorageGetLastTs].
-  const FacetStorageGetLastTsFamily();
-
-  /// See also [facetStorageGetLastTs].
-  FacetStorageGetLastTsProvider call({
-    String regionOrNs = 'default',
-    required String fullBundleName,
-    required String bundleId,
-  }) {
-    return FacetStorageGetLastTsProvider(
-      regionOrNs: regionOrNs,
-      fullBundleName: fullBundleName,
-      bundleId: bundleId,
-    );
-  }
-
-  @override
-  FacetStorageGetLastTsProvider getProviderOverride(
-    covariant FacetStorageGetLastTsProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      fullBundleName: provider.fullBundleName,
-      bundleId: provider.bundleId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'facetStorageGetLastTsProvider';
-}
-
-/// See also [facetStorageGetLastTs].
-class FacetStorageGetLastTsProvider
-    extends AutoDisposeFutureProvider<DateTime> {
-  /// See also [facetStorageGetLastTs].
-  FacetStorageGetLastTsProvider({
-    String regionOrNs = 'default',
-    required String fullBundleName,
-    required String bundleId,
-  }) : this._internal(
-          (ref) => facetStorageGetLastTs(
-            ref as FacetStorageGetLastTsRef,
-            regionOrNs: regionOrNs,
-            fullBundleName: fullBundleName,
-            bundleId: bundleId,
-          ),
-          from: facetStorageGetLastTsProvider,
-          name: r'facetStorageGetLastTsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$facetStorageGetLastTsHash,
-          dependencies: FacetStorageGetLastTsFamily._dependencies,
-          allTransitiveDependencies:
-              FacetStorageGetLastTsFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          fullBundleName: fullBundleName,
-          bundleId: bundleId,
-        );
-
-  FacetStorageGetLastTsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.fullBundleName,
-    required this.bundleId,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String fullBundleName;
-  final String bundleId;
-
-  @override
-  Override overrideWith(
-    FutureOr<DateTime> Function(FacetStorageGetLastTsRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FacetStorageGetLastTsProvider._internal(
-        (ref) => create(ref as FacetStorageGetLastTsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        fullBundleName: fullBundleName,
-        bundleId: bundleId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<DateTime> createElement() {
-    return _FacetStorageGetLastTsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FacetStorageGetLastTsProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.fullBundleName == fullBundleName &&
-        other.bundleId == bundleId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, fullBundleName.hashCode);
-    hash = _SystemHash.combine(hash, bundleId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FacetStorageGetLastTsRef on AutoDisposeFutureProviderRef<DateTime> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `fullBundleName` of this provider.
-  String get fullBundleName;
-
-  /// The parameter `bundleId` of this provider.
-  String get bundleId;
-}
-
-class _FacetStorageGetLastTsProviderElement
-    extends AutoDisposeFutureProviderElement<DateTime>
-    with FacetStorageGetLastTsRef {
-  _FacetStorageGetLastTsProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as FacetStorageGetLastTsProvider).regionOrNs;
-  @override
-  String get fullBundleName =>
-      (origin as FacetStorageGetLastTsProvider).fullBundleName;
-  @override
-  String get bundleId => (origin as FacetStorageGetLastTsProvider).bundleId;
-}
-
 String _$facetStorageMultiGetHash() =>
     r'9cfb58d51f549edc34392f90ad1273e786f4afa3';
 
@@ -651,6 +486,171 @@ class _FacetStorageMultiGetProviderElement
       (origin as FacetStorageMultiGetProvider).fullBundleName;
   @override
   List<String> get keys => (origin as FacetStorageMultiGetProvider).keys;
+}
+
+String _$facetStorageGetLastTsHash() =>
+    r'3e8d1c8908b4a28b3b03d12fdeae1d31136edcc0';
+
+/// See also [facetStorageGetLastTs].
+@ProviderFor(facetStorageGetLastTs)
+const facetStorageGetLastTsProvider = FacetStorageGetLastTsFamily();
+
+/// See also [facetStorageGetLastTs].
+class FacetStorageGetLastTsFamily extends Family<AsyncValue<DateTime>> {
+  /// See also [facetStorageGetLastTs].
+  const FacetStorageGetLastTsFamily();
+
+  /// See also [facetStorageGetLastTs].
+  FacetStorageGetLastTsProvider call({
+    String regionOrNs = 'default',
+    required String fullBundleName,
+    required String bundleId,
+  }) {
+    return FacetStorageGetLastTsProvider(
+      regionOrNs: regionOrNs,
+      fullBundleName: fullBundleName,
+      bundleId: bundleId,
+    );
+  }
+
+  @override
+  FacetStorageGetLastTsProvider getProviderOverride(
+    covariant FacetStorageGetLastTsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      fullBundleName: provider.fullBundleName,
+      bundleId: provider.bundleId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'facetStorageGetLastTsProvider';
+}
+
+/// See also [facetStorageGetLastTs].
+class FacetStorageGetLastTsProvider
+    extends AutoDisposeFutureProvider<DateTime> {
+  /// See also [facetStorageGetLastTs].
+  FacetStorageGetLastTsProvider({
+    String regionOrNs = 'default',
+    required String fullBundleName,
+    required String bundleId,
+  }) : this._internal(
+          (ref) => facetStorageGetLastTs(
+            ref as FacetStorageGetLastTsRef,
+            regionOrNs: regionOrNs,
+            fullBundleName: fullBundleName,
+            bundleId: bundleId,
+          ),
+          from: facetStorageGetLastTsProvider,
+          name: r'facetStorageGetLastTsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$facetStorageGetLastTsHash,
+          dependencies: FacetStorageGetLastTsFamily._dependencies,
+          allTransitiveDependencies:
+              FacetStorageGetLastTsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          fullBundleName: fullBundleName,
+          bundleId: bundleId,
+        );
+
+  FacetStorageGetLastTsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.fullBundleName,
+    required this.bundleId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String fullBundleName;
+  final String bundleId;
+
+  @override
+  Override overrideWith(
+    FutureOr<DateTime> Function(FacetStorageGetLastTsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FacetStorageGetLastTsProvider._internal(
+        (ref) => create(ref as FacetStorageGetLastTsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        fullBundleName: fullBundleName,
+        bundleId: bundleId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<DateTime> createElement() {
+    return _FacetStorageGetLastTsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FacetStorageGetLastTsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.fullBundleName == fullBundleName &&
+        other.bundleId == bundleId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, fullBundleName.hashCode);
+    hash = _SystemHash.combine(hash, bundleId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FacetStorageGetLastTsRef on AutoDisposeFutureProviderRef<DateTime> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `fullBundleName` of this provider.
+  String get fullBundleName;
+
+  /// The parameter `bundleId` of this provider.
+  String get bundleId;
+}
+
+class _FacetStorageGetLastTsProviderElement
+    extends AutoDisposeFutureProviderElement<DateTime>
+    with FacetStorageGetLastTsRef {
+  _FacetStorageGetLastTsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FacetStorageGetLastTsProvider).regionOrNs;
+  @override
+  String get fullBundleName =>
+      (origin as FacetStorageGetLastTsProvider).fullBundleName;
+  @override
+  String get bundleId => (origin as FacetStorageGetLastTsProvider).bundleId;
 }
 
 String _$facetStoragePodHash() => r'0bcd259c5532e8c05434d4ef3a74e621f0cebf80';

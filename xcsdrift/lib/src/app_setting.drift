@@ -1,4 +1,5 @@
 import '../fldconv.dart';
+import 'morph/morph.dart';
 import 'app_setting_conv.dart';
 
 
@@ -30,6 +31,8 @@ clearAppSettings: DELETE FROM app_setting;
 addAppSetting: INSERT INTO app_setting $el;
 getAppSetting: SELECT * FROM app_setting WHERE app_setting_id = ?;
 deleteAppSetting: DELETE FROM app_setting WHERE app_setting_id = :id;
+
+
 
 
 

@@ -263,16 +263,16 @@ class FacilityRepository implements RepositoryBase {
     prettyPrint(rec?.toJson().removeNulls());
   }
 
-  Future<void> touchRemote(String id) async {
-    await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
-  }
-
   Future<int> touch(String id) async {
     var sett = database.update(database.facility)
       ..where((el) => el.facilityId.equals(id));
     var result = await sett
         .write(FacilityCompanion(lastUpdatedTxStamp: Value(DateTime.now())));
     return result;
+  }
+
+  Future<void> touchRemote(String id) async {
+    await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
   }
 
   Future<List<FacilityData>> multiGet(List<String> queryIds) async{

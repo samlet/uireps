@@ -5,6 +5,7 @@ import 'package:quiver/collection.dart';
 import 'package:drift/drift.dart' as df show TypeConverter;
 import '../hive_common.dart';
 import '../../util.dart';
+import '../calls/calls.dart';
 
 part 'order.g.dart';
 
@@ -120,7 +121,7 @@ class Order {
     String? tenantId,
     String? partyId,
     String? walletId,
-    Map<String, dynamic>? contacts,
+    ContactProfile? contacts,
     String? orderBinId,
     double? ncopies,
     String? accountId,
@@ -343,7 +344,7 @@ class Order {
   String? walletId;
 
    
-  Map<String, dynamic>? contacts;
+  ContactProfile? contacts;
 
    
   String? orderBinId;

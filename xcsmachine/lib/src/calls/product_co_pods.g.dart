@@ -1073,153 +1073,6 @@ class _ProdGetComponentIdsProviderElement
   String get assocType => (origin as ProdGetComponentIdsProvider).assocType;
 }
 
-String _$prodGetPriceMapHash() => r'b6015716ccd59eabf5dca777df23011a81899ac4';
-
-/// See also [prodGetPriceMap].
-@ProviderFor(prodGetPriceMap)
-const prodGetPriceMapProvider = ProdGetPriceMapFamily();
-
-/// See also [prodGetPriceMap].
-class ProdGetPriceMapFamily extends Family<AsyncValue<Map<String, Object?>>> {
-  /// See also [prodGetPriceMap].
-  const ProdGetPriceMapFamily();
-
-  /// See also [prodGetPriceMap].
-  ProdGetPriceMapProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return ProdGetPriceMapProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  ProdGetPriceMapProvider getProviderOverride(
-    covariant ProdGetPriceMapProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'prodGetPriceMapProvider';
-}
-
-/// See also [prodGetPriceMap].
-class ProdGetPriceMapProvider
-    extends AutoDisposeFutureProvider<Map<String, Object?>> {
-  /// See also [prodGetPriceMap].
-  ProdGetPriceMapProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => prodGetPriceMap(
-            ref as ProdGetPriceMapRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: prodGetPriceMapProvider,
-          name: r'prodGetPriceMapProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$prodGetPriceMapHash,
-          dependencies: ProdGetPriceMapFamily._dependencies,
-          allTransitiveDependencies:
-              ProdGetPriceMapFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  ProdGetPriceMapProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<Map<String, Object?>> Function(ProdGetPriceMapRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ProdGetPriceMapProvider._internal(
-        (ref) => create(ref as ProdGetPriceMapRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Map<String, Object?>> createElement() {
-    return _ProdGetPriceMapProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is ProdGetPriceMapProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin ProdGetPriceMapRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _ProdGetPriceMapProviderElement
-    extends AutoDisposeFutureProviderElement<Map<String, Object?>>
-    with ProdGetPriceMapRef {
-  _ProdGetPriceMapProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as ProdGetPriceMapProvider).regionOrNs;
-  @override
-  String get id => (origin as ProdGetPriceMapProvider).id;
-}
-
 String _$prodGetListPriceHash() => r'4d57ae801bc69cb152cb8dbece7ff3d0f74d5676';
 
 /// See also [prodGetListPrice].
@@ -2097,6 +1950,153 @@ class _ProdGetPricesProviderElement
   String get id => (origin as ProdGetPricesProvider).id;
 }
 
+String _$prodGetPriceMapHash() => r'b6015716ccd59eabf5dca777df23011a81899ac4';
+
+/// See also [prodGetPriceMap].
+@ProviderFor(prodGetPriceMap)
+const prodGetPriceMapProvider = ProdGetPriceMapFamily();
+
+/// See also [prodGetPriceMap].
+class ProdGetPriceMapFamily extends Family<AsyncValue<Map<String, Object?>>> {
+  /// See also [prodGetPriceMap].
+  const ProdGetPriceMapFamily();
+
+  /// See also [prodGetPriceMap].
+  ProdGetPriceMapProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return ProdGetPriceMapProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  ProdGetPriceMapProvider getProviderOverride(
+    covariant ProdGetPriceMapProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'prodGetPriceMapProvider';
+}
+
+/// See also [prodGetPriceMap].
+class ProdGetPriceMapProvider
+    extends AutoDisposeFutureProvider<Map<String, Object?>> {
+  /// See also [prodGetPriceMap].
+  ProdGetPriceMapProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => prodGetPriceMap(
+            ref as ProdGetPriceMapRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: prodGetPriceMapProvider,
+          name: r'prodGetPriceMapProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$prodGetPriceMapHash,
+          dependencies: ProdGetPriceMapFamily._dependencies,
+          allTransitiveDependencies:
+              ProdGetPriceMapFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  ProdGetPriceMapProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<Map<String, Object?>> Function(ProdGetPriceMapRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ProdGetPriceMapProvider._internal(
+        (ref) => create(ref as ProdGetPriceMapRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Map<String, Object?>> createElement() {
+    return _ProdGetPriceMapProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProdGetPriceMapProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ProdGetPriceMapRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _ProdGetPriceMapProviderElement
+    extends AutoDisposeFutureProviderElement<Map<String, Object?>>
+    with ProdGetPriceMapRef {
+  _ProdGetPriceMapProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as ProdGetPriceMapProvider).regionOrNs;
+  @override
+  String get id => (origin as ProdGetPriceMapProvider).id;
+}
+
 String _$prodPriceHash() => r'3a6c91e7d5790ace1096953101a6f09c0af0769f';
 
 /// See also [prodPrice].
@@ -2403,7 +2403,7 @@ class _ProdGetDecimalsProviderElement
   String get id => (origin as ProdGetDecimalsProvider).id;
 }
 
-String _$productCoPodHash() => r'912b71b94807257b66dba808ac11a35580e880d3';
+String _$productCoPodHash() => r'ad97b7315c3d64d887e3b418ea39f019aad0e8f0';
 
 abstract class _$ProductCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionOrNs;

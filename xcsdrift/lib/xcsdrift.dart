@@ -39,6 +39,12 @@ export 'src/app_setting_repository.dart';
 export 'src/app_setting.drift.dart';
 export 'src/user_pref_repository.dart';
 export 'src/user_pref.drift.dart';
+export 'src/buyer_pref_repository.dart';
+export 'src/buyer_pref.drift.dart';
+export 'src/seller_pref_repository.dart';
+export 'src/seller_pref.drift.dart';
+export 'src/carrier_pref_repository.dart';
+export 'src/carrier_pref.drift.dart';
 
 
 
