@@ -8,6 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:recase/recase.dart';
 import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
@@ -68,33 +69,38 @@ class BiFacetRepository implements RepositoryBase {
     await storeEntry(data.toJson());
   }
 
-  Future<List<ent.BiFacet>> storeEntries(List<BiFacetBi> elements) async {
+  Future<List<ent.BiFacet>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
     var rs=<ent.BiFacet>[];
     await database.batch((batch) {
       for (var el in elements) {
         // 不加"fromJson->toJson"的转换会导致drift无法处理list元素的cast.
         final elData=ent.BiFacet.fromJson(el.data!);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
 
 
-  Future<List<ent.BiFacet>> storeDs(List<Map<String, dynamic>> ds) async{
+  Future<List<ent.BiFacet>> storeDs(List<Map<String, dynamic>> ds, {bool smartMode=false}) async{
     var rs=<ent.BiFacet>[];
     await database.batch((batch) {
       for (var el in ds) {
         final elData=ent.BiFacet.fromJson(el);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
+
+  
+  Future<void> writeLocal(ent.BiFacet elData, Batch batch, {bool smartMode=false}) async{    
+    var jsonEl = elData.toJson();
+    await storeEntry(jsonEl, batch: batch);
+  }
+  
 
   Future<void> storeEnts(List<ent.BiFacet> elements) async{
     await database.batch((batch) {
@@ -159,6 +165,28 @@ class BiFacetRepository implements RepositoryBase {
 
   Stream<BiFacetData> watchSingle(String id){
     return tbl.getBiFacet(id).watchSingle();
+  }
+
+  // Utils --------
+
+  Database get db => database;
+  Future<void> printBundle(String id) async {
+    var rec = await get(id);
+    prettyPrint(rec?.toJson().removeNulls());
+  }
+
+  Future<int> touch(String id) async {
+    var sett = database.update(database.biFacet)
+      ..where((el) => el.biId.equals(id));
+    var result = await sett
+        .write(BiFacetCompanion(lastUpdatedTxStamp: Value(DateTime.now())));
+    return result;
+  }
+
+  Future<List<BiFacetData>> multiGet(List<String> queryIds) async{
+    var q=db.select(db.biFacet)..where((el)=>el.biId.isIn(queryIds));
+    var rs=await q.get();
+    return rs;
   }
 }
 

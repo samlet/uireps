@@ -134,6 +134,41 @@ class ProductCoRepository {
     return StringMap()..mergeFromProto3Json(resp);
   }
    
+  // Query
+  Future<double> price({
+    
+    required String priceType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "price",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "priceType": priceType, 
+    });
+    
+    return ResultConv.asDouble(resp);
+  }
+   
+  // Query
+  Future<CurrencyMap> getPrices() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPrices",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return CurrencyMap()..mergeFromProto3Json(resp);
+  }
+   
   // Mutation
   Future<void> modifyPrice({
     
@@ -316,41 +351,6 @@ class ProductCoRepository {
     });
     
     return ResultConv.asBool(resp);
-  }
-   
-  // Query
-  Future<CurrencyMap> getPrices() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPrices",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return CurrencyMap()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<double> price({
-    
-    required String priceType, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "price",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "priceType": priceType, 
-    });
-    
-    return ResultConv.asDouble(resp);
   }
    
   // Query

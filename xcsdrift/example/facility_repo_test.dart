@@ -8,9 +8,11 @@ import 'tokens.dart';
 var dio = createAuthDioWithToken(samletToken);
 
 Future<void> main(List<String> arguments) async {
+  initLogger();
+
   final database = Database(NativeDatabase.memory(logStatements: false));
   var repo = FacilityRepository(dio, database);
-  await repo.fetchFromSrv();
+  await repo.fetchFromSrv(smartMode: true);
   var rec = await repo.get('facility_1');
 
   print("query result: ${rec?.facilityId} -> ${rec?.acl?.asMap().keys}");

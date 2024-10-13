@@ -100,6 +100,21 @@ class UserPalRepository {
     return convScalars(resp, (e)=> e.toString());
   }
    
+  // Query
+  Future<Wallet> wallet() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "wallet",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Wallet.fromJson(resp);
+  }
+   
   // Mutation
   Future<String> createNote({
     
@@ -180,21 +195,6 @@ class UserPalRepository {
   }
    
   // Query
-  Future<Wallet> wallet() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "wallet",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Wallet.fromJson(resp);
-  }
-   
-  // Query
   Future<String> name() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -239,6 +239,26 @@ class UserPalRepository {
       "regionId": regionOrNs,
       "id": id,
     }, { 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<String> getDefaultPayMeth({
+    
+    required String storeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getDefaultPayMeth",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "storeId": storeId, 
     });
     
     return ResultConv.asString(resp);
@@ -346,26 +366,6 @@ class UserPalRepository {
     });
     
     return convList(resp, Notification.fromJson);
-  }
-   
-  // Query
-  Future<String> getDefaultPayMeth({
-    
-    required String storeId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getDefaultPayMeth",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "storeId": storeId, 
-    });
-    
-    return ResultConv.asString(resp);
   }
    
   // Query

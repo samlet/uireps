@@ -8,6 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:recase/recase.dart';
 import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
@@ -68,33 +69,38 @@ class AppSettingRepository implements RepositoryBase {
     await storeEntry(data.toJson());
   }
 
-  Future<List<ent.AppSetting>> storeEntries(List<BiFacetBi> elements) async {
+  Future<List<ent.AppSetting>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
     var rs=<ent.AppSetting>[];
     await database.batch((batch) {
       for (var el in elements) {
         // 不加"fromJson->toJson"的转换会导致drift无法处理list元素的cast.
         final elData=ent.AppSetting.fromJson(el.data!);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
 
 
-  Future<List<ent.AppSetting>> storeDs(List<Map<String, dynamic>> ds) async{
+  Future<List<ent.AppSetting>> storeDs(List<Map<String, dynamic>> ds, {bool smartMode=false}) async{
     var rs=<ent.AppSetting>[];
     await database.batch((batch) {
       for (var el in ds) {
         final elData=ent.AppSetting.fromJson(el);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
+
+  
+  Future<void> writeLocal(ent.AppSetting elData, Batch batch, {bool smartMode=false}) async{    
+    var jsonEl = elData.toJson();
+    await storeEntry(jsonEl, batch: batch);
+  }
+  
 
   Future<void> storeEnts(List<ent.AppSetting> elements) async{
     await database.batch((batch) {
@@ -159,6 +165,28 @@ class AppSettingRepository implements RepositoryBase {
 
   Stream<AppSettingData> watchSingle(String id){
     return tbl.getAppSetting(id).watchSingle();
+  }
+
+  // Utils --------
+
+  Database get db => database;
+  Future<void> printBundle(String id) async {
+    var rec = await get(id);
+    prettyPrint(rec?.toJson().removeNulls());
+  }
+
+  Future<int> touch(String id) async {
+    var sett = database.update(database.appSetting)
+      ..where((el) => el.appSettingId.equals(id));
+    var result = await sett
+        .write(AppSettingCompanion(lastUpdatedTxStamp: Value(DateTime.now())));
+    return result;
+  }
+
+  Future<List<AppSettingData>> multiGet(List<String> queryIds) async{
+    var q=db.select(db.appSetting)..where((el)=>el.appSettingId.isIn(queryIds));
+    var rs=await q.get();
+    return rs;
   }
 }
 

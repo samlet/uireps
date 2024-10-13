@@ -8,6 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:recase/recase.dart';
 import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
@@ -109,7 +110,7 @@ class ConfigRepository implements RepositoryBase {
 
     var diff = remoteTsv - localTsv;
     var refresh = diff > 0;
-    print('remote ts: $remoteTsv, local ts: $localTsv, '
+    _logger.info('remote ts: $remoteTsv, local ts: $localTsv, '
         'diff: $diff, refresh: $refresh');
     if (refresh) {
       storeEntry(remoteData.toJson());
@@ -121,20 +122,20 @@ class ConfigRepository implements RepositoryBase {
   }
 
 
-  Future<List<ent.Config>> fetchMulti(List<String> ids) async {
+  Future<List<ent.Config>> fetchMulti(List<String> ids, {bool smartMode=false}) async {
     final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
-    return await storeDs(elements);
+    return await storeDs(elements, smartMode: smartMode);
   }
 
-  Future<List<ent.Config>> fetchFromReg(String regNode) async {
+  Future<List<ent.Config>> fetchFromReg(String regNode, {bool smartMode=false}) async {
     List<BiFacetBi> elements = await portals.getPublicElements(
         parentNode: regNode, bundleName: _bundleName);
-    return await storeEntries(elements);
+    return await storeEntries(elements, smartMode: smartMode);
   }
 
-  Future<List<ent.Config>> fetchFromSrv({String tenantId = 'default'}) async {
+  Future<List<ent.Config>> fetchFromSrv({String tenantId = 'default', bool smartMode=false}) async {
     List<BiFacetBi> elements = await loadConfigs(tenantId: tenantId);
-    return await storeEntries(elements);
+    return await storeEntries(elements, smartMode: smartMode);
   }
 
   Future<void> push(ent.Config data) async {
@@ -152,33 +153,42 @@ class ConfigRepository implements RepositoryBase {
   }
   
 
-  Future<List<ent.Config>> storeEntries(List<BiFacetBi> elements) async {
+  Future<List<ent.Config>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
     var rs=<ent.Config>[];
     await database.batch((batch) {
       for (var el in elements) {
         // 不加"fromJson->toJson"的转换会导致drift无法处理list元素的cast.
         final elData=ent.Config.fromJson(el.data!);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
 
 
-  Future<List<ent.Config>> storeDs(List<Map<String, dynamic>> ds) async{
+  Future<List<ent.Config>> storeDs(List<Map<String, dynamic>> ds, {bool smartMode=false}) async{
     var rs=<ent.Config>[];
     await database.batch((batch) {
       for (var el in ds) {
         final elData=ent.Config.fromJson(el);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
+
+  
+  Future<void> writeLocal(ent.Config elData, Batch batch, {bool smartMode=false}) async{
+    if(smartMode) {
+      await checkRefresh(elData, elData.configId!);
+    }else {
+      var jsonEl = elData.toJson();
+      await storeEntry(jsonEl, batch: batch);
+    }
+  }
+  
 
   Future<void> storeEnts(List<ent.Config> elements) async{
     await database.batch((batch) {
@@ -243,6 +253,28 @@ class ConfigRepository implements RepositoryBase {
 
   Stream<ConfigData> watchSingle(String id){
     return tbl.getConfig(id).watchSingle();
+  }
+
+  // Utils --------
+
+  Database get db => database;
+  Future<void> printBundle(String id) async {
+    var rec = await get(id);
+    prettyPrint(rec?.toJson().removeNulls());
+  }
+
+  Future<int> touch(String id) async {
+    var sett = database.update(database.config)
+      ..where((el) => el.configId.equals(id));
+    var result = await sett
+        .write(ConfigCompanion(lastUpdatedTxStamp: Value(DateTime.now())));
+    return result;
+  }
+
+  Future<List<ConfigData>> multiGet(List<String> queryIds) async{
+    var q=db.select(db.config)..where((el)=>el.configId.isIn(queryIds));
+    var rs=await q.get();
+    return rs;
   }
 }
 

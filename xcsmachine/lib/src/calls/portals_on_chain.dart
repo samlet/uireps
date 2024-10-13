@@ -246,6 +246,27 @@ class PortalsOnChainRepository {
   }
    
   // Mutation
+  Future<DateTime> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
+    return DateTime.parse(resp as String);
+  }
+   
+  // Mutation
   Future<void> addPublicNotes({
     
     required List<String> noteIds, 
@@ -308,27 +329,6 @@ class PortalsOnChainRepository {
     });
     
     return convList(resp, BiFacetBi.fromJson);
-  }
-   
-  // Mutation
-  Future<DateTime> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-    return DateTime.parse(resp as String);
   }
   
 }

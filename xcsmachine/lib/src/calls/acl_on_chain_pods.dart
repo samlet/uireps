@@ -116,6 +116,21 @@ Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
 }
   
 @riverpod
+Future<bool> aocHasRole(AocHasRoleRef ref, {
+  String regionOrNs='default',
+  
+    required String partyId,
+    required String role, 
+
+}) async {
+  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.hasRole(
+      partyId: partyId,
+      role: role,
+  );
+}
+  
+@riverpod
 Future<bool> aocIsOwner(AocIsOwnerRef ref, {
   String regionOrNs='default',
   
@@ -129,21 +144,6 @@ Future<bool> aocIsOwner(AocIsOwnerRef ref, {
       biName: biName,
       bundleId: bundleId,
       userOrGroup: userOrGroup,
-  );
-}
-  
-@riverpod
-Future<bool> aocHasRole(AocHasRoleRef ref, {
-  String regionOrNs='default',
-  
-    required String partyId,
-    required String role, 
-
-}) async {
-  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.hasRole(
-      partyId: partyId,
-      role: role,
   );
 }
 

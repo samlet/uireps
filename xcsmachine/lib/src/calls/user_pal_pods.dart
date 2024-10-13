@@ -233,22 +233,22 @@ Future<List<String>> userPalGetOrdersAsCarrier(UserPalGetOrdersAsCarrierRef ref,
 }
   
 @riverpod
-Future<List<String>> userPalGetAllNotes(UserPalGetAllNotesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getAllNotes(
-  );
-}
-  
-@riverpod
 Future<Wallet> userPalWallet(UserPalWalletRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.wallet(
+  );
+}
+  
+@riverpod
+Future<List<String>> userPalGetAllNotes(UserPalGetAllNotesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getAllNotes(
   );
 }
   
@@ -283,6 +283,20 @@ Future<String> userPalLastName(UserPalLastNameRef ref, {
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.lastName(
+  );
+}
+  
+@riverpod
+Future<String> userPalGetDefaultPayMeth(UserPalGetDefaultPayMethRef ref, {
+  String regionOrNs='default',
+  required String id,
+  
+    required String storeId, 
+
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getDefaultPayMeth(
+      storeId: storeId,
   );
 }
   
@@ -323,20 +337,6 @@ Future<List<Notification>> userPalGetUnreadNotifications(UserPalGetUnreadNotific
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getUnreadNotifications(
-  );
-}
-  
-@riverpod
-Future<String> userPalGetDefaultPayMeth(UserPalGetDefaultPayMethRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String storeId, 
-
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getDefaultPayMeth(
-      storeId: storeId,
   );
 }
   

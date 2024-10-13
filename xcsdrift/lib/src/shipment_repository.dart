@@ -8,6 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:recase/recase.dart';
 import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
@@ -109,7 +110,7 @@ class ShipmentRepository implements RepositoryBase {
 
     var diff = remoteTsv - localTsv;
     var refresh = diff > 0;
-    print('remote ts: $remoteTsv, local ts: $localTsv, '
+    _logger.info('remote ts: $remoteTsv, local ts: $localTsv, '
         'diff: $diff, refresh: $refresh');
     if (refresh) {
       storeEntry(remoteData.toJson());
@@ -121,20 +122,20 @@ class ShipmentRepository implements RepositoryBase {
   }
 
 
-  Future<List<ent.Shipment>> fetchMulti(List<String> ids) async {
+  Future<List<ent.Shipment>> fetchMulti(List<String> ids, {bool smartMode=false}) async {
     final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
-    return await storeDs(elements);
+    return await storeDs(elements, smartMode: smartMode);
   }
 
-  Future<List<ent.Shipment>> fetchFromReg(String regNode) async {
+  Future<List<ent.Shipment>> fetchFromReg(String regNode, {bool smartMode=false}) async {
     List<BiFacetBi> elements = await portals.getPublicElements(
         parentNode: regNode, bundleName: _bundleName);
-    return await storeEntries(elements);
+    return await storeEntries(elements, smartMode: smartMode);
   }
 
-  Future<List<ent.Shipment>> fetchFromSrv({String tenantId = 'default'}) async {
+  Future<List<ent.Shipment>> fetchFromSrv({String tenantId = 'default', bool smartMode=false}) async {
     List<BiFacetBi> elements = await loadShipments(tenantId: tenantId);
-    return await storeEntries(elements);
+    return await storeEntries(elements, smartMode: smartMode);
   }
 
   Future<void> push(ent.Shipment data) async {
@@ -152,33 +153,42 @@ class ShipmentRepository implements RepositoryBase {
   }
   
 
-  Future<List<ent.Shipment>> storeEntries(List<BiFacetBi> elements) async {
+  Future<List<ent.Shipment>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
     var rs=<ent.Shipment>[];
     await database.batch((batch) {
       for (var el in elements) {
         // 不加"fromJson->toJson"的转换会导致drift无法处理list元素的cast.
         final elData=ent.Shipment.fromJson(el.data!);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
 
 
-  Future<List<ent.Shipment>> storeDs(List<Map<String, dynamic>> ds) async{
+  Future<List<ent.Shipment>> storeDs(List<Map<String, dynamic>> ds, {bool smartMode=false}) async{
     var rs=<ent.Shipment>[];
     await database.batch((batch) {
       for (var el in ds) {
         final elData=ent.Shipment.fromJson(el);
         rs.add(elData);
-        var jsonEl = elData.toJson();
-        storeEntry(jsonEl, batch: batch);
+        writeLocal(elData, batch, smartMode: smartMode);
       }
     });
     return rs;
   }
+
+  
+  Future<void> writeLocal(ent.Shipment elData, Batch batch, {bool smartMode=false}) async{
+    if(smartMode) {
+      await checkRefresh(elData, elData.shipmentId!);
+    }else {
+      var jsonEl = elData.toJson();
+      await storeEntry(jsonEl, batch: batch);
+    }
+  }
+  
 
   Future<void> storeEnts(List<ent.Shipment> elements) async{
     await database.batch((batch) {
@@ -243,6 +253,28 @@ class ShipmentRepository implements RepositoryBase {
 
   Stream<ShipmentData> watchSingle(String id){
     return tbl.getShipment(id).watchSingle();
+  }
+
+  // Utils --------
+
+  Database get db => database;
+  Future<void> printBundle(String id) async {
+    var rec = await get(id);
+    prettyPrint(rec?.toJson().removeNulls());
+  }
+
+  Future<int> touch(String id) async {
+    var sett = database.update(database.shipment)
+      ..where((el) => el.shipmentId.equals(id));
+    var result = await sett
+        .write(ShipmentCompanion(lastUpdatedTxStamp: Value(DateTime.now())));
+    return result;
+  }
+
+  Future<List<ShipmentData>> multiGet(List<String> queryIds) async{
+    var q=db.select(db.shipment)..where((el)=>el.shipmentId.isIn(queryIds));
+    var rs=await q.get();
+    return rs;
   }
 }
 
