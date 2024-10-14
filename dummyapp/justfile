@@ -3,3 +3,8 @@ app:
 dbdir:
   open /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/
 
+# rebuild
+rebuild:
+  dart run build_runner clean
+  dart run build_runner build --delete-conflicting-outputs
+

@@ -38,6 +38,8 @@ dependencies:
     path: ../xcsmachine
   xcsdrift:
     path: ../xcsdrift
+  xcsappbase:
+    path: ../xcsappbase
 
 dev_dependencies:
   flutter_test:
@@ -46,7 +48,7 @@ dev_dependencies:
   build_runner: ^2.1.4
   build_web_compilers: ^4.0.3
   flutter_lints: ^4.0.0
-  drift_dev:
+  # drift_dev:
 
   custom_lint:
   freezed: ^2.1.0

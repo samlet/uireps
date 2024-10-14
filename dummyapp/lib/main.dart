@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart' as drift;
 import 'package:flutter/material.dart';
 import 'package:xcsmachine/xcsmachine.dart';
-import 'platform/platform.dart';
+import 'package:xcsappbase/platform/platform.dart';
 import 'package:xcsdrift/xcsdrift.dart';
 
 import 'tokens.dart';

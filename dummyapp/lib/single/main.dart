@@ -59,7 +59,7 @@ class Home extends ConsumerWidget {
             },
             error: (err, stack) => const Center(child: Text('Error')),
             data: (note) {
-              return Text('${note.noteId} - ${note.noteName}');
+              return Text('${note?.noteId} - ${note?.noteName}');
             })
       ])),
       floatingActionButton: FloatingActionButton(
