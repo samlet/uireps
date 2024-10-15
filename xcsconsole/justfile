@@ -20,3 +20,5 @@ exa:
 genlogin:
   dart run bin/xcsgen.dart security -n gentoken -l login
 
+cleandb:
+  rm /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/sampleNotes.sqlite
