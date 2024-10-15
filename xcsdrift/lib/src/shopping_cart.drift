@@ -48,5 +48,3 @@ deleteShoppingCart: DELETE FROM shopping_cart WHERE shopping_cart_id = :id;
 
 
 
-
-

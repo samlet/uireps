@@ -26,10 +26,7 @@ clearCarrierPrefs: DELETE FROM carrier_pref;
 addCarrierPref: INSERT INTO carrier_pref $el;
 getCarrierPref: SELECT * FROM carrier_pref WHERE carrier_pref_id = ?;
 deleteCarrierPref: DELETE FROM carrier_pref WHERE carrier_pref_id = :id;
-
-
 getCarrierPrefByLogin: SELECT * FROM carrier_pref WHERE login_id = :login;
-
 
 
 

@@ -30,5 +30,3 @@ deleteBiFacet: DELETE FROM bi_facet WHERE bi_id = :id;
 
 
 
-
-

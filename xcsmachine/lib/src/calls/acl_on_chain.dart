@@ -66,24 +66,48 @@ class AclOnChainRepository {
     
   }
    
-  // Mutation
-  Future<void> enableMutMultiBundles({
+  // Query
+  Future<bool> hasRole({
     
-    required String login,
-    required List<String> bundleNames, 
+    required String partyId,
+    required String role, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "enableMutMultiBundles",
+      "action": "hasRole",
       "bundleName" : "AclOnChain",
       "call-type": "chain",
       "regionId": regionOrNs,
     }, {
-      "login": login,
-      "bundleNames": bundleNames, 
+      "partyId": partyId,
+      "role": role, 
     });
     
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<bool> isOwner({
+    
+    required String biName,
+    required String bundleId,
+    required String userOrGroup, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isOwner",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "biName": biName,
+      "bundleId": bundleId,
+      "userOrGroup": userOrGroup, 
+    });
+    
+    return ResultConv.asBool(resp);
   }
    
   // Query
@@ -126,48 +150,24 @@ class AclOnChainRepository {
     return Linkage.fromJson(resp);
   }
    
-  // Query
-  Future<bool> isOwner({
+  // Mutation
+  Future<void> enableMutMultiBundles({
     
-    required String biName,
-    required String bundleId,
-    required String userOrGroup, 
+    required String login,
+    required List<String> bundleNames, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "isOwner",
+      "action": "enableMutMultiBundles",
       "bundleName" : "AclOnChain",
       "call-type": "chain",
       "regionId": regionOrNs,
     }, {
-      "biName": biName,
-      "bundleId": bundleId,
-      "userOrGroup": userOrGroup, 
+      "login": login,
+      "bundleNames": bundleNames, 
     });
     
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
-  Future<bool> hasRole({
-    
-    required String partyId,
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "hasRole",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "partyId": partyId,
-      "role": role, 
-    });
-    
-    return ResultConv.asBool(resp);
   }
   
 }

@@ -64,5 +64,3 @@ deleteExample: DELETE FROM example WHERE example_id = :id;
 
 
 
-
-

@@ -35,5 +35,3 @@ deleteAppSetting: DELETE FROM app_setting WHERE app_setting_id = :id;
 
 
 
-
-

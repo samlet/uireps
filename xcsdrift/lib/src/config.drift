@@ -29,5 +29,3 @@ deleteConfig: DELETE FROM config WHERE config_id = :id;
 
 
 
-
-

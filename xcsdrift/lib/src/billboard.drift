@@ -43,5 +43,3 @@ deleteBillboard: DELETE FROM billboard WHERE billboard_id = :id;
 
 
 
-
-

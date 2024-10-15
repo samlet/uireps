@@ -35,5 +35,3 @@ deleteSessionCache: DELETE FROM session_cache WHERE session_cache_id = :id;
 
 
 
-
-

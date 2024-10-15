@@ -25,6 +25,9 @@ export 'src/ent/billboard.dart';
 export 'src/ent/marketplace.dart';
 export 'src/ent/notification.dart';
 
+// plugins
+export 'commoditymodels.dart';
+export 'whiteboardmodels.dart';
 export 'facetmodels.dart';
 
 

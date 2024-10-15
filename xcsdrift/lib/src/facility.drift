@@ -58,5 +58,3 @@ deleteFacility: DELETE FROM facility WHERE facility_id = :id;
 
 
 
-
-

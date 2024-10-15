@@ -77,5 +77,3 @@ deleteShipment: DELETE FROM shipment WHERE shipment_id = :id;
 
 
 
-
-

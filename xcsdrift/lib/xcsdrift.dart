@@ -45,6 +45,8 @@ export 'src/seller_pref_repository.dart';
 export 'src/seller_pref.drift.dart';
 export 'src/carrier_pref_repository.dart';
 export 'src/carrier_pref.drift.dart';
+export 'src/commodity_repository.dart';
+export 'src/commodity.drift.dart';
 
 
 

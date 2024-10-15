@@ -69,21 +69,6 @@ class AclOnChainPod extends _$AclOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> enableMutMultiBundles({
-    
-    required String login,
-    required List<String> bundleNames, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutMultiBundles(
-              login: login,
-              bundleNames: bundleNames,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> enableMutBundles({
     
     required String login,
@@ -98,20 +83,37 @@ class AclOnChainPod extends _$AclOnChainPod {
             ));
     return state.hasError == false;
   }
+  
+  Future<bool> enableMutMultiBundles({
+    
+    required String login,
+    required List<String> bundleNames, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutMultiBundles(
+              login: login,
+              bundleNames: bundleNames,
+            ));
+    return state.hasError == false;
+  }
     
 }
 
   
 @riverpod
-Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
+Future<bool> aocHasRole(AocHasRoleRef ref, {
   String regionOrNs='default',
   
-    required String mod, 
+    required String partyId,
+    required String role, 
 
 }) async {
   var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getPublicMethods(
-      mod: mod,
+  return await pod.hasRole(
+      partyId: partyId,
+      role: role,
   );
 }
   
@@ -133,17 +135,15 @@ Future<bool> aocIsOwner(AocIsOwnerRef ref, {
 }
   
 @riverpod
-Future<bool> aocHasRole(AocHasRoleRef ref, {
+Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
   String regionOrNs='default',
   
-    required String partyId,
-    required String role, 
+    required String mod, 
 
 }) async {
   var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.hasRole(
-      partyId: partyId,
-      role: role,
+  return await pod.getPublicMethods(
+      mod: mod,
   );
 }
 

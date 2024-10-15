@@ -34,5 +34,3 @@ deleteNoteData: DELETE FROM note_data WHERE note_id = :id;
 
 
 
-
-

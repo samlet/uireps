@@ -26,10 +26,7 @@ clearSellerPrefs: DELETE FROM seller_pref;
 addSellerPref: INSERT INTO seller_pref $el;
 getSellerPref: SELECT * FROM seller_pref WHERE seller_pref_id = ?;
 deleteSellerPref: DELETE FROM seller_pref WHERE seller_pref_id = :id;
-
-
 getSellerPrefByLogin: SELECT * FROM seller_pref WHERE login_id = :login;
-
 
 
 

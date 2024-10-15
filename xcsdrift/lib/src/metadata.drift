@@ -41,5 +41,3 @@ deleteMetadata: DELETE FROM metadata WHERE metadata_id = :id;
 
 
 
-
-

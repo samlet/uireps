@@ -11,7 +11,7 @@ part 'note_pods.g.dart';
 @Riverpod(keepAlive: true)
 NoteRepository noteRepository(NoteRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return NoteRepository(conn.dio, database);
 }
 

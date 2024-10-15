@@ -30,5 +30,3 @@ deleteThingFacet: DELETE FROM thing_facet WHERE thing_id = :id;
 
 
 
-
-

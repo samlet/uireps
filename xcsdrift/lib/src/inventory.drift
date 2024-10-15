@@ -63,5 +63,3 @@ deleteInventoryItem: DELETE FROM inventory_item WHERE inventory_item_id = :id;
 
 
 
-
-

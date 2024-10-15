@@ -33,5 +33,3 @@ deleteMarketplace: DELETE FROM marketplace WHERE marketplace_id = :id;
 
 
 
-
-
