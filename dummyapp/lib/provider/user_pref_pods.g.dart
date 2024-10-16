@@ -7,7 +7,7 @@ part of 'user_pref_pods.dart';
 // **************************************************************************
 
 String _$userPrefRepositoryHash() =>
-    r'd43464ea62971f198950a626ba508d9a4b5f3d32';
+    r'b6829b0df829a04efd5587383270aaefdfb69cba';
 
 /// repository pod
 ///

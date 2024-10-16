@@ -12,9 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   path: ^1.8.0
-  drift: ^2.15.0
+  drift: ^2.21.0
   # it is important that drift_dev is a regular dependency here.
-  drift_dev: ^2.15.0
+  drift_dev: ^2.21.0
   quiver: ^3.2.2
   xcsmachine:
     path: ../xcsmachine

@@ -11,7 +11,7 @@ part 'app_setting_pods.g.dart';
 @Riverpod(keepAlive: true)
 AppSettingRepository appSettingRepository(AppSettingRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return AppSettingRepository(conn.dio, database);
 }
 

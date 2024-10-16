@@ -9,6 +9,604 @@ import 'package:xcsdrift/fldconv.dart' as i6;
 import 'package:xcsdrift/src/shopping_cart_conv.dart' as i7;
 import 'package:drift/internal/modular.dart' as i8;
 
+typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
+    Function({
+  required String shoppingCartId,
+  i0.Value<String?> storeId,
+  i0.Value<i2.ContactProfile?> contacts,
+  i0.Value<DateTime?> createDate,
+  i0.Value<String?> name,
+  i0.Value<String?> info,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> walletId,
+  i0.Value<String?> partyId,
+  i0.Value<String?> userLoginId,
+  i0.Value<String?> orderId,
+  i0.Value<String?> shipMethType,
+  i0.Value<String?> shipMethProvider,
+  i0.Value<String?> slotId,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<String?> shoppingCartTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<i3.Multimap<String, String>?> multiJointers,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ShoppingCartType?> shoppingCartType,
+  i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot,
+  i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus,
+  i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
+    Function({
+  i0.Value<String> shoppingCartId,
+  i0.Value<String?> storeId,
+  i0.Value<i2.ContactProfile?> contacts,
+  i0.Value<DateTime?> createDate,
+  i0.Value<String?> name,
+  i0.Value<String?> info,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> walletId,
+  i0.Value<String?> partyId,
+  i0.Value<String?> userLoginId,
+  i0.Value<String?> orderId,
+  i0.Value<String?> shipMethType,
+  i0.Value<String?> shipMethProvider,
+  i0.Value<String?> slotId,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<String?> shoppingCartTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<i3.Multimap<String, String>?> multiJointers,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ShoppingCartType?> shoppingCartType,
+  i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot,
+  i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus,
+  i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ShoppingCartFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ShoppingCart> {
+  $ShoppingCartFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get shoppingCartId => $composableBuilder(
+      column: $table.shoppingCartId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get storeId => $composableBuilder(
+      column: $table.storeId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.ContactProfile?, i2.ContactProfile,
+          String>
+      get contacts => $composableBuilder(
+          column: $table.contacts,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<DateTime> get createDate => $composableBuilder(
+      column: $table.createDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get info => $composableBuilder(
+      column: $table.info, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get walletId => $composableBuilder(
+      column: $table.walletId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get partyId => $composableBuilder(
+      column: $table.partyId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get userLoginId => $composableBuilder(
+      column: $table.userLoginId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get orderId => $composableBuilder(
+      column: $table.orderId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shipMethType => $composableBuilder(
+      column: $table.shipMethType,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shipMethProvider => $composableBuilder(
+      column: $table.shipMethProvider,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get slotId => $composableBuilder(
+      column: $table.slotId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shoppingCartTypeId => $composableBuilder(
+      column: $table.shoppingCartTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
+      get multiJointers => $composableBuilder(
+          column: $table.multiJointers,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i4.ShoppingCartType?, i4.ShoppingCartType,
+          String>
+      get shoppingCartType => $composableBuilder(
+          column: $table.shoppingCartType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartSlot>?,
+          List<i4.ShoppingCartSlot>, String>
+      get shoppingCartSlot => $composableBuilder(
+          column: $table.shoppingCartSlot,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartStatus>?,
+          List<i4.ShoppingCartStatus>, String>
+      get shoppingCartStatus => $composableBuilder(
+          column: $table.shoppingCartStatus,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartItem>?,
+          List<i4.ShoppingCartItem>, String>
+      get shoppingCartItem => $composableBuilder(
+          column: $table.shoppingCartItem,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ShoppingCartOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ShoppingCart> {
+  $ShoppingCartOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get shoppingCartId => $composableBuilder(
+      column: $table.shoppingCartId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get storeId => $composableBuilder(
+      column: $table.storeId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get contacts => $composableBuilder(
+      column: $table.contacts, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createDate => $composableBuilder(
+      column: $table.createDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get info => $composableBuilder(
+      column: $table.info, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get walletId => $composableBuilder(
+      column: $table.walletId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get partyId => $composableBuilder(
+      column: $table.partyId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get userLoginId => $composableBuilder(
+      column: $table.userLoginId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get orderId => $composableBuilder(
+      column: $table.orderId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipMethType => $composableBuilder(
+      column: $table.shipMethType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipMethProvider => $composableBuilder(
+      column: $table.shipMethProvider,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get slotId => $composableBuilder(
+      column: $table.slotId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shoppingCartTypeId => $composableBuilder(
+      column: $table.shoppingCartTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get multiJointers => $composableBuilder(
+      column: $table.multiJointers,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shoppingCartType => $composableBuilder(
+      column: $table.shoppingCartType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shoppingCartSlot => $composableBuilder(
+      column: $table.shoppingCartSlot,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shoppingCartStatus => $composableBuilder(
+      column: $table.shoppingCartStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shoppingCartItem => $composableBuilder(
+      column: $table.shoppingCartItem,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ShoppingCartAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ShoppingCart> {
+  $ShoppingCartAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get shoppingCartId => $composableBuilder(
+      column: $table.shoppingCartId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get storeId =>
+      $composableBuilder(column: $table.storeId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.ContactProfile?, String>
+      get contacts => $composableBuilder(
+          column: $table.contacts, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createDate => $composableBuilder(
+      column: $table.createDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get info =>
+      $composableBuilder(column: $table.info, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get walletId =>
+      $composableBuilder(column: $table.walletId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get partyId =>
+      $composableBuilder(column: $table.partyId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get userLoginId => $composableBuilder(
+      column: $table.userLoginId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get orderId =>
+      $composableBuilder(column: $table.orderId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shipMethType => $composableBuilder(
+      column: $table.shipMethType, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shipMethProvider => $composableBuilder(
+      column: $table.shipMethProvider, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get slotId =>
+      $composableBuilder(column: $table.slotId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shoppingCartTypeId => $composableBuilder(
+      column: $table.shoppingCartTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      get multiJointers => $composableBuilder(
+          column: $table.multiJointers, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i4.ShoppingCartType?, String>
+      get shoppingCartType => $composableBuilder(
+          column: $table.shoppingCartType, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i4.ShoppingCartSlot>?, String>
+      get shoppingCartSlot => $composableBuilder(
+          column: $table.shoppingCartSlot, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i4.ShoppingCartStatus>?, String>
+      get shoppingCartStatus => $composableBuilder(
+          column: $table.shoppingCartStatus, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i4.ShoppingCartItem>?, String>
+      get shoppingCartItem => $composableBuilder(
+          column: $table.shoppingCartItem, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ShoppingCartTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.ShoppingCart,
+    i1.ShoppingCartData,
+    i1.$ShoppingCartFilterComposer,
+    i1.$ShoppingCartOrderingComposer,
+    i1.$ShoppingCartAnnotationComposer,
+    $ShoppingCartCreateCompanionBuilder,
+    $ShoppingCartUpdateCompanionBuilder,
+    (
+      i1.ShoppingCartData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.ShoppingCart,
+          i1.ShoppingCartData>
+    ),
+    i1.ShoppingCartData,
+    i0.PrefetchHooks Function()> {
+  $ShoppingCartTableManager(i0.GeneratedDatabase db, i1.ShoppingCart table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ShoppingCartFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ShoppingCartOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ShoppingCartAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> shoppingCartId = const i0.Value.absent(),
+            i0.Value<String?> storeId = const i0.Value.absent(),
+            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
+            i0.Value<DateTime?> createDate = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> info = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> walletId = const i0.Value.absent(),
+            i0.Value<String?> partyId = const i0.Value.absent(),
+            i0.Value<String?> userLoginId = const i0.Value.absent(),
+            i0.Value<String?> orderId = const i0.Value.absent(),
+            i0.Value<String?> shipMethType = const i0.Value.absent(),
+            i0.Value<String?> shipMethProvider = const i0.Value.absent(),
+            i0.Value<String?> slotId = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> multiJointers =
+                const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i4.ShoppingCartType?> shoppingCartType =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ShoppingCartCompanion(
+            shoppingCartId: shoppingCartId,
+            storeId: storeId,
+            contacts: contacts,
+            createDate: createDate,
+            name: name,
+            info: info,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            walletId: walletId,
+            partyId: partyId,
+            userLoginId: userLoginId,
+            orderId: orderId,
+            shipMethType: shipMethType,
+            shipMethProvider: shipMethProvider,
+            slotId: slotId,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            shoppingCartTypeId: shoppingCartTypeId,
+            statusId: statusId,
+            evict: evict,
+            multiJointers: multiJointers,
+            acl: acl,
+            shoppingCartType: shoppingCartType,
+            shoppingCartSlot: shoppingCartSlot,
+            shoppingCartStatus: shoppingCartStatus,
+            shoppingCartItem: shoppingCartItem,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String shoppingCartId,
+            i0.Value<String?> storeId = const i0.Value.absent(),
+            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
+            i0.Value<DateTime?> createDate = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> info = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> walletId = const i0.Value.absent(),
+            i0.Value<String?> partyId = const i0.Value.absent(),
+            i0.Value<String?> userLoginId = const i0.Value.absent(),
+            i0.Value<String?> orderId = const i0.Value.absent(),
+            i0.Value<String?> shipMethType = const i0.Value.absent(),
+            i0.Value<String?> shipMethProvider = const i0.Value.absent(),
+            i0.Value<String?> slotId = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> multiJointers =
+                const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i4.ShoppingCartType?> shoppingCartType =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ShoppingCartCompanion.insert(
+            shoppingCartId: shoppingCartId,
+            storeId: storeId,
+            contacts: contacts,
+            createDate: createDate,
+            name: name,
+            info: info,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            walletId: walletId,
+            partyId: partyId,
+            userLoginId: userLoginId,
+            orderId: orderId,
+            shipMethType: shipMethType,
+            shipMethProvider: shipMethProvider,
+            slotId: slotId,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            shoppingCartTypeId: shoppingCartTypeId,
+            statusId: statusId,
+            evict: evict,
+            multiJointers: multiJointers,
+            acl: acl,
+            shoppingCartType: shoppingCartType,
+            shoppingCartSlot: shoppingCartSlot,
+            shoppingCartStatus: shoppingCartStatus,
+            shoppingCartItem: shoppingCartItem,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ShoppingCartProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.ShoppingCart,
+    i1.ShoppingCartData,
+    i1.$ShoppingCartFilterComposer,
+    i1.$ShoppingCartOrderingComposer,
+    i1.$ShoppingCartAnnotationComposer,
+    $ShoppingCartCreateCompanionBuilder,
+    $ShoppingCartUpdateCompanionBuilder,
+    (
+      i1.ShoppingCartData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.ShoppingCart,
+          i1.ShoppingCartData>
+    ),
+    i1.ShoppingCartData,
+    i0.PrefetchHooks Function()>;
+
 class ShoppingCart extends i0.Table
     with i0.TableInfo<ShoppingCart, i1.ShoppingCartData> {
   @override
@@ -1500,579 +2098,6 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
         .toString();
   }
 }
-
-typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
-    Function({
-  required String shoppingCartId,
-  i0.Value<String?> storeId,
-  i0.Value<i2.ContactProfile?> contacts,
-  i0.Value<DateTime?> createDate,
-  i0.Value<String?> name,
-  i0.Value<String?> info,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> walletId,
-  i0.Value<String?> partyId,
-  i0.Value<String?> userLoginId,
-  i0.Value<String?> orderId,
-  i0.Value<String?> shipMethType,
-  i0.Value<String?> shipMethProvider,
-  i0.Value<String?> slotId,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<String?> shoppingCartTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<i3.Multimap<String, String>?> multiJointers,
-  i0.Value<i3.Multimap<String, String>?> acl,
-  i0.Value<i4.ShoppingCartType?> shoppingCartType,
-  i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot,
-  i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus,
-  i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
-    Function({
-  i0.Value<String> shoppingCartId,
-  i0.Value<String?> storeId,
-  i0.Value<i2.ContactProfile?> contacts,
-  i0.Value<DateTime?> createDate,
-  i0.Value<String?> name,
-  i0.Value<String?> info,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> walletId,
-  i0.Value<String?> partyId,
-  i0.Value<String?> userLoginId,
-  i0.Value<String?> orderId,
-  i0.Value<String?> shipMethType,
-  i0.Value<String?> shipMethProvider,
-  i0.Value<String?> slotId,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<String?> shoppingCartTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<i3.Multimap<String, String>?> multiJointers,
-  i0.Value<i3.Multimap<String, String>?> acl,
-  i0.Value<i4.ShoppingCartType?> shoppingCartType,
-  i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot,
-  i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus,
-  i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ShoppingCartFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.ShoppingCart> {
-  $ShoppingCartFilterComposer(super.$state);
-  i0.ColumnFilters<String> get shoppingCartId => $state.composableBuilder(
-      column: $state.table.shoppingCartId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get storeId => $state.composableBuilder(
-      column: $state.table.storeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.ContactProfile?, i2.ContactProfile,
-          String>
-      get contacts => $state.composableBuilder(
-          column: $state.table.contacts,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createDate => $state.composableBuilder(
-      column: $state.table.createDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get info => $state.composableBuilder(
-      column: $state.table.info,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get walletId => $state.composableBuilder(
-      column: $state.table.walletId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get partyId => $state.composableBuilder(
-      column: $state.table.partyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get userLoginId => $state.composableBuilder(
-      column: $state.table.userLoginId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get orderId => $state.composableBuilder(
-      column: $state.table.orderId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shipMethType => $state.composableBuilder(
-      column: $state.table.shipMethType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shipMethProvider => $state.composableBuilder(
-      column: $state.table.shipMethProvider,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get slotId => $state.composableBuilder(
-      column: $state.table.slotId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shoppingCartTypeId => $state.composableBuilder(
-      column: $state.table.shoppingCartTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
-          i3.Multimap<String, String>, String>
-      get multiJointers => $state.composableBuilder(
-          column: $state.table.multiJointers,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
-          i3.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i4.ShoppingCartType?, i4.ShoppingCartType,
-          String>
-      get shoppingCartType => $state.composableBuilder(
-          column: $state.table.shoppingCartType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartSlot>?,
-          List<i4.ShoppingCartSlot>, String>
-      get shoppingCartSlot => $state.composableBuilder(
-          column: $state.table.shoppingCartSlot,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartStatus>?,
-          List<i4.ShoppingCartStatus>, String>
-      get shoppingCartStatus => $state.composableBuilder(
-          column: $state.table.shoppingCartStatus,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i4.ShoppingCartItem>?,
-          List<i4.ShoppingCartItem>, String>
-      get shoppingCartItem => $state.composableBuilder(
-          column: $state.table.shoppingCartItem,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ShoppingCartOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.ShoppingCart> {
-  $ShoppingCartOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get shoppingCartId => $state.composableBuilder(
-      column: $state.table.shoppingCartId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get storeId => $state.composableBuilder(
-      column: $state.table.storeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get contacts => $state.composableBuilder(
-      column: $state.table.contacts,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createDate => $state.composableBuilder(
-      column: $state.table.createDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get info => $state.composableBuilder(
-      column: $state.table.info,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get walletId => $state.composableBuilder(
-      column: $state.table.walletId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get partyId => $state.composableBuilder(
-      column: $state.table.partyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get userLoginId => $state.composableBuilder(
-      column: $state.table.userLoginId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get orderId => $state.composableBuilder(
-      column: $state.table.orderId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipMethType => $state.composableBuilder(
-      column: $state.table.shipMethType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipMethProvider => $state.composableBuilder(
-      column: $state.table.shipMethProvider,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get slotId => $state.composableBuilder(
-      column: $state.table.slotId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shoppingCartTypeId => $state.composableBuilder(
-      column: $state.table.shoppingCartTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get multiJointers => $state.composableBuilder(
-      column: $state.table.multiJointers,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shoppingCartType => $state.composableBuilder(
-      column: $state.table.shoppingCartType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shoppingCartSlot => $state.composableBuilder(
-      column: $state.table.shoppingCartSlot,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shoppingCartStatus => $state.composableBuilder(
-      column: $state.table.shoppingCartStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shoppingCartItem => $state.composableBuilder(
-      column: $state.table.shoppingCartItem,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ShoppingCartTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.ShoppingCart,
-    i1.ShoppingCartData,
-    i1.$ShoppingCartFilterComposer,
-    i1.$ShoppingCartOrderingComposer,
-    $ShoppingCartCreateCompanionBuilder,
-    $ShoppingCartUpdateCompanionBuilder,
-    (
-      i1.ShoppingCartData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.ShoppingCart,
-          i1.ShoppingCartData>
-    ),
-    i1.ShoppingCartData,
-    i0.PrefetchHooks Function()> {
-  $ShoppingCartTableManager(i0.GeneratedDatabase db, i1.ShoppingCart table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ShoppingCartFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ShoppingCartOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> shoppingCartId = const i0.Value.absent(),
-            i0.Value<String?> storeId = const i0.Value.absent(),
-            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
-            i0.Value<DateTime?> createDate = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> info = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> walletId = const i0.Value.absent(),
-            i0.Value<String?> partyId = const i0.Value.absent(),
-            i0.Value<String?> userLoginId = const i0.Value.absent(),
-            i0.Value<String?> orderId = const i0.Value.absent(),
-            i0.Value<String?> shipMethType = const i0.Value.absent(),
-            i0.Value<String?> shipMethProvider = const i0.Value.absent(),
-            i0.Value<String?> slotId = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> multiJointers =
-                const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i4.ShoppingCartType?> shoppingCartType =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ShoppingCartCompanion(
-            shoppingCartId: shoppingCartId,
-            storeId: storeId,
-            contacts: contacts,
-            createDate: createDate,
-            name: name,
-            info: info,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            walletId: walletId,
-            partyId: partyId,
-            userLoginId: userLoginId,
-            orderId: orderId,
-            shipMethType: shipMethType,
-            shipMethProvider: shipMethProvider,
-            slotId: slotId,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            shoppingCartTypeId: shoppingCartTypeId,
-            statusId: statusId,
-            evict: evict,
-            multiJointers: multiJointers,
-            acl: acl,
-            shoppingCartType: shoppingCartType,
-            shoppingCartSlot: shoppingCartSlot,
-            shoppingCartStatus: shoppingCartStatus,
-            shoppingCartItem: shoppingCartItem,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String shoppingCartId,
-            i0.Value<String?> storeId = const i0.Value.absent(),
-            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
-            i0.Value<DateTime?> createDate = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> info = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> walletId = const i0.Value.absent(),
-            i0.Value<String?> partyId = const i0.Value.absent(),
-            i0.Value<String?> userLoginId = const i0.Value.absent(),
-            i0.Value<String?> orderId = const i0.Value.absent(),
-            i0.Value<String?> shipMethType = const i0.Value.absent(),
-            i0.Value<String?> shipMethProvider = const i0.Value.absent(),
-            i0.Value<String?> slotId = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> multiJointers =
-                const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i4.ShoppingCartType?> shoppingCartType =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ShoppingCartSlot>?> shoppingCartSlot =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ShoppingCartStatus>?> shoppingCartStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ShoppingCartItem>?> shoppingCartItem =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ShoppingCartCompanion.insert(
-            shoppingCartId: shoppingCartId,
-            storeId: storeId,
-            contacts: contacts,
-            createDate: createDate,
-            name: name,
-            info: info,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            walletId: walletId,
-            partyId: partyId,
-            userLoginId: userLoginId,
-            orderId: orderId,
-            shipMethType: shipMethType,
-            shipMethProvider: shipMethProvider,
-            slotId: slotId,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            shoppingCartTypeId: shoppingCartTypeId,
-            statusId: statusId,
-            evict: evict,
-            multiJointers: multiJointers,
-            acl: acl,
-            shoppingCartType: shoppingCartType,
-            shoppingCartSlot: shoppingCartSlot,
-            shoppingCartStatus: shoppingCartStatus,
-            shoppingCartItem: shoppingCartItem,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ShoppingCartProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.ShoppingCart,
-    i1.ShoppingCartData,
-    i1.$ShoppingCartFilterComposer,
-    i1.$ShoppingCartOrderingComposer,
-    $ShoppingCartCreateCompanionBuilder,
-    $ShoppingCartUpdateCompanionBuilder,
-    (
-      i1.ShoppingCartData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.ShoppingCart,
-          i1.ShoppingCartData>
-    ),
-    i1.ShoppingCartData,
-    i0.PrefetchHooks Function()>;
 
 class ShoppingCartDrift extends i8.ModularAccessor {
   ShoppingCartDrift(i0.GeneratedDatabase db) : super(db);

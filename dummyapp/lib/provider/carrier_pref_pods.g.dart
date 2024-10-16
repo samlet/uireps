@@ -7,7 +7,7 @@ part of 'carrier_pref_pods.dart';
 // **************************************************************************
 
 String _$carrierPrefRepositoryHash() =>
-    r'0f423c2dcdc05c5d1266eac7c41a8f5d0ae2210b';
+    r'6b312e6d6bc56eeadeb1859ea8f2feb9f9af0044';
 
 /// repository pod
 ///

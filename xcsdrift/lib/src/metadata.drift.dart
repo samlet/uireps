@@ -7,6 +7,461 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/metadata_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $MetadataCreateCompanionBuilder = i1.MetadataCompanion Function({
+  required String metadataId,
+  i0.Value<i2.Multimap<String, String>?> value,
+  i0.Value<DateTime?> fromDate,
+  i0.Value<DateTime?> thruDate,
+  i0.Value<String?> creator,
+  i0.Value<String?> comments,
+  i0.Value<String?> tokenId,
+  i0.Value<String?> name,
+  i0.Value<String?> image,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> metadataTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<bool?> evict,
+  i0.Value<i3.MetadataType?> metadataType,
+  i0.Value<List<i3.MetadataStatus>?> metadataStatus,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $MetadataUpdateCompanionBuilder = i1.MetadataCompanion Function({
+  i0.Value<String> metadataId,
+  i0.Value<i2.Multimap<String, String>?> value,
+  i0.Value<DateTime?> fromDate,
+  i0.Value<DateTime?> thruDate,
+  i0.Value<String?> creator,
+  i0.Value<String?> comments,
+  i0.Value<String?> tokenId,
+  i0.Value<String?> name,
+  i0.Value<String?> image,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> metadataTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<bool?> evict,
+  i0.Value<i3.MetadataType?> metadataType,
+  i0.Value<List<i3.MetadataStatus>?> metadataStatus,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $MetadataFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Metadata> {
+  $MetadataFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get metadataId => $composableBuilder(
+      column: $table.metadataId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get value => $composableBuilder(
+          column: $table.value,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<DateTime> get fromDate => $composableBuilder(
+      column: $table.fromDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get thruDate => $composableBuilder(
+      column: $table.thruDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get creator => $composableBuilder(
+      column: $table.creator, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tokenId => $composableBuilder(
+      column: $table.tokenId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get metadataTypeId => $composableBuilder(
+      column: $table.metadataTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.MetadataType?, i3.MetadataType, String>
+      get metadataType => $composableBuilder(
+          column: $table.metadataType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.MetadataStatus>?,
+          List<i3.MetadataStatus>, String>
+      get metadataStatus => $composableBuilder(
+          column: $table.metadataStatus,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $MetadataOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Metadata> {
+  $MetadataOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get metadataId => $composableBuilder(
+      column: $table.metadataId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get value => $composableBuilder(
+      column: $table.value, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get fromDate => $composableBuilder(
+      column: $table.fromDate, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get thruDate => $composableBuilder(
+      column: $table.thruDate, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get creator => $composableBuilder(
+      column: $table.creator, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tokenId => $composableBuilder(
+      column: $table.tokenId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get metadataTypeId => $composableBuilder(
+      column: $table.metadataTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get metadataType => $composableBuilder(
+      column: $table.metadataType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get metadataStatus => $composableBuilder(
+      column: $table.metadataStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $MetadataAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Metadata> {
+  $MetadataAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get metadataId => $composableBuilder(
+      column: $table.metadataId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get value =>
+          $composableBuilder(column: $table.value, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get fromDate =>
+      $composableBuilder(column: $table.fromDate, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get thruDate =>
+      $composableBuilder(column: $table.thruDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get creator =>
+      $composableBuilder(column: $table.creator, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get comments =>
+      $composableBuilder(column: $table.comments, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tokenId =>
+      $composableBuilder(column: $table.tokenId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get image =>
+      $composableBuilder(column: $table.image, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get metadataTypeId => $composableBuilder(
+      column: $table.metadataTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.MetadataType?, String>
+      get metadataType => $composableBuilder(
+          column: $table.metadataType, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.MetadataStatus>?, String>
+      get metadataStatus => $composableBuilder(
+          column: $table.metadataStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $MetadataTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Metadata,
+    i1.MetadataData,
+    i1.$MetadataFilterComposer,
+    i1.$MetadataOrderingComposer,
+    i1.$MetadataAnnotationComposer,
+    $MetadataCreateCompanionBuilder,
+    $MetadataUpdateCompanionBuilder,
+    (
+      i1.MetadataData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Metadata, i1.MetadataData>
+    ),
+    i1.MetadataData,
+    i0.PrefetchHooks Function()> {
+  $MetadataTableManager(i0.GeneratedDatabase db, i1.Metadata table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$MetadataFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$MetadataOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$MetadataAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> metadataId = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> value =
+                const i0.Value.absent(),
+            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
+            i0.Value<DateTime?> thruDate = const i0.Value.absent(),
+            i0.Value<String?> creator = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> image = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> metadataTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
+            i0.Value<List<i3.MetadataStatus>?> metadataStatus =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.MetadataCompanion(
+            metadataId: metadataId,
+            value: value,
+            fromDate: fromDate,
+            thruDate: thruDate,
+            creator: creator,
+            comments: comments,
+            tokenId: tokenId,
+            name: name,
+            image: image,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            metadataTypeId: metadataTypeId,
+            statusId: statusId,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            evict: evict,
+            metadataType: metadataType,
+            metadataStatus: metadataStatus,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String metadataId,
+            i0.Value<i2.Multimap<String, String>?> value =
+                const i0.Value.absent(),
+            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
+            i0.Value<DateTime?> thruDate = const i0.Value.absent(),
+            i0.Value<String?> creator = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> image = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> metadataTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
+            i0.Value<List<i3.MetadataStatus>?> metadataStatus =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.MetadataCompanion.insert(
+            metadataId: metadataId,
+            value: value,
+            fromDate: fromDate,
+            thruDate: thruDate,
+            creator: creator,
+            comments: comments,
+            tokenId: tokenId,
+            name: name,
+            image: image,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            metadataTypeId: metadataTypeId,
+            statusId: statusId,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            evict: evict,
+            metadataType: metadataType,
+            metadataStatus: metadataStatus,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $MetadataProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Metadata,
+    i1.MetadataData,
+    i1.$MetadataFilterComposer,
+    i1.$MetadataOrderingComposer,
+    i1.$MetadataAnnotationComposer,
+    $MetadataCreateCompanionBuilder,
+    $MetadataUpdateCompanionBuilder,
+    (
+      i1.MetadataData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Metadata, i1.MetadataData>
+    ),
+    i1.MetadataData,
+    i0.PrefetchHooks Function()>;
+
 class Metadata extends i0.Table with i0.TableInfo<Metadata, i1.MetadataData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -1117,444 +1572,6 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
         .toString();
   }
 }
-
-typedef $MetadataCreateCompanionBuilder = i1.MetadataCompanion Function({
-  required String metadataId,
-  i0.Value<i2.Multimap<String, String>?> value,
-  i0.Value<DateTime?> fromDate,
-  i0.Value<DateTime?> thruDate,
-  i0.Value<String?> creator,
-  i0.Value<String?> comments,
-  i0.Value<String?> tokenId,
-  i0.Value<String?> name,
-  i0.Value<String?> image,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> metadataTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<bool?> evict,
-  i0.Value<i3.MetadataType?> metadataType,
-  i0.Value<List<i3.MetadataStatus>?> metadataStatus,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $MetadataUpdateCompanionBuilder = i1.MetadataCompanion Function({
-  i0.Value<String> metadataId,
-  i0.Value<i2.Multimap<String, String>?> value,
-  i0.Value<DateTime?> fromDate,
-  i0.Value<DateTime?> thruDate,
-  i0.Value<String?> creator,
-  i0.Value<String?> comments,
-  i0.Value<String?> tokenId,
-  i0.Value<String?> name,
-  i0.Value<String?> image,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> metadataTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<bool?> evict,
-  i0.Value<i3.MetadataType?> metadataType,
-  i0.Value<List<i3.MetadataStatus>?> metadataStatus,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $MetadataFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Metadata> {
-  $MetadataFilterComposer(super.$state);
-  i0.ColumnFilters<String> get metadataId => $state.composableBuilder(
-      column: $state.table.metadataId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get value => $state.composableBuilder(
-          column: $state.table.value,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get fromDate => $state.composableBuilder(
-      column: $state.table.fromDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get thruDate => $state.composableBuilder(
-      column: $state.table.thruDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get creator => $state.composableBuilder(
-      column: $state.table.creator,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tokenId => $state.composableBuilder(
-      column: $state.table.tokenId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get metadataTypeId => $state.composableBuilder(
-      column: $state.table.metadataTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.MetadataType?, i3.MetadataType, String>
-      get metadataType => $state.composableBuilder(
-          column: $state.table.metadataType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.MetadataStatus>?,
-          List<i3.MetadataStatus>, String>
-      get metadataStatus => $state.composableBuilder(
-          column: $state.table.metadataStatus,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $MetadataOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Metadata> {
-  $MetadataOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get metadataId => $state.composableBuilder(
-      column: $state.table.metadataId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get value => $state.composableBuilder(
-      column: $state.table.value,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get fromDate => $state.composableBuilder(
-      column: $state.table.fromDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get thruDate => $state.composableBuilder(
-      column: $state.table.thruDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get creator => $state.composableBuilder(
-      column: $state.table.creator,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tokenId => $state.composableBuilder(
-      column: $state.table.tokenId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get metadataTypeId => $state.composableBuilder(
-      column: $state.table.metadataTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get metadataType => $state.composableBuilder(
-      column: $state.table.metadataType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get metadataStatus => $state.composableBuilder(
-      column: $state.table.metadataStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $MetadataTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Metadata,
-    i1.MetadataData,
-    i1.$MetadataFilterComposer,
-    i1.$MetadataOrderingComposer,
-    $MetadataCreateCompanionBuilder,
-    $MetadataUpdateCompanionBuilder,
-    (
-      i1.MetadataData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Metadata, i1.MetadataData>
-    ),
-    i1.MetadataData,
-    i0.PrefetchHooks Function()> {
-  $MetadataTableManager(i0.GeneratedDatabase db, i1.Metadata table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$MetadataFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$MetadataOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> metadataId = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> value =
-                const i0.Value.absent(),
-            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
-            i0.Value<DateTime?> thruDate = const i0.Value.absent(),
-            i0.Value<String?> creator = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<String?> tokenId = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> image = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> metadataTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
-            i0.Value<List<i3.MetadataStatus>?> metadataStatus =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.MetadataCompanion(
-            metadataId: metadataId,
-            value: value,
-            fromDate: fromDate,
-            thruDate: thruDate,
-            creator: creator,
-            comments: comments,
-            tokenId: tokenId,
-            name: name,
-            image: image,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            metadataTypeId: metadataTypeId,
-            statusId: statusId,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            evict: evict,
-            metadataType: metadataType,
-            metadataStatus: metadataStatus,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String metadataId,
-            i0.Value<i2.Multimap<String, String>?> value =
-                const i0.Value.absent(),
-            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
-            i0.Value<DateTime?> thruDate = const i0.Value.absent(),
-            i0.Value<String?> creator = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<String?> tokenId = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> image = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> metadataTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
-            i0.Value<List<i3.MetadataStatus>?> metadataStatus =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.MetadataCompanion.insert(
-            metadataId: metadataId,
-            value: value,
-            fromDate: fromDate,
-            thruDate: thruDate,
-            creator: creator,
-            comments: comments,
-            tokenId: tokenId,
-            name: name,
-            image: image,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            metadataTypeId: metadataTypeId,
-            statusId: statusId,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            evict: evict,
-            metadataType: metadataType,
-            metadataStatus: metadataStatus,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $MetadataProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Metadata,
-    i1.MetadataData,
-    i1.$MetadataFilterComposer,
-    i1.$MetadataOrderingComposer,
-    $MetadataCreateCompanionBuilder,
-    $MetadataUpdateCompanionBuilder,
-    (
-      i1.MetadataData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Metadata, i1.MetadataData>
-    ),
-    i1.MetadataData,
-    i0.PrefetchHooks Function()>;
 
 class MetadataDrift extends i6.ModularAccessor {
   MetadataDrift(i0.GeneratedDatabase db) : super(db);

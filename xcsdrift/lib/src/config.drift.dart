@@ -5,6 +5,273 @@ import 'package:quiver/src/collection/multimap.dart' as i2;
 import 'package:xcsdrift/fldconv.dart' as i3;
 import 'package:drift/internal/modular.dart' as i4;
 
+typedef $ConfigCreateCompanionBuilder = i1.ConfigCompanion Function({
+  required String configId,
+  i0.Value<i2.Multimap<String, String>?> elements,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> configTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ConfigUpdateCompanionBuilder = i1.ConfigCompanion Function({
+  i0.Value<String> configId,
+  i0.Value<i2.Multimap<String, String>?> elements,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> configTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ConfigFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Config> {
+  $ConfigFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get configId => $composableBuilder(
+      column: $table.configId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get elements => $composableBuilder(
+          column: $table.elements,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get configTypeId => $composableBuilder(
+      column: $table.configTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ConfigOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Config> {
+  $ConfigOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get configId => $composableBuilder(
+      column: $table.configId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get elements => $composableBuilder(
+      column: $table.elements, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get configTypeId => $composableBuilder(
+      column: $table.configTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ConfigAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Config> {
+  $ConfigAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get configId =>
+      $composableBuilder(column: $table.configId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get elements => $composableBuilder(
+          column: $table.elements, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get configTypeId => $composableBuilder(
+      column: $table.configTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ConfigTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Config,
+    i1.ConfigData,
+    i1.$ConfigFilterComposer,
+    i1.$ConfigOrderingComposer,
+    i1.$ConfigAnnotationComposer,
+    $ConfigCreateCompanionBuilder,
+    $ConfigUpdateCompanionBuilder,
+    (
+      i1.ConfigData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Config, i1.ConfigData>
+    ),
+    i1.ConfigData,
+    i0.PrefetchHooks Function()> {
+  $ConfigTableManager(i0.GeneratedDatabase db, i1.Config table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ConfigFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ConfigOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ConfigAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> configId = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> elements =
+                const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> configTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ConfigCompanion(
+            configId: configId,
+            elements: elements,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            configTypeId: configTypeId,
+            statusId: statusId,
+            evict: evict,
+            acl: acl,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String configId,
+            i0.Value<i2.Multimap<String, String>?> elements =
+                const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> configTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ConfigCompanion.insert(
+            configId: configId,
+            elements: elements,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            configTypeId: configTypeId,
+            statusId: statusId,
+            evict: evict,
+            acl: acl,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ConfigProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Config,
+    i1.ConfigData,
+    i1.$ConfigFilterComposer,
+    i1.$ConfigOrderingComposer,
+    i1.$ConfigAnnotationComposer,
+    $ConfigCreateCompanionBuilder,
+    $ConfigUpdateCompanionBuilder,
+    (
+      i1.ConfigData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Config, i1.ConfigData>
+    ),
+    i1.ConfigData,
+    i0.PrefetchHooks Function()>;
+
 class Config extends i0.Table with i0.TableInfo<Config, i1.ConfigData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -586,248 +853,6 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
         .toString();
   }
 }
-
-typedef $ConfigCreateCompanionBuilder = i1.ConfigCompanion Function({
-  required String configId,
-  i0.Value<i2.Multimap<String, String>?> elements,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> configTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ConfigUpdateCompanionBuilder = i1.ConfigCompanion Function({
-  i0.Value<String> configId,
-  i0.Value<i2.Multimap<String, String>?> elements,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> configTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ConfigFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Config> {
-  $ConfigFilterComposer(super.$state);
-  i0.ColumnFilters<String> get configId => $state.composableBuilder(
-      column: $state.table.configId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get elements => $state.composableBuilder(
-          column: $state.table.elements,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get configTypeId => $state.composableBuilder(
-      column: $state.table.configTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ConfigOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Config> {
-  $ConfigOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get configId => $state.composableBuilder(
-      column: $state.table.configId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get elements => $state.composableBuilder(
-      column: $state.table.elements,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get configTypeId => $state.composableBuilder(
-      column: $state.table.configTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ConfigTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Config,
-    i1.ConfigData,
-    i1.$ConfigFilterComposer,
-    i1.$ConfigOrderingComposer,
-    $ConfigCreateCompanionBuilder,
-    $ConfigUpdateCompanionBuilder,
-    (
-      i1.ConfigData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Config, i1.ConfigData>
-    ),
-    i1.ConfigData,
-    i0.PrefetchHooks Function()> {
-  $ConfigTableManager(i0.GeneratedDatabase db, i1.Config table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ConfigFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ConfigOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> configId = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> elements =
-                const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> configTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ConfigCompanion(
-            configId: configId,
-            elements: elements,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            configTypeId: configTypeId,
-            statusId: statusId,
-            evict: evict,
-            acl: acl,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String configId,
-            i0.Value<i2.Multimap<String, String>?> elements =
-                const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> configTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ConfigCompanion.insert(
-            configId: configId,
-            elements: elements,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            configTypeId: configTypeId,
-            statusId: statusId,
-            evict: evict,
-            acl: acl,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ConfigProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Config,
-    i1.ConfigData,
-    i1.$ConfigFilterComposer,
-    i1.$ConfigOrderingComposer,
-    $ConfigCreateCompanionBuilder,
-    $ConfigUpdateCompanionBuilder,
-    (
-      i1.ConfigData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Config, i1.ConfigData>
-    ),
-    i1.ConfigData,
-    i0.PrefetchHooks Function()>;
 
 class ConfigDrift extends i4.ModularAccessor {
   ConfigDrift(i0.GeneratedDatabase db) : super(db);

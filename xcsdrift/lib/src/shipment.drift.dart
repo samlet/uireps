@@ -7,6 +7,1145 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/shipment_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $ShipmentCreateCompanionBuilder = i1.ShipmentCompanion Function({
+  required String shipmentId,
+  i0.Value<String?> shipmentTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> primaryOrderId,
+  i0.Value<String?> primaryReturnId,
+  i0.Value<String?> primaryShipGroupSeqId,
+  i0.Value<String?> picklistBinId,
+  i0.Value<DateTime?> estimatedReadyDate,
+  i0.Value<DateTime?> estimatedShipDate,
+  i0.Value<String?> estimatedShipWorkEffId,
+  i0.Value<DateTime?> estimatedArrivalDate,
+  i0.Value<String?> estimatedArrivalWorkEffId,
+  i0.Value<DateTime?> latestCancelDate,
+  i0.Value<double?> estimatedShipCost,
+  i0.Value<String?> currencyUomId,
+  i0.Value<String?> handlingInstructions,
+  i0.Value<String?> originFacilityId,
+  i0.Value<String?> destinationFacilityId,
+  i0.Value<String?> originContactMechId,
+  i0.Value<String?> originTelecomNumberId,
+  i0.Value<String?> destinationContactMechId,
+  i0.Value<String?> destinationTelecomNumberId,
+  i0.Value<String?> partyIdTo,
+  i0.Value<String?> partyIdFrom,
+  i0.Value<double?> additionalShippingCharge,
+  i0.Value<String?> addtlShippingChargeDesc,
+  i0.Value<DateTime?> createdDate,
+  i0.Value<String?> createdByUserLogin,
+  i0.Value<DateTime?> lastModifiedDate,
+  i0.Value<String?> lastModifiedByUserLogin,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> shipBinId,
+  i0.Value<double?> ncopies,
+  i0.Value<String?> accountId,
+  i0.Value<String?> tokenId,
+  i0.Value<String?> origin,
+  i0.Value<String?> shipmentErcId,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
+  i0.Value<List<i3.ShippingDocument>?> shippingDocument,
+  i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature,
+  i0.Value<List<i3.ShipmentPackageRouteSeg>?> shipmentPackageRouteSeg,
+  i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment,
+  i0.Value<List<i3.ShipmentStatus>?> shipmentStatus,
+  i0.Value<List<i3.ShipmentPackage>?> shipmentPackage,
+  i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt,
+  i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig,
+  i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent,
+  i0.Value<List<i3.ShipmentItem>?> shipmentItem,
+  i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ShipmentUpdateCompanionBuilder = i1.ShipmentCompanion Function({
+  i0.Value<String> shipmentId,
+  i0.Value<String?> shipmentTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> primaryOrderId,
+  i0.Value<String?> primaryReturnId,
+  i0.Value<String?> primaryShipGroupSeqId,
+  i0.Value<String?> picklistBinId,
+  i0.Value<DateTime?> estimatedReadyDate,
+  i0.Value<DateTime?> estimatedShipDate,
+  i0.Value<String?> estimatedShipWorkEffId,
+  i0.Value<DateTime?> estimatedArrivalDate,
+  i0.Value<String?> estimatedArrivalWorkEffId,
+  i0.Value<DateTime?> latestCancelDate,
+  i0.Value<double?> estimatedShipCost,
+  i0.Value<String?> currencyUomId,
+  i0.Value<String?> handlingInstructions,
+  i0.Value<String?> originFacilityId,
+  i0.Value<String?> destinationFacilityId,
+  i0.Value<String?> originContactMechId,
+  i0.Value<String?> originTelecomNumberId,
+  i0.Value<String?> destinationContactMechId,
+  i0.Value<String?> destinationTelecomNumberId,
+  i0.Value<String?> partyIdTo,
+  i0.Value<String?> partyIdFrom,
+  i0.Value<double?> additionalShippingCharge,
+  i0.Value<String?> addtlShippingChargeDesc,
+  i0.Value<DateTime?> createdDate,
+  i0.Value<String?> createdByUserLogin,
+  i0.Value<DateTime?> lastModifiedDate,
+  i0.Value<String?> lastModifiedByUserLogin,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> shipBinId,
+  i0.Value<double?> ncopies,
+  i0.Value<String?> accountId,
+  i0.Value<String?> tokenId,
+  i0.Value<String?> origin,
+  i0.Value<String?> shipmentErcId,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
+  i0.Value<List<i3.ShippingDocument>?> shippingDocument,
+  i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature,
+  i0.Value<List<i3.ShipmentPackageRouteSeg>?> shipmentPackageRouteSeg,
+  i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment,
+  i0.Value<List<i3.ShipmentStatus>?> shipmentStatus,
+  i0.Value<List<i3.ShipmentPackage>?> shipmentPackage,
+  i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt,
+  i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig,
+  i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent,
+  i0.Value<List<i3.ShipmentItem>?> shipmentItem,
+  i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ShipmentFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Shipment> {
+  $ShipmentFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get shipmentId => $composableBuilder(
+      column: $table.shipmentId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shipmentTypeId => $composableBuilder(
+      column: $table.shipmentTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get primaryOrderId => $composableBuilder(
+      column: $table.primaryOrderId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get primaryReturnId => $composableBuilder(
+      column: $table.primaryReturnId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get primaryShipGroupSeqId => $composableBuilder(
+      column: $table.primaryShipGroupSeqId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get picklistBinId => $composableBuilder(
+      column: $table.picklistBinId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get estimatedReadyDate => $composableBuilder(
+      column: $table.estimatedReadyDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get estimatedShipDate => $composableBuilder(
+      column: $table.estimatedShipDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get estimatedShipWorkEffId => $composableBuilder(
+      column: $table.estimatedShipWorkEffId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get estimatedArrivalDate => $composableBuilder(
+      column: $table.estimatedArrivalDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get estimatedArrivalWorkEffId => $composableBuilder(
+      column: $table.estimatedArrivalWorkEffId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get latestCancelDate => $composableBuilder(
+      column: $table.latestCancelDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get estimatedShipCost => $composableBuilder(
+      column: $table.estimatedShipCost,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get currencyUomId => $composableBuilder(
+      column: $table.currencyUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get handlingInstructions => $composableBuilder(
+      column: $table.handlingInstructions,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get originFacilityId => $composableBuilder(
+      column: $table.originFacilityId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get destinationFacilityId => $composableBuilder(
+      column: $table.destinationFacilityId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get originContactMechId => $composableBuilder(
+      column: $table.originContactMechId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get originTelecomNumberId => $composableBuilder(
+      column: $table.originTelecomNumberId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get destinationContactMechId => $composableBuilder(
+      column: $table.destinationContactMechId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get destinationTelecomNumberId => $composableBuilder(
+      column: $table.destinationTelecomNumberId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get partyIdTo => $composableBuilder(
+      column: $table.partyIdTo, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get partyIdFrom => $composableBuilder(
+      column: $table.partyIdFrom,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get additionalShippingCharge => $composableBuilder(
+      column: $table.additionalShippingCharge,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get addtlShippingChargeDesc => $composableBuilder(
+      column: $table.addtlShippingChargeDesc,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdDate => $composableBuilder(
+      column: $table.createdDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get createdByUserLogin => $composableBuilder(
+      column: $table.createdByUserLogin,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastModifiedDate => $composableBuilder(
+      column: $table.lastModifiedDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get lastModifiedByUserLogin => $composableBuilder(
+      column: $table.lastModifiedByUserLogin,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shipBinId => $composableBuilder(
+      column: $table.shipBinId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get ncopies => $composableBuilder(
+      column: $table.ncopies, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get accountId => $composableBuilder(
+      column: $table.accountId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tokenId => $composableBuilder(
+      column: $table.tokenId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get origin => $composableBuilder(
+      column: $table.origin, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shipmentErcId => $composableBuilder(
+      column: $table.shipmentErcId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItemBilling>?,
+          List<i3.ShipmentItemBilling>, String>
+      get shipmentItemBilling => $composableBuilder(
+          column: $table.shipmentItemBilling,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShippingDocument>?,
+          List<i3.ShippingDocument>, String>
+      get shippingDocument => $composableBuilder(
+          column: $table.shippingDocument,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItemFeature>?,
+          List<i3.ShipmentItemFeature>, String>
+      get shipmentItemFeature => $composableBuilder(
+          column: $table.shipmentItemFeature,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentPackageRouteSeg>?,
+          List<i3.ShipmentPackageRouteSeg>, String>
+      get shipmentPackageRouteSeg => $composableBuilder(
+          column: $table.shipmentPackageRouteSeg,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentRouteSegment>?,
+          List<i3.ShipmentRouteSegment>, String>
+      get shipmentRouteSegment => $composableBuilder(
+          column: $table.shipmentRouteSegment,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentStatus>?,
+          List<i3.ShipmentStatus>, String>
+      get shipmentStatus => $composableBuilder(
+          column: $table.shipmentStatus,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentPackage>?,
+          List<i3.ShipmentPackage>, String>
+      get shipmentPackage => $composableBuilder(
+          column: $table.shipmentPackage,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentReceipt>?,
+          List<i3.ShipmentReceipt>, String>
+      get shipmentReceipt => $composableBuilder(
+          column: $table.shipmentReceipt,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentMultisig>?,
+          List<i3.ShipmentMultisig>, String>
+      get shipmentMultisig => $composableBuilder(
+          column: $table.shipmentMultisig,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentPackageContent>?,
+          List<i3.ShipmentPackageContent>, String>
+      get shipmentPackageContent => $composableBuilder(
+          column: $table.shipmentPackageContent,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItem>?,
+          List<i3.ShipmentItem>, String>
+      get shipmentItem => $composableBuilder(
+          column: $table.shipmentItem,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentGeoForce>?,
+          List<i3.ShipmentGeoForce>, String>
+      get shipmentGeoForce => $composableBuilder(
+          column: $table.shipmentGeoForce,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ShipmentOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Shipment> {
+  $ShipmentOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get shipmentId => $composableBuilder(
+      column: $table.shipmentId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentTypeId => $composableBuilder(
+      column: $table.shipmentTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get primaryOrderId => $composableBuilder(
+      column: $table.primaryOrderId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get primaryReturnId => $composableBuilder(
+      column: $table.primaryReturnId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get primaryShipGroupSeqId => $composableBuilder(
+      column: $table.primaryShipGroupSeqId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get picklistBinId => $composableBuilder(
+      column: $table.picklistBinId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get estimatedReadyDate => $composableBuilder(
+      column: $table.estimatedReadyDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get estimatedShipDate => $composableBuilder(
+      column: $table.estimatedShipDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get estimatedShipWorkEffId => $composableBuilder(
+      column: $table.estimatedShipWorkEffId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get estimatedArrivalDate => $composableBuilder(
+      column: $table.estimatedArrivalDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get estimatedArrivalWorkEffId =>
+      $composableBuilder(
+          column: $table.estimatedArrivalWorkEffId,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get latestCancelDate => $composableBuilder(
+      column: $table.latestCancelDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get estimatedShipCost => $composableBuilder(
+      column: $table.estimatedShipCost,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get currencyUomId => $composableBuilder(
+      column: $table.currencyUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get handlingInstructions => $composableBuilder(
+      column: $table.handlingInstructions,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get originFacilityId => $composableBuilder(
+      column: $table.originFacilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get destinationFacilityId => $composableBuilder(
+      column: $table.destinationFacilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get originContactMechId => $composableBuilder(
+      column: $table.originContactMechId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get originTelecomNumberId => $composableBuilder(
+      column: $table.originTelecomNumberId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get destinationContactMechId => $composableBuilder(
+      column: $table.destinationContactMechId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get destinationTelecomNumberId =>
+      $composableBuilder(
+          column: $table.destinationTelecomNumberId,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get partyIdTo => $composableBuilder(
+      column: $table.partyIdTo,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get partyIdFrom => $composableBuilder(
+      column: $table.partyIdFrom,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get additionalShippingCharge => $composableBuilder(
+      column: $table.additionalShippingCharge,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get addtlShippingChargeDesc => $composableBuilder(
+      column: $table.addtlShippingChargeDesc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdDate => $composableBuilder(
+      column: $table.createdDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get createdByUserLogin => $composableBuilder(
+      column: $table.createdByUserLogin,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastModifiedDate => $composableBuilder(
+      column: $table.lastModifiedDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get lastModifiedByUserLogin => $composableBuilder(
+      column: $table.lastModifiedByUserLogin,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipBinId => $composableBuilder(
+      column: $table.shipBinId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get ncopies => $composableBuilder(
+      column: $table.ncopies, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get accountId => $composableBuilder(
+      column: $table.accountId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tokenId => $composableBuilder(
+      column: $table.tokenId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get origin => $composableBuilder(
+      column: $table.origin, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentErcId => $composableBuilder(
+      column: $table.shipmentErcId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentItemBilling => $composableBuilder(
+      column: $table.shipmentItemBilling,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shippingDocument => $composableBuilder(
+      column: $table.shippingDocument,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentItemFeature => $composableBuilder(
+      column: $table.shipmentItemFeature,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentPackageRouteSeg => $composableBuilder(
+      column: $table.shipmentPackageRouteSeg,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentRouteSegment => $composableBuilder(
+      column: $table.shipmentRouteSegment,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentStatus => $composableBuilder(
+      column: $table.shipmentStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentPackage => $composableBuilder(
+      column: $table.shipmentPackage,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentReceipt => $composableBuilder(
+      column: $table.shipmentReceipt,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentMultisig => $composableBuilder(
+      column: $table.shipmentMultisig,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentPackageContent => $composableBuilder(
+      column: $table.shipmentPackageContent,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentItem => $composableBuilder(
+      column: $table.shipmentItem,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipmentGeoForce => $composableBuilder(
+      column: $table.shipmentGeoForce,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ShipmentAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Shipment> {
+  $ShipmentAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get shipmentId => $composableBuilder(
+      column: $table.shipmentId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shipmentTypeId => $composableBuilder(
+      column: $table.shipmentTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get primaryOrderId => $composableBuilder(
+      column: $table.primaryOrderId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get primaryReturnId => $composableBuilder(
+      column: $table.primaryReturnId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get primaryShipGroupSeqId => $composableBuilder(
+      column: $table.primaryShipGroupSeqId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get picklistBinId => $composableBuilder(
+      column: $table.picklistBinId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get estimatedReadyDate => $composableBuilder(
+      column: $table.estimatedReadyDate, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get estimatedShipDate => $composableBuilder(
+      column: $table.estimatedShipDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get estimatedShipWorkEffId => $composableBuilder(
+      column: $table.estimatedShipWorkEffId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get estimatedArrivalDate => $composableBuilder(
+      column: $table.estimatedArrivalDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get estimatedArrivalWorkEffId =>
+      $composableBuilder(
+          column: $table.estimatedArrivalWorkEffId,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get latestCancelDate => $composableBuilder(
+      column: $table.latestCancelDate, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get estimatedShipCost => $composableBuilder(
+      column: $table.estimatedShipCost, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get currencyUomId => $composableBuilder(
+      column: $table.currencyUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get handlingInstructions => $composableBuilder(
+      column: $table.handlingInstructions, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get originFacilityId => $composableBuilder(
+      column: $table.originFacilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get destinationFacilityId => $composableBuilder(
+      column: $table.destinationFacilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get originContactMechId => $composableBuilder(
+      column: $table.originContactMechId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get originTelecomNumberId => $composableBuilder(
+      column: $table.originTelecomNumberId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get destinationContactMechId => $composableBuilder(
+      column: $table.destinationContactMechId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get destinationTelecomNumberId =>
+      $composableBuilder(
+          column: $table.destinationTelecomNumberId,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get partyIdTo =>
+      $composableBuilder(column: $table.partyIdTo, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get partyIdFrom => $composableBuilder(
+      column: $table.partyIdFrom, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get additionalShippingCharge => $composableBuilder(
+      column: $table.additionalShippingCharge, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get addtlShippingChargeDesc => $composableBuilder(
+      column: $table.addtlShippingChargeDesc, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdDate => $composableBuilder(
+      column: $table.createdDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get createdByUserLogin => $composableBuilder(
+      column: $table.createdByUserLogin, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastModifiedDate => $composableBuilder(
+      column: $table.lastModifiedDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get lastModifiedByUserLogin => $composableBuilder(
+      column: $table.lastModifiedByUserLogin, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shipBinId =>
+      $composableBuilder(column: $table.shipBinId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get ncopies =>
+      $composableBuilder(column: $table.ncopies, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get accountId =>
+      $composableBuilder(column: $table.accountId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tokenId =>
+      $composableBuilder(column: $table.tokenId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get origin =>
+      $composableBuilder(column: $table.origin, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shipmentErcId => $composableBuilder(
+      column: $table.shipmentErcId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentItemBilling>?, String>
+      get shipmentItemBilling => $composableBuilder(
+          column: $table.shipmentItemBilling, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShippingDocument>?, String>
+      get shippingDocument => $composableBuilder(
+          column: $table.shippingDocument, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentItemFeature>?, String>
+      get shipmentItemFeature => $composableBuilder(
+          column: $table.shipmentItemFeature, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentPackageRouteSeg>?, String>
+      get shipmentPackageRouteSeg => $composableBuilder(
+          column: $table.shipmentPackageRouteSeg, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentRouteSegment>?, String>
+      get shipmentRouteSegment => $composableBuilder(
+          column: $table.shipmentRouteSegment, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentStatus>?, String>
+      get shipmentStatus => $composableBuilder(
+          column: $table.shipmentStatus, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentPackage>?, String>
+      get shipmentPackage => $composableBuilder(
+          column: $table.shipmentPackage, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentReceipt>?, String>
+      get shipmentReceipt => $composableBuilder(
+          column: $table.shipmentReceipt, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentMultisig>?, String>
+      get shipmentMultisig => $composableBuilder(
+          column: $table.shipmentMultisig, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentPackageContent>?, String>
+      get shipmentPackageContent => $composableBuilder(
+          column: $table.shipmentPackageContent, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentItem>?, String>
+      get shipmentItem => $composableBuilder(
+          column: $table.shipmentItem, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentGeoForce>?, String>
+      get shipmentGeoForce => $composableBuilder(
+          column: $table.shipmentGeoForce, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ShipmentTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Shipment,
+    i1.ShipmentData,
+    i1.$ShipmentFilterComposer,
+    i1.$ShipmentOrderingComposer,
+    i1.$ShipmentAnnotationComposer,
+    $ShipmentCreateCompanionBuilder,
+    $ShipmentUpdateCompanionBuilder,
+    (
+      i1.ShipmentData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Shipment, i1.ShipmentData>
+    ),
+    i1.ShipmentData,
+    i0.PrefetchHooks Function()> {
+  $ShipmentTableManager(i0.GeneratedDatabase db, i1.Shipment table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ShipmentFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ShipmentOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ShipmentAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> shipmentId = const i0.Value.absent(),
+            i0.Value<String?> shipmentTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> primaryOrderId = const i0.Value.absent(),
+            i0.Value<String?> primaryReturnId = const i0.Value.absent(),
+            i0.Value<String?> primaryShipGroupSeqId = const i0.Value.absent(),
+            i0.Value<String?> picklistBinId = const i0.Value.absent(),
+            i0.Value<DateTime?> estimatedReadyDate = const i0.Value.absent(),
+            i0.Value<DateTime?> estimatedShipDate = const i0.Value.absent(),
+            i0.Value<String?> estimatedShipWorkEffId = const i0.Value.absent(),
+            i0.Value<DateTime?> estimatedArrivalDate = const i0.Value.absent(),
+            i0.Value<String?> estimatedArrivalWorkEffId =
+                const i0.Value.absent(),
+            i0.Value<DateTime?> latestCancelDate = const i0.Value.absent(),
+            i0.Value<double?> estimatedShipCost = const i0.Value.absent(),
+            i0.Value<String?> currencyUomId = const i0.Value.absent(),
+            i0.Value<String?> handlingInstructions = const i0.Value.absent(),
+            i0.Value<String?> originFacilityId = const i0.Value.absent(),
+            i0.Value<String?> destinationFacilityId = const i0.Value.absent(),
+            i0.Value<String?> originContactMechId = const i0.Value.absent(),
+            i0.Value<String?> originTelecomNumberId = const i0.Value.absent(),
+            i0.Value<String?> destinationContactMechId =
+                const i0.Value.absent(),
+            i0.Value<String?> destinationTelecomNumberId =
+                const i0.Value.absent(),
+            i0.Value<String?> partyIdTo = const i0.Value.absent(),
+            i0.Value<String?> partyIdFrom = const i0.Value.absent(),
+            i0.Value<double?> additionalShippingCharge =
+                const i0.Value.absent(),
+            i0.Value<String?> addtlShippingChargeDesc = const i0.Value.absent(),
+            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
+            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
+            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
+            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> shipBinId = const i0.Value.absent(),
+            i0.Value<double?> ncopies = const i0.Value.absent(),
+            i0.Value<String?> accountId = const i0.Value.absent(),
+            i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<String?> origin = const i0.Value.absent(),
+            i0.Value<String?> shipmentErcId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShippingDocument>?> shippingDocument =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentPackageRouteSeg>?>
+                shipmentPackageRouteSeg = const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentStatus>?> shipmentStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentPackage>?> shipmentPackage =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentItem>?> shipmentItem =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ShipmentCompanion(
+            shipmentId: shipmentId,
+            shipmentTypeId: shipmentTypeId,
+            statusId: statusId,
+            primaryOrderId: primaryOrderId,
+            primaryReturnId: primaryReturnId,
+            primaryShipGroupSeqId: primaryShipGroupSeqId,
+            picklistBinId: picklistBinId,
+            estimatedReadyDate: estimatedReadyDate,
+            estimatedShipDate: estimatedShipDate,
+            estimatedShipWorkEffId: estimatedShipWorkEffId,
+            estimatedArrivalDate: estimatedArrivalDate,
+            estimatedArrivalWorkEffId: estimatedArrivalWorkEffId,
+            latestCancelDate: latestCancelDate,
+            estimatedShipCost: estimatedShipCost,
+            currencyUomId: currencyUomId,
+            handlingInstructions: handlingInstructions,
+            originFacilityId: originFacilityId,
+            destinationFacilityId: destinationFacilityId,
+            originContactMechId: originContactMechId,
+            originTelecomNumberId: originTelecomNumberId,
+            destinationContactMechId: destinationContactMechId,
+            destinationTelecomNumberId: destinationTelecomNumberId,
+            partyIdTo: partyIdTo,
+            partyIdFrom: partyIdFrom,
+            additionalShippingCharge: additionalShippingCharge,
+            addtlShippingChargeDesc: addtlShippingChargeDesc,
+            createdDate: createdDate,
+            createdByUserLogin: createdByUserLogin,
+            lastModifiedDate: lastModifiedDate,
+            lastModifiedByUserLogin: lastModifiedByUserLogin,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            shipBinId: shipBinId,
+            ncopies: ncopies,
+            accountId: accountId,
+            tokenId: tokenId,
+            origin: origin,
+            shipmentErcId: shipmentErcId,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            acl: acl,
+            shipmentItemBilling: shipmentItemBilling,
+            shippingDocument: shippingDocument,
+            shipmentItemFeature: shipmentItemFeature,
+            shipmentPackageRouteSeg: shipmentPackageRouteSeg,
+            shipmentRouteSegment: shipmentRouteSegment,
+            shipmentStatus: shipmentStatus,
+            shipmentPackage: shipmentPackage,
+            shipmentReceipt: shipmentReceipt,
+            shipmentMultisig: shipmentMultisig,
+            shipmentPackageContent: shipmentPackageContent,
+            shipmentItem: shipmentItem,
+            shipmentGeoForce: shipmentGeoForce,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String shipmentId,
+            i0.Value<String?> shipmentTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> primaryOrderId = const i0.Value.absent(),
+            i0.Value<String?> primaryReturnId = const i0.Value.absent(),
+            i0.Value<String?> primaryShipGroupSeqId = const i0.Value.absent(),
+            i0.Value<String?> picklistBinId = const i0.Value.absent(),
+            i0.Value<DateTime?> estimatedReadyDate = const i0.Value.absent(),
+            i0.Value<DateTime?> estimatedShipDate = const i0.Value.absent(),
+            i0.Value<String?> estimatedShipWorkEffId = const i0.Value.absent(),
+            i0.Value<DateTime?> estimatedArrivalDate = const i0.Value.absent(),
+            i0.Value<String?> estimatedArrivalWorkEffId =
+                const i0.Value.absent(),
+            i0.Value<DateTime?> latestCancelDate = const i0.Value.absent(),
+            i0.Value<double?> estimatedShipCost = const i0.Value.absent(),
+            i0.Value<String?> currencyUomId = const i0.Value.absent(),
+            i0.Value<String?> handlingInstructions = const i0.Value.absent(),
+            i0.Value<String?> originFacilityId = const i0.Value.absent(),
+            i0.Value<String?> destinationFacilityId = const i0.Value.absent(),
+            i0.Value<String?> originContactMechId = const i0.Value.absent(),
+            i0.Value<String?> originTelecomNumberId = const i0.Value.absent(),
+            i0.Value<String?> destinationContactMechId =
+                const i0.Value.absent(),
+            i0.Value<String?> destinationTelecomNumberId =
+                const i0.Value.absent(),
+            i0.Value<String?> partyIdTo = const i0.Value.absent(),
+            i0.Value<String?> partyIdFrom = const i0.Value.absent(),
+            i0.Value<double?> additionalShippingCharge =
+                const i0.Value.absent(),
+            i0.Value<String?> addtlShippingChargeDesc = const i0.Value.absent(),
+            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
+            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
+            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
+            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> shipBinId = const i0.Value.absent(),
+            i0.Value<double?> ncopies = const i0.Value.absent(),
+            i0.Value<String?> accountId = const i0.Value.absent(),
+            i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<String?> origin = const i0.Value.absent(),
+            i0.Value<String?> shipmentErcId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShippingDocument>?> shippingDocument =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentPackageRouteSeg>?>
+                shipmentPackageRouteSeg = const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentStatus>?> shipmentStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentPackage>?> shipmentPackage =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentItem>?> shipmentItem =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ShipmentCompanion.insert(
+            shipmentId: shipmentId,
+            shipmentTypeId: shipmentTypeId,
+            statusId: statusId,
+            primaryOrderId: primaryOrderId,
+            primaryReturnId: primaryReturnId,
+            primaryShipGroupSeqId: primaryShipGroupSeqId,
+            picklistBinId: picklistBinId,
+            estimatedReadyDate: estimatedReadyDate,
+            estimatedShipDate: estimatedShipDate,
+            estimatedShipWorkEffId: estimatedShipWorkEffId,
+            estimatedArrivalDate: estimatedArrivalDate,
+            estimatedArrivalWorkEffId: estimatedArrivalWorkEffId,
+            latestCancelDate: latestCancelDate,
+            estimatedShipCost: estimatedShipCost,
+            currencyUomId: currencyUomId,
+            handlingInstructions: handlingInstructions,
+            originFacilityId: originFacilityId,
+            destinationFacilityId: destinationFacilityId,
+            originContactMechId: originContactMechId,
+            originTelecomNumberId: originTelecomNumberId,
+            destinationContactMechId: destinationContactMechId,
+            destinationTelecomNumberId: destinationTelecomNumberId,
+            partyIdTo: partyIdTo,
+            partyIdFrom: partyIdFrom,
+            additionalShippingCharge: additionalShippingCharge,
+            addtlShippingChargeDesc: addtlShippingChargeDesc,
+            createdDate: createdDate,
+            createdByUserLogin: createdByUserLogin,
+            lastModifiedDate: lastModifiedDate,
+            lastModifiedByUserLogin: lastModifiedByUserLogin,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            shipBinId: shipBinId,
+            ncopies: ncopies,
+            accountId: accountId,
+            tokenId: tokenId,
+            origin: origin,
+            shipmentErcId: shipmentErcId,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            acl: acl,
+            shipmentItemBilling: shipmentItemBilling,
+            shippingDocument: shippingDocument,
+            shipmentItemFeature: shipmentItemFeature,
+            shipmentPackageRouteSeg: shipmentPackageRouteSeg,
+            shipmentRouteSegment: shipmentRouteSegment,
+            shipmentStatus: shipmentStatus,
+            shipmentPackage: shipmentPackage,
+            shipmentReceipt: shipmentReceipt,
+            shipmentMultisig: shipmentMultisig,
+            shipmentPackageContent: shipmentPackageContent,
+            shipmentItem: shipmentItem,
+            shipmentGeoForce: shipmentGeoForce,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ShipmentProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Shipment,
+    i1.ShipmentData,
+    i1.$ShipmentFilterComposer,
+    i1.$ShipmentOrderingComposer,
+    i1.$ShipmentAnnotationComposer,
+    $ShipmentCreateCompanionBuilder,
+    $ShipmentUpdateCompanionBuilder,
+    (
+      i1.ShipmentData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Shipment, i1.ShipmentData>
+    ),
+    i1.ShipmentData,
+    i0.PrefetchHooks Function()>;
+
 class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -3077,1112 +4216,6 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
         .toString();
   }
 }
-
-typedef $ShipmentCreateCompanionBuilder = i1.ShipmentCompanion Function({
-  required String shipmentId,
-  i0.Value<String?> shipmentTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> primaryOrderId,
-  i0.Value<String?> primaryReturnId,
-  i0.Value<String?> primaryShipGroupSeqId,
-  i0.Value<String?> picklistBinId,
-  i0.Value<DateTime?> estimatedReadyDate,
-  i0.Value<DateTime?> estimatedShipDate,
-  i0.Value<String?> estimatedShipWorkEffId,
-  i0.Value<DateTime?> estimatedArrivalDate,
-  i0.Value<String?> estimatedArrivalWorkEffId,
-  i0.Value<DateTime?> latestCancelDate,
-  i0.Value<double?> estimatedShipCost,
-  i0.Value<String?> currencyUomId,
-  i0.Value<String?> handlingInstructions,
-  i0.Value<String?> originFacilityId,
-  i0.Value<String?> destinationFacilityId,
-  i0.Value<String?> originContactMechId,
-  i0.Value<String?> originTelecomNumberId,
-  i0.Value<String?> destinationContactMechId,
-  i0.Value<String?> destinationTelecomNumberId,
-  i0.Value<String?> partyIdTo,
-  i0.Value<String?> partyIdFrom,
-  i0.Value<double?> additionalShippingCharge,
-  i0.Value<String?> addtlShippingChargeDesc,
-  i0.Value<DateTime?> createdDate,
-  i0.Value<String?> createdByUserLogin,
-  i0.Value<DateTime?> lastModifiedDate,
-  i0.Value<String?> lastModifiedByUserLogin,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> shipBinId,
-  i0.Value<double?> ncopies,
-  i0.Value<String?> accountId,
-  i0.Value<String?> tokenId,
-  i0.Value<String?> origin,
-  i0.Value<String?> shipmentErcId,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
-  i0.Value<List<i3.ShippingDocument>?> shippingDocument,
-  i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature,
-  i0.Value<List<i3.ShipmentPackageRouteSeg>?> shipmentPackageRouteSeg,
-  i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment,
-  i0.Value<List<i3.ShipmentStatus>?> shipmentStatus,
-  i0.Value<List<i3.ShipmentPackage>?> shipmentPackage,
-  i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt,
-  i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig,
-  i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent,
-  i0.Value<List<i3.ShipmentItem>?> shipmentItem,
-  i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ShipmentUpdateCompanionBuilder = i1.ShipmentCompanion Function({
-  i0.Value<String> shipmentId,
-  i0.Value<String?> shipmentTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> primaryOrderId,
-  i0.Value<String?> primaryReturnId,
-  i0.Value<String?> primaryShipGroupSeqId,
-  i0.Value<String?> picklistBinId,
-  i0.Value<DateTime?> estimatedReadyDate,
-  i0.Value<DateTime?> estimatedShipDate,
-  i0.Value<String?> estimatedShipWorkEffId,
-  i0.Value<DateTime?> estimatedArrivalDate,
-  i0.Value<String?> estimatedArrivalWorkEffId,
-  i0.Value<DateTime?> latestCancelDate,
-  i0.Value<double?> estimatedShipCost,
-  i0.Value<String?> currencyUomId,
-  i0.Value<String?> handlingInstructions,
-  i0.Value<String?> originFacilityId,
-  i0.Value<String?> destinationFacilityId,
-  i0.Value<String?> originContactMechId,
-  i0.Value<String?> originTelecomNumberId,
-  i0.Value<String?> destinationContactMechId,
-  i0.Value<String?> destinationTelecomNumberId,
-  i0.Value<String?> partyIdTo,
-  i0.Value<String?> partyIdFrom,
-  i0.Value<double?> additionalShippingCharge,
-  i0.Value<String?> addtlShippingChargeDesc,
-  i0.Value<DateTime?> createdDate,
-  i0.Value<String?> createdByUserLogin,
-  i0.Value<DateTime?> lastModifiedDate,
-  i0.Value<String?> lastModifiedByUserLogin,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> shipBinId,
-  i0.Value<double?> ncopies,
-  i0.Value<String?> accountId,
-  i0.Value<String?> tokenId,
-  i0.Value<String?> origin,
-  i0.Value<String?> shipmentErcId,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
-  i0.Value<List<i3.ShippingDocument>?> shippingDocument,
-  i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature,
-  i0.Value<List<i3.ShipmentPackageRouteSeg>?> shipmentPackageRouteSeg,
-  i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment,
-  i0.Value<List<i3.ShipmentStatus>?> shipmentStatus,
-  i0.Value<List<i3.ShipmentPackage>?> shipmentPackage,
-  i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt,
-  i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig,
-  i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent,
-  i0.Value<List<i3.ShipmentItem>?> shipmentItem,
-  i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ShipmentFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Shipment> {
-  $ShipmentFilterComposer(super.$state);
-  i0.ColumnFilters<String> get shipmentId => $state.composableBuilder(
-      column: $state.table.shipmentId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shipmentTypeId => $state.composableBuilder(
-      column: $state.table.shipmentTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get primaryOrderId => $state.composableBuilder(
-      column: $state.table.primaryOrderId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get primaryReturnId => $state.composableBuilder(
-      column: $state.table.primaryReturnId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get primaryShipGroupSeqId =>
-      $state.composableBuilder(
-          column: $state.table.primaryShipGroupSeqId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get picklistBinId => $state.composableBuilder(
-      column: $state.table.picklistBinId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get estimatedReadyDate => $state.composableBuilder(
-      column: $state.table.estimatedReadyDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get estimatedShipDate => $state.composableBuilder(
-      column: $state.table.estimatedShipDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get estimatedShipWorkEffId =>
-      $state.composableBuilder(
-          column: $state.table.estimatedShipWorkEffId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get estimatedArrivalDate =>
-      $state.composableBuilder(
-          column: $state.table.estimatedArrivalDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get estimatedArrivalWorkEffId =>
-      $state.composableBuilder(
-          column: $state.table.estimatedArrivalWorkEffId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get latestCancelDate => $state.composableBuilder(
-      column: $state.table.latestCancelDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get estimatedShipCost => $state.composableBuilder(
-      column: $state.table.estimatedShipCost,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get currencyUomId => $state.composableBuilder(
-      column: $state.table.currencyUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get handlingInstructions => $state.composableBuilder(
-      column: $state.table.handlingInstructions,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get originFacilityId => $state.composableBuilder(
-      column: $state.table.originFacilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get destinationFacilityId =>
-      $state.composableBuilder(
-          column: $state.table.destinationFacilityId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get originContactMechId => $state.composableBuilder(
-      column: $state.table.originContactMechId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get originTelecomNumberId =>
-      $state.composableBuilder(
-          column: $state.table.originTelecomNumberId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get destinationContactMechId => $state
-      .composableBuilder(
-          column: $state.table.destinationContactMechId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get destinationTelecomNumberId =>
-      $state.composableBuilder(
-          column: $state.table.destinationTelecomNumberId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get partyIdTo => $state.composableBuilder(
-      column: $state.table.partyIdTo,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get partyIdFrom => $state.composableBuilder(
-      column: $state.table.partyIdFrom,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get additionalShippingCharge => $state
-      .composableBuilder(
-          column: $state.table.additionalShippingCharge,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get addtlShippingChargeDesc =>
-      $state.composableBuilder(
-          column: $state.table.addtlShippingChargeDesc,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdDate => $state.composableBuilder(
-      column: $state.table.createdDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get createdByUserLogin => $state.composableBuilder(
-      column: $state.table.createdByUserLogin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastModifiedDate => $state.composableBuilder(
-      column: $state.table.lastModifiedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get lastModifiedByUserLogin =>
-      $state.composableBuilder(
-          column: $state.table.lastModifiedByUserLogin,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shipBinId => $state.composableBuilder(
-      column: $state.table.shipBinId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get ncopies => $state.composableBuilder(
-      column: $state.table.ncopies,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get accountId => $state.composableBuilder(
-      column: $state.table.accountId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tokenId => $state.composableBuilder(
-      column: $state.table.tokenId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get origin => $state.composableBuilder(
-      column: $state.table.origin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shipmentErcId => $state.composableBuilder(
-      column: $state.table.shipmentErcId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItemBilling>?,
-          List<i3.ShipmentItemBilling>, String>
-      get shipmentItemBilling => $state.composableBuilder(
-          column: $state.table.shipmentItemBilling,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShippingDocument>?,
-          List<i3.ShippingDocument>, String>
-      get shippingDocument => $state.composableBuilder(
-          column: $state.table.shippingDocument,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItemFeature>?,
-          List<i3.ShipmentItemFeature>, String>
-      get shipmentItemFeature => $state.composableBuilder(
-          column: $state.table.shipmentItemFeature,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentPackageRouteSeg>?,
-          List<i3.ShipmentPackageRouteSeg>, String>
-      get shipmentPackageRouteSeg => $state.composableBuilder(
-          column: $state.table.shipmentPackageRouteSeg,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentRouteSegment>?,
-          List<i3.ShipmentRouteSegment>, String>
-      get shipmentRouteSegment => $state.composableBuilder(
-          column: $state.table.shipmentRouteSegment,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentStatus>?,
-          List<i3.ShipmentStatus>, String>
-      get shipmentStatus => $state.composableBuilder(
-          column: $state.table.shipmentStatus,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentPackage>?,
-          List<i3.ShipmentPackage>, String>
-      get shipmentPackage => $state.composableBuilder(
-          column: $state.table.shipmentPackage,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentReceipt>?,
-          List<i3.ShipmentReceipt>, String>
-      get shipmentReceipt => $state.composableBuilder(
-          column: $state.table.shipmentReceipt,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentMultisig>?,
-          List<i3.ShipmentMultisig>, String>
-      get shipmentMultisig => $state.composableBuilder(
-          column: $state.table.shipmentMultisig,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentPackageContent>?,
-          List<i3.ShipmentPackageContent>, String>
-      get shipmentPackageContent => $state.composableBuilder(
-          column: $state.table.shipmentPackageContent,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItem>?,
-          List<i3.ShipmentItem>, String>
-      get shipmentItem => $state.composableBuilder(
-          column: $state.table.shipmentItem,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ShipmentGeoForce>?,
-          List<i3.ShipmentGeoForce>, String>
-      get shipmentGeoForce => $state.composableBuilder(
-          column: $state.table.shipmentGeoForce,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ShipmentOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Shipment> {
-  $ShipmentOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get shipmentId => $state.composableBuilder(
-      column: $state.table.shipmentId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentTypeId => $state.composableBuilder(
-      column: $state.table.shipmentTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get primaryOrderId => $state.composableBuilder(
-      column: $state.table.primaryOrderId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get primaryReturnId => $state.composableBuilder(
-      column: $state.table.primaryReturnId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get primaryShipGroupSeqId =>
-      $state.composableBuilder(
-          column: $state.table.primaryShipGroupSeqId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get picklistBinId => $state.composableBuilder(
-      column: $state.table.picklistBinId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get estimatedReadyDate =>
-      $state.composableBuilder(
-          column: $state.table.estimatedReadyDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get estimatedShipDate =>
-      $state.composableBuilder(
-          column: $state.table.estimatedShipDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get estimatedShipWorkEffId => $state
-      .composableBuilder(
-          column: $state.table.estimatedShipWorkEffId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get estimatedArrivalDate => $state
-      .composableBuilder(
-          column: $state.table.estimatedArrivalDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get estimatedArrivalWorkEffId =>
-      $state.composableBuilder(
-          column: $state.table.estimatedArrivalWorkEffId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get latestCancelDate => $state.composableBuilder(
-      column: $state.table.latestCancelDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get estimatedShipCost => $state.composableBuilder(
-      column: $state.table.estimatedShipCost,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get currencyUomId => $state.composableBuilder(
-      column: $state.table.currencyUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get handlingInstructions =>
-      $state.composableBuilder(
-          column: $state.table.handlingInstructions,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get originFacilityId => $state.composableBuilder(
-      column: $state.table.originFacilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get destinationFacilityId =>
-      $state.composableBuilder(
-          column: $state.table.destinationFacilityId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get originContactMechId =>
-      $state.composableBuilder(
-          column: $state.table.originContactMechId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get originTelecomNumberId =>
-      $state.composableBuilder(
-          column: $state.table.originTelecomNumberId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get destinationContactMechId =>
-      $state.composableBuilder(
-          column: $state.table.destinationContactMechId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get destinationTelecomNumberId =>
-      $state.composableBuilder(
-          column: $state.table.destinationTelecomNumberId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get partyIdTo => $state.composableBuilder(
-      column: $state.table.partyIdTo,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get partyIdFrom => $state.composableBuilder(
-      column: $state.table.partyIdFrom,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get additionalShippingCharge =>
-      $state.composableBuilder(
-          column: $state.table.additionalShippingCharge,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get addtlShippingChargeDesc =>
-      $state.composableBuilder(
-          column: $state.table.addtlShippingChargeDesc,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdDate => $state.composableBuilder(
-      column: $state.table.createdDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get createdByUserLogin => $state.composableBuilder(
-      column: $state.table.createdByUserLogin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastModifiedDate => $state.composableBuilder(
-      column: $state.table.lastModifiedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get lastModifiedByUserLogin =>
-      $state.composableBuilder(
-          column: $state.table.lastModifiedByUserLogin,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipBinId => $state.composableBuilder(
-      column: $state.table.shipBinId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get ncopies => $state.composableBuilder(
-      column: $state.table.ncopies,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get accountId => $state.composableBuilder(
-      column: $state.table.accountId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tokenId => $state.composableBuilder(
-      column: $state.table.tokenId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get origin => $state.composableBuilder(
-      column: $state.table.origin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentErcId => $state.composableBuilder(
-      column: $state.table.shipmentErcId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentItemBilling =>
-      $state.composableBuilder(
-          column: $state.table.shipmentItemBilling,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shippingDocument => $state.composableBuilder(
-      column: $state.table.shippingDocument,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentItemFeature =>
-      $state.composableBuilder(
-          column: $state.table.shipmentItemFeature,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentPackageRouteSeg =>
-      $state.composableBuilder(
-          column: $state.table.shipmentPackageRouteSeg,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentRouteSegment =>
-      $state.composableBuilder(
-          column: $state.table.shipmentRouteSegment,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentStatus => $state.composableBuilder(
-      column: $state.table.shipmentStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentPackage => $state.composableBuilder(
-      column: $state.table.shipmentPackage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentReceipt => $state.composableBuilder(
-      column: $state.table.shipmentReceipt,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentMultisig => $state.composableBuilder(
-      column: $state.table.shipmentMultisig,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentPackageContent => $state
-      .composableBuilder(
-          column: $state.table.shipmentPackageContent,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentItem => $state.composableBuilder(
-      column: $state.table.shipmentItem,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipmentGeoForce => $state.composableBuilder(
-      column: $state.table.shipmentGeoForce,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ShipmentTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Shipment,
-    i1.ShipmentData,
-    i1.$ShipmentFilterComposer,
-    i1.$ShipmentOrderingComposer,
-    $ShipmentCreateCompanionBuilder,
-    $ShipmentUpdateCompanionBuilder,
-    (
-      i1.ShipmentData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Shipment, i1.ShipmentData>
-    ),
-    i1.ShipmentData,
-    i0.PrefetchHooks Function()> {
-  $ShipmentTableManager(i0.GeneratedDatabase db, i1.Shipment table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ShipmentFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ShipmentOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> shipmentId = const i0.Value.absent(),
-            i0.Value<String?> shipmentTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> primaryOrderId = const i0.Value.absent(),
-            i0.Value<String?> primaryReturnId = const i0.Value.absent(),
-            i0.Value<String?> primaryShipGroupSeqId = const i0.Value.absent(),
-            i0.Value<String?> picklistBinId = const i0.Value.absent(),
-            i0.Value<DateTime?> estimatedReadyDate = const i0.Value.absent(),
-            i0.Value<DateTime?> estimatedShipDate = const i0.Value.absent(),
-            i0.Value<String?> estimatedShipWorkEffId = const i0.Value.absent(),
-            i0.Value<DateTime?> estimatedArrivalDate = const i0.Value.absent(),
-            i0.Value<String?> estimatedArrivalWorkEffId =
-                const i0.Value.absent(),
-            i0.Value<DateTime?> latestCancelDate = const i0.Value.absent(),
-            i0.Value<double?> estimatedShipCost = const i0.Value.absent(),
-            i0.Value<String?> currencyUomId = const i0.Value.absent(),
-            i0.Value<String?> handlingInstructions = const i0.Value.absent(),
-            i0.Value<String?> originFacilityId = const i0.Value.absent(),
-            i0.Value<String?> destinationFacilityId = const i0.Value.absent(),
-            i0.Value<String?> originContactMechId = const i0.Value.absent(),
-            i0.Value<String?> originTelecomNumberId = const i0.Value.absent(),
-            i0.Value<String?> destinationContactMechId =
-                const i0.Value.absent(),
-            i0.Value<String?> destinationTelecomNumberId =
-                const i0.Value.absent(),
-            i0.Value<String?> partyIdTo = const i0.Value.absent(),
-            i0.Value<String?> partyIdFrom = const i0.Value.absent(),
-            i0.Value<double?> additionalShippingCharge =
-                const i0.Value.absent(),
-            i0.Value<String?> addtlShippingChargeDesc = const i0.Value.absent(),
-            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
-            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
-            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
-            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> shipBinId = const i0.Value.absent(),
-            i0.Value<double?> ncopies = const i0.Value.absent(),
-            i0.Value<String?> accountId = const i0.Value.absent(),
-            i0.Value<String?> tokenId = const i0.Value.absent(),
-            i0.Value<String?> origin = const i0.Value.absent(),
-            i0.Value<String?> shipmentErcId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShippingDocument>?> shippingDocument =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentPackageRouteSeg>?>
-                shipmentPackageRouteSeg = const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentStatus>?> shipmentStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentPackage>?> shipmentPackage =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentItem>?> shipmentItem =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ShipmentCompanion(
-            shipmentId: shipmentId,
-            shipmentTypeId: shipmentTypeId,
-            statusId: statusId,
-            primaryOrderId: primaryOrderId,
-            primaryReturnId: primaryReturnId,
-            primaryShipGroupSeqId: primaryShipGroupSeqId,
-            picklistBinId: picklistBinId,
-            estimatedReadyDate: estimatedReadyDate,
-            estimatedShipDate: estimatedShipDate,
-            estimatedShipWorkEffId: estimatedShipWorkEffId,
-            estimatedArrivalDate: estimatedArrivalDate,
-            estimatedArrivalWorkEffId: estimatedArrivalWorkEffId,
-            latestCancelDate: latestCancelDate,
-            estimatedShipCost: estimatedShipCost,
-            currencyUomId: currencyUomId,
-            handlingInstructions: handlingInstructions,
-            originFacilityId: originFacilityId,
-            destinationFacilityId: destinationFacilityId,
-            originContactMechId: originContactMechId,
-            originTelecomNumberId: originTelecomNumberId,
-            destinationContactMechId: destinationContactMechId,
-            destinationTelecomNumberId: destinationTelecomNumberId,
-            partyIdTo: partyIdTo,
-            partyIdFrom: partyIdFrom,
-            additionalShippingCharge: additionalShippingCharge,
-            addtlShippingChargeDesc: addtlShippingChargeDesc,
-            createdDate: createdDate,
-            createdByUserLogin: createdByUserLogin,
-            lastModifiedDate: lastModifiedDate,
-            lastModifiedByUserLogin: lastModifiedByUserLogin,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            shipBinId: shipBinId,
-            ncopies: ncopies,
-            accountId: accountId,
-            tokenId: tokenId,
-            origin: origin,
-            shipmentErcId: shipmentErcId,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            acl: acl,
-            shipmentItemBilling: shipmentItemBilling,
-            shippingDocument: shippingDocument,
-            shipmentItemFeature: shipmentItemFeature,
-            shipmentPackageRouteSeg: shipmentPackageRouteSeg,
-            shipmentRouteSegment: shipmentRouteSegment,
-            shipmentStatus: shipmentStatus,
-            shipmentPackage: shipmentPackage,
-            shipmentReceipt: shipmentReceipt,
-            shipmentMultisig: shipmentMultisig,
-            shipmentPackageContent: shipmentPackageContent,
-            shipmentItem: shipmentItem,
-            shipmentGeoForce: shipmentGeoForce,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String shipmentId,
-            i0.Value<String?> shipmentTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> primaryOrderId = const i0.Value.absent(),
-            i0.Value<String?> primaryReturnId = const i0.Value.absent(),
-            i0.Value<String?> primaryShipGroupSeqId = const i0.Value.absent(),
-            i0.Value<String?> picklistBinId = const i0.Value.absent(),
-            i0.Value<DateTime?> estimatedReadyDate = const i0.Value.absent(),
-            i0.Value<DateTime?> estimatedShipDate = const i0.Value.absent(),
-            i0.Value<String?> estimatedShipWorkEffId = const i0.Value.absent(),
-            i0.Value<DateTime?> estimatedArrivalDate = const i0.Value.absent(),
-            i0.Value<String?> estimatedArrivalWorkEffId =
-                const i0.Value.absent(),
-            i0.Value<DateTime?> latestCancelDate = const i0.Value.absent(),
-            i0.Value<double?> estimatedShipCost = const i0.Value.absent(),
-            i0.Value<String?> currencyUomId = const i0.Value.absent(),
-            i0.Value<String?> handlingInstructions = const i0.Value.absent(),
-            i0.Value<String?> originFacilityId = const i0.Value.absent(),
-            i0.Value<String?> destinationFacilityId = const i0.Value.absent(),
-            i0.Value<String?> originContactMechId = const i0.Value.absent(),
-            i0.Value<String?> originTelecomNumberId = const i0.Value.absent(),
-            i0.Value<String?> destinationContactMechId =
-                const i0.Value.absent(),
-            i0.Value<String?> destinationTelecomNumberId =
-                const i0.Value.absent(),
-            i0.Value<String?> partyIdTo = const i0.Value.absent(),
-            i0.Value<String?> partyIdFrom = const i0.Value.absent(),
-            i0.Value<double?> additionalShippingCharge =
-                const i0.Value.absent(),
-            i0.Value<String?> addtlShippingChargeDesc = const i0.Value.absent(),
-            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
-            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
-            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
-            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> shipBinId = const i0.Value.absent(),
-            i0.Value<double?> ncopies = const i0.Value.absent(),
-            i0.Value<String?> accountId = const i0.Value.absent(),
-            i0.Value<String?> tokenId = const i0.Value.absent(),
-            i0.Value<String?> origin = const i0.Value.absent(),
-            i0.Value<String?> shipmentErcId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShippingDocument>?> shippingDocument =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentPackageRouteSeg>?>
-                shipmentPackageRouteSeg = const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentRouteSegment>?> shipmentRouteSegment =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentStatus>?> shipmentStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentPackage>?> shipmentPackage =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentReceipt>?> shipmentReceipt =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentMultisig>?> shipmentMultisig =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentPackageContent>?> shipmentPackageContent =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentItem>?> shipmentItem =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ShipmentGeoForce>?> shipmentGeoForce =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ShipmentCompanion.insert(
-            shipmentId: shipmentId,
-            shipmentTypeId: shipmentTypeId,
-            statusId: statusId,
-            primaryOrderId: primaryOrderId,
-            primaryReturnId: primaryReturnId,
-            primaryShipGroupSeqId: primaryShipGroupSeqId,
-            picklistBinId: picklistBinId,
-            estimatedReadyDate: estimatedReadyDate,
-            estimatedShipDate: estimatedShipDate,
-            estimatedShipWorkEffId: estimatedShipWorkEffId,
-            estimatedArrivalDate: estimatedArrivalDate,
-            estimatedArrivalWorkEffId: estimatedArrivalWorkEffId,
-            latestCancelDate: latestCancelDate,
-            estimatedShipCost: estimatedShipCost,
-            currencyUomId: currencyUomId,
-            handlingInstructions: handlingInstructions,
-            originFacilityId: originFacilityId,
-            destinationFacilityId: destinationFacilityId,
-            originContactMechId: originContactMechId,
-            originTelecomNumberId: originTelecomNumberId,
-            destinationContactMechId: destinationContactMechId,
-            destinationTelecomNumberId: destinationTelecomNumberId,
-            partyIdTo: partyIdTo,
-            partyIdFrom: partyIdFrom,
-            additionalShippingCharge: additionalShippingCharge,
-            addtlShippingChargeDesc: addtlShippingChargeDesc,
-            createdDate: createdDate,
-            createdByUserLogin: createdByUserLogin,
-            lastModifiedDate: lastModifiedDate,
-            lastModifiedByUserLogin: lastModifiedByUserLogin,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            shipBinId: shipBinId,
-            ncopies: ncopies,
-            accountId: accountId,
-            tokenId: tokenId,
-            origin: origin,
-            shipmentErcId: shipmentErcId,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            acl: acl,
-            shipmentItemBilling: shipmentItemBilling,
-            shippingDocument: shippingDocument,
-            shipmentItemFeature: shipmentItemFeature,
-            shipmentPackageRouteSeg: shipmentPackageRouteSeg,
-            shipmentRouteSegment: shipmentRouteSegment,
-            shipmentStatus: shipmentStatus,
-            shipmentPackage: shipmentPackage,
-            shipmentReceipt: shipmentReceipt,
-            shipmentMultisig: shipmentMultisig,
-            shipmentPackageContent: shipmentPackageContent,
-            shipmentItem: shipmentItem,
-            shipmentGeoForce: shipmentGeoForce,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ShipmentProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Shipment,
-    i1.ShipmentData,
-    i1.$ShipmentFilterComposer,
-    i1.$ShipmentOrderingComposer,
-    $ShipmentCreateCompanionBuilder,
-    $ShipmentUpdateCompanionBuilder,
-    (
-      i1.ShipmentData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Shipment, i1.ShipmentData>
-    ),
-    i1.ShipmentData,
-    i0.PrefetchHooks Function()>;
 
 class ShipmentDrift extends i6.ModularAccessor {
   ShipmentDrift(i0.GeneratedDatabase db) : super(db);

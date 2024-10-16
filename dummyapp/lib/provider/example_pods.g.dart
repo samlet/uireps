@@ -6,7 +6,7 @@ part of 'example_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$exampleRepositoryHash() => r'daaec2b2c3179b148024e283775baefa4bea8e2e';
+String _$exampleRepositoryHash() => r'6d0b123281f7d5cdcea36a93ff6738c878f5fae9';
 
 /// repository pod
 ///
@@ -184,7 +184,7 @@ class _GetExampleProviderElement
   String get id => (origin as GetExampleProvider).id;
 }
 
-String _$fetchExampleHash() => r'420357fb4855fd04316f8d1014e49115c5f55db4';
+String _$fetchExampleHash() => r'a66706f4aa5c66b36b8b5e4aff062b2057741181';
 
 /// fetch single
 ///
@@ -195,7 +195,7 @@ const fetchExampleProvider = FetchExampleFamily();
 /// fetch single
 ///
 /// Copied from [fetchExample].
-class FetchExampleFamily extends Family<AsyncValue<ent.Example>> {
+class FetchExampleFamily extends Family<AsyncValue<ent.Example?>> {
   /// fetch single
   ///
   /// Copied from [fetchExample].
@@ -239,7 +239,7 @@ class FetchExampleFamily extends Family<AsyncValue<ent.Example>> {
 /// fetch single
 ///
 /// Copied from [fetchExample].
-class FetchExampleProvider extends AutoDisposeFutureProvider<ent.Example> {
+class FetchExampleProvider extends AutoDisposeFutureProvider<ent.Example?> {
   /// fetch single
   ///
   /// Copied from [fetchExample].
@@ -276,7 +276,7 @@ class FetchExampleProvider extends AutoDisposeFutureProvider<ent.Example> {
 
   @override
   Override overrideWith(
-    FutureOr<ent.Example> Function(FetchExampleRef provider) create,
+    FutureOr<ent.Example?> Function(FetchExampleRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -293,7 +293,7 @@ class FetchExampleProvider extends AutoDisposeFutureProvider<ent.Example> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ent.Example> createElement() {
+  AutoDisposeFutureProviderElement<ent.Example?> createElement() {
     return _FetchExampleProviderElement(this);
   }
 
@@ -311,17 +311,163 @@ class FetchExampleProvider extends AutoDisposeFutureProvider<ent.Example> {
   }
 }
 
-mixin FetchExampleRef on AutoDisposeFutureProviderRef<ent.Example> {
+mixin FetchExampleRef on AutoDisposeFutureProviderRef<ent.Example?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
 class _FetchExampleProviderElement
-    extends AutoDisposeFutureProviderElement<ent.Example> with FetchExampleRef {
+    extends AutoDisposeFutureProviderElement<ent.Example?>
+    with FetchExampleRef {
   _FetchExampleProviderElement(super.provider);
 
   @override
   String get id => (origin as FetchExampleProvider).id;
+}
+
+String _$fetchExamplesFromRegHash() =>
+    r'279b76dca85cbc0c6c15b24e8b7bb8f9f9948bd1';
+
+/// fetch multi from register-node
+///
+/// Copied from [fetchExamplesFromReg].
+@ProviderFor(fetchExamplesFromReg)
+const fetchExamplesFromRegProvider = FetchExamplesFromRegFamily();
+
+/// fetch multi from register-node
+///
+/// Copied from [fetchExamplesFromReg].
+class FetchExamplesFromRegFamily extends Family<AsyncValue<List<ent.Example>>> {
+  /// fetch multi from register-node
+  ///
+  /// Copied from [fetchExamplesFromReg].
+  const FetchExamplesFromRegFamily();
+
+  /// fetch multi from register-node
+  ///
+  /// Copied from [fetchExamplesFromReg].
+  FetchExamplesFromRegProvider call({
+    required String regNode,
+  }) {
+    return FetchExamplesFromRegProvider(
+      regNode: regNode,
+    );
+  }
+
+  @override
+  FetchExamplesFromRegProvider getProviderOverride(
+    covariant FetchExamplesFromRegProvider provider,
+  ) {
+    return call(
+      regNode: provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchExamplesFromRegProvider';
+}
+
+/// fetch multi from register-node
+///
+/// Copied from [fetchExamplesFromReg].
+class FetchExamplesFromRegProvider
+    extends AutoDisposeFutureProvider<List<ent.Example>> {
+  /// fetch multi from register-node
+  ///
+  /// Copied from [fetchExamplesFromReg].
+  FetchExamplesFromRegProvider({
+    required String regNode,
+  }) : this._internal(
+          (ref) => fetchExamplesFromReg(
+            ref as FetchExamplesFromRegRef,
+            regNode: regNode,
+          ),
+          from: fetchExamplesFromRegProvider,
+          name: r'fetchExamplesFromRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchExamplesFromRegHash,
+          dependencies: FetchExamplesFromRegFamily._dependencies,
+          allTransitiveDependencies:
+              FetchExamplesFromRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  FetchExamplesFromRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ent.Example>> Function(FetchExamplesFromRegRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FetchExamplesFromRegProvider._internal(
+        (ref) => create(ref as FetchExamplesFromRegRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ent.Example>> createElement() {
+    return _FetchExamplesFromRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchExamplesFromRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FetchExamplesFromRegRef
+    on AutoDisposeFutureProviderRef<List<ent.Example>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _FetchExamplesFromRegProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Example>>
+    with FetchExamplesFromRegRef {
+  _FetchExamplesFromRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as FetchExamplesFromRegProvider).regNode;
 }
 
 String _$exampleBucketHash() => r'89af0b366d9e8c9cb588b6e78f4c781c0fa15946';

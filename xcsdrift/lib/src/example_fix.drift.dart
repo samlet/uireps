@@ -9,6 +9,907 @@ import 'package:xcsdrift/fldconv.dart' as i6;
 import 'package:xcsdrift/src/example_conv.dart' as i7;
 import 'package:drift/internal/modular.dart' as i8;
 
+typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
+  required String exampleId,
+  i0.Value<String?> exampleTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> exampleName,
+  i0.Value<String?> description,
+  i0.Value<String?> longDescription,
+  i0.Value<String?> comments,
+  i0.Value<int?> exampleSize,
+  i0.Value<DateTime?> exampleDate,
+  i0.Value<DateTime?> anotherDate,
+  i0.Value<String?> anotherText,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> noteId,
+  i0.Value<DateTime?> extraDate,
+  i0.Value<i2.Time?> extraTime,
+  i0.Value<double?> extraCurrency,
+  i0.Value<double?> extraAmount,
+  i0.Value<String?> extraBlob,
+  i0.Value<List<String>?> extraStrings,
+  i0.Value<List<int>?> extraInts,
+  i0.Value<List<bool>?> extraBools,
+  i0.Value<List<double>?> extraDecimals,
+  i0.Value<List<DateTime>?> extraTimestamps,
+  i0.Value<List<String>?> extraBuffers,
+  i0.Value<Map<String, double>?> measures,
+  i0.Value<Map<String, int>?> series,
+  i0.Value<Map<String, String>?> describes,
+  i0.Value<Map<String, String>?> refs,
+  i0.Value<Map<String, bool>?> options,
+  i0.Value<Map<String, String>?> mediaLinks,
+  i0.Value<i3.Multimap<String, String>?> bookmarks,
+  i0.Value<i3.Multimap<String, int>?> symbols,
+  i0.Value<Map<String, Object?>?> detail,
+  i0.Value<String?> metadata,
+  i0.Value<String?> slotId,
+  i0.Value<String?> customerConfirmation,
+  i0.Value<bool?> evict,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ExampleType?> exampleType,
+  i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl,
+  i0.Value<List<i4.ExampleStatus>?> exampleStatus,
+  i0.Value<List<i4.ExampleItem>?> exampleItem,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
+  i0.Value<String> exampleId,
+  i0.Value<String?> exampleTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> exampleName,
+  i0.Value<String?> description,
+  i0.Value<String?> longDescription,
+  i0.Value<String?> comments,
+  i0.Value<int?> exampleSize,
+  i0.Value<DateTime?> exampleDate,
+  i0.Value<DateTime?> anotherDate,
+  i0.Value<String?> anotherText,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> noteId,
+  i0.Value<DateTime?> extraDate,
+  i0.Value<i2.Time?> extraTime,
+  i0.Value<double?> extraCurrency,
+  i0.Value<double?> extraAmount,
+  i0.Value<String?> extraBlob,
+  i0.Value<List<String>?> extraStrings,
+  i0.Value<List<int>?> extraInts,
+  i0.Value<List<bool>?> extraBools,
+  i0.Value<List<double>?> extraDecimals,
+  i0.Value<List<DateTime>?> extraTimestamps,
+  i0.Value<List<String>?> extraBuffers,
+  i0.Value<Map<String, double>?> measures,
+  i0.Value<Map<String, int>?> series,
+  i0.Value<Map<String, String>?> describes,
+  i0.Value<Map<String, String>?> refs,
+  i0.Value<Map<String, bool>?> options,
+  i0.Value<Map<String, String>?> mediaLinks,
+  i0.Value<i3.Multimap<String, String>?> bookmarks,
+  i0.Value<i3.Multimap<String, int>?> symbols,
+  i0.Value<Map<String, Object?>?> detail,
+  i0.Value<String?> metadata,
+  i0.Value<String?> slotId,
+  i0.Value<String?> customerConfirmation,
+  i0.Value<bool?> evict,
+  i0.Value<i3.Multimap<String, String>?> acl,
+  i0.Value<i4.ExampleType?> exampleType,
+  i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl,
+  i0.Value<List<i4.ExampleStatus>?> exampleStatus,
+  i0.Value<List<i4.ExampleItem>?> exampleItem,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ExampleFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Example> {
+  $ExampleFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get exampleId => $composableBuilder(
+      column: $table.exampleId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get exampleTypeId => $composableBuilder(
+      column: $table.exampleTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get exampleName => $composableBuilder(
+      column: $table.exampleName,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get longDescription => $composableBuilder(
+      column: $table.longDescription,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get exampleSize => $composableBuilder(
+      column: $table.exampleSize,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get exampleDate => $composableBuilder(
+      column: $table.exampleDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get anotherDate => $composableBuilder(
+      column: $table.anotherDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get anotherText => $composableBuilder(
+      column: $table.anotherText,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get noteId => $composableBuilder(
+      column: $table.noteId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get extraDate => $composableBuilder(
+      column: $table.extraDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Time?, i2.Time, String> get extraTime =>
+      $composableBuilder(
+          column: $table.extraTime,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<double> get extraCurrency => $composableBuilder(
+      column: $table.extraCurrency,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get extraAmount => $composableBuilder(
+      column: $table.extraAmount,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<String?, String, i5.Uint8List>
+      get extraBlob => $composableBuilder(
+          column: $table.extraBlob,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get extraStrings => $composableBuilder(
+          column: $table.extraStrings,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<int>?, List<int>, String>
+      get extraInts => $composableBuilder(
+          column: $table.extraInts,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<bool>?, List<bool>, String>
+      get extraBools => $composableBuilder(
+          column: $table.extraBools,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<double>?, List<double>, String>
+      get extraDecimals => $composableBuilder(
+          column: $table.extraDecimals,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<DateTime>?, List<DateTime>, String>
+      get extraTimestamps => $composableBuilder(
+          column: $table.extraTimestamps,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get extraBuffers => $composableBuilder(
+          column: $table.extraBuffers,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, double>?, Map<String, double>,
+          String>
+      get measures => $composableBuilder(
+          column: $table.measures,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, int>?, Map<String, int>, String>
+      get series => $composableBuilder(
+          column: $table.series,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get describes => $composableBuilder(
+          column: $table.describes,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get refs => $composableBuilder(
+          column: $table.refs,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, bool>?, Map<String, bool>,
+          String>
+      get options => $composableBuilder(
+          column: $table.options,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get mediaLinks => $composableBuilder(
+          column: $table.mediaLinks,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
+      get bookmarks => $composableBuilder(
+          column: $table.bookmarks,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, int>?,
+          i3.Multimap<String, int>, String>
+      get symbols => $composableBuilder(
+          column: $table.symbols,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, Object?>?, Map<String, Object>?,
+          String>
+      get detail => $composableBuilder(
+          column: $table.detail,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get metadata => $composableBuilder(
+      column: $table.metadata, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get slotId => $composableBuilder(
+      column: $table.slotId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get customerConfirmation => $composableBuilder(
+      column: $table.customerConfirmation,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i4.ExampleType?, i4.ExampleType, String>
+      get exampleType => $composableBuilder(
+          column: $table.exampleType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i4.ExampleFeatureAppl>?,
+          List<i4.ExampleFeatureAppl>, String>
+      get exampleFeatureAppl => $composableBuilder(
+          column: $table.exampleFeatureAppl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i4.ExampleStatus>?,
+          List<i4.ExampleStatus>, String>
+      get exampleStatus => $composableBuilder(
+          column: $table.exampleStatus,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i4.ExampleItem>?, List<i4.ExampleItem>,
+          String>
+      get exampleItem => $composableBuilder(
+          column: $table.exampleItem,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ExampleOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Example> {
+  $ExampleOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get exampleId => $composableBuilder(
+      column: $table.exampleId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get exampleTypeId => $composableBuilder(
+      column: $table.exampleTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get exampleName => $composableBuilder(
+      column: $table.exampleName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get longDescription => $composableBuilder(
+      column: $table.longDescription,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get exampleSize => $composableBuilder(
+      column: $table.exampleSize,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get exampleDate => $composableBuilder(
+      column: $table.exampleDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get anotherDate => $composableBuilder(
+      column: $table.anotherDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get anotherText => $composableBuilder(
+      column: $table.anotherText,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get noteId => $composableBuilder(
+      column: $table.noteId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get extraDate => $composableBuilder(
+      column: $table.extraDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraTime => $composableBuilder(
+      column: $table.extraTime,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get extraCurrency => $composableBuilder(
+      column: $table.extraCurrency,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get extraAmount => $composableBuilder(
+      column: $table.extraAmount,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<i5.Uint8List> get extraBlob => $composableBuilder(
+      column: $table.extraBlob,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraStrings => $composableBuilder(
+      column: $table.extraStrings,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraInts => $composableBuilder(
+      column: $table.extraInts,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraBools => $composableBuilder(
+      column: $table.extraBools,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraDecimals => $composableBuilder(
+      column: $table.extraDecimals,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraTimestamps => $composableBuilder(
+      column: $table.extraTimestamps,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get extraBuffers => $composableBuilder(
+      column: $table.extraBuffers,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get measures => $composableBuilder(
+      column: $table.measures, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get series => $composableBuilder(
+      column: $table.series, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get describes => $composableBuilder(
+      column: $table.describes,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get refs => $composableBuilder(
+      column: $table.refs, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get options => $composableBuilder(
+      column: $table.options, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get mediaLinks => $composableBuilder(
+      column: $table.mediaLinks,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get bookmarks => $composableBuilder(
+      column: $table.bookmarks,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get symbols => $composableBuilder(
+      column: $table.symbols, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get detail => $composableBuilder(
+      column: $table.detail, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get metadata => $composableBuilder(
+      column: $table.metadata, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get slotId => $composableBuilder(
+      column: $table.slotId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get customerConfirmation => $composableBuilder(
+      column: $table.customerConfirmation,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get exampleType => $composableBuilder(
+      column: $table.exampleType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get exampleFeatureAppl => $composableBuilder(
+      column: $table.exampleFeatureAppl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get exampleStatus => $composableBuilder(
+      column: $table.exampleStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get exampleItem => $composableBuilder(
+      column: $table.exampleItem,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ExampleAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Example> {
+  $ExampleAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get exampleId =>
+      $composableBuilder(column: $table.exampleId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get exampleTypeId => $composableBuilder(
+      column: $table.exampleTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get exampleName => $composableBuilder(
+      column: $table.exampleName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get longDescription => $composableBuilder(
+      column: $table.longDescription, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get comments =>
+      $composableBuilder(column: $table.comments, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get exampleSize => $composableBuilder(
+      column: $table.exampleSize, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get exampleDate => $composableBuilder(
+      column: $table.exampleDate, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get anotherDate => $composableBuilder(
+      column: $table.anotherDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get anotherText => $composableBuilder(
+      column: $table.anotherText, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get noteId =>
+      $composableBuilder(column: $table.noteId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get extraDate =>
+      $composableBuilder(column: $table.extraDate, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Time?, String> get extraTime =>
+      $composableBuilder(column: $table.extraTime, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get extraCurrency => $composableBuilder(
+      column: $table.extraCurrency, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get extraAmount => $composableBuilder(
+      column: $table.extraAmount, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<String?, i5.Uint8List> get extraBlob =>
+      $composableBuilder(column: $table.extraBlob, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get extraStrings =>
+      $composableBuilder(
+          column: $table.extraStrings, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<int>?, String> get extraInts =>
+      $composableBuilder(column: $table.extraInts, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<bool>?, String> get extraBools =>
+      $composableBuilder(
+          column: $table.extraBools, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<double>?, String>
+      get extraDecimals => $composableBuilder(
+          column: $table.extraDecimals, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<DateTime>?, String>
+      get extraTimestamps => $composableBuilder(
+          column: $table.extraTimestamps, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get extraBuffers =>
+      $composableBuilder(
+          column: $table.extraBuffers, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, double>?, String>
+      get measures => $composableBuilder(
+          column: $table.measures, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, int>?, String> get series =>
+      $composableBuilder(column: $table.series, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      get describes => $composableBuilder(
+          column: $table.describes, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String> get refs =>
+      $composableBuilder(column: $table.refs, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, bool>?, String> get options =>
+      $composableBuilder(column: $table.options, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      get mediaLinks => $composableBuilder(
+          column: $table.mediaLinks, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      get bookmarks => $composableBuilder(
+          column: $table.bookmarks, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, int>?, String>
+      get symbols => $composableBuilder(
+          column: $table.symbols, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, Object?>?, String>
+      get detail => $composableBuilder(
+          column: $table.detail, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get metadata =>
+      $composableBuilder(column: $table.metadata, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get slotId =>
+      $composableBuilder(column: $table.slotId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get customerConfirmation => $composableBuilder(
+      column: $table.customerConfirmation, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i4.ExampleType?, String>
+      get exampleType => $composableBuilder(
+          column: $table.exampleType, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i4.ExampleFeatureAppl>?, String>
+      get exampleFeatureAppl => $composableBuilder(
+          column: $table.exampleFeatureAppl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i4.ExampleStatus>?, String>
+      get exampleStatus => $composableBuilder(
+          column: $table.exampleStatus, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i4.ExampleItem>?, String>
+      get exampleItem => $composableBuilder(
+          column: $table.exampleItem, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ExampleTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Example,
+    i1.ExampleData,
+    i1.$ExampleFilterComposer,
+    i1.$ExampleOrderingComposer,
+    i1.$ExampleAnnotationComposer,
+    $ExampleCreateCompanionBuilder,
+    $ExampleUpdateCompanionBuilder,
+    (
+      i1.ExampleData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Example, i1.ExampleData>
+    ),
+    i1.ExampleData,
+    i0.PrefetchHooks Function()> {
+  $ExampleTableManager(i0.GeneratedDatabase db, i1.Example table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ExampleFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ExampleOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ExampleAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> exampleId = const i0.Value.absent(),
+            i0.Value<String?> exampleTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> exampleName = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> longDescription = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<int?> exampleSize = const i0.Value.absent(),
+            i0.Value<DateTime?> exampleDate = const i0.Value.absent(),
+            i0.Value<DateTime?> anotherDate = const i0.Value.absent(),
+            i0.Value<String?> anotherText = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> noteId = const i0.Value.absent(),
+            i0.Value<DateTime?> extraDate = const i0.Value.absent(),
+            i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
+            i0.Value<double?> extraCurrency = const i0.Value.absent(),
+            i0.Value<double?> extraAmount = const i0.Value.absent(),
+            i0.Value<String?> extraBlob = const i0.Value.absent(),
+            i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
+            i0.Value<List<int>?> extraInts = const i0.Value.absent(),
+            i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
+            i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
+            i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
+            i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
+            i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
+            i0.Value<Map<String, int>?> series = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
+            i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> bookmarks =
+                const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, int>?> symbols =
+                const i0.Value.absent(),
+            i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
+            i0.Value<String?> metadata = const i0.Value.absent(),
+            i0.Value<String?> slotId = const i0.Value.absent(),
+            i0.Value<String?> customerConfirmation = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
+            i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ExampleStatus>?> exampleStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ExampleItem>?> exampleItem =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ExampleCompanion(
+            exampleId: exampleId,
+            exampleTypeId: exampleTypeId,
+            statusId: statusId,
+            exampleName: exampleName,
+            description: description,
+            longDescription: longDescription,
+            comments: comments,
+            exampleSize: exampleSize,
+            exampleDate: exampleDate,
+            anotherDate: anotherDate,
+            anotherText: anotherText,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            noteId: noteId,
+            extraDate: extraDate,
+            extraTime: extraTime,
+            extraCurrency: extraCurrency,
+            extraAmount: extraAmount,
+            extraBlob: extraBlob,
+            extraStrings: extraStrings,
+            extraInts: extraInts,
+            extraBools: extraBools,
+            extraDecimals: extraDecimals,
+            extraTimestamps: extraTimestamps,
+            extraBuffers: extraBuffers,
+            measures: measures,
+            series: series,
+            describes: describes,
+            refs: refs,
+            options: options,
+            mediaLinks: mediaLinks,
+            bookmarks: bookmarks,
+            symbols: symbols,
+            detail: detail,
+            metadata: metadata,
+            slotId: slotId,
+            customerConfirmation: customerConfirmation,
+            evict: evict,
+            acl: acl,
+            exampleType: exampleType,
+            exampleFeatureAppl: exampleFeatureAppl,
+            exampleStatus: exampleStatus,
+            exampleItem: exampleItem,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String exampleId,
+            i0.Value<String?> exampleTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> exampleName = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> longDescription = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<int?> exampleSize = const i0.Value.absent(),
+            i0.Value<DateTime?> exampleDate = const i0.Value.absent(),
+            i0.Value<DateTime?> anotherDate = const i0.Value.absent(),
+            i0.Value<String?> anotherText = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> noteId = const i0.Value.absent(),
+            i0.Value<DateTime?> extraDate = const i0.Value.absent(),
+            i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
+            i0.Value<double?> extraCurrency = const i0.Value.absent(),
+            i0.Value<double?> extraAmount = const i0.Value.absent(),
+            i0.Value<String?> extraBlob = const i0.Value.absent(),
+            i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
+            i0.Value<List<int>?> extraInts = const i0.Value.absent(),
+            i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
+            i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
+            i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
+            i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
+            i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
+            i0.Value<Map<String, int>?> series = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
+            i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> bookmarks =
+                const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, int>?> symbols =
+                const i0.Value.absent(),
+            i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
+            i0.Value<String?> metadata = const i0.Value.absent(),
+            i0.Value<String?> slotId = const i0.Value.absent(),
+            i0.Value<String?> customerConfirmation = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
+            i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ExampleStatus>?> exampleStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i4.ExampleItem>?> exampleItem =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ExampleCompanion.insert(
+            exampleId: exampleId,
+            exampleTypeId: exampleTypeId,
+            statusId: statusId,
+            exampleName: exampleName,
+            description: description,
+            longDescription: longDescription,
+            comments: comments,
+            exampleSize: exampleSize,
+            exampleDate: exampleDate,
+            anotherDate: anotherDate,
+            anotherText: anotherText,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            noteId: noteId,
+            extraDate: extraDate,
+            extraTime: extraTime,
+            extraCurrency: extraCurrency,
+            extraAmount: extraAmount,
+            extraBlob: extraBlob,
+            extraStrings: extraStrings,
+            extraInts: extraInts,
+            extraBools: extraBools,
+            extraDecimals: extraDecimals,
+            extraTimestamps: extraTimestamps,
+            extraBuffers: extraBuffers,
+            measures: measures,
+            series: series,
+            describes: describes,
+            refs: refs,
+            options: options,
+            mediaLinks: mediaLinks,
+            bookmarks: bookmarks,
+            symbols: symbols,
+            detail: detail,
+            metadata: metadata,
+            slotId: slotId,
+            customerConfirmation: customerConfirmation,
+            evict: evict,
+            acl: acl,
+            exampleType: exampleType,
+            exampleFeatureAppl: exampleFeatureAppl,
+            exampleStatus: exampleStatus,
+            exampleItem: exampleItem,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ExampleProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Example,
+    i1.ExampleData,
+    i1.$ExampleFilterComposer,
+    i1.$ExampleOrderingComposer,
+    i1.$ExampleAnnotationComposer,
+    $ExampleCreateCompanionBuilder,
+    $ExampleUpdateCompanionBuilder,
+    (
+      i1.ExampleData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Example, i1.ExampleData>
+    ),
+    i1.ExampleData,
+    i0.PrefetchHooks Function()>;
+
 class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -2281,867 +3182,6 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
         .toString();
   }
 }
-
-typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
-  required String exampleId,
-  i0.Value<String?> exampleTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> exampleName,
-  i0.Value<String?> description,
-  i0.Value<String?> longDescription,
-  i0.Value<String?> comments,
-  i0.Value<int?> exampleSize,
-  i0.Value<DateTime?> exampleDate,
-  i0.Value<DateTime?> anotherDate,
-  i0.Value<String?> anotherText,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> noteId,
-  i0.Value<DateTime?> extraDate,
-  i0.Value<i2.Time?> extraTime,
-  i0.Value<double?> extraCurrency,
-  i0.Value<double?> extraAmount,
-  i0.Value<String?> extraBlob,
-  i0.Value<List<String>?> extraStrings,
-  i0.Value<List<int>?> extraInts,
-  i0.Value<List<bool>?> extraBools,
-  i0.Value<List<double>?> extraDecimals,
-  i0.Value<List<DateTime>?> extraTimestamps,
-  i0.Value<List<String>?> extraBuffers,
-  i0.Value<Map<String, double>?> measures,
-  i0.Value<Map<String, int>?> series,
-  i0.Value<Map<String, String>?> describes,
-  i0.Value<Map<String, String>?> refs,
-  i0.Value<Map<String, bool>?> options,
-  i0.Value<Map<String, String>?> mediaLinks,
-  i0.Value<i3.Multimap<String, String>?> bookmarks,
-  i0.Value<i3.Multimap<String, int>?> symbols,
-  i0.Value<Map<String, Object?>?> detail,
-  i0.Value<String?> metadata,
-  i0.Value<String?> slotId,
-  i0.Value<String?> customerConfirmation,
-  i0.Value<bool?> evict,
-  i0.Value<i3.Multimap<String, String>?> acl,
-  i0.Value<i4.ExampleType?> exampleType,
-  i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl,
-  i0.Value<List<i4.ExampleStatus>?> exampleStatus,
-  i0.Value<List<i4.ExampleItem>?> exampleItem,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
-  i0.Value<String> exampleId,
-  i0.Value<String?> exampleTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> exampleName,
-  i0.Value<String?> description,
-  i0.Value<String?> longDescription,
-  i0.Value<String?> comments,
-  i0.Value<int?> exampleSize,
-  i0.Value<DateTime?> exampleDate,
-  i0.Value<DateTime?> anotherDate,
-  i0.Value<String?> anotherText,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> noteId,
-  i0.Value<DateTime?> extraDate,
-  i0.Value<i2.Time?> extraTime,
-  i0.Value<double?> extraCurrency,
-  i0.Value<double?> extraAmount,
-  i0.Value<String?> extraBlob,
-  i0.Value<List<String>?> extraStrings,
-  i0.Value<List<int>?> extraInts,
-  i0.Value<List<bool>?> extraBools,
-  i0.Value<List<double>?> extraDecimals,
-  i0.Value<List<DateTime>?> extraTimestamps,
-  i0.Value<List<String>?> extraBuffers,
-  i0.Value<Map<String, double>?> measures,
-  i0.Value<Map<String, int>?> series,
-  i0.Value<Map<String, String>?> describes,
-  i0.Value<Map<String, String>?> refs,
-  i0.Value<Map<String, bool>?> options,
-  i0.Value<Map<String, String>?> mediaLinks,
-  i0.Value<i3.Multimap<String, String>?> bookmarks,
-  i0.Value<i3.Multimap<String, int>?> symbols,
-  i0.Value<Map<String, Object?>?> detail,
-  i0.Value<String?> metadata,
-  i0.Value<String?> slotId,
-  i0.Value<String?> customerConfirmation,
-  i0.Value<bool?> evict,
-  i0.Value<i3.Multimap<String, String>?> acl,
-  i0.Value<i4.ExampleType?> exampleType,
-  i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl,
-  i0.Value<List<i4.ExampleStatus>?> exampleStatus,
-  i0.Value<List<i4.ExampleItem>?> exampleItem,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ExampleFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Example> {
-  $ExampleFilterComposer(super.$state);
-  i0.ColumnFilters<String> get exampleId => $state.composableBuilder(
-      column: $state.table.exampleId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get exampleTypeId => $state.composableBuilder(
-      column: $state.table.exampleTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get exampleName => $state.composableBuilder(
-      column: $state.table.exampleName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get longDescription => $state.composableBuilder(
-      column: $state.table.longDescription,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get exampleSize => $state.composableBuilder(
-      column: $state.table.exampleSize,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get exampleDate => $state.composableBuilder(
-      column: $state.table.exampleDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get anotherDate => $state.composableBuilder(
-      column: $state.table.anotherDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get anotherText => $state.composableBuilder(
-      column: $state.table.anotherText,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get noteId => $state.composableBuilder(
-      column: $state.table.noteId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get extraDate => $state.composableBuilder(
-      column: $state.table.extraDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Time?, i2.Time, String> get extraTime =>
-      $state.composableBuilder(
-          column: $state.table.extraTime,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get extraCurrency => $state.composableBuilder(
-      column: $state.table.extraCurrency,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get extraAmount => $state.composableBuilder(
-      column: $state.table.extraAmount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<String?, String, i5.Uint8List>
-      get extraBlob => $state.composableBuilder(
-          column: $state.table.extraBlob,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get extraStrings => $state.composableBuilder(
-          column: $state.table.extraStrings,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<int>?, List<int>, String>
-      get extraInts => $state.composableBuilder(
-          column: $state.table.extraInts,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<bool>?, List<bool>, String>
-      get extraBools => $state.composableBuilder(
-          column: $state.table.extraBools,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<double>?, List<double>, String>
-      get extraDecimals => $state.composableBuilder(
-          column: $state.table.extraDecimals,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<DateTime>?, List<DateTime>, String>
-      get extraTimestamps => $state.composableBuilder(
-          column: $state.table.extraTimestamps,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get extraBuffers => $state.composableBuilder(
-          column: $state.table.extraBuffers,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, double>?, Map<String, double>,
-          String>
-      get measures => $state.composableBuilder(
-          column: $state.table.measures,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, int>?, Map<String, int>, String>
-      get series => $state.composableBuilder(
-          column: $state.table.series,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
-          String>
-      get describes => $state.composableBuilder(
-          column: $state.table.describes,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
-          String>
-      get refs => $state.composableBuilder(
-          column: $state.table.refs,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, bool>?, Map<String, bool>,
-          String>
-      get options => $state.composableBuilder(
-          column: $state.table.options,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
-          String>
-      get mediaLinks => $state.composableBuilder(
-          column: $state.table.mediaLinks,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
-          i3.Multimap<String, String>, String>
-      get bookmarks => $state.composableBuilder(
-          column: $state.table.bookmarks,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, int>?,
-          i3.Multimap<String, int>, String>
-      get symbols => $state.composableBuilder(
-          column: $state.table.symbols,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, Object?>?, Map<String, Object>?,
-          String>
-      get detail => $state.composableBuilder(
-          column: $state.table.detail,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get metadata => $state.composableBuilder(
-      column: $state.table.metadata,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get slotId => $state.composableBuilder(
-      column: $state.table.slotId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get customerConfirmation => $state.composableBuilder(
-      column: $state.table.customerConfirmation,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
-          i3.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i4.ExampleType?, i4.ExampleType, String>
-      get exampleType => $state.composableBuilder(
-          column: $state.table.exampleType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i4.ExampleFeatureAppl>?,
-          List<i4.ExampleFeatureAppl>, String>
-      get exampleFeatureAppl => $state.composableBuilder(
-          column: $state.table.exampleFeatureAppl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i4.ExampleStatus>?,
-          List<i4.ExampleStatus>, String>
-      get exampleStatus => $state.composableBuilder(
-          column: $state.table.exampleStatus,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i4.ExampleItem>?, List<i4.ExampleItem>,
-          String>
-      get exampleItem => $state.composableBuilder(
-          column: $state.table.exampleItem,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ExampleOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Example> {
-  $ExampleOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get exampleId => $state.composableBuilder(
-      column: $state.table.exampleId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get exampleTypeId => $state.composableBuilder(
-      column: $state.table.exampleTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get exampleName => $state.composableBuilder(
-      column: $state.table.exampleName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get longDescription => $state.composableBuilder(
-      column: $state.table.longDescription,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get exampleSize => $state.composableBuilder(
-      column: $state.table.exampleSize,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get exampleDate => $state.composableBuilder(
-      column: $state.table.exampleDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get anotherDate => $state.composableBuilder(
-      column: $state.table.anotherDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get anotherText => $state.composableBuilder(
-      column: $state.table.anotherText,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get noteId => $state.composableBuilder(
-      column: $state.table.noteId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get extraDate => $state.composableBuilder(
-      column: $state.table.extraDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraTime => $state.composableBuilder(
-      column: $state.table.extraTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get extraCurrency => $state.composableBuilder(
-      column: $state.table.extraCurrency,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get extraAmount => $state.composableBuilder(
-      column: $state.table.extraAmount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<i5.Uint8List> get extraBlob => $state.composableBuilder(
-      column: $state.table.extraBlob,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraStrings => $state.composableBuilder(
-      column: $state.table.extraStrings,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraInts => $state.composableBuilder(
-      column: $state.table.extraInts,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraBools => $state.composableBuilder(
-      column: $state.table.extraBools,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraDecimals => $state.composableBuilder(
-      column: $state.table.extraDecimals,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraTimestamps => $state.composableBuilder(
-      column: $state.table.extraTimestamps,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get extraBuffers => $state.composableBuilder(
-      column: $state.table.extraBuffers,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get measures => $state.composableBuilder(
-      column: $state.table.measures,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get series => $state.composableBuilder(
-      column: $state.table.series,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get describes => $state.composableBuilder(
-      column: $state.table.describes,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get refs => $state.composableBuilder(
-      column: $state.table.refs,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get options => $state.composableBuilder(
-      column: $state.table.options,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get mediaLinks => $state.composableBuilder(
-      column: $state.table.mediaLinks,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get bookmarks => $state.composableBuilder(
-      column: $state.table.bookmarks,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get symbols => $state.composableBuilder(
-      column: $state.table.symbols,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get detail => $state.composableBuilder(
-      column: $state.table.detail,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get metadata => $state.composableBuilder(
-      column: $state.table.metadata,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get slotId => $state.composableBuilder(
-      column: $state.table.slotId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get customerConfirmation =>
-      $state.composableBuilder(
-          column: $state.table.customerConfirmation,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get exampleType => $state.composableBuilder(
-      column: $state.table.exampleType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get exampleFeatureAppl => $state.composableBuilder(
-      column: $state.table.exampleFeatureAppl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get exampleStatus => $state.composableBuilder(
-      column: $state.table.exampleStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get exampleItem => $state.composableBuilder(
-      column: $state.table.exampleItem,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ExampleTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Example,
-    i1.ExampleData,
-    i1.$ExampleFilterComposer,
-    i1.$ExampleOrderingComposer,
-    $ExampleCreateCompanionBuilder,
-    $ExampleUpdateCompanionBuilder,
-    (
-      i1.ExampleData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Example, i1.ExampleData>
-    ),
-    i1.ExampleData,
-    i0.PrefetchHooks Function()> {
-  $ExampleTableManager(i0.GeneratedDatabase db, i1.Example table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ExampleFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ExampleOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> exampleId = const i0.Value.absent(),
-            i0.Value<String?> exampleTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> exampleName = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> longDescription = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<int?> exampleSize = const i0.Value.absent(),
-            i0.Value<DateTime?> exampleDate = const i0.Value.absent(),
-            i0.Value<DateTime?> anotherDate = const i0.Value.absent(),
-            i0.Value<String?> anotherText = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> noteId = const i0.Value.absent(),
-            i0.Value<DateTime?> extraDate = const i0.Value.absent(),
-            i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
-            i0.Value<double?> extraCurrency = const i0.Value.absent(),
-            i0.Value<double?> extraAmount = const i0.Value.absent(),
-            i0.Value<String?> extraBlob = const i0.Value.absent(),
-            i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
-            i0.Value<List<int>?> extraInts = const i0.Value.absent(),
-            i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
-            i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
-            i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
-            i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
-            i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
-            i0.Value<Map<String, int>?> series = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
-            i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> bookmarks =
-                const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, int>?> symbols =
-                const i0.Value.absent(),
-            i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
-            i0.Value<String?> metadata = const i0.Value.absent(),
-            i0.Value<String?> slotId = const i0.Value.absent(),
-            i0.Value<String?> customerConfirmation = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
-            i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ExampleStatus>?> exampleStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ExampleItem>?> exampleItem =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ExampleCompanion(
-            exampleId: exampleId,
-            exampleTypeId: exampleTypeId,
-            statusId: statusId,
-            exampleName: exampleName,
-            description: description,
-            longDescription: longDescription,
-            comments: comments,
-            exampleSize: exampleSize,
-            exampleDate: exampleDate,
-            anotherDate: anotherDate,
-            anotherText: anotherText,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            noteId: noteId,
-            extraDate: extraDate,
-            extraTime: extraTime,
-            extraCurrency: extraCurrency,
-            extraAmount: extraAmount,
-            extraBlob: extraBlob,
-            extraStrings: extraStrings,
-            extraInts: extraInts,
-            extraBools: extraBools,
-            extraDecimals: extraDecimals,
-            extraTimestamps: extraTimestamps,
-            extraBuffers: extraBuffers,
-            measures: measures,
-            series: series,
-            describes: describes,
-            refs: refs,
-            options: options,
-            mediaLinks: mediaLinks,
-            bookmarks: bookmarks,
-            symbols: symbols,
-            detail: detail,
-            metadata: metadata,
-            slotId: slotId,
-            customerConfirmation: customerConfirmation,
-            evict: evict,
-            acl: acl,
-            exampleType: exampleType,
-            exampleFeatureAppl: exampleFeatureAppl,
-            exampleStatus: exampleStatus,
-            exampleItem: exampleItem,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String exampleId,
-            i0.Value<String?> exampleTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> exampleName = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> longDescription = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<int?> exampleSize = const i0.Value.absent(),
-            i0.Value<DateTime?> exampleDate = const i0.Value.absent(),
-            i0.Value<DateTime?> anotherDate = const i0.Value.absent(),
-            i0.Value<String?> anotherText = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> noteId = const i0.Value.absent(),
-            i0.Value<DateTime?> extraDate = const i0.Value.absent(),
-            i0.Value<i2.Time?> extraTime = const i0.Value.absent(),
-            i0.Value<double?> extraCurrency = const i0.Value.absent(),
-            i0.Value<double?> extraAmount = const i0.Value.absent(),
-            i0.Value<String?> extraBlob = const i0.Value.absent(),
-            i0.Value<List<String>?> extraStrings = const i0.Value.absent(),
-            i0.Value<List<int>?> extraInts = const i0.Value.absent(),
-            i0.Value<List<bool>?> extraBools = const i0.Value.absent(),
-            i0.Value<List<double>?> extraDecimals = const i0.Value.absent(),
-            i0.Value<List<DateTime>?> extraTimestamps = const i0.Value.absent(),
-            i0.Value<List<String>?> extraBuffers = const i0.Value.absent(),
-            i0.Value<Map<String, double>?> measures = const i0.Value.absent(),
-            i0.Value<Map<String, int>?> series = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> describes = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> refs = const i0.Value.absent(),
-            i0.Value<Map<String, bool>?> options = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> mediaLinks = const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> bookmarks =
-                const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, int>?> symbols =
-                const i0.Value.absent(),
-            i0.Value<Map<String, Object?>?> detail = const i0.Value.absent(),
-            i0.Value<String?> metadata = const i0.Value.absent(),
-            i0.Value<String?> slotId = const i0.Value.absent(),
-            i0.Value<String?> customerConfirmation = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i3.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i4.ExampleType?> exampleType = const i0.Value.absent(),
-            i0.Value<List<i4.ExampleFeatureAppl>?> exampleFeatureAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ExampleStatus>?> exampleStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i4.ExampleItem>?> exampleItem =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ExampleCompanion.insert(
-            exampleId: exampleId,
-            exampleTypeId: exampleTypeId,
-            statusId: statusId,
-            exampleName: exampleName,
-            description: description,
-            longDescription: longDescription,
-            comments: comments,
-            exampleSize: exampleSize,
-            exampleDate: exampleDate,
-            anotherDate: anotherDate,
-            anotherText: anotherText,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            noteId: noteId,
-            extraDate: extraDate,
-            extraTime: extraTime,
-            extraCurrency: extraCurrency,
-            extraAmount: extraAmount,
-            extraBlob: extraBlob,
-            extraStrings: extraStrings,
-            extraInts: extraInts,
-            extraBools: extraBools,
-            extraDecimals: extraDecimals,
-            extraTimestamps: extraTimestamps,
-            extraBuffers: extraBuffers,
-            measures: measures,
-            series: series,
-            describes: describes,
-            refs: refs,
-            options: options,
-            mediaLinks: mediaLinks,
-            bookmarks: bookmarks,
-            symbols: symbols,
-            detail: detail,
-            metadata: metadata,
-            slotId: slotId,
-            customerConfirmation: customerConfirmation,
-            evict: evict,
-            acl: acl,
-            exampleType: exampleType,
-            exampleFeatureAppl: exampleFeatureAppl,
-            exampleStatus: exampleStatus,
-            exampleItem: exampleItem,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ExampleProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Example,
-    i1.ExampleData,
-    i1.$ExampleFilterComposer,
-    i1.$ExampleOrderingComposer,
-    $ExampleCreateCompanionBuilder,
-    $ExampleUpdateCompanionBuilder,
-    (
-      i1.ExampleData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Example, i1.ExampleData>
-    ),
-    i1.ExampleData,
-    i0.PrefetchHooks Function()>;
 
 class ExampleFixDrift extends i8.ModularAccessor {
   ExampleFixDrift(i0.GeneratedDatabase db) : super(db);

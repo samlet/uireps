@@ -7,6 +7,338 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/marketplace_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $MarketplaceCreateCompanionBuilder = i1.MarketplaceCompanion Function({
+  required String marketplaceId,
+  i0.Value<String?> adminId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> name,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> realmId,
+  i0.Value<double?> amount,
+  i0.Value<String?> marketplaceErcId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $MarketplaceUpdateCompanionBuilder = i1.MarketplaceCompanion Function({
+  i0.Value<String> marketplaceId,
+  i0.Value<String?> adminId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> name,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> realmId,
+  i0.Value<double?> amount,
+  i0.Value<String?> marketplaceErcId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $MarketplaceFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Marketplace> {
+  $MarketplaceFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get marketplaceId => $composableBuilder(
+      column: $table.marketplaceId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get adminId => $composableBuilder(
+      column: $table.adminId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get realmId => $composableBuilder(
+      column: $table.realmId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get marketplaceErcId => $composableBuilder(
+      column: $table.marketplaceErcId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.MarketplaceMultisig>?,
+          List<i3.MarketplaceMultisig>, String>
+      get marketplaceMultisig => $composableBuilder(
+          column: $table.marketplaceMultisig,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $MarketplaceOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Marketplace> {
+  $MarketplaceOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get marketplaceId => $composableBuilder(
+      column: $table.marketplaceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get adminId => $composableBuilder(
+      column: $table.adminId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get realmId => $composableBuilder(
+      column: $table.realmId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get amount => $composableBuilder(
+      column: $table.amount, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get marketplaceErcId => $composableBuilder(
+      column: $table.marketplaceErcId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get marketplaceMultisig => $composableBuilder(
+      column: $table.marketplaceMultisig,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $MarketplaceAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Marketplace> {
+  $MarketplaceAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get marketplaceId => $composableBuilder(
+      column: $table.marketplaceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get adminId =>
+      $composableBuilder(column: $table.adminId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get realmId =>
+      $composableBuilder(column: $table.realmId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get amount =>
+      $composableBuilder(column: $table.amount, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get marketplaceErcId => $composableBuilder(
+      column: $table.marketplaceErcId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.MarketplaceMultisig>?, String>
+      get marketplaceMultisig => $composableBuilder(
+          column: $table.marketplaceMultisig, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $MarketplaceTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Marketplace,
+    i1.MarketplaceData,
+    i1.$MarketplaceFilterComposer,
+    i1.$MarketplaceOrderingComposer,
+    i1.$MarketplaceAnnotationComposer,
+    $MarketplaceCreateCompanionBuilder,
+    $MarketplaceUpdateCompanionBuilder,
+    (
+      i1.MarketplaceData,
+      i0
+      .BaseReferences<i0.GeneratedDatabase, i1.Marketplace, i1.MarketplaceData>
+    ),
+    i1.MarketplaceData,
+    i0.PrefetchHooks Function()> {
+  $MarketplaceTableManager(i0.GeneratedDatabase db, i1.Marketplace table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$MarketplaceFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$MarketplaceOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$MarketplaceAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> marketplaceId = const i0.Value.absent(),
+            i0.Value<String?> adminId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> realmId = const i0.Value.absent(),
+            i0.Value<double?> amount = const i0.Value.absent(),
+            i0.Value<String?> marketplaceErcId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.MarketplaceCompanion(
+            marketplaceId: marketplaceId,
+            adminId: adminId,
+            statusId: statusId,
+            name: name,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            realmId: realmId,
+            amount: amount,
+            marketplaceErcId: marketplaceErcId,
+            evict: evict,
+            acl: acl,
+            marketplaceMultisig: marketplaceMultisig,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String marketplaceId,
+            i0.Value<String?> adminId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> realmId = const i0.Value.absent(),
+            i0.Value<double?> amount = const i0.Value.absent(),
+            i0.Value<String?> marketplaceErcId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.MarketplaceCompanion.insert(
+            marketplaceId: marketplaceId,
+            adminId: adminId,
+            statusId: statusId,
+            name: name,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            realmId: realmId,
+            amount: amount,
+            marketplaceErcId: marketplaceErcId,
+            evict: evict,
+            acl: acl,
+            marketplaceMultisig: marketplaceMultisig,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $MarketplaceProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Marketplace,
+    i1.MarketplaceData,
+    i1.$MarketplaceFilterComposer,
+    i1.$MarketplaceOrderingComposer,
+    i1.$MarketplaceAnnotationComposer,
+    $MarketplaceCreateCompanionBuilder,
+    $MarketplaceUpdateCompanionBuilder,
+    (
+      i1.MarketplaceData,
+      i0
+      .BaseReferences<i0.GeneratedDatabase, i1.Marketplace, i1.MarketplaceData>
+    ),
+    i1.MarketplaceData,
+    i0.PrefetchHooks Function()>;
+
 class Marketplace extends i0.Table
     with i0.TableInfo<Marketplace, i1.MarketplaceData> {
   @override
@@ -774,315 +1106,6 @@ class MarketplaceCompanion extends i0.UpdateCompanion<i1.MarketplaceData> {
         .toString();
   }
 }
-
-typedef $MarketplaceCreateCompanionBuilder = i1.MarketplaceCompanion Function({
-  required String marketplaceId,
-  i0.Value<String?> adminId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> name,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> realmId,
-  i0.Value<double?> amount,
-  i0.Value<String?> marketplaceErcId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $MarketplaceUpdateCompanionBuilder = i1.MarketplaceCompanion Function({
-  i0.Value<String> marketplaceId,
-  i0.Value<String?> adminId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> name,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> realmId,
-  i0.Value<double?> amount,
-  i0.Value<String?> marketplaceErcId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $MarketplaceFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Marketplace> {
-  $MarketplaceFilterComposer(super.$state);
-  i0.ColumnFilters<String> get marketplaceId => $state.composableBuilder(
-      column: $state.table.marketplaceId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get adminId => $state.composableBuilder(
-      column: $state.table.adminId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get realmId => $state.composableBuilder(
-      column: $state.table.realmId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get amount => $state.composableBuilder(
-      column: $state.table.amount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get marketplaceErcId => $state.composableBuilder(
-      column: $state.table.marketplaceErcId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.MarketplaceMultisig>?,
-          List<i3.MarketplaceMultisig>, String>
-      get marketplaceMultisig => $state.composableBuilder(
-          column: $state.table.marketplaceMultisig,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $MarketplaceOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Marketplace> {
-  $MarketplaceOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get marketplaceId => $state.composableBuilder(
-      column: $state.table.marketplaceId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get adminId => $state.composableBuilder(
-      column: $state.table.adminId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get realmId => $state.composableBuilder(
-      column: $state.table.realmId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get amount => $state.composableBuilder(
-      column: $state.table.amount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get marketplaceErcId => $state.composableBuilder(
-      column: $state.table.marketplaceErcId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get marketplaceMultisig =>
-      $state.composableBuilder(
-          column: $state.table.marketplaceMultisig,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $MarketplaceTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Marketplace,
-    i1.MarketplaceData,
-    i1.$MarketplaceFilterComposer,
-    i1.$MarketplaceOrderingComposer,
-    $MarketplaceCreateCompanionBuilder,
-    $MarketplaceUpdateCompanionBuilder,
-    (
-      i1.MarketplaceData,
-      i0
-      .BaseReferences<i0.GeneratedDatabase, i1.Marketplace, i1.MarketplaceData>
-    ),
-    i1.MarketplaceData,
-    i0.PrefetchHooks Function()> {
-  $MarketplaceTableManager(i0.GeneratedDatabase db, i1.Marketplace table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$MarketplaceFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$MarketplaceOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> marketplaceId = const i0.Value.absent(),
-            i0.Value<String?> adminId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> realmId = const i0.Value.absent(),
-            i0.Value<double?> amount = const i0.Value.absent(),
-            i0.Value<String?> marketplaceErcId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.MarketplaceCompanion(
-            marketplaceId: marketplaceId,
-            adminId: adminId,
-            statusId: statusId,
-            name: name,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            realmId: realmId,
-            amount: amount,
-            marketplaceErcId: marketplaceErcId,
-            evict: evict,
-            acl: acl,
-            marketplaceMultisig: marketplaceMultisig,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String marketplaceId,
-            i0.Value<String?> adminId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> realmId = const i0.Value.absent(),
-            i0.Value<double?> amount = const i0.Value.absent(),
-            i0.Value<String?> marketplaceErcId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.MarketplaceMultisig>?> marketplaceMultisig =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.MarketplaceCompanion.insert(
-            marketplaceId: marketplaceId,
-            adminId: adminId,
-            statusId: statusId,
-            name: name,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            realmId: realmId,
-            amount: amount,
-            marketplaceErcId: marketplaceErcId,
-            evict: evict,
-            acl: acl,
-            marketplaceMultisig: marketplaceMultisig,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $MarketplaceProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Marketplace,
-    i1.MarketplaceData,
-    i1.$MarketplaceFilterComposer,
-    i1.$MarketplaceOrderingComposer,
-    $MarketplaceCreateCompanionBuilder,
-    $MarketplaceUpdateCompanionBuilder,
-    (
-      i1.MarketplaceData,
-      i0
-      .BaseReferences<i0.GeneratedDatabase, i1.Marketplace, i1.MarketplaceData>
-    ),
-    i1.MarketplaceData,
-    i0.PrefetchHooks Function()>;
 
 class MarketplaceDrift extends i6.ModularAccessor {
   MarketplaceDrift(i0.GeneratedDatabase db) : super(db);

@@ -6,6 +6,286 @@ import 'package:xcsdrift/fldconv.dart' as i3;
 import 'package:xcsdrift/src/morph/contact_profile_morph.dart' as i4;
 import 'package:drift/internal/modular.dart' as i5;
 
+typedef $SellerPrefCreateCompanionBuilder = i1.SellerPrefCompanion Function({
+  required String sellerPrefId,
+  i0.Value<String?> loginId,
+  i0.Value<List<String>?> ownedShops,
+  i0.Value<i2.ContactProfile?> contacts,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> sellerPrefTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $SellerPrefUpdateCompanionBuilder = i1.SellerPrefCompanion Function({
+  i0.Value<String> sellerPrefId,
+  i0.Value<String?> loginId,
+  i0.Value<List<String>?> ownedShops,
+  i0.Value<i2.ContactProfile?> contacts,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> sellerPrefTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $SellerPrefFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.SellerPref> {
+  $SellerPrefFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get sellerPrefId => $composableBuilder(
+      column: $table.sellerPrefId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get loginId => $composableBuilder(
+      column: $table.loginId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get ownedShops => $composableBuilder(
+          column: $table.ownedShops,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.ContactProfile?, i2.ContactProfile,
+          String>
+      get contacts => $composableBuilder(
+          column: $table.contacts,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get sellerPrefTypeId => $composableBuilder(
+      column: $table.sellerPrefTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $SellerPrefOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.SellerPref> {
+  $SellerPrefOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get sellerPrefId => $composableBuilder(
+      column: $table.sellerPrefId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get loginId => $composableBuilder(
+      column: $table.loginId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get ownedShops => $composableBuilder(
+      column: $table.ownedShops,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get contacts => $composableBuilder(
+      column: $table.contacts, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get sellerPrefTypeId => $composableBuilder(
+      column: $table.sellerPrefTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $SellerPrefAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.SellerPref> {
+  $SellerPrefAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get sellerPrefId => $composableBuilder(
+      column: $table.sellerPrefId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get loginId =>
+      $composableBuilder(column: $table.loginId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get ownedShops =>
+      $composableBuilder(
+          column: $table.ownedShops, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.ContactProfile?, String>
+      get contacts => $composableBuilder(
+          column: $table.contacts, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get sellerPrefTypeId => $composableBuilder(
+      column: $table.sellerPrefTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $SellerPrefTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.SellerPref,
+    i1.SellerPrefData,
+    i1.$SellerPrefFilterComposer,
+    i1.$SellerPrefOrderingComposer,
+    i1.$SellerPrefAnnotationComposer,
+    $SellerPrefCreateCompanionBuilder,
+    $SellerPrefUpdateCompanionBuilder,
+    (
+      i1.SellerPrefData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.SellerPref, i1.SellerPrefData>
+    ),
+    i1.SellerPrefData,
+    i0.PrefetchHooks Function()> {
+  $SellerPrefTableManager(i0.GeneratedDatabase db, i1.SellerPref table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$SellerPrefFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$SellerPrefOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$SellerPrefAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> sellerPrefId = const i0.Value.absent(),
+            i0.Value<String?> loginId = const i0.Value.absent(),
+            i0.Value<List<String>?> ownedShops = const i0.Value.absent(),
+            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> sellerPrefTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.SellerPrefCompanion(
+            sellerPrefId: sellerPrefId,
+            loginId: loginId,
+            ownedShops: ownedShops,
+            contacts: contacts,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            sellerPrefTypeId: sellerPrefTypeId,
+            statusId: statusId,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String sellerPrefId,
+            i0.Value<String?> loginId = const i0.Value.absent(),
+            i0.Value<List<String>?> ownedShops = const i0.Value.absent(),
+            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> sellerPrefTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.SellerPrefCompanion.insert(
+            sellerPrefId: sellerPrefId,
+            loginId: loginId,
+            ownedShops: ownedShops,
+            contacts: contacts,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            sellerPrefTypeId: sellerPrefTypeId,
+            statusId: statusId,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $SellerPrefProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.SellerPref,
+    i1.SellerPrefData,
+    i1.$SellerPrefFilterComposer,
+    i1.$SellerPrefOrderingComposer,
+    i1.$SellerPrefAnnotationComposer,
+    $SellerPrefCreateCompanionBuilder,
+    $SellerPrefUpdateCompanionBuilder,
+    (
+      i1.SellerPrefData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.SellerPref, i1.SellerPrefData>
+    ),
+    i1.SellerPrefData,
+    i0.PrefetchHooks Function()>;
+
 class SellerPref extends i0.Table
     with i0.TableInfo<SellerPref, i1.SellerPrefData> {
   @override
@@ -639,259 +919,6 @@ class SellerPrefCompanion extends i0.UpdateCompanion<i1.SellerPrefData> {
         .toString();
   }
 }
-
-typedef $SellerPrefCreateCompanionBuilder = i1.SellerPrefCompanion Function({
-  required String sellerPrefId,
-  i0.Value<String?> loginId,
-  i0.Value<List<String>?> ownedShops,
-  i0.Value<i2.ContactProfile?> contacts,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> sellerPrefTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $SellerPrefUpdateCompanionBuilder = i1.SellerPrefCompanion Function({
-  i0.Value<String> sellerPrefId,
-  i0.Value<String?> loginId,
-  i0.Value<List<String>?> ownedShops,
-  i0.Value<i2.ContactProfile?> contacts,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> sellerPrefTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $SellerPrefFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.SellerPref> {
-  $SellerPrefFilterComposer(super.$state);
-  i0.ColumnFilters<String> get sellerPrefId => $state.composableBuilder(
-      column: $state.table.sellerPrefId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get loginId => $state.composableBuilder(
-      column: $state.table.loginId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get ownedShops => $state.composableBuilder(
-          column: $state.table.ownedShops,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.ContactProfile?, i2.ContactProfile,
-          String>
-      get contacts => $state.composableBuilder(
-          column: $state.table.contacts,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get sellerPrefTypeId => $state.composableBuilder(
-      column: $state.table.sellerPrefTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $SellerPrefOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.SellerPref> {
-  $SellerPrefOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get sellerPrefId => $state.composableBuilder(
-      column: $state.table.sellerPrefId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get loginId => $state.composableBuilder(
-      column: $state.table.loginId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get ownedShops => $state.composableBuilder(
-      column: $state.table.ownedShops,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get contacts => $state.composableBuilder(
-      column: $state.table.contacts,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get sellerPrefTypeId => $state.composableBuilder(
-      column: $state.table.sellerPrefTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $SellerPrefTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.SellerPref,
-    i1.SellerPrefData,
-    i1.$SellerPrefFilterComposer,
-    i1.$SellerPrefOrderingComposer,
-    $SellerPrefCreateCompanionBuilder,
-    $SellerPrefUpdateCompanionBuilder,
-    (
-      i1.SellerPrefData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.SellerPref, i1.SellerPrefData>
-    ),
-    i1.SellerPrefData,
-    i0.PrefetchHooks Function()> {
-  $SellerPrefTableManager(i0.GeneratedDatabase db, i1.SellerPref table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$SellerPrefFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$SellerPrefOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> sellerPrefId = const i0.Value.absent(),
-            i0.Value<String?> loginId = const i0.Value.absent(),
-            i0.Value<List<String>?> ownedShops = const i0.Value.absent(),
-            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> sellerPrefTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.SellerPrefCompanion(
-            sellerPrefId: sellerPrefId,
-            loginId: loginId,
-            ownedShops: ownedShops,
-            contacts: contacts,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            sellerPrefTypeId: sellerPrefTypeId,
-            statusId: statusId,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String sellerPrefId,
-            i0.Value<String?> loginId = const i0.Value.absent(),
-            i0.Value<List<String>?> ownedShops = const i0.Value.absent(),
-            i0.Value<i2.ContactProfile?> contacts = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> sellerPrefTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.SellerPrefCompanion.insert(
-            sellerPrefId: sellerPrefId,
-            loginId: loginId,
-            ownedShops: ownedShops,
-            contacts: contacts,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            sellerPrefTypeId: sellerPrefTypeId,
-            statusId: statusId,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $SellerPrefProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.SellerPref,
-    i1.SellerPrefData,
-    i1.$SellerPrefFilterComposer,
-    i1.$SellerPrefOrderingComposer,
-    $SellerPrefCreateCompanionBuilder,
-    $SellerPrefUpdateCompanionBuilder,
-    (
-      i1.SellerPrefData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.SellerPref, i1.SellerPrefData>
-    ),
-    i1.SellerPrefData,
-    i0.PrefetchHooks Function()>;
 
 class SellerPrefDrift extends i5.ModularAccessor {
   SellerPrefDrift(i0.GeneratedDatabase db) : super(db);

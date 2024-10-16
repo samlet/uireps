@@ -11,7 +11,7 @@ part 'thing_facet_pods.g.dart';
 @Riverpod(keepAlive: true)
 ThingFacetRepository thingFacetRepository(ThingFacetRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return ThingFacetRepository(conn.dio, database);
 }
 

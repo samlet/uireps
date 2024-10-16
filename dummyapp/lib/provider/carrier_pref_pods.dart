@@ -11,7 +11,7 @@ part 'carrier_pref_pods.g.dart';
 @Riverpod(keepAlive: true)
 CarrierPrefRepository carrierPrefRepository(CarrierPrefRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return CarrierPrefRepository(conn.dio, database);
 }
 

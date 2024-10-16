@@ -4,6 +4,362 @@ import 'package:xcsdrift/src/session_cache.drift.dart' as i1;
 import 'package:xcsdrift/fldconv.dart' as i2;
 import 'package:drift/internal/modular.dart' as i3;
 
+typedef $SessionCacheCreateCompanionBuilder = i1.SessionCacheCompanion
+    Function({
+  required String sessionCacheId,
+  i0.Value<DateTime?> fetchTime,
+  i0.Value<DateTime?> thruTime,
+  i0.Value<List<String>?> elements,
+  i0.Value<String?> subject,
+  i0.Value<String?> bundleName,
+  i0.Value<String?> tenantKey,
+  i0.Value<String?> regKey,
+  i0.Value<String?> bundleId,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> sessionCacheTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $SessionCacheUpdateCompanionBuilder = i1.SessionCacheCompanion
+    Function({
+  i0.Value<String> sessionCacheId,
+  i0.Value<DateTime?> fetchTime,
+  i0.Value<DateTime?> thruTime,
+  i0.Value<List<String>?> elements,
+  i0.Value<String?> subject,
+  i0.Value<String?> bundleName,
+  i0.Value<String?> tenantKey,
+  i0.Value<String?> regKey,
+  i0.Value<String?> bundleId,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> sessionCacheTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $SessionCacheFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.SessionCache> {
+  $SessionCacheFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get sessionCacheId => $composableBuilder(
+      column: $table.sessionCacheId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get fetchTime => $composableBuilder(
+      column: $table.fetchTime, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get thruTime => $composableBuilder(
+      column: $table.thruTime, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get elements => $composableBuilder(
+          column: $table.elements,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get subject => $composableBuilder(
+      column: $table.subject, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get bundleName => $composableBuilder(
+      column: $table.bundleName, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantKey => $composableBuilder(
+      column: $table.tenantKey, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get regKey => $composableBuilder(
+      column: $table.regKey, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get bundleId => $composableBuilder(
+      column: $table.bundleId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get sessionCacheTypeId => $composableBuilder(
+      column: $table.sessionCacheTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $SessionCacheOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.SessionCache> {
+  $SessionCacheOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get sessionCacheId => $composableBuilder(
+      column: $table.sessionCacheId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get fetchTime => $composableBuilder(
+      column: $table.fetchTime,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get thruTime => $composableBuilder(
+      column: $table.thruTime, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get elements => $composableBuilder(
+      column: $table.elements, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get subject => $composableBuilder(
+      column: $table.subject, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get bundleName => $composableBuilder(
+      column: $table.bundleName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantKey => $composableBuilder(
+      column: $table.tenantKey,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get regKey => $composableBuilder(
+      column: $table.regKey, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get bundleId => $composableBuilder(
+      column: $table.bundleId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get sessionCacheTypeId => $composableBuilder(
+      column: $table.sessionCacheTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $SessionCacheAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.SessionCache> {
+  $SessionCacheAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get sessionCacheId => $composableBuilder(
+      column: $table.sessionCacheId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get fetchTime =>
+      $composableBuilder(column: $table.fetchTime, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get thruTime =>
+      $composableBuilder(column: $table.thruTime, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get elements =>
+      $composableBuilder(column: $table.elements, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get subject =>
+      $composableBuilder(column: $table.subject, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get bundleName => $composableBuilder(
+      column: $table.bundleName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantKey =>
+      $composableBuilder(column: $table.tenantKey, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get regKey =>
+      $composableBuilder(column: $table.regKey, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get bundleId =>
+      $composableBuilder(column: $table.bundleId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get sessionCacheTypeId => $composableBuilder(
+      column: $table.sessionCacheTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $SessionCacheTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.SessionCache,
+    i1.SessionCacheData,
+    i1.$SessionCacheFilterComposer,
+    i1.$SessionCacheOrderingComposer,
+    i1.$SessionCacheAnnotationComposer,
+    $SessionCacheCreateCompanionBuilder,
+    $SessionCacheUpdateCompanionBuilder,
+    (
+      i1.SessionCacheData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.SessionCache,
+          i1.SessionCacheData>
+    ),
+    i1.SessionCacheData,
+    i0.PrefetchHooks Function()> {
+  $SessionCacheTableManager(i0.GeneratedDatabase db, i1.SessionCache table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$SessionCacheFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$SessionCacheOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$SessionCacheAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> sessionCacheId = const i0.Value.absent(),
+            i0.Value<DateTime?> fetchTime = const i0.Value.absent(),
+            i0.Value<DateTime?> thruTime = const i0.Value.absent(),
+            i0.Value<List<String>?> elements = const i0.Value.absent(),
+            i0.Value<String?> subject = const i0.Value.absent(),
+            i0.Value<String?> bundleName = const i0.Value.absent(),
+            i0.Value<String?> tenantKey = const i0.Value.absent(),
+            i0.Value<String?> regKey = const i0.Value.absent(),
+            i0.Value<String?> bundleId = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> sessionCacheTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.SessionCacheCompanion(
+            sessionCacheId: sessionCacheId,
+            fetchTime: fetchTime,
+            thruTime: thruTime,
+            elements: elements,
+            subject: subject,
+            bundleName: bundleName,
+            tenantKey: tenantKey,
+            regKey: regKey,
+            bundleId: bundleId,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            sessionCacheTypeId: sessionCacheTypeId,
+            statusId: statusId,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String sessionCacheId,
+            i0.Value<DateTime?> fetchTime = const i0.Value.absent(),
+            i0.Value<DateTime?> thruTime = const i0.Value.absent(),
+            i0.Value<List<String>?> elements = const i0.Value.absent(),
+            i0.Value<String?> subject = const i0.Value.absent(),
+            i0.Value<String?> bundleName = const i0.Value.absent(),
+            i0.Value<String?> tenantKey = const i0.Value.absent(),
+            i0.Value<String?> regKey = const i0.Value.absent(),
+            i0.Value<String?> bundleId = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> sessionCacheTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.SessionCacheCompanion.insert(
+            sessionCacheId: sessionCacheId,
+            fetchTime: fetchTime,
+            thruTime: thruTime,
+            elements: elements,
+            subject: subject,
+            bundleName: bundleName,
+            tenantKey: tenantKey,
+            regKey: regKey,
+            bundleId: bundleId,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            sessionCacheTypeId: sessionCacheTypeId,
+            statusId: statusId,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $SessionCacheProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.SessionCache,
+    i1.SessionCacheData,
+    i1.$SessionCacheFilterComposer,
+    i1.$SessionCacheOrderingComposer,
+    i1.$SessionCacheAnnotationComposer,
+    $SessionCacheCreateCompanionBuilder,
+    $SessionCacheUpdateCompanionBuilder,
+    (
+      i1.SessionCacheData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.SessionCache,
+          i1.SessionCacheData>
+    ),
+    i1.SessionCacheData,
+    i0.PrefetchHooks Function()>;
+
 class SessionCache extends i0.Table
     with i0.TableInfo<SessionCache, i1.SessionCacheData> {
   @override
@@ -837,340 +1193,6 @@ class SessionCacheCompanion extends i0.UpdateCompanion<i1.SessionCacheData> {
         .toString();
   }
 }
-
-typedef $SessionCacheCreateCompanionBuilder = i1.SessionCacheCompanion
-    Function({
-  required String sessionCacheId,
-  i0.Value<DateTime?> fetchTime,
-  i0.Value<DateTime?> thruTime,
-  i0.Value<List<String>?> elements,
-  i0.Value<String?> subject,
-  i0.Value<String?> bundleName,
-  i0.Value<String?> tenantKey,
-  i0.Value<String?> regKey,
-  i0.Value<String?> bundleId,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> sessionCacheTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $SessionCacheUpdateCompanionBuilder = i1.SessionCacheCompanion
-    Function({
-  i0.Value<String> sessionCacheId,
-  i0.Value<DateTime?> fetchTime,
-  i0.Value<DateTime?> thruTime,
-  i0.Value<List<String>?> elements,
-  i0.Value<String?> subject,
-  i0.Value<String?> bundleName,
-  i0.Value<String?> tenantKey,
-  i0.Value<String?> regKey,
-  i0.Value<String?> bundleId,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> sessionCacheTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $SessionCacheFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.SessionCache> {
-  $SessionCacheFilterComposer(super.$state);
-  i0.ColumnFilters<String> get sessionCacheId => $state.composableBuilder(
-      column: $state.table.sessionCacheId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get fetchTime => $state.composableBuilder(
-      column: $state.table.fetchTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get thruTime => $state.composableBuilder(
-      column: $state.table.thruTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get elements => $state.composableBuilder(
-          column: $state.table.elements,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get subject => $state.composableBuilder(
-      column: $state.table.subject,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get bundleName => $state.composableBuilder(
-      column: $state.table.bundleName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantKey => $state.composableBuilder(
-      column: $state.table.tenantKey,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get regKey => $state.composableBuilder(
-      column: $state.table.regKey,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get bundleId => $state.composableBuilder(
-      column: $state.table.bundleId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get sessionCacheTypeId => $state.composableBuilder(
-      column: $state.table.sessionCacheTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $SessionCacheOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.SessionCache> {
-  $SessionCacheOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get sessionCacheId => $state.composableBuilder(
-      column: $state.table.sessionCacheId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get fetchTime => $state.composableBuilder(
-      column: $state.table.fetchTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get thruTime => $state.composableBuilder(
-      column: $state.table.thruTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get elements => $state.composableBuilder(
-      column: $state.table.elements,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get subject => $state.composableBuilder(
-      column: $state.table.subject,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get bundleName => $state.composableBuilder(
-      column: $state.table.bundleName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantKey => $state.composableBuilder(
-      column: $state.table.tenantKey,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get regKey => $state.composableBuilder(
-      column: $state.table.regKey,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get bundleId => $state.composableBuilder(
-      column: $state.table.bundleId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get sessionCacheTypeId => $state.composableBuilder(
-      column: $state.table.sessionCacheTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $SessionCacheTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.SessionCache,
-    i1.SessionCacheData,
-    i1.$SessionCacheFilterComposer,
-    i1.$SessionCacheOrderingComposer,
-    $SessionCacheCreateCompanionBuilder,
-    $SessionCacheUpdateCompanionBuilder,
-    (
-      i1.SessionCacheData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.SessionCache,
-          i1.SessionCacheData>
-    ),
-    i1.SessionCacheData,
-    i0.PrefetchHooks Function()> {
-  $SessionCacheTableManager(i0.GeneratedDatabase db, i1.SessionCache table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$SessionCacheFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$SessionCacheOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> sessionCacheId = const i0.Value.absent(),
-            i0.Value<DateTime?> fetchTime = const i0.Value.absent(),
-            i0.Value<DateTime?> thruTime = const i0.Value.absent(),
-            i0.Value<List<String>?> elements = const i0.Value.absent(),
-            i0.Value<String?> subject = const i0.Value.absent(),
-            i0.Value<String?> bundleName = const i0.Value.absent(),
-            i0.Value<String?> tenantKey = const i0.Value.absent(),
-            i0.Value<String?> regKey = const i0.Value.absent(),
-            i0.Value<String?> bundleId = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> sessionCacheTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.SessionCacheCompanion(
-            sessionCacheId: sessionCacheId,
-            fetchTime: fetchTime,
-            thruTime: thruTime,
-            elements: elements,
-            subject: subject,
-            bundleName: bundleName,
-            tenantKey: tenantKey,
-            regKey: regKey,
-            bundleId: bundleId,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            sessionCacheTypeId: sessionCacheTypeId,
-            statusId: statusId,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String sessionCacheId,
-            i0.Value<DateTime?> fetchTime = const i0.Value.absent(),
-            i0.Value<DateTime?> thruTime = const i0.Value.absent(),
-            i0.Value<List<String>?> elements = const i0.Value.absent(),
-            i0.Value<String?> subject = const i0.Value.absent(),
-            i0.Value<String?> bundleName = const i0.Value.absent(),
-            i0.Value<String?> tenantKey = const i0.Value.absent(),
-            i0.Value<String?> regKey = const i0.Value.absent(),
-            i0.Value<String?> bundleId = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> sessionCacheTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.SessionCacheCompanion.insert(
-            sessionCacheId: sessionCacheId,
-            fetchTime: fetchTime,
-            thruTime: thruTime,
-            elements: elements,
-            subject: subject,
-            bundleName: bundleName,
-            tenantKey: tenantKey,
-            regKey: regKey,
-            bundleId: bundleId,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            sessionCacheTypeId: sessionCacheTypeId,
-            statusId: statusId,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $SessionCacheProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.SessionCache,
-    i1.SessionCacheData,
-    i1.$SessionCacheFilterComposer,
-    i1.$SessionCacheOrderingComposer,
-    $SessionCacheCreateCompanionBuilder,
-    $SessionCacheUpdateCompanionBuilder,
-    (
-      i1.SessionCacheData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.SessionCache,
-          i1.SessionCacheData>
-    ),
-    i1.SessionCacheData,
-    i0.PrefetchHooks Function()>;
 
 class SessionCacheDrift extends i3.ModularAccessor {
   SessionCacheDrift(i0.GeneratedDatabase db) : super(db);

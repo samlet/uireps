@@ -5,6 +5,359 @@ import 'package:xcsmachine/src/ent/commodity.dart' as i2;
 import 'package:xcsdrift/src/commodity_conv.dart' as i3;
 import 'package:drift/internal/modular.dart' as i4;
 
+typedef $CommodityCreateCompanionBuilder = i1.CommodityCompanion Function({
+  required String commodityId,
+  i0.Value<String?> createBy,
+  i0.Value<String?> productId,
+  i0.Value<String?> dimension,
+  i0.Value<int?> color,
+  i0.Value<String?> slogan,
+  i0.Value<String?> logo,
+  i0.Value<String?> brand,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> commodityTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.CommodityType?> commodityType,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $CommodityUpdateCompanionBuilder = i1.CommodityCompanion Function({
+  i0.Value<String> commodityId,
+  i0.Value<String?> createBy,
+  i0.Value<String?> productId,
+  i0.Value<String?> dimension,
+  i0.Value<int?> color,
+  i0.Value<String?> slogan,
+  i0.Value<String?> logo,
+  i0.Value<String?> brand,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> commodityTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.CommodityType?> commodityType,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $CommodityFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Commodity> {
+  $CommodityFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get commodityId => $composableBuilder(
+      column: $table.commodityId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get createBy => $composableBuilder(
+      column: $table.createBy, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get dimension => $composableBuilder(
+      column: $table.dimension, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get color => $composableBuilder(
+      column: $table.color, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get slogan => $composableBuilder(
+      column: $table.slogan, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get logo => $composableBuilder(
+      column: $table.logo, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get brand => $composableBuilder(
+      column: $table.brand, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get commodityTypeId => $composableBuilder(
+      column: $table.commodityTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.CommodityType?, i2.CommodityType, String>
+      get commodityType => $composableBuilder(
+          column: $table.commodityType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $CommodityOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Commodity> {
+  $CommodityOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get commodityId => $composableBuilder(
+      column: $table.commodityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get createBy => $composableBuilder(
+      column: $table.createBy, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productId => $composableBuilder(
+      column: $table.productId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get dimension => $composableBuilder(
+      column: $table.dimension,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get color => $composableBuilder(
+      column: $table.color, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get slogan => $composableBuilder(
+      column: $table.slogan, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get logo => $composableBuilder(
+      column: $table.logo, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get brand => $composableBuilder(
+      column: $table.brand, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get commodityTypeId => $composableBuilder(
+      column: $table.commodityTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get commodityType => $composableBuilder(
+      column: $table.commodityType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $CommodityAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Commodity> {
+  $CommodityAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get commodityId => $composableBuilder(
+      column: $table.commodityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get createBy =>
+      $composableBuilder(column: $table.createBy, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get productId =>
+      $composableBuilder(column: $table.productId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get dimension =>
+      $composableBuilder(column: $table.dimension, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get color =>
+      $composableBuilder(column: $table.color, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get slogan =>
+      $composableBuilder(column: $table.slogan, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get logo =>
+      $composableBuilder(column: $table.logo, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get brand =>
+      $composableBuilder(column: $table.brand, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get commodityTypeId => $composableBuilder(
+      column: $table.commodityTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.CommodityType?, String>
+      get commodityType => $composableBuilder(
+          column: $table.commodityType, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $CommodityTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Commodity,
+    i1.CommodityData,
+    i1.$CommodityFilterComposer,
+    i1.$CommodityOrderingComposer,
+    i1.$CommodityAnnotationComposer,
+    $CommodityCreateCompanionBuilder,
+    $CommodityUpdateCompanionBuilder,
+    (
+      i1.CommodityData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Commodity, i1.CommodityData>
+    ),
+    i1.CommodityData,
+    i0.PrefetchHooks Function()> {
+  $CommodityTableManager(i0.GeneratedDatabase db, i1.Commodity table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$CommodityFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$CommodityOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$CommodityAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> commodityId = const i0.Value.absent(),
+            i0.Value<String?> createBy = const i0.Value.absent(),
+            i0.Value<String?> productId = const i0.Value.absent(),
+            i0.Value<String?> dimension = const i0.Value.absent(),
+            i0.Value<int?> color = const i0.Value.absent(),
+            i0.Value<String?> slogan = const i0.Value.absent(),
+            i0.Value<String?> logo = const i0.Value.absent(),
+            i0.Value<String?> brand = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> commodityTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.CommodityType?> commodityType = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.CommodityCompanion(
+            commodityId: commodityId,
+            createBy: createBy,
+            productId: productId,
+            dimension: dimension,
+            color: color,
+            slogan: slogan,
+            logo: logo,
+            brand: brand,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            commodityTypeId: commodityTypeId,
+            statusId: statusId,
+            evict: evict,
+            commodityType: commodityType,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String commodityId,
+            i0.Value<String?> createBy = const i0.Value.absent(),
+            i0.Value<String?> productId = const i0.Value.absent(),
+            i0.Value<String?> dimension = const i0.Value.absent(),
+            i0.Value<int?> color = const i0.Value.absent(),
+            i0.Value<String?> slogan = const i0.Value.absent(),
+            i0.Value<String?> logo = const i0.Value.absent(),
+            i0.Value<String?> brand = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> commodityTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.CommodityType?> commodityType = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.CommodityCompanion.insert(
+            commodityId: commodityId,
+            createBy: createBy,
+            productId: productId,
+            dimension: dimension,
+            color: color,
+            slogan: slogan,
+            logo: logo,
+            brand: brand,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            commodityTypeId: commodityTypeId,
+            statusId: statusId,
+            evict: evict,
+            commodityType: commodityType,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $CommodityProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Commodity,
+    i1.CommodityData,
+    i1.$CommodityFilterComposer,
+    i1.$CommodityOrderingComposer,
+    i1.$CommodityAnnotationComposer,
+    $CommodityCreateCompanionBuilder,
+    $CommodityUpdateCompanionBuilder,
+    (
+      i1.CommodityData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Commodity, i1.CommodityData>
+    ),
+    i1.CommodityData,
+    i0.PrefetchHooks Function()>;
+
 class Commodity extends i0.Table
     with i0.TableInfo<Commodity, i1.CommodityData> {
   @override
@@ -837,336 +1190,6 @@ class CommodityCompanion extends i0.UpdateCompanion<i1.CommodityData> {
         .toString();
   }
 }
-
-typedef $CommodityCreateCompanionBuilder = i1.CommodityCompanion Function({
-  required String commodityId,
-  i0.Value<String?> createBy,
-  i0.Value<String?> productId,
-  i0.Value<String?> dimension,
-  i0.Value<int?> color,
-  i0.Value<String?> slogan,
-  i0.Value<String?> logo,
-  i0.Value<String?> brand,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> commodityTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.CommodityType?> commodityType,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $CommodityUpdateCompanionBuilder = i1.CommodityCompanion Function({
-  i0.Value<String> commodityId,
-  i0.Value<String?> createBy,
-  i0.Value<String?> productId,
-  i0.Value<String?> dimension,
-  i0.Value<int?> color,
-  i0.Value<String?> slogan,
-  i0.Value<String?> logo,
-  i0.Value<String?> brand,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> commodityTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.CommodityType?> commodityType,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $CommodityFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Commodity> {
-  $CommodityFilterComposer(super.$state);
-  i0.ColumnFilters<String> get commodityId => $state.composableBuilder(
-      column: $state.table.commodityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get createBy => $state.composableBuilder(
-      column: $state.table.createBy,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get productId => $state.composableBuilder(
-      column: $state.table.productId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get dimension => $state.composableBuilder(
-      column: $state.table.dimension,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get color => $state.composableBuilder(
-      column: $state.table.color,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get slogan => $state.composableBuilder(
-      column: $state.table.slogan,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get logo => $state.composableBuilder(
-      column: $state.table.logo,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get brand => $state.composableBuilder(
-      column: $state.table.brand,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get commodityTypeId => $state.composableBuilder(
-      column: $state.table.commodityTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.CommodityType?, i2.CommodityType, String>
-      get commodityType => $state.composableBuilder(
-          column: $state.table.commodityType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $CommodityOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Commodity> {
-  $CommodityOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get commodityId => $state.composableBuilder(
-      column: $state.table.commodityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get createBy => $state.composableBuilder(
-      column: $state.table.createBy,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productId => $state.composableBuilder(
-      column: $state.table.productId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get dimension => $state.composableBuilder(
-      column: $state.table.dimension,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get color => $state.composableBuilder(
-      column: $state.table.color,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get slogan => $state.composableBuilder(
-      column: $state.table.slogan,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get logo => $state.composableBuilder(
-      column: $state.table.logo,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get brand => $state.composableBuilder(
-      column: $state.table.brand,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get commodityTypeId => $state.composableBuilder(
-      column: $state.table.commodityTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get commodityType => $state.composableBuilder(
-      column: $state.table.commodityType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $CommodityTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Commodity,
-    i1.CommodityData,
-    i1.$CommodityFilterComposer,
-    i1.$CommodityOrderingComposer,
-    $CommodityCreateCompanionBuilder,
-    $CommodityUpdateCompanionBuilder,
-    (
-      i1.CommodityData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Commodity, i1.CommodityData>
-    ),
-    i1.CommodityData,
-    i0.PrefetchHooks Function()> {
-  $CommodityTableManager(i0.GeneratedDatabase db, i1.Commodity table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$CommodityFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$CommodityOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> commodityId = const i0.Value.absent(),
-            i0.Value<String?> createBy = const i0.Value.absent(),
-            i0.Value<String?> productId = const i0.Value.absent(),
-            i0.Value<String?> dimension = const i0.Value.absent(),
-            i0.Value<int?> color = const i0.Value.absent(),
-            i0.Value<String?> slogan = const i0.Value.absent(),
-            i0.Value<String?> logo = const i0.Value.absent(),
-            i0.Value<String?> brand = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> commodityTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.CommodityType?> commodityType = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.CommodityCompanion(
-            commodityId: commodityId,
-            createBy: createBy,
-            productId: productId,
-            dimension: dimension,
-            color: color,
-            slogan: slogan,
-            logo: logo,
-            brand: brand,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            commodityTypeId: commodityTypeId,
-            statusId: statusId,
-            evict: evict,
-            commodityType: commodityType,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String commodityId,
-            i0.Value<String?> createBy = const i0.Value.absent(),
-            i0.Value<String?> productId = const i0.Value.absent(),
-            i0.Value<String?> dimension = const i0.Value.absent(),
-            i0.Value<int?> color = const i0.Value.absent(),
-            i0.Value<String?> slogan = const i0.Value.absent(),
-            i0.Value<String?> logo = const i0.Value.absent(),
-            i0.Value<String?> brand = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> commodityTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.CommodityType?> commodityType = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.CommodityCompanion.insert(
-            commodityId: commodityId,
-            createBy: createBy,
-            productId: productId,
-            dimension: dimension,
-            color: color,
-            slogan: slogan,
-            logo: logo,
-            brand: brand,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            commodityTypeId: commodityTypeId,
-            statusId: statusId,
-            evict: evict,
-            commodityType: commodityType,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $CommodityProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Commodity,
-    i1.CommodityData,
-    i1.$CommodityFilterComposer,
-    i1.$CommodityOrderingComposer,
-    $CommodityCreateCompanionBuilder,
-    $CommodityUpdateCompanionBuilder,
-    (
-      i1.CommodityData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Commodity, i1.CommodityData>
-    ),
-    i1.CommodityData,
-    i0.PrefetchHooks Function()>;
 
 class CommodityDrift extends i4.ModularAccessor {
   CommodityDrift(i0.GeneratedDatabase db) : super(db);

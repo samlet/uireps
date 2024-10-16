@@ -22,3 +22,10 @@ genlogin:
 
 cleandb:
   rm /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/sampleNotes.sqlite
+
+db:
+  open /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/sampleNotes.sqlite
+
+dbshell:
+  sqlite3 /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/sampleNotes.sqlite
+

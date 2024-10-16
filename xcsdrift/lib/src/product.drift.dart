@@ -7,6 +7,1867 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/product_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $ProductCreateCompanionBuilder = i1.ProductCompanion Function({
+  required String productId,
+  i0.Value<String?> productTypeId,
+  i0.Value<String?> primaryProductCategoryId,
+  i0.Value<String?> facilityId,
+  i0.Value<DateTime?> introductionDate,
+  i0.Value<DateTime?> releaseDate,
+  i0.Value<DateTime?> supportDiscontinuationDate,
+  i0.Value<DateTime?> salesDiscontinuationDate,
+  i0.Value<String?> salesDiscWhenNotAvail,
+  i0.Value<String?> internalName,
+  i0.Value<String?> brandName,
+  i0.Value<String?> comments,
+  i0.Value<String?> productName,
+  i0.Value<String?> description,
+  i0.Value<String?> longDescription,
+  i0.Value<String?> priceDetailText,
+  i0.Value<String?> smallImageUrl,
+  i0.Value<String?> mediumImageUrl,
+  i0.Value<String?> largeImageUrl,
+  i0.Value<String?> detailImageUrl,
+  i0.Value<String?> originalImageUrl,
+  i0.Value<String?> detailScreen,
+  i0.Value<String?> inventoryMessage,
+  i0.Value<String?> inventoryItemTypeId,
+  i0.Value<String?> requireInventory,
+  i0.Value<String?> quantityUomId,
+  i0.Value<double?> quantityIncluded,
+  i0.Value<int?> piecesIncluded,
+  i0.Value<String?> requireAmount,
+  i0.Value<double?> fixedAmount,
+  i0.Value<String?> amountUomTypeId,
+  i0.Value<String?> weightUomId,
+  i0.Value<double?> shippingWeight,
+  i0.Value<double?> productWeight,
+  i0.Value<String?> heightUomId,
+  i0.Value<double?> productHeight,
+  i0.Value<double?> shippingHeight,
+  i0.Value<String?> widthUomId,
+  i0.Value<double?> productWidth,
+  i0.Value<double?> shippingWidth,
+  i0.Value<String?> depthUomId,
+  i0.Value<double?> productDepth,
+  i0.Value<double?> shippingDepth,
+  i0.Value<String?> diameterUomId,
+  i0.Value<double?> productDiameter,
+  i0.Value<double?> productRating,
+  i0.Value<String?> ratingTypeEnum,
+  i0.Value<String?> returnable,
+  i0.Value<String?> taxable,
+  i0.Value<String?> chargeShipping,
+  i0.Value<String?> autoCreateKeywords,
+  i0.Value<String?> includeInPromotions,
+  i0.Value<String?> isVirtual,
+  i0.Value<String?> isVariant,
+  i0.Value<String?> virtualVariantMethodEnum,
+  i0.Value<String?> originGeoId,
+  i0.Value<String?> requirementMethodEnumId,
+  i0.Value<int?> billOfMaterialLevel,
+  i0.Value<double?> reservMaxPersons,
+  i0.Value<double?> reserv2ndPPPerc,
+  i0.Value<double?> reservNthPPPerc,
+  i0.Value<String?> configId,
+  i0.Value<DateTime?> createdDate,
+  i0.Value<String?> createdByUserLogin,
+  i0.Value<DateTime?> lastModifiedDate,
+  i0.Value<String?> lastModifiedByUserLogin,
+  i0.Value<String?> inShippingBox,
+  i0.Value<String?> defaultShipmentBoxTypeId,
+  i0.Value<String?> lotIdFilledIn,
+  i0.Value<String?> orderDecimalQuantity,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<List<String>?> cats,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<Map<String, String>?> jointers,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<i3.ProductType?> productType,
+  i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct,
+  i0.Value<List<i3.ProductFacility>?> productFacility,
+  i0.Value<List<i3.ProductCostComponentCalc>?> productCostComponentCalc,
+  i0.Value<List<i3.ProductRole>?> productRole,
+  i0.Value<List<i3.ProductConfig>?> productProductConfig,
+  i0.Value<List<i3.ProductPrice>?> productPrice,
+  i0.Value<List<i3.ProductFacilityLocation>?> productFacilityLocation,
+  i0.Value<List<i3.ProductSlot>?> productSlot,
+  i0.Value<List<i3.ProductContent>?> productContent,
+  i0.Value<List<i3.ProductAssoc>?> assocProductAssoc,
+  i0.Value<List<i3.ProductMaint>?> productMaint,
+  i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl,
+  i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc,
+  i0.Value<List<i3.ProductKeyword>?> productKeyword,
+  i0.Value<List<i3.ProductAssoc>?> mainProductAssoc,
+  i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ProductUpdateCompanionBuilder = i1.ProductCompanion Function({
+  i0.Value<String> productId,
+  i0.Value<String?> productTypeId,
+  i0.Value<String?> primaryProductCategoryId,
+  i0.Value<String?> facilityId,
+  i0.Value<DateTime?> introductionDate,
+  i0.Value<DateTime?> releaseDate,
+  i0.Value<DateTime?> supportDiscontinuationDate,
+  i0.Value<DateTime?> salesDiscontinuationDate,
+  i0.Value<String?> salesDiscWhenNotAvail,
+  i0.Value<String?> internalName,
+  i0.Value<String?> brandName,
+  i0.Value<String?> comments,
+  i0.Value<String?> productName,
+  i0.Value<String?> description,
+  i0.Value<String?> longDescription,
+  i0.Value<String?> priceDetailText,
+  i0.Value<String?> smallImageUrl,
+  i0.Value<String?> mediumImageUrl,
+  i0.Value<String?> largeImageUrl,
+  i0.Value<String?> detailImageUrl,
+  i0.Value<String?> originalImageUrl,
+  i0.Value<String?> detailScreen,
+  i0.Value<String?> inventoryMessage,
+  i0.Value<String?> inventoryItemTypeId,
+  i0.Value<String?> requireInventory,
+  i0.Value<String?> quantityUomId,
+  i0.Value<double?> quantityIncluded,
+  i0.Value<int?> piecesIncluded,
+  i0.Value<String?> requireAmount,
+  i0.Value<double?> fixedAmount,
+  i0.Value<String?> amountUomTypeId,
+  i0.Value<String?> weightUomId,
+  i0.Value<double?> shippingWeight,
+  i0.Value<double?> productWeight,
+  i0.Value<String?> heightUomId,
+  i0.Value<double?> productHeight,
+  i0.Value<double?> shippingHeight,
+  i0.Value<String?> widthUomId,
+  i0.Value<double?> productWidth,
+  i0.Value<double?> shippingWidth,
+  i0.Value<String?> depthUomId,
+  i0.Value<double?> productDepth,
+  i0.Value<double?> shippingDepth,
+  i0.Value<String?> diameterUomId,
+  i0.Value<double?> productDiameter,
+  i0.Value<double?> productRating,
+  i0.Value<String?> ratingTypeEnum,
+  i0.Value<String?> returnable,
+  i0.Value<String?> taxable,
+  i0.Value<String?> chargeShipping,
+  i0.Value<String?> autoCreateKeywords,
+  i0.Value<String?> includeInPromotions,
+  i0.Value<String?> isVirtual,
+  i0.Value<String?> isVariant,
+  i0.Value<String?> virtualVariantMethodEnum,
+  i0.Value<String?> originGeoId,
+  i0.Value<String?> requirementMethodEnumId,
+  i0.Value<int?> billOfMaterialLevel,
+  i0.Value<double?> reservMaxPersons,
+  i0.Value<double?> reserv2ndPPPerc,
+  i0.Value<double?> reservNthPPPerc,
+  i0.Value<String?> configId,
+  i0.Value<DateTime?> createdDate,
+  i0.Value<String?> createdByUserLogin,
+  i0.Value<DateTime?> lastModifiedDate,
+  i0.Value<String?> lastModifiedByUserLogin,
+  i0.Value<String?> inShippingBox,
+  i0.Value<String?> defaultShipmentBoxTypeId,
+  i0.Value<String?> lotIdFilledIn,
+  i0.Value<String?> orderDecimalQuantity,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<List<String>?> cats,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<Map<String, String>?> jointers,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<i3.ProductType?> productType,
+  i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct,
+  i0.Value<List<i3.ProductFacility>?> productFacility,
+  i0.Value<List<i3.ProductCostComponentCalc>?> productCostComponentCalc,
+  i0.Value<List<i3.ProductRole>?> productRole,
+  i0.Value<List<i3.ProductConfig>?> productProductConfig,
+  i0.Value<List<i3.ProductPrice>?> productPrice,
+  i0.Value<List<i3.ProductFacilityLocation>?> productFacilityLocation,
+  i0.Value<List<i3.ProductSlot>?> productSlot,
+  i0.Value<List<i3.ProductContent>?> productContent,
+  i0.Value<List<i3.ProductAssoc>?> assocProductAssoc,
+  i0.Value<List<i3.ProductMaint>?> productMaint,
+  i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl,
+  i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc,
+  i0.Value<List<i3.ProductKeyword>?> productKeyword,
+  i0.Value<List<i3.ProductAssoc>?> mainProductAssoc,
+  i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ProductFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Product> {
+  $ProductFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get productTypeId => $composableBuilder(
+      column: $table.productTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get primaryProductCategoryId => $composableBuilder(
+      column: $table.primaryProductCategoryId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get facilityId => $composableBuilder(
+      column: $table.facilityId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get introductionDate => $composableBuilder(
+      column: $table.introductionDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get releaseDate => $composableBuilder(
+      column: $table.releaseDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get supportDiscontinuationDate =>
+      $composableBuilder(
+          column: $table.supportDiscontinuationDate,
+          builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get salesDiscontinuationDate => $composableBuilder(
+      column: $table.salesDiscontinuationDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get salesDiscWhenNotAvail => $composableBuilder(
+      column: $table.salesDiscWhenNotAvail,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get internalName => $composableBuilder(
+      column: $table.internalName,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get brandName => $composableBuilder(
+      column: $table.brandName, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get productName => $composableBuilder(
+      column: $table.productName,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get longDescription => $composableBuilder(
+      column: $table.longDescription,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get priceDetailText => $composableBuilder(
+      column: $table.priceDetailText,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get smallImageUrl => $composableBuilder(
+      column: $table.smallImageUrl,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get mediumImageUrl => $composableBuilder(
+      column: $table.mediumImageUrl,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get largeImageUrl => $composableBuilder(
+      column: $table.largeImageUrl,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get detailImageUrl => $composableBuilder(
+      column: $table.detailImageUrl,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get originalImageUrl => $composableBuilder(
+      column: $table.originalImageUrl,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get detailScreen => $composableBuilder(
+      column: $table.detailScreen,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get inventoryMessage => $composableBuilder(
+      column: $table.inventoryMessage,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get inventoryItemTypeId => $composableBuilder(
+      column: $table.inventoryItemTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get requireInventory => $composableBuilder(
+      column: $table.requireInventory,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get quantityUomId => $composableBuilder(
+      column: $table.quantityUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get quantityIncluded => $composableBuilder(
+      column: $table.quantityIncluded,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get piecesIncluded => $composableBuilder(
+      column: $table.piecesIncluded,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get requireAmount => $composableBuilder(
+      column: $table.requireAmount,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get fixedAmount => $composableBuilder(
+      column: $table.fixedAmount,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get amountUomTypeId => $composableBuilder(
+      column: $table.amountUomTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get weightUomId => $composableBuilder(
+      column: $table.weightUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get shippingWeight => $composableBuilder(
+      column: $table.shippingWeight,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get productWeight => $composableBuilder(
+      column: $table.productWeight,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get heightUomId => $composableBuilder(
+      column: $table.heightUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get productHeight => $composableBuilder(
+      column: $table.productHeight,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get shippingHeight => $composableBuilder(
+      column: $table.shippingHeight,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get widthUomId => $composableBuilder(
+      column: $table.widthUomId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get productWidth => $composableBuilder(
+      column: $table.productWidth,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get shippingWidth => $composableBuilder(
+      column: $table.shippingWidth,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get depthUomId => $composableBuilder(
+      column: $table.depthUomId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get productDepth => $composableBuilder(
+      column: $table.productDepth,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get shippingDepth => $composableBuilder(
+      column: $table.shippingDepth,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get diameterUomId => $composableBuilder(
+      column: $table.diameterUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get productDiameter => $composableBuilder(
+      column: $table.productDiameter,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get productRating => $composableBuilder(
+      column: $table.productRating,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get ratingTypeEnum => $composableBuilder(
+      column: $table.ratingTypeEnum,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get returnable => $composableBuilder(
+      column: $table.returnable, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get taxable => $composableBuilder(
+      column: $table.taxable, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get chargeShipping => $composableBuilder(
+      column: $table.chargeShipping,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoCreateKeywords => $composableBuilder(
+      column: $table.autoCreateKeywords,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get includeInPromotions => $composableBuilder(
+      column: $table.includeInPromotions,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get isVirtual => $composableBuilder(
+      column: $table.isVirtual, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get isVariant => $composableBuilder(
+      column: $table.isVariant, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get virtualVariantMethodEnum => $composableBuilder(
+      column: $table.virtualVariantMethodEnum,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get originGeoId => $composableBuilder(
+      column: $table.originGeoId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get requirementMethodEnumId => $composableBuilder(
+      column: $table.requirementMethodEnumId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get billOfMaterialLevel => $composableBuilder(
+      column: $table.billOfMaterialLevel,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get reservMaxPersons => $composableBuilder(
+      column: $table.reservMaxPersons,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get reserv2ndPPPerc => $composableBuilder(
+      column: $table.reserv2ndPPPerc,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get reservNthPPPerc => $composableBuilder(
+      column: $table.reservNthPPPerc,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get configId => $composableBuilder(
+      column: $table.configId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdDate => $composableBuilder(
+      column: $table.createdDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get createdByUserLogin => $composableBuilder(
+      column: $table.createdByUserLogin,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastModifiedDate => $composableBuilder(
+      column: $table.lastModifiedDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get lastModifiedByUserLogin => $composableBuilder(
+      column: $table.lastModifiedByUserLogin,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get inShippingBox => $composableBuilder(
+      column: $table.inShippingBox,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultShipmentBoxTypeId => $composableBuilder(
+      column: $table.defaultShipmentBoxTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get lotIdFilledIn => $composableBuilder(
+      column: $table.lotIdFilledIn,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get orderDecimalQuantity => $composableBuilder(
+      column: $table.orderDecimalQuantity,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get cats => $composableBuilder(
+          column: $table.cats,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get jointers => $composableBuilder(
+          column: $table.jointers,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.ProductType?, i3.ProductType, String>
+      get productType => $composableBuilder(
+          column: $table.productType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FixedAssetProduct>?,
+          List<i3.FixedAssetProduct>, String>
+      get fixedAssetProduct => $composableBuilder(
+          column: $table.fixedAssetProduct,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductFacility>?,
+          List<i3.ProductFacility>, String>
+      get productFacility => $composableBuilder(
+          column: $table.productFacility,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductCostComponentCalc>?,
+          List<i3.ProductCostComponentCalc>, String>
+      get productCostComponentCalc => $composableBuilder(
+          column: $table.productCostComponentCalc,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductRole>?, List<i3.ProductRole>,
+          String>
+      get productRole => $composableBuilder(
+          column: $table.productRole,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductConfig>?,
+          List<i3.ProductConfig>, String>
+      get productProductConfig => $composableBuilder(
+          column: $table.productProductConfig,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductPrice>?,
+          List<i3.ProductPrice>, String>
+      get productPrice => $composableBuilder(
+          column: $table.productPrice,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductFacilityLocation>?,
+          List<i3.ProductFacilityLocation>, String>
+      get productFacilityLocation => $composableBuilder(
+          column: $table.productFacilityLocation,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductSlot>?, List<i3.ProductSlot>,
+          String>
+      get productSlot => $composableBuilder(
+          column: $table.productSlot,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductContent>?,
+          List<i3.ProductContent>, String>
+      get productContent => $composableBuilder(
+          column: $table.productContent,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductAssoc>?,
+          List<i3.ProductAssoc>, String>
+      get assocProductAssoc => $composableBuilder(
+          column: $table.assocProductAssoc,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductMaint>?,
+          List<i3.ProductMaint>, String>
+      get productMaint => $composableBuilder(
+          column: $table.productMaint,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductFeatureAppl>?,
+          List<i3.ProductFeatureAppl>, String>
+      get productFeatureAppl => $composableBuilder(
+          column: $table.productFeatureAppl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductFacilityAssoc>?,
+          List<i3.ProductFacilityAssoc>, String>
+      get productFacilityAssoc => $composableBuilder(
+          column: $table.productFacilityAssoc,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductKeyword>?,
+          List<i3.ProductKeyword>, String>
+      get productKeyword => $composableBuilder(
+          column: $table.productKeyword,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductAssoc>?,
+          List<i3.ProductAssoc>, String>
+      get mainProductAssoc => $composableBuilder(
+          column: $table.mainProductAssoc,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.WorkEffortGoodStandard>?,
+          List<i3.WorkEffortGoodStandard>, String>
+      get workEffortGoodStandard => $composableBuilder(
+          column: $table.workEffortGoodStandard,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ProductOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Product> {
+  $ProductOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get productId => $composableBuilder(
+      column: $table.productId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productTypeId => $composableBuilder(
+      column: $table.productTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get primaryProductCategoryId => $composableBuilder(
+      column: $table.primaryProductCategoryId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityId => $composableBuilder(
+      column: $table.facilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get introductionDate => $composableBuilder(
+      column: $table.introductionDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get releaseDate => $composableBuilder(
+      column: $table.releaseDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get supportDiscontinuationDate =>
+      $composableBuilder(
+          column: $table.supportDiscontinuationDate,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get salesDiscontinuationDate =>
+      $composableBuilder(
+          column: $table.salesDiscontinuationDate,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get salesDiscWhenNotAvail => $composableBuilder(
+      column: $table.salesDiscWhenNotAvail,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get internalName => $composableBuilder(
+      column: $table.internalName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get brandName => $composableBuilder(
+      column: $table.brandName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productName => $composableBuilder(
+      column: $table.productName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get longDescription => $composableBuilder(
+      column: $table.longDescription,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get priceDetailText => $composableBuilder(
+      column: $table.priceDetailText,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get smallImageUrl => $composableBuilder(
+      column: $table.smallImageUrl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get mediumImageUrl => $composableBuilder(
+      column: $table.mediumImageUrl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get largeImageUrl => $composableBuilder(
+      column: $table.largeImageUrl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get detailImageUrl => $composableBuilder(
+      column: $table.detailImageUrl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get originalImageUrl => $composableBuilder(
+      column: $table.originalImageUrl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get detailScreen => $composableBuilder(
+      column: $table.detailScreen,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryMessage => $composableBuilder(
+      column: $table.inventoryMessage,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemTypeId => $composableBuilder(
+      column: $table.inventoryItemTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get requireInventory => $composableBuilder(
+      column: $table.requireInventory,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get quantityUomId => $composableBuilder(
+      column: $table.quantityUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get quantityIncluded => $composableBuilder(
+      column: $table.quantityIncluded,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get piecesIncluded => $composableBuilder(
+      column: $table.piecesIncluded,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get requireAmount => $composableBuilder(
+      column: $table.requireAmount,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get fixedAmount => $composableBuilder(
+      column: $table.fixedAmount,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get amountUomTypeId => $composableBuilder(
+      column: $table.amountUomTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get weightUomId => $composableBuilder(
+      column: $table.weightUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get shippingWeight => $composableBuilder(
+      column: $table.shippingWeight,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get productWeight => $composableBuilder(
+      column: $table.productWeight,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get heightUomId => $composableBuilder(
+      column: $table.heightUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get productHeight => $composableBuilder(
+      column: $table.productHeight,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get shippingHeight => $composableBuilder(
+      column: $table.shippingHeight,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get widthUomId => $composableBuilder(
+      column: $table.widthUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get productWidth => $composableBuilder(
+      column: $table.productWidth,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get shippingWidth => $composableBuilder(
+      column: $table.shippingWidth,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get depthUomId => $composableBuilder(
+      column: $table.depthUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get productDepth => $composableBuilder(
+      column: $table.productDepth,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get shippingDepth => $composableBuilder(
+      column: $table.shippingDepth,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get diameterUomId => $composableBuilder(
+      column: $table.diameterUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get productDiameter => $composableBuilder(
+      column: $table.productDiameter,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get productRating => $composableBuilder(
+      column: $table.productRating,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get ratingTypeEnum => $composableBuilder(
+      column: $table.ratingTypeEnum,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get returnable => $composableBuilder(
+      column: $table.returnable,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get taxable => $composableBuilder(
+      column: $table.taxable, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get chargeShipping => $composableBuilder(
+      column: $table.chargeShipping,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoCreateKeywords => $composableBuilder(
+      column: $table.autoCreateKeywords,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get includeInPromotions => $composableBuilder(
+      column: $table.includeInPromotions,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get isVirtual => $composableBuilder(
+      column: $table.isVirtual,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get isVariant => $composableBuilder(
+      column: $table.isVariant,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get virtualVariantMethodEnum => $composableBuilder(
+      column: $table.virtualVariantMethodEnum,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get originGeoId => $composableBuilder(
+      column: $table.originGeoId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get requirementMethodEnumId => $composableBuilder(
+      column: $table.requirementMethodEnumId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get billOfMaterialLevel => $composableBuilder(
+      column: $table.billOfMaterialLevel,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get reservMaxPersons => $composableBuilder(
+      column: $table.reservMaxPersons,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get reserv2ndPPPerc => $composableBuilder(
+      column: $table.reserv2ndPPPerc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get reservNthPPPerc => $composableBuilder(
+      column: $table.reservNthPPPerc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get configId => $composableBuilder(
+      column: $table.configId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdDate => $composableBuilder(
+      column: $table.createdDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get createdByUserLogin => $composableBuilder(
+      column: $table.createdByUserLogin,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastModifiedDate => $composableBuilder(
+      column: $table.lastModifiedDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get lastModifiedByUserLogin => $composableBuilder(
+      column: $table.lastModifiedByUserLogin,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inShippingBox => $composableBuilder(
+      column: $table.inShippingBox,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultShipmentBoxTypeId => $composableBuilder(
+      column: $table.defaultShipmentBoxTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get lotIdFilledIn => $composableBuilder(
+      column: $table.lotIdFilledIn,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get orderDecimalQuantity => $composableBuilder(
+      column: $table.orderDecimalQuantity,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get cats => $composableBuilder(
+      column: $table.cats, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get jointers => $composableBuilder(
+      column: $table.jointers, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productType => $composableBuilder(
+      column: $table.productType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get fixedAssetProduct => $composableBuilder(
+      column: $table.fixedAssetProduct,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productFacility => $composableBuilder(
+      column: $table.productFacility,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productCostComponentCalc => $composableBuilder(
+      column: $table.productCostComponentCalc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productRole => $composableBuilder(
+      column: $table.productRole,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productProductConfig => $composableBuilder(
+      column: $table.productProductConfig,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productPrice => $composableBuilder(
+      column: $table.productPrice,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productFacilityLocation => $composableBuilder(
+      column: $table.productFacilityLocation,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productSlot => $composableBuilder(
+      column: $table.productSlot,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productContent => $composableBuilder(
+      column: $table.productContent,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get assocProductAssoc => $composableBuilder(
+      column: $table.assocProductAssoc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productMaint => $composableBuilder(
+      column: $table.productMaint,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productFeatureAppl => $composableBuilder(
+      column: $table.productFeatureAppl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productFacilityAssoc => $composableBuilder(
+      column: $table.productFacilityAssoc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productKeyword => $composableBuilder(
+      column: $table.productKeyword,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get mainProductAssoc => $composableBuilder(
+      column: $table.mainProductAssoc,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get workEffortGoodStandard => $composableBuilder(
+      column: $table.workEffortGoodStandard,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ProductAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Product> {
+  $ProductAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get productId =>
+      $composableBuilder(column: $table.productId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get productTypeId => $composableBuilder(
+      column: $table.productTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get primaryProductCategoryId => $composableBuilder(
+      column: $table.primaryProductCategoryId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get facilityId => $composableBuilder(
+      column: $table.facilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get introductionDate => $composableBuilder(
+      column: $table.introductionDate, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get releaseDate => $composableBuilder(
+      column: $table.releaseDate, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get supportDiscontinuationDate =>
+      $composableBuilder(
+          column: $table.supportDiscontinuationDate,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get salesDiscontinuationDate =>
+      $composableBuilder(
+          column: $table.salesDiscontinuationDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get salesDiscWhenNotAvail => $composableBuilder(
+      column: $table.salesDiscWhenNotAvail, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get internalName => $composableBuilder(
+      column: $table.internalName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get brandName =>
+      $composableBuilder(column: $table.brandName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get comments =>
+      $composableBuilder(column: $table.comments, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get productName => $composableBuilder(
+      column: $table.productName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get longDescription => $composableBuilder(
+      column: $table.longDescription, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get priceDetailText => $composableBuilder(
+      column: $table.priceDetailText, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get smallImageUrl => $composableBuilder(
+      column: $table.smallImageUrl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get mediumImageUrl => $composableBuilder(
+      column: $table.mediumImageUrl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get largeImageUrl => $composableBuilder(
+      column: $table.largeImageUrl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get detailImageUrl => $composableBuilder(
+      column: $table.detailImageUrl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get originalImageUrl => $composableBuilder(
+      column: $table.originalImageUrl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get detailScreen => $composableBuilder(
+      column: $table.detailScreen, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get inventoryMessage => $composableBuilder(
+      column: $table.inventoryMessage, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get inventoryItemTypeId => $composableBuilder(
+      column: $table.inventoryItemTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get requireInventory => $composableBuilder(
+      column: $table.requireInventory, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get quantityUomId => $composableBuilder(
+      column: $table.quantityUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get quantityIncluded => $composableBuilder(
+      column: $table.quantityIncluded, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get piecesIncluded => $composableBuilder(
+      column: $table.piecesIncluded, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get requireAmount => $composableBuilder(
+      column: $table.requireAmount, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get fixedAmount => $composableBuilder(
+      column: $table.fixedAmount, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get amountUomTypeId => $composableBuilder(
+      column: $table.amountUomTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get weightUomId => $composableBuilder(
+      column: $table.weightUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get shippingWeight => $composableBuilder(
+      column: $table.shippingWeight, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get productWeight => $composableBuilder(
+      column: $table.productWeight, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get heightUomId => $composableBuilder(
+      column: $table.heightUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get productHeight => $composableBuilder(
+      column: $table.productHeight, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get shippingHeight => $composableBuilder(
+      column: $table.shippingHeight, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get widthUomId => $composableBuilder(
+      column: $table.widthUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get productWidth => $composableBuilder(
+      column: $table.productWidth, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get shippingWidth => $composableBuilder(
+      column: $table.shippingWidth, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get depthUomId => $composableBuilder(
+      column: $table.depthUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get productDepth => $composableBuilder(
+      column: $table.productDepth, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get shippingDepth => $composableBuilder(
+      column: $table.shippingDepth, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get diameterUomId => $composableBuilder(
+      column: $table.diameterUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get productDiameter => $composableBuilder(
+      column: $table.productDiameter, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get productRating => $composableBuilder(
+      column: $table.productRating, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get ratingTypeEnum => $composableBuilder(
+      column: $table.ratingTypeEnum, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get returnable => $composableBuilder(
+      column: $table.returnable, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get taxable =>
+      $composableBuilder(column: $table.taxable, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get chargeShipping => $composableBuilder(
+      column: $table.chargeShipping, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoCreateKeywords => $composableBuilder(
+      column: $table.autoCreateKeywords, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get includeInPromotions => $composableBuilder(
+      column: $table.includeInPromotions, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get isVirtual =>
+      $composableBuilder(column: $table.isVirtual, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get isVariant =>
+      $composableBuilder(column: $table.isVariant, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get virtualVariantMethodEnum => $composableBuilder(
+      column: $table.virtualVariantMethodEnum, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get originGeoId => $composableBuilder(
+      column: $table.originGeoId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get requirementMethodEnumId => $composableBuilder(
+      column: $table.requirementMethodEnumId, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get billOfMaterialLevel => $composableBuilder(
+      column: $table.billOfMaterialLevel, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get reservMaxPersons => $composableBuilder(
+      column: $table.reservMaxPersons, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get reserv2ndPPPerc => $composableBuilder(
+      column: $table.reserv2ndPPPerc, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get reservNthPPPerc => $composableBuilder(
+      column: $table.reservNthPPPerc, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get configId =>
+      $composableBuilder(column: $table.configId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdDate => $composableBuilder(
+      column: $table.createdDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get createdByUserLogin => $composableBuilder(
+      column: $table.createdByUserLogin, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastModifiedDate => $composableBuilder(
+      column: $table.lastModifiedDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get lastModifiedByUserLogin => $composableBuilder(
+      column: $table.lastModifiedByUserLogin, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get inShippingBox => $composableBuilder(
+      column: $table.inShippingBox, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultShipmentBoxTypeId => $composableBuilder(
+      column: $table.defaultShipmentBoxTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get lotIdFilledIn => $composableBuilder(
+      column: $table.lotIdFilledIn, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get orderDecimalQuantity => $composableBuilder(
+      column: $table.orderDecimalQuantity, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get cats =>
+      $composableBuilder(column: $table.cats, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      get jointers => $composableBuilder(
+          column: $table.jointers, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.ProductType?, String>
+      get productType => $composableBuilder(
+          column: $table.productType, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FixedAssetProduct>?, String>
+      get fixedAssetProduct => $composableBuilder(
+          column: $table.fixedAssetProduct, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductFacility>?, String>
+      get productFacility => $composableBuilder(
+          column: $table.productFacility, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductCostComponentCalc>?,
+          String>
+      get productCostComponentCalc => $composableBuilder(
+          column: $table.productCostComponentCalc, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductRole>?, String>
+      get productRole => $composableBuilder(
+          column: $table.productRole, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductConfig>?, String>
+      get productProductConfig => $composableBuilder(
+          column: $table.productProductConfig, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductPrice>?, String>
+      get productPrice => $composableBuilder(
+          column: $table.productPrice, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductFacilityLocation>?, String>
+      get productFacilityLocation => $composableBuilder(
+          column: $table.productFacilityLocation, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductSlot>?, String>
+      get productSlot => $composableBuilder(
+          column: $table.productSlot, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductContent>?, String>
+      get productContent => $composableBuilder(
+          column: $table.productContent, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductAssoc>?, String>
+      get assocProductAssoc => $composableBuilder(
+          column: $table.assocProductAssoc, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductMaint>?, String>
+      get productMaint => $composableBuilder(
+          column: $table.productMaint, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductFeatureAppl>?, String>
+      get productFeatureAppl => $composableBuilder(
+          column: $table.productFeatureAppl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductFacilityAssoc>?, String>
+      get productFacilityAssoc => $composableBuilder(
+          column: $table.productFacilityAssoc, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductKeyword>?, String>
+      get productKeyword => $composableBuilder(
+          column: $table.productKeyword, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductAssoc>?, String>
+      get mainProductAssoc => $composableBuilder(
+          column: $table.mainProductAssoc, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.WorkEffortGoodStandard>?, String>
+      get workEffortGoodStandard => $composableBuilder(
+          column: $table.workEffortGoodStandard, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ProductTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Product,
+    i1.ProductData,
+    i1.$ProductFilterComposer,
+    i1.$ProductOrderingComposer,
+    i1.$ProductAnnotationComposer,
+    $ProductCreateCompanionBuilder,
+    $ProductUpdateCompanionBuilder,
+    (
+      i1.ProductData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Product, i1.ProductData>
+    ),
+    i1.ProductData,
+    i0.PrefetchHooks Function()> {
+  $ProductTableManager(i0.GeneratedDatabase db, i1.Product table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ProductFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ProductOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ProductAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> productId = const i0.Value.absent(),
+            i0.Value<String?> productTypeId = const i0.Value.absent(),
+            i0.Value<String?> primaryProductCategoryId =
+                const i0.Value.absent(),
+            i0.Value<String?> facilityId = const i0.Value.absent(),
+            i0.Value<DateTime?> introductionDate = const i0.Value.absent(),
+            i0.Value<DateTime?> releaseDate = const i0.Value.absent(),
+            i0.Value<DateTime?> supportDiscontinuationDate =
+                const i0.Value.absent(),
+            i0.Value<DateTime?> salesDiscontinuationDate =
+                const i0.Value.absent(),
+            i0.Value<String?> salesDiscWhenNotAvail = const i0.Value.absent(),
+            i0.Value<String?> internalName = const i0.Value.absent(),
+            i0.Value<String?> brandName = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<String?> productName = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> longDescription = const i0.Value.absent(),
+            i0.Value<String?> priceDetailText = const i0.Value.absent(),
+            i0.Value<String?> smallImageUrl = const i0.Value.absent(),
+            i0.Value<String?> mediumImageUrl = const i0.Value.absent(),
+            i0.Value<String?> largeImageUrl = const i0.Value.absent(),
+            i0.Value<String?> detailImageUrl = const i0.Value.absent(),
+            i0.Value<String?> originalImageUrl = const i0.Value.absent(),
+            i0.Value<String?> detailScreen = const i0.Value.absent(),
+            i0.Value<String?> inventoryMessage = const i0.Value.absent(),
+            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
+            i0.Value<String?> requireInventory = const i0.Value.absent(),
+            i0.Value<String?> quantityUomId = const i0.Value.absent(),
+            i0.Value<double?> quantityIncluded = const i0.Value.absent(),
+            i0.Value<int?> piecesIncluded = const i0.Value.absent(),
+            i0.Value<String?> requireAmount = const i0.Value.absent(),
+            i0.Value<double?> fixedAmount = const i0.Value.absent(),
+            i0.Value<String?> amountUomTypeId = const i0.Value.absent(),
+            i0.Value<String?> weightUomId = const i0.Value.absent(),
+            i0.Value<double?> shippingWeight = const i0.Value.absent(),
+            i0.Value<double?> productWeight = const i0.Value.absent(),
+            i0.Value<String?> heightUomId = const i0.Value.absent(),
+            i0.Value<double?> productHeight = const i0.Value.absent(),
+            i0.Value<double?> shippingHeight = const i0.Value.absent(),
+            i0.Value<String?> widthUomId = const i0.Value.absent(),
+            i0.Value<double?> productWidth = const i0.Value.absent(),
+            i0.Value<double?> shippingWidth = const i0.Value.absent(),
+            i0.Value<String?> depthUomId = const i0.Value.absent(),
+            i0.Value<double?> productDepth = const i0.Value.absent(),
+            i0.Value<double?> shippingDepth = const i0.Value.absent(),
+            i0.Value<String?> diameterUomId = const i0.Value.absent(),
+            i0.Value<double?> productDiameter = const i0.Value.absent(),
+            i0.Value<double?> productRating = const i0.Value.absent(),
+            i0.Value<String?> ratingTypeEnum = const i0.Value.absent(),
+            i0.Value<String?> returnable = const i0.Value.absent(),
+            i0.Value<String?> taxable = const i0.Value.absent(),
+            i0.Value<String?> chargeShipping = const i0.Value.absent(),
+            i0.Value<String?> autoCreateKeywords = const i0.Value.absent(),
+            i0.Value<String?> includeInPromotions = const i0.Value.absent(),
+            i0.Value<String?> isVirtual = const i0.Value.absent(),
+            i0.Value<String?> isVariant = const i0.Value.absent(),
+            i0.Value<String?> virtualVariantMethodEnum =
+                const i0.Value.absent(),
+            i0.Value<String?> originGeoId = const i0.Value.absent(),
+            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
+            i0.Value<int?> billOfMaterialLevel = const i0.Value.absent(),
+            i0.Value<double?> reservMaxPersons = const i0.Value.absent(),
+            i0.Value<double?> reserv2ndPPPerc = const i0.Value.absent(),
+            i0.Value<double?> reservNthPPPerc = const i0.Value.absent(),
+            i0.Value<String?> configId = const i0.Value.absent(),
+            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
+            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
+            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
+            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
+            i0.Value<String?> inShippingBox = const i0.Value.absent(),
+            i0.Value<String?> defaultShipmentBoxTypeId =
+                const i0.Value.absent(),
+            i0.Value<String?> lotIdFilledIn = const i0.Value.absent(),
+            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<List<String>?> cats = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
+            i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFacility>?> productFacility =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductCostComponentCalc>?>
+                productCostComponentCalc = const i0.Value.absent(),
+            i0.Value<List<i3.ProductRole>?> productRole =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductConfig>?> productProductConfig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductPrice>?> productPrice =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFacilityLocation>?>
+                productFacilityLocation = const i0.Value.absent(),
+            i0.Value<List<i3.ProductSlot>?> productSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductContent>?> productContent =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductAssoc>?> assocProductAssoc =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductMaint>?> productMaint =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductKeyword>?> productKeyword =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductAssoc>?> mainProductAssoc =
+                const i0.Value.absent(),
+            i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ProductCompanion(
+            productId: productId,
+            productTypeId: productTypeId,
+            primaryProductCategoryId: primaryProductCategoryId,
+            facilityId: facilityId,
+            introductionDate: introductionDate,
+            releaseDate: releaseDate,
+            supportDiscontinuationDate: supportDiscontinuationDate,
+            salesDiscontinuationDate: salesDiscontinuationDate,
+            salesDiscWhenNotAvail: salesDiscWhenNotAvail,
+            internalName: internalName,
+            brandName: brandName,
+            comments: comments,
+            productName: productName,
+            description: description,
+            longDescription: longDescription,
+            priceDetailText: priceDetailText,
+            smallImageUrl: smallImageUrl,
+            mediumImageUrl: mediumImageUrl,
+            largeImageUrl: largeImageUrl,
+            detailImageUrl: detailImageUrl,
+            originalImageUrl: originalImageUrl,
+            detailScreen: detailScreen,
+            inventoryMessage: inventoryMessage,
+            inventoryItemTypeId: inventoryItemTypeId,
+            requireInventory: requireInventory,
+            quantityUomId: quantityUomId,
+            quantityIncluded: quantityIncluded,
+            piecesIncluded: piecesIncluded,
+            requireAmount: requireAmount,
+            fixedAmount: fixedAmount,
+            amountUomTypeId: amountUomTypeId,
+            weightUomId: weightUomId,
+            shippingWeight: shippingWeight,
+            productWeight: productWeight,
+            heightUomId: heightUomId,
+            productHeight: productHeight,
+            shippingHeight: shippingHeight,
+            widthUomId: widthUomId,
+            productWidth: productWidth,
+            shippingWidth: shippingWidth,
+            depthUomId: depthUomId,
+            productDepth: productDepth,
+            shippingDepth: shippingDepth,
+            diameterUomId: diameterUomId,
+            productDiameter: productDiameter,
+            productRating: productRating,
+            ratingTypeEnum: ratingTypeEnum,
+            returnable: returnable,
+            taxable: taxable,
+            chargeShipping: chargeShipping,
+            autoCreateKeywords: autoCreateKeywords,
+            includeInPromotions: includeInPromotions,
+            isVirtual: isVirtual,
+            isVariant: isVariant,
+            virtualVariantMethodEnum: virtualVariantMethodEnum,
+            originGeoId: originGeoId,
+            requirementMethodEnumId: requirementMethodEnumId,
+            billOfMaterialLevel: billOfMaterialLevel,
+            reservMaxPersons: reservMaxPersons,
+            reserv2ndPPPerc: reserv2ndPPPerc,
+            reservNthPPPerc: reservNthPPPerc,
+            configId: configId,
+            createdDate: createdDate,
+            createdByUserLogin: createdByUserLogin,
+            lastModifiedDate: lastModifiedDate,
+            lastModifiedByUserLogin: lastModifiedByUserLogin,
+            inShippingBox: inShippingBox,
+            defaultShipmentBoxTypeId: defaultShipmentBoxTypeId,
+            lotIdFilledIn: lotIdFilledIn,
+            orderDecimalQuantity: orderDecimalQuantity,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            cats: cats,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            jointers: jointers,
+            acl: acl,
+            productType: productType,
+            fixedAssetProduct: fixedAssetProduct,
+            productFacility: productFacility,
+            productCostComponentCalc: productCostComponentCalc,
+            productRole: productRole,
+            productProductConfig: productProductConfig,
+            productPrice: productPrice,
+            productFacilityLocation: productFacilityLocation,
+            productSlot: productSlot,
+            productContent: productContent,
+            assocProductAssoc: assocProductAssoc,
+            productMaint: productMaint,
+            productFeatureAppl: productFeatureAppl,
+            productFacilityAssoc: productFacilityAssoc,
+            productKeyword: productKeyword,
+            mainProductAssoc: mainProductAssoc,
+            workEffortGoodStandard: workEffortGoodStandard,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String productId,
+            i0.Value<String?> productTypeId = const i0.Value.absent(),
+            i0.Value<String?> primaryProductCategoryId =
+                const i0.Value.absent(),
+            i0.Value<String?> facilityId = const i0.Value.absent(),
+            i0.Value<DateTime?> introductionDate = const i0.Value.absent(),
+            i0.Value<DateTime?> releaseDate = const i0.Value.absent(),
+            i0.Value<DateTime?> supportDiscontinuationDate =
+                const i0.Value.absent(),
+            i0.Value<DateTime?> salesDiscontinuationDate =
+                const i0.Value.absent(),
+            i0.Value<String?> salesDiscWhenNotAvail = const i0.Value.absent(),
+            i0.Value<String?> internalName = const i0.Value.absent(),
+            i0.Value<String?> brandName = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<String?> productName = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> longDescription = const i0.Value.absent(),
+            i0.Value<String?> priceDetailText = const i0.Value.absent(),
+            i0.Value<String?> smallImageUrl = const i0.Value.absent(),
+            i0.Value<String?> mediumImageUrl = const i0.Value.absent(),
+            i0.Value<String?> largeImageUrl = const i0.Value.absent(),
+            i0.Value<String?> detailImageUrl = const i0.Value.absent(),
+            i0.Value<String?> originalImageUrl = const i0.Value.absent(),
+            i0.Value<String?> detailScreen = const i0.Value.absent(),
+            i0.Value<String?> inventoryMessage = const i0.Value.absent(),
+            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
+            i0.Value<String?> requireInventory = const i0.Value.absent(),
+            i0.Value<String?> quantityUomId = const i0.Value.absent(),
+            i0.Value<double?> quantityIncluded = const i0.Value.absent(),
+            i0.Value<int?> piecesIncluded = const i0.Value.absent(),
+            i0.Value<String?> requireAmount = const i0.Value.absent(),
+            i0.Value<double?> fixedAmount = const i0.Value.absent(),
+            i0.Value<String?> amountUomTypeId = const i0.Value.absent(),
+            i0.Value<String?> weightUomId = const i0.Value.absent(),
+            i0.Value<double?> shippingWeight = const i0.Value.absent(),
+            i0.Value<double?> productWeight = const i0.Value.absent(),
+            i0.Value<String?> heightUomId = const i0.Value.absent(),
+            i0.Value<double?> productHeight = const i0.Value.absent(),
+            i0.Value<double?> shippingHeight = const i0.Value.absent(),
+            i0.Value<String?> widthUomId = const i0.Value.absent(),
+            i0.Value<double?> productWidth = const i0.Value.absent(),
+            i0.Value<double?> shippingWidth = const i0.Value.absent(),
+            i0.Value<String?> depthUomId = const i0.Value.absent(),
+            i0.Value<double?> productDepth = const i0.Value.absent(),
+            i0.Value<double?> shippingDepth = const i0.Value.absent(),
+            i0.Value<String?> diameterUomId = const i0.Value.absent(),
+            i0.Value<double?> productDiameter = const i0.Value.absent(),
+            i0.Value<double?> productRating = const i0.Value.absent(),
+            i0.Value<String?> ratingTypeEnum = const i0.Value.absent(),
+            i0.Value<String?> returnable = const i0.Value.absent(),
+            i0.Value<String?> taxable = const i0.Value.absent(),
+            i0.Value<String?> chargeShipping = const i0.Value.absent(),
+            i0.Value<String?> autoCreateKeywords = const i0.Value.absent(),
+            i0.Value<String?> includeInPromotions = const i0.Value.absent(),
+            i0.Value<String?> isVirtual = const i0.Value.absent(),
+            i0.Value<String?> isVariant = const i0.Value.absent(),
+            i0.Value<String?> virtualVariantMethodEnum =
+                const i0.Value.absent(),
+            i0.Value<String?> originGeoId = const i0.Value.absent(),
+            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
+            i0.Value<int?> billOfMaterialLevel = const i0.Value.absent(),
+            i0.Value<double?> reservMaxPersons = const i0.Value.absent(),
+            i0.Value<double?> reserv2ndPPPerc = const i0.Value.absent(),
+            i0.Value<double?> reservNthPPPerc = const i0.Value.absent(),
+            i0.Value<String?> configId = const i0.Value.absent(),
+            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
+            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
+            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
+            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
+            i0.Value<String?> inShippingBox = const i0.Value.absent(),
+            i0.Value<String?> defaultShipmentBoxTypeId =
+                const i0.Value.absent(),
+            i0.Value<String?> lotIdFilledIn = const i0.Value.absent(),
+            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<List<String>?> cats = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
+            i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFacility>?> productFacility =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductCostComponentCalc>?>
+                productCostComponentCalc = const i0.Value.absent(),
+            i0.Value<List<i3.ProductRole>?> productRole =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductConfig>?> productProductConfig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductPrice>?> productPrice =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFacilityLocation>?>
+                productFacilityLocation = const i0.Value.absent(),
+            i0.Value<List<i3.ProductSlot>?> productSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductContent>?> productContent =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductAssoc>?> assocProductAssoc =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductMaint>?> productMaint =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductKeyword>?> productKeyword =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductAssoc>?> mainProductAssoc =
+                const i0.Value.absent(),
+            i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ProductCompanion.insert(
+            productId: productId,
+            productTypeId: productTypeId,
+            primaryProductCategoryId: primaryProductCategoryId,
+            facilityId: facilityId,
+            introductionDate: introductionDate,
+            releaseDate: releaseDate,
+            supportDiscontinuationDate: supportDiscontinuationDate,
+            salesDiscontinuationDate: salesDiscontinuationDate,
+            salesDiscWhenNotAvail: salesDiscWhenNotAvail,
+            internalName: internalName,
+            brandName: brandName,
+            comments: comments,
+            productName: productName,
+            description: description,
+            longDescription: longDescription,
+            priceDetailText: priceDetailText,
+            smallImageUrl: smallImageUrl,
+            mediumImageUrl: mediumImageUrl,
+            largeImageUrl: largeImageUrl,
+            detailImageUrl: detailImageUrl,
+            originalImageUrl: originalImageUrl,
+            detailScreen: detailScreen,
+            inventoryMessage: inventoryMessage,
+            inventoryItemTypeId: inventoryItemTypeId,
+            requireInventory: requireInventory,
+            quantityUomId: quantityUomId,
+            quantityIncluded: quantityIncluded,
+            piecesIncluded: piecesIncluded,
+            requireAmount: requireAmount,
+            fixedAmount: fixedAmount,
+            amountUomTypeId: amountUomTypeId,
+            weightUomId: weightUomId,
+            shippingWeight: shippingWeight,
+            productWeight: productWeight,
+            heightUomId: heightUomId,
+            productHeight: productHeight,
+            shippingHeight: shippingHeight,
+            widthUomId: widthUomId,
+            productWidth: productWidth,
+            shippingWidth: shippingWidth,
+            depthUomId: depthUomId,
+            productDepth: productDepth,
+            shippingDepth: shippingDepth,
+            diameterUomId: diameterUomId,
+            productDiameter: productDiameter,
+            productRating: productRating,
+            ratingTypeEnum: ratingTypeEnum,
+            returnable: returnable,
+            taxable: taxable,
+            chargeShipping: chargeShipping,
+            autoCreateKeywords: autoCreateKeywords,
+            includeInPromotions: includeInPromotions,
+            isVirtual: isVirtual,
+            isVariant: isVariant,
+            virtualVariantMethodEnum: virtualVariantMethodEnum,
+            originGeoId: originGeoId,
+            requirementMethodEnumId: requirementMethodEnumId,
+            billOfMaterialLevel: billOfMaterialLevel,
+            reservMaxPersons: reservMaxPersons,
+            reserv2ndPPPerc: reserv2ndPPPerc,
+            reservNthPPPerc: reservNthPPPerc,
+            configId: configId,
+            createdDate: createdDate,
+            createdByUserLogin: createdByUserLogin,
+            lastModifiedDate: lastModifiedDate,
+            lastModifiedByUserLogin: lastModifiedByUserLogin,
+            inShippingBox: inShippingBox,
+            defaultShipmentBoxTypeId: defaultShipmentBoxTypeId,
+            lotIdFilledIn: lotIdFilledIn,
+            orderDecimalQuantity: orderDecimalQuantity,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            cats: cats,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            jointers: jointers,
+            acl: acl,
+            productType: productType,
+            fixedAssetProduct: fixedAssetProduct,
+            productFacility: productFacility,
+            productCostComponentCalc: productCostComponentCalc,
+            productRole: productRole,
+            productProductConfig: productProductConfig,
+            productPrice: productPrice,
+            productFacilityLocation: productFacilityLocation,
+            productSlot: productSlot,
+            productContent: productContent,
+            assocProductAssoc: assocProductAssoc,
+            productMaint: productMaint,
+            productFeatureAppl: productFeatureAppl,
+            productFacilityAssoc: productFacilityAssoc,
+            productKeyword: productKeyword,
+            mainProductAssoc: mainProductAssoc,
+            workEffortGoodStandard: workEffortGoodStandard,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ProductProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Product,
+    i1.ProductData,
+    i1.$ProductFilterComposer,
+    i1.$ProductOrderingComposer,
+    i1.$ProductAnnotationComposer,
+    $ProductCreateCompanionBuilder,
+    $ProductUpdateCompanionBuilder,
+    (
+      i1.ProductData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Product, i1.ProductData>
+    ),
+    i1.ProductData,
+    i0.PrefetchHooks Function()>;
+
 class Product extends i0.Table with i0.TableInfo<Product, i1.ProductData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -4980,1790 +6841,6 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
         .toString();
   }
 }
-
-typedef $ProductCreateCompanionBuilder = i1.ProductCompanion Function({
-  required String productId,
-  i0.Value<String?> productTypeId,
-  i0.Value<String?> primaryProductCategoryId,
-  i0.Value<String?> facilityId,
-  i0.Value<DateTime?> introductionDate,
-  i0.Value<DateTime?> releaseDate,
-  i0.Value<DateTime?> supportDiscontinuationDate,
-  i0.Value<DateTime?> salesDiscontinuationDate,
-  i0.Value<String?> salesDiscWhenNotAvail,
-  i0.Value<String?> internalName,
-  i0.Value<String?> brandName,
-  i0.Value<String?> comments,
-  i0.Value<String?> productName,
-  i0.Value<String?> description,
-  i0.Value<String?> longDescription,
-  i0.Value<String?> priceDetailText,
-  i0.Value<String?> smallImageUrl,
-  i0.Value<String?> mediumImageUrl,
-  i0.Value<String?> largeImageUrl,
-  i0.Value<String?> detailImageUrl,
-  i0.Value<String?> originalImageUrl,
-  i0.Value<String?> detailScreen,
-  i0.Value<String?> inventoryMessage,
-  i0.Value<String?> inventoryItemTypeId,
-  i0.Value<String?> requireInventory,
-  i0.Value<String?> quantityUomId,
-  i0.Value<double?> quantityIncluded,
-  i0.Value<int?> piecesIncluded,
-  i0.Value<String?> requireAmount,
-  i0.Value<double?> fixedAmount,
-  i0.Value<String?> amountUomTypeId,
-  i0.Value<String?> weightUomId,
-  i0.Value<double?> shippingWeight,
-  i0.Value<double?> productWeight,
-  i0.Value<String?> heightUomId,
-  i0.Value<double?> productHeight,
-  i0.Value<double?> shippingHeight,
-  i0.Value<String?> widthUomId,
-  i0.Value<double?> productWidth,
-  i0.Value<double?> shippingWidth,
-  i0.Value<String?> depthUomId,
-  i0.Value<double?> productDepth,
-  i0.Value<double?> shippingDepth,
-  i0.Value<String?> diameterUomId,
-  i0.Value<double?> productDiameter,
-  i0.Value<double?> productRating,
-  i0.Value<String?> ratingTypeEnum,
-  i0.Value<String?> returnable,
-  i0.Value<String?> taxable,
-  i0.Value<String?> chargeShipping,
-  i0.Value<String?> autoCreateKeywords,
-  i0.Value<String?> includeInPromotions,
-  i0.Value<String?> isVirtual,
-  i0.Value<String?> isVariant,
-  i0.Value<String?> virtualVariantMethodEnum,
-  i0.Value<String?> originGeoId,
-  i0.Value<String?> requirementMethodEnumId,
-  i0.Value<int?> billOfMaterialLevel,
-  i0.Value<double?> reservMaxPersons,
-  i0.Value<double?> reserv2ndPPPerc,
-  i0.Value<double?> reservNthPPPerc,
-  i0.Value<String?> configId,
-  i0.Value<DateTime?> createdDate,
-  i0.Value<String?> createdByUserLogin,
-  i0.Value<DateTime?> lastModifiedDate,
-  i0.Value<String?> lastModifiedByUserLogin,
-  i0.Value<String?> inShippingBox,
-  i0.Value<String?> defaultShipmentBoxTypeId,
-  i0.Value<String?> lotIdFilledIn,
-  i0.Value<String?> orderDecimalQuantity,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<List<String>?> cats,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<Map<String, String>?> jointers,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<i3.ProductType?> productType,
-  i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct,
-  i0.Value<List<i3.ProductFacility>?> productFacility,
-  i0.Value<List<i3.ProductCostComponentCalc>?> productCostComponentCalc,
-  i0.Value<List<i3.ProductRole>?> productRole,
-  i0.Value<List<i3.ProductConfig>?> productProductConfig,
-  i0.Value<List<i3.ProductPrice>?> productPrice,
-  i0.Value<List<i3.ProductFacilityLocation>?> productFacilityLocation,
-  i0.Value<List<i3.ProductSlot>?> productSlot,
-  i0.Value<List<i3.ProductContent>?> productContent,
-  i0.Value<List<i3.ProductAssoc>?> assocProductAssoc,
-  i0.Value<List<i3.ProductMaint>?> productMaint,
-  i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl,
-  i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc,
-  i0.Value<List<i3.ProductKeyword>?> productKeyword,
-  i0.Value<List<i3.ProductAssoc>?> mainProductAssoc,
-  i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ProductUpdateCompanionBuilder = i1.ProductCompanion Function({
-  i0.Value<String> productId,
-  i0.Value<String?> productTypeId,
-  i0.Value<String?> primaryProductCategoryId,
-  i0.Value<String?> facilityId,
-  i0.Value<DateTime?> introductionDate,
-  i0.Value<DateTime?> releaseDate,
-  i0.Value<DateTime?> supportDiscontinuationDate,
-  i0.Value<DateTime?> salesDiscontinuationDate,
-  i0.Value<String?> salesDiscWhenNotAvail,
-  i0.Value<String?> internalName,
-  i0.Value<String?> brandName,
-  i0.Value<String?> comments,
-  i0.Value<String?> productName,
-  i0.Value<String?> description,
-  i0.Value<String?> longDescription,
-  i0.Value<String?> priceDetailText,
-  i0.Value<String?> smallImageUrl,
-  i0.Value<String?> mediumImageUrl,
-  i0.Value<String?> largeImageUrl,
-  i0.Value<String?> detailImageUrl,
-  i0.Value<String?> originalImageUrl,
-  i0.Value<String?> detailScreen,
-  i0.Value<String?> inventoryMessage,
-  i0.Value<String?> inventoryItemTypeId,
-  i0.Value<String?> requireInventory,
-  i0.Value<String?> quantityUomId,
-  i0.Value<double?> quantityIncluded,
-  i0.Value<int?> piecesIncluded,
-  i0.Value<String?> requireAmount,
-  i0.Value<double?> fixedAmount,
-  i0.Value<String?> amountUomTypeId,
-  i0.Value<String?> weightUomId,
-  i0.Value<double?> shippingWeight,
-  i0.Value<double?> productWeight,
-  i0.Value<String?> heightUomId,
-  i0.Value<double?> productHeight,
-  i0.Value<double?> shippingHeight,
-  i0.Value<String?> widthUomId,
-  i0.Value<double?> productWidth,
-  i0.Value<double?> shippingWidth,
-  i0.Value<String?> depthUomId,
-  i0.Value<double?> productDepth,
-  i0.Value<double?> shippingDepth,
-  i0.Value<String?> diameterUomId,
-  i0.Value<double?> productDiameter,
-  i0.Value<double?> productRating,
-  i0.Value<String?> ratingTypeEnum,
-  i0.Value<String?> returnable,
-  i0.Value<String?> taxable,
-  i0.Value<String?> chargeShipping,
-  i0.Value<String?> autoCreateKeywords,
-  i0.Value<String?> includeInPromotions,
-  i0.Value<String?> isVirtual,
-  i0.Value<String?> isVariant,
-  i0.Value<String?> virtualVariantMethodEnum,
-  i0.Value<String?> originGeoId,
-  i0.Value<String?> requirementMethodEnumId,
-  i0.Value<int?> billOfMaterialLevel,
-  i0.Value<double?> reservMaxPersons,
-  i0.Value<double?> reserv2ndPPPerc,
-  i0.Value<double?> reservNthPPPerc,
-  i0.Value<String?> configId,
-  i0.Value<DateTime?> createdDate,
-  i0.Value<String?> createdByUserLogin,
-  i0.Value<DateTime?> lastModifiedDate,
-  i0.Value<String?> lastModifiedByUserLogin,
-  i0.Value<String?> inShippingBox,
-  i0.Value<String?> defaultShipmentBoxTypeId,
-  i0.Value<String?> lotIdFilledIn,
-  i0.Value<String?> orderDecimalQuantity,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<List<String>?> cats,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<Map<String, String>?> jointers,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<i3.ProductType?> productType,
-  i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct,
-  i0.Value<List<i3.ProductFacility>?> productFacility,
-  i0.Value<List<i3.ProductCostComponentCalc>?> productCostComponentCalc,
-  i0.Value<List<i3.ProductRole>?> productRole,
-  i0.Value<List<i3.ProductConfig>?> productProductConfig,
-  i0.Value<List<i3.ProductPrice>?> productPrice,
-  i0.Value<List<i3.ProductFacilityLocation>?> productFacilityLocation,
-  i0.Value<List<i3.ProductSlot>?> productSlot,
-  i0.Value<List<i3.ProductContent>?> productContent,
-  i0.Value<List<i3.ProductAssoc>?> assocProductAssoc,
-  i0.Value<List<i3.ProductMaint>?> productMaint,
-  i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl,
-  i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc,
-  i0.Value<List<i3.ProductKeyword>?> productKeyword,
-  i0.Value<List<i3.ProductAssoc>?> mainProductAssoc,
-  i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ProductFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Product> {
-  $ProductFilterComposer(super.$state);
-  i0.ColumnFilters<String> get productId => $state.composableBuilder(
-      column: $state.table.productId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get productTypeId => $state.composableBuilder(
-      column: $state.table.productTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get primaryProductCategoryId => $state
-      .composableBuilder(
-          column: $state.table.primaryProductCategoryId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get facilityId => $state.composableBuilder(
-      column: $state.table.facilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get introductionDate => $state.composableBuilder(
-      column: $state.table.introductionDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get releaseDate => $state.composableBuilder(
-      column: $state.table.releaseDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get supportDiscontinuationDate =>
-      $state.composableBuilder(
-          column: $state.table.supportDiscontinuationDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get salesDiscontinuationDate =>
-      $state.composableBuilder(
-          column: $state.table.salesDiscontinuationDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get salesDiscWhenNotAvail =>
-      $state.composableBuilder(
-          column: $state.table.salesDiscWhenNotAvail,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get internalName => $state.composableBuilder(
-      column: $state.table.internalName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get brandName => $state.composableBuilder(
-      column: $state.table.brandName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get productName => $state.composableBuilder(
-      column: $state.table.productName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get longDescription => $state.composableBuilder(
-      column: $state.table.longDescription,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get priceDetailText => $state.composableBuilder(
-      column: $state.table.priceDetailText,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get smallImageUrl => $state.composableBuilder(
-      column: $state.table.smallImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get mediumImageUrl => $state.composableBuilder(
-      column: $state.table.mediumImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get largeImageUrl => $state.composableBuilder(
-      column: $state.table.largeImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get detailImageUrl => $state.composableBuilder(
-      column: $state.table.detailImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get originalImageUrl => $state.composableBuilder(
-      column: $state.table.originalImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get detailScreen => $state.composableBuilder(
-      column: $state.table.detailScreen,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get inventoryMessage => $state.composableBuilder(
-      column: $state.table.inventoryMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get inventoryItemTypeId => $state.composableBuilder(
-      column: $state.table.inventoryItemTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get requireInventory => $state.composableBuilder(
-      column: $state.table.requireInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get quantityUomId => $state.composableBuilder(
-      column: $state.table.quantityUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get quantityIncluded => $state.composableBuilder(
-      column: $state.table.quantityIncluded,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get piecesIncluded => $state.composableBuilder(
-      column: $state.table.piecesIncluded,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get requireAmount => $state.composableBuilder(
-      column: $state.table.requireAmount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get fixedAmount => $state.composableBuilder(
-      column: $state.table.fixedAmount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get amountUomTypeId => $state.composableBuilder(
-      column: $state.table.amountUomTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get weightUomId => $state.composableBuilder(
-      column: $state.table.weightUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get shippingWeight => $state.composableBuilder(
-      column: $state.table.shippingWeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get productWeight => $state.composableBuilder(
-      column: $state.table.productWeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get heightUomId => $state.composableBuilder(
-      column: $state.table.heightUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get productHeight => $state.composableBuilder(
-      column: $state.table.productHeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get shippingHeight => $state.composableBuilder(
-      column: $state.table.shippingHeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get widthUomId => $state.composableBuilder(
-      column: $state.table.widthUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get productWidth => $state.composableBuilder(
-      column: $state.table.productWidth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get shippingWidth => $state.composableBuilder(
-      column: $state.table.shippingWidth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get depthUomId => $state.composableBuilder(
-      column: $state.table.depthUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get productDepth => $state.composableBuilder(
-      column: $state.table.productDepth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get shippingDepth => $state.composableBuilder(
-      column: $state.table.shippingDepth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get diameterUomId => $state.composableBuilder(
-      column: $state.table.diameterUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get productDiameter => $state.composableBuilder(
-      column: $state.table.productDiameter,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get productRating => $state.composableBuilder(
-      column: $state.table.productRating,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get ratingTypeEnum => $state.composableBuilder(
-      column: $state.table.ratingTypeEnum,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get returnable => $state.composableBuilder(
-      column: $state.table.returnable,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get taxable => $state.composableBuilder(
-      column: $state.table.taxable,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get chargeShipping => $state.composableBuilder(
-      column: $state.table.chargeShipping,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoCreateKeywords => $state.composableBuilder(
-      column: $state.table.autoCreateKeywords,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get includeInPromotions => $state.composableBuilder(
-      column: $state.table.includeInPromotions,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get isVirtual => $state.composableBuilder(
-      column: $state.table.isVirtual,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get isVariant => $state.composableBuilder(
-      column: $state.table.isVariant,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get virtualVariantMethodEnum => $state
-      .composableBuilder(
-          column: $state.table.virtualVariantMethodEnum,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get originGeoId => $state.composableBuilder(
-      column: $state.table.originGeoId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get requirementMethodEnumId =>
-      $state.composableBuilder(
-          column: $state.table.requirementMethodEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get billOfMaterialLevel => $state.composableBuilder(
-      column: $state.table.billOfMaterialLevel,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get reservMaxPersons => $state.composableBuilder(
-      column: $state.table.reservMaxPersons,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get reserv2ndPPPerc => $state.composableBuilder(
-      column: $state.table.reserv2ndPPPerc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get reservNthPPPerc => $state.composableBuilder(
-      column: $state.table.reservNthPPPerc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get configId => $state.composableBuilder(
-      column: $state.table.configId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdDate => $state.composableBuilder(
-      column: $state.table.createdDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get createdByUserLogin => $state.composableBuilder(
-      column: $state.table.createdByUserLogin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastModifiedDate => $state.composableBuilder(
-      column: $state.table.lastModifiedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get lastModifiedByUserLogin =>
-      $state.composableBuilder(
-          column: $state.table.lastModifiedByUserLogin,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get inShippingBox => $state.composableBuilder(
-      column: $state.table.inShippingBox,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultShipmentBoxTypeId => $state
-      .composableBuilder(
-          column: $state.table.defaultShipmentBoxTypeId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get lotIdFilledIn => $state.composableBuilder(
-      column: $state.table.lotIdFilledIn,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get orderDecimalQuantity => $state.composableBuilder(
-      column: $state.table.orderDecimalQuantity,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get cats => $state.composableBuilder(
-          column: $state.table.cats,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
-          String>
-      get jointers => $state.composableBuilder(
-          column: $state.table.jointers,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.ProductType?, i3.ProductType, String>
-      get productType => $state.composableBuilder(
-          column: $state.table.productType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FixedAssetProduct>?,
-          List<i3.FixedAssetProduct>, String>
-      get fixedAssetProduct => $state.composableBuilder(
-          column: $state.table.fixedAssetProduct,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductFacility>?,
-          List<i3.ProductFacility>, String>
-      get productFacility => $state.composableBuilder(
-          column: $state.table.productFacility,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductCostComponentCalc>?,
-          List<i3.ProductCostComponentCalc>, String>
-      get productCostComponentCalc => $state.composableBuilder(
-          column: $state.table.productCostComponentCalc,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductRole>?, List<i3.ProductRole>,
-          String>
-      get productRole => $state.composableBuilder(
-          column: $state.table.productRole,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductConfig>?,
-          List<i3.ProductConfig>, String>
-      get productProductConfig => $state.composableBuilder(
-          column: $state.table.productProductConfig,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductPrice>?,
-          List<i3.ProductPrice>, String>
-      get productPrice => $state.composableBuilder(
-          column: $state.table.productPrice,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductFacilityLocation>?,
-          List<i3.ProductFacilityLocation>, String>
-      get productFacilityLocation => $state.composableBuilder(
-          column: $state.table.productFacilityLocation,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductSlot>?, List<i3.ProductSlot>,
-          String>
-      get productSlot => $state.composableBuilder(
-          column: $state.table.productSlot,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductContent>?,
-          List<i3.ProductContent>, String>
-      get productContent => $state.composableBuilder(
-          column: $state.table.productContent,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductAssoc>?,
-          List<i3.ProductAssoc>, String>
-      get assocProductAssoc => $state.composableBuilder(
-          column: $state.table.assocProductAssoc,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductMaint>?,
-          List<i3.ProductMaint>, String>
-      get productMaint => $state.composableBuilder(
-          column: $state.table.productMaint,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductFeatureAppl>?,
-          List<i3.ProductFeatureAppl>, String>
-      get productFeatureAppl => $state.composableBuilder(
-          column: $state.table.productFeatureAppl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductFacilityAssoc>?,
-          List<i3.ProductFacilityAssoc>, String>
-      get productFacilityAssoc => $state.composableBuilder(
-          column: $state.table.productFacilityAssoc,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductKeyword>?,
-          List<i3.ProductKeyword>, String>
-      get productKeyword => $state.composableBuilder(
-          column: $state.table.productKeyword,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductAssoc>?,
-          List<i3.ProductAssoc>, String>
-      get mainProductAssoc => $state.composableBuilder(
-          column: $state.table.mainProductAssoc,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.WorkEffortGoodStandard>?,
-          List<i3.WorkEffortGoodStandard>, String>
-      get workEffortGoodStandard => $state.composableBuilder(
-          column: $state.table.workEffortGoodStandard,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ProductOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Product> {
-  $ProductOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get productId => $state.composableBuilder(
-      column: $state.table.productId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productTypeId => $state.composableBuilder(
-      column: $state.table.productTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get primaryProductCategoryId =>
-      $state.composableBuilder(
-          column: $state.table.primaryProductCategoryId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityId => $state.composableBuilder(
-      column: $state.table.facilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get introductionDate => $state.composableBuilder(
-      column: $state.table.introductionDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get releaseDate => $state.composableBuilder(
-      column: $state.table.releaseDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get supportDiscontinuationDate =>
-      $state.composableBuilder(
-          column: $state.table.supportDiscontinuationDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get salesDiscontinuationDate =>
-      $state.composableBuilder(
-          column: $state.table.salesDiscontinuationDate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get salesDiscWhenNotAvail =>
-      $state.composableBuilder(
-          column: $state.table.salesDiscWhenNotAvail,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get internalName => $state.composableBuilder(
-      column: $state.table.internalName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get brandName => $state.composableBuilder(
-      column: $state.table.brandName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productName => $state.composableBuilder(
-      column: $state.table.productName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get longDescription => $state.composableBuilder(
-      column: $state.table.longDescription,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get priceDetailText => $state.composableBuilder(
-      column: $state.table.priceDetailText,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get smallImageUrl => $state.composableBuilder(
-      column: $state.table.smallImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get mediumImageUrl => $state.composableBuilder(
-      column: $state.table.mediumImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get largeImageUrl => $state.composableBuilder(
-      column: $state.table.largeImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get detailImageUrl => $state.composableBuilder(
-      column: $state.table.detailImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get originalImageUrl => $state.composableBuilder(
-      column: $state.table.originalImageUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get detailScreen => $state.composableBuilder(
-      column: $state.table.detailScreen,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryMessage => $state.composableBuilder(
-      column: $state.table.inventoryMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemTypeId =>
-      $state.composableBuilder(
-          column: $state.table.inventoryItemTypeId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get requireInventory => $state.composableBuilder(
-      column: $state.table.requireInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get quantityUomId => $state.composableBuilder(
-      column: $state.table.quantityUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get quantityIncluded => $state.composableBuilder(
-      column: $state.table.quantityIncluded,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get piecesIncluded => $state.composableBuilder(
-      column: $state.table.piecesIncluded,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get requireAmount => $state.composableBuilder(
-      column: $state.table.requireAmount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get fixedAmount => $state.composableBuilder(
-      column: $state.table.fixedAmount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get amountUomTypeId => $state.composableBuilder(
-      column: $state.table.amountUomTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get weightUomId => $state.composableBuilder(
-      column: $state.table.weightUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get shippingWeight => $state.composableBuilder(
-      column: $state.table.shippingWeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get productWeight => $state.composableBuilder(
-      column: $state.table.productWeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get heightUomId => $state.composableBuilder(
-      column: $state.table.heightUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get productHeight => $state.composableBuilder(
-      column: $state.table.productHeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get shippingHeight => $state.composableBuilder(
-      column: $state.table.shippingHeight,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get widthUomId => $state.composableBuilder(
-      column: $state.table.widthUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get productWidth => $state.composableBuilder(
-      column: $state.table.productWidth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get shippingWidth => $state.composableBuilder(
-      column: $state.table.shippingWidth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get depthUomId => $state.composableBuilder(
-      column: $state.table.depthUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get productDepth => $state.composableBuilder(
-      column: $state.table.productDepth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get shippingDepth => $state.composableBuilder(
-      column: $state.table.shippingDepth,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get diameterUomId => $state.composableBuilder(
-      column: $state.table.diameterUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get productDiameter => $state.composableBuilder(
-      column: $state.table.productDiameter,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get productRating => $state.composableBuilder(
-      column: $state.table.productRating,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get ratingTypeEnum => $state.composableBuilder(
-      column: $state.table.ratingTypeEnum,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get returnable => $state.composableBuilder(
-      column: $state.table.returnable,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get taxable => $state.composableBuilder(
-      column: $state.table.taxable,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get chargeShipping => $state.composableBuilder(
-      column: $state.table.chargeShipping,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoCreateKeywords => $state.composableBuilder(
-      column: $state.table.autoCreateKeywords,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get includeInPromotions =>
-      $state.composableBuilder(
-          column: $state.table.includeInPromotions,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get isVirtual => $state.composableBuilder(
-      column: $state.table.isVirtual,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get isVariant => $state.composableBuilder(
-      column: $state.table.isVariant,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get virtualVariantMethodEnum =>
-      $state.composableBuilder(
-          column: $state.table.virtualVariantMethodEnum,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get originGeoId => $state.composableBuilder(
-      column: $state.table.originGeoId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get requirementMethodEnumId =>
-      $state.composableBuilder(
-          column: $state.table.requirementMethodEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get billOfMaterialLevel => $state.composableBuilder(
-      column: $state.table.billOfMaterialLevel,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get reservMaxPersons => $state.composableBuilder(
-      column: $state.table.reservMaxPersons,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get reserv2ndPPPerc => $state.composableBuilder(
-      column: $state.table.reserv2ndPPPerc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get reservNthPPPerc => $state.composableBuilder(
-      column: $state.table.reservNthPPPerc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get configId => $state.composableBuilder(
-      column: $state.table.configId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdDate => $state.composableBuilder(
-      column: $state.table.createdDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get createdByUserLogin => $state.composableBuilder(
-      column: $state.table.createdByUserLogin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastModifiedDate => $state.composableBuilder(
-      column: $state.table.lastModifiedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get lastModifiedByUserLogin =>
-      $state.composableBuilder(
-          column: $state.table.lastModifiedByUserLogin,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inShippingBox => $state.composableBuilder(
-      column: $state.table.inShippingBox,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultShipmentBoxTypeId =>
-      $state.composableBuilder(
-          column: $state.table.defaultShipmentBoxTypeId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get lotIdFilledIn => $state.composableBuilder(
-      column: $state.table.lotIdFilledIn,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get orderDecimalQuantity =>
-      $state.composableBuilder(
-          column: $state.table.orderDecimalQuantity,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get cats => $state.composableBuilder(
-      column: $state.table.cats,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get jointers => $state.composableBuilder(
-      column: $state.table.jointers,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productType => $state.composableBuilder(
-      column: $state.table.productType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get fixedAssetProduct => $state.composableBuilder(
-      column: $state.table.fixedAssetProduct,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productFacility => $state.composableBuilder(
-      column: $state.table.productFacility,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productCostComponentCalc =>
-      $state.composableBuilder(
-          column: $state.table.productCostComponentCalc,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productRole => $state.composableBuilder(
-      column: $state.table.productRole,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productProductConfig =>
-      $state.composableBuilder(
-          column: $state.table.productProductConfig,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productPrice => $state.composableBuilder(
-      column: $state.table.productPrice,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productFacilityLocation =>
-      $state.composableBuilder(
-          column: $state.table.productFacilityLocation,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productSlot => $state.composableBuilder(
-      column: $state.table.productSlot,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productContent => $state.composableBuilder(
-      column: $state.table.productContent,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get assocProductAssoc => $state.composableBuilder(
-      column: $state.table.assocProductAssoc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productMaint => $state.composableBuilder(
-      column: $state.table.productMaint,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productFeatureAppl => $state.composableBuilder(
-      column: $state.table.productFeatureAppl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productFacilityAssoc =>
-      $state.composableBuilder(
-          column: $state.table.productFacilityAssoc,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productKeyword => $state.composableBuilder(
-      column: $state.table.productKeyword,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get mainProductAssoc => $state.composableBuilder(
-      column: $state.table.mainProductAssoc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get workEffortGoodStandard => $state
-      .composableBuilder(
-          column: $state.table.workEffortGoodStandard,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ProductTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Product,
-    i1.ProductData,
-    i1.$ProductFilterComposer,
-    i1.$ProductOrderingComposer,
-    $ProductCreateCompanionBuilder,
-    $ProductUpdateCompanionBuilder,
-    (
-      i1.ProductData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Product, i1.ProductData>
-    ),
-    i1.ProductData,
-    i0.PrefetchHooks Function()> {
-  $ProductTableManager(i0.GeneratedDatabase db, i1.Product table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ProductFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ProductOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> productId = const i0.Value.absent(),
-            i0.Value<String?> productTypeId = const i0.Value.absent(),
-            i0.Value<String?> primaryProductCategoryId =
-                const i0.Value.absent(),
-            i0.Value<String?> facilityId = const i0.Value.absent(),
-            i0.Value<DateTime?> introductionDate = const i0.Value.absent(),
-            i0.Value<DateTime?> releaseDate = const i0.Value.absent(),
-            i0.Value<DateTime?> supportDiscontinuationDate =
-                const i0.Value.absent(),
-            i0.Value<DateTime?> salesDiscontinuationDate =
-                const i0.Value.absent(),
-            i0.Value<String?> salesDiscWhenNotAvail = const i0.Value.absent(),
-            i0.Value<String?> internalName = const i0.Value.absent(),
-            i0.Value<String?> brandName = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<String?> productName = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> longDescription = const i0.Value.absent(),
-            i0.Value<String?> priceDetailText = const i0.Value.absent(),
-            i0.Value<String?> smallImageUrl = const i0.Value.absent(),
-            i0.Value<String?> mediumImageUrl = const i0.Value.absent(),
-            i0.Value<String?> largeImageUrl = const i0.Value.absent(),
-            i0.Value<String?> detailImageUrl = const i0.Value.absent(),
-            i0.Value<String?> originalImageUrl = const i0.Value.absent(),
-            i0.Value<String?> detailScreen = const i0.Value.absent(),
-            i0.Value<String?> inventoryMessage = const i0.Value.absent(),
-            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
-            i0.Value<String?> requireInventory = const i0.Value.absent(),
-            i0.Value<String?> quantityUomId = const i0.Value.absent(),
-            i0.Value<double?> quantityIncluded = const i0.Value.absent(),
-            i0.Value<int?> piecesIncluded = const i0.Value.absent(),
-            i0.Value<String?> requireAmount = const i0.Value.absent(),
-            i0.Value<double?> fixedAmount = const i0.Value.absent(),
-            i0.Value<String?> amountUomTypeId = const i0.Value.absent(),
-            i0.Value<String?> weightUomId = const i0.Value.absent(),
-            i0.Value<double?> shippingWeight = const i0.Value.absent(),
-            i0.Value<double?> productWeight = const i0.Value.absent(),
-            i0.Value<String?> heightUomId = const i0.Value.absent(),
-            i0.Value<double?> productHeight = const i0.Value.absent(),
-            i0.Value<double?> shippingHeight = const i0.Value.absent(),
-            i0.Value<String?> widthUomId = const i0.Value.absent(),
-            i0.Value<double?> productWidth = const i0.Value.absent(),
-            i0.Value<double?> shippingWidth = const i0.Value.absent(),
-            i0.Value<String?> depthUomId = const i0.Value.absent(),
-            i0.Value<double?> productDepth = const i0.Value.absent(),
-            i0.Value<double?> shippingDepth = const i0.Value.absent(),
-            i0.Value<String?> diameterUomId = const i0.Value.absent(),
-            i0.Value<double?> productDiameter = const i0.Value.absent(),
-            i0.Value<double?> productRating = const i0.Value.absent(),
-            i0.Value<String?> ratingTypeEnum = const i0.Value.absent(),
-            i0.Value<String?> returnable = const i0.Value.absent(),
-            i0.Value<String?> taxable = const i0.Value.absent(),
-            i0.Value<String?> chargeShipping = const i0.Value.absent(),
-            i0.Value<String?> autoCreateKeywords = const i0.Value.absent(),
-            i0.Value<String?> includeInPromotions = const i0.Value.absent(),
-            i0.Value<String?> isVirtual = const i0.Value.absent(),
-            i0.Value<String?> isVariant = const i0.Value.absent(),
-            i0.Value<String?> virtualVariantMethodEnum =
-                const i0.Value.absent(),
-            i0.Value<String?> originGeoId = const i0.Value.absent(),
-            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
-            i0.Value<int?> billOfMaterialLevel = const i0.Value.absent(),
-            i0.Value<double?> reservMaxPersons = const i0.Value.absent(),
-            i0.Value<double?> reserv2ndPPPerc = const i0.Value.absent(),
-            i0.Value<double?> reservNthPPPerc = const i0.Value.absent(),
-            i0.Value<String?> configId = const i0.Value.absent(),
-            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
-            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
-            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
-            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
-            i0.Value<String?> inShippingBox = const i0.Value.absent(),
-            i0.Value<String?> defaultShipmentBoxTypeId =
-                const i0.Value.absent(),
-            i0.Value<String?> lotIdFilledIn = const i0.Value.absent(),
-            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<List<String>?> cats = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
-            i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFacility>?> productFacility =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductCostComponentCalc>?>
-                productCostComponentCalc = const i0.Value.absent(),
-            i0.Value<List<i3.ProductRole>?> productRole =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductConfig>?> productProductConfig =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductPrice>?> productPrice =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFacilityLocation>?>
-                productFacilityLocation = const i0.Value.absent(),
-            i0.Value<List<i3.ProductSlot>?> productSlot =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductContent>?> productContent =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductAssoc>?> assocProductAssoc =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductMaint>?> productMaint =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductKeyword>?> productKeyword =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductAssoc>?> mainProductAssoc =
-                const i0.Value.absent(),
-            i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ProductCompanion(
-            productId: productId,
-            productTypeId: productTypeId,
-            primaryProductCategoryId: primaryProductCategoryId,
-            facilityId: facilityId,
-            introductionDate: introductionDate,
-            releaseDate: releaseDate,
-            supportDiscontinuationDate: supportDiscontinuationDate,
-            salesDiscontinuationDate: salesDiscontinuationDate,
-            salesDiscWhenNotAvail: salesDiscWhenNotAvail,
-            internalName: internalName,
-            brandName: brandName,
-            comments: comments,
-            productName: productName,
-            description: description,
-            longDescription: longDescription,
-            priceDetailText: priceDetailText,
-            smallImageUrl: smallImageUrl,
-            mediumImageUrl: mediumImageUrl,
-            largeImageUrl: largeImageUrl,
-            detailImageUrl: detailImageUrl,
-            originalImageUrl: originalImageUrl,
-            detailScreen: detailScreen,
-            inventoryMessage: inventoryMessage,
-            inventoryItemTypeId: inventoryItemTypeId,
-            requireInventory: requireInventory,
-            quantityUomId: quantityUomId,
-            quantityIncluded: quantityIncluded,
-            piecesIncluded: piecesIncluded,
-            requireAmount: requireAmount,
-            fixedAmount: fixedAmount,
-            amountUomTypeId: amountUomTypeId,
-            weightUomId: weightUomId,
-            shippingWeight: shippingWeight,
-            productWeight: productWeight,
-            heightUomId: heightUomId,
-            productHeight: productHeight,
-            shippingHeight: shippingHeight,
-            widthUomId: widthUomId,
-            productWidth: productWidth,
-            shippingWidth: shippingWidth,
-            depthUomId: depthUomId,
-            productDepth: productDepth,
-            shippingDepth: shippingDepth,
-            diameterUomId: diameterUomId,
-            productDiameter: productDiameter,
-            productRating: productRating,
-            ratingTypeEnum: ratingTypeEnum,
-            returnable: returnable,
-            taxable: taxable,
-            chargeShipping: chargeShipping,
-            autoCreateKeywords: autoCreateKeywords,
-            includeInPromotions: includeInPromotions,
-            isVirtual: isVirtual,
-            isVariant: isVariant,
-            virtualVariantMethodEnum: virtualVariantMethodEnum,
-            originGeoId: originGeoId,
-            requirementMethodEnumId: requirementMethodEnumId,
-            billOfMaterialLevel: billOfMaterialLevel,
-            reservMaxPersons: reservMaxPersons,
-            reserv2ndPPPerc: reserv2ndPPPerc,
-            reservNthPPPerc: reservNthPPPerc,
-            configId: configId,
-            createdDate: createdDate,
-            createdByUserLogin: createdByUserLogin,
-            lastModifiedDate: lastModifiedDate,
-            lastModifiedByUserLogin: lastModifiedByUserLogin,
-            inShippingBox: inShippingBox,
-            defaultShipmentBoxTypeId: defaultShipmentBoxTypeId,
-            lotIdFilledIn: lotIdFilledIn,
-            orderDecimalQuantity: orderDecimalQuantity,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            cats: cats,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            jointers: jointers,
-            acl: acl,
-            productType: productType,
-            fixedAssetProduct: fixedAssetProduct,
-            productFacility: productFacility,
-            productCostComponentCalc: productCostComponentCalc,
-            productRole: productRole,
-            productProductConfig: productProductConfig,
-            productPrice: productPrice,
-            productFacilityLocation: productFacilityLocation,
-            productSlot: productSlot,
-            productContent: productContent,
-            assocProductAssoc: assocProductAssoc,
-            productMaint: productMaint,
-            productFeatureAppl: productFeatureAppl,
-            productFacilityAssoc: productFacilityAssoc,
-            productKeyword: productKeyword,
-            mainProductAssoc: mainProductAssoc,
-            workEffortGoodStandard: workEffortGoodStandard,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String productId,
-            i0.Value<String?> productTypeId = const i0.Value.absent(),
-            i0.Value<String?> primaryProductCategoryId =
-                const i0.Value.absent(),
-            i0.Value<String?> facilityId = const i0.Value.absent(),
-            i0.Value<DateTime?> introductionDate = const i0.Value.absent(),
-            i0.Value<DateTime?> releaseDate = const i0.Value.absent(),
-            i0.Value<DateTime?> supportDiscontinuationDate =
-                const i0.Value.absent(),
-            i0.Value<DateTime?> salesDiscontinuationDate =
-                const i0.Value.absent(),
-            i0.Value<String?> salesDiscWhenNotAvail = const i0.Value.absent(),
-            i0.Value<String?> internalName = const i0.Value.absent(),
-            i0.Value<String?> brandName = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<String?> productName = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> longDescription = const i0.Value.absent(),
-            i0.Value<String?> priceDetailText = const i0.Value.absent(),
-            i0.Value<String?> smallImageUrl = const i0.Value.absent(),
-            i0.Value<String?> mediumImageUrl = const i0.Value.absent(),
-            i0.Value<String?> largeImageUrl = const i0.Value.absent(),
-            i0.Value<String?> detailImageUrl = const i0.Value.absent(),
-            i0.Value<String?> originalImageUrl = const i0.Value.absent(),
-            i0.Value<String?> detailScreen = const i0.Value.absent(),
-            i0.Value<String?> inventoryMessage = const i0.Value.absent(),
-            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
-            i0.Value<String?> requireInventory = const i0.Value.absent(),
-            i0.Value<String?> quantityUomId = const i0.Value.absent(),
-            i0.Value<double?> quantityIncluded = const i0.Value.absent(),
-            i0.Value<int?> piecesIncluded = const i0.Value.absent(),
-            i0.Value<String?> requireAmount = const i0.Value.absent(),
-            i0.Value<double?> fixedAmount = const i0.Value.absent(),
-            i0.Value<String?> amountUomTypeId = const i0.Value.absent(),
-            i0.Value<String?> weightUomId = const i0.Value.absent(),
-            i0.Value<double?> shippingWeight = const i0.Value.absent(),
-            i0.Value<double?> productWeight = const i0.Value.absent(),
-            i0.Value<String?> heightUomId = const i0.Value.absent(),
-            i0.Value<double?> productHeight = const i0.Value.absent(),
-            i0.Value<double?> shippingHeight = const i0.Value.absent(),
-            i0.Value<String?> widthUomId = const i0.Value.absent(),
-            i0.Value<double?> productWidth = const i0.Value.absent(),
-            i0.Value<double?> shippingWidth = const i0.Value.absent(),
-            i0.Value<String?> depthUomId = const i0.Value.absent(),
-            i0.Value<double?> productDepth = const i0.Value.absent(),
-            i0.Value<double?> shippingDepth = const i0.Value.absent(),
-            i0.Value<String?> diameterUomId = const i0.Value.absent(),
-            i0.Value<double?> productDiameter = const i0.Value.absent(),
-            i0.Value<double?> productRating = const i0.Value.absent(),
-            i0.Value<String?> ratingTypeEnum = const i0.Value.absent(),
-            i0.Value<String?> returnable = const i0.Value.absent(),
-            i0.Value<String?> taxable = const i0.Value.absent(),
-            i0.Value<String?> chargeShipping = const i0.Value.absent(),
-            i0.Value<String?> autoCreateKeywords = const i0.Value.absent(),
-            i0.Value<String?> includeInPromotions = const i0.Value.absent(),
-            i0.Value<String?> isVirtual = const i0.Value.absent(),
-            i0.Value<String?> isVariant = const i0.Value.absent(),
-            i0.Value<String?> virtualVariantMethodEnum =
-                const i0.Value.absent(),
-            i0.Value<String?> originGeoId = const i0.Value.absent(),
-            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
-            i0.Value<int?> billOfMaterialLevel = const i0.Value.absent(),
-            i0.Value<double?> reservMaxPersons = const i0.Value.absent(),
-            i0.Value<double?> reserv2ndPPPerc = const i0.Value.absent(),
-            i0.Value<double?> reservNthPPPerc = const i0.Value.absent(),
-            i0.Value<String?> configId = const i0.Value.absent(),
-            i0.Value<DateTime?> createdDate = const i0.Value.absent(),
-            i0.Value<String?> createdByUserLogin = const i0.Value.absent(),
-            i0.Value<DateTime?> lastModifiedDate = const i0.Value.absent(),
-            i0.Value<String?> lastModifiedByUserLogin = const i0.Value.absent(),
-            i0.Value<String?> inShippingBox = const i0.Value.absent(),
-            i0.Value<String?> defaultShipmentBoxTypeId =
-                const i0.Value.absent(),
-            i0.Value<String?> lotIdFilledIn = const i0.Value.absent(),
-            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<List<String>?> cats = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
-            i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFacility>?> productFacility =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductCostComponentCalc>?>
-                productCostComponentCalc = const i0.Value.absent(),
-            i0.Value<List<i3.ProductRole>?> productRole =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductConfig>?> productProductConfig =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductPrice>?> productPrice =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFacilityLocation>?>
-                productFacilityLocation = const i0.Value.absent(),
-            i0.Value<List<i3.ProductSlot>?> productSlot =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductContent>?> productContent =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductAssoc>?> assocProductAssoc =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductMaint>?> productMaint =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFeatureAppl>?> productFeatureAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductFacilityAssoc>?> productFacilityAssoc =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductKeyword>?> productKeyword =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductAssoc>?> mainProductAssoc =
-                const i0.Value.absent(),
-            i0.Value<List<i3.WorkEffortGoodStandard>?> workEffortGoodStandard =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ProductCompanion.insert(
-            productId: productId,
-            productTypeId: productTypeId,
-            primaryProductCategoryId: primaryProductCategoryId,
-            facilityId: facilityId,
-            introductionDate: introductionDate,
-            releaseDate: releaseDate,
-            supportDiscontinuationDate: supportDiscontinuationDate,
-            salesDiscontinuationDate: salesDiscontinuationDate,
-            salesDiscWhenNotAvail: salesDiscWhenNotAvail,
-            internalName: internalName,
-            brandName: brandName,
-            comments: comments,
-            productName: productName,
-            description: description,
-            longDescription: longDescription,
-            priceDetailText: priceDetailText,
-            smallImageUrl: smallImageUrl,
-            mediumImageUrl: mediumImageUrl,
-            largeImageUrl: largeImageUrl,
-            detailImageUrl: detailImageUrl,
-            originalImageUrl: originalImageUrl,
-            detailScreen: detailScreen,
-            inventoryMessage: inventoryMessage,
-            inventoryItemTypeId: inventoryItemTypeId,
-            requireInventory: requireInventory,
-            quantityUomId: quantityUomId,
-            quantityIncluded: quantityIncluded,
-            piecesIncluded: piecesIncluded,
-            requireAmount: requireAmount,
-            fixedAmount: fixedAmount,
-            amountUomTypeId: amountUomTypeId,
-            weightUomId: weightUomId,
-            shippingWeight: shippingWeight,
-            productWeight: productWeight,
-            heightUomId: heightUomId,
-            productHeight: productHeight,
-            shippingHeight: shippingHeight,
-            widthUomId: widthUomId,
-            productWidth: productWidth,
-            shippingWidth: shippingWidth,
-            depthUomId: depthUomId,
-            productDepth: productDepth,
-            shippingDepth: shippingDepth,
-            diameterUomId: diameterUomId,
-            productDiameter: productDiameter,
-            productRating: productRating,
-            ratingTypeEnum: ratingTypeEnum,
-            returnable: returnable,
-            taxable: taxable,
-            chargeShipping: chargeShipping,
-            autoCreateKeywords: autoCreateKeywords,
-            includeInPromotions: includeInPromotions,
-            isVirtual: isVirtual,
-            isVariant: isVariant,
-            virtualVariantMethodEnum: virtualVariantMethodEnum,
-            originGeoId: originGeoId,
-            requirementMethodEnumId: requirementMethodEnumId,
-            billOfMaterialLevel: billOfMaterialLevel,
-            reservMaxPersons: reservMaxPersons,
-            reserv2ndPPPerc: reserv2ndPPPerc,
-            reservNthPPPerc: reservNthPPPerc,
-            configId: configId,
-            createdDate: createdDate,
-            createdByUserLogin: createdByUserLogin,
-            lastModifiedDate: lastModifiedDate,
-            lastModifiedByUserLogin: lastModifiedByUserLogin,
-            inShippingBox: inShippingBox,
-            defaultShipmentBoxTypeId: defaultShipmentBoxTypeId,
-            lotIdFilledIn: lotIdFilledIn,
-            orderDecimalQuantity: orderDecimalQuantity,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            cats: cats,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            jointers: jointers,
-            acl: acl,
-            productType: productType,
-            fixedAssetProduct: fixedAssetProduct,
-            productFacility: productFacility,
-            productCostComponentCalc: productCostComponentCalc,
-            productRole: productRole,
-            productProductConfig: productProductConfig,
-            productPrice: productPrice,
-            productFacilityLocation: productFacilityLocation,
-            productSlot: productSlot,
-            productContent: productContent,
-            assocProductAssoc: assocProductAssoc,
-            productMaint: productMaint,
-            productFeatureAppl: productFeatureAppl,
-            productFacilityAssoc: productFacilityAssoc,
-            productKeyword: productKeyword,
-            mainProductAssoc: mainProductAssoc,
-            workEffortGoodStandard: workEffortGoodStandard,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ProductProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Product,
-    i1.ProductData,
-    i1.$ProductFilterComposer,
-    i1.$ProductOrderingComposer,
-    $ProductCreateCompanionBuilder,
-    $ProductUpdateCompanionBuilder,
-    (
-      i1.ProductData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Product, i1.ProductData>
-    ),
-    i1.ProductData,
-    i0.PrefetchHooks Function()>;
 
 class ProductDrift extends i6.ModularAccessor {
   ProductDrift(i0.GeneratedDatabase db) : super(db);

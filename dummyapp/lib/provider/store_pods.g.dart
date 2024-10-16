@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_pods.dart';
+part of 'store_pods.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteRepositoryHash() => r'db8618936695874321f6cd32f33c28e0ed128d96';
+String _$storeRepositoryHash() => r'a86b5db361405b27ec6c945bb52632ed386ec32b';
 
 /// repository pod
 ///
-/// Copied from [noteRepository].
-@ProviderFor(noteRepository)
-final noteRepositoryProvider = Provider<NoteRepository>.internal(
-  noteRepository,
-  name: r'noteRepositoryProvider',
+/// Copied from [storeRepository].
+@ProviderFor(storeRepository)
+final storeRepositoryProvider = Provider<StoreRepository>.internal(
+  storeRepository,
+  name: r'storeRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$noteRepositoryHash,
+      : _$storeRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef NoteRepositoryRef = ProviderRef<NoteRepository>;
-String _$getNoteHash() => r'af522d062f9649f4011504d849117ea94e234d8f';
+typedef StoreRepositoryRef = ProviderRef<StoreRepository>;
+String _$getStoreHash() => r'805150f0fb5439f44a63725547c798fbb86f9bc3';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -48,33 +48,33 @@ class _SystemHash {
 
 /// get single
 ///
-/// Copied from [getNote].
-@ProviderFor(getNote)
-const getNoteProvider = GetNoteFamily();
+/// Copied from [getStore].
+@ProviderFor(getStore)
+const getStoreProvider = GetStoreFamily();
 
 /// get single
 ///
-/// Copied from [getNote].
-class GetNoteFamily extends Family<AsyncValue<NoteDataData?>> {
+/// Copied from [getStore].
+class GetStoreFamily extends Family<AsyncValue<ProductStoreData?>> {
   /// get single
   ///
-  /// Copied from [getNote].
-  const GetNoteFamily();
+  /// Copied from [getStore].
+  const GetStoreFamily();
 
   /// get single
   ///
-  /// Copied from [getNote].
-  GetNoteProvider call({
+  /// Copied from [getStore].
+  GetStoreProvider call({
     required String id,
   }) {
-    return GetNoteProvider(
+    return GetStoreProvider(
       id: id,
     );
   }
 
   @override
-  GetNoteProvider getProviderOverride(
-    covariant GetNoteProvider provider,
+  GetStoreProvider getProviderOverride(
+    covariant GetStoreProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -93,35 +93,35 @@ class GetNoteFamily extends Family<AsyncValue<NoteDataData?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'getNoteProvider';
+  String? get name => r'getStoreProvider';
 }
 
 /// get single
 ///
-/// Copied from [getNote].
-class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
+/// Copied from [getStore].
+class GetStoreProvider extends AutoDisposeFutureProvider<ProductStoreData?> {
   /// get single
   ///
-  /// Copied from [getNote].
-  GetNoteProvider({
+  /// Copied from [getStore].
+  GetStoreProvider({
     required String id,
   }) : this._internal(
-          (ref) => getNote(
-            ref as GetNoteRef,
+          (ref) => getStore(
+            ref as GetStoreRef,
             id: id,
           ),
-          from: getNoteProvider,
-          name: r'getNoteProvider',
+          from: getStoreProvider,
+          name: r'getStoreProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$getNoteHash,
-          dependencies: GetNoteFamily._dependencies,
-          allTransitiveDependencies: GetNoteFamily._allTransitiveDependencies,
+                  : _$getStoreHash,
+          dependencies: GetStoreFamily._dependencies,
+          allTransitiveDependencies: GetStoreFamily._allTransitiveDependencies,
           id: id,
         );
 
-  GetNoteProvider._internal(
+  GetStoreProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -135,12 +135,12 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
 
   @override
   Override overrideWith(
-    FutureOr<NoteDataData?> Function(GetNoteRef provider) create,
+    FutureOr<ProductStoreData?> Function(GetStoreRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: GetNoteProvider._internal(
-        (ref) => create(ref as GetNoteRef),
+      override: GetStoreProvider._internal(
+        (ref) => create(ref as GetStoreRef),
         from: from,
         name: null,
         dependencies: null,
@@ -152,13 +152,13 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<NoteDataData?> createElement() {
-    return _GetNoteProviderElement(this);
+  AutoDisposeFutureProviderElement<ProductStoreData?> createElement() {
+    return _GetStoreProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GetNoteProvider && other.id == id;
+    return other is GetStoreProvider && other.id == id;
   }
 
   @override
@@ -170,50 +170,51 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   }
 }
 
-mixin GetNoteRef on AutoDisposeFutureProviderRef<NoteDataData?> {
+mixin GetStoreRef on AutoDisposeFutureProviderRef<ProductStoreData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _GetNoteProviderElement
-    extends AutoDisposeFutureProviderElement<NoteDataData?> with GetNoteRef {
-  _GetNoteProviderElement(super.provider);
+class _GetStoreProviderElement
+    extends AutoDisposeFutureProviderElement<ProductStoreData?>
+    with GetStoreRef {
+  _GetStoreProviderElement(super.provider);
 
   @override
-  String get id => (origin as GetNoteProvider).id;
+  String get id => (origin as GetStoreProvider).id;
 }
 
-String _$fetchNoteHash() => r'20662c3a1895ece7f4c384b69d92a2e260f48209';
+String _$fetchStoreHash() => r'df1cdfa053e45fad7285180d87f3d6a5900fbe52';
 
 /// fetch single
 ///
-/// Copied from [fetchNote].
-@ProviderFor(fetchNote)
-const fetchNoteProvider = FetchNoteFamily();
+/// Copied from [fetchStore].
+@ProviderFor(fetchStore)
+const fetchStoreProvider = FetchStoreFamily();
 
 /// fetch single
 ///
-/// Copied from [fetchNote].
-class FetchNoteFamily extends Family<AsyncValue<ent.Note?>> {
+/// Copied from [fetchStore].
+class FetchStoreFamily extends Family<AsyncValue<ent.Store?>> {
   /// fetch single
   ///
-  /// Copied from [fetchNote].
-  const FetchNoteFamily();
+  /// Copied from [fetchStore].
+  const FetchStoreFamily();
 
   /// fetch single
   ///
-  /// Copied from [fetchNote].
-  FetchNoteProvider call({
+  /// Copied from [fetchStore].
+  FetchStoreProvider call({
     required String id,
   }) {
-    return FetchNoteProvider(
+    return FetchStoreProvider(
       id: id,
     );
   }
 
   @override
-  FetchNoteProvider getProviderOverride(
-    covariant FetchNoteProvider provider,
+  FetchStoreProvider getProviderOverride(
+    covariant FetchStoreProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -232,35 +233,36 @@ class FetchNoteFamily extends Family<AsyncValue<ent.Note?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchNoteProvider';
+  String? get name => r'fetchStoreProvider';
 }
 
 /// fetch single
 ///
-/// Copied from [fetchNote].
-class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
+/// Copied from [fetchStore].
+class FetchStoreProvider extends AutoDisposeFutureProvider<ent.Store?> {
   /// fetch single
   ///
-  /// Copied from [fetchNote].
-  FetchNoteProvider({
+  /// Copied from [fetchStore].
+  FetchStoreProvider({
     required String id,
   }) : this._internal(
-          (ref) => fetchNote(
-            ref as FetchNoteRef,
+          (ref) => fetchStore(
+            ref as FetchStoreRef,
             id: id,
           ),
-          from: fetchNoteProvider,
-          name: r'fetchNoteProvider',
+          from: fetchStoreProvider,
+          name: r'fetchStoreProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchNoteHash,
-          dependencies: FetchNoteFamily._dependencies,
-          allTransitiveDependencies: FetchNoteFamily._allTransitiveDependencies,
+                  : _$fetchStoreHash,
+          dependencies: FetchStoreFamily._dependencies,
+          allTransitiveDependencies:
+              FetchStoreFamily._allTransitiveDependencies,
           id: id,
         );
 
-  FetchNoteProvider._internal(
+  FetchStoreProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -274,12 +276,12 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
 
   @override
   Override overrideWith(
-    FutureOr<ent.Note?> Function(FetchNoteRef provider) create,
+    FutureOr<ent.Store?> Function(FetchStoreRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchNoteProvider._internal(
-        (ref) => create(ref as FetchNoteRef),
+      override: FetchStoreProvider._internal(
+        (ref) => create(ref as FetchStoreRef),
         from: from,
         name: null,
         dependencies: null,
@@ -291,13 +293,13 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ent.Note?> createElement() {
-    return _FetchNoteProviderElement(this);
+  AutoDisposeFutureProviderElement<ent.Store?> createElement() {
+    return _FetchStoreProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchNoteProvider && other.id == id;
+    return other is FetchStoreProvider && other.id == id;
   }
 
   @override
@@ -309,50 +311,51 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
   }
 }
 
-mixin FetchNoteRef on AutoDisposeFutureProviderRef<ent.Note?> {
+mixin FetchStoreRef on AutoDisposeFutureProviderRef<ent.Store?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _FetchNoteProviderElement
-    extends AutoDisposeFutureProviderElement<ent.Note?> with FetchNoteRef {
-  _FetchNoteProviderElement(super.provider);
+class _FetchStoreProviderElement
+    extends AutoDisposeFutureProviderElement<ent.Store?> with FetchStoreRef {
+  _FetchStoreProviderElement(super.provider);
 
   @override
-  String get id => (origin as FetchNoteProvider).id;
+  String get id => (origin as FetchStoreProvider).id;
 }
 
-String _$fetchNotesFromRegHash() => r'77168bb29da89862dd750850ae02d84366b28400';
+String _$fetchStoresFromRegHash() =>
+    r'89bc31ca8fe8e2fddfdf06cac72d666237121c75';
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchNotesFromReg].
-@ProviderFor(fetchNotesFromReg)
-const fetchNotesFromRegProvider = FetchNotesFromRegFamily();
+/// Copied from [fetchStoresFromReg].
+@ProviderFor(fetchStoresFromReg)
+const fetchStoresFromRegProvider = FetchStoresFromRegFamily();
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchNotesFromReg].
-class FetchNotesFromRegFamily extends Family<AsyncValue<List<ent.Note>>> {
+/// Copied from [fetchStoresFromReg].
+class FetchStoresFromRegFamily extends Family<AsyncValue<List<ent.Store>>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchNotesFromReg].
-  const FetchNotesFromRegFamily();
+  /// Copied from [fetchStoresFromReg].
+  const FetchStoresFromRegFamily();
 
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchNotesFromReg].
-  FetchNotesFromRegProvider call({
+  /// Copied from [fetchStoresFromReg].
+  FetchStoresFromRegProvider call({
     required String regNode,
   }) {
-    return FetchNotesFromRegProvider(
+    return FetchStoresFromRegProvider(
       regNode: regNode,
     );
   }
 
   @override
-  FetchNotesFromRegProvider getProviderOverride(
-    covariant FetchNotesFromRegProvider provider,
+  FetchStoresFromRegProvider getProviderOverride(
+    covariant FetchStoresFromRegProvider provider,
   ) {
     return call(
       regNode: provider.regNode,
@@ -371,37 +374,37 @@ class FetchNotesFromRegFamily extends Family<AsyncValue<List<ent.Note>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchNotesFromRegProvider';
+  String? get name => r'fetchStoresFromRegProvider';
 }
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchNotesFromReg].
-class FetchNotesFromRegProvider
-    extends AutoDisposeFutureProvider<List<ent.Note>> {
+/// Copied from [fetchStoresFromReg].
+class FetchStoresFromRegProvider
+    extends AutoDisposeFutureProvider<List<ent.Store>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchNotesFromReg].
-  FetchNotesFromRegProvider({
+  /// Copied from [fetchStoresFromReg].
+  FetchStoresFromRegProvider({
     required String regNode,
   }) : this._internal(
-          (ref) => fetchNotesFromReg(
-            ref as FetchNotesFromRegRef,
+          (ref) => fetchStoresFromReg(
+            ref as FetchStoresFromRegRef,
             regNode: regNode,
           ),
-          from: fetchNotesFromRegProvider,
-          name: r'fetchNotesFromRegProvider',
+          from: fetchStoresFromRegProvider,
+          name: r'fetchStoresFromRegProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchNotesFromRegHash,
-          dependencies: FetchNotesFromRegFamily._dependencies,
+                  : _$fetchStoresFromRegHash,
+          dependencies: FetchStoresFromRegFamily._dependencies,
           allTransitiveDependencies:
-              FetchNotesFromRegFamily._allTransitiveDependencies,
+              FetchStoresFromRegFamily._allTransitiveDependencies,
           regNode: regNode,
         );
 
-  FetchNotesFromRegProvider._internal(
+  FetchStoresFromRegProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -415,12 +418,12 @@ class FetchNotesFromRegProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Note>> Function(FetchNotesFromRegRef provider) create,
+    FutureOr<List<ent.Store>> Function(FetchStoresFromRegRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchNotesFromRegProvider._internal(
-        (ref) => create(ref as FetchNotesFromRegRef),
+      override: FetchStoresFromRegProvider._internal(
+        (ref) => create(ref as FetchStoresFromRegRef),
         from: from,
         name: null,
         dependencies: null,
@@ -432,13 +435,13 @@ class FetchNotesFromRegProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Note>> createElement() {
-    return _FetchNotesFromRegProviderElement(this);
+  AutoDisposeFutureProviderElement<List<ent.Store>> createElement() {
+    return _FetchStoresFromRegProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchNotesFromRegProvider && other.regNode == regNode;
+    return other is FetchStoresFromRegProvider && other.regNode == regNode;
   }
 
   @override
@@ -450,77 +453,77 @@ class FetchNotesFromRegProvider
   }
 }
 
-mixin FetchNotesFromRegRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
+mixin FetchStoresFromRegRef on AutoDisposeFutureProviderRef<List<ent.Store>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
 }
 
-class _FetchNotesFromRegProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Note>>
-    with FetchNotesFromRegRef {
-  _FetchNotesFromRegProviderElement(super.provider);
+class _FetchStoresFromRegProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Store>>
+    with FetchStoresFromRegRef {
+  _FetchStoresFromRegProviderElement(super.provider);
 
   @override
-  String get regNode => (origin as FetchNotesFromRegProvider).regNode;
+  String get regNode => (origin as FetchStoresFromRegProvider).regNode;
 }
 
-String _$noteBucketHash() => r'1a750bfc9642e91ea86d791e79c9970cd1f10f84';
+String _$storeBucketHash() => r'f3a66d80545dec91fcafb09840defdd1b53f69e8';
 
 /// watch stream (localDb)
 ///
-/// Copied from [NoteBucket].
-@ProviderFor(NoteBucket)
-final noteBucketProvider =
-    AutoDisposeStreamNotifierProvider<NoteBucket, List<NoteDataData>>.internal(
-  NoteBucket.new,
-  name: r'noteBucketProvider',
+/// Copied from [StoreBucket].
+@ProviderFor(StoreBucket)
+final storeBucketProvider = AutoDisposeStreamNotifierProvider<StoreBucket,
+    List<ProductStoreData>>.internal(
+  StoreBucket.new,
+  name: r'storeBucketProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$noteBucketHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$storeBucketHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$NoteBucket = AutoDisposeStreamNotifier<List<NoteDataData>>;
-String _$noteElHash() => r'c59a81db7e06cab56984882f2f3f8ab45c351e4b';
+typedef _$StoreBucket = AutoDisposeStreamNotifier<List<ProductStoreData>>;
+String _$storeElHash() => r'd1a2df8d245f804d07f6966fa11c30cf8a3136dd';
 
-abstract class _$NoteEl
-    extends BuildlessAutoDisposeStreamNotifier<NoteDataData> {
+abstract class _$StoreEl
+    extends BuildlessAutoDisposeStreamNotifier<ProductStoreData> {
   late final String id;
 
-  Stream<NoteDataData> build(
+  Stream<ProductStoreData> build(
     String id,
   );
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [NoteEl].
-@ProviderFor(NoteEl)
-const noteElProvider = NoteElFamily();
+/// Copied from [StoreEl].
+@ProviderFor(StoreEl)
+const storeElProvider = StoreElFamily();
 
 /// watch single (localDb)
 ///
-/// Copied from [NoteEl].
-class NoteElFamily extends Family<AsyncValue<NoteDataData>> {
+/// Copied from [StoreEl].
+class StoreElFamily extends Family<AsyncValue<ProductStoreData>> {
   /// watch single (localDb)
   ///
-  /// Copied from [NoteEl].
-  const NoteElFamily();
+  /// Copied from [StoreEl].
+  const StoreElFamily();
 
   /// watch single (localDb)
   ///
-  /// Copied from [NoteEl].
-  NoteElProvider call(
+  /// Copied from [StoreEl].
+  StoreElProvider call(
     String id,
   ) {
-    return NoteElProvider(
+    return StoreElProvider(
       id,
     );
   }
 
   @override
-  NoteElProvider getProviderOverride(
-    covariant NoteElProvider provider,
+  StoreElProvider getProviderOverride(
+    covariant StoreElProvider provider,
   ) {
     return call(
       provider.id,
@@ -539,33 +542,33 @@ class NoteElFamily extends Family<AsyncValue<NoteDataData>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteElProvider';
+  String? get name => r'storeElProvider';
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [NoteEl].
-class NoteElProvider
-    extends AutoDisposeStreamNotifierProviderImpl<NoteEl, NoteDataData> {
+/// Copied from [StoreEl].
+class StoreElProvider
+    extends AutoDisposeStreamNotifierProviderImpl<StoreEl, ProductStoreData> {
   /// watch single (localDb)
   ///
-  /// Copied from [NoteEl].
-  NoteElProvider(
+  /// Copied from [StoreEl].
+  StoreElProvider(
     String id,
   ) : this._internal(
-          () => NoteEl()..id = id,
-          from: noteElProvider,
-          name: r'noteElProvider',
+          () => StoreEl()..id = id,
+          from: storeElProvider,
+          name: r'storeElProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteElHash,
-          dependencies: NoteElFamily._dependencies,
-          allTransitiveDependencies: NoteElFamily._allTransitiveDependencies,
+                  : _$storeElHash,
+          dependencies: StoreElFamily._dependencies,
+          allTransitiveDependencies: StoreElFamily._allTransitiveDependencies,
           id: id,
         );
 
-  NoteElProvider._internal(
+  StoreElProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -578,8 +581,8 @@ class NoteElProvider
   final String id;
 
   @override
-  Stream<NoteDataData> runNotifierBuild(
-    covariant NoteEl notifier,
+  Stream<ProductStoreData> runNotifierBuild(
+    covariant StoreEl notifier,
   ) {
     return notifier.build(
       id,
@@ -587,10 +590,10 @@ class NoteElProvider
   }
 
   @override
-  Override overrideWith(NoteEl Function() create) {
+  Override overrideWith(StoreEl Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteElProvider._internal(
+      override: StoreElProvider._internal(
         () => create()..id = id,
         from: from,
         name: null,
@@ -603,14 +606,14 @@ class NoteElProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<NoteEl, NoteDataData>
+  AutoDisposeStreamNotifierProviderElement<StoreEl, ProductStoreData>
       createElement() {
-    return _NoteElProviderElement(this);
+    return _StoreElProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteElProvider && other.id == id;
+    return other is StoreElProvider && other.id == id;
   }
 
   @override
@@ -622,18 +625,18 @@ class NoteElProvider
   }
 }
 
-mixin NoteElRef on AutoDisposeStreamNotifierProviderRef<NoteDataData> {
+mixin StoreElRef on AutoDisposeStreamNotifierProviderRef<ProductStoreData> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _NoteElProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<NoteEl, NoteDataData>
-    with NoteElRef {
-  _NoteElProviderElement(super.provider);
+class _StoreElProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<StoreEl, ProductStoreData>
+    with StoreElRef {
+  _StoreElProviderElement(super.provider);
 
   @override
-  String get id => (origin as NoteElProvider).id;
+  String get id => (origin as StoreElProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

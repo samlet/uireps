@@ -7,6 +7,1914 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/store_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $ProductStoreCreateCompanionBuilder = i1.ProductStoreCompanion
+    Function({
+  required String productStoreId,
+  i0.Value<String?> primaryStoreGroupId,
+  i0.Value<String?> storeName,
+  i0.Value<String?> companyName,
+  i0.Value<String?> title,
+  i0.Value<String?> subtitle,
+  i0.Value<String?> payToPartyId,
+  i0.Value<int?> daysToCancelNonPay,
+  i0.Value<String?> manualAuthIsCapture,
+  i0.Value<String?> prorateShipping,
+  i0.Value<String?> prorateTaxes,
+  i0.Value<String?> viewCartOnAdd,
+  i0.Value<String?> autoSaveCart,
+  i0.Value<String?> autoApproveReviews,
+  i0.Value<String?> isDemoStore,
+  i0.Value<String?> isImmediatelyFulfilled,
+  i0.Value<String?> inventoryFacilityId,
+  i0.Value<String?> oneInventoryFacility,
+  i0.Value<String?> checkInventory,
+  i0.Value<String?> reserveInventory,
+  i0.Value<String?> reserveOrderEnumId,
+  i0.Value<String?> requireInventory,
+  i0.Value<String?> balanceResOnOrderCreation,
+  i0.Value<String?> requirementMethodEnumId,
+  i0.Value<String?> orderNumberPrefix,
+  i0.Value<String?> defaultLocaleString,
+  i0.Value<String?> defaultCurrencyUomId,
+  i0.Value<String?> defaultTimeZoneString,
+  i0.Value<String?> defaultSalesChannelEnumId,
+  i0.Value<String?> allowPassword,
+  i0.Value<String?> defaultPassword,
+  i0.Value<String?> explodeOrderItems,
+  i0.Value<String?> checkGcBalance,
+  i0.Value<String?> retryFailedAuths,
+  i0.Value<String?> headerApprovedStatus,
+  i0.Value<String?> itemApprovedStatus,
+  i0.Value<String?> digitalItemApprovedStatus,
+  i0.Value<String?> headerDeclinedStatus,
+  i0.Value<String?> itemDeclinedStatus,
+  i0.Value<String?> headerCancelStatus,
+  i0.Value<String?> itemCancelStatus,
+  i0.Value<String?> authDeclinedMessage,
+  i0.Value<String?> authFraudMessage,
+  i0.Value<String?> authErrorMessage,
+  i0.Value<String?> visualThemeId,
+  i0.Value<String?> storeCreditAccountEnumId,
+  i0.Value<String?> usePrimaryEmailUsername,
+  i0.Value<String?> requireCustomerRole,
+  i0.Value<String?> autoInvoiceDigitalItems,
+  i0.Value<String?> reqShipAddrForDigItems,
+  i0.Value<String?> showCheckoutGiftOptions,
+  i0.Value<String?> selectPaymentTypePerItem,
+  i0.Value<String?> showPricesWithVatTax,
+  i0.Value<String?> showTaxIsExempt,
+  i0.Value<String?> vatTaxAuthGeoId,
+  i0.Value<String?> vatTaxAuthPartyId,
+  i0.Value<String?> enableAutoSuggestionList,
+  i0.Value<String?> enableDigProdUpload,
+  i0.Value<String?> prodSearchExcludeVariants,
+  i0.Value<String?> digProdUploadCategoryId,
+  i0.Value<String?> autoOrderCcTryExp,
+  i0.Value<String?> autoOrderCcTryOtherCards,
+  i0.Value<String?> autoOrderCcTryLaterNsf,
+  i0.Value<int?> autoOrderCcTryLaterMax,
+  i0.Value<int?> storeCreditValidDays,
+  i0.Value<String?> autoApproveInvoice,
+  i0.Value<String?> autoApproveOrder,
+  i0.Value<String?> shipIfCaptureFails,
+  i0.Value<String?> setOwnerUponIssuance,
+  i0.Value<String?> reqReturnInventoryReceive,
+  i0.Value<String?> addToCartRemoveIncompat,
+  i0.Value<String?> addToCartReplaceUpsell,
+  i0.Value<String?> splitPayPrefPerShpGrp,
+  i0.Value<String?> managedByLot,
+  i0.Value<String?> showOutOfStockProducts,
+  i0.Value<String?> orderDecimalQuantity,
+  i0.Value<String?> allowComment,
+  i0.Value<String?> allocateInventory,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<Map<String, String>?> jointers,
+  i0.Value<i2.Multimap<String, String>?> multiJointers,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> telephone,
+  i0.Value<String?> email,
+  i0.Value<String?> placeId,
+  i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl,
+  i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting,
+  i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility,
+  i0.Value<List<i3.ProductStorePaymentSetting>?> productStorePaymentSetting,
+  i0.Value<List<i3.ProductStoreKeywordOvrd>?> productStoreKeywordOvrd,
+  i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl,
+  i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog,
+  i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch,
+  i0.Value<List<i3.ProductStoreRole>?> productStoreRole,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ProductStoreUpdateCompanionBuilder = i1.ProductStoreCompanion
+    Function({
+  i0.Value<String> productStoreId,
+  i0.Value<String?> primaryStoreGroupId,
+  i0.Value<String?> storeName,
+  i0.Value<String?> companyName,
+  i0.Value<String?> title,
+  i0.Value<String?> subtitle,
+  i0.Value<String?> payToPartyId,
+  i0.Value<int?> daysToCancelNonPay,
+  i0.Value<String?> manualAuthIsCapture,
+  i0.Value<String?> prorateShipping,
+  i0.Value<String?> prorateTaxes,
+  i0.Value<String?> viewCartOnAdd,
+  i0.Value<String?> autoSaveCart,
+  i0.Value<String?> autoApproveReviews,
+  i0.Value<String?> isDemoStore,
+  i0.Value<String?> isImmediatelyFulfilled,
+  i0.Value<String?> inventoryFacilityId,
+  i0.Value<String?> oneInventoryFacility,
+  i0.Value<String?> checkInventory,
+  i0.Value<String?> reserveInventory,
+  i0.Value<String?> reserveOrderEnumId,
+  i0.Value<String?> requireInventory,
+  i0.Value<String?> balanceResOnOrderCreation,
+  i0.Value<String?> requirementMethodEnumId,
+  i0.Value<String?> orderNumberPrefix,
+  i0.Value<String?> defaultLocaleString,
+  i0.Value<String?> defaultCurrencyUomId,
+  i0.Value<String?> defaultTimeZoneString,
+  i0.Value<String?> defaultSalesChannelEnumId,
+  i0.Value<String?> allowPassword,
+  i0.Value<String?> defaultPassword,
+  i0.Value<String?> explodeOrderItems,
+  i0.Value<String?> checkGcBalance,
+  i0.Value<String?> retryFailedAuths,
+  i0.Value<String?> headerApprovedStatus,
+  i0.Value<String?> itemApprovedStatus,
+  i0.Value<String?> digitalItemApprovedStatus,
+  i0.Value<String?> headerDeclinedStatus,
+  i0.Value<String?> itemDeclinedStatus,
+  i0.Value<String?> headerCancelStatus,
+  i0.Value<String?> itemCancelStatus,
+  i0.Value<String?> authDeclinedMessage,
+  i0.Value<String?> authFraudMessage,
+  i0.Value<String?> authErrorMessage,
+  i0.Value<String?> visualThemeId,
+  i0.Value<String?> storeCreditAccountEnumId,
+  i0.Value<String?> usePrimaryEmailUsername,
+  i0.Value<String?> requireCustomerRole,
+  i0.Value<String?> autoInvoiceDigitalItems,
+  i0.Value<String?> reqShipAddrForDigItems,
+  i0.Value<String?> showCheckoutGiftOptions,
+  i0.Value<String?> selectPaymentTypePerItem,
+  i0.Value<String?> showPricesWithVatTax,
+  i0.Value<String?> showTaxIsExempt,
+  i0.Value<String?> vatTaxAuthGeoId,
+  i0.Value<String?> vatTaxAuthPartyId,
+  i0.Value<String?> enableAutoSuggestionList,
+  i0.Value<String?> enableDigProdUpload,
+  i0.Value<String?> prodSearchExcludeVariants,
+  i0.Value<String?> digProdUploadCategoryId,
+  i0.Value<String?> autoOrderCcTryExp,
+  i0.Value<String?> autoOrderCcTryOtherCards,
+  i0.Value<String?> autoOrderCcTryLaterNsf,
+  i0.Value<int?> autoOrderCcTryLaterMax,
+  i0.Value<int?> storeCreditValidDays,
+  i0.Value<String?> autoApproveInvoice,
+  i0.Value<String?> autoApproveOrder,
+  i0.Value<String?> shipIfCaptureFails,
+  i0.Value<String?> setOwnerUponIssuance,
+  i0.Value<String?> reqReturnInventoryReceive,
+  i0.Value<String?> addToCartRemoveIncompat,
+  i0.Value<String?> addToCartReplaceUpsell,
+  i0.Value<String?> splitPayPrefPerShpGrp,
+  i0.Value<String?> managedByLot,
+  i0.Value<String?> showOutOfStockProducts,
+  i0.Value<String?> orderDecimalQuantity,
+  i0.Value<String?> allowComment,
+  i0.Value<String?> allocateInventory,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<Map<String, String>?> jointers,
+  i0.Value<i2.Multimap<String, String>?> multiJointers,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> telephone,
+  i0.Value<String?> email,
+  i0.Value<String?> placeId,
+  i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl,
+  i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting,
+  i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility,
+  i0.Value<List<i3.ProductStorePaymentSetting>?> productStorePaymentSetting,
+  i0.Value<List<i3.ProductStoreKeywordOvrd>?> productStoreKeywordOvrd,
+  i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl,
+  i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog,
+  i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch,
+  i0.Value<List<i3.ProductStoreRole>?> productStoreRole,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ProductStoreFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ProductStore> {
+  $ProductStoreFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get productStoreId => $composableBuilder(
+      column: $table.productStoreId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get primaryStoreGroupId => $composableBuilder(
+      column: $table.primaryStoreGroupId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get storeName => $composableBuilder(
+      column: $table.storeName, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get companyName => $composableBuilder(
+      column: $table.companyName,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get subtitle => $composableBuilder(
+      column: $table.subtitle, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get payToPartyId => $composableBuilder(
+      column: $table.payToPartyId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get daysToCancelNonPay => $composableBuilder(
+      column: $table.daysToCancelNonPay,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get manualAuthIsCapture => $composableBuilder(
+      column: $table.manualAuthIsCapture,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get prorateShipping => $composableBuilder(
+      column: $table.prorateShipping,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get prorateTaxes => $composableBuilder(
+      column: $table.prorateTaxes,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get viewCartOnAdd => $composableBuilder(
+      column: $table.viewCartOnAdd,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoSaveCart => $composableBuilder(
+      column: $table.autoSaveCart,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoApproveReviews => $composableBuilder(
+      column: $table.autoApproveReviews,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get isDemoStore => $composableBuilder(
+      column: $table.isDemoStore,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get isImmediatelyFulfilled => $composableBuilder(
+      column: $table.isImmediatelyFulfilled,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get inventoryFacilityId => $composableBuilder(
+      column: $table.inventoryFacilityId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get oneInventoryFacility => $composableBuilder(
+      column: $table.oneInventoryFacility,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get checkInventory => $composableBuilder(
+      column: $table.checkInventory,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get reserveInventory => $composableBuilder(
+      column: $table.reserveInventory,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get reserveOrderEnumId => $composableBuilder(
+      column: $table.reserveOrderEnumId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get requireInventory => $composableBuilder(
+      column: $table.requireInventory,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get balanceResOnOrderCreation => $composableBuilder(
+      column: $table.balanceResOnOrderCreation,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get requirementMethodEnumId => $composableBuilder(
+      column: $table.requirementMethodEnumId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get orderNumberPrefix => $composableBuilder(
+      column: $table.orderNumberPrefix,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultLocaleString => $composableBuilder(
+      column: $table.defaultLocaleString,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultCurrencyUomId => $composableBuilder(
+      column: $table.defaultCurrencyUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultTimeZoneString => $composableBuilder(
+      column: $table.defaultTimeZoneString,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultSalesChannelEnumId => $composableBuilder(
+      column: $table.defaultSalesChannelEnumId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get allowPassword => $composableBuilder(
+      column: $table.allowPassword,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultPassword => $composableBuilder(
+      column: $table.defaultPassword,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get explodeOrderItems => $composableBuilder(
+      column: $table.explodeOrderItems,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get checkGcBalance => $composableBuilder(
+      column: $table.checkGcBalance,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get retryFailedAuths => $composableBuilder(
+      column: $table.retryFailedAuths,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get headerApprovedStatus => $composableBuilder(
+      column: $table.headerApprovedStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get itemApprovedStatus => $composableBuilder(
+      column: $table.itemApprovedStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get digitalItemApprovedStatus => $composableBuilder(
+      column: $table.digitalItemApprovedStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get headerDeclinedStatus => $composableBuilder(
+      column: $table.headerDeclinedStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get itemDeclinedStatus => $composableBuilder(
+      column: $table.itemDeclinedStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get headerCancelStatus => $composableBuilder(
+      column: $table.headerCancelStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get itemCancelStatus => $composableBuilder(
+      column: $table.itemCancelStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get authDeclinedMessage => $composableBuilder(
+      column: $table.authDeclinedMessage,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get authFraudMessage => $composableBuilder(
+      column: $table.authFraudMessage,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get authErrorMessage => $composableBuilder(
+      column: $table.authErrorMessage,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get visualThemeId => $composableBuilder(
+      column: $table.visualThemeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get storeCreditAccountEnumId => $composableBuilder(
+      column: $table.storeCreditAccountEnumId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get usePrimaryEmailUsername => $composableBuilder(
+      column: $table.usePrimaryEmailUsername,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get requireCustomerRole => $composableBuilder(
+      column: $table.requireCustomerRole,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoInvoiceDigitalItems => $composableBuilder(
+      column: $table.autoInvoiceDigitalItems,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get reqShipAddrForDigItems => $composableBuilder(
+      column: $table.reqShipAddrForDigItems,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get showCheckoutGiftOptions => $composableBuilder(
+      column: $table.showCheckoutGiftOptions,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get selectPaymentTypePerItem => $composableBuilder(
+      column: $table.selectPaymentTypePerItem,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get showPricesWithVatTax => $composableBuilder(
+      column: $table.showPricesWithVatTax,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get showTaxIsExempt => $composableBuilder(
+      column: $table.showTaxIsExempt,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get vatTaxAuthGeoId => $composableBuilder(
+      column: $table.vatTaxAuthGeoId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get vatTaxAuthPartyId => $composableBuilder(
+      column: $table.vatTaxAuthPartyId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get enableAutoSuggestionList => $composableBuilder(
+      column: $table.enableAutoSuggestionList,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get enableDigProdUpload => $composableBuilder(
+      column: $table.enableDigProdUpload,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get prodSearchExcludeVariants => $composableBuilder(
+      column: $table.prodSearchExcludeVariants,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get digProdUploadCategoryId => $composableBuilder(
+      column: $table.digProdUploadCategoryId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoOrderCcTryExp => $composableBuilder(
+      column: $table.autoOrderCcTryExp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoOrderCcTryOtherCards => $composableBuilder(
+      column: $table.autoOrderCcTryOtherCards,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoOrderCcTryLaterNsf => $composableBuilder(
+      column: $table.autoOrderCcTryLaterNsf,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get autoOrderCcTryLaterMax => $composableBuilder(
+      column: $table.autoOrderCcTryLaterMax,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get storeCreditValidDays => $composableBuilder(
+      column: $table.storeCreditValidDays,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoApproveInvoice => $composableBuilder(
+      column: $table.autoApproveInvoice,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoApproveOrder => $composableBuilder(
+      column: $table.autoApproveOrder,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get shipIfCaptureFails => $composableBuilder(
+      column: $table.shipIfCaptureFails,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get setOwnerUponIssuance => $composableBuilder(
+      column: $table.setOwnerUponIssuance,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get reqReturnInventoryReceive => $composableBuilder(
+      column: $table.reqReturnInventoryReceive,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get addToCartRemoveIncompat => $composableBuilder(
+      column: $table.addToCartRemoveIncompat,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get addToCartReplaceUpsell => $composableBuilder(
+      column: $table.addToCartReplaceUpsell,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get splitPayPrefPerShpGrp => $composableBuilder(
+      column: $table.splitPayPrefPerShpGrp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get managedByLot => $composableBuilder(
+      column: $table.managedByLot,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get showOutOfStockProducts => $composableBuilder(
+      column: $table.showOutOfStockProducts,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get orderDecimalQuantity => $composableBuilder(
+      column: $table.orderDecimalQuantity,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get allowComment => $composableBuilder(
+      column: $table.allowComment,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get allocateInventory => $composableBuilder(
+      column: $table.allocateInventory,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
+          String>
+      get jointers => $composableBuilder(
+          column: $table.jointers,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get multiJointers => $composableBuilder(
+          column: $table.multiJointers,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get telephone => $composableBuilder(
+      column: $table.telephone, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get email => $composableBuilder(
+      column: $table.email, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get placeId => $composableBuilder(
+      column: $table.placeId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStorePromoAppl>?,
+          List<i3.ProductStorePromoAppl>, String>
+      get productStorePromoAppl => $composableBuilder(
+          column: $table.productStorePromoAppl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreEmailSetting>?,
+          List<i3.ProductStoreEmailSetting>, String>
+      get productStoreEmailSetting => $composableBuilder(
+          column: $table.productStoreEmailSetting,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreFacility>?,
+          List<i3.ProductStoreFacility>, String>
+      get productStoreFacility => $composableBuilder(
+          column: $table.productStoreFacility,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStorePaymentSetting>?,
+          List<i3.ProductStorePaymentSetting>, String>
+      get productStorePaymentSetting => $composableBuilder(
+          column: $table.productStorePaymentSetting,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreKeywordOvrd>?,
+          List<i3.ProductStoreKeywordOvrd>, String>
+      get productStoreKeywordOvrd => $composableBuilder(
+          column: $table.productStoreKeywordOvrd,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreSurveyAppl>?,
+          List<i3.ProductStoreSurveyAppl>, String>
+      get productStoreSurveyAppl => $composableBuilder(
+          column: $table.productStoreSurveyAppl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreCatalog>?,
+          List<i3.ProductStoreCatalog>, String>
+      get productStoreCatalog => $composableBuilder(
+          column: $table.productStoreCatalog,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreBunch>?,
+          List<i3.ProductStoreBunch>, String>
+      get productStoreBunch => $composableBuilder(
+          column: $table.productStoreBunch,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreRole>?,
+          List<i3.ProductStoreRole>, String>
+      get productStoreRole => $composableBuilder(
+          column: $table.productStoreRole,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ProductStoreOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ProductStore> {
+  $ProductStoreOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get productStoreId => $composableBuilder(
+      column: $table.productStoreId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get primaryStoreGroupId => $composableBuilder(
+      column: $table.primaryStoreGroupId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get storeName => $composableBuilder(
+      column: $table.storeName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get companyName => $composableBuilder(
+      column: $table.companyName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get subtitle => $composableBuilder(
+      column: $table.subtitle, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get payToPartyId => $composableBuilder(
+      column: $table.payToPartyId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get daysToCancelNonPay => $composableBuilder(
+      column: $table.daysToCancelNonPay,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get manualAuthIsCapture => $composableBuilder(
+      column: $table.manualAuthIsCapture,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get prorateShipping => $composableBuilder(
+      column: $table.prorateShipping,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get prorateTaxes => $composableBuilder(
+      column: $table.prorateTaxes,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get viewCartOnAdd => $composableBuilder(
+      column: $table.viewCartOnAdd,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoSaveCart => $composableBuilder(
+      column: $table.autoSaveCart,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoApproveReviews => $composableBuilder(
+      column: $table.autoApproveReviews,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get isDemoStore => $composableBuilder(
+      column: $table.isDemoStore,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get isImmediatelyFulfilled => $composableBuilder(
+      column: $table.isImmediatelyFulfilled,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryFacilityId => $composableBuilder(
+      column: $table.inventoryFacilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get oneInventoryFacility => $composableBuilder(
+      column: $table.oneInventoryFacility,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get checkInventory => $composableBuilder(
+      column: $table.checkInventory,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get reserveInventory => $composableBuilder(
+      column: $table.reserveInventory,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get reserveOrderEnumId => $composableBuilder(
+      column: $table.reserveOrderEnumId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get requireInventory => $composableBuilder(
+      column: $table.requireInventory,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get balanceResOnOrderCreation =>
+      $composableBuilder(
+          column: $table.balanceResOnOrderCreation,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get requirementMethodEnumId => $composableBuilder(
+      column: $table.requirementMethodEnumId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get orderNumberPrefix => $composableBuilder(
+      column: $table.orderNumberPrefix,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultLocaleString => $composableBuilder(
+      column: $table.defaultLocaleString,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultCurrencyUomId => $composableBuilder(
+      column: $table.defaultCurrencyUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultTimeZoneString => $composableBuilder(
+      column: $table.defaultTimeZoneString,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultSalesChannelEnumId =>
+      $composableBuilder(
+          column: $table.defaultSalesChannelEnumId,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get allowPassword => $composableBuilder(
+      column: $table.allowPassword,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultPassword => $composableBuilder(
+      column: $table.defaultPassword,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get explodeOrderItems => $composableBuilder(
+      column: $table.explodeOrderItems,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get checkGcBalance => $composableBuilder(
+      column: $table.checkGcBalance,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get retryFailedAuths => $composableBuilder(
+      column: $table.retryFailedAuths,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get headerApprovedStatus => $composableBuilder(
+      column: $table.headerApprovedStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get itemApprovedStatus => $composableBuilder(
+      column: $table.itemApprovedStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get digitalItemApprovedStatus =>
+      $composableBuilder(
+          column: $table.digitalItemApprovedStatus,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get headerDeclinedStatus => $composableBuilder(
+      column: $table.headerDeclinedStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get itemDeclinedStatus => $composableBuilder(
+      column: $table.itemDeclinedStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get headerCancelStatus => $composableBuilder(
+      column: $table.headerCancelStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get itemCancelStatus => $composableBuilder(
+      column: $table.itemCancelStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get authDeclinedMessage => $composableBuilder(
+      column: $table.authDeclinedMessage,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get authFraudMessage => $composableBuilder(
+      column: $table.authFraudMessage,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get authErrorMessage => $composableBuilder(
+      column: $table.authErrorMessage,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get visualThemeId => $composableBuilder(
+      column: $table.visualThemeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get storeCreditAccountEnumId => $composableBuilder(
+      column: $table.storeCreditAccountEnumId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get usePrimaryEmailUsername => $composableBuilder(
+      column: $table.usePrimaryEmailUsername,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get requireCustomerRole => $composableBuilder(
+      column: $table.requireCustomerRole,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoInvoiceDigitalItems => $composableBuilder(
+      column: $table.autoInvoiceDigitalItems,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get reqShipAddrForDigItems => $composableBuilder(
+      column: $table.reqShipAddrForDigItems,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get showCheckoutGiftOptions => $composableBuilder(
+      column: $table.showCheckoutGiftOptions,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get selectPaymentTypePerItem => $composableBuilder(
+      column: $table.selectPaymentTypePerItem,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get showPricesWithVatTax => $composableBuilder(
+      column: $table.showPricesWithVatTax,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get showTaxIsExempt => $composableBuilder(
+      column: $table.showTaxIsExempt,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get vatTaxAuthGeoId => $composableBuilder(
+      column: $table.vatTaxAuthGeoId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get vatTaxAuthPartyId => $composableBuilder(
+      column: $table.vatTaxAuthPartyId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get enableAutoSuggestionList => $composableBuilder(
+      column: $table.enableAutoSuggestionList,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get enableDigProdUpload => $composableBuilder(
+      column: $table.enableDigProdUpload,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get prodSearchExcludeVariants =>
+      $composableBuilder(
+          column: $table.prodSearchExcludeVariants,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get digProdUploadCategoryId => $composableBuilder(
+      column: $table.digProdUploadCategoryId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoOrderCcTryExp => $composableBuilder(
+      column: $table.autoOrderCcTryExp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoOrderCcTryOtherCards => $composableBuilder(
+      column: $table.autoOrderCcTryOtherCards,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoOrderCcTryLaterNsf => $composableBuilder(
+      column: $table.autoOrderCcTryLaterNsf,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get autoOrderCcTryLaterMax => $composableBuilder(
+      column: $table.autoOrderCcTryLaterMax,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get storeCreditValidDays => $composableBuilder(
+      column: $table.storeCreditValidDays,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoApproveInvoice => $composableBuilder(
+      column: $table.autoApproveInvoice,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoApproveOrder => $composableBuilder(
+      column: $table.autoApproveOrder,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get shipIfCaptureFails => $composableBuilder(
+      column: $table.shipIfCaptureFails,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get setOwnerUponIssuance => $composableBuilder(
+      column: $table.setOwnerUponIssuance,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get reqReturnInventoryReceive =>
+      $composableBuilder(
+          column: $table.reqReturnInventoryReceive,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get addToCartRemoveIncompat => $composableBuilder(
+      column: $table.addToCartRemoveIncompat,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get addToCartReplaceUpsell => $composableBuilder(
+      column: $table.addToCartReplaceUpsell,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get splitPayPrefPerShpGrp => $composableBuilder(
+      column: $table.splitPayPrefPerShpGrp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get managedByLot => $composableBuilder(
+      column: $table.managedByLot,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get showOutOfStockProducts => $composableBuilder(
+      column: $table.showOutOfStockProducts,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get orderDecimalQuantity => $composableBuilder(
+      column: $table.orderDecimalQuantity,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get allowComment => $composableBuilder(
+      column: $table.allowComment,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get allocateInventory => $composableBuilder(
+      column: $table.allocateInventory,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get jointers => $composableBuilder(
+      column: $table.jointers, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get multiJointers => $composableBuilder(
+      column: $table.multiJointers,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get telephone => $composableBuilder(
+      column: $table.telephone,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get email => $composableBuilder(
+      column: $table.email, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get placeId => $composableBuilder(
+      column: $table.placeId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStorePromoAppl => $composableBuilder(
+      column: $table.productStorePromoAppl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreEmailSetting => $composableBuilder(
+      column: $table.productStoreEmailSetting,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreFacility => $composableBuilder(
+      column: $table.productStoreFacility,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStorePaymentSetting =>
+      $composableBuilder(
+          column: $table.productStorePaymentSetting,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreKeywordOvrd => $composableBuilder(
+      column: $table.productStoreKeywordOvrd,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreSurveyAppl => $composableBuilder(
+      column: $table.productStoreSurveyAppl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreCatalog => $composableBuilder(
+      column: $table.productStoreCatalog,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreBunch => $composableBuilder(
+      column: $table.productStoreBunch,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreRole => $composableBuilder(
+      column: $table.productStoreRole,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ProductStoreAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ProductStore> {
+  $ProductStoreAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get productStoreId => $composableBuilder(
+      column: $table.productStoreId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get primaryStoreGroupId => $composableBuilder(
+      column: $table.primaryStoreGroupId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get storeName =>
+      $composableBuilder(column: $table.storeName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get companyName => $composableBuilder(
+      column: $table.companyName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get subtitle =>
+      $composableBuilder(column: $table.subtitle, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get payToPartyId => $composableBuilder(
+      column: $table.payToPartyId, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get daysToCancelNonPay => $composableBuilder(
+      column: $table.daysToCancelNonPay, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get manualAuthIsCapture => $composableBuilder(
+      column: $table.manualAuthIsCapture, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get prorateShipping => $composableBuilder(
+      column: $table.prorateShipping, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get prorateTaxes => $composableBuilder(
+      column: $table.prorateTaxes, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get viewCartOnAdd => $composableBuilder(
+      column: $table.viewCartOnAdd, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoSaveCart => $composableBuilder(
+      column: $table.autoSaveCart, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoApproveReviews => $composableBuilder(
+      column: $table.autoApproveReviews, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get isDemoStore => $composableBuilder(
+      column: $table.isDemoStore, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get isImmediatelyFulfilled => $composableBuilder(
+      column: $table.isImmediatelyFulfilled, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get inventoryFacilityId => $composableBuilder(
+      column: $table.inventoryFacilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get oneInventoryFacility => $composableBuilder(
+      column: $table.oneInventoryFacility, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get checkInventory => $composableBuilder(
+      column: $table.checkInventory, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get reserveInventory => $composableBuilder(
+      column: $table.reserveInventory, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get reserveOrderEnumId => $composableBuilder(
+      column: $table.reserveOrderEnumId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get requireInventory => $composableBuilder(
+      column: $table.requireInventory, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get balanceResOnOrderCreation =>
+      $composableBuilder(
+          column: $table.balanceResOnOrderCreation,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get requirementMethodEnumId => $composableBuilder(
+      column: $table.requirementMethodEnumId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get orderNumberPrefix => $composableBuilder(
+      column: $table.orderNumberPrefix, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultLocaleString => $composableBuilder(
+      column: $table.defaultLocaleString, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultCurrencyUomId => $composableBuilder(
+      column: $table.defaultCurrencyUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultTimeZoneString => $composableBuilder(
+      column: $table.defaultTimeZoneString, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultSalesChannelEnumId =>
+      $composableBuilder(
+          column: $table.defaultSalesChannelEnumId,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get allowPassword => $composableBuilder(
+      column: $table.allowPassword, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultPassword => $composableBuilder(
+      column: $table.defaultPassword, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get explodeOrderItems => $composableBuilder(
+      column: $table.explodeOrderItems, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get checkGcBalance => $composableBuilder(
+      column: $table.checkGcBalance, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get retryFailedAuths => $composableBuilder(
+      column: $table.retryFailedAuths, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get headerApprovedStatus => $composableBuilder(
+      column: $table.headerApprovedStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get itemApprovedStatus => $composableBuilder(
+      column: $table.itemApprovedStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get digitalItemApprovedStatus =>
+      $composableBuilder(
+          column: $table.digitalItemApprovedStatus,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get headerDeclinedStatus => $composableBuilder(
+      column: $table.headerDeclinedStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get itemDeclinedStatus => $composableBuilder(
+      column: $table.itemDeclinedStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get headerCancelStatus => $composableBuilder(
+      column: $table.headerCancelStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get itemCancelStatus => $composableBuilder(
+      column: $table.itemCancelStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get authDeclinedMessage => $composableBuilder(
+      column: $table.authDeclinedMessage, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get authFraudMessage => $composableBuilder(
+      column: $table.authFraudMessage, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get authErrorMessage => $composableBuilder(
+      column: $table.authErrorMessage, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get visualThemeId => $composableBuilder(
+      column: $table.visualThemeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get storeCreditAccountEnumId => $composableBuilder(
+      column: $table.storeCreditAccountEnumId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get usePrimaryEmailUsername => $composableBuilder(
+      column: $table.usePrimaryEmailUsername, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get requireCustomerRole => $composableBuilder(
+      column: $table.requireCustomerRole, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoInvoiceDigitalItems => $composableBuilder(
+      column: $table.autoInvoiceDigitalItems, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get reqShipAddrForDigItems => $composableBuilder(
+      column: $table.reqShipAddrForDigItems, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get showCheckoutGiftOptions => $composableBuilder(
+      column: $table.showCheckoutGiftOptions, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get selectPaymentTypePerItem => $composableBuilder(
+      column: $table.selectPaymentTypePerItem, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get showPricesWithVatTax => $composableBuilder(
+      column: $table.showPricesWithVatTax, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get showTaxIsExempt => $composableBuilder(
+      column: $table.showTaxIsExempt, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get vatTaxAuthGeoId => $composableBuilder(
+      column: $table.vatTaxAuthGeoId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get vatTaxAuthPartyId => $composableBuilder(
+      column: $table.vatTaxAuthPartyId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get enableAutoSuggestionList => $composableBuilder(
+      column: $table.enableAutoSuggestionList, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get enableDigProdUpload => $composableBuilder(
+      column: $table.enableDigProdUpload, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get prodSearchExcludeVariants =>
+      $composableBuilder(
+          column: $table.prodSearchExcludeVariants,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get digProdUploadCategoryId => $composableBuilder(
+      column: $table.digProdUploadCategoryId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoOrderCcTryExp => $composableBuilder(
+      column: $table.autoOrderCcTryExp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoOrderCcTryOtherCards => $composableBuilder(
+      column: $table.autoOrderCcTryOtherCards, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoOrderCcTryLaterNsf => $composableBuilder(
+      column: $table.autoOrderCcTryLaterNsf, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get autoOrderCcTryLaterMax => $composableBuilder(
+      column: $table.autoOrderCcTryLaterMax, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get storeCreditValidDays => $composableBuilder(
+      column: $table.storeCreditValidDays, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoApproveInvoice => $composableBuilder(
+      column: $table.autoApproveInvoice, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoApproveOrder => $composableBuilder(
+      column: $table.autoApproveOrder, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get shipIfCaptureFails => $composableBuilder(
+      column: $table.shipIfCaptureFails, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get setOwnerUponIssuance => $composableBuilder(
+      column: $table.setOwnerUponIssuance, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get reqReturnInventoryReceive =>
+      $composableBuilder(
+          column: $table.reqReturnInventoryReceive,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get addToCartRemoveIncompat => $composableBuilder(
+      column: $table.addToCartRemoveIncompat, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get addToCartReplaceUpsell => $composableBuilder(
+      column: $table.addToCartReplaceUpsell, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get splitPayPrefPerShpGrp => $composableBuilder(
+      column: $table.splitPayPrefPerShpGrp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get managedByLot => $composableBuilder(
+      column: $table.managedByLot, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get showOutOfStockProducts => $composableBuilder(
+      column: $table.showOutOfStockProducts, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get orderDecimalQuantity => $composableBuilder(
+      column: $table.orderDecimalQuantity, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get allowComment => $composableBuilder(
+      column: $table.allowComment, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get allocateInventory => $composableBuilder(
+      column: $table.allocateInventory, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
+      get jointers => $composableBuilder(
+          column: $table.jointers, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get multiJointers => $composableBuilder(
+          column: $table.multiJointers, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get telephone =>
+      $composableBuilder(column: $table.telephone, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get email =>
+      $composableBuilder(column: $table.email, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get placeId =>
+      $composableBuilder(column: $table.placeId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStorePromoAppl>?, String>
+      get productStorePromoAppl => $composableBuilder(
+          column: $table.productStorePromoAppl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreEmailSetting>?,
+          String>
+      get productStoreEmailSetting => $composableBuilder(
+          column: $table.productStoreEmailSetting, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreFacility>?, String>
+      get productStoreFacility => $composableBuilder(
+          column: $table.productStoreFacility, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStorePaymentSetting>?,
+          String>
+      get productStorePaymentSetting => $composableBuilder(
+          column: $table.productStorePaymentSetting,
+          builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreKeywordOvrd>?, String>
+      get productStoreKeywordOvrd => $composableBuilder(
+          column: $table.productStoreKeywordOvrd, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreSurveyAppl>?, String>
+      get productStoreSurveyAppl => $composableBuilder(
+          column: $table.productStoreSurveyAppl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreCatalog>?, String>
+      get productStoreCatalog => $composableBuilder(
+          column: $table.productStoreCatalog, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreBunch>?, String>
+      get productStoreBunch => $composableBuilder(
+          column: $table.productStoreBunch, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.ProductStoreRole>?, String>
+      get productStoreRole => $composableBuilder(
+          column: $table.productStoreRole, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ProductStoreTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.ProductStore,
+    i1.ProductStoreData,
+    i1.$ProductStoreFilterComposer,
+    i1.$ProductStoreOrderingComposer,
+    i1.$ProductStoreAnnotationComposer,
+    $ProductStoreCreateCompanionBuilder,
+    $ProductStoreUpdateCompanionBuilder,
+    (
+      i1.ProductStoreData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.ProductStore,
+          i1.ProductStoreData>
+    ),
+    i1.ProductStoreData,
+    i0.PrefetchHooks Function()> {
+  $ProductStoreTableManager(i0.GeneratedDatabase db, i1.ProductStore table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ProductStoreFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ProductStoreOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ProductStoreAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> productStoreId = const i0.Value.absent(),
+            i0.Value<String?> primaryStoreGroupId = const i0.Value.absent(),
+            i0.Value<String?> storeName = const i0.Value.absent(),
+            i0.Value<String?> companyName = const i0.Value.absent(),
+            i0.Value<String?> title = const i0.Value.absent(),
+            i0.Value<String?> subtitle = const i0.Value.absent(),
+            i0.Value<String?> payToPartyId = const i0.Value.absent(),
+            i0.Value<int?> daysToCancelNonPay = const i0.Value.absent(),
+            i0.Value<String?> manualAuthIsCapture = const i0.Value.absent(),
+            i0.Value<String?> prorateShipping = const i0.Value.absent(),
+            i0.Value<String?> prorateTaxes = const i0.Value.absent(),
+            i0.Value<String?> viewCartOnAdd = const i0.Value.absent(),
+            i0.Value<String?> autoSaveCart = const i0.Value.absent(),
+            i0.Value<String?> autoApproveReviews = const i0.Value.absent(),
+            i0.Value<String?> isDemoStore = const i0.Value.absent(),
+            i0.Value<String?> isImmediatelyFulfilled = const i0.Value.absent(),
+            i0.Value<String?> inventoryFacilityId = const i0.Value.absent(),
+            i0.Value<String?> oneInventoryFacility = const i0.Value.absent(),
+            i0.Value<String?> checkInventory = const i0.Value.absent(),
+            i0.Value<String?> reserveInventory = const i0.Value.absent(),
+            i0.Value<String?> reserveOrderEnumId = const i0.Value.absent(),
+            i0.Value<String?> requireInventory = const i0.Value.absent(),
+            i0.Value<String?> balanceResOnOrderCreation =
+                const i0.Value.absent(),
+            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
+            i0.Value<String?> orderNumberPrefix = const i0.Value.absent(),
+            i0.Value<String?> defaultLocaleString = const i0.Value.absent(),
+            i0.Value<String?> defaultCurrencyUomId = const i0.Value.absent(),
+            i0.Value<String?> defaultTimeZoneString = const i0.Value.absent(),
+            i0.Value<String?> defaultSalesChannelEnumId =
+                const i0.Value.absent(),
+            i0.Value<String?> allowPassword = const i0.Value.absent(),
+            i0.Value<String?> defaultPassword = const i0.Value.absent(),
+            i0.Value<String?> explodeOrderItems = const i0.Value.absent(),
+            i0.Value<String?> checkGcBalance = const i0.Value.absent(),
+            i0.Value<String?> retryFailedAuths = const i0.Value.absent(),
+            i0.Value<String?> headerApprovedStatus = const i0.Value.absent(),
+            i0.Value<String?> itemApprovedStatus = const i0.Value.absent(),
+            i0.Value<String?> digitalItemApprovedStatus =
+                const i0.Value.absent(),
+            i0.Value<String?> headerDeclinedStatus = const i0.Value.absent(),
+            i0.Value<String?> itemDeclinedStatus = const i0.Value.absent(),
+            i0.Value<String?> headerCancelStatus = const i0.Value.absent(),
+            i0.Value<String?> itemCancelStatus = const i0.Value.absent(),
+            i0.Value<String?> authDeclinedMessage = const i0.Value.absent(),
+            i0.Value<String?> authFraudMessage = const i0.Value.absent(),
+            i0.Value<String?> authErrorMessage = const i0.Value.absent(),
+            i0.Value<String?> visualThemeId = const i0.Value.absent(),
+            i0.Value<String?> storeCreditAccountEnumId =
+                const i0.Value.absent(),
+            i0.Value<String?> usePrimaryEmailUsername = const i0.Value.absent(),
+            i0.Value<String?> requireCustomerRole = const i0.Value.absent(),
+            i0.Value<String?> autoInvoiceDigitalItems = const i0.Value.absent(),
+            i0.Value<String?> reqShipAddrForDigItems = const i0.Value.absent(),
+            i0.Value<String?> showCheckoutGiftOptions = const i0.Value.absent(),
+            i0.Value<String?> selectPaymentTypePerItem =
+                const i0.Value.absent(),
+            i0.Value<String?> showPricesWithVatTax = const i0.Value.absent(),
+            i0.Value<String?> showTaxIsExempt = const i0.Value.absent(),
+            i0.Value<String?> vatTaxAuthGeoId = const i0.Value.absent(),
+            i0.Value<String?> vatTaxAuthPartyId = const i0.Value.absent(),
+            i0.Value<String?> enableAutoSuggestionList =
+                const i0.Value.absent(),
+            i0.Value<String?> enableDigProdUpload = const i0.Value.absent(),
+            i0.Value<String?> prodSearchExcludeVariants =
+                const i0.Value.absent(),
+            i0.Value<String?> digProdUploadCategoryId = const i0.Value.absent(),
+            i0.Value<String?> autoOrderCcTryExp = const i0.Value.absent(),
+            i0.Value<String?> autoOrderCcTryOtherCards =
+                const i0.Value.absent(),
+            i0.Value<String?> autoOrderCcTryLaterNsf = const i0.Value.absent(),
+            i0.Value<int?> autoOrderCcTryLaterMax = const i0.Value.absent(),
+            i0.Value<int?> storeCreditValidDays = const i0.Value.absent(),
+            i0.Value<String?> autoApproveInvoice = const i0.Value.absent(),
+            i0.Value<String?> autoApproveOrder = const i0.Value.absent(),
+            i0.Value<String?> shipIfCaptureFails = const i0.Value.absent(),
+            i0.Value<String?> setOwnerUponIssuance = const i0.Value.absent(),
+            i0.Value<String?> reqReturnInventoryReceive =
+                const i0.Value.absent(),
+            i0.Value<String?> addToCartRemoveIncompat = const i0.Value.absent(),
+            i0.Value<String?> addToCartReplaceUpsell = const i0.Value.absent(),
+            i0.Value<String?> splitPayPrefPerShpGrp = const i0.Value.absent(),
+            i0.Value<String?> managedByLot = const i0.Value.absent(),
+            i0.Value<String?> showOutOfStockProducts = const i0.Value.absent(),
+            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
+            i0.Value<String?> allowComment = const i0.Value.absent(),
+            i0.Value<String?> allocateInventory = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> multiJointers =
+                const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<String?> telephone = const i0.Value.absent(),
+            i0.Value<String?> email = const i0.Value.absent(),
+            i0.Value<String?> placeId = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreEmailSetting>?>
+                productStoreEmailSetting = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStorePaymentSetting>?>
+                productStorePaymentSetting = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreKeywordOvrd>?>
+                productStoreKeywordOvrd = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreRole>?> productStoreRole =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ProductStoreCompanion(
+            productStoreId: productStoreId,
+            primaryStoreGroupId: primaryStoreGroupId,
+            storeName: storeName,
+            companyName: companyName,
+            title: title,
+            subtitle: subtitle,
+            payToPartyId: payToPartyId,
+            daysToCancelNonPay: daysToCancelNonPay,
+            manualAuthIsCapture: manualAuthIsCapture,
+            prorateShipping: prorateShipping,
+            prorateTaxes: prorateTaxes,
+            viewCartOnAdd: viewCartOnAdd,
+            autoSaveCart: autoSaveCart,
+            autoApproveReviews: autoApproveReviews,
+            isDemoStore: isDemoStore,
+            isImmediatelyFulfilled: isImmediatelyFulfilled,
+            inventoryFacilityId: inventoryFacilityId,
+            oneInventoryFacility: oneInventoryFacility,
+            checkInventory: checkInventory,
+            reserveInventory: reserveInventory,
+            reserveOrderEnumId: reserveOrderEnumId,
+            requireInventory: requireInventory,
+            balanceResOnOrderCreation: balanceResOnOrderCreation,
+            requirementMethodEnumId: requirementMethodEnumId,
+            orderNumberPrefix: orderNumberPrefix,
+            defaultLocaleString: defaultLocaleString,
+            defaultCurrencyUomId: defaultCurrencyUomId,
+            defaultTimeZoneString: defaultTimeZoneString,
+            defaultSalesChannelEnumId: defaultSalesChannelEnumId,
+            allowPassword: allowPassword,
+            defaultPassword: defaultPassword,
+            explodeOrderItems: explodeOrderItems,
+            checkGcBalance: checkGcBalance,
+            retryFailedAuths: retryFailedAuths,
+            headerApprovedStatus: headerApprovedStatus,
+            itemApprovedStatus: itemApprovedStatus,
+            digitalItemApprovedStatus: digitalItemApprovedStatus,
+            headerDeclinedStatus: headerDeclinedStatus,
+            itemDeclinedStatus: itemDeclinedStatus,
+            headerCancelStatus: headerCancelStatus,
+            itemCancelStatus: itemCancelStatus,
+            authDeclinedMessage: authDeclinedMessage,
+            authFraudMessage: authFraudMessage,
+            authErrorMessage: authErrorMessage,
+            visualThemeId: visualThemeId,
+            storeCreditAccountEnumId: storeCreditAccountEnumId,
+            usePrimaryEmailUsername: usePrimaryEmailUsername,
+            requireCustomerRole: requireCustomerRole,
+            autoInvoiceDigitalItems: autoInvoiceDigitalItems,
+            reqShipAddrForDigItems: reqShipAddrForDigItems,
+            showCheckoutGiftOptions: showCheckoutGiftOptions,
+            selectPaymentTypePerItem: selectPaymentTypePerItem,
+            showPricesWithVatTax: showPricesWithVatTax,
+            showTaxIsExempt: showTaxIsExempt,
+            vatTaxAuthGeoId: vatTaxAuthGeoId,
+            vatTaxAuthPartyId: vatTaxAuthPartyId,
+            enableAutoSuggestionList: enableAutoSuggestionList,
+            enableDigProdUpload: enableDigProdUpload,
+            prodSearchExcludeVariants: prodSearchExcludeVariants,
+            digProdUploadCategoryId: digProdUploadCategoryId,
+            autoOrderCcTryExp: autoOrderCcTryExp,
+            autoOrderCcTryOtherCards: autoOrderCcTryOtherCards,
+            autoOrderCcTryLaterNsf: autoOrderCcTryLaterNsf,
+            autoOrderCcTryLaterMax: autoOrderCcTryLaterMax,
+            storeCreditValidDays: storeCreditValidDays,
+            autoApproveInvoice: autoApproveInvoice,
+            autoApproveOrder: autoApproveOrder,
+            shipIfCaptureFails: shipIfCaptureFails,
+            setOwnerUponIssuance: setOwnerUponIssuance,
+            reqReturnInventoryReceive: reqReturnInventoryReceive,
+            addToCartRemoveIncompat: addToCartRemoveIncompat,
+            addToCartReplaceUpsell: addToCartReplaceUpsell,
+            splitPayPrefPerShpGrp: splitPayPrefPerShpGrp,
+            managedByLot: managedByLot,
+            showOutOfStockProducts: showOutOfStockProducts,
+            orderDecimalQuantity: orderDecimalQuantity,
+            allowComment: allowComment,
+            allocateInventory: allocateInventory,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            jointers: jointers,
+            multiJointers: multiJointers,
+            acl: acl,
+            telephone: telephone,
+            email: email,
+            placeId: placeId,
+            productStorePromoAppl: productStorePromoAppl,
+            productStoreEmailSetting: productStoreEmailSetting,
+            productStoreFacility: productStoreFacility,
+            productStorePaymentSetting: productStorePaymentSetting,
+            productStoreKeywordOvrd: productStoreKeywordOvrd,
+            productStoreSurveyAppl: productStoreSurveyAppl,
+            productStoreCatalog: productStoreCatalog,
+            productStoreBunch: productStoreBunch,
+            productStoreRole: productStoreRole,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String productStoreId,
+            i0.Value<String?> primaryStoreGroupId = const i0.Value.absent(),
+            i0.Value<String?> storeName = const i0.Value.absent(),
+            i0.Value<String?> companyName = const i0.Value.absent(),
+            i0.Value<String?> title = const i0.Value.absent(),
+            i0.Value<String?> subtitle = const i0.Value.absent(),
+            i0.Value<String?> payToPartyId = const i0.Value.absent(),
+            i0.Value<int?> daysToCancelNonPay = const i0.Value.absent(),
+            i0.Value<String?> manualAuthIsCapture = const i0.Value.absent(),
+            i0.Value<String?> prorateShipping = const i0.Value.absent(),
+            i0.Value<String?> prorateTaxes = const i0.Value.absent(),
+            i0.Value<String?> viewCartOnAdd = const i0.Value.absent(),
+            i0.Value<String?> autoSaveCart = const i0.Value.absent(),
+            i0.Value<String?> autoApproveReviews = const i0.Value.absent(),
+            i0.Value<String?> isDemoStore = const i0.Value.absent(),
+            i0.Value<String?> isImmediatelyFulfilled = const i0.Value.absent(),
+            i0.Value<String?> inventoryFacilityId = const i0.Value.absent(),
+            i0.Value<String?> oneInventoryFacility = const i0.Value.absent(),
+            i0.Value<String?> checkInventory = const i0.Value.absent(),
+            i0.Value<String?> reserveInventory = const i0.Value.absent(),
+            i0.Value<String?> reserveOrderEnumId = const i0.Value.absent(),
+            i0.Value<String?> requireInventory = const i0.Value.absent(),
+            i0.Value<String?> balanceResOnOrderCreation =
+                const i0.Value.absent(),
+            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
+            i0.Value<String?> orderNumberPrefix = const i0.Value.absent(),
+            i0.Value<String?> defaultLocaleString = const i0.Value.absent(),
+            i0.Value<String?> defaultCurrencyUomId = const i0.Value.absent(),
+            i0.Value<String?> defaultTimeZoneString = const i0.Value.absent(),
+            i0.Value<String?> defaultSalesChannelEnumId =
+                const i0.Value.absent(),
+            i0.Value<String?> allowPassword = const i0.Value.absent(),
+            i0.Value<String?> defaultPassword = const i0.Value.absent(),
+            i0.Value<String?> explodeOrderItems = const i0.Value.absent(),
+            i0.Value<String?> checkGcBalance = const i0.Value.absent(),
+            i0.Value<String?> retryFailedAuths = const i0.Value.absent(),
+            i0.Value<String?> headerApprovedStatus = const i0.Value.absent(),
+            i0.Value<String?> itemApprovedStatus = const i0.Value.absent(),
+            i0.Value<String?> digitalItemApprovedStatus =
+                const i0.Value.absent(),
+            i0.Value<String?> headerDeclinedStatus = const i0.Value.absent(),
+            i0.Value<String?> itemDeclinedStatus = const i0.Value.absent(),
+            i0.Value<String?> headerCancelStatus = const i0.Value.absent(),
+            i0.Value<String?> itemCancelStatus = const i0.Value.absent(),
+            i0.Value<String?> authDeclinedMessage = const i0.Value.absent(),
+            i0.Value<String?> authFraudMessage = const i0.Value.absent(),
+            i0.Value<String?> authErrorMessage = const i0.Value.absent(),
+            i0.Value<String?> visualThemeId = const i0.Value.absent(),
+            i0.Value<String?> storeCreditAccountEnumId =
+                const i0.Value.absent(),
+            i0.Value<String?> usePrimaryEmailUsername = const i0.Value.absent(),
+            i0.Value<String?> requireCustomerRole = const i0.Value.absent(),
+            i0.Value<String?> autoInvoiceDigitalItems = const i0.Value.absent(),
+            i0.Value<String?> reqShipAddrForDigItems = const i0.Value.absent(),
+            i0.Value<String?> showCheckoutGiftOptions = const i0.Value.absent(),
+            i0.Value<String?> selectPaymentTypePerItem =
+                const i0.Value.absent(),
+            i0.Value<String?> showPricesWithVatTax = const i0.Value.absent(),
+            i0.Value<String?> showTaxIsExempt = const i0.Value.absent(),
+            i0.Value<String?> vatTaxAuthGeoId = const i0.Value.absent(),
+            i0.Value<String?> vatTaxAuthPartyId = const i0.Value.absent(),
+            i0.Value<String?> enableAutoSuggestionList =
+                const i0.Value.absent(),
+            i0.Value<String?> enableDigProdUpload = const i0.Value.absent(),
+            i0.Value<String?> prodSearchExcludeVariants =
+                const i0.Value.absent(),
+            i0.Value<String?> digProdUploadCategoryId = const i0.Value.absent(),
+            i0.Value<String?> autoOrderCcTryExp = const i0.Value.absent(),
+            i0.Value<String?> autoOrderCcTryOtherCards =
+                const i0.Value.absent(),
+            i0.Value<String?> autoOrderCcTryLaterNsf = const i0.Value.absent(),
+            i0.Value<int?> autoOrderCcTryLaterMax = const i0.Value.absent(),
+            i0.Value<int?> storeCreditValidDays = const i0.Value.absent(),
+            i0.Value<String?> autoApproveInvoice = const i0.Value.absent(),
+            i0.Value<String?> autoApproveOrder = const i0.Value.absent(),
+            i0.Value<String?> shipIfCaptureFails = const i0.Value.absent(),
+            i0.Value<String?> setOwnerUponIssuance = const i0.Value.absent(),
+            i0.Value<String?> reqReturnInventoryReceive =
+                const i0.Value.absent(),
+            i0.Value<String?> addToCartRemoveIncompat = const i0.Value.absent(),
+            i0.Value<String?> addToCartReplaceUpsell = const i0.Value.absent(),
+            i0.Value<String?> splitPayPrefPerShpGrp = const i0.Value.absent(),
+            i0.Value<String?> managedByLot = const i0.Value.absent(),
+            i0.Value<String?> showOutOfStockProducts = const i0.Value.absent(),
+            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
+            i0.Value<String?> allowComment = const i0.Value.absent(),
+            i0.Value<String?> allocateInventory = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> multiJointers =
+                const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<String?> telephone = const i0.Value.absent(),
+            i0.Value<String?> email = const i0.Value.absent(),
+            i0.Value<String?> placeId = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreEmailSetting>?>
+                productStoreEmailSetting = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStorePaymentSetting>?>
+                productStorePaymentSetting = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreKeywordOvrd>?>
+                productStoreKeywordOvrd = const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch =
+                const i0.Value.absent(),
+            i0.Value<List<i3.ProductStoreRole>?> productStoreRole =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ProductStoreCompanion.insert(
+            productStoreId: productStoreId,
+            primaryStoreGroupId: primaryStoreGroupId,
+            storeName: storeName,
+            companyName: companyName,
+            title: title,
+            subtitle: subtitle,
+            payToPartyId: payToPartyId,
+            daysToCancelNonPay: daysToCancelNonPay,
+            manualAuthIsCapture: manualAuthIsCapture,
+            prorateShipping: prorateShipping,
+            prorateTaxes: prorateTaxes,
+            viewCartOnAdd: viewCartOnAdd,
+            autoSaveCart: autoSaveCart,
+            autoApproveReviews: autoApproveReviews,
+            isDemoStore: isDemoStore,
+            isImmediatelyFulfilled: isImmediatelyFulfilled,
+            inventoryFacilityId: inventoryFacilityId,
+            oneInventoryFacility: oneInventoryFacility,
+            checkInventory: checkInventory,
+            reserveInventory: reserveInventory,
+            reserveOrderEnumId: reserveOrderEnumId,
+            requireInventory: requireInventory,
+            balanceResOnOrderCreation: balanceResOnOrderCreation,
+            requirementMethodEnumId: requirementMethodEnumId,
+            orderNumberPrefix: orderNumberPrefix,
+            defaultLocaleString: defaultLocaleString,
+            defaultCurrencyUomId: defaultCurrencyUomId,
+            defaultTimeZoneString: defaultTimeZoneString,
+            defaultSalesChannelEnumId: defaultSalesChannelEnumId,
+            allowPassword: allowPassword,
+            defaultPassword: defaultPassword,
+            explodeOrderItems: explodeOrderItems,
+            checkGcBalance: checkGcBalance,
+            retryFailedAuths: retryFailedAuths,
+            headerApprovedStatus: headerApprovedStatus,
+            itemApprovedStatus: itemApprovedStatus,
+            digitalItemApprovedStatus: digitalItemApprovedStatus,
+            headerDeclinedStatus: headerDeclinedStatus,
+            itemDeclinedStatus: itemDeclinedStatus,
+            headerCancelStatus: headerCancelStatus,
+            itemCancelStatus: itemCancelStatus,
+            authDeclinedMessage: authDeclinedMessage,
+            authFraudMessage: authFraudMessage,
+            authErrorMessage: authErrorMessage,
+            visualThemeId: visualThemeId,
+            storeCreditAccountEnumId: storeCreditAccountEnumId,
+            usePrimaryEmailUsername: usePrimaryEmailUsername,
+            requireCustomerRole: requireCustomerRole,
+            autoInvoiceDigitalItems: autoInvoiceDigitalItems,
+            reqShipAddrForDigItems: reqShipAddrForDigItems,
+            showCheckoutGiftOptions: showCheckoutGiftOptions,
+            selectPaymentTypePerItem: selectPaymentTypePerItem,
+            showPricesWithVatTax: showPricesWithVatTax,
+            showTaxIsExempt: showTaxIsExempt,
+            vatTaxAuthGeoId: vatTaxAuthGeoId,
+            vatTaxAuthPartyId: vatTaxAuthPartyId,
+            enableAutoSuggestionList: enableAutoSuggestionList,
+            enableDigProdUpload: enableDigProdUpload,
+            prodSearchExcludeVariants: prodSearchExcludeVariants,
+            digProdUploadCategoryId: digProdUploadCategoryId,
+            autoOrderCcTryExp: autoOrderCcTryExp,
+            autoOrderCcTryOtherCards: autoOrderCcTryOtherCards,
+            autoOrderCcTryLaterNsf: autoOrderCcTryLaterNsf,
+            autoOrderCcTryLaterMax: autoOrderCcTryLaterMax,
+            storeCreditValidDays: storeCreditValidDays,
+            autoApproveInvoice: autoApproveInvoice,
+            autoApproveOrder: autoApproveOrder,
+            shipIfCaptureFails: shipIfCaptureFails,
+            setOwnerUponIssuance: setOwnerUponIssuance,
+            reqReturnInventoryReceive: reqReturnInventoryReceive,
+            addToCartRemoveIncompat: addToCartRemoveIncompat,
+            addToCartReplaceUpsell: addToCartReplaceUpsell,
+            splitPayPrefPerShpGrp: splitPayPrefPerShpGrp,
+            managedByLot: managedByLot,
+            showOutOfStockProducts: showOutOfStockProducts,
+            orderDecimalQuantity: orderDecimalQuantity,
+            allowComment: allowComment,
+            allocateInventory: allocateInventory,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            jointers: jointers,
+            multiJointers: multiJointers,
+            acl: acl,
+            telephone: telephone,
+            email: email,
+            placeId: placeId,
+            productStorePromoAppl: productStorePromoAppl,
+            productStoreEmailSetting: productStoreEmailSetting,
+            productStoreFacility: productStoreFacility,
+            productStorePaymentSetting: productStorePaymentSetting,
+            productStoreKeywordOvrd: productStoreKeywordOvrd,
+            productStoreSurveyAppl: productStoreSurveyAppl,
+            productStoreCatalog: productStoreCatalog,
+            productStoreBunch: productStoreBunch,
+            productStoreRole: productStoreRole,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ProductStoreProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.ProductStore,
+    i1.ProductStoreData,
+    i1.$ProductStoreFilterComposer,
+    i1.$ProductStoreOrderingComposer,
+    i1.$ProductStoreAnnotationComposer,
+    $ProductStoreCreateCompanionBuilder,
+    $ProductStoreUpdateCompanionBuilder,
+    (
+      i1.ProductStoreData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.ProductStore,
+          i1.ProductStoreData>
+    ),
+    i1.ProductStoreData,
+    i0.PrefetchHooks Function()>;
+
 class ProductStore extends i0.Table
     with i0.TableInfo<ProductStore, i1.ProductStoreData> {
   @override
@@ -5361,1858 +7269,6 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
         .toString();
   }
 }
-
-typedef $ProductStoreCreateCompanionBuilder = i1.ProductStoreCompanion
-    Function({
-  required String productStoreId,
-  i0.Value<String?> primaryStoreGroupId,
-  i0.Value<String?> storeName,
-  i0.Value<String?> companyName,
-  i0.Value<String?> title,
-  i0.Value<String?> subtitle,
-  i0.Value<String?> payToPartyId,
-  i0.Value<int?> daysToCancelNonPay,
-  i0.Value<String?> manualAuthIsCapture,
-  i0.Value<String?> prorateShipping,
-  i0.Value<String?> prorateTaxes,
-  i0.Value<String?> viewCartOnAdd,
-  i0.Value<String?> autoSaveCart,
-  i0.Value<String?> autoApproveReviews,
-  i0.Value<String?> isDemoStore,
-  i0.Value<String?> isImmediatelyFulfilled,
-  i0.Value<String?> inventoryFacilityId,
-  i0.Value<String?> oneInventoryFacility,
-  i0.Value<String?> checkInventory,
-  i0.Value<String?> reserveInventory,
-  i0.Value<String?> reserveOrderEnumId,
-  i0.Value<String?> requireInventory,
-  i0.Value<String?> balanceResOnOrderCreation,
-  i0.Value<String?> requirementMethodEnumId,
-  i0.Value<String?> orderNumberPrefix,
-  i0.Value<String?> defaultLocaleString,
-  i0.Value<String?> defaultCurrencyUomId,
-  i0.Value<String?> defaultTimeZoneString,
-  i0.Value<String?> defaultSalesChannelEnumId,
-  i0.Value<String?> allowPassword,
-  i0.Value<String?> defaultPassword,
-  i0.Value<String?> explodeOrderItems,
-  i0.Value<String?> checkGcBalance,
-  i0.Value<String?> retryFailedAuths,
-  i0.Value<String?> headerApprovedStatus,
-  i0.Value<String?> itemApprovedStatus,
-  i0.Value<String?> digitalItemApprovedStatus,
-  i0.Value<String?> headerDeclinedStatus,
-  i0.Value<String?> itemDeclinedStatus,
-  i0.Value<String?> headerCancelStatus,
-  i0.Value<String?> itemCancelStatus,
-  i0.Value<String?> authDeclinedMessage,
-  i0.Value<String?> authFraudMessage,
-  i0.Value<String?> authErrorMessage,
-  i0.Value<String?> visualThemeId,
-  i0.Value<String?> storeCreditAccountEnumId,
-  i0.Value<String?> usePrimaryEmailUsername,
-  i0.Value<String?> requireCustomerRole,
-  i0.Value<String?> autoInvoiceDigitalItems,
-  i0.Value<String?> reqShipAddrForDigItems,
-  i0.Value<String?> showCheckoutGiftOptions,
-  i0.Value<String?> selectPaymentTypePerItem,
-  i0.Value<String?> showPricesWithVatTax,
-  i0.Value<String?> showTaxIsExempt,
-  i0.Value<String?> vatTaxAuthGeoId,
-  i0.Value<String?> vatTaxAuthPartyId,
-  i0.Value<String?> enableAutoSuggestionList,
-  i0.Value<String?> enableDigProdUpload,
-  i0.Value<String?> prodSearchExcludeVariants,
-  i0.Value<String?> digProdUploadCategoryId,
-  i0.Value<String?> autoOrderCcTryExp,
-  i0.Value<String?> autoOrderCcTryOtherCards,
-  i0.Value<String?> autoOrderCcTryLaterNsf,
-  i0.Value<int?> autoOrderCcTryLaterMax,
-  i0.Value<int?> storeCreditValidDays,
-  i0.Value<String?> autoApproveInvoice,
-  i0.Value<String?> autoApproveOrder,
-  i0.Value<String?> shipIfCaptureFails,
-  i0.Value<String?> setOwnerUponIssuance,
-  i0.Value<String?> reqReturnInventoryReceive,
-  i0.Value<String?> addToCartRemoveIncompat,
-  i0.Value<String?> addToCartReplaceUpsell,
-  i0.Value<String?> splitPayPrefPerShpGrp,
-  i0.Value<String?> managedByLot,
-  i0.Value<String?> showOutOfStockProducts,
-  i0.Value<String?> orderDecimalQuantity,
-  i0.Value<String?> allowComment,
-  i0.Value<String?> allocateInventory,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<Map<String, String>?> jointers,
-  i0.Value<i2.Multimap<String, String>?> multiJointers,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<String?> telephone,
-  i0.Value<String?> email,
-  i0.Value<String?> placeId,
-  i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl,
-  i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting,
-  i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility,
-  i0.Value<List<i3.ProductStorePaymentSetting>?> productStorePaymentSetting,
-  i0.Value<List<i3.ProductStoreKeywordOvrd>?> productStoreKeywordOvrd,
-  i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl,
-  i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog,
-  i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch,
-  i0.Value<List<i3.ProductStoreRole>?> productStoreRole,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ProductStoreUpdateCompanionBuilder = i1.ProductStoreCompanion
-    Function({
-  i0.Value<String> productStoreId,
-  i0.Value<String?> primaryStoreGroupId,
-  i0.Value<String?> storeName,
-  i0.Value<String?> companyName,
-  i0.Value<String?> title,
-  i0.Value<String?> subtitle,
-  i0.Value<String?> payToPartyId,
-  i0.Value<int?> daysToCancelNonPay,
-  i0.Value<String?> manualAuthIsCapture,
-  i0.Value<String?> prorateShipping,
-  i0.Value<String?> prorateTaxes,
-  i0.Value<String?> viewCartOnAdd,
-  i0.Value<String?> autoSaveCart,
-  i0.Value<String?> autoApproveReviews,
-  i0.Value<String?> isDemoStore,
-  i0.Value<String?> isImmediatelyFulfilled,
-  i0.Value<String?> inventoryFacilityId,
-  i0.Value<String?> oneInventoryFacility,
-  i0.Value<String?> checkInventory,
-  i0.Value<String?> reserveInventory,
-  i0.Value<String?> reserveOrderEnumId,
-  i0.Value<String?> requireInventory,
-  i0.Value<String?> balanceResOnOrderCreation,
-  i0.Value<String?> requirementMethodEnumId,
-  i0.Value<String?> orderNumberPrefix,
-  i0.Value<String?> defaultLocaleString,
-  i0.Value<String?> defaultCurrencyUomId,
-  i0.Value<String?> defaultTimeZoneString,
-  i0.Value<String?> defaultSalesChannelEnumId,
-  i0.Value<String?> allowPassword,
-  i0.Value<String?> defaultPassword,
-  i0.Value<String?> explodeOrderItems,
-  i0.Value<String?> checkGcBalance,
-  i0.Value<String?> retryFailedAuths,
-  i0.Value<String?> headerApprovedStatus,
-  i0.Value<String?> itemApprovedStatus,
-  i0.Value<String?> digitalItemApprovedStatus,
-  i0.Value<String?> headerDeclinedStatus,
-  i0.Value<String?> itemDeclinedStatus,
-  i0.Value<String?> headerCancelStatus,
-  i0.Value<String?> itemCancelStatus,
-  i0.Value<String?> authDeclinedMessage,
-  i0.Value<String?> authFraudMessage,
-  i0.Value<String?> authErrorMessage,
-  i0.Value<String?> visualThemeId,
-  i0.Value<String?> storeCreditAccountEnumId,
-  i0.Value<String?> usePrimaryEmailUsername,
-  i0.Value<String?> requireCustomerRole,
-  i0.Value<String?> autoInvoiceDigitalItems,
-  i0.Value<String?> reqShipAddrForDigItems,
-  i0.Value<String?> showCheckoutGiftOptions,
-  i0.Value<String?> selectPaymentTypePerItem,
-  i0.Value<String?> showPricesWithVatTax,
-  i0.Value<String?> showTaxIsExempt,
-  i0.Value<String?> vatTaxAuthGeoId,
-  i0.Value<String?> vatTaxAuthPartyId,
-  i0.Value<String?> enableAutoSuggestionList,
-  i0.Value<String?> enableDigProdUpload,
-  i0.Value<String?> prodSearchExcludeVariants,
-  i0.Value<String?> digProdUploadCategoryId,
-  i0.Value<String?> autoOrderCcTryExp,
-  i0.Value<String?> autoOrderCcTryOtherCards,
-  i0.Value<String?> autoOrderCcTryLaterNsf,
-  i0.Value<int?> autoOrderCcTryLaterMax,
-  i0.Value<int?> storeCreditValidDays,
-  i0.Value<String?> autoApproveInvoice,
-  i0.Value<String?> autoApproveOrder,
-  i0.Value<String?> shipIfCaptureFails,
-  i0.Value<String?> setOwnerUponIssuance,
-  i0.Value<String?> reqReturnInventoryReceive,
-  i0.Value<String?> addToCartRemoveIncompat,
-  i0.Value<String?> addToCartReplaceUpsell,
-  i0.Value<String?> splitPayPrefPerShpGrp,
-  i0.Value<String?> managedByLot,
-  i0.Value<String?> showOutOfStockProducts,
-  i0.Value<String?> orderDecimalQuantity,
-  i0.Value<String?> allowComment,
-  i0.Value<String?> allocateInventory,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<Map<String, String>?> jointers,
-  i0.Value<i2.Multimap<String, String>?> multiJointers,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<String?> telephone,
-  i0.Value<String?> email,
-  i0.Value<String?> placeId,
-  i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl,
-  i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting,
-  i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility,
-  i0.Value<List<i3.ProductStorePaymentSetting>?> productStorePaymentSetting,
-  i0.Value<List<i3.ProductStoreKeywordOvrd>?> productStoreKeywordOvrd,
-  i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl,
-  i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog,
-  i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch,
-  i0.Value<List<i3.ProductStoreRole>?> productStoreRole,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ProductStoreFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.ProductStore> {
-  $ProductStoreFilterComposer(super.$state);
-  i0.ColumnFilters<String> get productStoreId => $state.composableBuilder(
-      column: $state.table.productStoreId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get primaryStoreGroupId => $state.composableBuilder(
-      column: $state.table.primaryStoreGroupId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get storeName => $state.composableBuilder(
-      column: $state.table.storeName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get companyName => $state.composableBuilder(
-      column: $state.table.companyName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get title => $state.composableBuilder(
-      column: $state.table.title,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get subtitle => $state.composableBuilder(
-      column: $state.table.subtitle,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get payToPartyId => $state.composableBuilder(
-      column: $state.table.payToPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get daysToCancelNonPay => $state.composableBuilder(
-      column: $state.table.daysToCancelNonPay,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get manualAuthIsCapture => $state.composableBuilder(
-      column: $state.table.manualAuthIsCapture,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get prorateShipping => $state.composableBuilder(
-      column: $state.table.prorateShipping,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get prorateTaxes => $state.composableBuilder(
-      column: $state.table.prorateTaxes,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get viewCartOnAdd => $state.composableBuilder(
-      column: $state.table.viewCartOnAdd,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoSaveCart => $state.composableBuilder(
-      column: $state.table.autoSaveCart,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoApproveReviews => $state.composableBuilder(
-      column: $state.table.autoApproveReviews,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get isDemoStore => $state.composableBuilder(
-      column: $state.table.isDemoStore,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get isImmediatelyFulfilled =>
-      $state.composableBuilder(
-          column: $state.table.isImmediatelyFulfilled,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get inventoryFacilityId => $state.composableBuilder(
-      column: $state.table.inventoryFacilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get oneInventoryFacility => $state.composableBuilder(
-      column: $state.table.oneInventoryFacility,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get checkInventory => $state.composableBuilder(
-      column: $state.table.checkInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get reserveInventory => $state.composableBuilder(
-      column: $state.table.reserveInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get reserveOrderEnumId => $state.composableBuilder(
-      column: $state.table.reserveOrderEnumId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get requireInventory => $state.composableBuilder(
-      column: $state.table.requireInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get balanceResOnOrderCreation =>
-      $state.composableBuilder(
-          column: $state.table.balanceResOnOrderCreation,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get requirementMethodEnumId =>
-      $state.composableBuilder(
-          column: $state.table.requirementMethodEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get orderNumberPrefix => $state.composableBuilder(
-      column: $state.table.orderNumberPrefix,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultLocaleString => $state.composableBuilder(
-      column: $state.table.defaultLocaleString,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultCurrencyUomId => $state.composableBuilder(
-      column: $state.table.defaultCurrencyUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultTimeZoneString =>
-      $state.composableBuilder(
-          column: $state.table.defaultTimeZoneString,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultSalesChannelEnumId =>
-      $state.composableBuilder(
-          column: $state.table.defaultSalesChannelEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get allowPassword => $state.composableBuilder(
-      column: $state.table.allowPassword,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultPassword => $state.composableBuilder(
-      column: $state.table.defaultPassword,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get explodeOrderItems => $state.composableBuilder(
-      column: $state.table.explodeOrderItems,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get checkGcBalance => $state.composableBuilder(
-      column: $state.table.checkGcBalance,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get retryFailedAuths => $state.composableBuilder(
-      column: $state.table.retryFailedAuths,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get headerApprovedStatus => $state.composableBuilder(
-      column: $state.table.headerApprovedStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get itemApprovedStatus => $state.composableBuilder(
-      column: $state.table.itemApprovedStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get digitalItemApprovedStatus =>
-      $state.composableBuilder(
-          column: $state.table.digitalItemApprovedStatus,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get headerDeclinedStatus => $state.composableBuilder(
-      column: $state.table.headerDeclinedStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get itemDeclinedStatus => $state.composableBuilder(
-      column: $state.table.itemDeclinedStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get headerCancelStatus => $state.composableBuilder(
-      column: $state.table.headerCancelStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get itemCancelStatus => $state.composableBuilder(
-      column: $state.table.itemCancelStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get authDeclinedMessage => $state.composableBuilder(
-      column: $state.table.authDeclinedMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get authFraudMessage => $state.composableBuilder(
-      column: $state.table.authFraudMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get authErrorMessage => $state.composableBuilder(
-      column: $state.table.authErrorMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get visualThemeId => $state.composableBuilder(
-      column: $state.table.visualThemeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get storeCreditAccountEnumId => $state
-      .composableBuilder(
-          column: $state.table.storeCreditAccountEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get usePrimaryEmailUsername =>
-      $state.composableBuilder(
-          column: $state.table.usePrimaryEmailUsername,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get requireCustomerRole => $state.composableBuilder(
-      column: $state.table.requireCustomerRole,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoInvoiceDigitalItems =>
-      $state.composableBuilder(
-          column: $state.table.autoInvoiceDigitalItems,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get reqShipAddrForDigItems =>
-      $state.composableBuilder(
-          column: $state.table.reqShipAddrForDigItems,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get showCheckoutGiftOptions =>
-      $state.composableBuilder(
-          column: $state.table.showCheckoutGiftOptions,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get selectPaymentTypePerItem => $state
-      .composableBuilder(
-          column: $state.table.selectPaymentTypePerItem,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get showPricesWithVatTax => $state.composableBuilder(
-      column: $state.table.showPricesWithVatTax,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get showTaxIsExempt => $state.composableBuilder(
-      column: $state.table.showTaxIsExempt,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get vatTaxAuthGeoId => $state.composableBuilder(
-      column: $state.table.vatTaxAuthGeoId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get vatTaxAuthPartyId => $state.composableBuilder(
-      column: $state.table.vatTaxAuthPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get enableAutoSuggestionList => $state
-      .composableBuilder(
-          column: $state.table.enableAutoSuggestionList,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get enableDigProdUpload => $state.composableBuilder(
-      column: $state.table.enableDigProdUpload,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get prodSearchExcludeVariants =>
-      $state.composableBuilder(
-          column: $state.table.prodSearchExcludeVariants,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get digProdUploadCategoryId =>
-      $state.composableBuilder(
-          column: $state.table.digProdUploadCategoryId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoOrderCcTryExp => $state.composableBuilder(
-      column: $state.table.autoOrderCcTryExp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoOrderCcTryOtherCards => $state
-      .composableBuilder(
-          column: $state.table.autoOrderCcTryOtherCards,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoOrderCcTryLaterNsf =>
-      $state.composableBuilder(
-          column: $state.table.autoOrderCcTryLaterNsf,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get autoOrderCcTryLaterMax => $state.composableBuilder(
-      column: $state.table.autoOrderCcTryLaterMax,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get storeCreditValidDays => $state.composableBuilder(
-      column: $state.table.storeCreditValidDays,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoApproveInvoice => $state.composableBuilder(
-      column: $state.table.autoApproveInvoice,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoApproveOrder => $state.composableBuilder(
-      column: $state.table.autoApproveOrder,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get shipIfCaptureFails => $state.composableBuilder(
-      column: $state.table.shipIfCaptureFails,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get setOwnerUponIssuance => $state.composableBuilder(
-      column: $state.table.setOwnerUponIssuance,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get reqReturnInventoryReceive =>
-      $state.composableBuilder(
-          column: $state.table.reqReturnInventoryReceive,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get addToCartRemoveIncompat =>
-      $state.composableBuilder(
-          column: $state.table.addToCartRemoveIncompat,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get addToCartReplaceUpsell =>
-      $state.composableBuilder(
-          column: $state.table.addToCartReplaceUpsell,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get splitPayPrefPerShpGrp =>
-      $state.composableBuilder(
-          column: $state.table.splitPayPrefPerShpGrp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get managedByLot => $state.composableBuilder(
-      column: $state.table.managedByLot,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get showOutOfStockProducts =>
-      $state.composableBuilder(
-          column: $state.table.showOutOfStockProducts,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get orderDecimalQuantity => $state.composableBuilder(
-      column: $state.table.orderDecimalQuantity,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get allowComment => $state.composableBuilder(
-      column: $state.table.allowComment,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get allocateInventory => $state.composableBuilder(
-      column: $state.table.allocateInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
-          String>
-      get jointers => $state.composableBuilder(
-          column: $state.table.jointers,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get multiJointers => $state.composableBuilder(
-          column: $state.table.multiJointers,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get telephone => $state.composableBuilder(
-      column: $state.table.telephone,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get email => $state.composableBuilder(
-      column: $state.table.email,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get placeId => $state.composableBuilder(
-      column: $state.table.placeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStorePromoAppl>?,
-          List<i3.ProductStorePromoAppl>, String>
-      get productStorePromoAppl => $state.composableBuilder(
-          column: $state.table.productStorePromoAppl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreEmailSetting>?,
-          List<i3.ProductStoreEmailSetting>, String>
-      get productStoreEmailSetting => $state.composableBuilder(
-          column: $state.table.productStoreEmailSetting,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreFacility>?,
-          List<i3.ProductStoreFacility>, String>
-      get productStoreFacility => $state.composableBuilder(
-          column: $state.table.productStoreFacility,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStorePaymentSetting>?,
-          List<i3.ProductStorePaymentSetting>, String>
-      get productStorePaymentSetting => $state.composableBuilder(
-          column: $state.table.productStorePaymentSetting,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreKeywordOvrd>?,
-          List<i3.ProductStoreKeywordOvrd>, String>
-      get productStoreKeywordOvrd => $state.composableBuilder(
-          column: $state.table.productStoreKeywordOvrd,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreSurveyAppl>?,
-          List<i3.ProductStoreSurveyAppl>, String>
-      get productStoreSurveyAppl => $state.composableBuilder(
-          column: $state.table.productStoreSurveyAppl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreCatalog>?,
-          List<i3.ProductStoreCatalog>, String>
-      get productStoreCatalog => $state.composableBuilder(
-          column: $state.table.productStoreCatalog,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreBunch>?,
-          List<i3.ProductStoreBunch>, String>
-      get productStoreBunch => $state.composableBuilder(
-          column: $state.table.productStoreBunch,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.ProductStoreRole>?,
-          List<i3.ProductStoreRole>, String>
-      get productStoreRole => $state.composableBuilder(
-          column: $state.table.productStoreRole,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ProductStoreOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.ProductStore> {
-  $ProductStoreOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get productStoreId => $state.composableBuilder(
-      column: $state.table.productStoreId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get primaryStoreGroupId =>
-      $state.composableBuilder(
-          column: $state.table.primaryStoreGroupId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get storeName => $state.composableBuilder(
-      column: $state.table.storeName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get companyName => $state.composableBuilder(
-      column: $state.table.companyName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get title => $state.composableBuilder(
-      column: $state.table.title,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get subtitle => $state.composableBuilder(
-      column: $state.table.subtitle,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get payToPartyId => $state.composableBuilder(
-      column: $state.table.payToPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get daysToCancelNonPay => $state.composableBuilder(
-      column: $state.table.daysToCancelNonPay,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get manualAuthIsCapture =>
-      $state.composableBuilder(
-          column: $state.table.manualAuthIsCapture,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get prorateShipping => $state.composableBuilder(
-      column: $state.table.prorateShipping,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get prorateTaxes => $state.composableBuilder(
-      column: $state.table.prorateTaxes,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get viewCartOnAdd => $state.composableBuilder(
-      column: $state.table.viewCartOnAdd,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoSaveCart => $state.composableBuilder(
-      column: $state.table.autoSaveCart,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoApproveReviews => $state.composableBuilder(
-      column: $state.table.autoApproveReviews,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get isDemoStore => $state.composableBuilder(
-      column: $state.table.isDemoStore,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get isImmediatelyFulfilled => $state
-      .composableBuilder(
-          column: $state.table.isImmediatelyFulfilled,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryFacilityId =>
-      $state.composableBuilder(
-          column: $state.table.inventoryFacilityId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get oneInventoryFacility =>
-      $state.composableBuilder(
-          column: $state.table.oneInventoryFacility,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get checkInventory => $state.composableBuilder(
-      column: $state.table.checkInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get reserveInventory => $state.composableBuilder(
-      column: $state.table.reserveInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get reserveOrderEnumId => $state.composableBuilder(
-      column: $state.table.reserveOrderEnumId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get requireInventory => $state.composableBuilder(
-      column: $state.table.requireInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get balanceResOnOrderCreation =>
-      $state.composableBuilder(
-          column: $state.table.balanceResOnOrderCreation,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get requirementMethodEnumId =>
-      $state.composableBuilder(
-          column: $state.table.requirementMethodEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get orderNumberPrefix => $state.composableBuilder(
-      column: $state.table.orderNumberPrefix,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultLocaleString =>
-      $state.composableBuilder(
-          column: $state.table.defaultLocaleString,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultCurrencyUomId =>
-      $state.composableBuilder(
-          column: $state.table.defaultCurrencyUomId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultTimeZoneString =>
-      $state.composableBuilder(
-          column: $state.table.defaultTimeZoneString,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultSalesChannelEnumId =>
-      $state.composableBuilder(
-          column: $state.table.defaultSalesChannelEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get allowPassword => $state.composableBuilder(
-      column: $state.table.allowPassword,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultPassword => $state.composableBuilder(
-      column: $state.table.defaultPassword,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get explodeOrderItems => $state.composableBuilder(
-      column: $state.table.explodeOrderItems,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get checkGcBalance => $state.composableBuilder(
-      column: $state.table.checkGcBalance,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get retryFailedAuths => $state.composableBuilder(
-      column: $state.table.retryFailedAuths,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get headerApprovedStatus =>
-      $state.composableBuilder(
-          column: $state.table.headerApprovedStatus,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get itemApprovedStatus => $state.composableBuilder(
-      column: $state.table.itemApprovedStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get digitalItemApprovedStatus =>
-      $state.composableBuilder(
-          column: $state.table.digitalItemApprovedStatus,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get headerDeclinedStatus =>
-      $state.composableBuilder(
-          column: $state.table.headerDeclinedStatus,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get itemDeclinedStatus => $state.composableBuilder(
-      column: $state.table.itemDeclinedStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get headerCancelStatus => $state.composableBuilder(
-      column: $state.table.headerCancelStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get itemCancelStatus => $state.composableBuilder(
-      column: $state.table.itemCancelStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get authDeclinedMessage =>
-      $state.composableBuilder(
-          column: $state.table.authDeclinedMessage,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get authFraudMessage => $state.composableBuilder(
-      column: $state.table.authFraudMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get authErrorMessage => $state.composableBuilder(
-      column: $state.table.authErrorMessage,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get visualThemeId => $state.composableBuilder(
-      column: $state.table.visualThemeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get storeCreditAccountEnumId =>
-      $state.composableBuilder(
-          column: $state.table.storeCreditAccountEnumId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get usePrimaryEmailUsername =>
-      $state.composableBuilder(
-          column: $state.table.usePrimaryEmailUsername,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get requireCustomerRole =>
-      $state.composableBuilder(
-          column: $state.table.requireCustomerRole,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoInvoiceDigitalItems =>
-      $state.composableBuilder(
-          column: $state.table.autoInvoiceDigitalItems,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get reqShipAddrForDigItems => $state
-      .composableBuilder(
-          column: $state.table.reqShipAddrForDigItems,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get showCheckoutGiftOptions =>
-      $state.composableBuilder(
-          column: $state.table.showCheckoutGiftOptions,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get selectPaymentTypePerItem =>
-      $state.composableBuilder(
-          column: $state.table.selectPaymentTypePerItem,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get showPricesWithVatTax =>
-      $state.composableBuilder(
-          column: $state.table.showPricesWithVatTax,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get showTaxIsExempt => $state.composableBuilder(
-      column: $state.table.showTaxIsExempt,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get vatTaxAuthGeoId => $state.composableBuilder(
-      column: $state.table.vatTaxAuthGeoId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get vatTaxAuthPartyId => $state.composableBuilder(
-      column: $state.table.vatTaxAuthPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get enableAutoSuggestionList =>
-      $state.composableBuilder(
-          column: $state.table.enableAutoSuggestionList,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get enableDigProdUpload =>
-      $state.composableBuilder(
-          column: $state.table.enableDigProdUpload,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get prodSearchExcludeVariants =>
-      $state.composableBuilder(
-          column: $state.table.prodSearchExcludeVariants,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get digProdUploadCategoryId =>
-      $state.composableBuilder(
-          column: $state.table.digProdUploadCategoryId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoOrderCcTryExp => $state.composableBuilder(
-      column: $state.table.autoOrderCcTryExp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoOrderCcTryOtherCards =>
-      $state.composableBuilder(
-          column: $state.table.autoOrderCcTryOtherCards,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoOrderCcTryLaterNsf => $state
-      .composableBuilder(
-          column: $state.table.autoOrderCcTryLaterNsf,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get autoOrderCcTryLaterMax =>
-      $state.composableBuilder(
-          column: $state.table.autoOrderCcTryLaterMax,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get storeCreditValidDays => $state.composableBuilder(
-      column: $state.table.storeCreditValidDays,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoApproveInvoice => $state.composableBuilder(
-      column: $state.table.autoApproveInvoice,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoApproveOrder => $state.composableBuilder(
-      column: $state.table.autoApproveOrder,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get shipIfCaptureFails => $state.composableBuilder(
-      column: $state.table.shipIfCaptureFails,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get setOwnerUponIssuance =>
-      $state.composableBuilder(
-          column: $state.table.setOwnerUponIssuance,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get reqReturnInventoryReceive =>
-      $state.composableBuilder(
-          column: $state.table.reqReturnInventoryReceive,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get addToCartRemoveIncompat =>
-      $state.composableBuilder(
-          column: $state.table.addToCartRemoveIncompat,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get addToCartReplaceUpsell => $state
-      .composableBuilder(
-          column: $state.table.addToCartReplaceUpsell,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get splitPayPrefPerShpGrp =>
-      $state.composableBuilder(
-          column: $state.table.splitPayPrefPerShpGrp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get managedByLot => $state.composableBuilder(
-      column: $state.table.managedByLot,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get showOutOfStockProducts => $state
-      .composableBuilder(
-          column: $state.table.showOutOfStockProducts,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get orderDecimalQuantity =>
-      $state.composableBuilder(
-          column: $state.table.orderDecimalQuantity,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get allowComment => $state.composableBuilder(
-      column: $state.table.allowComment,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get allocateInventory => $state.composableBuilder(
-      column: $state.table.allocateInventory,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get jointers => $state.composableBuilder(
-      column: $state.table.jointers,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get multiJointers => $state.composableBuilder(
-      column: $state.table.multiJointers,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get telephone => $state.composableBuilder(
-      column: $state.table.telephone,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get email => $state.composableBuilder(
-      column: $state.table.email,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get placeId => $state.composableBuilder(
-      column: $state.table.placeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStorePromoAppl =>
-      $state.composableBuilder(
-          column: $state.table.productStorePromoAppl,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreEmailSetting =>
-      $state.composableBuilder(
-          column: $state.table.productStoreEmailSetting,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreFacility =>
-      $state.composableBuilder(
-          column: $state.table.productStoreFacility,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStorePaymentSetting =>
-      $state.composableBuilder(
-          column: $state.table.productStorePaymentSetting,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreKeywordOvrd =>
-      $state.composableBuilder(
-          column: $state.table.productStoreKeywordOvrd,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreSurveyAppl => $state
-      .composableBuilder(
-          column: $state.table.productStoreSurveyAppl,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreCatalog =>
-      $state.composableBuilder(
-          column: $state.table.productStoreCatalog,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreBunch => $state.composableBuilder(
-      column: $state.table.productStoreBunch,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreRole => $state.composableBuilder(
-      column: $state.table.productStoreRole,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ProductStoreTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.ProductStore,
-    i1.ProductStoreData,
-    i1.$ProductStoreFilterComposer,
-    i1.$ProductStoreOrderingComposer,
-    $ProductStoreCreateCompanionBuilder,
-    $ProductStoreUpdateCompanionBuilder,
-    (
-      i1.ProductStoreData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.ProductStore,
-          i1.ProductStoreData>
-    ),
-    i1.ProductStoreData,
-    i0.PrefetchHooks Function()> {
-  $ProductStoreTableManager(i0.GeneratedDatabase db, i1.ProductStore table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ProductStoreFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ProductStoreOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> productStoreId = const i0.Value.absent(),
-            i0.Value<String?> primaryStoreGroupId = const i0.Value.absent(),
-            i0.Value<String?> storeName = const i0.Value.absent(),
-            i0.Value<String?> companyName = const i0.Value.absent(),
-            i0.Value<String?> title = const i0.Value.absent(),
-            i0.Value<String?> subtitle = const i0.Value.absent(),
-            i0.Value<String?> payToPartyId = const i0.Value.absent(),
-            i0.Value<int?> daysToCancelNonPay = const i0.Value.absent(),
-            i0.Value<String?> manualAuthIsCapture = const i0.Value.absent(),
-            i0.Value<String?> prorateShipping = const i0.Value.absent(),
-            i0.Value<String?> prorateTaxes = const i0.Value.absent(),
-            i0.Value<String?> viewCartOnAdd = const i0.Value.absent(),
-            i0.Value<String?> autoSaveCart = const i0.Value.absent(),
-            i0.Value<String?> autoApproveReviews = const i0.Value.absent(),
-            i0.Value<String?> isDemoStore = const i0.Value.absent(),
-            i0.Value<String?> isImmediatelyFulfilled = const i0.Value.absent(),
-            i0.Value<String?> inventoryFacilityId = const i0.Value.absent(),
-            i0.Value<String?> oneInventoryFacility = const i0.Value.absent(),
-            i0.Value<String?> checkInventory = const i0.Value.absent(),
-            i0.Value<String?> reserveInventory = const i0.Value.absent(),
-            i0.Value<String?> reserveOrderEnumId = const i0.Value.absent(),
-            i0.Value<String?> requireInventory = const i0.Value.absent(),
-            i0.Value<String?> balanceResOnOrderCreation =
-                const i0.Value.absent(),
-            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
-            i0.Value<String?> orderNumberPrefix = const i0.Value.absent(),
-            i0.Value<String?> defaultLocaleString = const i0.Value.absent(),
-            i0.Value<String?> defaultCurrencyUomId = const i0.Value.absent(),
-            i0.Value<String?> defaultTimeZoneString = const i0.Value.absent(),
-            i0.Value<String?> defaultSalesChannelEnumId =
-                const i0.Value.absent(),
-            i0.Value<String?> allowPassword = const i0.Value.absent(),
-            i0.Value<String?> defaultPassword = const i0.Value.absent(),
-            i0.Value<String?> explodeOrderItems = const i0.Value.absent(),
-            i0.Value<String?> checkGcBalance = const i0.Value.absent(),
-            i0.Value<String?> retryFailedAuths = const i0.Value.absent(),
-            i0.Value<String?> headerApprovedStatus = const i0.Value.absent(),
-            i0.Value<String?> itemApprovedStatus = const i0.Value.absent(),
-            i0.Value<String?> digitalItemApprovedStatus =
-                const i0.Value.absent(),
-            i0.Value<String?> headerDeclinedStatus = const i0.Value.absent(),
-            i0.Value<String?> itemDeclinedStatus = const i0.Value.absent(),
-            i0.Value<String?> headerCancelStatus = const i0.Value.absent(),
-            i0.Value<String?> itemCancelStatus = const i0.Value.absent(),
-            i0.Value<String?> authDeclinedMessage = const i0.Value.absent(),
-            i0.Value<String?> authFraudMessage = const i0.Value.absent(),
-            i0.Value<String?> authErrorMessage = const i0.Value.absent(),
-            i0.Value<String?> visualThemeId = const i0.Value.absent(),
-            i0.Value<String?> storeCreditAccountEnumId =
-                const i0.Value.absent(),
-            i0.Value<String?> usePrimaryEmailUsername = const i0.Value.absent(),
-            i0.Value<String?> requireCustomerRole = const i0.Value.absent(),
-            i0.Value<String?> autoInvoiceDigitalItems = const i0.Value.absent(),
-            i0.Value<String?> reqShipAddrForDigItems = const i0.Value.absent(),
-            i0.Value<String?> showCheckoutGiftOptions = const i0.Value.absent(),
-            i0.Value<String?> selectPaymentTypePerItem =
-                const i0.Value.absent(),
-            i0.Value<String?> showPricesWithVatTax = const i0.Value.absent(),
-            i0.Value<String?> showTaxIsExempt = const i0.Value.absent(),
-            i0.Value<String?> vatTaxAuthGeoId = const i0.Value.absent(),
-            i0.Value<String?> vatTaxAuthPartyId = const i0.Value.absent(),
-            i0.Value<String?> enableAutoSuggestionList =
-                const i0.Value.absent(),
-            i0.Value<String?> enableDigProdUpload = const i0.Value.absent(),
-            i0.Value<String?> prodSearchExcludeVariants =
-                const i0.Value.absent(),
-            i0.Value<String?> digProdUploadCategoryId = const i0.Value.absent(),
-            i0.Value<String?> autoOrderCcTryExp = const i0.Value.absent(),
-            i0.Value<String?> autoOrderCcTryOtherCards =
-                const i0.Value.absent(),
-            i0.Value<String?> autoOrderCcTryLaterNsf = const i0.Value.absent(),
-            i0.Value<int?> autoOrderCcTryLaterMax = const i0.Value.absent(),
-            i0.Value<int?> storeCreditValidDays = const i0.Value.absent(),
-            i0.Value<String?> autoApproveInvoice = const i0.Value.absent(),
-            i0.Value<String?> autoApproveOrder = const i0.Value.absent(),
-            i0.Value<String?> shipIfCaptureFails = const i0.Value.absent(),
-            i0.Value<String?> setOwnerUponIssuance = const i0.Value.absent(),
-            i0.Value<String?> reqReturnInventoryReceive =
-                const i0.Value.absent(),
-            i0.Value<String?> addToCartRemoveIncompat = const i0.Value.absent(),
-            i0.Value<String?> addToCartReplaceUpsell = const i0.Value.absent(),
-            i0.Value<String?> splitPayPrefPerShpGrp = const i0.Value.absent(),
-            i0.Value<String?> managedByLot = const i0.Value.absent(),
-            i0.Value<String?> showOutOfStockProducts = const i0.Value.absent(),
-            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
-            i0.Value<String?> allowComment = const i0.Value.absent(),
-            i0.Value<String?> allocateInventory = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> multiJointers =
-                const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<String?> telephone = const i0.Value.absent(),
-            i0.Value<String?> email = const i0.Value.absent(),
-            i0.Value<String?> placeId = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreEmailSetting>?>
-                productStoreEmailSetting = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStorePaymentSetting>?>
-                productStorePaymentSetting = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreKeywordOvrd>?>
-                productStoreKeywordOvrd = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreRole>?> productStoreRole =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ProductStoreCompanion(
-            productStoreId: productStoreId,
-            primaryStoreGroupId: primaryStoreGroupId,
-            storeName: storeName,
-            companyName: companyName,
-            title: title,
-            subtitle: subtitle,
-            payToPartyId: payToPartyId,
-            daysToCancelNonPay: daysToCancelNonPay,
-            manualAuthIsCapture: manualAuthIsCapture,
-            prorateShipping: prorateShipping,
-            prorateTaxes: prorateTaxes,
-            viewCartOnAdd: viewCartOnAdd,
-            autoSaveCart: autoSaveCart,
-            autoApproveReviews: autoApproveReviews,
-            isDemoStore: isDemoStore,
-            isImmediatelyFulfilled: isImmediatelyFulfilled,
-            inventoryFacilityId: inventoryFacilityId,
-            oneInventoryFacility: oneInventoryFacility,
-            checkInventory: checkInventory,
-            reserveInventory: reserveInventory,
-            reserveOrderEnumId: reserveOrderEnumId,
-            requireInventory: requireInventory,
-            balanceResOnOrderCreation: balanceResOnOrderCreation,
-            requirementMethodEnumId: requirementMethodEnumId,
-            orderNumberPrefix: orderNumberPrefix,
-            defaultLocaleString: defaultLocaleString,
-            defaultCurrencyUomId: defaultCurrencyUomId,
-            defaultTimeZoneString: defaultTimeZoneString,
-            defaultSalesChannelEnumId: defaultSalesChannelEnumId,
-            allowPassword: allowPassword,
-            defaultPassword: defaultPassword,
-            explodeOrderItems: explodeOrderItems,
-            checkGcBalance: checkGcBalance,
-            retryFailedAuths: retryFailedAuths,
-            headerApprovedStatus: headerApprovedStatus,
-            itemApprovedStatus: itemApprovedStatus,
-            digitalItemApprovedStatus: digitalItemApprovedStatus,
-            headerDeclinedStatus: headerDeclinedStatus,
-            itemDeclinedStatus: itemDeclinedStatus,
-            headerCancelStatus: headerCancelStatus,
-            itemCancelStatus: itemCancelStatus,
-            authDeclinedMessage: authDeclinedMessage,
-            authFraudMessage: authFraudMessage,
-            authErrorMessage: authErrorMessage,
-            visualThemeId: visualThemeId,
-            storeCreditAccountEnumId: storeCreditAccountEnumId,
-            usePrimaryEmailUsername: usePrimaryEmailUsername,
-            requireCustomerRole: requireCustomerRole,
-            autoInvoiceDigitalItems: autoInvoiceDigitalItems,
-            reqShipAddrForDigItems: reqShipAddrForDigItems,
-            showCheckoutGiftOptions: showCheckoutGiftOptions,
-            selectPaymentTypePerItem: selectPaymentTypePerItem,
-            showPricesWithVatTax: showPricesWithVatTax,
-            showTaxIsExempt: showTaxIsExempt,
-            vatTaxAuthGeoId: vatTaxAuthGeoId,
-            vatTaxAuthPartyId: vatTaxAuthPartyId,
-            enableAutoSuggestionList: enableAutoSuggestionList,
-            enableDigProdUpload: enableDigProdUpload,
-            prodSearchExcludeVariants: prodSearchExcludeVariants,
-            digProdUploadCategoryId: digProdUploadCategoryId,
-            autoOrderCcTryExp: autoOrderCcTryExp,
-            autoOrderCcTryOtherCards: autoOrderCcTryOtherCards,
-            autoOrderCcTryLaterNsf: autoOrderCcTryLaterNsf,
-            autoOrderCcTryLaterMax: autoOrderCcTryLaterMax,
-            storeCreditValidDays: storeCreditValidDays,
-            autoApproveInvoice: autoApproveInvoice,
-            autoApproveOrder: autoApproveOrder,
-            shipIfCaptureFails: shipIfCaptureFails,
-            setOwnerUponIssuance: setOwnerUponIssuance,
-            reqReturnInventoryReceive: reqReturnInventoryReceive,
-            addToCartRemoveIncompat: addToCartRemoveIncompat,
-            addToCartReplaceUpsell: addToCartReplaceUpsell,
-            splitPayPrefPerShpGrp: splitPayPrefPerShpGrp,
-            managedByLot: managedByLot,
-            showOutOfStockProducts: showOutOfStockProducts,
-            orderDecimalQuantity: orderDecimalQuantity,
-            allowComment: allowComment,
-            allocateInventory: allocateInventory,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            jointers: jointers,
-            multiJointers: multiJointers,
-            acl: acl,
-            telephone: telephone,
-            email: email,
-            placeId: placeId,
-            productStorePromoAppl: productStorePromoAppl,
-            productStoreEmailSetting: productStoreEmailSetting,
-            productStoreFacility: productStoreFacility,
-            productStorePaymentSetting: productStorePaymentSetting,
-            productStoreKeywordOvrd: productStoreKeywordOvrd,
-            productStoreSurveyAppl: productStoreSurveyAppl,
-            productStoreCatalog: productStoreCatalog,
-            productStoreBunch: productStoreBunch,
-            productStoreRole: productStoreRole,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String productStoreId,
-            i0.Value<String?> primaryStoreGroupId = const i0.Value.absent(),
-            i0.Value<String?> storeName = const i0.Value.absent(),
-            i0.Value<String?> companyName = const i0.Value.absent(),
-            i0.Value<String?> title = const i0.Value.absent(),
-            i0.Value<String?> subtitle = const i0.Value.absent(),
-            i0.Value<String?> payToPartyId = const i0.Value.absent(),
-            i0.Value<int?> daysToCancelNonPay = const i0.Value.absent(),
-            i0.Value<String?> manualAuthIsCapture = const i0.Value.absent(),
-            i0.Value<String?> prorateShipping = const i0.Value.absent(),
-            i0.Value<String?> prorateTaxes = const i0.Value.absent(),
-            i0.Value<String?> viewCartOnAdd = const i0.Value.absent(),
-            i0.Value<String?> autoSaveCart = const i0.Value.absent(),
-            i0.Value<String?> autoApproveReviews = const i0.Value.absent(),
-            i0.Value<String?> isDemoStore = const i0.Value.absent(),
-            i0.Value<String?> isImmediatelyFulfilled = const i0.Value.absent(),
-            i0.Value<String?> inventoryFacilityId = const i0.Value.absent(),
-            i0.Value<String?> oneInventoryFacility = const i0.Value.absent(),
-            i0.Value<String?> checkInventory = const i0.Value.absent(),
-            i0.Value<String?> reserveInventory = const i0.Value.absent(),
-            i0.Value<String?> reserveOrderEnumId = const i0.Value.absent(),
-            i0.Value<String?> requireInventory = const i0.Value.absent(),
-            i0.Value<String?> balanceResOnOrderCreation =
-                const i0.Value.absent(),
-            i0.Value<String?> requirementMethodEnumId = const i0.Value.absent(),
-            i0.Value<String?> orderNumberPrefix = const i0.Value.absent(),
-            i0.Value<String?> defaultLocaleString = const i0.Value.absent(),
-            i0.Value<String?> defaultCurrencyUomId = const i0.Value.absent(),
-            i0.Value<String?> defaultTimeZoneString = const i0.Value.absent(),
-            i0.Value<String?> defaultSalesChannelEnumId =
-                const i0.Value.absent(),
-            i0.Value<String?> allowPassword = const i0.Value.absent(),
-            i0.Value<String?> defaultPassword = const i0.Value.absent(),
-            i0.Value<String?> explodeOrderItems = const i0.Value.absent(),
-            i0.Value<String?> checkGcBalance = const i0.Value.absent(),
-            i0.Value<String?> retryFailedAuths = const i0.Value.absent(),
-            i0.Value<String?> headerApprovedStatus = const i0.Value.absent(),
-            i0.Value<String?> itemApprovedStatus = const i0.Value.absent(),
-            i0.Value<String?> digitalItemApprovedStatus =
-                const i0.Value.absent(),
-            i0.Value<String?> headerDeclinedStatus = const i0.Value.absent(),
-            i0.Value<String?> itemDeclinedStatus = const i0.Value.absent(),
-            i0.Value<String?> headerCancelStatus = const i0.Value.absent(),
-            i0.Value<String?> itemCancelStatus = const i0.Value.absent(),
-            i0.Value<String?> authDeclinedMessage = const i0.Value.absent(),
-            i0.Value<String?> authFraudMessage = const i0.Value.absent(),
-            i0.Value<String?> authErrorMessage = const i0.Value.absent(),
-            i0.Value<String?> visualThemeId = const i0.Value.absent(),
-            i0.Value<String?> storeCreditAccountEnumId =
-                const i0.Value.absent(),
-            i0.Value<String?> usePrimaryEmailUsername = const i0.Value.absent(),
-            i0.Value<String?> requireCustomerRole = const i0.Value.absent(),
-            i0.Value<String?> autoInvoiceDigitalItems = const i0.Value.absent(),
-            i0.Value<String?> reqShipAddrForDigItems = const i0.Value.absent(),
-            i0.Value<String?> showCheckoutGiftOptions = const i0.Value.absent(),
-            i0.Value<String?> selectPaymentTypePerItem =
-                const i0.Value.absent(),
-            i0.Value<String?> showPricesWithVatTax = const i0.Value.absent(),
-            i0.Value<String?> showTaxIsExempt = const i0.Value.absent(),
-            i0.Value<String?> vatTaxAuthGeoId = const i0.Value.absent(),
-            i0.Value<String?> vatTaxAuthPartyId = const i0.Value.absent(),
-            i0.Value<String?> enableAutoSuggestionList =
-                const i0.Value.absent(),
-            i0.Value<String?> enableDigProdUpload = const i0.Value.absent(),
-            i0.Value<String?> prodSearchExcludeVariants =
-                const i0.Value.absent(),
-            i0.Value<String?> digProdUploadCategoryId = const i0.Value.absent(),
-            i0.Value<String?> autoOrderCcTryExp = const i0.Value.absent(),
-            i0.Value<String?> autoOrderCcTryOtherCards =
-                const i0.Value.absent(),
-            i0.Value<String?> autoOrderCcTryLaterNsf = const i0.Value.absent(),
-            i0.Value<int?> autoOrderCcTryLaterMax = const i0.Value.absent(),
-            i0.Value<int?> storeCreditValidDays = const i0.Value.absent(),
-            i0.Value<String?> autoApproveInvoice = const i0.Value.absent(),
-            i0.Value<String?> autoApproveOrder = const i0.Value.absent(),
-            i0.Value<String?> shipIfCaptureFails = const i0.Value.absent(),
-            i0.Value<String?> setOwnerUponIssuance = const i0.Value.absent(),
-            i0.Value<String?> reqReturnInventoryReceive =
-                const i0.Value.absent(),
-            i0.Value<String?> addToCartRemoveIncompat = const i0.Value.absent(),
-            i0.Value<String?> addToCartReplaceUpsell = const i0.Value.absent(),
-            i0.Value<String?> splitPayPrefPerShpGrp = const i0.Value.absent(),
-            i0.Value<String?> managedByLot = const i0.Value.absent(),
-            i0.Value<String?> showOutOfStockProducts = const i0.Value.absent(),
-            i0.Value<String?> orderDecimalQuantity = const i0.Value.absent(),
-            i0.Value<String?> allowComment = const i0.Value.absent(),
-            i0.Value<String?> allocateInventory = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> multiJointers =
-                const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<String?> telephone = const i0.Value.absent(),
-            i0.Value<String?> email = const i0.Value.absent(),
-            i0.Value<String?> placeId = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreEmailSetting>?>
-                productStoreEmailSetting = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStorePaymentSetting>?>
-                productStorePaymentSetting = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreKeywordOvrd>?>
-                productStoreKeywordOvrd = const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreSurveyAppl>?> productStoreSurveyAppl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreCatalog>?> productStoreCatalog =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreBunch>?> productStoreBunch =
-                const i0.Value.absent(),
-            i0.Value<List<i3.ProductStoreRole>?> productStoreRole =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ProductStoreCompanion.insert(
-            productStoreId: productStoreId,
-            primaryStoreGroupId: primaryStoreGroupId,
-            storeName: storeName,
-            companyName: companyName,
-            title: title,
-            subtitle: subtitle,
-            payToPartyId: payToPartyId,
-            daysToCancelNonPay: daysToCancelNonPay,
-            manualAuthIsCapture: manualAuthIsCapture,
-            prorateShipping: prorateShipping,
-            prorateTaxes: prorateTaxes,
-            viewCartOnAdd: viewCartOnAdd,
-            autoSaveCart: autoSaveCart,
-            autoApproveReviews: autoApproveReviews,
-            isDemoStore: isDemoStore,
-            isImmediatelyFulfilled: isImmediatelyFulfilled,
-            inventoryFacilityId: inventoryFacilityId,
-            oneInventoryFacility: oneInventoryFacility,
-            checkInventory: checkInventory,
-            reserveInventory: reserveInventory,
-            reserveOrderEnumId: reserveOrderEnumId,
-            requireInventory: requireInventory,
-            balanceResOnOrderCreation: balanceResOnOrderCreation,
-            requirementMethodEnumId: requirementMethodEnumId,
-            orderNumberPrefix: orderNumberPrefix,
-            defaultLocaleString: defaultLocaleString,
-            defaultCurrencyUomId: defaultCurrencyUomId,
-            defaultTimeZoneString: defaultTimeZoneString,
-            defaultSalesChannelEnumId: defaultSalesChannelEnumId,
-            allowPassword: allowPassword,
-            defaultPassword: defaultPassword,
-            explodeOrderItems: explodeOrderItems,
-            checkGcBalance: checkGcBalance,
-            retryFailedAuths: retryFailedAuths,
-            headerApprovedStatus: headerApprovedStatus,
-            itemApprovedStatus: itemApprovedStatus,
-            digitalItemApprovedStatus: digitalItemApprovedStatus,
-            headerDeclinedStatus: headerDeclinedStatus,
-            itemDeclinedStatus: itemDeclinedStatus,
-            headerCancelStatus: headerCancelStatus,
-            itemCancelStatus: itemCancelStatus,
-            authDeclinedMessage: authDeclinedMessage,
-            authFraudMessage: authFraudMessage,
-            authErrorMessage: authErrorMessage,
-            visualThemeId: visualThemeId,
-            storeCreditAccountEnumId: storeCreditAccountEnumId,
-            usePrimaryEmailUsername: usePrimaryEmailUsername,
-            requireCustomerRole: requireCustomerRole,
-            autoInvoiceDigitalItems: autoInvoiceDigitalItems,
-            reqShipAddrForDigItems: reqShipAddrForDigItems,
-            showCheckoutGiftOptions: showCheckoutGiftOptions,
-            selectPaymentTypePerItem: selectPaymentTypePerItem,
-            showPricesWithVatTax: showPricesWithVatTax,
-            showTaxIsExempt: showTaxIsExempt,
-            vatTaxAuthGeoId: vatTaxAuthGeoId,
-            vatTaxAuthPartyId: vatTaxAuthPartyId,
-            enableAutoSuggestionList: enableAutoSuggestionList,
-            enableDigProdUpload: enableDigProdUpload,
-            prodSearchExcludeVariants: prodSearchExcludeVariants,
-            digProdUploadCategoryId: digProdUploadCategoryId,
-            autoOrderCcTryExp: autoOrderCcTryExp,
-            autoOrderCcTryOtherCards: autoOrderCcTryOtherCards,
-            autoOrderCcTryLaterNsf: autoOrderCcTryLaterNsf,
-            autoOrderCcTryLaterMax: autoOrderCcTryLaterMax,
-            storeCreditValidDays: storeCreditValidDays,
-            autoApproveInvoice: autoApproveInvoice,
-            autoApproveOrder: autoApproveOrder,
-            shipIfCaptureFails: shipIfCaptureFails,
-            setOwnerUponIssuance: setOwnerUponIssuance,
-            reqReturnInventoryReceive: reqReturnInventoryReceive,
-            addToCartRemoveIncompat: addToCartRemoveIncompat,
-            addToCartReplaceUpsell: addToCartReplaceUpsell,
-            splitPayPrefPerShpGrp: splitPayPrefPerShpGrp,
-            managedByLot: managedByLot,
-            showOutOfStockProducts: showOutOfStockProducts,
-            orderDecimalQuantity: orderDecimalQuantity,
-            allowComment: allowComment,
-            allocateInventory: allocateInventory,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            jointers: jointers,
-            multiJointers: multiJointers,
-            acl: acl,
-            telephone: telephone,
-            email: email,
-            placeId: placeId,
-            productStorePromoAppl: productStorePromoAppl,
-            productStoreEmailSetting: productStoreEmailSetting,
-            productStoreFacility: productStoreFacility,
-            productStorePaymentSetting: productStorePaymentSetting,
-            productStoreKeywordOvrd: productStoreKeywordOvrd,
-            productStoreSurveyAppl: productStoreSurveyAppl,
-            productStoreCatalog: productStoreCatalog,
-            productStoreBunch: productStoreBunch,
-            productStoreRole: productStoreRole,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ProductStoreProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.ProductStore,
-    i1.ProductStoreData,
-    i1.$ProductStoreFilterComposer,
-    i1.$ProductStoreOrderingComposer,
-    $ProductStoreCreateCompanionBuilder,
-    $ProductStoreUpdateCompanionBuilder,
-    (
-      i1.ProductStoreData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.ProductStore,
-          i1.ProductStoreData>
-    ),
-    i1.ProductStoreData,
-    i0.PrefetchHooks Function()>;
 
 class StoreDrift extends i6.ModularAccessor {
   StoreDrift(i0.GeneratedDatabase db) : super(db);

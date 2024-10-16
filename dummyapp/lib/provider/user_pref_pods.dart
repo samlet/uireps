@@ -11,7 +11,7 @@ part 'user_pref_pods.g.dart';
 @Riverpod(keepAlive: true)
 UserPrefRepository userPrefRepository(UserPrefRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return UserPrefRepository(conn.dio, database);
 }
 

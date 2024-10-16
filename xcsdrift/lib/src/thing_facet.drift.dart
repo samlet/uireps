@@ -4,6 +4,278 @@ import 'package:xcsdrift/src/thing_facet.drift.dart' as i1;
 import 'package:xcsdrift/fldconv.dart' as i2;
 import 'package:drift/internal/modular.dart' as i3;
 
+typedef $ThingFacetCreateCompanionBuilder = i1.ThingFacetCompanion Function({
+  required String thingId,
+  i0.Value<String?> name,
+  i0.Value<String?> description,
+  i0.Value<String?> url,
+  i0.Value<List<String>?> image,
+  i0.Value<String?> sameAs,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $ThingFacetUpdateCompanionBuilder = i1.ThingFacetCompanion Function({
+  i0.Value<String> thingId,
+  i0.Value<String?> name,
+  i0.Value<String?> description,
+  i0.Value<String?> url,
+  i0.Value<List<String>?> image,
+  i0.Value<String?> sameAs,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $ThingFacetFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ThingFacet> {
+  $ThingFacetFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get thingId => $composableBuilder(
+      column: $table.thingId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get url => $composableBuilder(
+      column: $table.url, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get image => $composableBuilder(
+          column: $table.image,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get sameAs => $composableBuilder(
+      column: $table.sameAs, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $ThingFacetOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ThingFacet> {
+  $ThingFacetOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get thingId => $composableBuilder(
+      column: $table.thingId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get url => $composableBuilder(
+      column: $table.url, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get sameAs => $composableBuilder(
+      column: $table.sameAs, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $ThingFacetAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.ThingFacet> {
+  $ThingFacetAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get thingId =>
+      $composableBuilder(column: $table.thingId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get url =>
+      $composableBuilder(column: $table.url, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get image =>
+      $composableBuilder(column: $table.image, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get sameAs =>
+      $composableBuilder(column: $table.sameAs, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $ThingFacetTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.ThingFacet,
+    i1.ThingFacetData,
+    i1.$ThingFacetFilterComposer,
+    i1.$ThingFacetOrderingComposer,
+    i1.$ThingFacetAnnotationComposer,
+    $ThingFacetCreateCompanionBuilder,
+    $ThingFacetUpdateCompanionBuilder,
+    (
+      i1.ThingFacetData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.ThingFacet, i1.ThingFacetData>
+    ),
+    i1.ThingFacetData,
+    i0.PrefetchHooks Function()> {
+  $ThingFacetTableManager(i0.GeneratedDatabase db, i1.ThingFacet table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$ThingFacetFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$ThingFacetOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$ThingFacetAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> thingId = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> url = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
+            i0.Value<String?> sameAs = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ThingFacetCompanion(
+            thingId: thingId,
+            name: name,
+            description: description,
+            url: url,
+            image: image,
+            sameAs: sameAs,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String thingId,
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> url = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
+            i0.Value<String?> sameAs = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.ThingFacetCompanion.insert(
+            thingId: thingId,
+            name: name,
+            description: description,
+            url: url,
+            image: image,
+            sameAs: sameAs,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $ThingFacetProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.ThingFacet,
+    i1.ThingFacetData,
+    i1.$ThingFacetFilterComposer,
+    i1.$ThingFacetOrderingComposer,
+    i1.$ThingFacetAnnotationComposer,
+    $ThingFacetCreateCompanionBuilder,
+    $ThingFacetUpdateCompanionBuilder,
+    (
+      i1.ThingFacetData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.ThingFacet, i1.ThingFacetData>
+    ),
+    i1.ThingFacetData,
+    i0.PrefetchHooks Function()>;
+
 class ThingFacet extends i0.Table
     with i0.TableInfo<ThingFacet, i1.ThingFacetData> {
   @override
@@ -614,256 +886,6 @@ class ThingFacetCompanion extends i0.UpdateCompanion<i1.ThingFacetData> {
         .toString();
   }
 }
-
-typedef $ThingFacetCreateCompanionBuilder = i1.ThingFacetCompanion Function({
-  required String thingId,
-  i0.Value<String?> name,
-  i0.Value<String?> description,
-  i0.Value<String?> url,
-  i0.Value<List<String>?> image,
-  i0.Value<String?> sameAs,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $ThingFacetUpdateCompanionBuilder = i1.ThingFacetCompanion Function({
-  i0.Value<String> thingId,
-  i0.Value<String?> name,
-  i0.Value<String?> description,
-  i0.Value<String?> url,
-  i0.Value<List<String>?> image,
-  i0.Value<String?> sameAs,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $ThingFacetFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.ThingFacet> {
-  $ThingFacetFilterComposer(super.$state);
-  i0.ColumnFilters<String> get thingId => $state.composableBuilder(
-      column: $state.table.thingId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get url => $state.composableBuilder(
-      column: $state.table.url,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get image => $state.composableBuilder(
-          column: $state.table.image,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get sameAs => $state.composableBuilder(
-      column: $state.table.sameAs,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $ThingFacetOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.ThingFacet> {
-  $ThingFacetOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get thingId => $state.composableBuilder(
-      column: $state.table.thingId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get url => $state.composableBuilder(
-      column: $state.table.url,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get image => $state.composableBuilder(
-      column: $state.table.image,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get sameAs => $state.composableBuilder(
-      column: $state.table.sameAs,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $ThingFacetTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.ThingFacet,
-    i1.ThingFacetData,
-    i1.$ThingFacetFilterComposer,
-    i1.$ThingFacetOrderingComposer,
-    $ThingFacetCreateCompanionBuilder,
-    $ThingFacetUpdateCompanionBuilder,
-    (
-      i1.ThingFacetData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.ThingFacet, i1.ThingFacetData>
-    ),
-    i1.ThingFacetData,
-    i0.PrefetchHooks Function()> {
-  $ThingFacetTableManager(i0.GeneratedDatabase db, i1.ThingFacet table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$ThingFacetFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$ThingFacetOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> thingId = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> url = const i0.Value.absent(),
-            i0.Value<List<String>?> image = const i0.Value.absent(),
-            i0.Value<String?> sameAs = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ThingFacetCompanion(
-            thingId: thingId,
-            name: name,
-            description: description,
-            url: url,
-            image: image,
-            sameAs: sameAs,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String thingId,
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> url = const i0.Value.absent(),
-            i0.Value<List<String>?> image = const i0.Value.absent(),
-            i0.Value<String?> sameAs = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.ThingFacetCompanion.insert(
-            thingId: thingId,
-            name: name,
-            description: description,
-            url: url,
-            image: image,
-            sameAs: sameAs,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $ThingFacetProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.ThingFacet,
-    i1.ThingFacetData,
-    i1.$ThingFacetFilterComposer,
-    i1.$ThingFacetOrderingComposer,
-    $ThingFacetCreateCompanionBuilder,
-    $ThingFacetUpdateCompanionBuilder,
-    (
-      i1.ThingFacetData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.ThingFacet, i1.ThingFacetData>
-    ),
-    i1.ThingFacetData,
-    i0.PrefetchHooks Function()>;
 
 class ThingFacetDrift extends i3.ModularAccessor {
   ThingFacetDrift(i0.GeneratedDatabase db) : super(db);

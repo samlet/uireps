@@ -5,6 +5,281 @@ import 'dart:typed_data' as i2;
 import 'package:xcsdrift/fldconv.dart' as i3;
 import 'package:drift/internal/modular.dart' as i4;
 
+typedef $UserPrefCreateCompanionBuilder = i1.UserPrefCompanion Function({
+  required String userPrefId,
+  i0.Value<String?> loginId,
+  i0.Value<String?> prefKey,
+  i0.Value<i2.Uint8List?> prefValue,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> userPrefTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $UserPrefUpdateCompanionBuilder = i1.UserPrefCompanion Function({
+  i0.Value<String> userPrefId,
+  i0.Value<String?> loginId,
+  i0.Value<String?> prefKey,
+  i0.Value<i2.Uint8List?> prefValue,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> userPrefTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $UserPrefFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.UserPref> {
+  $UserPrefFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get userPrefId => $composableBuilder(
+      column: $table.userPrefId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get loginId => $composableBuilder(
+      column: $table.loginId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get prefKey => $composableBuilder(
+      column: $table.prefKey, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Uint8List?, i2.Uint8List, i2.Uint8List>
+      get prefValue => $composableBuilder(
+          column: $table.prefValue,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get userPrefTypeId => $composableBuilder(
+      column: $table.userPrefTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $UserPrefOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.UserPref> {
+  $UserPrefOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get userPrefId => $composableBuilder(
+      column: $table.userPrefId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get loginId => $composableBuilder(
+      column: $table.loginId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get prefKey => $composableBuilder(
+      column: $table.prefKey, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<i2.Uint8List> get prefValue => $composableBuilder(
+      column: $table.prefValue,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get userPrefTypeId => $composableBuilder(
+      column: $table.userPrefTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $UserPrefAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.UserPref> {
+  $UserPrefAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get userPrefId => $composableBuilder(
+      column: $table.userPrefId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get loginId =>
+      $composableBuilder(column: $table.loginId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get prefKey =>
+      $composableBuilder(column: $table.prefKey, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Uint8List?, i2.Uint8List>
+      get prefValue => $composableBuilder(
+          column: $table.prefValue, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get userPrefTypeId => $composableBuilder(
+      column: $table.userPrefTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $UserPrefTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.UserPref,
+    i1.UserPrefData,
+    i1.$UserPrefFilterComposer,
+    i1.$UserPrefOrderingComposer,
+    i1.$UserPrefAnnotationComposer,
+    $UserPrefCreateCompanionBuilder,
+    $UserPrefUpdateCompanionBuilder,
+    (
+      i1.UserPrefData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.UserPref, i1.UserPrefData>
+    ),
+    i1.UserPrefData,
+    i0.PrefetchHooks Function()> {
+  $UserPrefTableManager(i0.GeneratedDatabase db, i1.UserPref table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$UserPrefFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$UserPrefOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$UserPrefAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> userPrefId = const i0.Value.absent(),
+            i0.Value<String?> loginId = const i0.Value.absent(),
+            i0.Value<String?> prefKey = const i0.Value.absent(),
+            i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> userPrefTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.UserPrefCompanion(
+            userPrefId: userPrefId,
+            loginId: loginId,
+            prefKey: prefKey,
+            prefValue: prefValue,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            userPrefTypeId: userPrefTypeId,
+            statusId: statusId,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String userPrefId,
+            i0.Value<String?> loginId = const i0.Value.absent(),
+            i0.Value<String?> prefKey = const i0.Value.absent(),
+            i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> userPrefTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.UserPrefCompanion.insert(
+            userPrefId: userPrefId,
+            loginId: loginId,
+            prefKey: prefKey,
+            prefValue: prefValue,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            userPrefTypeId: userPrefTypeId,
+            statusId: statusId,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $UserPrefProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.UserPref,
+    i1.UserPrefData,
+    i1.$UserPrefFilterComposer,
+    i1.$UserPrefOrderingComposer,
+    i1.$UserPrefAnnotationComposer,
+    $UserPrefCreateCompanionBuilder,
+    $UserPrefUpdateCompanionBuilder,
+    (
+      i1.UserPrefData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.UserPref, i1.UserPrefData>
+    ),
+    i1.UserPrefData,
+    i0.PrefetchHooks Function()>;
+
 class UserPref extends i0.Table with i0.TableInfo<UserPref, i1.UserPrefData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -624,256 +899,6 @@ class UserPrefCompanion extends i0.UpdateCompanion<i1.UserPrefData> {
         .toString();
   }
 }
-
-typedef $UserPrefCreateCompanionBuilder = i1.UserPrefCompanion Function({
-  required String userPrefId,
-  i0.Value<String?> loginId,
-  i0.Value<String?> prefKey,
-  i0.Value<i2.Uint8List?> prefValue,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> userPrefTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $UserPrefUpdateCompanionBuilder = i1.UserPrefCompanion Function({
-  i0.Value<String> userPrefId,
-  i0.Value<String?> loginId,
-  i0.Value<String?> prefKey,
-  i0.Value<i2.Uint8List?> prefValue,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> userPrefTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $UserPrefFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.UserPref> {
-  $UserPrefFilterComposer(super.$state);
-  i0.ColumnFilters<String> get userPrefId => $state.composableBuilder(
-      column: $state.table.userPrefId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get loginId => $state.composableBuilder(
-      column: $state.table.loginId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get prefKey => $state.composableBuilder(
-      column: $state.table.prefKey,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Uint8List?, i2.Uint8List, i2.Uint8List>
-      get prefValue => $state.composableBuilder(
-          column: $state.table.prefValue,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get userPrefTypeId => $state.composableBuilder(
-      column: $state.table.userPrefTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $UserPrefOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.UserPref> {
-  $UserPrefOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get userPrefId => $state.composableBuilder(
-      column: $state.table.userPrefId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get loginId => $state.composableBuilder(
-      column: $state.table.loginId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get prefKey => $state.composableBuilder(
-      column: $state.table.prefKey,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<i2.Uint8List> get prefValue => $state.composableBuilder(
-      column: $state.table.prefValue,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get userPrefTypeId => $state.composableBuilder(
-      column: $state.table.userPrefTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $UserPrefTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.UserPref,
-    i1.UserPrefData,
-    i1.$UserPrefFilterComposer,
-    i1.$UserPrefOrderingComposer,
-    $UserPrefCreateCompanionBuilder,
-    $UserPrefUpdateCompanionBuilder,
-    (
-      i1.UserPrefData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.UserPref, i1.UserPrefData>
-    ),
-    i1.UserPrefData,
-    i0.PrefetchHooks Function()> {
-  $UserPrefTableManager(i0.GeneratedDatabase db, i1.UserPref table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$UserPrefFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$UserPrefOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> userPrefId = const i0.Value.absent(),
-            i0.Value<String?> loginId = const i0.Value.absent(),
-            i0.Value<String?> prefKey = const i0.Value.absent(),
-            i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> userPrefTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.UserPrefCompanion(
-            userPrefId: userPrefId,
-            loginId: loginId,
-            prefKey: prefKey,
-            prefValue: prefValue,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            userPrefTypeId: userPrefTypeId,
-            statusId: statusId,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String userPrefId,
-            i0.Value<String?> loginId = const i0.Value.absent(),
-            i0.Value<String?> prefKey = const i0.Value.absent(),
-            i0.Value<i2.Uint8List?> prefValue = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> userPrefTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.UserPrefCompanion.insert(
-            userPrefId: userPrefId,
-            loginId: loginId,
-            prefKey: prefKey,
-            prefValue: prefValue,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            userPrefTypeId: userPrefTypeId,
-            statusId: statusId,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $UserPrefProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.UserPref,
-    i1.UserPrefData,
-    i1.$UserPrefFilterComposer,
-    i1.$UserPrefOrderingComposer,
-    $UserPrefCreateCompanionBuilder,
-    $UserPrefUpdateCompanionBuilder,
-    (
-      i1.UserPrefData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.UserPref, i1.UserPrefData>
-    ),
-    i1.UserPrefData,
-    i0.PrefetchHooks Function()>;
 
 class UserPrefDrift extends i4.ModularAccessor {
   UserPrefDrift(i0.GeneratedDatabase db) : super(db);

@@ -1,30 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'buyer_pref_pods.dart';
+part of 'commodity_pods.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$buyerPrefRepositoryHash() =>
-    r'9db237cd7fb0fce68687eef2a334926454d44fa5';
+String _$commodityRepositoryHash() =>
+    r'74435693113450b36f8dcbf21302c527821e4cbb';
 
 /// repository pod
 ///
-/// Copied from [buyerPrefRepository].
-@ProviderFor(buyerPrefRepository)
-final buyerPrefRepositoryProvider = Provider<BuyerPrefRepository>.internal(
-  buyerPrefRepository,
-  name: r'buyerPrefRepositoryProvider',
+/// Copied from [commodityRepository].
+@ProviderFor(commodityRepository)
+final commodityRepositoryProvider = Provider<CommodityRepository>.internal(
+  commodityRepository,
+  name: r'commodityRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$buyerPrefRepositoryHash,
+      : _$commodityRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef BuyerPrefRepositoryRef = ProviderRef<BuyerPrefRepository>;
-String _$getBuyerPrefHash() => r'a28e4e326d642a883fdaf06b726fb56babbfdd4d';
+typedef CommodityRepositoryRef = ProviderRef<CommodityRepository>;
+String _$getCommodityHash() => r'f0d9380a17eb1042110e331dfb9bfcdefc66a679';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -49,33 +49,33 @@ class _SystemHash {
 
 /// get single
 ///
-/// Copied from [getBuyerPref].
-@ProviderFor(getBuyerPref)
-const getBuyerPrefProvider = GetBuyerPrefFamily();
+/// Copied from [getCommodity].
+@ProviderFor(getCommodity)
+const getCommodityProvider = GetCommodityFamily();
 
 /// get single
 ///
-/// Copied from [getBuyerPref].
-class GetBuyerPrefFamily extends Family<AsyncValue<BuyerPrefData?>> {
+/// Copied from [getCommodity].
+class GetCommodityFamily extends Family<AsyncValue<CommodityData?>> {
   /// get single
   ///
-  /// Copied from [getBuyerPref].
-  const GetBuyerPrefFamily();
+  /// Copied from [getCommodity].
+  const GetCommodityFamily();
 
   /// get single
   ///
-  /// Copied from [getBuyerPref].
-  GetBuyerPrefProvider call({
+  /// Copied from [getCommodity].
+  GetCommodityProvider call({
     required String id,
   }) {
-    return GetBuyerPrefProvider(
+    return GetCommodityProvider(
       id: id,
     );
   }
 
   @override
-  GetBuyerPrefProvider getProviderOverride(
-    covariant GetBuyerPrefProvider provider,
+  GetCommodityProvider getProviderOverride(
+    covariant GetCommodityProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -94,36 +94,36 @@ class GetBuyerPrefFamily extends Family<AsyncValue<BuyerPrefData?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'getBuyerPrefProvider';
+  String? get name => r'getCommodityProvider';
 }
 
 /// get single
 ///
-/// Copied from [getBuyerPref].
-class GetBuyerPrefProvider extends AutoDisposeFutureProvider<BuyerPrefData?> {
+/// Copied from [getCommodity].
+class GetCommodityProvider extends AutoDisposeFutureProvider<CommodityData?> {
   /// get single
   ///
-  /// Copied from [getBuyerPref].
-  GetBuyerPrefProvider({
+  /// Copied from [getCommodity].
+  GetCommodityProvider({
     required String id,
   }) : this._internal(
-          (ref) => getBuyerPref(
-            ref as GetBuyerPrefRef,
+          (ref) => getCommodity(
+            ref as GetCommodityRef,
             id: id,
           ),
-          from: getBuyerPrefProvider,
-          name: r'getBuyerPrefProvider',
+          from: getCommodityProvider,
+          name: r'getCommodityProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$getBuyerPrefHash,
-          dependencies: GetBuyerPrefFamily._dependencies,
+                  : _$getCommodityHash,
+          dependencies: GetCommodityFamily._dependencies,
           allTransitiveDependencies:
-              GetBuyerPrefFamily._allTransitiveDependencies,
+              GetCommodityFamily._allTransitiveDependencies,
           id: id,
         );
 
-  GetBuyerPrefProvider._internal(
+  GetCommodityProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -137,12 +137,12 @@ class GetBuyerPrefProvider extends AutoDisposeFutureProvider<BuyerPrefData?> {
 
   @override
   Override overrideWith(
-    FutureOr<BuyerPrefData?> Function(GetBuyerPrefRef provider) create,
+    FutureOr<CommodityData?> Function(GetCommodityRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: GetBuyerPrefProvider._internal(
-        (ref) => create(ref as GetBuyerPrefRef),
+      override: GetCommodityProvider._internal(
+        (ref) => create(ref as GetCommodityRef),
         from: from,
         name: null,
         dependencies: null,
@@ -154,13 +154,13 @@ class GetBuyerPrefProvider extends AutoDisposeFutureProvider<BuyerPrefData?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<BuyerPrefData?> createElement() {
-    return _GetBuyerPrefProviderElement(this);
+  AutoDisposeFutureProviderElement<CommodityData?> createElement() {
+    return _GetCommodityProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GetBuyerPrefProvider && other.id == id;
+    return other is GetCommodityProvider && other.id == id;
   }
 
   @override
@@ -172,51 +172,51 @@ class GetBuyerPrefProvider extends AutoDisposeFutureProvider<BuyerPrefData?> {
   }
 }
 
-mixin GetBuyerPrefRef on AutoDisposeFutureProviderRef<BuyerPrefData?> {
+mixin GetCommodityRef on AutoDisposeFutureProviderRef<CommodityData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _GetBuyerPrefProviderElement
-    extends AutoDisposeFutureProviderElement<BuyerPrefData?>
-    with GetBuyerPrefRef {
-  _GetBuyerPrefProviderElement(super.provider);
+class _GetCommodityProviderElement
+    extends AutoDisposeFutureProviderElement<CommodityData?>
+    with GetCommodityRef {
+  _GetCommodityProviderElement(super.provider);
 
   @override
-  String get id => (origin as GetBuyerPrefProvider).id;
+  String get id => (origin as GetCommodityProvider).id;
 }
 
-String _$fetchBuyerPrefHash() => r'491f5d1db19af1e40820c898e296da936e2c4c28';
+String _$fetchCommodityHash() => r'0349ca1629d104d6da3bb0b2621675258c2a44c1';
 
 /// fetch single
 ///
-/// Copied from [fetchBuyerPref].
-@ProviderFor(fetchBuyerPref)
-const fetchBuyerPrefProvider = FetchBuyerPrefFamily();
+/// Copied from [fetchCommodity].
+@ProviderFor(fetchCommodity)
+const fetchCommodityProvider = FetchCommodityFamily();
 
 /// fetch single
 ///
-/// Copied from [fetchBuyerPref].
-class FetchBuyerPrefFamily extends Family<AsyncValue<ent.BuyerPref?>> {
+/// Copied from [fetchCommodity].
+class FetchCommodityFamily extends Family<AsyncValue<ent.Commodity?>> {
   /// fetch single
   ///
-  /// Copied from [fetchBuyerPref].
-  const FetchBuyerPrefFamily();
+  /// Copied from [fetchCommodity].
+  const FetchCommodityFamily();
 
   /// fetch single
   ///
-  /// Copied from [fetchBuyerPref].
-  FetchBuyerPrefProvider call({
+  /// Copied from [fetchCommodity].
+  FetchCommodityProvider call({
     required String id,
   }) {
-    return FetchBuyerPrefProvider(
+    return FetchCommodityProvider(
       id: id,
     );
   }
 
   @override
-  FetchBuyerPrefProvider getProviderOverride(
-    covariant FetchBuyerPrefProvider provider,
+  FetchCommodityProvider getProviderOverride(
+    covariant FetchCommodityProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -235,36 +235,36 @@ class FetchBuyerPrefFamily extends Family<AsyncValue<ent.BuyerPref?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchBuyerPrefProvider';
+  String? get name => r'fetchCommodityProvider';
 }
 
 /// fetch single
 ///
-/// Copied from [fetchBuyerPref].
-class FetchBuyerPrefProvider extends AutoDisposeFutureProvider<ent.BuyerPref?> {
+/// Copied from [fetchCommodity].
+class FetchCommodityProvider extends AutoDisposeFutureProvider<ent.Commodity?> {
   /// fetch single
   ///
-  /// Copied from [fetchBuyerPref].
-  FetchBuyerPrefProvider({
+  /// Copied from [fetchCommodity].
+  FetchCommodityProvider({
     required String id,
   }) : this._internal(
-          (ref) => fetchBuyerPref(
-            ref as FetchBuyerPrefRef,
+          (ref) => fetchCommodity(
+            ref as FetchCommodityRef,
             id: id,
           ),
-          from: fetchBuyerPrefProvider,
-          name: r'fetchBuyerPrefProvider',
+          from: fetchCommodityProvider,
+          name: r'fetchCommodityProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchBuyerPrefHash,
-          dependencies: FetchBuyerPrefFamily._dependencies,
+                  : _$fetchCommodityHash,
+          dependencies: FetchCommodityFamily._dependencies,
           allTransitiveDependencies:
-              FetchBuyerPrefFamily._allTransitiveDependencies,
+              FetchCommodityFamily._allTransitiveDependencies,
           id: id,
         );
 
-  FetchBuyerPrefProvider._internal(
+  FetchCommodityProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -278,12 +278,12 @@ class FetchBuyerPrefProvider extends AutoDisposeFutureProvider<ent.BuyerPref?> {
 
   @override
   Override overrideWith(
-    FutureOr<ent.BuyerPref?> Function(FetchBuyerPrefRef provider) create,
+    FutureOr<ent.Commodity?> Function(FetchCommodityRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchBuyerPrefProvider._internal(
-        (ref) => create(ref as FetchBuyerPrefRef),
+      override: FetchCommodityProvider._internal(
+        (ref) => create(ref as FetchCommodityRef),
         from: from,
         name: null,
         dependencies: null,
@@ -295,13 +295,13 @@ class FetchBuyerPrefProvider extends AutoDisposeFutureProvider<ent.BuyerPref?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ent.BuyerPref?> createElement() {
-    return _FetchBuyerPrefProviderElement(this);
+  AutoDisposeFutureProviderElement<ent.Commodity?> createElement() {
+    return _FetchCommodityProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchBuyerPrefProvider && other.id == id;
+    return other is FetchCommodityProvider && other.id == id;
   }
 
   @override
@@ -313,53 +313,53 @@ class FetchBuyerPrefProvider extends AutoDisposeFutureProvider<ent.BuyerPref?> {
   }
 }
 
-mixin FetchBuyerPrefRef on AutoDisposeFutureProviderRef<ent.BuyerPref?> {
+mixin FetchCommodityRef on AutoDisposeFutureProviderRef<ent.Commodity?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _FetchBuyerPrefProviderElement
-    extends AutoDisposeFutureProviderElement<ent.BuyerPref?>
-    with FetchBuyerPrefRef {
-  _FetchBuyerPrefProviderElement(super.provider);
+class _FetchCommodityProviderElement
+    extends AutoDisposeFutureProviderElement<ent.Commodity?>
+    with FetchCommodityRef {
+  _FetchCommodityProviderElement(super.provider);
 
   @override
-  String get id => (origin as FetchBuyerPrefProvider).id;
+  String get id => (origin as FetchCommodityProvider).id;
 }
 
-String _$fetchBuyerPrefsFromRegHash() =>
-    r'3fe3969f5789c3fcd6f4b68562d713ff45548be1';
+String _$fetchCommoditiesFromRegHash() =>
+    r'ea041223a964a47eb5dcdb9cc7a7475c2403e484';
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchBuyerPrefsFromReg].
-@ProviderFor(fetchBuyerPrefsFromReg)
-const fetchBuyerPrefsFromRegProvider = FetchBuyerPrefsFromRegFamily();
+/// Copied from [fetchCommoditiesFromReg].
+@ProviderFor(fetchCommoditiesFromReg)
+const fetchCommoditiesFromRegProvider = FetchCommoditiesFromRegFamily();
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchBuyerPrefsFromReg].
-class FetchBuyerPrefsFromRegFamily
-    extends Family<AsyncValue<List<ent.BuyerPref>>> {
+/// Copied from [fetchCommoditiesFromReg].
+class FetchCommoditiesFromRegFamily
+    extends Family<AsyncValue<List<ent.Commodity>>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchBuyerPrefsFromReg].
-  const FetchBuyerPrefsFromRegFamily();
+  /// Copied from [fetchCommoditiesFromReg].
+  const FetchCommoditiesFromRegFamily();
 
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchBuyerPrefsFromReg].
-  FetchBuyerPrefsFromRegProvider call({
+  /// Copied from [fetchCommoditiesFromReg].
+  FetchCommoditiesFromRegProvider call({
     required String regNode,
   }) {
-    return FetchBuyerPrefsFromRegProvider(
+    return FetchCommoditiesFromRegProvider(
       regNode: regNode,
     );
   }
 
   @override
-  FetchBuyerPrefsFromRegProvider getProviderOverride(
-    covariant FetchBuyerPrefsFromRegProvider provider,
+  FetchCommoditiesFromRegProvider getProviderOverride(
+    covariant FetchCommoditiesFromRegProvider provider,
   ) {
     return call(
       regNode: provider.regNode,
@@ -378,37 +378,37 @@ class FetchBuyerPrefsFromRegFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchBuyerPrefsFromRegProvider';
+  String? get name => r'fetchCommoditiesFromRegProvider';
 }
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchBuyerPrefsFromReg].
-class FetchBuyerPrefsFromRegProvider
-    extends AutoDisposeFutureProvider<List<ent.BuyerPref>> {
+/// Copied from [fetchCommoditiesFromReg].
+class FetchCommoditiesFromRegProvider
+    extends AutoDisposeFutureProvider<List<ent.Commodity>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchBuyerPrefsFromReg].
-  FetchBuyerPrefsFromRegProvider({
+  /// Copied from [fetchCommoditiesFromReg].
+  FetchCommoditiesFromRegProvider({
     required String regNode,
   }) : this._internal(
-          (ref) => fetchBuyerPrefsFromReg(
-            ref as FetchBuyerPrefsFromRegRef,
+          (ref) => fetchCommoditiesFromReg(
+            ref as FetchCommoditiesFromRegRef,
             regNode: regNode,
           ),
-          from: fetchBuyerPrefsFromRegProvider,
-          name: r'fetchBuyerPrefsFromRegProvider',
+          from: fetchCommoditiesFromRegProvider,
+          name: r'fetchCommoditiesFromRegProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchBuyerPrefsFromRegHash,
-          dependencies: FetchBuyerPrefsFromRegFamily._dependencies,
+                  : _$fetchCommoditiesFromRegHash,
+          dependencies: FetchCommoditiesFromRegFamily._dependencies,
           allTransitiveDependencies:
-              FetchBuyerPrefsFromRegFamily._allTransitiveDependencies,
+              FetchCommoditiesFromRegFamily._allTransitiveDependencies,
           regNode: regNode,
         );
 
-  FetchBuyerPrefsFromRegProvider._internal(
+  FetchCommoditiesFromRegProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -422,13 +422,13 @@ class FetchBuyerPrefsFromRegProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.BuyerPref>> Function(FetchBuyerPrefsFromRegRef provider)
+    FutureOr<List<ent.Commodity>> Function(FetchCommoditiesFromRegRef provider)
         create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchBuyerPrefsFromRegProvider._internal(
-        (ref) => create(ref as FetchBuyerPrefsFromRegRef),
+      override: FetchCommoditiesFromRegProvider._internal(
+        (ref) => create(ref as FetchCommoditiesFromRegRef),
         from: from,
         name: null,
         dependencies: null,
@@ -440,13 +440,13 @@ class FetchBuyerPrefsFromRegProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.BuyerPref>> createElement() {
-    return _FetchBuyerPrefsFromRegProviderElement(this);
+  AutoDisposeFutureProviderElement<List<ent.Commodity>> createElement() {
+    return _FetchCommoditiesFromRegProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchBuyerPrefsFromRegProvider && other.regNode == regNode;
+    return other is FetchCommoditiesFromRegProvider && other.regNode == regNode;
   }
 
   @override
@@ -458,79 +458,79 @@ class FetchBuyerPrefsFromRegProvider
   }
 }
 
-mixin FetchBuyerPrefsFromRegRef
-    on AutoDisposeFutureProviderRef<List<ent.BuyerPref>> {
+mixin FetchCommoditiesFromRegRef
+    on AutoDisposeFutureProviderRef<List<ent.Commodity>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
 }
 
-class _FetchBuyerPrefsFromRegProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.BuyerPref>>
-    with FetchBuyerPrefsFromRegRef {
-  _FetchBuyerPrefsFromRegProviderElement(super.provider);
+class _FetchCommoditiesFromRegProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Commodity>>
+    with FetchCommoditiesFromRegRef {
+  _FetchCommoditiesFromRegProviderElement(super.provider);
 
   @override
-  String get regNode => (origin as FetchBuyerPrefsFromRegProvider).regNode;
+  String get regNode => (origin as FetchCommoditiesFromRegProvider).regNode;
 }
 
-String _$buyerPrefBucketHash() => r'd78ee78bb028fdec341c58f48c725e65cbe75631';
+String _$commodityBucketHash() => r'81337d7dd8c397c7f6ba0e30ca0cf0d1c4eafd90';
 
 /// watch stream (localDb)
 ///
-/// Copied from [BuyerPrefBucket].
-@ProviderFor(BuyerPrefBucket)
-final buyerPrefBucketProvider = AutoDisposeStreamNotifierProvider<
-    BuyerPrefBucket, List<BuyerPrefData>>.internal(
-  BuyerPrefBucket.new,
-  name: r'buyerPrefBucketProvider',
+/// Copied from [CommodityBucket].
+@ProviderFor(CommodityBucket)
+final commodityBucketProvider = AutoDisposeStreamNotifierProvider<
+    CommodityBucket, List<CommodityData>>.internal(
+  CommodityBucket.new,
+  name: r'commodityBucketProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$buyerPrefBucketHash,
+      : _$commodityBucketHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$BuyerPrefBucket = AutoDisposeStreamNotifier<List<BuyerPrefData>>;
-String _$buyerPrefElHash() => r'da8364528e88a7eb8d677ca390adb95562e5e134';
+typedef _$CommodityBucket = AutoDisposeStreamNotifier<List<CommodityData>>;
+String _$commodityElHash() => r'0be2b500f405f359635bc95391df2c07dc20c0ff';
 
-abstract class _$BuyerPrefEl
-    extends BuildlessAutoDisposeStreamNotifier<BuyerPrefData> {
+abstract class _$CommodityEl
+    extends BuildlessAutoDisposeStreamNotifier<CommodityData> {
   late final String id;
 
-  Stream<BuyerPrefData> build(
+  Stream<CommodityData> build(
     String id,
   );
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [BuyerPrefEl].
-@ProviderFor(BuyerPrefEl)
-const buyerPrefElProvider = BuyerPrefElFamily();
+/// Copied from [CommodityEl].
+@ProviderFor(CommodityEl)
+const commodityElProvider = CommodityElFamily();
 
 /// watch single (localDb)
 ///
-/// Copied from [BuyerPrefEl].
-class BuyerPrefElFamily extends Family<AsyncValue<BuyerPrefData>> {
+/// Copied from [CommodityEl].
+class CommodityElFamily extends Family<AsyncValue<CommodityData>> {
   /// watch single (localDb)
   ///
-  /// Copied from [BuyerPrefEl].
-  const BuyerPrefElFamily();
+  /// Copied from [CommodityEl].
+  const CommodityElFamily();
 
   /// watch single (localDb)
   ///
-  /// Copied from [BuyerPrefEl].
-  BuyerPrefElProvider call(
+  /// Copied from [CommodityEl].
+  CommodityElProvider call(
     String id,
   ) {
-    return BuyerPrefElProvider(
+    return CommodityElProvider(
       id,
     );
   }
 
   @override
-  BuyerPrefElProvider getProviderOverride(
-    covariant BuyerPrefElProvider provider,
+  CommodityElProvider getProviderOverride(
+    covariant CommodityElProvider provider,
   ) {
     return call(
       provider.id,
@@ -549,34 +549,34 @@ class BuyerPrefElFamily extends Family<AsyncValue<BuyerPrefData>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'buyerPrefElProvider';
+  String? get name => r'commodityElProvider';
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [BuyerPrefEl].
-class BuyerPrefElProvider
-    extends AutoDisposeStreamNotifierProviderImpl<BuyerPrefEl, BuyerPrefData> {
+/// Copied from [CommodityEl].
+class CommodityElProvider
+    extends AutoDisposeStreamNotifierProviderImpl<CommodityEl, CommodityData> {
   /// watch single (localDb)
   ///
-  /// Copied from [BuyerPrefEl].
-  BuyerPrefElProvider(
+  /// Copied from [CommodityEl].
+  CommodityElProvider(
     String id,
   ) : this._internal(
-          () => BuyerPrefEl()..id = id,
-          from: buyerPrefElProvider,
-          name: r'buyerPrefElProvider',
+          () => CommodityEl()..id = id,
+          from: commodityElProvider,
+          name: r'commodityElProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$buyerPrefElHash,
-          dependencies: BuyerPrefElFamily._dependencies,
+                  : _$commodityElHash,
+          dependencies: CommodityElFamily._dependencies,
           allTransitiveDependencies:
-              BuyerPrefElFamily._allTransitiveDependencies,
+              CommodityElFamily._allTransitiveDependencies,
           id: id,
         );
 
-  BuyerPrefElProvider._internal(
+  CommodityElProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -589,8 +589,8 @@ class BuyerPrefElProvider
   final String id;
 
   @override
-  Stream<BuyerPrefData> runNotifierBuild(
-    covariant BuyerPrefEl notifier,
+  Stream<CommodityData> runNotifierBuild(
+    covariant CommodityEl notifier,
   ) {
     return notifier.build(
       id,
@@ -598,10 +598,10 @@ class BuyerPrefElProvider
   }
 
   @override
-  Override overrideWith(BuyerPrefEl Function() create) {
+  Override overrideWith(CommodityEl Function() create) {
     return ProviderOverride(
       origin: this,
-      override: BuyerPrefElProvider._internal(
+      override: CommodityElProvider._internal(
         () => create()..id = id,
         from: from,
         name: null,
@@ -614,14 +614,14 @@ class BuyerPrefElProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<BuyerPrefEl, BuyerPrefData>
+  AutoDisposeStreamNotifierProviderElement<CommodityEl, CommodityData>
       createElement() {
-    return _BuyerPrefElProviderElement(this);
+    return _CommodityElProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is BuyerPrefElProvider && other.id == id;
+    return other is CommodityElProvider && other.id == id;
   }
 
   @override
@@ -633,18 +633,18 @@ class BuyerPrefElProvider
   }
 }
 
-mixin BuyerPrefElRef on AutoDisposeStreamNotifierProviderRef<BuyerPrefData> {
+mixin CommodityElRef on AutoDisposeStreamNotifierProviderRef<CommodityData> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _BuyerPrefElProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<BuyerPrefEl, BuyerPrefData>
-    with BuyerPrefElRef {
-  _BuyerPrefElProviderElement(super.provider);
+class _CommodityElProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<CommodityEl, CommodityData>
+    with CommodityElRef {
+  _CommodityElProviderElement(super.provider);
 
   @override
-  String get id => (origin as BuyerPrefElProvider).id;
+  String get id => (origin as CommodityElProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -7,6 +7,805 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/facility_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $FacilityCreateCompanionBuilder = i1.FacilityCompanion Function({
+  required String facilityId,
+  i0.Value<String?> facilityTypeId,
+  i0.Value<String?> parentFacilityId,
+  i0.Value<String?> ownerPartyId,
+  i0.Value<String?> defaultInventoryItemTypeId,
+  i0.Value<String?> facilityName,
+  i0.Value<String?> primaryFacilityGroupId,
+  i0.Value<double?> facilitySize,
+  i0.Value<String?> facilitySizeUomId,
+  i0.Value<String?> productStoreId,
+  i0.Value<int?> defaultDaysToShip,
+  i0.Value<DateTime?> openedDate,
+  i0.Value<DateTime?> closedDate,
+  i0.Value<String?> description,
+  i0.Value<String?> defaultDimensionUomId,
+  i0.Value<String?> defaultWeightUomId,
+  i0.Value<String?> geoPointId,
+  i0.Value<int?> facilityLevel,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> facilityErcId,
+  i0.Value<String?> nftErc,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<i3.FacilityType?> facilityType,
+  i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
+  i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
+  i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce,
+  i0.Value<List<i3.FacilityAttribute>?> facilityAttribute,
+  i0.Value<List<i3.FacilityContactMechPurpose>?> facilityContactMechPurpose,
+  i0.Value<List<i3.FacilityLocation>?> facilityLocation,
+  i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint,
+  i0.Value<List<i3.FacilityContactMech>?> facilityContactMech,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $FacilityUpdateCompanionBuilder = i1.FacilityCompanion Function({
+  i0.Value<String> facilityId,
+  i0.Value<String?> facilityTypeId,
+  i0.Value<String?> parentFacilityId,
+  i0.Value<String?> ownerPartyId,
+  i0.Value<String?> defaultInventoryItemTypeId,
+  i0.Value<String?> facilityName,
+  i0.Value<String?> primaryFacilityGroupId,
+  i0.Value<double?> facilitySize,
+  i0.Value<String?> facilitySizeUomId,
+  i0.Value<String?> productStoreId,
+  i0.Value<int?> defaultDaysToShip,
+  i0.Value<DateTime?> openedDate,
+  i0.Value<DateTime?> closedDate,
+  i0.Value<String?> description,
+  i0.Value<String?> defaultDimensionUomId,
+  i0.Value<String?> defaultWeightUomId,
+  i0.Value<String?> geoPointId,
+  i0.Value<int?> facilityLevel,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> facilityErcId,
+  i0.Value<String?> nftErc,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<i3.FacilityType?> facilityType,
+  i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
+  i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
+  i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce,
+  i0.Value<List<i3.FacilityAttribute>?> facilityAttribute,
+  i0.Value<List<i3.FacilityContactMechPurpose>?> facilityContactMechPurpose,
+  i0.Value<List<i3.FacilityLocation>?> facilityLocation,
+  i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint,
+  i0.Value<List<i3.FacilityContactMech>?> facilityContactMech,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $FacilityFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Facility> {
+  $FacilityFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get facilityId => $composableBuilder(
+      column: $table.facilityId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get facilityTypeId => $composableBuilder(
+      column: $table.facilityTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get parentFacilityId => $composableBuilder(
+      column: $table.parentFacilityId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get ownerPartyId => $composableBuilder(
+      column: $table.ownerPartyId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultInventoryItemTypeId => $composableBuilder(
+      column: $table.defaultInventoryItemTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get facilityName => $composableBuilder(
+      column: $table.facilityName,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get primaryFacilityGroupId => $composableBuilder(
+      column: $table.primaryFacilityGroupId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get facilitySize => $composableBuilder(
+      column: $table.facilitySize,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get facilitySizeUomId => $composableBuilder(
+      column: $table.facilitySizeUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get productStoreId => $composableBuilder(
+      column: $table.productStoreId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get defaultDaysToShip => $composableBuilder(
+      column: $table.defaultDaysToShip,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get openedDate => $composableBuilder(
+      column: $table.openedDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get closedDate => $composableBuilder(
+      column: $table.closedDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultDimensionUomId => $composableBuilder(
+      column: $table.defaultDimensionUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get defaultWeightUomId => $composableBuilder(
+      column: $table.defaultWeightUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get geoPointId => $composableBuilder(
+      column: $table.geoPointId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get facilityLevel => $composableBuilder(
+      column: $table.facilityLevel,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get facilityErcId => $composableBuilder(
+      column: $table.facilityErcId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get nftErc => $composableBuilder(
+      column: $table.nftErc, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.FacilityType?, i3.FacilityType, String>
+      get facilityType => $composableBuilder(
+          column: $table.facilityType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityCalendar>?,
+          List<i3.FacilityCalendar>, String>
+      get facilityCalendar => $composableBuilder(
+          column: $table.facilityCalendar,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityMultisig>?,
+          List<i3.FacilityMultisig>, String>
+      get facilityMultisig => $composableBuilder(
+          column: $table.facilityMultisig,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityGeoForce>?,
+          List<i3.FacilityGeoForce>, String>
+      get facilityGeoForce => $composableBuilder(
+          column: $table.facilityGeoForce,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityAttribute>?,
+          List<i3.FacilityAttribute>, String>
+      get facilityAttribute => $composableBuilder(
+          column: $table.facilityAttribute,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityContactMechPurpose>?,
+          List<i3.FacilityContactMechPurpose>, String>
+      get facilityContactMechPurpose => $composableBuilder(
+          column: $table.facilityContactMechPurpose,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityLocation>?,
+          List<i3.FacilityLocation>, String>
+      get facilityLocation => $composableBuilder(
+          column: $table.facilityLocation,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityLocationGeoPoint>?,
+          List<i3.FacilityLocationGeoPoint>, String>
+      get facilityLocationGeoPoint => $composableBuilder(
+          column: $table.facilityLocationGeoPoint,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.FacilityContactMech>?,
+          List<i3.FacilityContactMech>, String>
+      get facilityContactMech => $composableBuilder(
+          column: $table.facilityContactMech,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $FacilityOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Facility> {
+  $FacilityOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get facilityId => $composableBuilder(
+      column: $table.facilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityTypeId => $composableBuilder(
+      column: $table.facilityTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get parentFacilityId => $composableBuilder(
+      column: $table.parentFacilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get ownerPartyId => $composableBuilder(
+      column: $table.ownerPartyId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultInventoryItemTypeId =>
+      $composableBuilder(
+          column: $table.defaultInventoryItemTypeId,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityName => $composableBuilder(
+      column: $table.facilityName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get primaryFacilityGroupId => $composableBuilder(
+      column: $table.primaryFacilityGroupId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get facilitySize => $composableBuilder(
+      column: $table.facilitySize,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilitySizeUomId => $composableBuilder(
+      column: $table.facilitySizeUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productStoreId => $composableBuilder(
+      column: $table.productStoreId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get defaultDaysToShip => $composableBuilder(
+      column: $table.defaultDaysToShip,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get openedDate => $composableBuilder(
+      column: $table.openedDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get closedDate => $composableBuilder(
+      column: $table.closedDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultDimensionUomId => $composableBuilder(
+      column: $table.defaultDimensionUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get defaultWeightUomId => $composableBuilder(
+      column: $table.defaultWeightUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get geoPointId => $composableBuilder(
+      column: $table.geoPointId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get facilityLevel => $composableBuilder(
+      column: $table.facilityLevel,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityErcId => $composableBuilder(
+      column: $table.facilityErcId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get nftErc => $composableBuilder(
+      column: $table.nftErc, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityType => $composableBuilder(
+      column: $table.facilityType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityCalendar => $composableBuilder(
+      column: $table.facilityCalendar,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityMultisig => $composableBuilder(
+      column: $table.facilityMultisig,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityGeoForce => $composableBuilder(
+      column: $table.facilityGeoForce,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityAttribute => $composableBuilder(
+      column: $table.facilityAttribute,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityContactMechPurpose =>
+      $composableBuilder(
+          column: $table.facilityContactMechPurpose,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityLocation => $composableBuilder(
+      column: $table.facilityLocation,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityLocationGeoPoint => $composableBuilder(
+      column: $table.facilityLocationGeoPoint,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityContactMech => $composableBuilder(
+      column: $table.facilityContactMech,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $FacilityAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Facility> {
+  $FacilityAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get facilityId => $composableBuilder(
+      column: $table.facilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get facilityTypeId => $composableBuilder(
+      column: $table.facilityTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get parentFacilityId => $composableBuilder(
+      column: $table.parentFacilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get ownerPartyId => $composableBuilder(
+      column: $table.ownerPartyId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultInventoryItemTypeId =>
+      $composableBuilder(
+          column: $table.defaultInventoryItemTypeId,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<String> get facilityName => $composableBuilder(
+      column: $table.facilityName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get primaryFacilityGroupId => $composableBuilder(
+      column: $table.primaryFacilityGroupId, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get facilitySize => $composableBuilder(
+      column: $table.facilitySize, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get facilitySizeUomId => $composableBuilder(
+      column: $table.facilitySizeUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get productStoreId => $composableBuilder(
+      column: $table.productStoreId, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get defaultDaysToShip => $composableBuilder(
+      column: $table.defaultDaysToShip, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get openedDate => $composableBuilder(
+      column: $table.openedDate, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get closedDate => $composableBuilder(
+      column: $table.closedDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultDimensionUomId => $composableBuilder(
+      column: $table.defaultDimensionUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get defaultWeightUomId => $composableBuilder(
+      column: $table.defaultWeightUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get geoPointId => $composableBuilder(
+      column: $table.geoPointId, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get facilityLevel => $composableBuilder(
+      column: $table.facilityLevel, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get facilityErcId => $composableBuilder(
+      column: $table.facilityErcId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get nftErc =>
+      $composableBuilder(column: $table.nftErc, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.FacilityType?, String>
+      get facilityType => $composableBuilder(
+          column: $table.facilityType, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityCalendar>?, String>
+      get facilityCalendar => $composableBuilder(
+          column: $table.facilityCalendar, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityMultisig>?, String>
+      get facilityMultisig => $composableBuilder(
+          column: $table.facilityMultisig, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityGeoForce>?, String>
+      get facilityGeoForce => $composableBuilder(
+          column: $table.facilityGeoForce, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityAttribute>?, String>
+      get facilityAttribute => $composableBuilder(
+          column: $table.facilityAttribute, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityContactMechPurpose>?,
+          String>
+      get facilityContactMechPurpose => $composableBuilder(
+          column: $table.facilityContactMechPurpose,
+          builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityLocation>?, String>
+      get facilityLocation => $composableBuilder(
+          column: $table.facilityLocation, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityLocationGeoPoint>?,
+          String>
+      get facilityLocationGeoPoint => $composableBuilder(
+          column: $table.facilityLocationGeoPoint, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.FacilityContactMech>?, String>
+      get facilityContactMech => $composableBuilder(
+          column: $table.facilityContactMech, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $FacilityTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Facility,
+    i1.FacilityData,
+    i1.$FacilityFilterComposer,
+    i1.$FacilityOrderingComposer,
+    i1.$FacilityAnnotationComposer,
+    $FacilityCreateCompanionBuilder,
+    $FacilityUpdateCompanionBuilder,
+    (
+      i1.FacilityData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Facility, i1.FacilityData>
+    ),
+    i1.FacilityData,
+    i0.PrefetchHooks Function()> {
+  $FacilityTableManager(i0.GeneratedDatabase db, i1.Facility table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$FacilityFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$FacilityOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$FacilityAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> facilityId = const i0.Value.absent(),
+            i0.Value<String?> facilityTypeId = const i0.Value.absent(),
+            i0.Value<String?> parentFacilityId = const i0.Value.absent(),
+            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
+            i0.Value<String?> defaultInventoryItemTypeId =
+                const i0.Value.absent(),
+            i0.Value<String?> facilityName = const i0.Value.absent(),
+            i0.Value<String?> primaryFacilityGroupId = const i0.Value.absent(),
+            i0.Value<double?> facilitySize = const i0.Value.absent(),
+            i0.Value<String?> facilitySizeUomId = const i0.Value.absent(),
+            i0.Value<String?> productStoreId = const i0.Value.absent(),
+            i0.Value<int?> defaultDaysToShip = const i0.Value.absent(),
+            i0.Value<DateTime?> openedDate = const i0.Value.absent(),
+            i0.Value<DateTime?> closedDate = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> defaultDimensionUomId = const i0.Value.absent(),
+            i0.Value<String?> defaultWeightUomId = const i0.Value.absent(),
+            i0.Value<String?> geoPointId = const i0.Value.absent(),
+            i0.Value<int?> facilityLevel = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> facilityErcId = const i0.Value.absent(),
+            i0.Value<String?> nftErc = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMechPurpose>?>
+                facilityContactMechPurpose = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocation>?> facilityLocation =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocationGeoPoint>?>
+                facilityLocationGeoPoint = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.FacilityCompanion(
+            facilityId: facilityId,
+            facilityTypeId: facilityTypeId,
+            parentFacilityId: parentFacilityId,
+            ownerPartyId: ownerPartyId,
+            defaultInventoryItemTypeId: defaultInventoryItemTypeId,
+            facilityName: facilityName,
+            primaryFacilityGroupId: primaryFacilityGroupId,
+            facilitySize: facilitySize,
+            facilitySizeUomId: facilitySizeUomId,
+            productStoreId: productStoreId,
+            defaultDaysToShip: defaultDaysToShip,
+            openedDate: openedDate,
+            closedDate: closedDate,
+            description: description,
+            defaultDimensionUomId: defaultDimensionUomId,
+            defaultWeightUomId: defaultWeightUomId,
+            geoPointId: geoPointId,
+            facilityLevel: facilityLevel,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            facilityErcId: facilityErcId,
+            nftErc: nftErc,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            acl: acl,
+            facilityType: facilityType,
+            facilityCalendar: facilityCalendar,
+            facilityMultisig: facilityMultisig,
+            facilityGeoForce: facilityGeoForce,
+            facilityAttribute: facilityAttribute,
+            facilityContactMechPurpose: facilityContactMechPurpose,
+            facilityLocation: facilityLocation,
+            facilityLocationGeoPoint: facilityLocationGeoPoint,
+            facilityContactMech: facilityContactMech,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String facilityId,
+            i0.Value<String?> facilityTypeId = const i0.Value.absent(),
+            i0.Value<String?> parentFacilityId = const i0.Value.absent(),
+            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
+            i0.Value<String?> defaultInventoryItemTypeId =
+                const i0.Value.absent(),
+            i0.Value<String?> facilityName = const i0.Value.absent(),
+            i0.Value<String?> primaryFacilityGroupId = const i0.Value.absent(),
+            i0.Value<double?> facilitySize = const i0.Value.absent(),
+            i0.Value<String?> facilitySizeUomId = const i0.Value.absent(),
+            i0.Value<String?> productStoreId = const i0.Value.absent(),
+            i0.Value<int?> defaultDaysToShip = const i0.Value.absent(),
+            i0.Value<DateTime?> openedDate = const i0.Value.absent(),
+            i0.Value<DateTime?> closedDate = const i0.Value.absent(),
+            i0.Value<String?> description = const i0.Value.absent(),
+            i0.Value<String?> defaultDimensionUomId = const i0.Value.absent(),
+            i0.Value<String?> defaultWeightUomId = const i0.Value.absent(),
+            i0.Value<String?> geoPointId = const i0.Value.absent(),
+            i0.Value<int?> facilityLevel = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> facilityErcId = const i0.Value.absent(),
+            i0.Value<String?> nftErc = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMechPurpose>?>
+                facilityContactMechPurpose = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocation>?> facilityLocation =
+                const i0.Value.absent(),
+            i0.Value<List<i3.FacilityLocationGeoPoint>?>
+                facilityLocationGeoPoint = const i0.Value.absent(),
+            i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.FacilityCompanion.insert(
+            facilityId: facilityId,
+            facilityTypeId: facilityTypeId,
+            parentFacilityId: parentFacilityId,
+            ownerPartyId: ownerPartyId,
+            defaultInventoryItemTypeId: defaultInventoryItemTypeId,
+            facilityName: facilityName,
+            primaryFacilityGroupId: primaryFacilityGroupId,
+            facilitySize: facilitySize,
+            facilitySizeUomId: facilitySizeUomId,
+            productStoreId: productStoreId,
+            defaultDaysToShip: defaultDaysToShip,
+            openedDate: openedDate,
+            closedDate: closedDate,
+            description: description,
+            defaultDimensionUomId: defaultDimensionUomId,
+            defaultWeightUomId: defaultWeightUomId,
+            geoPointId: geoPointId,
+            facilityLevel: facilityLevel,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            facilityErcId: facilityErcId,
+            nftErc: nftErc,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            acl: acl,
+            facilityType: facilityType,
+            facilityCalendar: facilityCalendar,
+            facilityMultisig: facilityMultisig,
+            facilityGeoForce: facilityGeoForce,
+            facilityAttribute: facilityAttribute,
+            facilityContactMechPurpose: facilityContactMechPurpose,
+            facilityLocation: facilityLocation,
+            facilityLocationGeoPoint: facilityLocationGeoPoint,
+            facilityContactMech: facilityContactMech,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $FacilityProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Facility,
+    i1.FacilityData,
+    i1.$FacilityFilterComposer,
+    i1.$FacilityOrderingComposer,
+    i1.$FacilityAnnotationComposer,
+    $FacilityCreateCompanionBuilder,
+    $FacilityUpdateCompanionBuilder,
+    (
+      i1.FacilityData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Facility, i1.FacilityData>
+    ),
+    i1.FacilityData,
+    i0.PrefetchHooks Function()>;
+
 class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -2087,762 +2886,6 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
         .toString();
   }
 }
-
-typedef $FacilityCreateCompanionBuilder = i1.FacilityCompanion Function({
-  required String facilityId,
-  i0.Value<String?> facilityTypeId,
-  i0.Value<String?> parentFacilityId,
-  i0.Value<String?> ownerPartyId,
-  i0.Value<String?> defaultInventoryItemTypeId,
-  i0.Value<String?> facilityName,
-  i0.Value<String?> primaryFacilityGroupId,
-  i0.Value<double?> facilitySize,
-  i0.Value<String?> facilitySizeUomId,
-  i0.Value<String?> productStoreId,
-  i0.Value<int?> defaultDaysToShip,
-  i0.Value<DateTime?> openedDate,
-  i0.Value<DateTime?> closedDate,
-  i0.Value<String?> description,
-  i0.Value<String?> defaultDimensionUomId,
-  i0.Value<String?> defaultWeightUomId,
-  i0.Value<String?> geoPointId,
-  i0.Value<int?> facilityLevel,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> facilityErcId,
-  i0.Value<String?> nftErc,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<i3.FacilityType?> facilityType,
-  i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
-  i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
-  i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce,
-  i0.Value<List<i3.FacilityAttribute>?> facilityAttribute,
-  i0.Value<List<i3.FacilityContactMechPurpose>?> facilityContactMechPurpose,
-  i0.Value<List<i3.FacilityLocation>?> facilityLocation,
-  i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint,
-  i0.Value<List<i3.FacilityContactMech>?> facilityContactMech,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $FacilityUpdateCompanionBuilder = i1.FacilityCompanion Function({
-  i0.Value<String> facilityId,
-  i0.Value<String?> facilityTypeId,
-  i0.Value<String?> parentFacilityId,
-  i0.Value<String?> ownerPartyId,
-  i0.Value<String?> defaultInventoryItemTypeId,
-  i0.Value<String?> facilityName,
-  i0.Value<String?> primaryFacilityGroupId,
-  i0.Value<double?> facilitySize,
-  i0.Value<String?> facilitySizeUomId,
-  i0.Value<String?> productStoreId,
-  i0.Value<int?> defaultDaysToShip,
-  i0.Value<DateTime?> openedDate,
-  i0.Value<DateTime?> closedDate,
-  i0.Value<String?> description,
-  i0.Value<String?> defaultDimensionUomId,
-  i0.Value<String?> defaultWeightUomId,
-  i0.Value<String?> geoPointId,
-  i0.Value<int?> facilityLevel,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> facilityErcId,
-  i0.Value<String?> nftErc,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<i3.FacilityType?> facilityType,
-  i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
-  i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
-  i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce,
-  i0.Value<List<i3.FacilityAttribute>?> facilityAttribute,
-  i0.Value<List<i3.FacilityContactMechPurpose>?> facilityContactMechPurpose,
-  i0.Value<List<i3.FacilityLocation>?> facilityLocation,
-  i0.Value<List<i3.FacilityLocationGeoPoint>?> facilityLocationGeoPoint,
-  i0.Value<List<i3.FacilityContactMech>?> facilityContactMech,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $FacilityFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Facility> {
-  $FacilityFilterComposer(super.$state);
-  i0.ColumnFilters<String> get facilityId => $state.composableBuilder(
-      column: $state.table.facilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get facilityTypeId => $state.composableBuilder(
-      column: $state.table.facilityTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get parentFacilityId => $state.composableBuilder(
-      column: $state.table.parentFacilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get ownerPartyId => $state.composableBuilder(
-      column: $state.table.ownerPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultInventoryItemTypeId =>
-      $state.composableBuilder(
-          column: $state.table.defaultInventoryItemTypeId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get facilityName => $state.composableBuilder(
-      column: $state.table.facilityName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get primaryFacilityGroupId =>
-      $state.composableBuilder(
-          column: $state.table.primaryFacilityGroupId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get facilitySize => $state.composableBuilder(
-      column: $state.table.facilitySize,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get facilitySizeUomId => $state.composableBuilder(
-      column: $state.table.facilitySizeUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get productStoreId => $state.composableBuilder(
-      column: $state.table.productStoreId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get defaultDaysToShip => $state.composableBuilder(
-      column: $state.table.defaultDaysToShip,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get openedDate => $state.composableBuilder(
-      column: $state.table.openedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get closedDate => $state.composableBuilder(
-      column: $state.table.closedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultDimensionUomId =>
-      $state.composableBuilder(
-          column: $state.table.defaultDimensionUomId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get defaultWeightUomId => $state.composableBuilder(
-      column: $state.table.defaultWeightUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get geoPointId => $state.composableBuilder(
-      column: $state.table.geoPointId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get facilityLevel => $state.composableBuilder(
-      column: $state.table.facilityLevel,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get facilityErcId => $state.composableBuilder(
-      column: $state.table.facilityErcId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get nftErc => $state.composableBuilder(
-      column: $state.table.nftErc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i3.FacilityType?, i3.FacilityType, String>
-      get facilityType => $state.composableBuilder(
-          column: $state.table.facilityType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityCalendar>?,
-          List<i3.FacilityCalendar>, String>
-      get facilityCalendar => $state.composableBuilder(
-          column: $state.table.facilityCalendar,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityMultisig>?,
-          List<i3.FacilityMultisig>, String>
-      get facilityMultisig => $state.composableBuilder(
-          column: $state.table.facilityMultisig,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityGeoForce>?,
-          List<i3.FacilityGeoForce>, String>
-      get facilityGeoForce => $state.composableBuilder(
-          column: $state.table.facilityGeoForce,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityAttribute>?,
-          List<i3.FacilityAttribute>, String>
-      get facilityAttribute => $state.composableBuilder(
-          column: $state.table.facilityAttribute,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityContactMechPurpose>?,
-          List<i3.FacilityContactMechPurpose>, String>
-      get facilityContactMechPurpose => $state.composableBuilder(
-          column: $state.table.facilityContactMechPurpose,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityLocation>?,
-          List<i3.FacilityLocation>, String>
-      get facilityLocation => $state.composableBuilder(
-          column: $state.table.facilityLocation,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityLocationGeoPoint>?,
-          List<i3.FacilityLocationGeoPoint>, String>
-      get facilityLocationGeoPoint => $state.composableBuilder(
-          column: $state.table.facilityLocationGeoPoint,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.FacilityContactMech>?,
-          List<i3.FacilityContactMech>, String>
-      get facilityContactMech => $state.composableBuilder(
-          column: $state.table.facilityContactMech,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $FacilityOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Facility> {
-  $FacilityOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get facilityId => $state.composableBuilder(
-      column: $state.table.facilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityTypeId => $state.composableBuilder(
-      column: $state.table.facilityTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get parentFacilityId => $state.composableBuilder(
-      column: $state.table.parentFacilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get ownerPartyId => $state.composableBuilder(
-      column: $state.table.ownerPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultInventoryItemTypeId =>
-      $state.composableBuilder(
-          column: $state.table.defaultInventoryItemTypeId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityName => $state.composableBuilder(
-      column: $state.table.facilityName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get primaryFacilityGroupId => $state
-      .composableBuilder(
-          column: $state.table.primaryFacilityGroupId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get facilitySize => $state.composableBuilder(
-      column: $state.table.facilitySize,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilitySizeUomId => $state.composableBuilder(
-      column: $state.table.facilitySizeUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productStoreId => $state.composableBuilder(
-      column: $state.table.productStoreId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get defaultDaysToShip => $state.composableBuilder(
-      column: $state.table.defaultDaysToShip,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get openedDate => $state.composableBuilder(
-      column: $state.table.openedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get closedDate => $state.composableBuilder(
-      column: $state.table.closedDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get description => $state.composableBuilder(
-      column: $state.table.description,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultDimensionUomId =>
-      $state.composableBuilder(
-          column: $state.table.defaultDimensionUomId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get defaultWeightUomId => $state.composableBuilder(
-      column: $state.table.defaultWeightUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get geoPointId => $state.composableBuilder(
-      column: $state.table.geoPointId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get facilityLevel => $state.composableBuilder(
-      column: $state.table.facilityLevel,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityErcId => $state.composableBuilder(
-      column: $state.table.facilityErcId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get nftErc => $state.composableBuilder(
-      column: $state.table.nftErc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityType => $state.composableBuilder(
-      column: $state.table.facilityType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityCalendar => $state.composableBuilder(
-      column: $state.table.facilityCalendar,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityMultisig => $state.composableBuilder(
-      column: $state.table.facilityMultisig,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityGeoForce => $state.composableBuilder(
-      column: $state.table.facilityGeoForce,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityAttribute => $state.composableBuilder(
-      column: $state.table.facilityAttribute,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityContactMechPurpose =>
-      $state.composableBuilder(
-          column: $state.table.facilityContactMechPurpose,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityLocation => $state.composableBuilder(
-      column: $state.table.facilityLocation,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityLocationGeoPoint =>
-      $state.composableBuilder(
-          column: $state.table.facilityLocationGeoPoint,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityContactMech =>
-      $state.composableBuilder(
-          column: $state.table.facilityContactMech,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $FacilityTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Facility,
-    i1.FacilityData,
-    i1.$FacilityFilterComposer,
-    i1.$FacilityOrderingComposer,
-    $FacilityCreateCompanionBuilder,
-    $FacilityUpdateCompanionBuilder,
-    (
-      i1.FacilityData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Facility, i1.FacilityData>
-    ),
-    i1.FacilityData,
-    i0.PrefetchHooks Function()> {
-  $FacilityTableManager(i0.GeneratedDatabase db, i1.Facility table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$FacilityFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$FacilityOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> facilityId = const i0.Value.absent(),
-            i0.Value<String?> facilityTypeId = const i0.Value.absent(),
-            i0.Value<String?> parentFacilityId = const i0.Value.absent(),
-            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
-            i0.Value<String?> defaultInventoryItemTypeId =
-                const i0.Value.absent(),
-            i0.Value<String?> facilityName = const i0.Value.absent(),
-            i0.Value<String?> primaryFacilityGroupId = const i0.Value.absent(),
-            i0.Value<double?> facilitySize = const i0.Value.absent(),
-            i0.Value<String?> facilitySizeUomId = const i0.Value.absent(),
-            i0.Value<String?> productStoreId = const i0.Value.absent(),
-            i0.Value<int?> defaultDaysToShip = const i0.Value.absent(),
-            i0.Value<DateTime?> openedDate = const i0.Value.absent(),
-            i0.Value<DateTime?> closedDate = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> defaultDimensionUomId = const i0.Value.absent(),
-            i0.Value<String?> defaultWeightUomId = const i0.Value.absent(),
-            i0.Value<String?> geoPointId = const i0.Value.absent(),
-            i0.Value<int?> facilityLevel = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> facilityErcId = const i0.Value.absent(),
-            i0.Value<String?> nftErc = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
-            i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityContactMechPurpose>?>
-                facilityContactMechPurpose = const i0.Value.absent(),
-            i0.Value<List<i3.FacilityLocation>?> facilityLocation =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityLocationGeoPoint>?>
-                facilityLocationGeoPoint = const i0.Value.absent(),
-            i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.FacilityCompanion(
-            facilityId: facilityId,
-            facilityTypeId: facilityTypeId,
-            parentFacilityId: parentFacilityId,
-            ownerPartyId: ownerPartyId,
-            defaultInventoryItemTypeId: defaultInventoryItemTypeId,
-            facilityName: facilityName,
-            primaryFacilityGroupId: primaryFacilityGroupId,
-            facilitySize: facilitySize,
-            facilitySizeUomId: facilitySizeUomId,
-            productStoreId: productStoreId,
-            defaultDaysToShip: defaultDaysToShip,
-            openedDate: openedDate,
-            closedDate: closedDate,
-            description: description,
-            defaultDimensionUomId: defaultDimensionUomId,
-            defaultWeightUomId: defaultWeightUomId,
-            geoPointId: geoPointId,
-            facilityLevel: facilityLevel,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            facilityErcId: facilityErcId,
-            nftErc: nftErc,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            acl: acl,
-            facilityType: facilityType,
-            facilityCalendar: facilityCalendar,
-            facilityMultisig: facilityMultisig,
-            facilityGeoForce: facilityGeoForce,
-            facilityAttribute: facilityAttribute,
-            facilityContactMechPurpose: facilityContactMechPurpose,
-            facilityLocation: facilityLocation,
-            facilityLocationGeoPoint: facilityLocationGeoPoint,
-            facilityContactMech: facilityContactMech,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String facilityId,
-            i0.Value<String?> facilityTypeId = const i0.Value.absent(),
-            i0.Value<String?> parentFacilityId = const i0.Value.absent(),
-            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
-            i0.Value<String?> defaultInventoryItemTypeId =
-                const i0.Value.absent(),
-            i0.Value<String?> facilityName = const i0.Value.absent(),
-            i0.Value<String?> primaryFacilityGroupId = const i0.Value.absent(),
-            i0.Value<double?> facilitySize = const i0.Value.absent(),
-            i0.Value<String?> facilitySizeUomId = const i0.Value.absent(),
-            i0.Value<String?> productStoreId = const i0.Value.absent(),
-            i0.Value<int?> defaultDaysToShip = const i0.Value.absent(),
-            i0.Value<DateTime?> openedDate = const i0.Value.absent(),
-            i0.Value<DateTime?> closedDate = const i0.Value.absent(),
-            i0.Value<String?> description = const i0.Value.absent(),
-            i0.Value<String?> defaultDimensionUomId = const i0.Value.absent(),
-            i0.Value<String?> defaultWeightUomId = const i0.Value.absent(),
-            i0.Value<String?> geoPointId = const i0.Value.absent(),
-            i0.Value<int?> facilityLevel = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> facilityErcId = const i0.Value.absent(),
-            i0.Value<String?> nftErc = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
-            i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityMultisig>?> facilityMultisig =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityGeoForce>?> facilityGeoForce =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityAttribute>?> facilityAttribute =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityContactMechPurpose>?>
-                facilityContactMechPurpose = const i0.Value.absent(),
-            i0.Value<List<i3.FacilityLocation>?> facilityLocation =
-                const i0.Value.absent(),
-            i0.Value<List<i3.FacilityLocationGeoPoint>?>
-                facilityLocationGeoPoint = const i0.Value.absent(),
-            i0.Value<List<i3.FacilityContactMech>?> facilityContactMech =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.FacilityCompanion.insert(
-            facilityId: facilityId,
-            facilityTypeId: facilityTypeId,
-            parentFacilityId: parentFacilityId,
-            ownerPartyId: ownerPartyId,
-            defaultInventoryItemTypeId: defaultInventoryItemTypeId,
-            facilityName: facilityName,
-            primaryFacilityGroupId: primaryFacilityGroupId,
-            facilitySize: facilitySize,
-            facilitySizeUomId: facilitySizeUomId,
-            productStoreId: productStoreId,
-            defaultDaysToShip: defaultDaysToShip,
-            openedDate: openedDate,
-            closedDate: closedDate,
-            description: description,
-            defaultDimensionUomId: defaultDimensionUomId,
-            defaultWeightUomId: defaultWeightUomId,
-            geoPointId: geoPointId,
-            facilityLevel: facilityLevel,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            facilityErcId: facilityErcId,
-            nftErc: nftErc,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            acl: acl,
-            facilityType: facilityType,
-            facilityCalendar: facilityCalendar,
-            facilityMultisig: facilityMultisig,
-            facilityGeoForce: facilityGeoForce,
-            facilityAttribute: facilityAttribute,
-            facilityContactMechPurpose: facilityContactMechPurpose,
-            facilityLocation: facilityLocation,
-            facilityLocationGeoPoint: facilityLocationGeoPoint,
-            facilityContactMech: facilityContactMech,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $FacilityProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Facility,
-    i1.FacilityData,
-    i1.$FacilityFilterComposer,
-    i1.$FacilityOrderingComposer,
-    $FacilityCreateCompanionBuilder,
-    $FacilityUpdateCompanionBuilder,
-    (
-      i1.FacilityData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Facility, i1.FacilityData>
-    ),
-    i1.FacilityData,
-    i0.PrefetchHooks Function()>;
 
 class FacilityDrift extends i6.ModularAccessor {
   FacilityDrift(i0.GeneratedDatabase db) : super(db);

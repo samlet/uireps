@@ -11,7 +11,7 @@ part 'seller_pref_pods.g.dart';
 @Riverpod(keepAlive: true)
 SellerPrefRepository sellerPrefRepository(SellerPrefRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return SellerPrefRepository(conn.dio, database);
 }
 

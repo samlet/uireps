@@ -4,6 +4,277 @@ import 'package:xcsdrift/src/bi_facet.drift.dart' as i1;
 import 'package:xcsdrift/fldconv.dart' as i2;
 import 'package:drift/internal/modular.dart' as i3;
 
+typedef $BiFacetCreateCompanionBuilder = i1.BiFacetCompanion Function({
+  required String biId,
+  i0.Value<String?> bundleName,
+  i0.Value<String?> regionId,
+  i0.Value<String?> data,
+  i0.Value<List<String>?> tags,
+  i0.Value<bool?> modified,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
+  i0.Value<String> biId,
+  i0.Value<String?> bundleName,
+  i0.Value<String?> regionId,
+  i0.Value<String?> data,
+  i0.Value<List<String>?> tags,
+  i0.Value<bool?> modified,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<bool?> evict,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $BiFacetFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.BiFacet> {
+  $BiFacetFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get biId => $composableBuilder(
+      column: $table.biId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get bundleName => $composableBuilder(
+      column: $table.bundleName, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get regionId => $composableBuilder(
+      column: $table.regionId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get data => $composableBuilder(
+      column: $table.data, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get tags => $composableBuilder(
+          column: $table.tags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<bool> get modified => $composableBuilder(
+      column: $table.modified, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $BiFacetOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.BiFacet> {
+  $BiFacetOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get biId => $composableBuilder(
+      column: $table.biId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get bundleName => $composableBuilder(
+      column: $table.bundleName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get regionId => $composableBuilder(
+      column: $table.regionId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get data => $composableBuilder(
+      column: $table.data, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tags => $composableBuilder(
+      column: $table.tags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get modified => $composableBuilder(
+      column: $table.modified, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $BiFacetAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.BiFacet> {
+  $BiFacetAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get biId =>
+      $composableBuilder(column: $table.biId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get bundleName => $composableBuilder(
+      column: $table.bundleName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get regionId =>
+      $composableBuilder(column: $table.regionId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get data =>
+      $composableBuilder(column: $table.data, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get tags =>
+      $composableBuilder(column: $table.tags, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get modified =>
+      $composableBuilder(column: $table.modified, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $BiFacetTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.BiFacet,
+    i1.BiFacetData,
+    i1.$BiFacetFilterComposer,
+    i1.$BiFacetOrderingComposer,
+    i1.$BiFacetAnnotationComposer,
+    $BiFacetCreateCompanionBuilder,
+    $BiFacetUpdateCompanionBuilder,
+    (
+      i1.BiFacetData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.BiFacet, i1.BiFacetData>
+    ),
+    i1.BiFacetData,
+    i0.PrefetchHooks Function()> {
+  $BiFacetTableManager(i0.GeneratedDatabase db, i1.BiFacet table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$BiFacetFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$BiFacetOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$BiFacetAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> biId = const i0.Value.absent(),
+            i0.Value<String?> bundleName = const i0.Value.absent(),
+            i0.Value<String?> regionId = const i0.Value.absent(),
+            i0.Value<String?> data = const i0.Value.absent(),
+            i0.Value<List<String>?> tags = const i0.Value.absent(),
+            i0.Value<bool?> modified = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.BiFacetCompanion(
+            biId: biId,
+            bundleName: bundleName,
+            regionId: regionId,
+            data: data,
+            tags: tags,
+            modified: modified,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String biId,
+            i0.Value<String?> bundleName = const i0.Value.absent(),
+            i0.Value<String?> regionId = const i0.Value.absent(),
+            i0.Value<String?> data = const i0.Value.absent(),
+            i0.Value<List<String>?> tags = const i0.Value.absent(),
+            i0.Value<bool?> modified = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.BiFacetCompanion.insert(
+            biId: biId,
+            bundleName: bundleName,
+            regionId: regionId,
+            data: data,
+            tags: tags,
+            modified: modified,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            evict: evict,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $BiFacetProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.BiFacet,
+    i1.BiFacetData,
+    i1.$BiFacetFilterComposer,
+    i1.$BiFacetOrderingComposer,
+    i1.$BiFacetAnnotationComposer,
+    $BiFacetCreateCompanionBuilder,
+    $BiFacetUpdateCompanionBuilder,
+    (
+      i1.BiFacetData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.BiFacet, i1.BiFacetData>
+    ),
+    i1.BiFacetData,
+    i0.PrefetchHooks Function()>;
+
 class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -614,256 +885,6 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
         .toString();
   }
 }
-
-typedef $BiFacetCreateCompanionBuilder = i1.BiFacetCompanion Function({
-  required String biId,
-  i0.Value<String?> bundleName,
-  i0.Value<String?> regionId,
-  i0.Value<String?> data,
-  i0.Value<List<String>?> tags,
-  i0.Value<bool?> modified,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
-  i0.Value<String> biId,
-  i0.Value<String?> bundleName,
-  i0.Value<String?> regionId,
-  i0.Value<String?> data,
-  i0.Value<List<String>?> tags,
-  i0.Value<bool?> modified,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<bool?> evict,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $BiFacetFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.BiFacet> {
-  $BiFacetFilterComposer(super.$state);
-  i0.ColumnFilters<String> get biId => $state.composableBuilder(
-      column: $state.table.biId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get bundleName => $state.composableBuilder(
-      column: $state.table.bundleName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get regionId => $state.composableBuilder(
-      column: $state.table.regionId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get data => $state.composableBuilder(
-      column: $state.table.data,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get tags => $state.composableBuilder(
-          column: $state.table.tags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get modified => $state.composableBuilder(
-      column: $state.table.modified,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $BiFacetOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.BiFacet> {
-  $BiFacetOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get biId => $state.composableBuilder(
-      column: $state.table.biId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get bundleName => $state.composableBuilder(
-      column: $state.table.bundleName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get regionId => $state.composableBuilder(
-      column: $state.table.regionId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get data => $state.composableBuilder(
-      column: $state.table.data,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tags => $state.composableBuilder(
-      column: $state.table.tags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get modified => $state.composableBuilder(
-      column: $state.table.modified,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $BiFacetTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.BiFacet,
-    i1.BiFacetData,
-    i1.$BiFacetFilterComposer,
-    i1.$BiFacetOrderingComposer,
-    $BiFacetCreateCompanionBuilder,
-    $BiFacetUpdateCompanionBuilder,
-    (
-      i1.BiFacetData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.BiFacet, i1.BiFacetData>
-    ),
-    i1.BiFacetData,
-    i0.PrefetchHooks Function()> {
-  $BiFacetTableManager(i0.GeneratedDatabase db, i1.BiFacet table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$BiFacetFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$BiFacetOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> biId = const i0.Value.absent(),
-            i0.Value<String?> bundleName = const i0.Value.absent(),
-            i0.Value<String?> regionId = const i0.Value.absent(),
-            i0.Value<String?> data = const i0.Value.absent(),
-            i0.Value<List<String>?> tags = const i0.Value.absent(),
-            i0.Value<bool?> modified = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.BiFacetCompanion(
-            biId: biId,
-            bundleName: bundleName,
-            regionId: regionId,
-            data: data,
-            tags: tags,
-            modified: modified,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String biId,
-            i0.Value<String?> bundleName = const i0.Value.absent(),
-            i0.Value<String?> regionId = const i0.Value.absent(),
-            i0.Value<String?> data = const i0.Value.absent(),
-            i0.Value<List<String>?> tags = const i0.Value.absent(),
-            i0.Value<bool?> modified = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.BiFacetCompanion.insert(
-            biId: biId,
-            bundleName: bundleName,
-            regionId: regionId,
-            data: data,
-            tags: tags,
-            modified: modified,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            evict: evict,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $BiFacetProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.BiFacet,
-    i1.BiFacetData,
-    i1.$BiFacetFilterComposer,
-    i1.$BiFacetOrderingComposer,
-    $BiFacetCreateCompanionBuilder,
-    $BiFacetUpdateCompanionBuilder,
-    (
-      i1.BiFacetData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.BiFacet, i1.BiFacetData>
-    ),
-    i1.BiFacetData,
-    i0.PrefetchHooks Function()>;
 
 class BiFacetDrift extends i3.ModularAccessor {
   BiFacetDrift(i0.GeneratedDatabase db) : super(db);

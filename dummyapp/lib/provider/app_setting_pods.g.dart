@@ -7,7 +7,7 @@ part of 'app_setting_pods.dart';
 // **************************************************************************
 
 String _$appSettingRepositoryHash() =>
-    r'3c8f397e6ba8daf0ba09c81059a2430664dd4b11';
+    r'a2bc5f5599a2cf50b1b6717da954a0eb24e290dc';
 
 /// repository pod
 ///

@@ -11,7 +11,7 @@ part 'bi_facet_pods.g.dart';
 @Riverpod(keepAlive: true)
 BiFacetRepository biFacetRepository(BiFacetRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return BiFacetRepository(conn.dio, database);
 }
 

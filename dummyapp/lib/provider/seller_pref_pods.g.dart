@@ -7,7 +7,7 @@ part of 'seller_pref_pods.dart';
 // **************************************************************************
 
 String _$sellerPrefRepositoryHash() =>
-    r'ecef1892afaf2663a956ac957abe2584a8303d60';
+    r'70e928090a00eb76120f9e88c214f917a8151839';
 
 /// repository pod
 ///

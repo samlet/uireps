@@ -11,7 +11,7 @@ part 'session_cache_pods.g.dart';
 @Riverpod(keepAlive: true)
 SessionCacheRepository sessionCacheRepository(SessionCacheRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return SessionCacheRepository(conn.dio, database);
 }
 

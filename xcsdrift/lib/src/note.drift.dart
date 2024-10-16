@@ -7,6 +7,356 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/note_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $NoteDataCreateCompanionBuilder = i1.NoteDataCompanion Function({
+  required String noteId,
+  i0.Value<String?> noteName,
+  i0.Value<String?> noteInfo,
+  i0.Value<DateTime?> noteDateTime,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> noteParty,
+  i0.Value<String?> moreInfoUrl,
+  i0.Value<String?> moreInfoItemId,
+  i0.Value<String?> moreInfoItemName,
+  i0.Value<String?> tenantId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $NoteDataUpdateCompanionBuilder = i1.NoteDataCompanion Function({
+  i0.Value<String> noteId,
+  i0.Value<String?> noteName,
+  i0.Value<String?> noteInfo,
+  i0.Value<DateTime?> noteDateTime,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> noteParty,
+  i0.Value<String?> moreInfoUrl,
+  i0.Value<String?> moreInfoItemId,
+  i0.Value<String?> moreInfoItemName,
+  i0.Value<String?> tenantId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $NoteDataFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.NoteData> {
+  $NoteDataFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get noteId => $composableBuilder(
+      column: $table.noteId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get noteName => $composableBuilder(
+      column: $table.noteName, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get noteInfo => $composableBuilder(
+      column: $table.noteInfo, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get noteDateTime => $composableBuilder(
+      column: $table.noteDateTime,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get noteParty => $composableBuilder(
+      column: $table.noteParty, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get moreInfoUrl => $composableBuilder(
+      column: $table.moreInfoUrl,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get moreInfoItemId => $composableBuilder(
+      column: $table.moreInfoItemId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get moreInfoItemName => $composableBuilder(
+      column: $table.moreInfoItemName,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.NoteDataSlot>?,
+          List<i3.NoteDataSlot>, String>
+      get noteDataSlot => $composableBuilder(
+          column: $table.noteDataSlot,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $NoteDataOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.NoteData> {
+  $NoteDataOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get noteId => $composableBuilder(
+      column: $table.noteId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get noteName => $composableBuilder(
+      column: $table.noteName, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get noteInfo => $composableBuilder(
+      column: $table.noteInfo, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get noteDateTime => $composableBuilder(
+      column: $table.noteDateTime,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get noteParty => $composableBuilder(
+      column: $table.noteParty,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreInfoUrl => $composableBuilder(
+      column: $table.moreInfoUrl,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreInfoItemId => $composableBuilder(
+      column: $table.moreInfoItemId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreInfoItemName => $composableBuilder(
+      column: $table.moreInfoItemName,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get noteDataSlot => $composableBuilder(
+      column: $table.noteDataSlot,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $NoteDataAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.NoteData> {
+  $NoteDataAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get noteId =>
+      $composableBuilder(column: $table.noteId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get noteName =>
+      $composableBuilder(column: $table.noteName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get noteInfo =>
+      $composableBuilder(column: $table.noteInfo, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get noteDateTime => $composableBuilder(
+      column: $table.noteDateTime, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get noteParty =>
+      $composableBuilder(column: $table.noteParty, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get moreInfoUrl => $composableBuilder(
+      column: $table.moreInfoUrl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get moreInfoItemId => $composableBuilder(
+      column: $table.moreInfoItemId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get moreInfoItemName => $composableBuilder(
+      column: $table.moreInfoItemName, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.NoteDataSlot>?, String>
+      get noteDataSlot => $composableBuilder(
+          column: $table.noteDataSlot, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $NoteDataTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.NoteData,
+    i1.NoteDataData,
+    i1.$NoteDataFilterComposer,
+    i1.$NoteDataOrderingComposer,
+    i1.$NoteDataAnnotationComposer,
+    $NoteDataCreateCompanionBuilder,
+    $NoteDataUpdateCompanionBuilder,
+    (
+      i1.NoteDataData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.NoteData, i1.NoteDataData>
+    ),
+    i1.NoteDataData,
+    i0.PrefetchHooks Function()> {
+  $NoteDataTableManager(i0.GeneratedDatabase db, i1.NoteData table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$NoteDataFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$NoteDataOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$NoteDataAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> noteId = const i0.Value.absent(),
+            i0.Value<String?> noteName = const i0.Value.absent(),
+            i0.Value<String?> noteInfo = const i0.Value.absent(),
+            i0.Value<DateTime?> noteDateTime = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> noteParty = const i0.Value.absent(),
+            i0.Value<String?> moreInfoUrl = const i0.Value.absent(),
+            i0.Value<String?> moreInfoItemId = const i0.Value.absent(),
+            i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.NoteDataCompanion(
+            noteId: noteId,
+            noteName: noteName,
+            noteInfo: noteInfo,
+            noteDateTime: noteDateTime,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            noteParty: noteParty,
+            moreInfoUrl: moreInfoUrl,
+            moreInfoItemId: moreInfoItemId,
+            moreInfoItemName: moreInfoItemName,
+            tenantId: tenantId,
+            evict: evict,
+            acl: acl,
+            noteDataSlot: noteDataSlot,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String noteId,
+            i0.Value<String?> noteName = const i0.Value.absent(),
+            i0.Value<String?> noteInfo = const i0.Value.absent(),
+            i0.Value<DateTime?> noteDateTime = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> noteParty = const i0.Value.absent(),
+            i0.Value<String?> moreInfoUrl = const i0.Value.absent(),
+            i0.Value<String?> moreInfoItemId = const i0.Value.absent(),
+            i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.NoteDataCompanion.insert(
+            noteId: noteId,
+            noteName: noteName,
+            noteInfo: noteInfo,
+            noteDateTime: noteDateTime,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            noteParty: noteParty,
+            moreInfoUrl: moreInfoUrl,
+            moreInfoItemId: moreInfoItemId,
+            moreInfoItemName: moreInfoItemName,
+            tenantId: tenantId,
+            evict: evict,
+            acl: acl,
+            noteDataSlot: noteDataSlot,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $NoteDataProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.NoteData,
+    i1.NoteDataData,
+    i1.$NoteDataFilterComposer,
+    i1.$NoteDataOrderingComposer,
+    i1.$NoteDataAnnotationComposer,
+    $NoteDataCreateCompanionBuilder,
+    $NoteDataUpdateCompanionBuilder,
+    (
+      i1.NoteDataData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.NoteData, i1.NoteDataData>
+    ),
+    i1.NoteDataData,
+    i0.PrefetchHooks Function()>;
+
 class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -813,328 +1163,6 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
         .toString();
   }
 }
-
-typedef $NoteDataCreateCompanionBuilder = i1.NoteDataCompanion Function({
-  required String noteId,
-  i0.Value<String?> noteName,
-  i0.Value<String?> noteInfo,
-  i0.Value<DateTime?> noteDateTime,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> noteParty,
-  i0.Value<String?> moreInfoUrl,
-  i0.Value<String?> moreInfoItemId,
-  i0.Value<String?> moreInfoItemName,
-  i0.Value<String?> tenantId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $NoteDataUpdateCompanionBuilder = i1.NoteDataCompanion Function({
-  i0.Value<String> noteId,
-  i0.Value<String?> noteName,
-  i0.Value<String?> noteInfo,
-  i0.Value<DateTime?> noteDateTime,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> noteParty,
-  i0.Value<String?> moreInfoUrl,
-  i0.Value<String?> moreInfoItemId,
-  i0.Value<String?> moreInfoItemName,
-  i0.Value<String?> tenantId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $NoteDataFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.NoteData> {
-  $NoteDataFilterComposer(super.$state);
-  i0.ColumnFilters<String> get noteId => $state.composableBuilder(
-      column: $state.table.noteId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get noteName => $state.composableBuilder(
-      column: $state.table.noteName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get noteInfo => $state.composableBuilder(
-      column: $state.table.noteInfo,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get noteDateTime => $state.composableBuilder(
-      column: $state.table.noteDateTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get noteParty => $state.composableBuilder(
-      column: $state.table.noteParty,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get moreInfoUrl => $state.composableBuilder(
-      column: $state.table.moreInfoUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get moreInfoItemId => $state.composableBuilder(
-      column: $state.table.moreInfoItemId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get moreInfoItemName => $state.composableBuilder(
-      column: $state.table.moreInfoItemName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.NoteDataSlot>?,
-          List<i3.NoteDataSlot>, String>
-      get noteDataSlot => $state.composableBuilder(
-          column: $state.table.noteDataSlot,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $NoteDataOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.NoteData> {
-  $NoteDataOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get noteId => $state.composableBuilder(
-      column: $state.table.noteId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get noteName => $state.composableBuilder(
-      column: $state.table.noteName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get noteInfo => $state.composableBuilder(
-      column: $state.table.noteInfo,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get noteDateTime => $state.composableBuilder(
-      column: $state.table.noteDateTime,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get noteParty => $state.composableBuilder(
-      column: $state.table.noteParty,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreInfoUrl => $state.composableBuilder(
-      column: $state.table.moreInfoUrl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreInfoItemId => $state.composableBuilder(
-      column: $state.table.moreInfoItemId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreInfoItemName => $state.composableBuilder(
-      column: $state.table.moreInfoItemName,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get noteDataSlot => $state.composableBuilder(
-      column: $state.table.noteDataSlot,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $NoteDataTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.NoteData,
-    i1.NoteDataData,
-    i1.$NoteDataFilterComposer,
-    i1.$NoteDataOrderingComposer,
-    $NoteDataCreateCompanionBuilder,
-    $NoteDataUpdateCompanionBuilder,
-    (
-      i1.NoteDataData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.NoteData, i1.NoteDataData>
-    ),
-    i1.NoteDataData,
-    i0.PrefetchHooks Function()> {
-  $NoteDataTableManager(i0.GeneratedDatabase db, i1.NoteData table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$NoteDataFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$NoteDataOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> noteId = const i0.Value.absent(),
-            i0.Value<String?> noteName = const i0.Value.absent(),
-            i0.Value<String?> noteInfo = const i0.Value.absent(),
-            i0.Value<DateTime?> noteDateTime = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> noteParty = const i0.Value.absent(),
-            i0.Value<String?> moreInfoUrl = const i0.Value.absent(),
-            i0.Value<String?> moreInfoItemId = const i0.Value.absent(),
-            i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.NoteDataCompanion(
-            noteId: noteId,
-            noteName: noteName,
-            noteInfo: noteInfo,
-            noteDateTime: noteDateTime,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            noteParty: noteParty,
-            moreInfoUrl: moreInfoUrl,
-            moreInfoItemId: moreInfoItemId,
-            moreInfoItemName: moreInfoItemName,
-            tenantId: tenantId,
-            evict: evict,
-            acl: acl,
-            noteDataSlot: noteDataSlot,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String noteId,
-            i0.Value<String?> noteName = const i0.Value.absent(),
-            i0.Value<String?> noteInfo = const i0.Value.absent(),
-            i0.Value<DateTime?> noteDateTime = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> noteParty = const i0.Value.absent(),
-            i0.Value<String?> moreInfoUrl = const i0.Value.absent(),
-            i0.Value<String?> moreInfoItemId = const i0.Value.absent(),
-            i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.NoteDataCompanion.insert(
-            noteId: noteId,
-            noteName: noteName,
-            noteInfo: noteInfo,
-            noteDateTime: noteDateTime,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            noteParty: noteParty,
-            moreInfoUrl: moreInfoUrl,
-            moreInfoItemId: moreInfoItemId,
-            moreInfoItemName: moreInfoItemName,
-            tenantId: tenantId,
-            evict: evict,
-            acl: acl,
-            noteDataSlot: noteDataSlot,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $NoteDataProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.NoteData,
-    i1.NoteDataData,
-    i1.$NoteDataFilterComposer,
-    i1.$NoteDataOrderingComposer,
-    $NoteDataCreateCompanionBuilder,
-    $NoteDataUpdateCompanionBuilder,
-    (
-      i1.NoteDataData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.NoteData, i1.NoteDataData>
-    ),
-    i1.NoteDataData,
-    i0.PrefetchHooks Function()>;
 
 class NoteDrift extends i6.ModularAccessor {
   NoteDrift(i0.GeneratedDatabase db) : super(db);

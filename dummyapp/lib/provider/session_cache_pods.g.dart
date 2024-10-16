@@ -7,7 +7,7 @@ part of 'session_cache_pods.dart';
 // **************************************************************************
 
 String _$sessionCacheRepositoryHash() =>
-    r'aeef49bf90b31ba00dbc38dc6a0da8fa9a51708c';
+    r'a383a81ce715396bccd186347b3187f97a2f071d';
 
 /// repository pod
 ///

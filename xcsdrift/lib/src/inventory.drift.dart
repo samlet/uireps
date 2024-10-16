@@ -6,6 +6,854 @@ import 'package:xcsdrift/fldconv.dart' as i3;
 import 'package:xcsdrift/src/inventory_conv.dart' as i4;
 import 'package:drift/internal/modular.dart' as i5;
 
+typedef $InventoryItemCreateCompanionBuilder = i1.InventoryItemCompanion
+    Function({
+  required String inventoryItemId,
+  i0.Value<String?> inventoryItemTypeId,
+  i0.Value<String?> productId,
+  i0.Value<String?> partyId,
+  i0.Value<String?> ownerPartyId,
+  i0.Value<String?> statusId,
+  i0.Value<DateTime?> datetimeReceived,
+  i0.Value<DateTime?> datetimeManufactured,
+  i0.Value<DateTime?> expireDate,
+  i0.Value<String?> facilityId,
+  i0.Value<String?> containerId,
+  i0.Value<String?> lotId,
+  i0.Value<String?> uomId,
+  i0.Value<String?> binNumber,
+  i0.Value<String?> locationSeqId,
+  i0.Value<String?> comments,
+  i0.Value<double?> quantityOnHandTotal,
+  i0.Value<double?> availableToPromiseTotal,
+  i0.Value<double?> accountingQuantityTotal,
+  i0.Value<String?> serialNumber,
+  i0.Value<String?> softIdentifier,
+  i0.Value<String?> activationNumber,
+  i0.Value<DateTime?> activationValidThru,
+  i0.Value<double?> unitCost,
+  i0.Value<String?> currencyUomId,
+  i0.Value<String?> fixedAssetId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> accountId,
+  i0.Value<String?> tokenId,
+  i0.Value<String?> origin,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.InventoryItemType?> inventoryItemType,
+  i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
+  i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
+  i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail,
+  i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus,
+  i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $InventoryItemUpdateCompanionBuilder = i1.InventoryItemCompanion
+    Function({
+  i0.Value<String> inventoryItemId,
+  i0.Value<String?> inventoryItemTypeId,
+  i0.Value<String?> productId,
+  i0.Value<String?> partyId,
+  i0.Value<String?> ownerPartyId,
+  i0.Value<String?> statusId,
+  i0.Value<DateTime?> datetimeReceived,
+  i0.Value<DateTime?> datetimeManufactured,
+  i0.Value<DateTime?> expireDate,
+  i0.Value<String?> facilityId,
+  i0.Value<String?> containerId,
+  i0.Value<String?> lotId,
+  i0.Value<String?> uomId,
+  i0.Value<String?> binNumber,
+  i0.Value<String?> locationSeqId,
+  i0.Value<String?> comments,
+  i0.Value<double?> quantityOnHandTotal,
+  i0.Value<double?> availableToPromiseTotal,
+  i0.Value<double?> accountingQuantityTotal,
+  i0.Value<String?> serialNumber,
+  i0.Value<String?> softIdentifier,
+  i0.Value<String?> activationNumber,
+  i0.Value<DateTime?> activationValidThru,
+  i0.Value<double?> unitCost,
+  i0.Value<String?> currencyUomId,
+  i0.Value<String?> fixedAssetId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tenantId,
+  i0.Value<String?> accountId,
+  i0.Value<String?> tokenId,
+  i0.Value<String?> origin,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.InventoryItemType?> inventoryItemType,
+  i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
+  i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
+  i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail,
+  i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus,
+  i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $InventoryItemFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.InventoryItem> {
+  $InventoryItemFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get inventoryItemId => $composableBuilder(
+      column: $table.inventoryItemId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get inventoryItemTypeId => $composableBuilder(
+      column: $table.inventoryItemTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get productId => $composableBuilder(
+      column: $table.productId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get partyId => $composableBuilder(
+      column: $table.partyId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get ownerPartyId => $composableBuilder(
+      column: $table.ownerPartyId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get datetimeReceived => $composableBuilder(
+      column: $table.datetimeReceived,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get datetimeManufactured => $composableBuilder(
+      column: $table.datetimeManufactured,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get expireDate => $composableBuilder(
+      column: $table.expireDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get facilityId => $composableBuilder(
+      column: $table.facilityId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get containerId => $composableBuilder(
+      column: $table.containerId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get lotId => $composableBuilder(
+      column: $table.lotId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get uomId => $composableBuilder(
+      column: $table.uomId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get binNumber => $composableBuilder(
+      column: $table.binNumber, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get locationSeqId => $composableBuilder(
+      column: $table.locationSeqId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get quantityOnHandTotal => $composableBuilder(
+      column: $table.quantityOnHandTotal,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get availableToPromiseTotal => $composableBuilder(
+      column: $table.availableToPromiseTotal,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get accountingQuantityTotal => $composableBuilder(
+      column: $table.accountingQuantityTotal,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get serialNumber => $composableBuilder(
+      column: $table.serialNumber,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get softIdentifier => $composableBuilder(
+      column: $table.softIdentifier,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get activationNumber => $composableBuilder(
+      column: $table.activationNumber,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get activationValidThru => $composableBuilder(
+      column: $table.activationValidThru,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get unitCost => $composableBuilder(
+      column: $table.unitCost, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get currencyUomId => $composableBuilder(
+      column: $table.currencyUomId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get fixedAssetId => $composableBuilder(
+      column: $table.fixedAssetId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get accountId => $composableBuilder(
+      column: $table.accountId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tokenId => $composableBuilder(
+      column: $table.tokenId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get origin => $composableBuilder(
+      column: $table.origin, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.InventoryItemType?, i2.InventoryItemType,
+          String>
+      get inventoryItemType => $composableBuilder(
+          column: $table.inventoryItemType,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryTransfer>?,
+          List<i2.InventoryTransfer>, String>
+      get inventoryTransfer => $composableBuilder(
+          column: $table.inventoryTransfer,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemSlot>?,
+          List<i2.InventoryItemSlot>, String>
+      get inventoryItemSlot => $composableBuilder(
+          column: $table.inventoryItemSlot,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemDetail>?,
+          List<i2.InventoryItemDetail>, String>
+      get inventoryItemDetail => $composableBuilder(
+          column: $table.inventoryItemDetail,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemStatus>?,
+          List<i2.InventoryItemStatus>, String>
+      get inventoryItemStatus => $composableBuilder(
+          column: $table.inventoryItemStatus,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemVariance>?,
+          List<i2.InventoryItemVariance>, String>
+      get inventoryItemVariance => $composableBuilder(
+          column: $table.inventoryItemVariance,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $InventoryItemOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.InventoryItem> {
+  $InventoryItemOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get inventoryItemId => $composableBuilder(
+      column: $table.inventoryItemId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemTypeId => $composableBuilder(
+      column: $table.inventoryItemTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get productId => $composableBuilder(
+      column: $table.productId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get partyId => $composableBuilder(
+      column: $table.partyId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get ownerPartyId => $composableBuilder(
+      column: $table.ownerPartyId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get datetimeReceived => $composableBuilder(
+      column: $table.datetimeReceived,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get datetimeManufactured => $composableBuilder(
+      column: $table.datetimeManufactured,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get expireDate => $composableBuilder(
+      column: $table.expireDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get facilityId => $composableBuilder(
+      column: $table.facilityId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get containerId => $composableBuilder(
+      column: $table.containerId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get lotId => $composableBuilder(
+      column: $table.lotId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get uomId => $composableBuilder(
+      column: $table.uomId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get binNumber => $composableBuilder(
+      column: $table.binNumber,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get locationSeqId => $composableBuilder(
+      column: $table.locationSeqId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get comments => $composableBuilder(
+      column: $table.comments, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get quantityOnHandTotal => $composableBuilder(
+      column: $table.quantityOnHandTotal,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get availableToPromiseTotal => $composableBuilder(
+      column: $table.availableToPromiseTotal,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get accountingQuantityTotal => $composableBuilder(
+      column: $table.accountingQuantityTotal,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get serialNumber => $composableBuilder(
+      column: $table.serialNumber,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get softIdentifier => $composableBuilder(
+      column: $table.softIdentifier,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get activationNumber => $composableBuilder(
+      column: $table.activationNumber,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get activationValidThru => $composableBuilder(
+      column: $table.activationValidThru,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get unitCost => $composableBuilder(
+      column: $table.unitCost, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get currencyUomId => $composableBuilder(
+      column: $table.currencyUomId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get fixedAssetId => $composableBuilder(
+      column: $table.fixedAssetId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get accountId => $composableBuilder(
+      column: $table.accountId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tokenId => $composableBuilder(
+      column: $table.tokenId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get origin => $composableBuilder(
+      column: $table.origin, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemType => $composableBuilder(
+      column: $table.inventoryItemType,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryTransfer => $composableBuilder(
+      column: $table.inventoryTransfer,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemSlot => $composableBuilder(
+      column: $table.inventoryItemSlot,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemDetail => $composableBuilder(
+      column: $table.inventoryItemDetail,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemStatus => $composableBuilder(
+      column: $table.inventoryItemStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get inventoryItemVariance => $composableBuilder(
+      column: $table.inventoryItemVariance,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $InventoryItemAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.InventoryItem> {
+  $InventoryItemAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get inventoryItemId => $composableBuilder(
+      column: $table.inventoryItemId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get inventoryItemTypeId => $composableBuilder(
+      column: $table.inventoryItemTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get productId =>
+      $composableBuilder(column: $table.productId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get partyId =>
+      $composableBuilder(column: $table.partyId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get ownerPartyId => $composableBuilder(
+      column: $table.ownerPartyId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get datetimeReceived => $composableBuilder(
+      column: $table.datetimeReceived, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get datetimeManufactured => $composableBuilder(
+      column: $table.datetimeManufactured, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get expireDate => $composableBuilder(
+      column: $table.expireDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get facilityId => $composableBuilder(
+      column: $table.facilityId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get containerId => $composableBuilder(
+      column: $table.containerId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get lotId =>
+      $composableBuilder(column: $table.lotId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get uomId =>
+      $composableBuilder(column: $table.uomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get binNumber =>
+      $composableBuilder(column: $table.binNumber, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get locationSeqId => $composableBuilder(
+      column: $table.locationSeqId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get comments =>
+      $composableBuilder(column: $table.comments, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get quantityOnHandTotal => $composableBuilder(
+      column: $table.quantityOnHandTotal, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get availableToPromiseTotal => $composableBuilder(
+      column: $table.availableToPromiseTotal, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get accountingQuantityTotal => $composableBuilder(
+      column: $table.accountingQuantityTotal, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get serialNumber => $composableBuilder(
+      column: $table.serialNumber, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get softIdentifier => $composableBuilder(
+      column: $table.softIdentifier, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get activationNumber => $composableBuilder(
+      column: $table.activationNumber, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get activationValidThru => $composableBuilder(
+      column: $table.activationValidThru, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get unitCost =>
+      $composableBuilder(column: $table.unitCost, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get currencyUomId => $composableBuilder(
+      column: $table.currencyUomId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get fixedAssetId => $composableBuilder(
+      column: $table.fixedAssetId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get accountId =>
+      $composableBuilder(column: $table.accountId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tokenId =>
+      $composableBuilder(column: $table.tokenId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get origin =>
+      $composableBuilder(column: $table.origin, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.InventoryItemType?, String>
+      get inventoryItemType => $composableBuilder(
+          column: $table.inventoryItemType, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i2.InventoryTransfer>?, String>
+      get inventoryTransfer => $composableBuilder(
+          column: $table.inventoryTransfer, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i2.InventoryItemSlot>?, String>
+      get inventoryItemSlot => $composableBuilder(
+          column: $table.inventoryItemSlot, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i2.InventoryItemDetail>?, String>
+      get inventoryItemDetail => $composableBuilder(
+          column: $table.inventoryItemDetail, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i2.InventoryItemStatus>?, String>
+      get inventoryItemStatus => $composableBuilder(
+          column: $table.inventoryItemStatus, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i2.InventoryItemVariance>?, String>
+      get inventoryItemVariance => $composableBuilder(
+          column: $table.inventoryItemVariance, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $InventoryItemTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.InventoryItem,
+    i1.InventoryItemData,
+    i1.$InventoryItemFilterComposer,
+    i1.$InventoryItemOrderingComposer,
+    i1.$InventoryItemAnnotationComposer,
+    $InventoryItemCreateCompanionBuilder,
+    $InventoryItemUpdateCompanionBuilder,
+    (
+      i1.InventoryItemData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.InventoryItem,
+          i1.InventoryItemData>
+    ),
+    i1.InventoryItemData,
+    i0.PrefetchHooks Function()> {
+  $InventoryItemTableManager(i0.GeneratedDatabase db, i1.InventoryItem table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$InventoryItemFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$InventoryItemOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$InventoryItemAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> inventoryItemId = const i0.Value.absent(),
+            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
+            i0.Value<String?> productId = const i0.Value.absent(),
+            i0.Value<String?> partyId = const i0.Value.absent(),
+            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<DateTime?> datetimeReceived = const i0.Value.absent(),
+            i0.Value<DateTime?> datetimeManufactured = const i0.Value.absent(),
+            i0.Value<DateTime?> expireDate = const i0.Value.absent(),
+            i0.Value<String?> facilityId = const i0.Value.absent(),
+            i0.Value<String?> containerId = const i0.Value.absent(),
+            i0.Value<String?> lotId = const i0.Value.absent(),
+            i0.Value<String?> uomId = const i0.Value.absent(),
+            i0.Value<String?> binNumber = const i0.Value.absent(),
+            i0.Value<String?> locationSeqId = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<double?> quantityOnHandTotal = const i0.Value.absent(),
+            i0.Value<double?> availableToPromiseTotal = const i0.Value.absent(),
+            i0.Value<double?> accountingQuantityTotal = const i0.Value.absent(),
+            i0.Value<String?> serialNumber = const i0.Value.absent(),
+            i0.Value<String?> softIdentifier = const i0.Value.absent(),
+            i0.Value<String?> activationNumber = const i0.Value.absent(),
+            i0.Value<DateTime?> activationValidThru = const i0.Value.absent(),
+            i0.Value<double?> unitCost = const i0.Value.absent(),
+            i0.Value<String?> currencyUomId = const i0.Value.absent(),
+            i0.Value<String?> fixedAssetId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> accountId = const i0.Value.absent(),
+            i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<String?> origin = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.InventoryItemType?> inventoryItemType =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.InventoryItemCompanion(
+            inventoryItemId: inventoryItemId,
+            inventoryItemTypeId: inventoryItemTypeId,
+            productId: productId,
+            partyId: partyId,
+            ownerPartyId: ownerPartyId,
+            statusId: statusId,
+            datetimeReceived: datetimeReceived,
+            datetimeManufactured: datetimeManufactured,
+            expireDate: expireDate,
+            facilityId: facilityId,
+            containerId: containerId,
+            lotId: lotId,
+            uomId: uomId,
+            binNumber: binNumber,
+            locationSeqId: locationSeqId,
+            comments: comments,
+            quantityOnHandTotal: quantityOnHandTotal,
+            availableToPromiseTotal: availableToPromiseTotal,
+            accountingQuantityTotal: accountingQuantityTotal,
+            serialNumber: serialNumber,
+            softIdentifier: softIdentifier,
+            activationNumber: activationNumber,
+            activationValidThru: activationValidThru,
+            unitCost: unitCost,
+            currencyUomId: currencyUomId,
+            fixedAssetId: fixedAssetId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            accountId: accountId,
+            tokenId: tokenId,
+            origin: origin,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            inventoryItemType: inventoryItemType,
+            inventoryTransfer: inventoryTransfer,
+            inventoryItemSlot: inventoryItemSlot,
+            inventoryItemDetail: inventoryItemDetail,
+            inventoryItemStatus: inventoryItemStatus,
+            inventoryItemVariance: inventoryItemVariance,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String inventoryItemId,
+            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
+            i0.Value<String?> productId = const i0.Value.absent(),
+            i0.Value<String?> partyId = const i0.Value.absent(),
+            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<DateTime?> datetimeReceived = const i0.Value.absent(),
+            i0.Value<DateTime?> datetimeManufactured = const i0.Value.absent(),
+            i0.Value<DateTime?> expireDate = const i0.Value.absent(),
+            i0.Value<String?> facilityId = const i0.Value.absent(),
+            i0.Value<String?> containerId = const i0.Value.absent(),
+            i0.Value<String?> lotId = const i0.Value.absent(),
+            i0.Value<String?> uomId = const i0.Value.absent(),
+            i0.Value<String?> binNumber = const i0.Value.absent(),
+            i0.Value<String?> locationSeqId = const i0.Value.absent(),
+            i0.Value<String?> comments = const i0.Value.absent(),
+            i0.Value<double?> quantityOnHandTotal = const i0.Value.absent(),
+            i0.Value<double?> availableToPromiseTotal = const i0.Value.absent(),
+            i0.Value<double?> accountingQuantityTotal = const i0.Value.absent(),
+            i0.Value<String?> serialNumber = const i0.Value.absent(),
+            i0.Value<String?> softIdentifier = const i0.Value.absent(),
+            i0.Value<String?> activationNumber = const i0.Value.absent(),
+            i0.Value<DateTime?> activationValidThru = const i0.Value.absent(),
+            i0.Value<double?> unitCost = const i0.Value.absent(),
+            i0.Value<String?> currencyUomId = const i0.Value.absent(),
+            i0.Value<String?> fixedAssetId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<String?> accountId = const i0.Value.absent(),
+            i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<String?> origin = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.InventoryItemType?> inventoryItemType =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
+                const i0.Value.absent(),
+            i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.InventoryItemCompanion.insert(
+            inventoryItemId: inventoryItemId,
+            inventoryItemTypeId: inventoryItemTypeId,
+            productId: productId,
+            partyId: partyId,
+            ownerPartyId: ownerPartyId,
+            statusId: statusId,
+            datetimeReceived: datetimeReceived,
+            datetimeManufactured: datetimeManufactured,
+            expireDate: expireDate,
+            facilityId: facilityId,
+            containerId: containerId,
+            lotId: lotId,
+            uomId: uomId,
+            binNumber: binNumber,
+            locationSeqId: locationSeqId,
+            comments: comments,
+            quantityOnHandTotal: quantityOnHandTotal,
+            availableToPromiseTotal: availableToPromiseTotal,
+            accountingQuantityTotal: accountingQuantityTotal,
+            serialNumber: serialNumber,
+            softIdentifier: softIdentifier,
+            activationNumber: activationNumber,
+            activationValidThru: activationValidThru,
+            unitCost: unitCost,
+            currencyUomId: currencyUomId,
+            fixedAssetId: fixedAssetId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tenantId: tenantId,
+            accountId: accountId,
+            tokenId: tokenId,
+            origin: origin,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            inventoryItemType: inventoryItemType,
+            inventoryTransfer: inventoryTransfer,
+            inventoryItemSlot: inventoryItemSlot,
+            inventoryItemDetail: inventoryItemDetail,
+            inventoryItemStatus: inventoryItemStatus,
+            inventoryItemVariance: inventoryItemVariance,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $InventoryItemProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.InventoryItem,
+    i1.InventoryItemData,
+    i1.$InventoryItemFilterComposer,
+    i1.$InventoryItemOrderingComposer,
+    i1.$InventoryItemAnnotationComposer,
+    $InventoryItemCreateCompanionBuilder,
+    $InventoryItemUpdateCompanionBuilder,
+    (
+      i1.InventoryItemData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.InventoryItem,
+          i1.InventoryItemData>
+    ),
+    i1.InventoryItemData,
+    i0.PrefetchHooks Function()>;
+
 class InventoryItem extends i0.Table
     with i0.TableInfo<InventoryItem, i1.InventoryItemData> {
   @override
@@ -2237,831 +3085,6 @@ class InventoryItemCompanion extends i0.UpdateCompanion<i1.InventoryItemData> {
         .toString();
   }
 }
-
-typedef $InventoryItemCreateCompanionBuilder = i1.InventoryItemCompanion
-    Function({
-  required String inventoryItemId,
-  i0.Value<String?> inventoryItemTypeId,
-  i0.Value<String?> productId,
-  i0.Value<String?> partyId,
-  i0.Value<String?> ownerPartyId,
-  i0.Value<String?> statusId,
-  i0.Value<DateTime?> datetimeReceived,
-  i0.Value<DateTime?> datetimeManufactured,
-  i0.Value<DateTime?> expireDate,
-  i0.Value<String?> facilityId,
-  i0.Value<String?> containerId,
-  i0.Value<String?> lotId,
-  i0.Value<String?> uomId,
-  i0.Value<String?> binNumber,
-  i0.Value<String?> locationSeqId,
-  i0.Value<String?> comments,
-  i0.Value<double?> quantityOnHandTotal,
-  i0.Value<double?> availableToPromiseTotal,
-  i0.Value<double?> accountingQuantityTotal,
-  i0.Value<String?> serialNumber,
-  i0.Value<String?> softIdentifier,
-  i0.Value<String?> activationNumber,
-  i0.Value<DateTime?> activationValidThru,
-  i0.Value<double?> unitCost,
-  i0.Value<String?> currencyUomId,
-  i0.Value<String?> fixedAssetId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> accountId,
-  i0.Value<String?> tokenId,
-  i0.Value<String?> origin,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.InventoryItemType?> inventoryItemType,
-  i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
-  i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
-  i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail,
-  i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus,
-  i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $InventoryItemUpdateCompanionBuilder = i1.InventoryItemCompanion
-    Function({
-  i0.Value<String> inventoryItemId,
-  i0.Value<String?> inventoryItemTypeId,
-  i0.Value<String?> productId,
-  i0.Value<String?> partyId,
-  i0.Value<String?> ownerPartyId,
-  i0.Value<String?> statusId,
-  i0.Value<DateTime?> datetimeReceived,
-  i0.Value<DateTime?> datetimeManufactured,
-  i0.Value<DateTime?> expireDate,
-  i0.Value<String?> facilityId,
-  i0.Value<String?> containerId,
-  i0.Value<String?> lotId,
-  i0.Value<String?> uomId,
-  i0.Value<String?> binNumber,
-  i0.Value<String?> locationSeqId,
-  i0.Value<String?> comments,
-  i0.Value<double?> quantityOnHandTotal,
-  i0.Value<double?> availableToPromiseTotal,
-  i0.Value<double?> accountingQuantityTotal,
-  i0.Value<String?> serialNumber,
-  i0.Value<String?> softIdentifier,
-  i0.Value<String?> activationNumber,
-  i0.Value<DateTime?> activationValidThru,
-  i0.Value<double?> unitCost,
-  i0.Value<String?> currencyUomId,
-  i0.Value<String?> fixedAssetId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tenantId,
-  i0.Value<String?> accountId,
-  i0.Value<String?> tokenId,
-  i0.Value<String?> origin,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.InventoryItemType?> inventoryItemType,
-  i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer,
-  i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot,
-  i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail,
-  i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus,
-  i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $InventoryItemFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.InventoryItem> {
-  $InventoryItemFilterComposer(super.$state);
-  i0.ColumnFilters<String> get inventoryItemId => $state.composableBuilder(
-      column: $state.table.inventoryItemId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get inventoryItemTypeId => $state.composableBuilder(
-      column: $state.table.inventoryItemTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get productId => $state.composableBuilder(
-      column: $state.table.productId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get partyId => $state.composableBuilder(
-      column: $state.table.partyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get ownerPartyId => $state.composableBuilder(
-      column: $state.table.ownerPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get datetimeReceived => $state.composableBuilder(
-      column: $state.table.datetimeReceived,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get datetimeManufactured =>
-      $state.composableBuilder(
-          column: $state.table.datetimeManufactured,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get expireDate => $state.composableBuilder(
-      column: $state.table.expireDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get facilityId => $state.composableBuilder(
-      column: $state.table.facilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get containerId => $state.composableBuilder(
-      column: $state.table.containerId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get lotId => $state.composableBuilder(
-      column: $state.table.lotId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get uomId => $state.composableBuilder(
-      column: $state.table.uomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get binNumber => $state.composableBuilder(
-      column: $state.table.binNumber,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get locationSeqId => $state.composableBuilder(
-      column: $state.table.locationSeqId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get quantityOnHandTotal => $state.composableBuilder(
-      column: $state.table.quantityOnHandTotal,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get availableToPromiseTotal =>
-      $state.composableBuilder(
-          column: $state.table.availableToPromiseTotal,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get accountingQuantityTotal =>
-      $state.composableBuilder(
-          column: $state.table.accountingQuantityTotal,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get serialNumber => $state.composableBuilder(
-      column: $state.table.serialNumber,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get softIdentifier => $state.composableBuilder(
-      column: $state.table.softIdentifier,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get activationNumber => $state.composableBuilder(
-      column: $state.table.activationNumber,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get activationValidThru =>
-      $state.composableBuilder(
-          column: $state.table.activationValidThru,
-          builder: (column, joinBuilders) =>
-              i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get unitCost => $state.composableBuilder(
-      column: $state.table.unitCost,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get currencyUomId => $state.composableBuilder(
-      column: $state.table.currencyUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get fixedAssetId => $state.composableBuilder(
-      column: $state.table.fixedAssetId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get accountId => $state.composableBuilder(
-      column: $state.table.accountId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tokenId => $state.composableBuilder(
-      column: $state.table.tokenId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get origin => $state.composableBuilder(
-      column: $state.table.origin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.InventoryItemType?, i2.InventoryItemType,
-          String>
-      get inventoryItemType => $state.composableBuilder(
-          column: $state.table.inventoryItemType,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i2.InventoryTransfer>?,
-          List<i2.InventoryTransfer>, String>
-      get inventoryTransfer => $state.composableBuilder(
-          column: $state.table.inventoryTransfer,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemSlot>?,
-          List<i2.InventoryItemSlot>, String>
-      get inventoryItemSlot => $state.composableBuilder(
-          column: $state.table.inventoryItemSlot,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemDetail>?,
-          List<i2.InventoryItemDetail>, String>
-      get inventoryItemDetail => $state.composableBuilder(
-          column: $state.table.inventoryItemDetail,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemStatus>?,
-          List<i2.InventoryItemStatus>, String>
-      get inventoryItemStatus => $state.composableBuilder(
-          column: $state.table.inventoryItemStatus,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i2.InventoryItemVariance>?,
-          List<i2.InventoryItemVariance>, String>
-      get inventoryItemVariance => $state.composableBuilder(
-          column: $state.table.inventoryItemVariance,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $InventoryItemOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.InventoryItem> {
-  $InventoryItemOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get inventoryItemId => $state.composableBuilder(
-      column: $state.table.inventoryItemId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemTypeId =>
-      $state.composableBuilder(
-          column: $state.table.inventoryItemTypeId,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get productId => $state.composableBuilder(
-      column: $state.table.productId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get partyId => $state.composableBuilder(
-      column: $state.table.partyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get ownerPartyId => $state.composableBuilder(
-      column: $state.table.ownerPartyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get datetimeReceived => $state.composableBuilder(
-      column: $state.table.datetimeReceived,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get datetimeManufactured => $state
-      .composableBuilder(
-          column: $state.table.datetimeManufactured,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get expireDate => $state.composableBuilder(
-      column: $state.table.expireDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get facilityId => $state.composableBuilder(
-      column: $state.table.facilityId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get containerId => $state.composableBuilder(
-      column: $state.table.containerId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get lotId => $state.composableBuilder(
-      column: $state.table.lotId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get uomId => $state.composableBuilder(
-      column: $state.table.uomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get binNumber => $state.composableBuilder(
-      column: $state.table.binNumber,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get locationSeqId => $state.composableBuilder(
-      column: $state.table.locationSeqId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get comments => $state.composableBuilder(
-      column: $state.table.comments,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get quantityOnHandTotal =>
-      $state.composableBuilder(
-          column: $state.table.quantityOnHandTotal,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get availableToPromiseTotal =>
-      $state.composableBuilder(
-          column: $state.table.availableToPromiseTotal,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get accountingQuantityTotal =>
-      $state.composableBuilder(
-          column: $state.table.accountingQuantityTotal,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get serialNumber => $state.composableBuilder(
-      column: $state.table.serialNumber,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get softIdentifier => $state.composableBuilder(
-      column: $state.table.softIdentifier,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get activationNumber => $state.composableBuilder(
-      column: $state.table.activationNumber,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get activationValidThru =>
-      $state.composableBuilder(
-          column: $state.table.activationValidThru,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get unitCost => $state.composableBuilder(
-      column: $state.table.unitCost,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get currencyUomId => $state.composableBuilder(
-      column: $state.table.currencyUomId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get fixedAssetId => $state.composableBuilder(
-      column: $state.table.fixedAssetId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get accountId => $state.composableBuilder(
-      column: $state.table.accountId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tokenId => $state.composableBuilder(
-      column: $state.table.tokenId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get origin => $state.composableBuilder(
-      column: $state.table.origin,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemType => $state.composableBuilder(
-      column: $state.table.inventoryItemType,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryTransfer => $state.composableBuilder(
-      column: $state.table.inventoryTransfer,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemSlot => $state.composableBuilder(
-      column: $state.table.inventoryItemSlot,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemDetail =>
-      $state.composableBuilder(
-          column: $state.table.inventoryItemDetail,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemStatus =>
-      $state.composableBuilder(
-          column: $state.table.inventoryItemStatus,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get inventoryItemVariance =>
-      $state.composableBuilder(
-          column: $state.table.inventoryItemVariance,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $InventoryItemTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.InventoryItem,
-    i1.InventoryItemData,
-    i1.$InventoryItemFilterComposer,
-    i1.$InventoryItemOrderingComposer,
-    $InventoryItemCreateCompanionBuilder,
-    $InventoryItemUpdateCompanionBuilder,
-    (
-      i1.InventoryItemData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.InventoryItem,
-          i1.InventoryItemData>
-    ),
-    i1.InventoryItemData,
-    i0.PrefetchHooks Function()> {
-  $InventoryItemTableManager(i0.GeneratedDatabase db, i1.InventoryItem table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$InventoryItemFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$InventoryItemOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> inventoryItemId = const i0.Value.absent(),
-            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
-            i0.Value<String?> productId = const i0.Value.absent(),
-            i0.Value<String?> partyId = const i0.Value.absent(),
-            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<DateTime?> datetimeReceived = const i0.Value.absent(),
-            i0.Value<DateTime?> datetimeManufactured = const i0.Value.absent(),
-            i0.Value<DateTime?> expireDate = const i0.Value.absent(),
-            i0.Value<String?> facilityId = const i0.Value.absent(),
-            i0.Value<String?> containerId = const i0.Value.absent(),
-            i0.Value<String?> lotId = const i0.Value.absent(),
-            i0.Value<String?> uomId = const i0.Value.absent(),
-            i0.Value<String?> binNumber = const i0.Value.absent(),
-            i0.Value<String?> locationSeqId = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<double?> quantityOnHandTotal = const i0.Value.absent(),
-            i0.Value<double?> availableToPromiseTotal = const i0.Value.absent(),
-            i0.Value<double?> accountingQuantityTotal = const i0.Value.absent(),
-            i0.Value<String?> serialNumber = const i0.Value.absent(),
-            i0.Value<String?> softIdentifier = const i0.Value.absent(),
-            i0.Value<String?> activationNumber = const i0.Value.absent(),
-            i0.Value<DateTime?> activationValidThru = const i0.Value.absent(),
-            i0.Value<double?> unitCost = const i0.Value.absent(),
-            i0.Value<String?> currencyUomId = const i0.Value.absent(),
-            i0.Value<String?> fixedAssetId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> accountId = const i0.Value.absent(),
-            i0.Value<String?> tokenId = const i0.Value.absent(),
-            i0.Value<String?> origin = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.InventoryItemType?> inventoryItemType =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.InventoryItemCompanion(
-            inventoryItemId: inventoryItemId,
-            inventoryItemTypeId: inventoryItemTypeId,
-            productId: productId,
-            partyId: partyId,
-            ownerPartyId: ownerPartyId,
-            statusId: statusId,
-            datetimeReceived: datetimeReceived,
-            datetimeManufactured: datetimeManufactured,
-            expireDate: expireDate,
-            facilityId: facilityId,
-            containerId: containerId,
-            lotId: lotId,
-            uomId: uomId,
-            binNumber: binNumber,
-            locationSeqId: locationSeqId,
-            comments: comments,
-            quantityOnHandTotal: quantityOnHandTotal,
-            availableToPromiseTotal: availableToPromiseTotal,
-            accountingQuantityTotal: accountingQuantityTotal,
-            serialNumber: serialNumber,
-            softIdentifier: softIdentifier,
-            activationNumber: activationNumber,
-            activationValidThru: activationValidThru,
-            unitCost: unitCost,
-            currencyUomId: currencyUomId,
-            fixedAssetId: fixedAssetId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            accountId: accountId,
-            tokenId: tokenId,
-            origin: origin,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            inventoryItemType: inventoryItemType,
-            inventoryTransfer: inventoryTransfer,
-            inventoryItemSlot: inventoryItemSlot,
-            inventoryItemDetail: inventoryItemDetail,
-            inventoryItemStatus: inventoryItemStatus,
-            inventoryItemVariance: inventoryItemVariance,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String inventoryItemId,
-            i0.Value<String?> inventoryItemTypeId = const i0.Value.absent(),
-            i0.Value<String?> productId = const i0.Value.absent(),
-            i0.Value<String?> partyId = const i0.Value.absent(),
-            i0.Value<String?> ownerPartyId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<DateTime?> datetimeReceived = const i0.Value.absent(),
-            i0.Value<DateTime?> datetimeManufactured = const i0.Value.absent(),
-            i0.Value<DateTime?> expireDate = const i0.Value.absent(),
-            i0.Value<String?> facilityId = const i0.Value.absent(),
-            i0.Value<String?> containerId = const i0.Value.absent(),
-            i0.Value<String?> lotId = const i0.Value.absent(),
-            i0.Value<String?> uomId = const i0.Value.absent(),
-            i0.Value<String?> binNumber = const i0.Value.absent(),
-            i0.Value<String?> locationSeqId = const i0.Value.absent(),
-            i0.Value<String?> comments = const i0.Value.absent(),
-            i0.Value<double?> quantityOnHandTotal = const i0.Value.absent(),
-            i0.Value<double?> availableToPromiseTotal = const i0.Value.absent(),
-            i0.Value<double?> accountingQuantityTotal = const i0.Value.absent(),
-            i0.Value<String?> serialNumber = const i0.Value.absent(),
-            i0.Value<String?> softIdentifier = const i0.Value.absent(),
-            i0.Value<String?> activationNumber = const i0.Value.absent(),
-            i0.Value<DateTime?> activationValidThru = const i0.Value.absent(),
-            i0.Value<double?> unitCost = const i0.Value.absent(),
-            i0.Value<String?> currencyUomId = const i0.Value.absent(),
-            i0.Value<String?> fixedAssetId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<String?> accountId = const i0.Value.absent(),
-            i0.Value<String?> tokenId = const i0.Value.absent(),
-            i0.Value<String?> origin = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.InventoryItemType?> inventoryItemType =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryTransfer>?> inventoryTransfer =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemSlot>?> inventoryItemSlot =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemDetail>?> inventoryItemDetail =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemStatus>?> inventoryItemStatus =
-                const i0.Value.absent(),
-            i0.Value<List<i2.InventoryItemVariance>?> inventoryItemVariance =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.InventoryItemCompanion.insert(
-            inventoryItemId: inventoryItemId,
-            inventoryItemTypeId: inventoryItemTypeId,
-            productId: productId,
-            partyId: partyId,
-            ownerPartyId: ownerPartyId,
-            statusId: statusId,
-            datetimeReceived: datetimeReceived,
-            datetimeManufactured: datetimeManufactured,
-            expireDate: expireDate,
-            facilityId: facilityId,
-            containerId: containerId,
-            lotId: lotId,
-            uomId: uomId,
-            binNumber: binNumber,
-            locationSeqId: locationSeqId,
-            comments: comments,
-            quantityOnHandTotal: quantityOnHandTotal,
-            availableToPromiseTotal: availableToPromiseTotal,
-            accountingQuantityTotal: accountingQuantityTotal,
-            serialNumber: serialNumber,
-            softIdentifier: softIdentifier,
-            activationNumber: activationNumber,
-            activationValidThru: activationValidThru,
-            unitCost: unitCost,
-            currencyUomId: currencyUomId,
-            fixedAssetId: fixedAssetId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tenantId: tenantId,
-            accountId: accountId,
-            tokenId: tokenId,
-            origin: origin,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            inventoryItemType: inventoryItemType,
-            inventoryTransfer: inventoryTransfer,
-            inventoryItemSlot: inventoryItemSlot,
-            inventoryItemDetail: inventoryItemDetail,
-            inventoryItemStatus: inventoryItemStatus,
-            inventoryItemVariance: inventoryItemVariance,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $InventoryItemProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.InventoryItem,
-    i1.InventoryItemData,
-    i1.$InventoryItemFilterComposer,
-    i1.$InventoryItemOrderingComposer,
-    $InventoryItemCreateCompanionBuilder,
-    $InventoryItemUpdateCompanionBuilder,
-    (
-      i1.InventoryItemData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.InventoryItem,
-          i1.InventoryItemData>
-    ),
-    i1.InventoryItemData,
-    i0.PrefetchHooks Function()>;
 
 class InventoryDrift extends i5.ModularAccessor {
   InventoryDrift(i0.GeneratedDatabase db) : super(db);

@@ -7,6 +7,540 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/billboard_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $BillboardCreateCompanionBuilder = i1.BillboardCompanion Function({
+  required String billboardId,
+  i0.Value<String?> escrowId,
+  i0.Value<DateTime?> fromDate,
+  i0.Value<String?> name,
+  i0.Value<String?> announcement,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<String?> billboardTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> marketplaceId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog,
+  i0.Value<List<i3.BillboardAccount>?> billboardAccount,
+  i0.Value<List<i3.BillboardProduct>?> billboardProduct,
+  i0.Value<List<i3.BillboardShipmentCostEstimate>?>
+      billboardShipmentCostEstimate,
+  i0.Value<List<i3.BillboardContent>?> billboardContent,
+  i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo,
+  i0.Value<List<i3.BillboardProductPriceRule>?> billboardProductPriceRule,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $BillboardUpdateCompanionBuilder = i1.BillboardCompanion Function({
+  i0.Value<String> billboardId,
+  i0.Value<String?> escrowId,
+  i0.Value<DateTime?> fromDate,
+  i0.Value<String?> name,
+  i0.Value<String?> announcement,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<String?> billboardTypeId,
+  i0.Value<String?> statusId,
+  i0.Value<String?> marketplaceId,
+  i0.Value<bool?> evict,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog,
+  i0.Value<List<i3.BillboardAccount>?> billboardAccount,
+  i0.Value<List<i3.BillboardProduct>?> billboardProduct,
+  i0.Value<List<i3.BillboardShipmentCostEstimate>?>
+      billboardShipmentCostEstimate,
+  i0.Value<List<i3.BillboardContent>?> billboardContent,
+  i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo,
+  i0.Value<List<i3.BillboardProductPriceRule>?> billboardProductPriceRule,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $BillboardFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Billboard> {
+  $BillboardFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get billboardId => $composableBuilder(
+      column: $table.billboardId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get escrowId => $composableBuilder(
+      column: $table.escrowId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get fromDate => $composableBuilder(
+      column: $table.fromDate, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get announcement => $composableBuilder(
+      column: $table.announcement,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get billboardTypeId => $composableBuilder(
+      column: $table.billboardTypeId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get marketplaceId => $composableBuilder(
+      column: $table.marketplaceId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProdCatalog>?,
+          List<i3.BillboardProdCatalog>, String>
+      get billboardProdCatalog => $composableBuilder(
+          column: $table.billboardProdCatalog,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardAccount>?,
+          List<i3.BillboardAccount>, String>
+      get billboardAccount => $composableBuilder(
+          column: $table.billboardAccount,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProduct>?,
+          List<i3.BillboardProduct>, String>
+      get billboardProduct => $composableBuilder(
+          column: $table.billboardProduct,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardShipmentCostEstimate>?,
+          List<i3.BillboardShipmentCostEstimate>, String>
+      get billboardShipmentCostEstimate => $composableBuilder(
+          column: $table.billboardShipmentCostEstimate,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardContent>?,
+          List<i3.BillboardContent>, String>
+      get billboardContent => $composableBuilder(
+          column: $table.billboardContent,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProductPromo>?,
+          List<i3.BillboardProductPromo>, String>
+      get billboardProductPromo => $composableBuilder(
+          column: $table.billboardProductPromo,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProductPriceRule>?,
+          List<i3.BillboardProductPriceRule>, String>
+      get billboardProductPriceRule => $composableBuilder(
+          column: $table.billboardProductPriceRule,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $BillboardOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Billboard> {
+  $BillboardOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get billboardId => $composableBuilder(
+      column: $table.billboardId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get escrowId => $composableBuilder(
+      column: $table.escrowId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get fromDate => $composableBuilder(
+      column: $table.fromDate, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get announcement => $composableBuilder(
+      column: $table.announcement,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardTypeId => $composableBuilder(
+      column: $table.billboardTypeId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get statusId => $composableBuilder(
+      column: $table.statusId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get marketplaceId => $composableBuilder(
+      column: $table.marketplaceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardProdCatalog => $composableBuilder(
+      column: $table.billboardProdCatalog,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardAccount => $composableBuilder(
+      column: $table.billboardAccount,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardProduct => $composableBuilder(
+      column: $table.billboardProduct,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardShipmentCostEstimate =>
+      $composableBuilder(
+          column: $table.billboardShipmentCostEstimate,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardContent => $composableBuilder(
+      column: $table.billboardContent,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardProductPromo => $composableBuilder(
+      column: $table.billboardProductPromo,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get billboardProductPriceRule =>
+      $composableBuilder(
+          column: $table.billboardProductPriceRule,
+          builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $BillboardAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Billboard> {
+  $BillboardAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get billboardId => $composableBuilder(
+      column: $table.billboardId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get escrowId =>
+      $composableBuilder(column: $table.escrowId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get fromDate =>
+      $composableBuilder(column: $table.fromDate, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get announcement => $composableBuilder(
+      column: $table.announcement, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get billboardTypeId => $composableBuilder(
+      column: $table.billboardTypeId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get statusId =>
+      $composableBuilder(column: $table.statusId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get marketplaceId => $composableBuilder(
+      column: $table.marketplaceId, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardProdCatalog>?, String>
+      get billboardProdCatalog => $composableBuilder(
+          column: $table.billboardProdCatalog, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardAccount>?, String>
+      get billboardAccount => $composableBuilder(
+          column: $table.billboardAccount, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardProduct>?, String>
+      get billboardProduct => $composableBuilder(
+          column: $table.billboardProduct, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardShipmentCostEstimate>?,
+          String>
+      get billboardShipmentCostEstimate => $composableBuilder(
+          column: $table.billboardShipmentCostEstimate,
+          builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardContent>?, String>
+      get billboardContent => $composableBuilder(
+          column: $table.billboardContent, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardProductPromo>?, String>
+      get billboardProductPromo => $composableBuilder(
+          column: $table.billboardProductPromo, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.BillboardProductPriceRule>?,
+          String>
+      get billboardProductPriceRule => $composableBuilder(
+          column: $table.billboardProductPriceRule,
+          builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $BillboardTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Billboard,
+    i1.BillboardData,
+    i1.$BillboardFilterComposer,
+    i1.$BillboardOrderingComposer,
+    i1.$BillboardAnnotationComposer,
+    $BillboardCreateCompanionBuilder,
+    $BillboardUpdateCompanionBuilder,
+    (
+      i1.BillboardData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Billboard, i1.BillboardData>
+    ),
+    i1.BillboardData,
+    i0.PrefetchHooks Function()> {
+  $BillboardTableManager(i0.GeneratedDatabase db, i1.Billboard table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$BillboardFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$BillboardOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$BillboardAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> billboardId = const i0.Value.absent(),
+            i0.Value<String?> escrowId = const i0.Value.absent(),
+            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> announcement = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<String?> billboardTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> marketplaceId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardAccount>?> billboardAccount =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProduct>?> billboardProduct =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardShipmentCostEstimate>?>
+                billboardShipmentCostEstimate = const i0.Value.absent(),
+            i0.Value<List<i3.BillboardContent>?> billboardContent =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProductPriceRule>?>
+                billboardProductPriceRule = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.BillboardCompanion(
+            billboardId: billboardId,
+            escrowId: escrowId,
+            fromDate: fromDate,
+            name: name,
+            announcement: announcement,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            billboardTypeId: billboardTypeId,
+            statusId: statusId,
+            marketplaceId: marketplaceId,
+            evict: evict,
+            acl: acl,
+            billboardProdCatalog: billboardProdCatalog,
+            billboardAccount: billboardAccount,
+            billboardProduct: billboardProduct,
+            billboardShipmentCostEstimate: billboardShipmentCostEstimate,
+            billboardContent: billboardContent,
+            billboardProductPromo: billboardProductPromo,
+            billboardProductPriceRule: billboardProductPriceRule,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String billboardId,
+            i0.Value<String?> escrowId = const i0.Value.absent(),
+            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
+            i0.Value<String?> name = const i0.Value.absent(),
+            i0.Value<String?> announcement = const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<String?> billboardTypeId = const i0.Value.absent(),
+            i0.Value<String?> statusId = const i0.Value.absent(),
+            i0.Value<String?> marketplaceId = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardAccount>?> billboardAccount =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProduct>?> billboardProduct =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardShipmentCostEstimate>?>
+                billboardShipmentCostEstimate = const i0.Value.absent(),
+            i0.Value<List<i3.BillboardContent>?> billboardContent =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo =
+                const i0.Value.absent(),
+            i0.Value<List<i3.BillboardProductPriceRule>?>
+                billboardProductPriceRule = const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.BillboardCompanion.insert(
+            billboardId: billboardId,
+            escrowId: escrowId,
+            fromDate: fromDate,
+            name: name,
+            announcement: announcement,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            billboardTypeId: billboardTypeId,
+            statusId: statusId,
+            marketplaceId: marketplaceId,
+            evict: evict,
+            acl: acl,
+            billboardProdCatalog: billboardProdCatalog,
+            billboardAccount: billboardAccount,
+            billboardProduct: billboardProduct,
+            billboardShipmentCostEstimate: billboardShipmentCostEstimate,
+            billboardContent: billboardContent,
+            billboardProductPromo: billboardProductPromo,
+            billboardProductPriceRule: billboardProductPriceRule,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $BillboardProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Billboard,
+    i1.BillboardData,
+    i1.$BillboardFilterComposer,
+    i1.$BillboardOrderingComposer,
+    i1.$BillboardAnnotationComposer,
+    $BillboardCreateCompanionBuilder,
+    $BillboardUpdateCompanionBuilder,
+    (
+      i1.BillboardData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Billboard, i1.BillboardData>
+    ),
+    i1.BillboardData,
+    i0.PrefetchHooks Function()>;
+
 class Billboard extends i0.Table
     with i0.TableInfo<Billboard, i1.BillboardData> {
   @override
@@ -1336,508 +1870,6 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
         .toString();
   }
 }
-
-typedef $BillboardCreateCompanionBuilder = i1.BillboardCompanion Function({
-  required String billboardId,
-  i0.Value<String?> escrowId,
-  i0.Value<DateTime?> fromDate,
-  i0.Value<String?> name,
-  i0.Value<String?> announcement,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<String?> billboardTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> marketplaceId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog,
-  i0.Value<List<i3.BillboardAccount>?> billboardAccount,
-  i0.Value<List<i3.BillboardProduct>?> billboardProduct,
-  i0.Value<List<i3.BillboardShipmentCostEstimate>?>
-      billboardShipmentCostEstimate,
-  i0.Value<List<i3.BillboardContent>?> billboardContent,
-  i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo,
-  i0.Value<List<i3.BillboardProductPriceRule>?> billboardProductPriceRule,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $BillboardUpdateCompanionBuilder = i1.BillboardCompanion Function({
-  i0.Value<String> billboardId,
-  i0.Value<String?> escrowId,
-  i0.Value<DateTime?> fromDate,
-  i0.Value<String?> name,
-  i0.Value<String?> announcement,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<String?> billboardTypeId,
-  i0.Value<String?> statusId,
-  i0.Value<String?> marketplaceId,
-  i0.Value<bool?> evict,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog,
-  i0.Value<List<i3.BillboardAccount>?> billboardAccount,
-  i0.Value<List<i3.BillboardProduct>?> billboardProduct,
-  i0.Value<List<i3.BillboardShipmentCostEstimate>?>
-      billboardShipmentCostEstimate,
-  i0.Value<List<i3.BillboardContent>?> billboardContent,
-  i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo,
-  i0.Value<List<i3.BillboardProductPriceRule>?> billboardProductPriceRule,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $BillboardFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Billboard> {
-  $BillboardFilterComposer(super.$state);
-  i0.ColumnFilters<String> get billboardId => $state.composableBuilder(
-      column: $state.table.billboardId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get escrowId => $state.composableBuilder(
-      column: $state.table.escrowId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get fromDate => $state.composableBuilder(
-      column: $state.table.fromDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get announcement => $state.composableBuilder(
-      column: $state.table.announcement,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get billboardTypeId => $state.composableBuilder(
-      column: $state.table.billboardTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get marketplaceId => $state.composableBuilder(
-      column: $state.table.marketplaceId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProdCatalog>?,
-          List<i3.BillboardProdCatalog>, String>
-      get billboardProdCatalog => $state.composableBuilder(
-          column: $state.table.billboardProdCatalog,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardAccount>?,
-          List<i3.BillboardAccount>, String>
-      get billboardAccount => $state.composableBuilder(
-          column: $state.table.billboardAccount,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProduct>?,
-          List<i3.BillboardProduct>, String>
-      get billboardProduct => $state.composableBuilder(
-          column: $state.table.billboardProduct,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardShipmentCostEstimate>?,
-          List<i3.BillboardShipmentCostEstimate>, String>
-      get billboardShipmentCostEstimate => $state.composableBuilder(
-          column: $state.table.billboardShipmentCostEstimate,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardContent>?,
-          List<i3.BillboardContent>, String>
-      get billboardContent => $state.composableBuilder(
-          column: $state.table.billboardContent,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProductPromo>?,
-          List<i3.BillboardProductPromo>, String>
-      get billboardProductPromo => $state.composableBuilder(
-          column: $state.table.billboardProductPromo,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.BillboardProductPriceRule>?,
-          List<i3.BillboardProductPriceRule>, String>
-      get billboardProductPriceRule => $state.composableBuilder(
-          column: $state.table.billboardProductPriceRule,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $BillboardOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Billboard> {
-  $BillboardOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get billboardId => $state.composableBuilder(
-      column: $state.table.billboardId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get escrowId => $state.composableBuilder(
-      column: $state.table.escrowId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get fromDate => $state.composableBuilder(
-      column: $state.table.fromDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get name => $state.composableBuilder(
-      column: $state.table.name,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get announcement => $state.composableBuilder(
-      column: $state.table.announcement,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardTypeId => $state.composableBuilder(
-      column: $state.table.billboardTypeId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get statusId => $state.composableBuilder(
-      column: $state.table.statusId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get marketplaceId => $state.composableBuilder(
-      column: $state.table.marketplaceId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardProdCatalog =>
-      $state.composableBuilder(
-          column: $state.table.billboardProdCatalog,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardAccount => $state.composableBuilder(
-      column: $state.table.billboardAccount,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardProduct => $state.composableBuilder(
-      column: $state.table.billboardProduct,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardShipmentCostEstimate =>
-      $state.composableBuilder(
-          column: $state.table.billboardShipmentCostEstimate,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardContent => $state.composableBuilder(
-      column: $state.table.billboardContent,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardProductPromo =>
-      $state.composableBuilder(
-          column: $state.table.billboardProductPromo,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get billboardProductPriceRule =>
-      $state.composableBuilder(
-          column: $state.table.billboardProductPriceRule,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $BillboardTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Billboard,
-    i1.BillboardData,
-    i1.$BillboardFilterComposer,
-    i1.$BillboardOrderingComposer,
-    $BillboardCreateCompanionBuilder,
-    $BillboardUpdateCompanionBuilder,
-    (
-      i1.BillboardData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Billboard, i1.BillboardData>
-    ),
-    i1.BillboardData,
-    i0.PrefetchHooks Function()> {
-  $BillboardTableManager(i0.GeneratedDatabase db, i1.Billboard table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$BillboardFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$BillboardOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> billboardId = const i0.Value.absent(),
-            i0.Value<String?> escrowId = const i0.Value.absent(),
-            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> announcement = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> billboardTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> marketplaceId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardAccount>?> billboardAccount =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProduct>?> billboardProduct =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardShipmentCostEstimate>?>
-                billboardShipmentCostEstimate = const i0.Value.absent(),
-            i0.Value<List<i3.BillboardContent>?> billboardContent =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProductPriceRule>?>
-                billboardProductPriceRule = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.BillboardCompanion(
-            billboardId: billboardId,
-            escrowId: escrowId,
-            fromDate: fromDate,
-            name: name,
-            announcement: announcement,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            billboardTypeId: billboardTypeId,
-            statusId: statusId,
-            marketplaceId: marketplaceId,
-            evict: evict,
-            acl: acl,
-            billboardProdCatalog: billboardProdCatalog,
-            billboardAccount: billboardAccount,
-            billboardProduct: billboardProduct,
-            billboardShipmentCostEstimate: billboardShipmentCostEstimate,
-            billboardContent: billboardContent,
-            billboardProductPromo: billboardProductPromo,
-            billboardProductPriceRule: billboardProductPriceRule,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String billboardId,
-            i0.Value<String?> escrowId = const i0.Value.absent(),
-            i0.Value<DateTime?> fromDate = const i0.Value.absent(),
-            i0.Value<String?> name = const i0.Value.absent(),
-            i0.Value<String?> announcement = const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<String?> billboardTypeId = const i0.Value.absent(),
-            i0.Value<String?> statusId = const i0.Value.absent(),
-            i0.Value<String?> marketplaceId = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProdCatalog>?> billboardProdCatalog =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardAccount>?> billboardAccount =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProduct>?> billboardProduct =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardShipmentCostEstimate>?>
-                billboardShipmentCostEstimate = const i0.Value.absent(),
-            i0.Value<List<i3.BillboardContent>?> billboardContent =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProductPromo>?> billboardProductPromo =
-                const i0.Value.absent(),
-            i0.Value<List<i3.BillboardProductPriceRule>?>
-                billboardProductPriceRule = const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.BillboardCompanion.insert(
-            billboardId: billboardId,
-            escrowId: escrowId,
-            fromDate: fromDate,
-            name: name,
-            announcement: announcement,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            billboardTypeId: billboardTypeId,
-            statusId: statusId,
-            marketplaceId: marketplaceId,
-            evict: evict,
-            acl: acl,
-            billboardProdCatalog: billboardProdCatalog,
-            billboardAccount: billboardAccount,
-            billboardProduct: billboardProduct,
-            billboardShipmentCostEstimate: billboardShipmentCostEstimate,
-            billboardContent: billboardContent,
-            billboardProductPromo: billboardProductPromo,
-            billboardProductPriceRule: billboardProductPriceRule,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $BillboardProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Billboard,
-    i1.BillboardData,
-    i1.$BillboardFilterComposer,
-    i1.$BillboardOrderingComposer,
-    $BillboardCreateCompanionBuilder,
-    $BillboardUpdateCompanionBuilder,
-    (
-      i1.BillboardData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Billboard, i1.BillboardData>
-    ),
-    i1.BillboardData,
-    i0.PrefetchHooks Function()>;
 
 class BillboardDrift extends i6.ModularAccessor {
   BillboardDrift(i0.GeneratedDatabase db) : super(db);

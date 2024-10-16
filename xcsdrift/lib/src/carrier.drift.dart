@@ -7,6 +7,554 @@ import 'package:xcsdrift/fldconv.dart' as i4;
 import 'package:xcsdrift/src/carrier_conv.dart' as i5;
 import 'package:drift/internal/modular.dart' as i6;
 
+typedef $CarrierCreateCompanionBuilder = i1.CarrierCompanion Function({
+  required String carrierId,
+  i0.Value<String?> carrierStatus,
+  i0.Value<DateTime?> availableDate,
+  i0.Value<double?> lastPosLat,
+  i0.Value<double?> lastPosLon,
+  i0.Value<double?> lastPosZ,
+  i0.Value<double?> currentPosLat,
+  i0.Value<double?> currentPosLon,
+  i0.Value<double?> currentPosZ,
+  i0.Value<List<String>?> ships,
+  i0.Value<i2.Multimap<String, String>?> orders,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> partyId,
+  i0.Value<String?> rangeOfActivity,
+  i0.Value<String?> collider,
+  i0.Value<String?> autoOrganId,
+  i0.Value<String?> nftErc,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.CarrierMultisig>?> carrierMultisig,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+typedef $CarrierUpdateCompanionBuilder = i1.CarrierCompanion Function({
+  i0.Value<String> carrierId,
+  i0.Value<String?> carrierStatus,
+  i0.Value<DateTime?> availableDate,
+  i0.Value<double?> lastPosLat,
+  i0.Value<double?> lastPosLon,
+  i0.Value<double?> lastPosZ,
+  i0.Value<double?> currentPosLat,
+  i0.Value<double?> currentPosLon,
+  i0.Value<double?> currentPosZ,
+  i0.Value<List<String>?> ships,
+  i0.Value<i2.Multimap<String, String>?> orders,
+  i0.Value<String?> tenantId,
+  i0.Value<DateTime?> lastUpdatedTxStamp,
+  i0.Value<DateTime?> createdTxStamp,
+  i0.Value<String?> partyId,
+  i0.Value<String?> rangeOfActivity,
+  i0.Value<String?> collider,
+  i0.Value<String?> autoOrganId,
+  i0.Value<String?> nftErc,
+  i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<List<i3.CarrierMultisig>?> carrierMultisig,
+  i0.Value<int?> reservedFlag,
+  i0.Value<int> rowid,
+});
+
+class $CarrierFilterComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Carrier> {
+  $CarrierFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnFilters<String> get carrierId => $composableBuilder(
+      column: $table.carrierId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get carrierStatus => $composableBuilder(
+      column: $table.carrierStatus,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get availableDate => $composableBuilder(
+      column: $table.availableDate,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get lastPosLat => $composableBuilder(
+      column: $table.lastPosLat, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get lastPosLon => $composableBuilder(
+      column: $table.lastPosLon, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get lastPosZ => $composableBuilder(
+      column: $table.lastPosZ, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get currentPosLat => $composableBuilder(
+      column: $table.currentPosLat,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get currentPosLon => $composableBuilder(
+      column: $table.currentPosLon,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<double> get currentPosZ => $composableBuilder(
+      column: $table.currentPosZ,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get ships => $composableBuilder(
+          column: $table.ships,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get orders => $composableBuilder(
+          column: $table.orders,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get partyId => $composableBuilder(
+      column: $table.partyId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get rangeOfActivity => $composableBuilder(
+      column: $table.rangeOfActivity,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get collider => $composableBuilder(
+      column: $table.collider, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get autoOrganId => $composableBuilder(
+      column: $table.autoOrganId,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get nftErc => $composableBuilder(
+      column: $table.nftErc, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get acl => $composableBuilder(
+          column: $table.acl,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<i3.CarrierMultisig>?,
+          List<i3.CarrierMultisig>, String>
+      get carrierMultisig => $composableBuilder(
+          column: $table.carrierMultisig,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnFilters(column));
+}
+
+class $CarrierOrderingComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Carrier> {
+  $CarrierOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.ColumnOrderings<String> get carrierId => $composableBuilder(
+      column: $table.carrierId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get carrierStatus => $composableBuilder(
+      column: $table.carrierStatus,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get availableDate => $composableBuilder(
+      column: $table.availableDate,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get lastPosLat => $composableBuilder(
+      column: $table.lastPosLat,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get lastPosLon => $composableBuilder(
+      column: $table.lastPosLon,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get lastPosZ => $composableBuilder(
+      column: $table.lastPosZ, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get currentPosLat => $composableBuilder(
+      column: $table.currentPosLat,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get currentPosLon => $composableBuilder(
+      column: $table.currentPosLon,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<double> get currentPosZ => $composableBuilder(
+      column: $table.currentPosZ,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get ships => $composableBuilder(
+      column: $table.ships, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get orders => $composableBuilder(
+      column: $table.orders, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tenantId => $composableBuilder(
+      column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get partyId => $composableBuilder(
+      column: $table.partyId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get rangeOfActivity => $composableBuilder(
+      column: $table.rangeOfActivity,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get collider => $composableBuilder(
+      column: $table.collider, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get autoOrganId => $composableBuilder(
+      column: $table.autoOrganId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get nftErc => $composableBuilder(
+      column: $table.nftErc, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<bool> get evict => $composableBuilder(
+      column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get acl => $composableBuilder(
+      column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get carrierMultisig => $composableBuilder(
+      column: $table.carrierMultisig,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag,
+      builder: (column) => i0.ColumnOrderings(column));
+}
+
+class $CarrierAnnotationComposer
+    extends i0.Composer<i0.GeneratedDatabase, i1.Carrier> {
+  $CarrierAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  i0.GeneratedColumn<String> get carrierId =>
+      $composableBuilder(column: $table.carrierId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get carrierStatus => $composableBuilder(
+      column: $table.carrierStatus, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get availableDate => $composableBuilder(
+      column: $table.availableDate, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get lastPosLat => $composableBuilder(
+      column: $table.lastPosLat, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get lastPosLon => $composableBuilder(
+      column: $table.lastPosLon, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get lastPosZ =>
+      $composableBuilder(column: $table.lastPosZ, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get currentPosLat => $composableBuilder(
+      column: $table.currentPosLat, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get currentPosLon => $composableBuilder(
+      column: $table.currentPosLon, builder: (column) => column);
+
+  i0.GeneratedColumn<double> get currentPosZ => $composableBuilder(
+      column: $table.currentPosZ, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get ships =>
+      $composableBuilder(column: $table.ships, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get orders => $composableBuilder(
+          column: $table.orders, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tenantId =>
+      $composableBuilder(column: $table.tenantId, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get lastUpdatedTxStamp => $composableBuilder(
+      column: $table.lastUpdatedTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<DateTime> get createdTxStamp => $composableBuilder(
+      column: $table.createdTxStamp, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get partyId =>
+      $composableBuilder(column: $table.partyId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get rangeOfActivity => $composableBuilder(
+      column: $table.rangeOfActivity, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get collider =>
+      $composableBuilder(column: $table.collider, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get autoOrganId => $composableBuilder(
+      column: $table.autoOrganId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get nftErc =>
+      $composableBuilder(column: $table.nftErc, builder: (column) => column);
+
+  i0.GeneratedColumn<bool> get evict =>
+      $composableBuilder(column: $table.evict, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get acl =>
+          $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<i3.CarrierMultisig>?, String>
+      get carrierMultisig => $composableBuilder(
+          column: $table.carrierMultisig, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
+      column: $table.reservedFlag, builder: (column) => column);
+}
+
+class $CarrierTableManager extends i0.RootTableManager<
+    i0.GeneratedDatabase,
+    i1.Carrier,
+    i1.CarrierData,
+    i1.$CarrierFilterComposer,
+    i1.$CarrierOrderingComposer,
+    i1.$CarrierAnnotationComposer,
+    $CarrierCreateCompanionBuilder,
+    $CarrierUpdateCompanionBuilder,
+    (
+      i1.CarrierData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Carrier, i1.CarrierData>
+    ),
+    i1.CarrierData,
+    i0.PrefetchHooks Function()> {
+  $CarrierTableManager(i0.GeneratedDatabase db, i1.Carrier table)
+      : super(i0.TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              i1.$CarrierFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              i1.$CarrierOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              i1.$CarrierAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            i0.Value<String> carrierId = const i0.Value.absent(),
+            i0.Value<String?> carrierStatus = const i0.Value.absent(),
+            i0.Value<DateTime?> availableDate = const i0.Value.absent(),
+            i0.Value<double?> lastPosLat = const i0.Value.absent(),
+            i0.Value<double?> lastPosLon = const i0.Value.absent(),
+            i0.Value<double?> lastPosZ = const i0.Value.absent(),
+            i0.Value<double?> currentPosLat = const i0.Value.absent(),
+            i0.Value<double?> currentPosLon = const i0.Value.absent(),
+            i0.Value<double?> currentPosZ = const i0.Value.absent(),
+            i0.Value<List<String>?> ships = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> orders =
+                const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> partyId = const i0.Value.absent(),
+            i0.Value<String?> rangeOfActivity = const i0.Value.absent(),
+            i0.Value<String?> collider = const i0.Value.absent(),
+            i0.Value<String?> autoOrganId = const i0.Value.absent(),
+            i0.Value<String?> nftErc = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.CarrierCompanion(
+            carrierId: carrierId,
+            carrierStatus: carrierStatus,
+            availableDate: availableDate,
+            lastPosLat: lastPosLat,
+            lastPosLon: lastPosLon,
+            lastPosZ: lastPosZ,
+            currentPosLat: currentPosLat,
+            currentPosLon: currentPosLon,
+            currentPosZ: currentPosZ,
+            ships: ships,
+            orders: orders,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            partyId: partyId,
+            rangeOfActivity: rangeOfActivity,
+            collider: collider,
+            autoOrganId: autoOrganId,
+            nftErc: nftErc,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            acl: acl,
+            carrierMultisig: carrierMultisig,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String carrierId,
+            i0.Value<String?> carrierStatus = const i0.Value.absent(),
+            i0.Value<DateTime?> availableDate = const i0.Value.absent(),
+            i0.Value<double?> lastPosLat = const i0.Value.absent(),
+            i0.Value<double?> lastPosLon = const i0.Value.absent(),
+            i0.Value<double?> lastPosZ = const i0.Value.absent(),
+            i0.Value<double?> currentPosLat = const i0.Value.absent(),
+            i0.Value<double?> currentPosLon = const i0.Value.absent(),
+            i0.Value<double?> currentPosZ = const i0.Value.absent(),
+            i0.Value<List<String>?> ships = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> orders =
+                const i0.Value.absent(),
+            i0.Value<String?> tenantId = const i0.Value.absent(),
+            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
+            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
+            i0.Value<String?> partyId = const i0.Value.absent(),
+            i0.Value<String?> rangeOfActivity = const i0.Value.absent(),
+            i0.Value<String?> collider = const i0.Value.absent(),
+            i0.Value<String?> autoOrganId = const i0.Value.absent(),
+            i0.Value<String?> nftErc = const i0.Value.absent(),
+            i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> acl =
+                const i0.Value.absent(),
+            i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
+                const i0.Value.absent(),
+            i0.Value<int?> reservedFlag = const i0.Value.absent(),
+            i0.Value<int> rowid = const i0.Value.absent(),
+          }) =>
+              i1.CarrierCompanion.insert(
+            carrierId: carrierId,
+            carrierStatus: carrierStatus,
+            availableDate: availableDate,
+            lastPosLat: lastPosLat,
+            lastPosLon: lastPosLon,
+            lastPosZ: lastPosZ,
+            currentPosLat: currentPosLat,
+            currentPosLon: currentPosLon,
+            currentPosZ: currentPosZ,
+            ships: ships,
+            orders: orders,
+            tenantId: tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp,
+            partyId: partyId,
+            rangeOfActivity: rangeOfActivity,
+            collider: collider,
+            autoOrganId: autoOrganId,
+            nftErc: nftErc,
+            evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
+            acl: acl,
+            carrierMultisig: carrierMultisig,
+            reservedFlag: reservedFlag,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $CarrierProcessedTableManager = i0.ProcessedTableManager<
+    i0.GeneratedDatabase,
+    i1.Carrier,
+    i1.CarrierData,
+    i1.$CarrierFilterComposer,
+    i1.$CarrierOrderingComposer,
+    i1.$CarrierAnnotationComposer,
+    $CarrierCreateCompanionBuilder,
+    $CarrierUpdateCompanionBuilder,
+    (
+      i1.CarrierData,
+      i0.BaseReferences<i0.GeneratedDatabase, i1.Carrier, i1.CarrierData>
+    ),
+    i1.CarrierData,
+    i0.PrefetchHooks Function()>;
+
 class Carrier extends i0.Table with i0.TableInfo<Carrier, i1.CarrierData> {
   @override
   final i0.GeneratedDatabase attachedDatabase;
@@ -1350,529 +1898,6 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
         .toString();
   }
 }
-
-typedef $CarrierCreateCompanionBuilder = i1.CarrierCompanion Function({
-  required String carrierId,
-  i0.Value<String?> carrierStatus,
-  i0.Value<DateTime?> availableDate,
-  i0.Value<double?> lastPosLat,
-  i0.Value<double?> lastPosLon,
-  i0.Value<double?> lastPosZ,
-  i0.Value<double?> currentPosLat,
-  i0.Value<double?> currentPosLon,
-  i0.Value<double?> currentPosZ,
-  i0.Value<List<String>?> ships,
-  i0.Value<i2.Multimap<String, String>?> orders,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> partyId,
-  i0.Value<String?> rangeOfActivity,
-  i0.Value<String?> collider,
-  i0.Value<String?> autoOrganId,
-  i0.Value<String?> nftErc,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.CarrierMultisig>?> carrierMultisig,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-typedef $CarrierUpdateCompanionBuilder = i1.CarrierCompanion Function({
-  i0.Value<String> carrierId,
-  i0.Value<String?> carrierStatus,
-  i0.Value<DateTime?> availableDate,
-  i0.Value<double?> lastPosLat,
-  i0.Value<double?> lastPosLon,
-  i0.Value<double?> lastPosZ,
-  i0.Value<double?> currentPosLat,
-  i0.Value<double?> currentPosLon,
-  i0.Value<double?> currentPosZ,
-  i0.Value<List<String>?> ships,
-  i0.Value<i2.Multimap<String, String>?> orders,
-  i0.Value<String?> tenantId,
-  i0.Value<DateTime?> lastUpdatedTxStamp,
-  i0.Value<DateTime?> createdTxStamp,
-  i0.Value<String?> partyId,
-  i0.Value<String?> rangeOfActivity,
-  i0.Value<String?> collider,
-  i0.Value<String?> autoOrganId,
-  i0.Value<String?> nftErc,
-  i0.Value<bool?> evict,
-  i0.Value<String?> tag1,
-  i0.Value<String?> tag2,
-  i0.Value<String?> tag3,
-  i0.Value<List<String>?> moreTags,
-  i0.Value<i2.Multimap<String, String>?> acl,
-  i0.Value<List<i3.CarrierMultisig>?> carrierMultisig,
-  i0.Value<int?> reservedFlag,
-  i0.Value<int> rowid,
-});
-
-class $CarrierFilterComposer
-    extends i0.FilterComposer<i0.GeneratedDatabase, i1.Carrier> {
-  $CarrierFilterComposer(super.$state);
-  i0.ColumnFilters<String> get carrierId => $state.composableBuilder(
-      column: $state.table.carrierId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get carrierStatus => $state.composableBuilder(
-      column: $state.table.carrierStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get availableDate => $state.composableBuilder(
-      column: $state.table.availableDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get lastPosLat => $state.composableBuilder(
-      column: $state.table.lastPosLat,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get lastPosLon => $state.composableBuilder(
-      column: $state.table.lastPosLon,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get lastPosZ => $state.composableBuilder(
-      column: $state.table.lastPosZ,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get currentPosLat => $state.composableBuilder(
-      column: $state.table.currentPosLat,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get currentPosLon => $state.composableBuilder(
-      column: $state.table.currentPosLon,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<double> get currentPosZ => $state.composableBuilder(
-      column: $state.table.currentPosZ,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get ships => $state.composableBuilder(
-          column: $state.table.ships,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get orders => $state.composableBuilder(
-          column: $state.table.orders,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get lastUpdatedTxStamp => $state.composableBuilder(
-      column: $state.table.lastUpdatedTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get partyId => $state.composableBuilder(
-      column: $state.table.partyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get rangeOfActivity => $state.composableBuilder(
-      column: $state.table.rangeOfActivity,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get collider => $state.composableBuilder(
-      column: $state.table.collider,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get autoOrganId => $state.composableBuilder(
-      column: $state.table.autoOrganId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get nftErc => $state.composableBuilder(
-      column: $state.table.nftErc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
-      get moreTags => $state.composableBuilder(
-          column: $state.table.moreTags,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
-          i2.Multimap<String, String>, String>
-      get acl => $state.composableBuilder(
-          column: $state.table.acl,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnWithTypeConverterFilters<List<i3.CarrierMultisig>?,
-          List<i3.CarrierMultisig>, String>
-      get carrierMultisig => $state.composableBuilder(
-          column: $state.table.carrierMultisig,
-          builder: (column, joinBuilders) => i0.ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
-
-  i0.ColumnFilters<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnFilters(column, joinBuilders: joinBuilders));
-}
-
-class $CarrierOrderingComposer
-    extends i0.OrderingComposer<i0.GeneratedDatabase, i1.Carrier> {
-  $CarrierOrderingComposer(super.$state);
-  i0.ColumnOrderings<String> get carrierId => $state.composableBuilder(
-      column: $state.table.carrierId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get carrierStatus => $state.composableBuilder(
-      column: $state.table.carrierStatus,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get availableDate => $state.composableBuilder(
-      column: $state.table.availableDate,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get lastPosLat => $state.composableBuilder(
-      column: $state.table.lastPosLat,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get lastPosLon => $state.composableBuilder(
-      column: $state.table.lastPosLon,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get lastPosZ => $state.composableBuilder(
-      column: $state.table.lastPosZ,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get currentPosLat => $state.composableBuilder(
-      column: $state.table.currentPosLat,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get currentPosLon => $state.composableBuilder(
-      column: $state.table.currentPosLon,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<double> get currentPosZ => $state.composableBuilder(
-      column: $state.table.currentPosZ,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get ships => $state.composableBuilder(
-      column: $state.table.ships,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get orders => $state.composableBuilder(
-      column: $state.table.orders,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tenantId => $state.composableBuilder(
-      column: $state.table.tenantId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get lastUpdatedTxStamp =>
-      $state.composableBuilder(
-          column: $state.table.lastUpdatedTxStamp,
-          builder: (column, joinBuilders) =>
-              i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<DateTime> get createdTxStamp => $state.composableBuilder(
-      column: $state.table.createdTxStamp,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get partyId => $state.composableBuilder(
-      column: $state.table.partyId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get rangeOfActivity => $state.composableBuilder(
-      column: $state.table.rangeOfActivity,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get collider => $state.composableBuilder(
-      column: $state.table.collider,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get autoOrganId => $state.composableBuilder(
-      column: $state.table.autoOrganId,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get nftErc => $state.composableBuilder(
-      column: $state.table.nftErc,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<bool> get evict => $state.composableBuilder(
-      column: $state.table.evict,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag1 => $state.composableBuilder(
-      column: $state.table.tag1,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag2 => $state.composableBuilder(
-      column: $state.table.tag2,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get tag3 => $state.composableBuilder(
-      column: $state.table.tag3,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get moreTags => $state.composableBuilder(
-      column: $state.table.moreTags,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get acl => $state.composableBuilder(
-      column: $state.table.acl,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<String> get carrierMultisig => $state.composableBuilder(
-      column: $state.table.carrierMultisig,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-
-  i0.ColumnOrderings<int> get reservedFlag => $state.composableBuilder(
-      column: $state.table.reservedFlag,
-      builder: (column, joinBuilders) =>
-          i0.ColumnOrderings(column, joinBuilders: joinBuilders));
-}
-
-class $CarrierTableManager extends i0.RootTableManager<
-    i0.GeneratedDatabase,
-    i1.Carrier,
-    i1.CarrierData,
-    i1.$CarrierFilterComposer,
-    i1.$CarrierOrderingComposer,
-    $CarrierCreateCompanionBuilder,
-    $CarrierUpdateCompanionBuilder,
-    (
-      i1.CarrierData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Carrier, i1.CarrierData>
-    ),
-    i1.CarrierData,
-    i0.PrefetchHooks Function()> {
-  $CarrierTableManager(i0.GeneratedDatabase db, i1.Carrier table)
-      : super(i0.TableManagerState(
-          db: db,
-          table: table,
-          filteringComposer:
-              i1.$CarrierFilterComposer(i0.ComposerState(db, table)),
-          orderingComposer:
-              i1.$CarrierOrderingComposer(i0.ComposerState(db, table)),
-          updateCompanionCallback: ({
-            i0.Value<String> carrierId = const i0.Value.absent(),
-            i0.Value<String?> carrierStatus = const i0.Value.absent(),
-            i0.Value<DateTime?> availableDate = const i0.Value.absent(),
-            i0.Value<double?> lastPosLat = const i0.Value.absent(),
-            i0.Value<double?> lastPosLon = const i0.Value.absent(),
-            i0.Value<double?> lastPosZ = const i0.Value.absent(),
-            i0.Value<double?> currentPosLat = const i0.Value.absent(),
-            i0.Value<double?> currentPosLon = const i0.Value.absent(),
-            i0.Value<double?> currentPosZ = const i0.Value.absent(),
-            i0.Value<List<String>?> ships = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> orders =
-                const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> partyId = const i0.Value.absent(),
-            i0.Value<String?> rangeOfActivity = const i0.Value.absent(),
-            i0.Value<String?> collider = const i0.Value.absent(),
-            i0.Value<String?> autoOrganId = const i0.Value.absent(),
-            i0.Value<String?> nftErc = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.CarrierCompanion(
-            carrierId: carrierId,
-            carrierStatus: carrierStatus,
-            availableDate: availableDate,
-            lastPosLat: lastPosLat,
-            lastPosLon: lastPosLon,
-            lastPosZ: lastPosZ,
-            currentPosLat: currentPosLat,
-            currentPosLon: currentPosLon,
-            currentPosZ: currentPosZ,
-            ships: ships,
-            orders: orders,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            partyId: partyId,
-            rangeOfActivity: rangeOfActivity,
-            collider: collider,
-            autoOrganId: autoOrganId,
-            nftErc: nftErc,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            acl: acl,
-            carrierMultisig: carrierMultisig,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          createCompanionCallback: ({
-            required String carrierId,
-            i0.Value<String?> carrierStatus = const i0.Value.absent(),
-            i0.Value<DateTime?> availableDate = const i0.Value.absent(),
-            i0.Value<double?> lastPosLat = const i0.Value.absent(),
-            i0.Value<double?> lastPosLon = const i0.Value.absent(),
-            i0.Value<double?> lastPosZ = const i0.Value.absent(),
-            i0.Value<double?> currentPosLat = const i0.Value.absent(),
-            i0.Value<double?> currentPosLon = const i0.Value.absent(),
-            i0.Value<double?> currentPosZ = const i0.Value.absent(),
-            i0.Value<List<String>?> ships = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> orders =
-                const i0.Value.absent(),
-            i0.Value<String?> tenantId = const i0.Value.absent(),
-            i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
-            i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
-            i0.Value<String?> partyId = const i0.Value.absent(),
-            i0.Value<String?> rangeOfActivity = const i0.Value.absent(),
-            i0.Value<String?> collider = const i0.Value.absent(),
-            i0.Value<String?> autoOrganId = const i0.Value.absent(),
-            i0.Value<String?> nftErc = const i0.Value.absent(),
-            i0.Value<bool?> evict = const i0.Value.absent(),
-            i0.Value<String?> tag1 = const i0.Value.absent(),
-            i0.Value<String?> tag2 = const i0.Value.absent(),
-            i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.Multimap<String, String>?> acl =
-                const i0.Value.absent(),
-            i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
-                const i0.Value.absent(),
-            i0.Value<int?> reservedFlag = const i0.Value.absent(),
-            i0.Value<int> rowid = const i0.Value.absent(),
-          }) =>
-              i1.CarrierCompanion.insert(
-            carrierId: carrierId,
-            carrierStatus: carrierStatus,
-            availableDate: availableDate,
-            lastPosLat: lastPosLat,
-            lastPosLon: lastPosLon,
-            lastPosZ: lastPosZ,
-            currentPosLat: currentPosLat,
-            currentPosLon: currentPosLon,
-            currentPosZ: currentPosZ,
-            ships: ships,
-            orders: orders,
-            tenantId: tenantId,
-            lastUpdatedTxStamp: lastUpdatedTxStamp,
-            createdTxStamp: createdTxStamp,
-            partyId: partyId,
-            rangeOfActivity: rangeOfActivity,
-            collider: collider,
-            autoOrganId: autoOrganId,
-            nftErc: nftErc,
-            evict: evict,
-            tag1: tag1,
-            tag2: tag2,
-            tag3: tag3,
-            moreTags: moreTags,
-            acl: acl,
-            carrierMultisig: carrierMultisig,
-            reservedFlag: reservedFlag,
-            rowid: rowid,
-          ),
-          withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), i0.BaseReferences(db, table, e)))
-              .toList(),
-          prefetchHooksCallback: null,
-        ));
-}
-
-typedef $CarrierProcessedTableManager = i0.ProcessedTableManager<
-    i0.GeneratedDatabase,
-    i1.Carrier,
-    i1.CarrierData,
-    i1.$CarrierFilterComposer,
-    i1.$CarrierOrderingComposer,
-    $CarrierCreateCompanionBuilder,
-    $CarrierUpdateCompanionBuilder,
-    (
-      i1.CarrierData,
-      i0.BaseReferences<i0.GeneratedDatabase, i1.Carrier, i1.CarrierData>
-    ),
-    i1.CarrierData,
-    i0.PrefetchHooks Function()>;
 
 class CarrierDrift extends i6.ModularAccessor {
   CarrierDrift(i0.GeneratedDatabase db) : super(db);

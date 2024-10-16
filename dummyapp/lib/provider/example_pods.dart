@@ -11,7 +11,7 @@ part 'example_pods.g.dart';
 @Riverpod(keepAlive: true)
 ExampleRepository exampleRepository(ExampleRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
-  var database=ref.watch(databaseProvider);
+  Database database=ref.watch(databaseProvider);
   return ExampleRepository(conn.dio, database);
 }
 
@@ -39,10 +39,19 @@ Future<ExampleData?> getExample(GetExampleRef ref, {required String id}) async {
   return ref.watch(exampleRepositoryProvider).get(id);
 }
 
+
 /// fetch single
 @riverpod
-Future<ent.Example> fetchExample(FetchExampleRef ref, {required String id}) async {
-  return ref.watch(exampleRepositoryProvider).fetchSingle(id);
+Future<ent.Example?> fetchExample(FetchExampleRef ref, {required String id}) async {
+  return ref.watch(exampleRepositoryProvider).smartFetchSingle(id);
+}
+
+/// fetch multi from register-node
+@riverpod
+Future<List<ent.Example>> fetchExamplesFromReg(
+    FetchExamplesFromRegRef ref,
+    {required String regNode}) async {
+  return ref.watch(exampleRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
 

@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  drift: ^2.20.3
+  drift: ^2.21.0
   path_provider: ^2.1.4
 
 dev_dependencies:
