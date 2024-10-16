@@ -1,8 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:xcsmachine/src/calls/note_co_pods.dart';
 import 'package:xcsmachine/src/common/services/srv_base.dart';
-
-import 'jwt_proc.dart';
+import 'package:xcsmachine/devtokens.dart';
 
 var dio=createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {

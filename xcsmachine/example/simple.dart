@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:xcsmachine/src/calls/auth.dart';
 import 'package:xcsmachine/src/calls/fixture_objects.dart';
 import 'package:xcsmachine/xcsmachine.dart';
-import 'jwt_proc.dart';
+import 'package:xcsmachine/devtokens.dart';
 
 var dio = createAuthDioWithToken(samletToken);
 

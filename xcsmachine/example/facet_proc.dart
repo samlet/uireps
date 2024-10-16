@@ -3,8 +3,7 @@ import 'package:xcsmachine/src/calls/acl_on_chain.dart';
 import 'package:xcsmachine/src/calls/facet_storage.dart';
 import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'package:xcsmachine/util.dart';
-
-import 'jwt_proc.dart';
+import 'package:xcsmachine/devtokens.dart';
 
 var dio = createAuthDioWithToken(samletToken);
 

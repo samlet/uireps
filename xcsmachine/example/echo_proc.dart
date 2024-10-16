@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'package:xcsmachine/src/web_call.dart';
-
-import 'jwt_proc.dart';
+import 'package:xcsmachine/devtokens.dart';
 
 var dio=createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {
