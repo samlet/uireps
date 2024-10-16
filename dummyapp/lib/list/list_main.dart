@@ -42,7 +42,7 @@ class TestPage extends ConsumerWidget {
             var resp = await askedToLead(context);
             print('resp: $resp');
             var id = 'note_2';
-            await ref.read(noteRepositoryProvider).store(ent.Note(
+            await ref.read(noteRepositoryProvider).storeAndPush(ent.Note(
                 noteId: id,
                 noteName: resp,
                 lastUpdatedTxStamp: DateTime.now()));
@@ -56,7 +56,10 @@ class TestPage extends ConsumerWidget {
           ),
           IconButton(
             icon: const Icon(Icons.restore),
-            onPressed: () {},
+            onPressed: () {
+              ref.invalidate(noteRegProvider('publicNotes'));
+              print('refreshed');
+            },
           ),
         ],
       ),
@@ -112,6 +115,7 @@ class TestPage extends ConsumerWidget {
         return ListTile(
           title: Text(el.noteName ?? '_no_name_'),
           subtitle: Text(el.noteId),
+          trailing: Text(el.lastUpdatedTxStamp?.toString()??'_no_ts_'),
         );
       },
     );
