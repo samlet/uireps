@@ -647,5 +647,295 @@ class _ThingFacetElProviderElement
   @override
   String get id => (origin as ThingFacetElProvider).id;
 }
+
+String _$thingFacetRegHash() => r'7b3bd57fdc1090a8862947025270613dfccba2b0';
+
+abstract class _$ThingFacetReg
+    extends BuildlessAutoDisposeStreamNotifier<List<ThingFacetData>> {
+  late final String regNode;
+
+  Stream<List<ThingFacetData>> build(
+    String regNode,
+  );
+}
+
+/// See also [ThingFacetReg].
+@ProviderFor(ThingFacetReg)
+const thingFacetRegProvider = ThingFacetRegFamily();
+
+/// See also [ThingFacetReg].
+class ThingFacetRegFamily extends Family<AsyncValue<List<ThingFacetData>>> {
+  /// See also [ThingFacetReg].
+  const ThingFacetRegFamily();
+
+  /// See also [ThingFacetReg].
+  ThingFacetRegProvider call(
+    String regNode,
+  ) {
+    return ThingFacetRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  ThingFacetRegProvider getProviderOverride(
+    covariant ThingFacetRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'thingFacetRegProvider';
+}
+
+/// See also [ThingFacetReg].
+class ThingFacetRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ThingFacetReg, List<ThingFacetData>> {
+  /// See also [ThingFacetReg].
+  ThingFacetRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => ThingFacetReg()..regNode = regNode,
+          from: thingFacetRegProvider,
+          name: r'thingFacetRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$thingFacetRegHash,
+          dependencies: ThingFacetRegFamily._dependencies,
+          allTransitiveDependencies:
+              ThingFacetRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  ThingFacetRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<ThingFacetData>> runNotifierBuild(
+    covariant ThingFacetReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(ThingFacetReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ThingFacetRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<ThingFacetReg, List<ThingFacetData>>
+      createElement() {
+    return _ThingFacetRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ThingFacetRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ThingFacetRegRef
+    on AutoDisposeStreamNotifierProviderRef<List<ThingFacetData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _ThingFacetRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ThingFacetReg,
+        List<ThingFacetData>> with ThingFacetRegRef {
+  _ThingFacetRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as ThingFacetRegProvider).regNode;
+}
+
+String _$thingFacetTenantHash() => r'62f368027d45d068080436879395191d7a577c50';
+
+abstract class _$ThingFacetTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<ThingFacetData>> {
+  late final String tenantId;
+
+  Stream<List<ThingFacetData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [ThingFacetTenant].
+@ProviderFor(ThingFacetTenant)
+const thingFacetTenantProvider = ThingFacetTenantFamily();
+
+/// See also [ThingFacetTenant].
+class ThingFacetTenantFamily extends Family<AsyncValue<List<ThingFacetData>>> {
+  /// See also [ThingFacetTenant].
+  const ThingFacetTenantFamily();
+
+  /// See also [ThingFacetTenant].
+  ThingFacetTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return ThingFacetTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  ThingFacetTenantProvider getProviderOverride(
+    covariant ThingFacetTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'thingFacetTenantProvider';
+}
+
+/// See also [ThingFacetTenant].
+class ThingFacetTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ThingFacetTenant, List<ThingFacetData>> {
+  /// See also [ThingFacetTenant].
+  ThingFacetTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => ThingFacetTenant()..tenantId = tenantId,
+          from: thingFacetTenantProvider,
+          name: r'thingFacetTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$thingFacetTenantHash,
+          dependencies: ThingFacetTenantFamily._dependencies,
+          allTransitiveDependencies:
+              ThingFacetTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  ThingFacetTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<ThingFacetData>> runNotifierBuild(
+    covariant ThingFacetTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(ThingFacetTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ThingFacetTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<ThingFacetTenant,
+      List<ThingFacetData>> createElement() {
+    return _ThingFacetTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ThingFacetTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ThingFacetTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<ThingFacetData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _ThingFacetTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ThingFacetTenant,
+        List<ThingFacetData>> with ThingFacetTenantRef {
+  _ThingFacetTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as ThingFacetTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

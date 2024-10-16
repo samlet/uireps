@@ -54,11 +54,28 @@ Future<List<ent.ThingFacet>> fetchThingFacetsFromReg(
   return ref.watch(thingFacetRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class ThingFacetReg extends _$ThingFacetReg {
+  @override
+  Stream<List<ThingFacetData>> build(String regNode) {
+    return ref.watch(thingFacetRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class ThingFacetTenant extends _$ThingFacetTenant {
+  @override
+  Stream<List<ThingFacetData>> build({String tenantId='default'}) {
+    return ref.watch(thingFacetRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final thingFacet = ref.watch(getThingFacetProvider(id: thingId));
+final ds=ref.watch(thingFacetRegProvider('publicEls'));
  */
-
 
 
 

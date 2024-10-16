@@ -54,11 +54,28 @@ Future<List<ent.UserPref>> fetchUserPrefsFromReg(
   return ref.watch(userPrefRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class UserPrefReg extends _$UserPrefReg {
+  @override
+  Stream<List<UserPrefData>> build(String regNode) {
+    return ref.watch(userPrefRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class UserPrefTenant extends _$UserPrefTenant {
+  @override
+  Stream<List<UserPrefData>> build({String tenantId='default'}) {
+    return ref.watch(userPrefRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final userPref = ref.watch(getUserPrefProvider(id: userPrefId));
+final ds=ref.watch(userPrefRegProvider('publicEls'));
  */
-
 
 
 

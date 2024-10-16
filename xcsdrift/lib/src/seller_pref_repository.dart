@@ -280,6 +280,25 @@ class SellerPrefRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<SellerPrefData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.sellerPref)..where((el)=>el.sellerPrefId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<SellerPrefData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.sellerPrefId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<SellerPrefData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.sellerPrefId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

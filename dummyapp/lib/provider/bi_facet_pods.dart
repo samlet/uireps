@@ -39,12 +39,11 @@ Future<BiFacetData?> getBiFacet(GetBiFacetRef ref, {required String id}) async {
   return ref.watch(biFacetRepositoryProvider).get(id);
 }
 
-
+   
 
 /*
 final biFacet = ref.watch(getBiFacetProvider(id: biId));
  */
-
 
 
 

@@ -280,6 +280,25 @@ class CommodityRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<CommodityData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.commodity)..where((el)=>el.commodityId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<CommodityData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.commodityId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<CommodityData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.commodityId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

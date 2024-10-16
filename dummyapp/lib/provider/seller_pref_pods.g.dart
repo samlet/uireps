@@ -647,5 +647,295 @@ class _SellerPrefElProviderElement
   @override
   String get id => (origin as SellerPrefElProvider).id;
 }
+
+String _$sellerPrefRegHash() => r'df2b603986b31c7f06b0d2d76c967ee9d9d03f6a';
+
+abstract class _$SellerPrefReg
+    extends BuildlessAutoDisposeStreamNotifier<List<SellerPrefData>> {
+  late final String regNode;
+
+  Stream<List<SellerPrefData>> build(
+    String regNode,
+  );
+}
+
+/// See also [SellerPrefReg].
+@ProviderFor(SellerPrefReg)
+const sellerPrefRegProvider = SellerPrefRegFamily();
+
+/// See also [SellerPrefReg].
+class SellerPrefRegFamily extends Family<AsyncValue<List<SellerPrefData>>> {
+  /// See also [SellerPrefReg].
+  const SellerPrefRegFamily();
+
+  /// See also [SellerPrefReg].
+  SellerPrefRegProvider call(
+    String regNode,
+  ) {
+    return SellerPrefRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  SellerPrefRegProvider getProviderOverride(
+    covariant SellerPrefRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'sellerPrefRegProvider';
+}
+
+/// See also [SellerPrefReg].
+class SellerPrefRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    SellerPrefReg, List<SellerPrefData>> {
+  /// See also [SellerPrefReg].
+  SellerPrefRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => SellerPrefReg()..regNode = regNode,
+          from: sellerPrefRegProvider,
+          name: r'sellerPrefRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$sellerPrefRegHash,
+          dependencies: SellerPrefRegFamily._dependencies,
+          allTransitiveDependencies:
+              SellerPrefRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  SellerPrefRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<SellerPrefData>> runNotifierBuild(
+    covariant SellerPrefReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(SellerPrefReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: SellerPrefRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<SellerPrefReg, List<SellerPrefData>>
+      createElement() {
+    return _SellerPrefRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SellerPrefRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SellerPrefRegRef
+    on AutoDisposeStreamNotifierProviderRef<List<SellerPrefData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _SellerPrefRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<SellerPrefReg,
+        List<SellerPrefData>> with SellerPrefRegRef {
+  _SellerPrefRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as SellerPrefRegProvider).regNode;
+}
+
+String _$sellerPrefTenantHash() => r'06cff3116bfd77189c19a5ae213959a0c5c43775';
+
+abstract class _$SellerPrefTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<SellerPrefData>> {
+  late final String tenantId;
+
+  Stream<List<SellerPrefData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [SellerPrefTenant].
+@ProviderFor(SellerPrefTenant)
+const sellerPrefTenantProvider = SellerPrefTenantFamily();
+
+/// See also [SellerPrefTenant].
+class SellerPrefTenantFamily extends Family<AsyncValue<List<SellerPrefData>>> {
+  /// See also [SellerPrefTenant].
+  const SellerPrefTenantFamily();
+
+  /// See also [SellerPrefTenant].
+  SellerPrefTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return SellerPrefTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  SellerPrefTenantProvider getProviderOverride(
+    covariant SellerPrefTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'sellerPrefTenantProvider';
+}
+
+/// See also [SellerPrefTenant].
+class SellerPrefTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    SellerPrefTenant, List<SellerPrefData>> {
+  /// See also [SellerPrefTenant].
+  SellerPrefTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => SellerPrefTenant()..tenantId = tenantId,
+          from: sellerPrefTenantProvider,
+          name: r'sellerPrefTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$sellerPrefTenantHash,
+          dependencies: SellerPrefTenantFamily._dependencies,
+          allTransitiveDependencies:
+              SellerPrefTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  SellerPrefTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<SellerPrefData>> runNotifierBuild(
+    covariant SellerPrefTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(SellerPrefTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: SellerPrefTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<SellerPrefTenant,
+      List<SellerPrefData>> createElement() {
+    return _SellerPrefTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SellerPrefTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SellerPrefTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<SellerPrefData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _SellerPrefTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<SellerPrefTenant,
+        List<SellerPrefData>> with SellerPrefTenantRef {
+  _SellerPrefTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as SellerPrefTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

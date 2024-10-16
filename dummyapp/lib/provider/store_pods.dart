@@ -54,11 +54,28 @@ Future<List<ent.Store>> fetchStoresFromReg(
   return ref.watch(storeRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class StoreReg extends _$StoreReg {
+  @override
+  Stream<List<ProductStoreData>> build(String regNode) {
+    return ref.watch(storeRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class StoreTenant extends _$StoreTenant {
+  @override
+  Stream<List<ProductStoreData>> build({String tenantId='default'}) {
+    return ref.watch(storeRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final store = ref.watch(getStoreProvider(id: productStoreId));
+final ds=ref.watch(storeRegProvider('publicEls'));
  */
-
 
 
 

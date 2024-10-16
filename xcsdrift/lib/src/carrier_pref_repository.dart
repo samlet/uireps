@@ -280,6 +280,25 @@ class CarrierPrefRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<CarrierPrefData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.carrierPref)..where((el)=>el.carrierPrefId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<CarrierPrefData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.carrierPrefId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<CarrierPrefData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.carrierPrefId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

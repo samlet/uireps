@@ -54,11 +54,28 @@ Future<List<ent.SellerPref>> fetchSellerPrefsFromReg(
   return ref.watch(sellerPrefRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class SellerPrefReg extends _$SellerPrefReg {
+  @override
+  Stream<List<SellerPrefData>> build(String regNode) {
+    return ref.watch(sellerPrefRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class SellerPrefTenant extends _$SellerPrefTenant {
+  @override
+  Stream<List<SellerPrefData>> build({String tenantId='default'}) {
+    return ref.watch(sellerPrefRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final sellerPref = ref.watch(getSellerPrefProvider(id: sellerPrefId));
+final ds=ref.watch(sellerPrefRegProvider('publicEls'));
  */
-
 
 
 

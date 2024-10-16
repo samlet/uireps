@@ -280,6 +280,25 @@ class FacilityRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<FacilityData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.facility)..where((el)=>el.facilityId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<FacilityData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.facilityId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<FacilityData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.facilityId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

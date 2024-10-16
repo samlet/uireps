@@ -638,5 +638,293 @@ class _StoreElProviderElement
   @override
   String get id => (origin as StoreElProvider).id;
 }
+
+String _$storeRegHash() => r'ad54adc42b1dd2930891046cd6543c03dca15fc2';
+
+abstract class _$StoreReg
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductStoreData>> {
+  late final String regNode;
+
+  Stream<List<ProductStoreData>> build(
+    String regNode,
+  );
+}
+
+/// See also [StoreReg].
+@ProviderFor(StoreReg)
+const storeRegProvider = StoreRegFamily();
+
+/// See also [StoreReg].
+class StoreRegFamily extends Family<AsyncValue<List<ProductStoreData>>> {
+  /// See also [StoreReg].
+  const StoreRegFamily();
+
+  /// See also [StoreReg].
+  StoreRegProvider call(
+    String regNode,
+  ) {
+    return StoreRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  StoreRegProvider getProviderOverride(
+    covariant StoreRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'storeRegProvider';
+}
+
+/// See also [StoreReg].
+class StoreRegProvider extends AutoDisposeStreamNotifierProviderImpl<StoreReg,
+    List<ProductStoreData>> {
+  /// See also [StoreReg].
+  StoreRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => StoreReg()..regNode = regNode,
+          from: storeRegProvider,
+          name: r'storeRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$storeRegHash,
+          dependencies: StoreRegFamily._dependencies,
+          allTransitiveDependencies: StoreRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  StoreRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<ProductStoreData>> runNotifierBuild(
+    covariant StoreReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(StoreReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: StoreRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<StoreReg, List<ProductStoreData>>
+      createElement() {
+    return _StoreRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is StoreRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin StoreRegRef
+    on AutoDisposeStreamNotifierProviderRef<List<ProductStoreData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _StoreRegProviderElement extends AutoDisposeStreamNotifierProviderElement<
+    StoreReg, List<ProductStoreData>> with StoreRegRef {
+  _StoreRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as StoreRegProvider).regNode;
+}
+
+String _$storeTenantHash() => r'3deec788d76aa8c6cb7f26b54925c4a2418c13b3';
+
+abstract class _$StoreTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductStoreData>> {
+  late final String tenantId;
+
+  Stream<List<ProductStoreData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [StoreTenant].
+@ProviderFor(StoreTenant)
+const storeTenantProvider = StoreTenantFamily();
+
+/// See also [StoreTenant].
+class StoreTenantFamily extends Family<AsyncValue<List<ProductStoreData>>> {
+  /// See also [StoreTenant].
+  const StoreTenantFamily();
+
+  /// See also [StoreTenant].
+  StoreTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return StoreTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  StoreTenantProvider getProviderOverride(
+    covariant StoreTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'storeTenantProvider';
+}
+
+/// See also [StoreTenant].
+class StoreTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    StoreTenant, List<ProductStoreData>> {
+  /// See also [StoreTenant].
+  StoreTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => StoreTenant()..tenantId = tenantId,
+          from: storeTenantProvider,
+          name: r'storeTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$storeTenantHash,
+          dependencies: StoreTenantFamily._dependencies,
+          allTransitiveDependencies:
+              StoreTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  StoreTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<ProductStoreData>> runNotifierBuild(
+    covariant StoreTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(StoreTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: StoreTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<StoreTenant, List<ProductStoreData>>
+      createElement() {
+    return _StoreTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is StoreTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin StoreTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<ProductStoreData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _StoreTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<StoreTenant,
+        List<ProductStoreData>> with StoreTenantRef {
+  _StoreTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as StoreTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

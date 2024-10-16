@@ -280,6 +280,25 @@ class ShipmentRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<ShipmentData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.shipment)..where((el)=>el.shipmentId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<ShipmentData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.shipmentId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<ShipmentData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.shipmentId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

@@ -192,6 +192,13 @@ class AppSettingRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<AppSettingData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.appSetting)..where((el)=>el.appSettingId.isIn(queryIds));
+    return q.watch();
+  }
+
+    
 }
 
 

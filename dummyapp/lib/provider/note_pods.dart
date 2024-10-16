@@ -54,11 +54,28 @@ Future<List<ent.Note>> fetchNotesFromReg(
   return ref.watch(noteRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class NoteReg extends _$NoteReg {
+  @override
+  Stream<List<NoteDataData>> build(String regNode) {
+    return ref.watch(noteRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class NoteTenant extends _$NoteTenant {
+  @override
+  Stream<List<NoteDataData>> build({String tenantId='default'}) {
+    return ref.watch(noteRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final note = ref.watch(getNoteProvider(id: noteId));
+final ds=ref.watch(noteRegProvider('publicEls'));
  */
-
 
 
 

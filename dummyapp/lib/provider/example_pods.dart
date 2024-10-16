@@ -54,11 +54,28 @@ Future<List<ent.Example>> fetchExamplesFromReg(
   return ref.watch(exampleRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class ExampleReg extends _$ExampleReg {
+  @override
+  Stream<List<ExampleData>> build(String regNode) {
+    return ref.watch(exampleRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class ExampleTenant extends _$ExampleTenant {
+  @override
+  Stream<List<ExampleData>> build({String tenantId='default'}) {
+    return ref.watch(exampleRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final example = ref.watch(getExampleProvider(id: exampleId));
+final ds=ref.watch(exampleRegProvider('publicEls'));
  */
-
 
 
 

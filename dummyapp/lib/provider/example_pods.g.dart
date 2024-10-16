@@ -642,5 +642,294 @@ class _ExampleElProviderElement
   @override
   String get id => (origin as ExampleElProvider).id;
 }
+
+String _$exampleRegHash() => r'c121d04c926562be9d189e73c594f4c489cc8b29';
+
+abstract class _$ExampleReg
+    extends BuildlessAutoDisposeStreamNotifier<List<ExampleData>> {
+  late final String regNode;
+
+  Stream<List<ExampleData>> build(
+    String regNode,
+  );
+}
+
+/// See also [ExampleReg].
+@ProviderFor(ExampleReg)
+const exampleRegProvider = ExampleRegFamily();
+
+/// See also [ExampleReg].
+class ExampleRegFamily extends Family<AsyncValue<List<ExampleData>>> {
+  /// See also [ExampleReg].
+  const ExampleRegFamily();
+
+  /// See also [ExampleReg].
+  ExampleRegProvider call(
+    String regNode,
+  ) {
+    return ExampleRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  ExampleRegProvider getProviderOverride(
+    covariant ExampleRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'exampleRegProvider';
+}
+
+/// See also [ExampleReg].
+class ExampleRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ExampleReg, List<ExampleData>> {
+  /// See also [ExampleReg].
+  ExampleRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => ExampleReg()..regNode = regNode,
+          from: exampleRegProvider,
+          name: r'exampleRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$exampleRegHash,
+          dependencies: ExampleRegFamily._dependencies,
+          allTransitiveDependencies:
+              ExampleRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  ExampleRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<ExampleData>> runNotifierBuild(
+    covariant ExampleReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(ExampleReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ExampleRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<ExampleReg, List<ExampleData>>
+      createElement() {
+    return _ExampleRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ExampleRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ExampleRegRef on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _ExampleRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ExampleReg,
+        List<ExampleData>> with ExampleRegRef {
+  _ExampleRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as ExampleRegProvider).regNode;
+}
+
+String _$exampleTenantHash() => r'c9915ac5c54838f7f110b9882cd7b59c63eda600';
+
+abstract class _$ExampleTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<ExampleData>> {
+  late final String tenantId;
+
+  Stream<List<ExampleData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [ExampleTenant].
+@ProviderFor(ExampleTenant)
+const exampleTenantProvider = ExampleTenantFamily();
+
+/// See also [ExampleTenant].
+class ExampleTenantFamily extends Family<AsyncValue<List<ExampleData>>> {
+  /// See also [ExampleTenant].
+  const ExampleTenantFamily();
+
+  /// See also [ExampleTenant].
+  ExampleTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return ExampleTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  ExampleTenantProvider getProviderOverride(
+    covariant ExampleTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'exampleTenantProvider';
+}
+
+/// See also [ExampleTenant].
+class ExampleTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ExampleTenant, List<ExampleData>> {
+  /// See also [ExampleTenant].
+  ExampleTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => ExampleTenant()..tenantId = tenantId,
+          from: exampleTenantProvider,
+          name: r'exampleTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$exampleTenantHash,
+          dependencies: ExampleTenantFamily._dependencies,
+          allTransitiveDependencies:
+              ExampleTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  ExampleTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<ExampleData>> runNotifierBuild(
+    covariant ExampleTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(ExampleTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ExampleTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<ExampleTenant, List<ExampleData>>
+      createElement() {
+    return _ExampleTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ExampleTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ExampleTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _ExampleTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ExampleTenant,
+        List<ExampleData>> with ExampleTenantRef {
+  _ExampleTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as ExampleTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

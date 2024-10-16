@@ -280,6 +280,25 @@ class NoteRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<NoteDataData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.noteData)..where((el)=>el.noteId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<NoteDataData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.noteId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<NoteDataData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.noteId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

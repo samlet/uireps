@@ -192,6 +192,13 @@ class SessionCacheRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<SessionCacheData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.sessionCache)..where((el)=>el.sessionCacheId.isIn(queryIds));
+    return q.watch();
+  }
+
+    
 }
 
 

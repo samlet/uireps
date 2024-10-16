@@ -280,6 +280,25 @@ class CarrierRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<CarrierData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.carrier)..where((el)=>el.carrierId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<CarrierData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.carrierId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<CarrierData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.carrierId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

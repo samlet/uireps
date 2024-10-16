@@ -54,11 +54,28 @@ Future<List<ent.CarrierPref>> fetchCarrierPrefsFromReg(
   return ref.watch(carrierPrefRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class CarrierPrefReg extends _$CarrierPrefReg {
+  @override
+  Stream<List<CarrierPrefData>> build(String regNode) {
+    return ref.watch(carrierPrefRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class CarrierPrefTenant extends _$CarrierPrefTenant {
+  @override
+  Stream<List<CarrierPrefData>> build({String tenantId='default'}) {
+    return ref.watch(carrierPrefRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final carrierPref = ref.watch(getCarrierPrefProvider(id: carrierPrefId));
+final ds=ref.watch(carrierPrefRegProvider('publicEls'));
  */
-
 
 
 

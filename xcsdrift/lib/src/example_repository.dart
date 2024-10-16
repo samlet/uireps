@@ -280,6 +280,25 @@ class ExampleRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<ExampleData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.example)..where((el)=>el.exampleId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<ExampleData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.exampleId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<ExampleData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.exampleId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

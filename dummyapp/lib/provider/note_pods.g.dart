@@ -635,5 +635,292 @@ class _NoteElProviderElement
   @override
   String get id => (origin as NoteElProvider).id;
 }
+
+String _$noteRegHash() => r'8c464f17cfacd9711527935b664f3430cc24313d';
+
+abstract class _$NoteReg
+    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+  late final String regNode;
+
+  Stream<List<NoteDataData>> build(
+    String regNode,
+  );
+}
+
+/// See also [NoteReg].
+@ProviderFor(NoteReg)
+const noteRegProvider = NoteRegFamily();
+
+/// See also [NoteReg].
+class NoteRegFamily extends Family<AsyncValue<List<NoteDataData>>> {
+  /// See also [NoteReg].
+  const NoteRegFamily();
+
+  /// See also [NoteReg].
+  NoteRegProvider call(
+    String regNode,
+  ) {
+    return NoteRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  NoteRegProvider getProviderOverride(
+    covariant NoteRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'noteRegProvider';
+}
+
+/// See also [NoteReg].
+class NoteRegProvider
+    extends AutoDisposeStreamNotifierProviderImpl<NoteReg, List<NoteDataData>> {
+  /// See also [NoteReg].
+  NoteRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => NoteReg()..regNode = regNode,
+          from: noteRegProvider,
+          name: r'noteRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$noteRegHash,
+          dependencies: NoteRegFamily._dependencies,
+          allTransitiveDependencies: NoteRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  NoteRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<NoteDataData>> runNotifierBuild(
+    covariant NoteReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(NoteReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: NoteRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<NoteReg, List<NoteDataData>>
+      createElement() {
+    return _NoteRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is NoteRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin NoteRegRef on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _NoteRegProviderElement extends AutoDisposeStreamNotifierProviderElement<
+    NoteReg, List<NoteDataData>> with NoteRegRef {
+  _NoteRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as NoteRegProvider).regNode;
+}
+
+String _$noteTenantHash() => r'f1b53479c770dd9ababc205c961ecbbf296cea7c';
+
+abstract class _$NoteTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+  late final String tenantId;
+
+  Stream<List<NoteDataData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [NoteTenant].
+@ProviderFor(NoteTenant)
+const noteTenantProvider = NoteTenantFamily();
+
+/// See also [NoteTenant].
+class NoteTenantFamily extends Family<AsyncValue<List<NoteDataData>>> {
+  /// See also [NoteTenant].
+  const NoteTenantFamily();
+
+  /// See also [NoteTenant].
+  NoteTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return NoteTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  NoteTenantProvider getProviderOverride(
+    covariant NoteTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'noteTenantProvider';
+}
+
+/// See also [NoteTenant].
+class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    NoteTenant, List<NoteDataData>> {
+  /// See also [NoteTenant].
+  NoteTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => NoteTenant()..tenantId = tenantId,
+          from: noteTenantProvider,
+          name: r'noteTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$noteTenantHash,
+          dependencies: NoteTenantFamily._dependencies,
+          allTransitiveDependencies:
+              NoteTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  NoteTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<NoteDataData>> runNotifierBuild(
+    covariant NoteTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(NoteTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: NoteTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<NoteTenant, List<NoteDataData>>
+      createElement() {
+    return _NoteTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is NoteTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin NoteTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _NoteTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<NoteTenant,
+        List<NoteDataData>> with NoteTenantRef {
+  _NoteTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as NoteTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

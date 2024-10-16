@@ -54,11 +54,28 @@ Future<List<ent.Commodity>> fetchCommoditiesFromReg(
   return ref.watch(commodityRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+@riverpod
+class CommodityReg extends _$CommodityReg {
+  @override
+  Stream<List<CommodityData>> build(String regNode) {
+    return ref.watch(commodityRepositoryProvider).fetchAndWatchFromReg(regNode);
+  }
+}
+
+@riverpod
+class CommodityTenant extends _$CommodityTenant {
+  @override
+  Stream<List<CommodityData>> build({String tenantId='default'}) {
+    return ref.watch(commodityRepositoryProvider).fetchAndWatchFromTenant(tenantId: tenantId);
+  }
+}
+
+   
 
 /*
 final commodity = ref.watch(getCommodityProvider(id: commodityId));
+final ds=ref.watch(commodityRegProvider('publicEls'));
  */
-
 
 
 

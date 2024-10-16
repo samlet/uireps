@@ -192,6 +192,13 @@ class BiFacetRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<BiFacetData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.biFacet)..where((el)=>el.biId.isIn(queryIds));
+    return q.watch();
+  }
+
+    
 }
 
 

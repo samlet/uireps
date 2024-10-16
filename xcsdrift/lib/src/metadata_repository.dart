@@ -280,6 +280,25 @@ class MetadataRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<MetadataData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.metadata)..where((el)=>el.metadataId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<MetadataData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.metadataId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<MetadataData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.metadataId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

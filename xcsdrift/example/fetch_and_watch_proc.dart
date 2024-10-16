@@ -29,10 +29,19 @@ Future<void> main(List<String> arguments) async {
 
 Future<void> doProc() async {
   final database = Database(NativeDatabase.memory(logStatements: false));
-  // var cacheRepo = SessionCacheRepository(dio, database);
   var noteRepo = NoteRepository(dio, database);
-  // cause -> not found (404)
-  var rec = await noteRepo.fetchSingle('n1');
-  print('rec: ${rec.noteId}');
+  fetchAndWatch(noteRepo).listen((rs){
+    print('recs: ${rs.length}');
+    for (var value in rs) {
+      print('- ${value.noteId}: ${value.noteName}');
+    }
+  });
+
+}
+
+Stream<List<NoteDataData>> fetchAndWatch(NoteRepository noteRepo) async* {
+  var rs=await noteRepo.fetchFromReg('publicNotes');
+  var queryIds=rs.map((el)=> el.noteId!).toList();
+  yield* noteRepo.multiWatch(queryIds);
 }
 

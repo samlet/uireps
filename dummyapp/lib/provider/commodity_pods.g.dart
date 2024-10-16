@@ -646,5 +646,295 @@ class _CommodityElProviderElement
   @override
   String get id => (origin as CommodityElProvider).id;
 }
+
+String _$commodityRegHash() => r'd80fc89e2ebf583dade283ad33bc88d0851cbba7';
+
+abstract class _$CommodityReg
+    extends BuildlessAutoDisposeStreamNotifier<List<CommodityData>> {
+  late final String regNode;
+
+  Stream<List<CommodityData>> build(
+    String regNode,
+  );
+}
+
+/// See also [CommodityReg].
+@ProviderFor(CommodityReg)
+const commodityRegProvider = CommodityRegFamily();
+
+/// See also [CommodityReg].
+class CommodityRegFamily extends Family<AsyncValue<List<CommodityData>>> {
+  /// See also [CommodityReg].
+  const CommodityRegFamily();
+
+  /// See also [CommodityReg].
+  CommodityRegProvider call(
+    String regNode,
+  ) {
+    return CommodityRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  CommodityRegProvider getProviderOverride(
+    covariant CommodityRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'commodityRegProvider';
+}
+
+/// See also [CommodityReg].
+class CommodityRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    CommodityReg, List<CommodityData>> {
+  /// See also [CommodityReg].
+  CommodityRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => CommodityReg()..regNode = regNode,
+          from: commodityRegProvider,
+          name: r'commodityRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$commodityRegHash,
+          dependencies: CommodityRegFamily._dependencies,
+          allTransitiveDependencies:
+              CommodityRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  CommodityRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<CommodityData>> runNotifierBuild(
+    covariant CommodityReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(CommodityReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: CommodityRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<CommodityReg, List<CommodityData>>
+      createElement() {
+    return _CommodityRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CommodityRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CommodityRegRef
+    on AutoDisposeStreamNotifierProviderRef<List<CommodityData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _CommodityRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<CommodityReg,
+        List<CommodityData>> with CommodityRegRef {
+  _CommodityRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as CommodityRegProvider).regNode;
+}
+
+String _$commodityTenantHash() => r'9cf781a27ea45c468f269e4c10803459f82c5a76';
+
+abstract class _$CommodityTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<CommodityData>> {
+  late final String tenantId;
+
+  Stream<List<CommodityData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [CommodityTenant].
+@ProviderFor(CommodityTenant)
+const commodityTenantProvider = CommodityTenantFamily();
+
+/// See also [CommodityTenant].
+class CommodityTenantFamily extends Family<AsyncValue<List<CommodityData>>> {
+  /// See also [CommodityTenant].
+  const CommodityTenantFamily();
+
+  /// See also [CommodityTenant].
+  CommodityTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return CommodityTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  CommodityTenantProvider getProviderOverride(
+    covariant CommodityTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'commodityTenantProvider';
+}
+
+/// See also [CommodityTenant].
+class CommodityTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    CommodityTenant, List<CommodityData>> {
+  /// See also [CommodityTenant].
+  CommodityTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => CommodityTenant()..tenantId = tenantId,
+          from: commodityTenantProvider,
+          name: r'commodityTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$commodityTenantHash,
+          dependencies: CommodityTenantFamily._dependencies,
+          allTransitiveDependencies:
+              CommodityTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  CommodityTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<CommodityData>> runNotifierBuild(
+    covariant CommodityTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(CommodityTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: CommodityTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<CommodityTenant, List<CommodityData>>
+      createElement() {
+    return _CommodityTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CommodityTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CommodityTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<CommodityData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _CommodityTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<CommodityTenant,
+        List<CommodityData>> with CommodityTenantRef {
+  _CommodityTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as CommodityTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

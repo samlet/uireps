@@ -280,6 +280,25 @@ class InventoryRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<InventoryItemData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.inventoryItem)..where((el)=>el.inventoryItemId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<InventoryItemData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.inventoryItemId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<InventoryItemData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.inventoryItemId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

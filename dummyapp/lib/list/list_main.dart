@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:xcsdrift/xcsdrift.dart';
 import 'package:xcsmachine/src/ent/note.dart';
 import 'package:xcsmachine/util.dart';
 
@@ -19,8 +20,8 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notesAsync =
-        ref.watch(fetchNotesFromRegProvider(regNode: 'publicNotes'));
+    // final notesAsync = ref.watch(fetchNotesFromRegProvider(regNode: 'publicNotes'));
+    final notesAsync = ref.watch(noteRegProvider('publicNotes'));
     const title = 'Long List';
 
     return MaterialApp(
@@ -34,7 +35,8 @@ class MyApp extends ConsumerWidget {
     );
   }
 
-  Widget buildNotes(AsyncValue<List<Note>> rsAsync) {
+  // Widget buildNotes(AsyncValue<List<Note>> rsAsync)
+  Widget buildNotes(AsyncValue<List<NoteDataData>> rsAsync) {
     return rsAsync.when(
         loading: () {
           return const Center(child: CircularProgressIndicator());
@@ -54,15 +56,18 @@ class MyApp extends ConsumerWidget {
         });
   }
 
-  ListView buildList(List<Note> notes) {
+  // ListView buildList(List<Note> notes)
+  ListView buildList(List<NoteDataData> notes) {
     return ListView.builder(
       itemCount: notes.length,
       prototypeItem: ListTile(
         title: Text(notes.first.noteName ?? '_no_name_'),
       ),
       itemBuilder: (context, index) {
+        var el=notes[index];
         return ListTile(
-          title: Text(notes[index].noteName ?? '_no_name_'),
+          title: Text(el.noteName ?? '_no_name_'),
+          subtitle: Text(el.noteId),
         );
       },
     );

@@ -280,6 +280,25 @@ class BillboardRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<BillboardData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.billboard)..where((el)=>el.billboardId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<BillboardData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.billboardId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<BillboardData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.billboardId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

@@ -39,12 +39,11 @@ Future<AppSettingData?> getAppSetting(GetAppSettingRef ref, {required String id}
   return ref.watch(appSettingRepositoryProvider).get(id);
 }
 
-
+   
 
 /*
 final appSetting = ref.watch(getAppSettingProvider(id: appSettingId));
  */
-
 
 
 

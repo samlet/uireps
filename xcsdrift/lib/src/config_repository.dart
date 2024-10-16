@@ -280,6 +280,25 @@ class ConfigRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<ConfigData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.config)..where((el)=>el.configId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<ConfigData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.configId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<ConfigData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.configId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

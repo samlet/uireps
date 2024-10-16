@@ -280,6 +280,25 @@ class ShoppingCartRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<ShoppingCartData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.shoppingCart)..where((el)=>el.shoppingCartId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<ShoppingCartData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.shoppingCartId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<ShoppingCartData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.shoppingCartId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 

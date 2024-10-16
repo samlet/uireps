@@ -651,5 +651,296 @@ class _CarrierPrefElProviderElement
   @override
   String get id => (origin as CarrierPrefElProvider).id;
 }
+
+String _$carrierPrefRegHash() => r'f29ba94cc41dc59fdd5339a4d7f92e87e16274df';
+
+abstract class _$CarrierPrefReg
+    extends BuildlessAutoDisposeStreamNotifier<List<CarrierPrefData>> {
+  late final String regNode;
+
+  Stream<List<CarrierPrefData>> build(
+    String regNode,
+  );
+}
+
+/// See also [CarrierPrefReg].
+@ProviderFor(CarrierPrefReg)
+const carrierPrefRegProvider = CarrierPrefRegFamily();
+
+/// See also [CarrierPrefReg].
+class CarrierPrefRegFamily extends Family<AsyncValue<List<CarrierPrefData>>> {
+  /// See also [CarrierPrefReg].
+  const CarrierPrefRegFamily();
+
+  /// See also [CarrierPrefReg].
+  CarrierPrefRegProvider call(
+    String regNode,
+  ) {
+    return CarrierPrefRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  CarrierPrefRegProvider getProviderOverride(
+    covariant CarrierPrefRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'carrierPrefRegProvider';
+}
+
+/// See also [CarrierPrefReg].
+class CarrierPrefRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    CarrierPrefReg, List<CarrierPrefData>> {
+  /// See also [CarrierPrefReg].
+  CarrierPrefRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => CarrierPrefReg()..regNode = regNode,
+          from: carrierPrefRegProvider,
+          name: r'carrierPrefRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$carrierPrefRegHash,
+          dependencies: CarrierPrefRegFamily._dependencies,
+          allTransitiveDependencies:
+              CarrierPrefRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  CarrierPrefRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<CarrierPrefData>> runNotifierBuild(
+    covariant CarrierPrefReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(CarrierPrefReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: CarrierPrefRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<CarrierPrefReg,
+      List<CarrierPrefData>> createElement() {
+    return _CarrierPrefRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CarrierPrefRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CarrierPrefRegRef
+    on AutoDisposeStreamNotifierProviderRef<List<CarrierPrefData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _CarrierPrefRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<CarrierPrefReg,
+        List<CarrierPrefData>> with CarrierPrefRegRef {
+  _CarrierPrefRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as CarrierPrefRegProvider).regNode;
+}
+
+String _$carrierPrefTenantHash() => r'0d95c3822f83ee871cfc71a3db52c72b497a17ae';
+
+abstract class _$CarrierPrefTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<CarrierPrefData>> {
+  late final String tenantId;
+
+  Stream<List<CarrierPrefData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [CarrierPrefTenant].
+@ProviderFor(CarrierPrefTenant)
+const carrierPrefTenantProvider = CarrierPrefTenantFamily();
+
+/// See also [CarrierPrefTenant].
+class CarrierPrefTenantFamily
+    extends Family<AsyncValue<List<CarrierPrefData>>> {
+  /// See also [CarrierPrefTenant].
+  const CarrierPrefTenantFamily();
+
+  /// See also [CarrierPrefTenant].
+  CarrierPrefTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return CarrierPrefTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  CarrierPrefTenantProvider getProviderOverride(
+    covariant CarrierPrefTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'carrierPrefTenantProvider';
+}
+
+/// See also [CarrierPrefTenant].
+class CarrierPrefTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    CarrierPrefTenant, List<CarrierPrefData>> {
+  /// See also [CarrierPrefTenant].
+  CarrierPrefTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => CarrierPrefTenant()..tenantId = tenantId,
+          from: carrierPrefTenantProvider,
+          name: r'carrierPrefTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$carrierPrefTenantHash,
+          dependencies: CarrierPrefTenantFamily._dependencies,
+          allTransitiveDependencies:
+              CarrierPrefTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  CarrierPrefTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<CarrierPrefData>> runNotifierBuild(
+    covariant CarrierPrefTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(CarrierPrefTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: CarrierPrefTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<CarrierPrefTenant,
+      List<CarrierPrefData>> createElement() {
+    return _CarrierPrefTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CarrierPrefTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin CarrierPrefTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<CarrierPrefData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _CarrierPrefTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<CarrierPrefTenant,
+        List<CarrierPrefData>> with CarrierPrefTenantRef {
+  _CarrierPrefTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as CarrierPrefTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

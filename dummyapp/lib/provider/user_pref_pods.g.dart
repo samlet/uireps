@@ -646,5 +646,295 @@ class _UserPrefElProviderElement
   @override
   String get id => (origin as UserPrefElProvider).id;
 }
+
+String _$userPrefRegHash() => r'1442aeaced956511c93212fc051dd3b942b0fafd';
+
+abstract class _$UserPrefReg
+    extends BuildlessAutoDisposeStreamNotifier<List<UserPrefData>> {
+  late final String regNode;
+
+  Stream<List<UserPrefData>> build(
+    String regNode,
+  );
+}
+
+/// See also [UserPrefReg].
+@ProviderFor(UserPrefReg)
+const userPrefRegProvider = UserPrefRegFamily();
+
+/// See also [UserPrefReg].
+class UserPrefRegFamily extends Family<AsyncValue<List<UserPrefData>>> {
+  /// See also [UserPrefReg].
+  const UserPrefRegFamily();
+
+  /// See also [UserPrefReg].
+  UserPrefRegProvider call(
+    String regNode,
+  ) {
+    return UserPrefRegProvider(
+      regNode,
+    );
+  }
+
+  @override
+  UserPrefRegProvider getProviderOverride(
+    covariant UserPrefRegProvider provider,
+  ) {
+    return call(
+      provider.regNode,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userPrefRegProvider';
+}
+
+/// See also [UserPrefReg].
+class UserPrefRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    UserPrefReg, List<UserPrefData>> {
+  /// See also [UserPrefReg].
+  UserPrefRegProvider(
+    String regNode,
+  ) : this._internal(
+          () => UserPrefReg()..regNode = regNode,
+          from: userPrefRegProvider,
+          name: r'userPrefRegProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$userPrefRegHash,
+          dependencies: UserPrefRegFamily._dependencies,
+          allTransitiveDependencies:
+              UserPrefRegFamily._allTransitiveDependencies,
+          regNode: regNode,
+        );
+
+  UserPrefRegProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regNode,
+  }) : super.internal();
+
+  final String regNode;
+
+  @override
+  Stream<List<UserPrefData>> runNotifierBuild(
+    covariant UserPrefReg notifier,
+  ) {
+    return notifier.build(
+      regNode,
+    );
+  }
+
+  @override
+  Override overrideWith(UserPrefReg Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: UserPrefRegProvider._internal(
+        () => create()..regNode = regNode,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regNode: regNode,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<UserPrefReg, List<UserPrefData>>
+      createElement() {
+    return _UserPrefRegProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserPrefRegProvider && other.regNode == regNode;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regNode.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UserPrefRegRef
+    on AutoDisposeStreamNotifierProviderRef<List<UserPrefData>> {
+  /// The parameter `regNode` of this provider.
+  String get regNode;
+}
+
+class _UserPrefRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<UserPrefReg,
+        List<UserPrefData>> with UserPrefRegRef {
+  _UserPrefRegProviderElement(super.provider);
+
+  @override
+  String get regNode => (origin as UserPrefRegProvider).regNode;
+}
+
+String _$userPrefTenantHash() => r'8d932d444b880119d171c629686517c16fdc7c27';
+
+abstract class _$UserPrefTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<UserPrefData>> {
+  late final String tenantId;
+
+  Stream<List<UserPrefData>> build({
+    String tenantId = 'default',
+  });
+}
+
+/// See also [UserPrefTenant].
+@ProviderFor(UserPrefTenant)
+const userPrefTenantProvider = UserPrefTenantFamily();
+
+/// See also [UserPrefTenant].
+class UserPrefTenantFamily extends Family<AsyncValue<List<UserPrefData>>> {
+  /// See also [UserPrefTenant].
+  const UserPrefTenantFamily();
+
+  /// See also [UserPrefTenant].
+  UserPrefTenantProvider call({
+    String tenantId = 'default',
+  }) {
+    return UserPrefTenantProvider(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  UserPrefTenantProvider getProviderOverride(
+    covariant UserPrefTenantProvider provider,
+  ) {
+    return call(
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userPrefTenantProvider';
+}
+
+/// See also [UserPrefTenant].
+class UserPrefTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    UserPrefTenant, List<UserPrefData>> {
+  /// See also [UserPrefTenant].
+  UserPrefTenantProvider({
+    String tenantId = 'default',
+  }) : this._internal(
+          () => UserPrefTenant()..tenantId = tenantId,
+          from: userPrefTenantProvider,
+          name: r'userPrefTenantProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$userPrefTenantHash,
+          dependencies: UserPrefTenantFamily._dependencies,
+          allTransitiveDependencies:
+              UserPrefTenantFamily._allTransitiveDependencies,
+          tenantId: tenantId,
+        );
+
+  UserPrefTenantProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String tenantId;
+
+  @override
+  Stream<List<UserPrefData>> runNotifierBuild(
+    covariant UserPrefTenant notifier,
+  ) {
+    return notifier.build(
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  Override overrideWith(UserPrefTenant Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: UserPrefTenantProvider._internal(
+        () => create()..tenantId = tenantId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<UserPrefTenant, List<UserPrefData>>
+      createElement() {
+    return _UserPrefTenantProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserPrefTenantProvider && other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UserPrefTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<UserPrefData>> {
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _UserPrefTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<UserPrefTenant,
+        List<UserPrefData>> with UserPrefTenantRef {
+  _UserPrefTenantProviderElement(super.provider);
+
+  @override
+  String get tenantId => (origin as UserPrefTenantProvider).tenantId;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

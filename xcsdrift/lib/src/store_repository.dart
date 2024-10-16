@@ -280,6 +280,25 @@ class StoreRepository implements RepositoryBase {
     var rs=await q.get();
     return rs;
   }
+
+  Stream<List<ProductStoreData>> multiWatch(List<String> queryIds) {
+    var q=db.select(db.productStore)..where((el)=>el.productStoreId.isIn(queryIds));
+    return q.watch();
+  }
+
+  
+  Stream<List<ProductStoreData>> fetchAndWatchFromReg(String regNode) async* {
+    var rs=await fetchFromReg(regNode);
+    var queryIds=rs.map((el)=> el.productStoreId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Stream<List<ProductStoreData>> fetchAndWatchFromTenant({String tenantId = 'default'}) async*{
+    var rs=await fetchFromSrv(tenantId: tenantId, smartMode: true);
+    var queryIds=rs.map((el)=> el.productStoreId!).toList();
+    yield* multiWatch(queryIds);
+  }
+    
 }
 
 
