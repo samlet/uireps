@@ -288,7 +288,7 @@ class InventoryRepository implements RepositoryBase {
 
   
   Stream<List<InventoryItemData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.inventoryItemId!).toList();
     yield* multiWatch(queryIds);
   }

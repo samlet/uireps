@@ -288,7 +288,7 @@ class MetadataRepository implements RepositoryBase {
 
   
   Stream<List<MetadataData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.metadataId!).toList();
     yield* multiWatch(queryIds);
   }

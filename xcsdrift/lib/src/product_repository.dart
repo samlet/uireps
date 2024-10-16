@@ -288,7 +288,7 @@ class ProductRepository implements RepositoryBase {
 
   
   Stream<List<ProductData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.productId!).toList();
     yield* multiWatch(queryIds);
   }

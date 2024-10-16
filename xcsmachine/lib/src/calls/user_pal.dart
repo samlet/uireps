@@ -21,30 +21,10 @@ class UserPalRepository {
 
    
   // Query
-  Future<List<String>> getOrdersAsRole({
-    
-    required String roleType, 
-
-  }) async { 
+  Future<Wallet> wallet() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getOrdersAsRole",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "roleType": roleType, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<Shipment>> getShipsAsDestination() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getShipsAsDestination",
+      "action": "wallet",
       "bundleName" : "Party",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -52,52 +32,7 @@ class UserPalRepository {
     }, { 
     });
     
-    return convList(resp, Shipment.fromJson);
-  }
-   
-  // Query
-  Future<List<Shipment>> getShipsAsOrigin() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getShipsAsOrigin",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Shipment.fromJson);
-  }
-   
-  // Query
-  Future<List<String>> getOrdersAsCustomer() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrdersAsCustomer",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> getOrdersAsCarrier() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrdersAsCarrier",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
+    return Wallet.fromJson(resp);
   }
    
   // Mutation
@@ -180,10 +115,30 @@ class UserPalRepository {
   }
    
   // Query
-  Future<Wallet> wallet() async { 
+  Future<List<String>> getOrdersAsRole({
+    
+    required String roleType, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "wallet",
+      "action": "getOrdersAsRole",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "roleType": roleType, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<Shipment>> getShipsAsDestination() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getShipsAsDestination",
       "bundleName" : "Party",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -191,7 +146,52 @@ class UserPalRepository {
     }, { 
     });
     
-    return Wallet.fromJson(resp);
+    return convList(resp, Shipment.fromJson);
+  }
+   
+  // Query
+  Future<List<Shipment>> getShipsAsOrigin() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getShipsAsOrigin",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Shipment.fromJson);
+  }
+   
+  // Query
+  Future<List<String>> getOrdersAsCustomer() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrdersAsCustomer",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<String>> getOrdersAsCarrier() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrdersAsCarrier",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query
@@ -239,6 +239,163 @@ class UserPalRepository {
       "regionId": regionOrNs,
       "id": id,
     }, { 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<void> markRead({
+    
+    required String notiId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "markRead",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "notiId": notiId, 
+    });
+    
+  }
+   
+  // Query
+  Future<bool> isPerson() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isPerson",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<List<String>> noteIds() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "noteIds",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<String> firstName() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "firstName",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<void> addRole({
+    
+    required String roleTypeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "addRole",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "roleTypeId": roleTypeId, 
+    });
+    
+  }
+   
+  // Query
+  Future<List<Note>> getNotes() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNotes",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Note.fromJson);
+  }
+   
+  // Mutation
+  Future<Response> createAgent({
+    
+    required String agent, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "createAgent",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "agent": agent, 
+    });
+    
+    return Response()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<List<String>> getAgentIds() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getAgentIds",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Mutation
+  Future<String> addCreditCard({
+    
+    required String cardNumber,
+    required int validYears,
+    required bool refund, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "addCreditCard",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "cardNumber": cardNumber,
+      "validYears": validYears,
+      "refund": refund, 
     });
     
     return ResultConv.asString(resp);
@@ -368,178 +525,6 @@ class UserPalRepository {
     return convList(resp, Notification.fromJson);
   }
    
-  // Mutation
-  Future<void> addRole({
-    
-    required String roleTypeId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addRole",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "roleTypeId": roleTypeId, 
-    });
-    
-  }
-   
-  // Query
-  Future<List<Note>> getNotes() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNotes",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Note.fromJson);
-  }
-   
-  // Mutation
-  Future<Response> createAgent({
-    
-    required String agent, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "createAgent",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "agent": agent, 
-    });
-    
-    return Response()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<List<String>> getAgentIds() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getAgentIds",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Mutation
-  Future<String> addCreditCard({
-    
-    required String cardNumber,
-    required int validYears,
-    required bool refund, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addCreditCard",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "cardNumber": cardNumber,
-      "validYears": validYears,
-      "refund": refund, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<void> markRead({
-    
-    required String notiId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "markRead",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "notiId": notiId, 
-    });
-    
-  }
-   
-  // Query
-  Future<bool> isPerson() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isPerson",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
-  Future<List<String>> noteIds() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "noteIds",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<String> firstName() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "firstName",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<ContactProto> getPrimaryContact() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPrimaryContact",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ContactProto()..mergeFromProto3Json(resp);
-  }
-   
   // Query
   Future<PostalAddressFlatData> getAddressData() async { 
     var resp = await performCall(dio, {
@@ -628,6 +613,21 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<ContactProto> getPrimaryContact() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPrimaryContact",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ContactProto()..mergeFromProto3Json(resp);
   }
    
   // Query

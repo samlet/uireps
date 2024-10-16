@@ -288,7 +288,7 @@ class NoteRepository implements RepositoryBase {
 
   
   Stream<List<NoteDataData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.noteId!).toList();
     yield* multiWatch(queryIds);
   }

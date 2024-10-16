@@ -288,7 +288,7 @@ class ShipmentRepository implements RepositoryBase {
 
   
   Stream<List<ShipmentData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.shipmentId!).toList();
     yield* multiWatch(queryIds);
   }

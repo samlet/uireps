@@ -50,36 +50,17 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
     return state.hasError == false;
   }
   
-  Future<bool> oneNoteWithData({
+  Future<bool> touch({
     
-    required List<int> data, 
+    required String bundleName,
+    required String bundleId, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).oneNoteWithData(
-              data: data,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> createTestAsset({
-    
-    required ComplicatedRec rec, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).createTestAsset(
-              rec: rec,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> createPostWithComments() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).createPostWithComments(
+        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).touch(
+              bundleName: bundleName,
+              bundleId: bundleId,
             ));
     return state.hasError == false;
   }
@@ -186,17 +167,36 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
     return state.hasError == false;
   }
   
-  Future<bool> touch({
+  Future<bool> oneNoteWithData({
     
-    required String bundleName,
-    required String bundleId, 
+    required List<int> data, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).touch(
-              bundleName: bundleName,
-              bundleId: bundleId,
+        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).oneNoteWithData(
+              data: data,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> createTestAsset({
+    
+    required ComplicatedRec rec, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).createTestAsset(
+              rec: rec,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> createPostWithComments() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(fixtureObjectsProvider(regionOrNs: regionOrNs)).createPostWithComments(
             ));
     return state.hasError == false;
   }
@@ -205,28 +205,28 @@ class FixtureObjectsPod extends _$FixtureObjectsPod {
 
   
 @riverpod
-Future<Map<String, List<String>>> fixturesEchoStringMultiMap(FixturesEchoStringMultiMapRef ref, {
+Future<String> fixturesPing(FixturesPingRef ref, {
   String regionOrNs='default',
   
-    required Map<String, List<String>> input, 
+    required String req, 
 
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.echoStringMultiMap(
-      input: input,
+  return await pod.ping(
+      req: req,
   );
 }
   
 @riverpod
-Future<List<int>> fixturesGetNoteSlotData(FixturesGetNoteSlotDataRef ref, {
+Future<Map<String, Object?>> fixturesEcho(FixturesEchoRef ref, {
   String regionOrNs='default',
   
-    required String noteId, 
+    required Map<String, Object?> input, 
 
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.getNoteSlotData(
-      noteId: noteId,
+  return await pod.echo(
+      input: input,
   );
 }
   
@@ -411,28 +411,28 @@ Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
 }
   
 @riverpod
-Future<String> fixturesPing(FixturesPingRef ref, {
+Future<Map<String, List<String>>> fixturesEchoStringMultiMap(FixturesEchoStringMultiMapRef ref, {
   String regionOrNs='default',
   
-    required String req, 
+    required Map<String, List<String>> input, 
 
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.ping(
-      req: req,
+  return await pod.echoStringMultiMap(
+      input: input,
   );
 }
   
 @riverpod
-Future<Map<String, Object?>> fixturesEcho(FixturesEchoRef ref, {
+Future<List<int>> fixturesGetNoteSlotData(FixturesGetNoteSlotDataRef ref, {
   String regionOrNs='default',
   
-    required Map<String, Object?> input, 
+    required String noteId, 
 
 }) async {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.echo(
-      input: input,
+  return await pod.getNoteSlotData(
+      noteId: noteId,
   );
 }
 

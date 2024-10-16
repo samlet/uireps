@@ -288,7 +288,7 @@ class CommodityRepository implements RepositoryBase {
 
   
   Stream<List<CommodityData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.commodityId!).toList();
     yield* multiWatch(queryIds);
   }

@@ -288,7 +288,7 @@ class SellerPrefRepository implements RepositoryBase {
 
   
   Stream<List<SellerPrefData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.sellerPrefId!).toList();
     yield* multiWatch(queryIds);
   }

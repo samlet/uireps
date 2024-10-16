@@ -288,7 +288,7 @@ class FacilityRepository implements RepositoryBase {
 
   
   Stream<List<FacilityData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.facilityId!).toList();
     yield* multiWatch(queryIds);
   }

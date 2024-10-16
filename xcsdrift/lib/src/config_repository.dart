@@ -288,7 +288,7 @@ class ConfigRepository implements RepositoryBase {
 
   
   Stream<List<ConfigData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.configId!).toList();
     yield* multiWatch(queryIds);
   }

@@ -288,7 +288,7 @@ class BillboardRepository implements RepositoryBase {
 
   
   Stream<List<BillboardData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.billboardId!).toList();
     yield* multiWatch(queryIds);
   }

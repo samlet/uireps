@@ -18,52 +18,6 @@ class PortalManagerRepository {
   final String moduleName;
 
    
-  // Mutation
-  Future<BundleModifiedResult> storeBundleSpec({
-    
-    required String bundleName,
-    String? regionId='default',
-    required Map<String, Object?> spec, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "storeBundleSpec",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "spec": spec, 
-    });
-    
-    return BundleModifiedResult.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
-    
-    required String bundleName,
-    String? regionId='default',
-    required String tenantId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadAsBiFacetsByTenant",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "tenantId": tenantId, 
-    });
-    
-    return convList(resp, BiFacetBi.fromJson);
-  }
-   
   // Query
   Future<BiFacetBi> loadAsBiFacet({
     
@@ -105,6 +59,52 @@ class PortalManagerRepository {
       "bundleName": bundleName,
       if(regionId!=null) "regionId": regionId,
       "bundleIds": bundleIds, 
+    });
+    
+    return convList(resp, BiFacetBi.fromJson);
+  }
+   
+  // Mutation
+  Future<BundleModifiedResult> storeBundleSpec({
+    
+    required String bundleName,
+    String? regionId='default',
+    required Map<String, Object?> spec, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "storeBundleSpec",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "spec": spec, 
+    });
+    
+    return BundleModifiedResult.fromJson(resp);
+  }
+   
+  // Query
+  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String tenantId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacetsByTenant",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "tenantId": tenantId, 
     });
     
     return convList(resp, BiFacetBi.fromJson);

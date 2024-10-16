@@ -288,7 +288,7 @@ class ThingFacetRepository implements RepositoryBase {
 
   
   Stream<List<ThingFacetData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.thingId!).toList();
     yield* multiWatch(queryIds);
   }

@@ -288,7 +288,7 @@ class ShoppingCartRepository implements RepositoryBase {
 
   
   Stream<List<ShoppingCartData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.shoppingCartId!).toList();
     yield* multiWatch(queryIds);
   }

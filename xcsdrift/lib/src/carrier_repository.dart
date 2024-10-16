@@ -288,7 +288,7 @@ class CarrierRepository implements RepositoryBase {
 
   
   Stream<List<CarrierData>> fetchAndWatchFromReg(String regNode) async* {
-    var rs=await fetchFromReg(regNode);
+    var rs=await fetchFromReg(regNode, smartMode: true);
     var queryIds=rs.map((el)=> el.carrierId!).toList();
     yield* multiWatch(queryIds);
   }
