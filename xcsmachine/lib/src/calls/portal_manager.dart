@@ -64,29 +64,6 @@ class PortalManagerRepository {
     return convList(resp, BiFacetBi.fromJson);
   }
    
-  // Mutation
-  Future<BundleModifiedResult> storeBundleSpec({
-    
-    required String bundleName,
-    String? regionId='default',
-    required Map<String, Object?> spec, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "storeBundleSpec",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "spec": spec, 
-    });
-    
-    return BundleModifiedResult.fromJson(resp);
-  }
-   
   // Query
   Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
     
@@ -108,6 +85,29 @@ class PortalManagerRepository {
     });
     
     return convList(resp, BiFacetBi.fromJson);
+  }
+   
+  // Mutation
+  Future<BundleModifiedResult> storeBundleSpec({
+    
+    required String bundleName,
+    String? regionId='default',
+    required Map<String, Object?> spec, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "storeBundleSpec",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "spec": spec, 
+    });
+    
+    return BundleModifiedResult.fromJson(resp);
   }
   
 }

@@ -144,12 +144,20 @@ class MetadataRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Metadata data) async {
+  Future<String> store(ent.Metadata data) async {
+    data.metadataId ??= slugId();
     await storeEntry(data.toJson());
+    return data.metadataId!;
   }
-  Future<void> storeAndPush(ent.Metadata data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Metadata data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Metadata data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

@@ -144,12 +144,20 @@ class ShipmentRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Shipment data) async {
+  Future<String> store(ent.Shipment data) async {
+    data.shipmentId ??= slugId();
     await storeEntry(data.toJson());
+    return data.shipmentId!;
   }
-  Future<void> storeAndPush(ent.Shipment data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Shipment data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Shipment data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

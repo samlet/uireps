@@ -144,12 +144,20 @@ class BillboardRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Billboard data) async {
+  Future<String> store(ent.Billboard data) async {
+    data.billboardId ??= slugId();
     await storeEntry(data.toJson());
+    return data.billboardId!;
   }
-  Future<void> storeAndPush(ent.Billboard data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Billboard data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Billboard data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

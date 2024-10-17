@@ -144,12 +144,20 @@ class StoreRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Store data) async {
+  Future<String> store(ent.Store data) async {
+    data.productStoreId ??= slugId();
     await storeEntry(data.toJson());
+    return data.productStoreId!;
   }
-  Future<void> storeAndPush(ent.Store data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Store data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Store data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

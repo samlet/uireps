@@ -41,27 +41,6 @@ class PortalsOnChainRepository {
   }
    
   // Mutation
-  Future<DateTime> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-    return DateTime.parse(resp as String);
-  }
-   
-  // Mutation
   Future<void> addPublicNotes({
     
     required List<String> noteIds, 
@@ -126,6 +105,27 @@ class PortalsOnChainRepository {
     return convList(resp, BiFacetBi.fromJson);
   }
    
+  // Mutation
+  Future<DateTime> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
+    return DateTime.parse(resp as String);
+  }
+   
   // Query
   Future<List<String>> getPublicElementIds({
     
@@ -143,6 +143,26 @@ class PortalsOnChainRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Mutation
+  Future<void> registerPublicElements({
+    
+    required String parentNode,
+    required List<String> ids, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "registerPublicElements",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "parentNode": parentNode,
+      "ids": ids, 
+    });
+    
   }
    
   // Query
@@ -178,26 +198,6 @@ class PortalsOnChainRepository {
     });
     
     return BundleModifiedResult.fromJson(resp);
-  }
-   
-  // Mutation
-  Future<void> registerPublicElements({
-    
-    required String parentNode,
-    required List<String> ids, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "registerPublicElements",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "parentNode": parentNode,
-      "ids": ids, 
-    });
-    
   }
    
   // Mutation
@@ -311,6 +311,27 @@ class PortalsOnChainRepository {
     });
     
     return convList(resp, BiFacetBi.fromJson);
+  }
+   
+  // Mutation
+  Future<List<String>> publishElementIds({
+    
+    required String parentNode,
+    required List<String> ids, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "publishElementIds",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "parentNode": parentNode,
+      "ids": ids, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Mutation

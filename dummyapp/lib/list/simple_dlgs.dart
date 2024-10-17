@@ -1,6 +1,52 @@
 import 'package:flutter/material.dart';
 
+import 'new_input_dialog.dart';
+
 enum Department { treasury, state }
+
+Future<String> askInput(BuildContext context) async{
+  return await showDialog(
+    context: context,
+    builder: (context) {
+      return const NewInputDialog();
+    },
+  );
+}
+
+Future<bool> askYesNo(BuildContext context, String prompt,
+    {VoidCallback? yesProc, VoidCallback? noProc}) async {
+  bool result = false;
+  result = await showDialog(
+    context: context,
+    barrierDismissible: true,
+    builder: (_) => AlertDialog(
+      content: Text(
+        prompt,
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: const Text("Yes"),
+          onPressed: () {
+            if (yesProc != null) {
+              yesProc();
+            }
+            Navigator.pop(context, true);
+          },
+        ),
+        TextButton(
+          child: const Text("No"),
+          onPressed: () {
+            if (noProc != null) {
+              noProc();
+            }
+            Navigator.pop(context, false);
+          },
+        ),
+      ],
+    ),
+  );
+  return result;
+}
 
 Future<String> askedToLead(BuildContext context) async {
   String resp = "";

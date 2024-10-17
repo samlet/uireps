@@ -65,8 +65,10 @@ class SessionCacheRepository implements RepositoryBase {
     }
   }  
 
-  Future<void> store(ent.SessionCache data) async {
+  Future<String> store(ent.SessionCache data) async {
+    data.sessionCacheId ??= slugId();
     await storeEntry(data.toJson());
+    return data.sessionCacheId!;
   }
 
   Future<List<ent.SessionCache>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {

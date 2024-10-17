@@ -144,12 +144,20 @@ class CarrierRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Carrier data) async {
+  Future<String> store(ent.Carrier data) async {
+    data.carrierId ??= slugId();
     await storeEntry(data.toJson());
+    return data.carrierId!;
   }
-  Future<void> storeAndPush(ent.Carrier data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Carrier data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Carrier data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

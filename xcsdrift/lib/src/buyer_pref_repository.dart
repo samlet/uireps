@@ -144,12 +144,20 @@ class BuyerPrefRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.BuyerPref data) async {
+  Future<String> store(ent.BuyerPref data) async {
+    data.buyerPrefId ??= slugId();
     await storeEntry(data.toJson());
+    return data.buyerPrefId!;
   }
-  Future<void> storeAndPush(ent.BuyerPref data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.BuyerPref data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.BuyerPref data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

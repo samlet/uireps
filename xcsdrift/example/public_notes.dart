@@ -13,13 +13,24 @@ Future<void> main(List<String> arguments) async {
   await repo.fetchFromSrv();
   NoteDataData? rec = await repo.get('note_1');
   print("query result: ${rec?.noteId} -> ${rec?.acl?.asMap().keys}");
-  var recEnt=rec?.asEnt;
+  var recEnt = rec?.asEnt;
   print('--> recEnt: ${recEnt?.noteName}, ${recEnt?.noteInfo}');
 
-  var rs=await repo.fetchFromReg('publicNotes');
+  await printPublicNotes(repo);
+
+  var result = await repo.storeAndPublish(
+      ent.Note(noteName: 'a note',
+          noteInfo: 'welcome',
+          lastUpdatedTxStamp: DateTime.now()),
+      'publicNotes');
+  print('current set: $result');
+  await printPublicNotes(repo);
+}
+
+Future<void> printPublicNotes(NoteRepository repo) async {
+  print('---- public notes ----');
+  var rs = await repo.fetchFromReg('publicNotes');
   for (var value in rs) {
     print('- ${value.noteId}: ${value.noteName} | ${value.noteInfo}');
   }
 }
-
-

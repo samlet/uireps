@@ -65,8 +65,10 @@ class AppSettingRepository implements RepositoryBase {
     }
   }  
 
-  Future<void> store(ent.AppSetting data) async {
+  Future<String> store(ent.AppSetting data) async {
+    data.appSettingId ??= slugId();
     await storeEntry(data.toJson());
+    return data.appSettingId!;
   }
 
   Future<List<ent.AppSetting>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {

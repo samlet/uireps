@@ -144,12 +144,20 @@ class FacilityRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Facility data) async {
+  Future<String> store(ent.Facility data) async {
+    data.facilityId ??= slugId();
     await storeEntry(data.toJson());
+    return data.facilityId!;
   }
-  Future<void> storeAndPush(ent.Facility data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Facility data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Facility data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

@@ -144,12 +144,20 @@ class UserPrefRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.UserPref data) async {
+  Future<String> store(ent.UserPref data) async {
+    data.userPrefId ??= slugId();
     await storeEntry(data.toJson());
+    return data.userPrefId!;
   }
-  Future<void> storeAndPush(ent.UserPref data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.UserPref data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.UserPref data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

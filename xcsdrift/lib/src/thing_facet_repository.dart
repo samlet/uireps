@@ -144,12 +144,20 @@ class ThingFacetRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.ThingFacet data) async {
+  Future<String> store(ent.ThingFacet data) async {
+    data.thingId ??= slugId();
     await storeEntry(data.toJson());
+    return data.thingId!;
   }
-  Future<void> storeAndPush(ent.ThingFacet data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.ThingFacet data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.ThingFacet data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

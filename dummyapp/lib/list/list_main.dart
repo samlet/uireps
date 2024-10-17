@@ -24,13 +24,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
+const regNode = 'publicNotes';
+
 class TestPage extends ConsumerWidget {
   const TestPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final notesAsync = ref.watch(fetchNotesFromRegProvider(regNode: 'publicNotes'));
-    final notesAsync = ref.watch(noteRegProvider('publicNotes'));
+    final notesAsync = ref.watch(noteRegProvider(regNode));
 
     return Scaffold(
       appBar: AppBar(
@@ -51,19 +53,37 @@ class TestPage extends ConsumerWidget {
         ),
         actions: <Widget>[
           IconButton(
+            icon: const Icon(Icons.add_box),
+            onPressed: () async {
+              var result = await askInput(context);
+              print('get input result: $result');
+              if (result.isNotEmpty) {
+                var els = await ref
+                    .read(noteRepositoryProvider)
+                    .storeAndPublish(
+                        ent.Note(
+                            noteName: result,
+                            lastUpdatedTxStamp: DateTime.now()),
+                        regNode);
+                print('$regNode elements: $els');
+                ref.invalidate(noteRegProvider(regNode));
+              }
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.backup),
             onPressed: () {},
           ),
           IconButton(
             icon: const Icon(Icons.restore),
             onPressed: () {
-              ref.invalidate(noteRegProvider('publicNotes'));
+              ref.invalidate(noteRegProvider(regNode));
               print('refreshed');
             },
           ),
         ],
       ),
-      body: buildNotes(notesAsync),
+      body: buildNotes(context, notesAsync),
       floatingActionButton: FloatingActionButton(
         // When the user presses the button, show an alert dialog containing
         // the text that the user has entered into the text field.
@@ -83,7 +103,7 @@ class TestPage extends ConsumerWidget {
   }
 
   // Widget buildNotes(AsyncValue<List<Note>> rsAsync)
-  Widget buildNotes(AsyncValue<List<NoteDataData>> rsAsync) {
+  Widget buildNotes(BuildContext context, AsyncValue<List<NoteDataData>> rsAsync) {
     return rsAsync.when(loading: () {
       return const Center(child: CircularProgressIndicator());
     }, error: (ex, stack) {
@@ -99,12 +119,13 @@ class TestPage extends ConsumerWidget {
       }
       return Center(child: Text(errMsg));
     }, data: (rs) {
-      return buildList(rs);
+      return buildList(context, rs);
     });
   }
 
   // ListView buildList(List<Note> notes)
-  ListView buildList(List<NoteDataData> notes) {
+  ListView buildList(BuildContext context, List<NoteDataData> notes) {
+    final theme = Theme.of(context);
     return ListView.builder(
       itemCount: notes.length,
       prototypeItem: ListTile(
@@ -113,9 +134,17 @@ class TestPage extends ConsumerWidget {
       itemBuilder: (context, index) {
         var el = notes[index];
         return ListTile(
-          title: Text(el.noteName ?? '_no_name_'),
-          subtitle: Text(el.noteId),
-          trailing: Text(el.lastUpdatedTxStamp?.toString()??'_no_ts_'),
+          title: Text(
+            el.noteName ?? '_no_name_',
+            style: theme.textTheme.titleMedium!.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+          ),
+          subtitle: Text(
+            el.noteId,
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
+          trailing: Text(el.lastUpdatedTxStamp?.toString() ?? '_no_ts_'),
         );
       },
     );

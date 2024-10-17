@@ -144,12 +144,20 @@ class NoteRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Note data) async {
+  Future<String> store(ent.Note data) async {
+    data.noteId ??= slugId();
     await storeEntry(data.toJson());
+    return data.noteId!;
   }
-  Future<void> storeAndPush(ent.Note data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Note data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Note data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

@@ -144,12 +144,20 @@ class ConfigRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Config data) async {
+  Future<String> store(ent.Config data) async {
+    data.configId ??= slugId();
     await storeEntry(data.toJson());
+    return data.configId!;
   }
-  Future<void> storeAndPush(ent.Config data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Config data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Config data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

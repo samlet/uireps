@@ -65,8 +65,10 @@ class BiFacetRepository implements RepositoryBase {
     }
   }  
 
-  Future<void> store(ent.BiFacet data) async {
+  Future<String> store(ent.BiFacet data) async {
+    data.biId ??= slugId();
     await storeEntry(data.toJson());
+    return data.biId!;
   }
 
   Future<List<ent.BiFacet>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {

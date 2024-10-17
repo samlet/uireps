@@ -20,21 +20,6 @@ class UserPalRepository {
   final String id;
 
    
-  // Query
-  Future<Wallet> wallet() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "wallet",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Wallet.fromJson(resp);
-  }
-   
   // Mutation
   Future<String> createNote({
     
@@ -112,6 +97,21 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<Wallet> wallet() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "wallet",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Wallet.fromJson(resp);
   }
    
   // Query
@@ -242,25 +242,6 @@ class UserPalRepository {
     });
     
     return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<void> markRead({
-    
-    required String notiId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "markRead",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "notiId": notiId, 
-    });
-    
   }
    
   // Query
@@ -399,6 +380,25 @@ class UserPalRepository {
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<void> markRead({
+    
+    required String notiId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "markRead",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "notiId": notiId, 
+    });
+    
   }
    
   // Query

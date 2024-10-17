@@ -144,12 +144,20 @@ class MarketplaceRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.Marketplace data) async {
+  Future<String> store(ent.Marketplace data) async {
+    data.marketplaceId ??= slugId();
     await storeEntry(data.toJson());
+    return data.marketplaceId!;
   }
-  Future<void> storeAndPush(ent.Marketplace data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.Marketplace data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.Marketplace data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

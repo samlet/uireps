@@ -144,12 +144,20 @@ class CarrierPrefRepository implements RepositoryBase {
 
     
 
-  Future<void> store(ent.CarrierPref data) async {
+  Future<String> store(ent.CarrierPref data) async {
+    data.carrierPrefId ??= slugId();
     await storeEntry(data.toJson());
+    return data.carrierPrefId!;
   }
-  Future<void> storeAndPush(ent.CarrierPref data) async {
-    await store(data);
+  Future<String> storeAndPush(ent.CarrierPref data) async {
+    var cid=await store(data);
     await push(data);
+    return cid;
+  }
+
+  Future<List<String>> storeAndPublish(ent.CarrierPref data, String regNode) async {
+    var cid=await storeAndPush(data);
+    return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
   }
   
 

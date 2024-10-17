@@ -23,9 +23,10 @@ Future<void> main(List<String> arguments) async {
   // var cacheRepo = SessionCacheRepository(dio, database);
   var noteRepo = NoteRepository(dio, database);
   var db = noteRepo.database;
-  var id = 'n1';
-  noteRepo.store(ent.Note(
-      noteId: id, noteName: 'a note', lastUpdatedTxStamp: DateTime.now()));
+  // var id = 'n1';
+  // noteRepo.store(ent.Note(
+  //     noteId: id, noteName: 'a note', lastUpdatedTxStamp: DateTime.now()));
+  var id=await noteRepo.store(ent.Note(noteName: 'a note', lastUpdatedTxStamp: DateTime.now()));
   await noteRepo.printBundle(id);
 
   await waitSecs(1);
@@ -36,7 +37,7 @@ Future<void> main(List<String> arguments) async {
   print('update result: $result');
   await noteRepo.printBundle(id);
 
-  var queryIds=['n1', 'n2'];
+  var queryIds=[id, 'n2'];
   // var q=db.select(db.noteData)..where((el)=>el.noteId.isIn(queryIds));
   // var rs=await q.get();
   var rs=await noteRepo.multiGet(queryIds);

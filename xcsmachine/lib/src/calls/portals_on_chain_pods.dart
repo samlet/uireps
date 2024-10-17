@@ -48,21 +48,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).touch(
-              bundleName: bundleName,
-              bundleId: bundleId,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> addPublicNotes({
     
     required List<String> noteIds, 
@@ -76,17 +61,17 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> storeBundleSpec({
+  Future<bool> touch({
     
     required String bundleName,
-    required Map<String, Object?> spec, 
+    required String bundleId, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).storeBundleSpec(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).touch(
               bundleName: bundleName,
-              spec: spec,
+              bundleId: bundleId,
             ));
     return state.hasError == false;
   }
@@ -106,6 +91,21 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> storeBundleSpec({
+    
+    required String bundleName,
+    required Map<String, Object?> spec, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).storeBundleSpec(
+              bundleName: bundleName,
+              spec: spec,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> registerStarterElement({
     
     required String elementName,
@@ -119,6 +119,21 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
               elementName: elementName,
               bundleName: bundleName,
               elementId: elementId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> publishElementIds({
+    
+    required String parentNode,
+    required List<String> ids, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).publishElementIds(
+              parentNode: parentNode,
+              ids: ids,
             ));
     return state.hasError == false;
   }
