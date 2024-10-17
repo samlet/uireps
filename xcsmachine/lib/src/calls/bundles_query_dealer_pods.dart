@@ -48,6 +48,21 @@ Future<Map<String, Object?>> bundlesQueryLoadBundle(BundlesQueryLoadBundleRef re
       regionId: regionId,
   );
 }
+  
+@riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryLoadBundles(BundlesQueryLoadBundlesRef ref, {
+  String regionOrNs='default',
+  
+    required RequestIds r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.loadBundles(
+      r: r,
+      regionId: regionId,
+  );
+}
 
 
 

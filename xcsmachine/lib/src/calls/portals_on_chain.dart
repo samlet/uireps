@@ -314,6 +314,46 @@ class PortalsOnChainRepository {
   }
    
   // Mutation
+  Future<void> unpublishElement({
+    
+    required String parentNode,
+    required String id, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "unpublishElement",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "parentNode": parentNode,
+      "id": id, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> unpublishElements({
+    
+    required String parentNode,
+    required List<String> ids, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "unpublishElements",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "parentNode": parentNode,
+      "ids": ids, 
+    });
+    
+  }
+   
+  // Mutation
   Future<List<String>> publishElementIds({
     
     required String parentNode,

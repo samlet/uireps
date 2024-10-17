@@ -10,9 +10,14 @@ part 'test_rec.dart';
 part 'store_bundle.dart';
 part 'party_bundle.dart';
 part 'complicated_rec.dart';
-part 'load_bundle.dart';
 part 'bundle_modified_result.dart';
 part 'bi_facet_bi.dart';
+part 'load_bundle.dart';
+part 'request_ids.dart';
+part 'result_sort.dart';
+part 'modify_tags.dart';
+part 'result_limit.dart';
+part 'query_by_tags.dart';
 part 'bundle_joint.dart';
 part 'contact_profile.dart';
 

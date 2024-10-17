@@ -38,6 +38,27 @@ class BundlesQueryDealerRepository {
     
     return asTypedMap(resp);
   }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> loadBundles({
+    
+    required RequestIds r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadBundles",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
   
 }
 

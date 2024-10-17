@@ -56,6 +56,10 @@ class Example {
     this.slotId,
     this.customerConfirmation,
     this.evict,
+    this.tag1,
+    this.tag2,
+    this.tag3,
+    this.moreTags,
     this.acl,
     this.exampleType,
     this.exampleFeatureAppl,
@@ -103,6 +107,10 @@ class Example {
     String? slotId,
     String? customerConfirmation,
     bool? evict,
+    String? tag1,
+    String? tag2,
+    String? tag3,
+    List<String?>? moreTags,
     Multimap<String, String>? acl,
     ExampleType? exampleType,
     List<ExampleFeatureAppl>? exampleFeatureAppl,
@@ -149,6 +157,10 @@ class Example {
       slotId: slotId ?? this.slotId,
       customerConfirmation: customerConfirmation ?? this.customerConfirmation,
       evict: evict ?? this.evict,
+      tag1: tag1 ?? this.tag1,
+      tag2: tag2 ?? this.tag2,
+      tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
       exampleType: exampleType ?? this.exampleType,
       exampleFeatureAppl: exampleFeatureAppl ?? this.exampleFeatureAppl,
@@ -292,6 +304,18 @@ class Example {
 
    
   bool? evict;
+
+   
+  String? tag1;
+
+   
+  String? tag2;
+
+   
+  String? tag3;
+
+   
+  List<String?>? moreTags;
 
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 

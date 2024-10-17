@@ -6,6 +6,7 @@ import 'package:xcsmachine/xcmodels.dart' as ent;
 import 'package:xcsmachine/util.dart';
 
 import '../provider/note_pods.dart';
+import 'package:xcsmachine/generic_pods.dart';
 import 'simple_dlgs.dart';
 
 void main() {
@@ -44,10 +45,8 @@ class TestPage extends ConsumerWidget {
             var resp = await askedToLead(context);
             print('resp: $resp');
             var id = 'note_2';
-            await ref.read(noteRepositoryProvider).storeAndPush(ent.Note(
-                noteId: id,
-                noteName: resp,
-                lastUpdatedTxStamp: DateTime.now()));
+            await ref.read(noteRepositoryProvider).storeAndPush(
+                ent.Note(noteId: id, noteName: resp, lastUpdatedTxStamp: DateTime.now()));
             print('note updated: $id');
           },
         ),
@@ -58,13 +57,8 @@ class TestPage extends ConsumerWidget {
               var result = await askInput(context);
               print('get input result: $result');
               if (result.isNotEmpty) {
-                var els = await ref
-                    .read(noteRepositoryProvider)
-                    .storeAndPublish(
-                        ent.Note(
-                            noteName: result,
-                            lastUpdatedTxStamp: DateTime.now()),
-                        regNode);
+                var els = await ref.read(noteRepositoryProvider).storeAndPublish(
+                    ent.Note(noteName: result, lastUpdatedTxStamp: DateTime.now()), regNode);
                 print('$regNode elements: $els');
                 ref.invalidate(noteRegProvider(regNode));
               }
@@ -83,7 +77,7 @@ class TestPage extends ConsumerWidget {
           ),
         ],
       ),
-      body: buildNotes(context, notesAsync),
+      body: buildNotes(context, ref, notesAsync),
       floatingActionButton: FloatingActionButton(
         // When the user presses the button, show an alert dialog containing
         // the text that the user has entered into the text field.
@@ -91,9 +85,7 @@ class TestPage extends ConsumerWidget {
           // onSubmit(context);
           var id = 'note_1';
           await ref.read(noteRepositoryProvider).store(ent.Note(
-              noteId: id,
-              noteName: 'a note (updated)',
-              lastUpdatedTxStamp: DateTime.now()));
+              noteId: id, noteName: 'a note (updated)', lastUpdatedTxStamp: DateTime.now()));
           print('note updated: $id');
         },
         tooltip: 'Refresh!',
@@ -103,7 +95,7 @@ class TestPage extends ConsumerWidget {
   }
 
   // Widget buildNotes(AsyncValue<List<Note>> rsAsync)
-  Widget buildNotes(BuildContext context, AsyncValue<List<NoteDataData>> rsAsync) {
+  Widget buildNotes(BuildContext context, WidgetRef ref, AsyncValue<List<NoteDataData>> rsAsync) {
     return rsAsync.when(loading: () {
       return const Center(child: CircularProgressIndicator());
     }, error: (ex, stack) {
@@ -119,12 +111,12 @@ class TestPage extends ConsumerWidget {
       }
       return Center(child: Text(errMsg));
     }, data: (rs) {
-      return buildList(context, rs);
+      return buildList(context, ref, rs);
     });
   }
 
   // ListView buildList(List<Note> notes)
-  ListView buildList(BuildContext context, List<NoteDataData> notes) {
+  ListView buildList(BuildContext context, WidgetRef ref, List<NoteDataData> notes) {
     final theme = Theme.of(context);
     return ListView.builder(
       itemCount: notes.length,
@@ -133,19 +125,40 @@ class TestPage extends ConsumerWidget {
       ),
       itemBuilder: (context, index) {
         var el = notes[index];
-        return ListTile(
-          title: Text(
-            el.noteName ?? '_no_name_',
-            style: theme.textTheme.titleMedium!.copyWith(
-              color: theme.colorScheme.primary,
-            ),
-          ),
-          subtitle: Text(
-            el.noteId,
-            style: Theme.of(context).textTheme.labelSmall,
-          ),
-          trailing: Text(el.lastUpdatedTxStamp?.toString() ?? '_no_ts_'),
-        );
+        var item = el.noteId;
+        return Dismissible(
+            // Each Dismissible must contain a Key. Keys allow Flutter to
+            // uniquely identify widgets.
+            // key: Key(item),
+            key: UniqueKey(),
+            // Provide a function that tells the app
+            // what to do after an item has been swiped away.
+            onDismissed: (direction) async {
+              // Remove the item from the data source.
+              // setState(() {
+              //   items.removeAt(index);
+              // });
+              await ref
+                  .read(portalsOnChainPodProvider(regionOrNs: 'default').notifier)
+                  .unpublishElement(parentNode: regNode, id: item);
+              ref.invalidate(noteRegProvider(regNode));
+              // Then show a snackbar.
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text('$item dismissed')));
+            },
+            child: ListTile(
+              title: Text(
+                el.noteName ?? '_no_name_',
+                style: theme.textTheme.titleMedium!.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              subtitle: Text(
+                el.noteId,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+              trailing: Text(el.lastUpdatedTxStamp?.toString() ?? '_no_ts_'),
+            ));
       },
     );
   }

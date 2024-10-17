@@ -25,6 +25,12 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       moreInfoItemName: json['moreInfoItemName'] as String?,
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
+      tag1: json['tag1'] as String?,
+      tag2: json['tag2'] as String?,
+      tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       noteDataSlot: (json['noteDataSlot'] as List<dynamic>?)
           ?.map((e) => NoteDataSlot.fromJson(e as Map<String, dynamic>))
@@ -53,6 +59,10 @@ Map<String, dynamic> _$NoteToJson(Note instance) {
   writeNotNull('moreInfoItemName', instance.moreInfoItemName);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('evict', instance.evict);
+  writeNotNull('tag1', instance.tag1);
+  writeNotNull('tag2', instance.tag2);
+  writeNotNull('tag3', instance.tag3);
+  writeNotNull('moreTags', instance.moreTags);
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull(
       'noteDataSlot', instance.noteDataSlot?.map((e) => e.toJson()).toList());

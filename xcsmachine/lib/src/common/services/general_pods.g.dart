@@ -75,7 +75,7 @@ final userAuthProvider = AutoDisposeProvider<UserAuth>.internal(
 );
 
 typedef UserAuthRef = AutoDisposeProviderRef<UserAuth>;
-String _$tokenStringHash() => r'b5fed8b0097d88f322a973eaf69b72c1a5e5e0ea';
+String _$tokenStringHash() => r'22a36f1eb662f6c3540a6e1cd1820f217235f10d';
 
 /// See also [tokenString].
 @ProviderFor(tokenString)

@@ -123,6 +123,36 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> unpublishElement({
+    
+    required String parentNode,
+    required String id, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).unpublishElement(
+              parentNode: parentNode,
+              id: id,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> unpublishElements({
+    
+    required String parentNode,
+    required List<String> ids, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).unpublishElements(
+              parentNode: parentNode,
+              ids: ids,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> publishElementIds({
     
     required String parentNode,

@@ -43,6 +43,10 @@ CREATE TABLE example (
     slot_id VARCHAR(22),
     customer_confirmation CHAR(1),
     evict BOOLEAN,
+    tag1 VARCHAR(100),
+    tag2 VARCHAR(100),
+    tag3 VARCHAR(100),
+    more_tags TEXT MAPPED BY `const StringListConverter()`,
     acl TEXT MAPPED BY `const StringMultimapConverter()`,
 
     -- rel: one (no public-types)
