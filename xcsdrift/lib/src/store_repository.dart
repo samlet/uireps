@@ -28,6 +28,7 @@ class StoreRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class StoreRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Store');
     
@@ -306,7 +308,24 @@ class StoreRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.productStoreId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+  
+  // ---- tags ----
+  Future<List<ent.Store>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Store', tags: tags));
+    _logger.info("query store result ${result.length}");
+    var rs=result.map((el)=>ent.Store.fromJson(el)).toList();
+    return rs;
+  }
+
+  Stream<List<ProductStoreData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.productStoreId!).toList();
+    yield* multiWatch(queryIds);
+  }
+     
+     
+  
 }
 
 

@@ -28,6 +28,7 @@ class FacilityRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class FacilityRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Facility');
     
@@ -306,7 +308,24 @@ class FacilityRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.facilityId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+  
+  // ---- tags ----
+  Future<List<ent.Facility>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Facility', tags: tags));
+    _logger.info("query facility result ${result.length}");
+    var rs=result.map((el)=>ent.Facility.fromJson(el)).toList();
+    return rs;
+  }
+
+  Stream<List<FacilityData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.facilityId!).toList();
+    yield* multiWatch(queryIds);
+  }
+     
+     
+  
 }
 
 

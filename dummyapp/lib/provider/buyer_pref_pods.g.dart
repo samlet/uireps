@@ -792,7 +792,7 @@ class _BuyerPrefRegProviderElement
   String get regNode => (origin as BuyerPrefRegProvider).regNode;
 }
 
-String _$buyerPrefTenantHash() => r'165f06d5ec3e12c3c5b03a2e0dd6361b12b58920';
+String _$buyerPrefTenantHash() => r'228503f2ffd8fa9dcbd18ca7cea97d7008eb9967';
 
 abstract class _$BuyerPrefTenant
     extends BuildlessAutoDisposeStreamNotifier<List<BuyerPrefData>> {

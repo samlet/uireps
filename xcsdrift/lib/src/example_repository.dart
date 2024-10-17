@@ -28,6 +28,7 @@ class ExampleRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class ExampleRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Example');
     
@@ -306,7 +308,24 @@ class ExampleRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.exampleId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+  
+  // ---- tags ----
+  Future<List<ent.Example>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Example', tags: tags));
+    _logger.info("query example result ${result.length}");
+    var rs=result.map((el)=>ent.Example.fromJson(el)).toList();
+    return rs;
+  }
+
+  Stream<List<ExampleData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.exampleId!).toList();
+    yield* multiWatch(queryIds);
+  }
+     
+     
+  
 }
 
 

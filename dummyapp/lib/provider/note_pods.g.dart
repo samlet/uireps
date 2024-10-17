@@ -778,7 +778,7 @@ class _NoteRegProviderElement extends AutoDisposeStreamNotifierProviderElement<
   String get regNode => (origin as NoteRegProvider).regNode;
 }
 
-String _$noteTenantHash() => r'f1b53479c770dd9ababc205c961ecbbf296cea7c';
+String _$noteTenantHash() => r'070e54823b893c9a7b03174db73e8835dd927812';
 
 abstract class _$NoteTenant
     extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
@@ -921,6 +921,151 @@ class _NoteTenantProviderElement
 
   @override
   String get tenantId => (origin as NoteTenantProvider).tenantId;
+}
+
+String _$noteByTagsHash() => r'8541959b2c47521c12746406889fda58c260bf97';
+
+abstract class _$NoteByTags
+    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+  late final List<String> tags;
+
+  Stream<List<NoteDataData>> build(
+    List<String> tags,
+  );
+}
+
+/// See also [NoteByTags].
+@ProviderFor(NoteByTags)
+const noteByTagsProvider = NoteByTagsFamily();
+
+/// See also [NoteByTags].
+class NoteByTagsFamily extends Family<AsyncValue<List<NoteDataData>>> {
+  /// See also [NoteByTags].
+  const NoteByTagsFamily();
+
+  /// See also [NoteByTags].
+  NoteByTagsProvider call(
+    List<String> tags,
+  ) {
+    return NoteByTagsProvider(
+      tags,
+    );
+  }
+
+  @override
+  NoteByTagsProvider getProviderOverride(
+    covariant NoteByTagsProvider provider,
+  ) {
+    return call(
+      provider.tags,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'noteByTagsProvider';
+}
+
+/// See also [NoteByTags].
+class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
+    NoteByTags, List<NoteDataData>> {
+  /// See also [NoteByTags].
+  NoteByTagsProvider(
+    List<String> tags,
+  ) : this._internal(
+          () => NoteByTags()..tags = tags,
+          from: noteByTagsProvider,
+          name: r'noteByTagsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$noteByTagsHash,
+          dependencies: NoteByTagsFamily._dependencies,
+          allTransitiveDependencies:
+              NoteByTagsFamily._allTransitiveDependencies,
+          tags: tags,
+        );
+
+  NoteByTagsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tags,
+  }) : super.internal();
+
+  final List<String> tags;
+
+  @override
+  Stream<List<NoteDataData>> runNotifierBuild(
+    covariant NoteByTags notifier,
+  ) {
+    return notifier.build(
+      tags,
+    );
+  }
+
+  @override
+  Override overrideWith(NoteByTags Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: NoteByTagsProvider._internal(
+        () => create()..tags = tags,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tags: tags,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<NoteByTags, List<NoteDataData>>
+      createElement() {
+    return _NoteByTagsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is NoteByTagsProvider && other.tags == tags;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tags.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin NoteByTagsRef
+    on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+  /// The parameter `tags` of this provider.
+  List<String> get tags;
+}
+
+class _NoteByTagsProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<NoteByTags,
+        List<NoteDataData>> with NoteByTagsRef {
+  _NoteByTagsProviderElement(super.provider);
+
+  @override
+  List<String> get tags => (origin as NoteByTagsProvider).tags;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

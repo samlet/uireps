@@ -28,6 +28,7 @@ class CarrierRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class CarrierRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Carrier');
     
@@ -306,7 +308,24 @@ class CarrierRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.carrierId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+  
+  // ---- tags ----
+  Future<List<ent.Carrier>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Carrier', tags: tags));
+    _logger.info("query carrier result ${result.length}");
+    var rs=result.map((el)=>ent.Carrier.fromJson(el)).toList();
+    return rs;
+  }
+
+  Stream<List<CarrierData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.carrierId!).toList();
+    yield* multiWatch(queryIds);
+  }
+     
+     
+  
 }
 
 

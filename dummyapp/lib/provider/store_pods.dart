@@ -70,11 +70,21 @@ class StoreTenant extends _$StoreTenant {
   }
 }
 
+
+@riverpod
+class StoreByTags extends _$StoreByTags {
+  @override
+  Stream<List<ProductStoreData>> build(List<String> tags) {
+    return ref.watch(storeRepositoryProvider).fetchAndWatchByTags(tags);
+  }
+}
+   
    
 
 /*
 final store = ref.watch(getStoreProvider(id: productStoreId));
 final ds=ref.watch(storeRegProvider('publicEls'));
+final ds=ref.watch(storeByTagsProvider(['demo']));
  */
 
 

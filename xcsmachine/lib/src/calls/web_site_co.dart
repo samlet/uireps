@@ -35,6 +35,21 @@ class WebSiteCoRepository {
     return ResultConv.asString(resp);
   }
    
+  // Query
+  Future<WebSiteCubeData> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "fetch",
+      "bundleName" : "WebSite",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return WebSiteCubeData.fromJson(resp);
+  }
+   
   // Mutation
   Future<void> updateHttpUrl({
     
@@ -94,21 +109,6 @@ class WebSiteCoRepository {
       "name": name, 
     });
     
-  }
-   
-  // Query
-  Future<WebSiteCubeData> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "fetch",
-      "bundleName" : "WebSite",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return WebSiteCubeData.fromJson(resp);
   }
    
   // Query

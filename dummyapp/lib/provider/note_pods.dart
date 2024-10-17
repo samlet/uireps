@@ -70,11 +70,21 @@ class NoteTenant extends _$NoteTenant {
   }
 }
 
+
+@riverpod
+class NoteByTags extends _$NoteByTags {
+  @override
+  Stream<List<NoteDataData>> build(List<String> tags) {
+    return ref.watch(noteRepositoryProvider).fetchAndWatchByTags(tags);
+  }
+}
+   
    
 
 /*
 final note = ref.watch(getNoteProvider(id: noteId));
 final ds=ref.watch(noteRegProvider('publicEls'));
+final ds=ref.watch(noteByTagsProvider(['demo']));
  */
 
 

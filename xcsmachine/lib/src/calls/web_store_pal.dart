@@ -20,6 +20,41 @@ class WebStorePalRepository {
   final String id;
 
    
+  // Query
+  Future<List<String>> getProductJointers() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getProductJointers",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<String>> getProductsByRole({
+    
+    required String role, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getProductsByRole",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "role": role, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
   // Mutation
   Future<String> addProduct({
     
@@ -63,41 +98,6 @@ class WebStorePalRepository {
       "productIds": productIds, 
     });
     
-  }
-   
-  // Query
-  Future<List<String>> getProductJointers() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getProductJointers",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> getProductsByRole({
-    
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getProductsByRole",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "role": role, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query

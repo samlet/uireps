@@ -782,7 +782,7 @@ class _StoreRegProviderElement extends AutoDisposeStreamNotifierProviderElement<
   String get regNode => (origin as StoreRegProvider).regNode;
 }
 
-String _$storeTenantHash() => r'3deec788d76aa8c6cb7f26b54925c4a2418c13b3';
+String _$storeTenantHash() => r'40b58a7457d6f86a91ba5906d31ebea24bf63d60';
 
 abstract class _$StoreTenant
     extends BuildlessAutoDisposeStreamNotifier<List<ProductStoreData>> {
@@ -925,6 +925,151 @@ class _StoreTenantProviderElement
 
   @override
   String get tenantId => (origin as StoreTenantProvider).tenantId;
+}
+
+String _$storeByTagsHash() => r'717e3eae647b840f01f1d72f20a2d969ea395a0a';
+
+abstract class _$StoreByTags
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductStoreData>> {
+  late final List<String> tags;
+
+  Stream<List<ProductStoreData>> build(
+    List<String> tags,
+  );
+}
+
+/// See also [StoreByTags].
+@ProviderFor(StoreByTags)
+const storeByTagsProvider = StoreByTagsFamily();
+
+/// See also [StoreByTags].
+class StoreByTagsFamily extends Family<AsyncValue<List<ProductStoreData>>> {
+  /// See also [StoreByTags].
+  const StoreByTagsFamily();
+
+  /// See also [StoreByTags].
+  StoreByTagsProvider call(
+    List<String> tags,
+  ) {
+    return StoreByTagsProvider(
+      tags,
+    );
+  }
+
+  @override
+  StoreByTagsProvider getProviderOverride(
+    covariant StoreByTagsProvider provider,
+  ) {
+    return call(
+      provider.tags,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'storeByTagsProvider';
+}
+
+/// See also [StoreByTags].
+class StoreByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
+    StoreByTags, List<ProductStoreData>> {
+  /// See also [StoreByTags].
+  StoreByTagsProvider(
+    List<String> tags,
+  ) : this._internal(
+          () => StoreByTags()..tags = tags,
+          from: storeByTagsProvider,
+          name: r'storeByTagsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$storeByTagsHash,
+          dependencies: StoreByTagsFamily._dependencies,
+          allTransitiveDependencies:
+              StoreByTagsFamily._allTransitiveDependencies,
+          tags: tags,
+        );
+
+  StoreByTagsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tags,
+  }) : super.internal();
+
+  final List<String> tags;
+
+  @override
+  Stream<List<ProductStoreData>> runNotifierBuild(
+    covariant StoreByTags notifier,
+  ) {
+    return notifier.build(
+      tags,
+    );
+  }
+
+  @override
+  Override overrideWith(StoreByTags Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: StoreByTagsProvider._internal(
+        () => create()..tags = tags,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tags: tags,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<StoreByTags, List<ProductStoreData>>
+      createElement() {
+    return _StoreByTagsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is StoreByTagsProvider && other.tags == tags;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tags.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin StoreByTagsRef
+    on AutoDisposeStreamNotifierProviderRef<List<ProductStoreData>> {
+  /// The parameter `tags` of this provider.
+  List<String> get tags;
+}
+
+class _StoreByTagsProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<StoreByTags,
+        List<ProductStoreData>> with StoreByTagsRef {
+  _StoreByTagsProviderElement(super.provider);
+
+  @override
+  List<String> get tags => (origin as StoreByTagsProvider).tags;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

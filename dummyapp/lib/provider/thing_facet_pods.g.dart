@@ -793,7 +793,7 @@ class _ThingFacetRegProviderElement
   String get regNode => (origin as ThingFacetRegProvider).regNode;
 }
 
-String _$thingFacetTenantHash() => r'62f368027d45d068080436879395191d7a577c50';
+String _$thingFacetTenantHash() => r'ee50b5c04f13b4963d4ed2198b3c5076c48cea3e';
 
 abstract class _$ThingFacetTenant
     extends BuildlessAutoDisposeStreamNotifier<List<ThingFacetData>> {

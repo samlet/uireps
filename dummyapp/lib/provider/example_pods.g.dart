@@ -787,7 +787,7 @@ class _ExampleRegProviderElement
   String get regNode => (origin as ExampleRegProvider).regNode;
 }
 
-String _$exampleTenantHash() => r'c9915ac5c54838f7f110b9882cd7b59c63eda600';
+String _$exampleTenantHash() => r'580d4bd001a3f6364e53ab2970b6ffb314a06755';
 
 abstract class _$ExampleTenant
     extends BuildlessAutoDisposeStreamNotifier<List<ExampleData>> {
@@ -930,6 +930,151 @@ class _ExampleTenantProviderElement
 
   @override
   String get tenantId => (origin as ExampleTenantProvider).tenantId;
+}
+
+String _$exampleByTagsHash() => r'afe4347e51f754cd99bb3b8a6a50985573c3394f';
+
+abstract class _$ExampleByTags
+    extends BuildlessAutoDisposeStreamNotifier<List<ExampleData>> {
+  late final List<String> tags;
+
+  Stream<List<ExampleData>> build(
+    List<String> tags,
+  );
+}
+
+/// See also [ExampleByTags].
+@ProviderFor(ExampleByTags)
+const exampleByTagsProvider = ExampleByTagsFamily();
+
+/// See also [ExampleByTags].
+class ExampleByTagsFamily extends Family<AsyncValue<List<ExampleData>>> {
+  /// See also [ExampleByTags].
+  const ExampleByTagsFamily();
+
+  /// See also [ExampleByTags].
+  ExampleByTagsProvider call(
+    List<String> tags,
+  ) {
+    return ExampleByTagsProvider(
+      tags,
+    );
+  }
+
+  @override
+  ExampleByTagsProvider getProviderOverride(
+    covariant ExampleByTagsProvider provider,
+  ) {
+    return call(
+      provider.tags,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'exampleByTagsProvider';
+}
+
+/// See also [ExampleByTags].
+class ExampleByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ExampleByTags, List<ExampleData>> {
+  /// See also [ExampleByTags].
+  ExampleByTagsProvider(
+    List<String> tags,
+  ) : this._internal(
+          () => ExampleByTags()..tags = tags,
+          from: exampleByTagsProvider,
+          name: r'exampleByTagsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$exampleByTagsHash,
+          dependencies: ExampleByTagsFamily._dependencies,
+          allTransitiveDependencies:
+              ExampleByTagsFamily._allTransitiveDependencies,
+          tags: tags,
+        );
+
+  ExampleByTagsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.tags,
+  }) : super.internal();
+
+  final List<String> tags;
+
+  @override
+  Stream<List<ExampleData>> runNotifierBuild(
+    covariant ExampleByTags notifier,
+  ) {
+    return notifier.build(
+      tags,
+    );
+  }
+
+  @override
+  Override overrideWith(ExampleByTags Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ExampleByTagsProvider._internal(
+        () => create()..tags = tags,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        tags: tags,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<ExampleByTags, List<ExampleData>>
+      createElement() {
+    return _ExampleByTagsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ExampleByTagsProvider && other.tags == tags;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, tags.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ExampleByTagsRef
+    on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
+  /// The parameter `tags` of this provider.
+  List<String> get tags;
+}
+
+class _ExampleByTagsProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ExampleByTags,
+        List<ExampleData>> with ExampleByTagsRef {
+  _ExampleByTagsProviderElement(super.provider);
+
+  @override
+  List<String> get tags => (origin as ExampleByTagsProvider).tags;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

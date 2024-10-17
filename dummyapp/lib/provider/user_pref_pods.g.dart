@@ -792,7 +792,7 @@ class _UserPrefRegProviderElement
   String get regNode => (origin as UserPrefRegProvider).regNode;
 }
 
-String _$userPrefTenantHash() => r'8d932d444b880119d171c629686517c16fdc7c27';
+String _$userPrefTenantHash() => r'49c1d66c87dcce464709100ee3744fcbebdc3178';
 
 abstract class _$UserPrefTenant
     extends BuildlessAutoDisposeStreamNotifier<List<UserPrefData>> {

@@ -28,6 +28,7 @@ class NoteRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class NoteRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Note');
     
@@ -306,7 +308,24 @@ class NoteRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.noteId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+  
+  // ---- tags ----
+  Future<List<ent.Note>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Note', tags: tags));
+    _logger.info("query note result ${result.length}");
+    var rs=result.map((el)=>ent.Note.fromJson(el)).toList();
+    return rs;
+  }
+
+  Stream<List<NoteDataData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.noteId!).toList();
+    yield* multiWatch(queryIds);
+  }
+     
+     
+  
 }
 
 

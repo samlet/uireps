@@ -27,10 +27,12 @@ class AppSettingRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   AppSettingRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadAppSettings({String tenantId = 'default'}) async {
@@ -200,7 +202,8 @@ class AppSettingRepository implements RepositoryBase {
     return q.watch();
   }
 
-    
+     
+  
 }
 
 

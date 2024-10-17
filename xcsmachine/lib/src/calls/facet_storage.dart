@@ -61,22 +61,22 @@ class FacetStorageRepository {
     
   }
    
-  // Query
-  Future<DateTime> getLastTs({
+  // Mutation
+  Future<DateTime> touch({
     
     required String fullBundleName,
-    required String bundleId, 
+    required String id, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getLastTs",
+      "action": "touch",
       "bundleName" : "FacetStorage",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
       "fullBundleName": fullBundleName,
-      "bundleId": bundleId, 
+      "id": id, 
     });
     
     return DateTime.parse(resp as String);
@@ -103,22 +103,22 @@ class FacetStorageRepository {
     return convList(resp, (el)=>el);
   }
    
-  // Mutation
-  Future<DateTime> touch({
+  // Query
+  Future<DateTime> getLastTs({
     
     required String fullBundleName,
-    required String id, 
+    required String bundleId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "touch",
+      "action": "getLastTs",
       "bundleName" : "FacetStorage",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
       "fullBundleName": fullBundleName,
-      "id": id, 
+      "bundleId": bundleId, 
     });
     
     return DateTime.parse(resp as String);

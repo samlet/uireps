@@ -71,6 +71,7 @@ class CommodityTenant extends _$CommodityTenant {
 }
 
    
+   
 
 /*
 final commodity = ref.watch(getCommodityProvider(id: commodityId));

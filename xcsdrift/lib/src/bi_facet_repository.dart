@@ -27,10 +27,12 @@ class BiFacetRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   BiFacetRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadBiFacets({String tenantId = 'default'}) async {
@@ -200,7 +202,8 @@ class BiFacetRepository implements RepositoryBase {
     return q.watch();
   }
 
-    
+     
+  
 }
 
 

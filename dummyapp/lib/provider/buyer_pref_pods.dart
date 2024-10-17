@@ -71,6 +71,7 @@ class BuyerPrefTenant extends _$BuyerPrefTenant {
 }
 
    
+   
 
 /*
 final buyerPref = ref.watch(getBuyerPrefProvider(id: buyerPrefId));

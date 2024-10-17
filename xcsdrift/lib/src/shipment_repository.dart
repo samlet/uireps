@@ -28,6 +28,7 @@ class ShipmentRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class ShipmentRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Shipment');
     
@@ -306,7 +308,24 @@ class ShipmentRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.shipmentId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+  
+  // ---- tags ----
+  Future<List<ent.Shipment>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Shipment', tags: tags));
+    _logger.info("query shipment result ${result.length}");
+    var rs=result.map((el)=>ent.Shipment.fromJson(el)).toList();
+    return rs;
+  }
+
+  Stream<List<ShipmentData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.shipmentId!).toList();
+    yield* multiWatch(queryIds);
+  }
+     
+     
+  
 }
 
 

@@ -71,6 +71,7 @@ class SellerPrefTenant extends _$SellerPrefTenant {
 }
 
    
+   
 
 /*
 final sellerPref = ref.watch(getSellerPrefProvider(id: sellerPrefId));

@@ -793,7 +793,7 @@ class _SellerPrefRegProviderElement
   String get regNode => (origin as SellerPrefRegProvider).regNode;
 }
 
-String _$sellerPrefTenantHash() => r'06cff3116bfd77189c19a5ae213959a0c5c43775';
+String _$sellerPrefTenantHash() => r'c30192399a5453c88a91bf21564000df43899134';
 
 abstract class _$SellerPrefTenant
     extends BuildlessAutoDisposeStreamNotifier<List<SellerPrefData>> {

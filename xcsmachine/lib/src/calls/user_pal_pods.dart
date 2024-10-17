@@ -76,6 +76,36 @@ class UserPalPod extends _$UserPalPod {
     return state.hasError == false;
   }
   
+  Future<bool> setDefaultPayMeth({
+    
+    required String storeId,
+    required String defaultPayMeth, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).setDefaultPayMeth(
+              storeId: storeId,
+              defaultPayMeth: defaultPayMeth,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addNotification({
+    
+    required String typeId,
+    required String content, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).addNotification(
+              typeId: typeId,
+              content: content,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> addRole({
     
     required String roleTypeId, 
@@ -132,36 +162,6 @@ class UserPalPod extends _$UserPalPod {
     return state.hasError == false;
   }
   
-  Future<bool> setDefaultPayMeth({
-    
-    required String storeId,
-    required String defaultPayMeth, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).setDefaultPayMeth(
-              storeId: storeId,
-              defaultPayMeth: defaultPayMeth,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> addNotification({
-    
-    required String typeId,
-    required String content, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(userPalProvider(regionOrNs: regionOrNs, id: id)).addNotification(
-              typeId: typeId,
-              content: content,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> doneSlot({
     
     required String slotName, 
@@ -177,26 +177,6 @@ class UserPalPod extends _$UserPalPod {
     
 }
 
-  
-@riverpod
-Future<List<String>> userPalGetAllNotes(UserPalGetAllNotesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getAllNotes(
-  );
-}
-  
-@riverpod
-Future<Wallet> userPalWallet(UserPalWalletRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.wallet(
-  );
-}
   
 @riverpod
 Future<List<String>> userPalGetOrdersAsRole(UserPalGetOrdersAsRoleRef ref, {
@@ -253,6 +233,26 @@ Future<List<String>> userPalGetOrdersAsCarrier(UserPalGetOrdersAsCarrierRef ref,
 }
   
 @riverpod
+Future<Wallet> userPalWallet(UserPalWalletRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.wallet(
+  );
+}
+  
+@riverpod
+Future<List<String>> userPalGetAllNotes(UserPalGetAllNotesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getAllNotes(
+  );
+}
+  
+@riverpod
 Future<String> userPalName(UserPalNameRef ref, {
   String regionOrNs='default',
   required String id,
@@ -283,56 +283,6 @@ Future<String> userPalLastName(UserPalLastNameRef ref, {
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.lastName(
-  );
-}
-  
-@riverpod
-Future<bool> userPalIsPerson(UserPalIsPersonRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.isPerson(
-  );
-}
-  
-@riverpod
-Future<List<String>> userPalNoteIds(UserPalNoteIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.noteIds(
-  );
-}
-  
-@riverpod
-Future<String> userPalFirstName(UserPalFirstNameRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.firstName(
-  );
-}
-  
-@riverpod
-Future<List<Note>> userPalGetNotes(UserPalGetNotesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getNotes(
-  );
-}
-  
-@riverpod
-Future<List<String>> userPalGetAgentIds(UserPalGetAgentIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getAgentIds(
   );
 }
   
@@ -387,6 +337,66 @@ Future<List<Notification>> userPalGetUnreadNotifications(UserPalGetUnreadNotific
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getUnreadNotifications(
+  );
+}
+  
+@riverpod
+Future<bool> userPalIsPerson(UserPalIsPersonRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.isPerson(
+  );
+}
+  
+@riverpod
+Future<List<String>> userPalNoteIds(UserPalNoteIdsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.noteIds(
+  );
+}
+  
+@riverpod
+Future<String> userPalFirstName(UserPalFirstNameRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.firstName(
+  );
+}
+  
+@riverpod
+Future<List<Note>> userPalGetNotes(UserPalGetNotesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getNotes(
+  );
+}
+  
+@riverpod
+Future<List<String>> userPalGetAgentIds(UserPalGetAgentIdsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getAgentIds(
+  );
+}
+  
+@riverpod
+Future<ContactProto> userPalGetPrimaryContact(UserPalGetPrimaryContactRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getPrimaryContact(
   );
 }
   
@@ -447,16 +457,6 @@ Future<List<String>> userPalGetAllEmails(UserPalGetAllEmailsRef ref, {
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getAllEmails(
-  );
-}
-  
-@riverpod
-Future<ContactProto> userPalGetPrimaryContact(UserPalGetPrimaryContactRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getPrimaryContact(
   );
 }
   

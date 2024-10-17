@@ -71,6 +71,7 @@ class ThingFacetTenant extends _$ThingFacetTenant {
 }
 
    
+   
 
 /*
 final thingFacet = ref.watch(getThingFacetProvider(id: thingId));

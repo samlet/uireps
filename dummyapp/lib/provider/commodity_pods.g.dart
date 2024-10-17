@@ -792,7 +792,7 @@ class _CommodityRegProviderElement
   String get regNode => (origin as CommodityRegProvider).regNode;
 }
 
-String _$commodityTenantHash() => r'9cf781a27ea45c468f269e4c10803459f82c5a76';
+String _$commodityTenantHash() => r'c0dd0a1d52d5c54590ad25fd067fc1f64140e0be';
 
 abstract class _$CommodityTenant
     extends BuildlessAutoDisposeStreamNotifier<List<CommodityData>> {

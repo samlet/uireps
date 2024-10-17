@@ -28,6 +28,7 @@ class ShoppingCartRepository implements RepositoryBase {
   late PortalManagerRepository portalManager;
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
+  late TagsAndBunchesRepository tagsRepo;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -35,6 +36,7 @@ class ShoppingCartRepository implements RepositoryBase {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
+    tagsRepo = TagsAndBunchesRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'ShoppingCart');
     
@@ -306,7 +308,10 @@ class ShoppingCartRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.shoppingCartId!).toList();
     yield* multiWatch(queryIds);
   }
-    
+
+     
+     
+  
 }
 
 

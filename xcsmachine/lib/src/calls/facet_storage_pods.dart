@@ -82,21 +82,6 @@ Future<Map<String, Object?>> facetStorageGet(FacetStorageGetRef ref, {
 }
   
 @riverpod
-Future<DateTime> facetStorageGetLastTs(FacetStorageGetLastTsRef ref, {
-  String regionOrNs='default',
-  
-    required String fullBundleName,
-    required String bundleId, 
-
-}) async {
-  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
-  return await pod.getLastTs(
-      fullBundleName: fullBundleName,
-      bundleId: bundleId,
-  );
-}
-  
-@riverpod
 Future<List<Map<String, dynamic>>> facetStorageMultiGet(FacetStorageMultiGetRef ref, {
   String regionOrNs='default',
   
@@ -108,6 +93,21 @@ Future<List<Map<String, dynamic>>> facetStorageMultiGet(FacetStorageMultiGetRef 
   return await pod.multiGet(
       fullBundleName: fullBundleName,
       keys: keys,
+  );
+}
+  
+@riverpod
+Future<DateTime> facetStorageGetLastTs(FacetStorageGetLastTsRef ref, {
+  String regionOrNs='default',
+  
+    required String fullBundleName,
+    required String bundleId, 
+
+}) async {
+  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
+  return await pod.getLastTs(
+      fullBundleName: fullBundleName,
+      bundleId: bundleId,
   );
 }
 

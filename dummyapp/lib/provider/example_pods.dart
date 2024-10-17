@@ -70,11 +70,21 @@ class ExampleTenant extends _$ExampleTenant {
   }
 }
 
+
+@riverpod
+class ExampleByTags extends _$ExampleByTags {
+  @override
+  Stream<List<ExampleData>> build(List<String> tags) {
+    return ref.watch(exampleRepositoryProvider).fetchAndWatchByTags(tags);
+  }
+}
+   
    
 
 /*
 final example = ref.watch(getExampleProvider(id: exampleId));
 final ds=ref.watch(exampleRegProvider('publicEls'));
+final ds=ref.watch(exampleByTagsProvider(['demo']));
  */
 
 
