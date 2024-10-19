@@ -29,6 +29,7 @@ class CarrierPrefRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class CarrierPrefRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'CarrierPref');
     
@@ -296,6 +298,11 @@ class CarrierPrefRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<CarrierPrefData>> watchTenant(String tenant){
+    var q = db.select(db.carrierPref)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<CarrierPrefData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class CarrierPrefRepository implements RepositoryBase {
   
 }
 
+
+class CarrierPrefPagedDs{
+  final PaginatedResponse response;
+  List<ent.CarrierPref> ds;
+  CarrierPrefPagedDs(this.response, this.ds);
+}
 
 extension GetCarrierPrefEnt on CarrierPrefData {
   ent.CarrierPref get asEnt => ent.CarrierPref.fromJson(normalizeMap(this));

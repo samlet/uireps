@@ -29,6 +29,7 @@ class ShoppingCartRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class ShoppingCartRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'ShoppingCart');
     
@@ -296,6 +298,11 @@ class ShoppingCartRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<ShoppingCartData>> watchTenant(String tenant){
+    var q = db.select(db.shoppingCart)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<ShoppingCartData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class ShoppingCartRepository implements RepositoryBase {
   
 }
 
+
+class ShoppingCartPagedDs{
+  final PaginatedResponse response;
+  List<ent.ShoppingCart> ds;
+  ShoppingCartPagedDs(this.response, this.ds);
+}
 
 extension GetShoppingCartEnt on ShoppingCartData {
   ent.ShoppingCart get asEnt => ent.ShoppingCart.fromJson(normalizeMap(this));

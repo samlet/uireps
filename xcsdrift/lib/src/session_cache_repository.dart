@@ -28,11 +28,13 @@ class SessionCacheRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   SessionCacheRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadSessionCaches({String tenantId = 'default'}) async {
@@ -202,10 +204,21 @@ class SessionCacheRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<SessionCacheData>> watchTenant(String tenant){
+    var q = db.select(db.sessionCache)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
      
   
 }
 
+
+class SessionCachePagedDs{
+  final PaginatedResponse response;
+  List<ent.SessionCache> ds;
+  SessionCachePagedDs(this.response, this.ds);
+}
 
 extension GetSessionCacheEnt on SessionCacheData {
   ent.SessionCache get asEnt => ent.SessionCache.fromJson(normalizeMap(this));

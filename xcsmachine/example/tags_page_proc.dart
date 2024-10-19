@@ -11,10 +11,10 @@ var dio = createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {
   var repo = BundlesQueryDealerRepository(dio);
   for (int i = 0; i < 5; ++i) {
-    var rs = await repo.queryBundlePageByTag(
+    PaginatedResponse rs = await repo.queryBundlePageByTag(
         bundleName: 'Note', tag: 'demo', pageLimit: PageLimit(page: i, pageSize: 3));
     print('- rs ${rs.page}/${rs.totalPages}: ${rs.results?.length}');
-    if(rs.results?.isEmpty??false){
+    if(rs.reachedMax){
       print('-- reached end');
     }
   }

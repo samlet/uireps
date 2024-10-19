@@ -29,6 +29,7 @@ class CommodityRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class CommodityRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Commodity');
     
@@ -296,6 +298,11 @@ class CommodityRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<CommodityData>> watchTenant(String tenant){
+    var q = db.select(db.commodity)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<CommodityData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class CommodityRepository implements RepositoryBase {
   
 }
 
+
+class CommodityPagedDs{
+  final PaginatedResponse response;
+  List<ent.Commodity> ds;
+  CommodityPagedDs(this.response, this.ds);
+}
 
 extension GetCommodityEnt on CommodityData {
   ent.Commodity get asEnt => ent.Commodity.fromJson(normalizeMap(this));

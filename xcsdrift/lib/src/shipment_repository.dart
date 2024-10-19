@@ -29,6 +29,7 @@ class ShipmentRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class ShipmentRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Shipment');
     
@@ -296,6 +298,11 @@ class ShipmentRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<ShipmentData>> watchTenant(String tenant){
+    var q = db.select(db.shipment)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<ShipmentData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class ShipmentRepository implements RepositoryBase {
   Future<List<ent.Shipment>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Shipment', tags: tags));
     _logger.info("query shipment result ${result.length}");
-    var rs=result.map((el)=>ent.Shipment.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Shipment.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class ShipmentRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.shipmentId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<ShipmentPagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return ShipmentPagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class ShipmentPagedDs{
+  final PaginatedResponse response;
+  List<ent.Shipment> ds;
+  ShipmentPagedDs(this.response, this.ds);
+}
 
 extension GetShipmentEnt on ShipmentData {
   ent.Shipment get asEnt => ent.Shipment.fromJson(normalizeMap(this));

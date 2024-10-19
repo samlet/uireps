@@ -29,6 +29,7 @@ class ThingFacetRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class ThingFacetRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'ThingFacet');
     
@@ -296,6 +298,11 @@ class ThingFacetRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<ThingFacetData>> watchTenant(String tenant){
+    var q = db.select(db.thingFacet)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<ThingFacetData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class ThingFacetRepository implements RepositoryBase {
   
 }
 
+
+class ThingFacetPagedDs{
+  final PaginatedResponse response;
+  List<ent.ThingFacet> ds;
+  ThingFacetPagedDs(this.response, this.ds);
+}
 
 extension GetThingFacetEnt on ThingFacetData {
   ent.ThingFacet get asEnt => ent.ThingFacet.fromJson(normalizeMap(this));

@@ -29,6 +29,7 @@ class MetadataRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class MetadataRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Metadata');
     
@@ -296,6 +298,11 @@ class MetadataRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<MetadataData>> watchTenant(String tenant){
+    var q = db.select(db.metadata)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<MetadataData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class MetadataRepository implements RepositoryBase {
   Future<List<ent.Metadata>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Metadata', tags: tags));
     _logger.info("query metadata result ${result.length}");
-    var rs=result.map((el)=>ent.Metadata.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Metadata.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class MetadataRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.metadataId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<MetadataPagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return MetadataPagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class MetadataPagedDs{
+  final PaginatedResponse response;
+  List<ent.Metadata> ds;
+  MetadataPagedDs(this.response, this.ds);
+}
 
 extension GetMetadataEnt on MetadataData {
   ent.Metadata get asEnt => ent.Metadata.fromJson(normalizeMap(this));

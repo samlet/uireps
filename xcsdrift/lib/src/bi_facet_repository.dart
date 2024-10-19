@@ -28,11 +28,13 @@ class BiFacetRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   BiFacetRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadBiFacets({String tenantId = 'default'}) async {
@@ -202,10 +204,21 @@ class BiFacetRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<BiFacetData>> watchTenant(String tenant){
+    var q = db.select(db.biFacet)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
      
   
 }
 
+
+class BiFacetPagedDs{
+  final PaginatedResponse response;
+  List<ent.BiFacet> ds;
+  BiFacetPagedDs(this.response, this.ds);
+}
 
 extension GetBiFacetEnt on BiFacetData {
   ent.BiFacet get asEnt => ent.BiFacet.fromJson(normalizeMap(this));

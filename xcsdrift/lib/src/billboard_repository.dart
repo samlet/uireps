@@ -29,6 +29,7 @@ class BillboardRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class BillboardRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Billboard');
     
@@ -296,6 +298,11 @@ class BillboardRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<BillboardData>> watchTenant(String tenant){
+    var q = db.select(db.billboard)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<BillboardData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class BillboardRepository implements RepositoryBase {
   
 }
 
+
+class BillboardPagedDs{
+  final PaginatedResponse response;
+  List<ent.Billboard> ds;
+  BillboardPagedDs(this.response, this.ds);
+}
 
 extension GetBillboardEnt on BillboardData {
   ent.Billboard get asEnt => ent.Billboard.fromJson(normalizeMap(this));

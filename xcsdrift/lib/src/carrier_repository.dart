@@ -29,6 +29,7 @@ class CarrierRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class CarrierRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Carrier');
     
@@ -296,6 +298,11 @@ class CarrierRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<CarrierData>> watchTenant(String tenant){
+    var q = db.select(db.carrier)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<CarrierData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class CarrierRepository implements RepositoryBase {
   Future<List<ent.Carrier>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Carrier', tags: tags));
     _logger.info("query carrier result ${result.length}");
-    var rs=result.map((el)=>ent.Carrier.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Carrier.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class CarrierRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.carrierId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<CarrierPagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return CarrierPagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class CarrierPagedDs{
+  final PaginatedResponse response;
+  List<ent.Carrier> ds;
+  CarrierPagedDs(this.response, this.ds);
+}
 
 extension GetCarrierEnt on CarrierData {
   ent.Carrier get asEnt => ent.Carrier.fromJson(normalizeMap(this));

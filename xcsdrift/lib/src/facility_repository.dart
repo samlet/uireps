@@ -29,6 +29,7 @@ class FacilityRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class FacilityRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Facility');
     
@@ -296,6 +298,11 @@ class FacilityRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<FacilityData>> watchTenant(String tenant){
+    var q = db.select(db.facility)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<FacilityData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class FacilityRepository implements RepositoryBase {
   Future<List<ent.Facility>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Facility', tags: tags));
     _logger.info("query facility result ${result.length}");
-    var rs=result.map((el)=>ent.Facility.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Facility.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class FacilityRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.facilityId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<FacilityPagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return FacilityPagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class FacilityPagedDs{
+  final PaginatedResponse response;
+  List<ent.Facility> ds;
+  FacilityPagedDs(this.response, this.ds);
+}
 
 extension GetFacilityEnt on FacilityData {
   ent.Facility get asEnt => ent.Facility.fromJson(normalizeMap(this));

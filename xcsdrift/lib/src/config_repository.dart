@@ -29,6 +29,7 @@ class ConfigRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class ConfigRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Config');
     
@@ -296,6 +298,11 @@ class ConfigRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<ConfigData>> watchTenant(String tenant){
+    var q = db.select(db.config)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<ConfigData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class ConfigRepository implements RepositoryBase {
   
 }
 
+
+class ConfigPagedDs{
+  final PaginatedResponse response;
+  List<ent.Config> ds;
+  ConfigPagedDs(this.response, this.ds);
+}
 
 extension GetConfigEnt on ConfigData {
   ent.Config get asEnt => ent.Config.fromJson(normalizeMap(this));

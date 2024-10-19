@@ -28,11 +28,13 @@ class AppSettingRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   AppSettingRepository(this.dio, this.database) {
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
   }
 
   Future<List<BiFacetBi>> loadAppSettings({String tenantId = 'default'}) async {
@@ -202,10 +204,21 @@ class AppSettingRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<AppSettingData>> watchTenant(String tenant){
+    var q = db.select(db.appSetting)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
      
   
 }
 
+
+class AppSettingPagedDs{
+  final PaginatedResponse response;
+  List<ent.AppSetting> ds;
+  AppSettingPagedDs(this.response, this.ds);
+}
 
 extension GetAppSettingEnt on AppSettingData {
   ent.AppSetting get asEnt => ent.AppSetting.fromJson(normalizeMap(this));

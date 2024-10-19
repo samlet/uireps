@@ -29,6 +29,7 @@ class MarketplaceRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class MarketplaceRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Marketplace');
     
@@ -296,6 +298,11 @@ class MarketplaceRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<MarketplaceData>> watchTenant(String tenant){
+    var q = db.select(db.marketplace)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<MarketplaceData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class MarketplaceRepository implements RepositoryBase {
   
 }
 
+
+class MarketplacePagedDs{
+  final PaginatedResponse response;
+  List<ent.Marketplace> ds;
+  MarketplacePagedDs(this.response, this.ds);
+}
 
 extension GetMarketplaceEnt on MarketplaceData {
   ent.Marketplace get asEnt => ent.Marketplace.fromJson(normalizeMap(this));

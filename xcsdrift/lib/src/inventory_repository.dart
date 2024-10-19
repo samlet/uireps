@@ -29,6 +29,7 @@ class InventoryRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class InventoryRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Inventory');
     
@@ -296,6 +298,11 @@ class InventoryRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<InventoryItemData>> watchTenant(String tenant){
+    var q = db.select(db.inventoryItem)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<InventoryItemData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class InventoryRepository implements RepositoryBase {
   Future<List<ent.Inventory>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Inventory', tags: tags));
     _logger.info("query inventory result ${result.length}");
-    var rs=result.map((el)=>ent.Inventory.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Inventory.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class InventoryRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.inventoryItemId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<InventoryPagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return InventoryPagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class InventoryPagedDs{
+  final PaginatedResponse response;
+  List<ent.Inventory> ds;
+  InventoryPagedDs(this.response, this.ds);
+}
 
 extension GetInventoryEnt on InventoryItemData {
   ent.Inventory get asEnt => ent.Inventory.fromJson(normalizeMap(this));

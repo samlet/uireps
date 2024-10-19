@@ -29,6 +29,7 @@ class ExampleRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class ExampleRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Example');
     
@@ -296,6 +298,11 @@ class ExampleRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<ExampleData>> watchTenant(String tenant){
+    var q = db.select(db.example)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<ExampleData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class ExampleRepository implements RepositoryBase {
   Future<List<ent.Example>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Example', tags: tags));
     _logger.info("query example result ${result.length}");
-    var rs=result.map((el)=>ent.Example.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Example.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class ExampleRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.exampleId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<ExamplePagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return ExamplePagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class ExamplePagedDs{
+  final PaginatedResponse response;
+  List<ent.Example> ds;
+  ExamplePagedDs(this.response, this.ds);
+}
 
 extension GetExampleEnt on ExampleData {
   ent.Example get asEnt => ent.Example.fromJson(normalizeMap(this));

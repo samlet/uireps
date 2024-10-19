@@ -29,6 +29,7 @@ class StoreRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class StoreRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Store');
     
@@ -296,6 +298,11 @@ class StoreRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<ProductStoreData>> watchTenant(String tenant){
+    var q = db.select(db.productStore)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<ProductStoreData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class StoreRepository implements RepositoryBase {
   Future<List<ent.Store>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Store', tags: tags));
     _logger.info("query store result ${result.length}");
-    var rs=result.map((el)=>ent.Store.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Store.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class StoreRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.productStoreId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<StorePagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return StorePagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class StorePagedDs{
+  final PaginatedResponse response;
+  List<ent.Store> ds;
+  StorePagedDs(this.response, this.ds);
+}
 
 extension GetStoreEnt on ProductStoreData {
   ent.Store get asEnt => ent.Store.fromJson(normalizeMap(this));

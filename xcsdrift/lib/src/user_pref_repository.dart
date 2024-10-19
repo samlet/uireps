@@ -29,6 +29,7 @@ class UserPrefRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class UserPrefRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'UserPref');
     
@@ -296,6 +298,11 @@ class UserPrefRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<UserPrefData>> watchTenant(String tenant){
+    var q = db.select(db.userPref)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<UserPrefData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class UserPrefRepository implements RepositoryBase {
   
 }
 
+
+class UserPrefPagedDs{
+  final PaginatedResponse response;
+  List<ent.UserPref> ds;
+  UserPrefPagedDs(this.response, this.ds);
+}
 
 extension GetUserPrefEnt on UserPrefData {
   ent.UserPref get asEnt => ent.UserPref.fromJson(normalizeMap(this));

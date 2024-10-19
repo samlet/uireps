@@ -33,14 +33,6 @@ class PostPalPod extends _$PostPalPod {
   }
 
   
-  Future<bool> featured() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> setCharge({
     
     required double fee, 
@@ -82,6 +74,14 @@ class PostPalPod extends _$PostPalPod {
               review: review,
               rating: rating,
               reward: reward,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
             ));
     return state.hasError == false;
   }
@@ -155,12 +155,12 @@ Future<String> postText(PostTextRef ref, {
 }
   
 @riverpod
-Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
+Future<bool> postIsLiked(PostIsLikedRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.isFeatured(
+  return await pod.isLiked(
   );
 }
   
@@ -175,12 +175,12 @@ Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
 }
   
 @riverpod
-Future<bool> postIsLiked(PostIsLikedRef ref, {
+Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.isLiked(
+  return await pod.isFeatured(
   );
 }
   

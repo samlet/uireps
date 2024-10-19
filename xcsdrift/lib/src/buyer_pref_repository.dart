@@ -29,6 +29,7 @@ class BuyerPrefRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class BuyerPrefRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'BuyerPref');
     
@@ -296,6 +298,11 @@ class BuyerPrefRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<BuyerPrefData>> watchTenant(String tenant){
+    var q = db.select(db.buyerPref)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<BuyerPrefData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,6 +321,12 @@ class BuyerPrefRepository implements RepositoryBase {
   
 }
 
+
+class BuyerPrefPagedDs{
+  final PaginatedResponse response;
+  List<ent.BuyerPref> ds;
+  BuyerPrefPagedDs(this.response, this.ds);
+}
 
 extension GetBuyerPrefEnt on BuyerPrefData {
   ent.BuyerPref get asEnt => ent.BuyerPref.fromJson(normalizeMap(this));

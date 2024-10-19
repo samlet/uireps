@@ -29,6 +29,7 @@ class NoteRepository implements RepositoryBase {
   late PortalsOnChainRepository portals;
   late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
+  late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
@@ -37,6 +38,7 @@ class NoteRepository implements RepositoryBase {
     portals = PortalsOnChainRepository(dio);
     facetStorage=FacetStorageRepository(dio);
     tagsRepo = TagsAndBunchesRepository(dio);
+    queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
     mediator = SessionMediator(cacheRepo, 'Note');
     
@@ -296,6 +298,11 @@ class NoteRepository implements RepositoryBase {
     return q.watch();
   }
 
+  Stream<List<NoteDataData>> watchTenant(String tenant){
+    var q = db.select(db.noteData)..where((el) => el.tenantId.equals(tenant));
+    return q.watch();
+  }
+
   
   Stream<List<NoteDataData>> fetchAndWatchFromReg(String regNode) async* {
     var rs=await fetchFromReg(regNode, smartMode: true);
@@ -314,7 +321,8 @@ class NoteRepository implements RepositoryBase {
   Future<List<ent.Note>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
     var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Note', tags: tags));
     _logger.info("query note result ${result.length}");
-    var rs=result.map((el)=>ent.Note.fromJson(el)).toList();
+    // var rs=result.map((el)=>ent.Note.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
     return rs;
   }
 
@@ -323,11 +331,27 @@ class NoteRepository implements RepositoryBase {
     var queryIds=rs.map((el)=> el.noteId!).toList();
     yield* multiWatch(queryIds);
   }
+
+  Future<NotePagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return NotePagedDs(ds, rs);
+  }
+
      
      
   
 }
 
+
+class NotePagedDs{
+  final PaginatedResponse response;
+  List<ent.Note> ds;
+  NotePagedDs(this.response, this.ds);
+}
 
 extension GetNoteEnt on NoteDataData {
   ent.Note get asEnt => ent.Note.fromJson(normalizeMap(this));
