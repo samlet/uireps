@@ -284,6 +284,51 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
+ResultSort _$ResultSortFromJson(Map<String, dynamic> json) => ResultSort(
+      fld: json['fld'] as String?,
+      orderBy: json['orderBy'] as String?,
+    );
+
+Map<String, dynamic> _$ResultSortToJson(ResultSort instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('fld', instance.fld);
+  writeNotNull('orderBy', instance.orderBy);
+  return val;
+}
+
+PaginatedResponse _$PaginatedResponseFromJson(Map<String, dynamic> json) =>
+    PaginatedResponse(
+      page: (json['page'] as num?)?.toInt(),
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+      totalPages: (json['totalPages'] as num?)?.toInt(),
+      totalResults: (json['totalResults'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PaginatedResponseToJson(PaginatedResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('page', instance.page);
+  writeNotNull('results', instance.results);
+  writeNotNull('totalPages', instance.totalPages);
+  writeNotNull('totalResults', instance.totalResults);
+  return val;
+}
+
 LoadBundle _$LoadBundleFromJson(Map<String, dynamic> json) => LoadBundle(
       bundleName: json['bundleName'] as String?,
       bundleId: json['bundleId'] as String?,
@@ -303,6 +348,25 @@ Map<String, dynamic> _$LoadBundleToJson(LoadBundle instance) {
   return val;
 }
 
+PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
+      page: (json['page'] as num?)?.toInt(),
+      pageSize: (json['pageSize'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PageLimitToJson(PageLimit instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('page', instance.page);
+  writeNotNull('pageSize', instance.pageSize);
+  return val;
+}
+
 RequestIds _$RequestIdsFromJson(Map<String, dynamic> json) => RequestIds(
       bundleName: json['bundleName'] as String?,
       ids: (json['ids'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -319,25 +383,6 @@ Map<String, dynamic> _$RequestIdsToJson(RequestIds instance) {
 
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('ids', instance.ids);
-  return val;
-}
-
-ResultSort _$ResultSortFromJson(Map<String, dynamic> json) => ResultSort(
-      fld: json['fld'] as String?,
-      orderBy: json['orderBy'] as String?,
-    );
-
-Map<String, dynamic> _$ResultSortToJson(ResultSort instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('fld', instance.fld);
-  writeNotNull('orderBy', instance.orderBy);
   return val;
 }
 
@@ -363,6 +408,68 @@ Map<String, dynamic> _$ModifyTagsToJson(ModifyTags instance) {
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('bundleIds', instance.bundleIds);
   writeNotNull('tags', instance.tags);
+  return val;
+}
+
+QueryNavByTags _$QueryNavByTagsFromJson(Map<String, dynamic> json) =>
+    QueryNavByTags(
+      bundleName: json['bundleName'] as String?,
+      req: json['req'] == null
+          ? null
+          : NavReqTags.fromJson(json['req'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$QueryNavByTagsToJson(QueryNavByTags instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('req', instance.req?.toJson());
+  return val;
+}
+
+NavReqTags _$NavReqTagsFromJson(Map<String, dynamic> json) => NavReqTags(
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      pageToken: json['pageToken'] as String?,
+      maxRows: (json['maxRows'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$NavReqTagsToJson(NavReqTags instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('tags', instance.tags);
+  writeNotNull('pageToken', instance.pageToken);
+  writeNotNull('maxRows', instance.maxRows);
+  return val;
+}
+
+QueryByBunch _$QueryByBunchFromJson(Map<String, dynamic> json) => QueryByBunch(
+      bundleName: json['bundleName'] as String?,
+      bunchId: json['bunchId'] as String?,
+    );
+
+Map<String, dynamic> _$QueryByBunchToJson(QueryByBunch instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('bunchId', instance.bunchId);
   return val;
 }
 
@@ -409,6 +516,29 @@ Map<String, dynamic> _$QueryByTagsToJson(QueryByTags instance) {
   writeNotNull('tags', instance.tags);
   writeNotNull('limit', instance.limit?.toJson());
   writeNotNull('orderBy', instance.orderBy?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
+      bundleName: json['bundleName'] as String?,
+      rows: (json['rows'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+      pageToken: json['pageToken'] as String?,
+    );
+
+Map<String, dynamic> _$NavRsToJson(NavRs instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('rows', instance.rows);
+  writeNotNull('pageToken', instance.pageToken);
   return val;
 }
 

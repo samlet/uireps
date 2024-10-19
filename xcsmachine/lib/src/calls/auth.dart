@@ -43,27 +43,6 @@ class AuthRepository {
     return ExtractedToken()..mergeFromProto3Json(resp);
   }
    
-  // Mutation
-  Future<ExtractedToken> login({
-    
-    required String loginId,
-    required String passwd, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "login",
-      "bundleName" : "Auth",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "loginId": loginId,
-      "passwd": passwd, 
-    });
-    
-    return ExtractedToken()..mergeFromProto3Json(resp);
-  }
-   
   // Query
   Future<ExtractedToken> generateToken({
     
@@ -94,6 +73,27 @@ class AuthRepository {
       "call-type": "slab",
       "regionId": regionOrNs,
     }, { 
+    });
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<ExtractedToken> login({
+    
+    required String loginId,
+    required String passwd, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "login",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "loginId": loginId,
+      "passwd": passwd, 
     });
     
     return ExtractedToken()..mergeFromProto3Json(resp);

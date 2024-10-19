@@ -11,24 +11,24 @@ import 'simple_dlgs.dart';
 
 void main() {
   runApp(
-    ProviderScope(child: MyApp()),
+    ProviderScope(child: NotesApp()),
   );
 }
 
-class MyApp extends StatelessWidget {
+class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: "Test",
-      home: TestPage(),
+      title: "Notes",
+      home: NotesPage(),
     );
   }
 }
 
 const regNode = 'publicNotes';
 
-class TestPage extends ConsumerWidget {
-  const TestPage({super.key});
+class NotesPage extends ConsumerWidget {
+  const NotesPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -158,8 +158,13 @@ class TestPage extends ConsumerWidget {
                 style: Theme.of(context).textTheme.labelSmall,
               ),
               trailing: Text(el.lastUpdatedTxStamp?.toString() ?? '_no_ts_'),
+              onLongPress: (){
+                print('long press on ${el.noteId}');
+              },
             ));
       },
     );
   }
 }
+
+

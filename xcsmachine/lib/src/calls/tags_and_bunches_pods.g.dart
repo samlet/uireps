@@ -325,7 +325,344 @@ class _TagsAndBunchesQueryByTagsProviderElement
       (origin as TagsAndBunchesQueryByTagsProvider).regionId;
 }
 
-String _$tagsAndBunchesPodHash() => r'e0f5e4297d6c3958f074444d84fab34c3523d928';
+String _$tagsAndBunchesQueryNavByTagsHash() =>
+    r'eb8031f01b5954ab30186001dac1d86f61689633';
+
+/// See also [tagsAndBunchesQueryNavByTags].
+@ProviderFor(tagsAndBunchesQueryNavByTags)
+const tagsAndBunchesQueryNavByTagsProvider =
+    TagsAndBunchesQueryNavByTagsFamily();
+
+/// See also [tagsAndBunchesQueryNavByTags].
+class TagsAndBunchesQueryNavByTagsFamily extends Family<AsyncValue<NavRs>> {
+  /// See also [tagsAndBunchesQueryNavByTags].
+  const TagsAndBunchesQueryNavByTagsFamily();
+
+  /// See also [tagsAndBunchesQueryNavByTags].
+  TagsAndBunchesQueryNavByTagsProvider call({
+    String regionOrNs = 'default',
+    required QueryNavByTags r,
+    String? regionId = 'default',
+  }) {
+    return TagsAndBunchesQueryNavByTagsProvider(
+      regionOrNs: regionOrNs,
+      r: r,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  TagsAndBunchesQueryNavByTagsProvider getProviderOverride(
+    covariant TagsAndBunchesQueryNavByTagsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      r: provider.r,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'tagsAndBunchesQueryNavByTagsProvider';
+}
+
+/// See also [tagsAndBunchesQueryNavByTags].
+class TagsAndBunchesQueryNavByTagsProvider
+    extends AutoDisposeFutureProvider<NavRs> {
+  /// See also [tagsAndBunchesQueryNavByTags].
+  TagsAndBunchesQueryNavByTagsProvider({
+    String regionOrNs = 'default',
+    required QueryNavByTags r,
+    String? regionId = 'default',
+  }) : this._internal(
+          (ref) => tagsAndBunchesQueryNavByTags(
+            ref as TagsAndBunchesQueryNavByTagsRef,
+            regionOrNs: regionOrNs,
+            r: r,
+            regionId: regionId,
+          ),
+          from: tagsAndBunchesQueryNavByTagsProvider,
+          name: r'tagsAndBunchesQueryNavByTagsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$tagsAndBunchesQueryNavByTagsHash,
+          dependencies: TagsAndBunchesQueryNavByTagsFamily._dependencies,
+          allTransitiveDependencies:
+              TagsAndBunchesQueryNavByTagsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          r: r,
+          regionId: regionId,
+        );
+
+  TagsAndBunchesQueryNavByTagsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.r,
+    required this.regionId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final QueryNavByTags r;
+  final String? regionId;
+
+  @override
+  Override overrideWith(
+    FutureOr<NavRs> Function(TagsAndBunchesQueryNavByTagsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: TagsAndBunchesQueryNavByTagsProvider._internal(
+        (ref) => create(ref as TagsAndBunchesQueryNavByTagsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        r: r,
+        regionId: regionId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<NavRs> createElement() {
+    return _TagsAndBunchesQueryNavByTagsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is TagsAndBunchesQueryNavByTagsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.r == r &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, r.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin TagsAndBunchesQueryNavByTagsRef on AutoDisposeFutureProviderRef<NavRs> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `r` of this provider.
+  QueryNavByTags get r;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+}
+
+class _TagsAndBunchesQueryNavByTagsProviderElement
+    extends AutoDisposeFutureProviderElement<NavRs>
+    with TagsAndBunchesQueryNavByTagsRef {
+  _TagsAndBunchesQueryNavByTagsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as TagsAndBunchesQueryNavByTagsProvider).regionOrNs;
+  @override
+  QueryNavByTags get r => (origin as TagsAndBunchesQueryNavByTagsProvider).r;
+  @override
+  String? get regionId =>
+      (origin as TagsAndBunchesQueryNavByTagsProvider).regionId;
+}
+
+String _$tagsAndBunchesQueryByBunchHash() =>
+    r'6be98eb70c62c63cd5b63828c354eb72bed5ef67';
+
+/// See also [tagsAndBunchesQueryByBunch].
+@ProviderFor(tagsAndBunchesQueryByBunch)
+const tagsAndBunchesQueryByBunchProvider = TagsAndBunchesQueryByBunchFamily();
+
+/// See also [tagsAndBunchesQueryByBunch].
+class TagsAndBunchesQueryByBunchFamily
+    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
+  /// See also [tagsAndBunchesQueryByBunch].
+  const TagsAndBunchesQueryByBunchFamily();
+
+  /// See also [tagsAndBunchesQueryByBunch].
+  TagsAndBunchesQueryByBunchProvider call({
+    String regionOrNs = 'default',
+    required QueryByBunch r,
+    String? regionId = 'default',
+  }) {
+    return TagsAndBunchesQueryByBunchProvider(
+      regionOrNs: regionOrNs,
+      r: r,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  TagsAndBunchesQueryByBunchProvider getProviderOverride(
+    covariant TagsAndBunchesQueryByBunchProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      r: provider.r,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'tagsAndBunchesQueryByBunchProvider';
+}
+
+/// See also [tagsAndBunchesQueryByBunch].
+class TagsAndBunchesQueryByBunchProvider
+    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
+  /// See also [tagsAndBunchesQueryByBunch].
+  TagsAndBunchesQueryByBunchProvider({
+    String regionOrNs = 'default',
+    required QueryByBunch r,
+    String? regionId = 'default',
+  }) : this._internal(
+          (ref) => tagsAndBunchesQueryByBunch(
+            ref as TagsAndBunchesQueryByBunchRef,
+            regionOrNs: regionOrNs,
+            r: r,
+            regionId: regionId,
+          ),
+          from: tagsAndBunchesQueryByBunchProvider,
+          name: r'tagsAndBunchesQueryByBunchProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$tagsAndBunchesQueryByBunchHash,
+          dependencies: TagsAndBunchesQueryByBunchFamily._dependencies,
+          allTransitiveDependencies:
+              TagsAndBunchesQueryByBunchFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          r: r,
+          regionId: regionId,
+        );
+
+  TagsAndBunchesQueryByBunchProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.r,
+    required this.regionId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final QueryByBunch r;
+  final String? regionId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Map<String, dynamic>>> Function(
+            TagsAndBunchesQueryByBunchRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: TagsAndBunchesQueryByBunchProvider._internal(
+        (ref) => create(ref as TagsAndBunchesQueryByBunchRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        r: r,
+        regionId: regionId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
+    return _TagsAndBunchesQueryByBunchProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is TagsAndBunchesQueryByBunchProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.r == r &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, r.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin TagsAndBunchesQueryByBunchRef
+    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `r` of this provider.
+  QueryByBunch get r;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+}
+
+class _TagsAndBunchesQueryByBunchProviderElement
+    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
+    with TagsAndBunchesQueryByBunchRef {
+  _TagsAndBunchesQueryByBunchProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as TagsAndBunchesQueryByBunchProvider).regionOrNs;
+  @override
+  QueryByBunch get r => (origin as TagsAndBunchesQueryByBunchProvider).r;
+  @override
+  String? get regionId =>
+      (origin as TagsAndBunchesQueryByBunchProvider).regionId;
+}
+
+String _$tagsAndBunchesPodHash() => r'4ab1c2573387edb68ff7d1bd0f3a444bb87fe5d0';
 
 abstract class _$TagsAndBunchesPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

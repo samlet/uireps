@@ -87,6 +87,36 @@ Future<List<Map<String, dynamic>>> tagsAndBunchesQueryByTags(TagsAndBunchesQuery
       regionId: regionId,
   );
 }
+  
+@riverpod
+Future<NavRs> tagsAndBunchesQueryNavByTags(TagsAndBunchesQueryNavByTagsRef ref, {
+  String regionOrNs='default',
+  
+    required QueryNavByTags r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(tagsAndBunchesProvider(regionOrNs: regionOrNs));
+  return await pod.queryNavByTags(
+      r: r,
+      regionId: regionId,
+  );
+}
+  
+@riverpod
+Future<List<Map<String, dynamic>>> tagsAndBunchesQueryByBunch(TagsAndBunchesQueryByBunchRef ref, {
+  String regionOrNs='default',
+  
+    required QueryByBunch r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(tagsAndBunchesProvider(regionOrNs: regionOrNs));
+  return await pod.queryByBunch(
+      r: r,
+      regionId: regionId,
+  );
+}
 
 
 

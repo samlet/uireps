@@ -315,6 +315,151 @@ class _PostTextProviderElement extends AutoDisposeFutureProviderElement<String>
   String get id => (origin as PostTextProvider).id;
 }
 
+String _$postIsFeaturedHash() => r'134060c9ad2de5e4a5c2844b558919979fa906cc';
+
+/// See also [postIsFeatured].
+@ProviderFor(postIsFeatured)
+const postIsFeaturedProvider = PostIsFeaturedFamily();
+
+/// See also [postIsFeatured].
+class PostIsFeaturedFamily extends Family<AsyncValue<bool>> {
+  /// See also [postIsFeatured].
+  const PostIsFeaturedFamily();
+
+  /// See also [postIsFeatured].
+  PostIsFeaturedProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return PostIsFeaturedProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  PostIsFeaturedProvider getProviderOverride(
+    covariant PostIsFeaturedProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'postIsFeaturedProvider';
+}
+
+/// See also [postIsFeatured].
+class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [postIsFeatured].
+  PostIsFeaturedProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => postIsFeatured(
+            ref as PostIsFeaturedRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: postIsFeaturedProvider,
+          name: r'postIsFeaturedProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$postIsFeaturedHash,
+          dependencies: PostIsFeaturedFamily._dependencies,
+          allTransitiveDependencies:
+              PostIsFeaturedFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  PostIsFeaturedProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<bool> Function(PostIsFeaturedRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PostIsFeaturedProvider._internal(
+        (ref) => create(ref as PostIsFeaturedRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<bool> createElement() {
+    return _PostIsFeaturedProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PostIsFeaturedProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin PostIsFeaturedRef on AutoDisposeFutureProviderRef<bool> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _PostIsFeaturedProviderElement
+    extends AutoDisposeFutureProviderElement<bool> with PostIsFeaturedRef {
+  _PostIsFeaturedProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as PostIsFeaturedProvider).regionOrNs;
+  @override
+  String get id => (origin as PostIsFeaturedProvider).id;
+}
+
 String _$postGetStatsHash() => r'af2ab0e3c9e003b2cc95b1a98746bcd3d6bf36e6';
 
 /// See also [postGetStats].
@@ -607,31 +752,31 @@ class _PostIsLikedProviderElement extends AutoDisposeFutureProviderElement<bool>
   String get id => (origin as PostIsLikedProvider).id;
 }
 
-String _$postIsFeaturedHash() => r'134060c9ad2de5e4a5c2844b558919979fa906cc';
+String _$postLikesHash() => r'd0aa517ef56eb91e8f5b0d328da6c54b13b0d2f1';
 
-/// See also [postIsFeatured].
-@ProviderFor(postIsFeatured)
-const postIsFeaturedProvider = PostIsFeaturedFamily();
+/// See also [postLikes].
+@ProviderFor(postLikes)
+const postLikesProvider = PostLikesFamily();
 
-/// See also [postIsFeatured].
-class PostIsFeaturedFamily extends Family<AsyncValue<bool>> {
-  /// See also [postIsFeatured].
-  const PostIsFeaturedFamily();
+/// See also [postLikes].
+class PostLikesFamily extends Family<AsyncValue<double>> {
+  /// See also [postLikes].
+  const PostLikesFamily();
 
-  /// See also [postIsFeatured].
-  PostIsFeaturedProvider call({
+  /// See also [postLikes].
+  PostLikesProvider call({
     String regionOrNs = 'default',
     required String id,
   }) {
-    return PostIsFeaturedProvider(
+    return PostLikesProvider(
       regionOrNs: regionOrNs,
       id: id,
     );
   }
 
   @override
-  PostIsFeaturedProvider getProviderOverride(
-    covariant PostIsFeaturedProvider provider,
+  PostLikesProvider getProviderOverride(
+    covariant PostLikesProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
@@ -651,35 +796,34 @@ class PostIsFeaturedFamily extends Family<AsyncValue<bool>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'postIsFeaturedProvider';
+  String? get name => r'postLikesProvider';
 }
 
-/// See also [postIsFeatured].
-class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
-  /// See also [postIsFeatured].
-  PostIsFeaturedProvider({
+/// See also [postLikes].
+class PostLikesProvider extends AutoDisposeFutureProvider<double> {
+  /// See also [postLikes].
+  PostLikesProvider({
     String regionOrNs = 'default',
     required String id,
   }) : this._internal(
-          (ref) => postIsFeatured(
-            ref as PostIsFeaturedRef,
+          (ref) => postLikes(
+            ref as PostLikesRef,
             regionOrNs: regionOrNs,
             id: id,
           ),
-          from: postIsFeaturedProvider,
-          name: r'postIsFeaturedProvider',
+          from: postLikesProvider,
+          name: r'postLikesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$postIsFeaturedHash,
-          dependencies: PostIsFeaturedFamily._dependencies,
-          allTransitiveDependencies:
-              PostIsFeaturedFamily._allTransitiveDependencies,
+                  : _$postLikesHash,
+          dependencies: PostLikesFamily._dependencies,
+          allTransitiveDependencies: PostLikesFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
           id: id,
         );
 
-  PostIsFeaturedProvider._internal(
+  PostLikesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -695,12 +839,12 @@ class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
 
   @override
   Override overrideWith(
-    FutureOr<bool> Function(PostIsFeaturedRef provider) create,
+    FutureOr<double> Function(PostLikesRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PostIsFeaturedProvider._internal(
-        (ref) => create(ref as PostIsFeaturedRef),
+      override: PostLikesProvider._internal(
+        (ref) => create(ref as PostLikesRef),
         from: from,
         name: null,
         dependencies: null,
@@ -713,13 +857,13 @@ class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<bool> createElement() {
-    return _PostIsFeaturedProviderElement(this);
+  AutoDisposeFutureProviderElement<double> createElement() {
+    return _PostLikesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PostIsFeaturedProvider &&
+    return other is PostLikesProvider &&
         other.regionOrNs == regionOrNs &&
         other.id == id;
   }
@@ -734,7 +878,7 @@ class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
-mixin PostIsFeaturedRef on AutoDisposeFutureProviderRef<bool> {
+mixin PostLikesRef on AutoDisposeFutureProviderRef<double> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
@@ -742,14 +886,14 @@ mixin PostIsFeaturedRef on AutoDisposeFutureProviderRef<bool> {
   String get id;
 }
 
-class _PostIsFeaturedProviderElement
-    extends AutoDisposeFutureProviderElement<bool> with PostIsFeaturedRef {
-  _PostIsFeaturedProviderElement(super.provider);
+class _PostLikesProviderElement extends AutoDisposeFutureProviderElement<double>
+    with PostLikesRef {
+  _PostLikesProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as PostIsFeaturedProvider).regionOrNs;
+  String get regionOrNs => (origin as PostLikesProvider).regionOrNs;
   @override
-  String get id => (origin as PostIsFeaturedProvider).id;
+  String get id => (origin as PostLikesProvider).id;
 }
 
 String _$postFetchHash() => r'6c5388e33fc9b980cb4f4cef729082ca9ff26738';
@@ -894,150 +1038,6 @@ class _PostFetchProviderElement
   String get regionOrNs => (origin as PostFetchProvider).regionOrNs;
   @override
   String get id => (origin as PostFetchProvider).id;
-}
-
-String _$postLikesHash() => r'd0aa517ef56eb91e8f5b0d328da6c54b13b0d2f1';
-
-/// See also [postLikes].
-@ProviderFor(postLikes)
-const postLikesProvider = PostLikesFamily();
-
-/// See also [postLikes].
-class PostLikesFamily extends Family<AsyncValue<double>> {
-  /// See also [postLikes].
-  const PostLikesFamily();
-
-  /// See also [postLikes].
-  PostLikesProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return PostLikesProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  PostLikesProvider getProviderOverride(
-    covariant PostLikesProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'postLikesProvider';
-}
-
-/// See also [postLikes].
-class PostLikesProvider extends AutoDisposeFutureProvider<double> {
-  /// See also [postLikes].
-  PostLikesProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => postLikes(
-            ref as PostLikesRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: postLikesProvider,
-          name: r'postLikesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$postLikesHash,
-          dependencies: PostLikesFamily._dependencies,
-          allTransitiveDependencies: PostLikesFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  PostLikesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<double> Function(PostLikesRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: PostLikesProvider._internal(
-        (ref) => create(ref as PostLikesRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<double> createElement() {
-    return _PostLikesProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is PostLikesProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin PostLikesRef on AutoDisposeFutureProviderRef<double> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _PostLikesProviderElement extends AutoDisposeFutureProviderElement<double>
-    with PostLikesRef {
-  _PostLikesProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as PostLikesProvider).regionOrNs;
-  @override
-  String get id => (origin as PostLikesProvider).id;
 }
 
 String _$postGetCommentSyncsHash() =>
@@ -2105,7 +2105,7 @@ class _PostHasSlotValueProviderElement
   String get slotName => (origin as PostHasSlotValueProvider).slotName;
 }
 
-String _$postPalPodHash() => r'd018fb986a8886d05647a9389a8392f776ecb1da';
+String _$postPalPodHash() => r'5d10138457501ee2c2bb84d72ff7c6b89799373b';
 
 abstract class _$PostPalPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionOrNs;

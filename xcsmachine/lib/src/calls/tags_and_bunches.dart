@@ -39,6 +39,27 @@ class TagsAndBunchesRepository {
     return convList(resp, (el)=>el);
   }
    
+  // Query
+  Future<NavRs> queryNavByTags({
+    
+    required QueryNavByTags r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryNavByTags",
+      "bundleName" : "TagsAndBunches",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return NavRs.fromJson(resp);
+  }
+   
   // Mutation
   Future<void> applyTags({
     
@@ -73,6 +94,27 @@ class TagsAndBunchesRepository {
       "req": req, 
     });
     
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> queryByBunch({
+    
+    required QueryByBunch r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryByBunch",
+      "bundleName" : "TagsAndBunches",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
   }
    
   // Mutation
