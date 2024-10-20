@@ -98,6 +98,8 @@ class Product {
     this.moreTags,
     this.jointers,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.productType,
     this.fixedAssetProduct,
     this.productFacility,
@@ -199,6 +201,8 @@ class Product {
     List<String?>? moreTags,
     Map<String, String>? jointers,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     ProductType? productType,
     List<FixedAssetProduct>? fixedAssetProduct,
     List<ProductFacility>? productFacility,
@@ -299,6 +303,8 @@ class Product {
       moreTags: moreTags ?? this.moreTags,
       jointers: jointers ?? this.jointers,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       productType: productType ?? this.productType,
       fixedAssetProduct: fixedAssetProduct ?? this.fixedAssetProduct,
       productFacility: productFacility ?? this.productFacility,
@@ -577,6 +583,12 @@ class Product {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

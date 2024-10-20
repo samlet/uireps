@@ -19,6 +19,8 @@ ContactFacet _$ContactFacetFromJson(Map<String, dynamic> json) => ContactFacet(
           ? null
           : DateTime.parse(json['createdTxStamp'] as String),
       evict: json['evict'] as bool?,
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
     );
 
 Map<String, dynamic> _$ContactFacetToJson(ContactFacet instance) {
@@ -39,5 +41,7 @@ Map<String, dynamic> _$ContactFacetToJson(ContactFacet instance) {
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   writeNotNull('evict', instance.evict);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   return val;
 }

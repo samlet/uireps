@@ -26,21 +26,26 @@ Future<void> main(List<String> arguments) async {
   // var id = 'n1';
   // noteRepo.store(ent.Note(
   //     noteId: id, noteName: 'a note', lastUpdatedTxStamp: DateTime.now()));
-  var id=await noteRepo.store(ent.Note(noteName: 'a note', lastUpdatedTxStamp: DateTime.now()));
+  var id = await noteRepo.store(ent.Note(
+      noteName: 'a note',
+      tag1: 'dev',
+      moreTags: ['java', 'programming'],
+      lastUpdatedTxStamp: DateTime.now())
+    ..addNoteDataSlot(ent.NoteDataSlot(bindType: 'stars', slotId: 'slot_1')));
   await noteRepo.printBundle(id);
 
   await waitSecs(1);
   // var sett = db.update(db.noteData)..where((el) => el.noteId.equals(id));
   // var result = await sett
   //     .write(NoteDataCompanion(lastUpdatedTxStamp: d.Value(DateTime.now())));
-  var result=await noteRepo.touch(id);
+  var result = await noteRepo.touch(id);
   print('update result: $result');
   await noteRepo.printBundle(id);
 
-  var queryIds=[id, 'n2'];
+  var queryIds = [id, 'n2'];
   // var q=db.select(db.noteData)..where((el)=>el.noteId.isIn(queryIds));
   // var rs=await q.get();
-  var rs=await noteRepo.multiGet(queryIds);
+  var rs = await noteRepo.multiGet(queryIds);
   print('query result ${rs.length}');
   for (var value in rs) {
     print('- ${value.noteId}: ${value.noteName}');
@@ -69,4 +74,3 @@ Future<void> main(List<String> arguments) async {
 //   }
 // }
 //
-

@@ -89,6 +89,8 @@ typedef $ProductCreateCompanionBuilder = i1.ProductCompanion Function({
   i0.Value<List<String>?> moreTags,
   i0.Value<Map<String, String>?> jointers,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i3.ProductType?> productType,
   i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct,
   i0.Value<List<i3.ProductFacility>?> productFacility,
@@ -191,6 +193,8 @@ typedef $ProductUpdateCompanionBuilder = i1.ProductCompanion Function({
   i0.Value<List<String>?> moreTags,
   i0.Value<Map<String, String>?> jointers,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i3.ProductType?> productType,
   i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct,
   i0.Value<List<i3.ProductFacility>?> productFacility,
@@ -535,6 +539,13 @@ class $ProductFilterComposer
       get acl => $composableBuilder(
           column: $table.acl,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i3.ProductType?, i3.ProductType, String>
       get productType => $composableBuilder(
@@ -965,6 +976,14 @@ class $ProductOrderingComposer
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get productType => $composableBuilder(
       column: $table.productType,
       builder: (column) => i0.ColumnOrderings(column));
@@ -1295,6 +1314,12 @@ class $ProductAnnotationComposer
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<i3.ProductType?, String>
       get productType => $composableBuilder(
           column: $table.productType, builder: (column) => column);
@@ -1481,6 +1506,8 @@ class $ProductTableManager extends i0.RootTableManager<
             i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
             i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
                 const i0.Value.absent(),
@@ -1599,6 +1626,8 @@ class $ProductTableManager extends i0.RootTableManager<
             moreTags: moreTags,
             jointers: jointers,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             productType: productType,
             fixedAssetProduct: fixedAssetProduct,
             productFacility: productFacility,
@@ -1707,6 +1736,8 @@ class $ProductTableManager extends i0.RootTableManager<
             i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
             i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
                 const i0.Value.absent(),
@@ -1825,6 +1856,8 @@ class $ProductTableManager extends i0.RootTableManager<
             moreTags: moreTags,
             jointers: jointers,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             productType: productType,
             fixedAssetProduct: fixedAssetProduct,
             productFacility: productFacility,
@@ -2450,6 +2483,20 @@ class Product extends i0.Table with i0.TableInfo<Product, i1.ProductData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.Product.$converteracln);
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _productTypeMeta =
       const i0.VerificationMeta('productType');
   late final i0.GeneratedColumnWithTypeConverter<i3.ProductType?, String>
@@ -2717,6 +2764,8 @@ class Product extends i0.Table with i0.TableInfo<Product, i1.ProductData> {
         moreTags,
         jointers,
         acl,
+        resourceId,
+        resourceType,
         productType,
         fixedAssetProduct,
         productFacility,
@@ -3198,6 +3247,18 @@ class Product extends i0.Table with i0.TableInfo<Product, i1.ProductData> {
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(_jointersMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     context.handle(_productTypeMeta, const i0.VerificationResult.success());
     context.handle(
         _fixedAssetProductMeta, const i0.VerificationResult.success());
@@ -3420,6 +3481,10 @@ class Product extends i0.Table with i0.TableInfo<Product, i1.ProductData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}jointers'])),
       acl: i1.Product.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       productType: i1.Product.$converterproductTypen.fromSql(
           attachedDatabase.typeMapping.read(
               i0.DriftSqlType.string, data['${effectivePrefix}product_type'])),
@@ -3690,6 +3755,8 @@ class ProductData extends i0.DataClass
   final List<String>? moreTags;
   final Map<String, String>? jointers;
   final i2.Multimap<String, String>? acl;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: one (no public-types)
   final i3.ProductType? productType;
@@ -3794,6 +3861,8 @@ class ProductData extends i0.DataClass
       this.moreTags,
       this.jointers,
       this.acl,
+      this.resourceId,
+      this.resourceType,
       this.productType,
       this.fixedAssetProduct,
       this.productFacility,
@@ -4065,6 +4134,12 @@ class ProductData extends i0.DataClass
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Product.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || productType != null) {
       map['product_type'] = i0.Variable<String>(
@@ -4388,6 +4463,12 @@ class ProductData extends i0.DataClass
           : i0.Value(jointers),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       productType: productType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(productType),
@@ -4555,6 +4636,8 @@ class ProductData extends i0.DataClass
           serializer.fromJson<Map<String, dynamic>?>(json['jointers'])),
       acl: i1.Product.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       productType: i1.Product.$converterproductTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['product_type'])),
       fixedAssetProduct: i1.Product.$converterfixedAssetProductn.fromJson(
@@ -4699,6 +4782,8 @@ class ProductData extends i0.DataClass
           i1.Product.$converterjointersn.toJson(jointers)),
       'acl': serializer
           .toJson<Map<String, dynamic>?>(i1.Product.$converteracln.toJson(acl)),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'product_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Product.$converterproductTypen.toJson(productType)),
       'fixed_asset_product': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -4829,6 +4914,8 @@ class ProductData extends i0.DataClass
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<i3.ProductType?> productType = const i0.Value.absent(),
           i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct =
               const i0.Value.absent(),
@@ -5024,6 +5111,9 @@ class ProductData extends i0.DataClass
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
         jointers: jointers.present ? jointers.value : this.jointers,
         acl: acl.present ? acl.value : this.acl,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         productType: productType.present ? productType.value : this.productType,
         fixedAssetProduct: fixedAssetProduct.present
             ? fixedAssetProduct.value
@@ -5269,6 +5359,11 @@ class ProductData extends i0.DataClass
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       jointers: data.jointers.present ? data.jointers.value : this.jointers,
       acl: data.acl.present ? data.acl.value : this.acl,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       productType:
           data.productType.present ? data.productType.value : this.productType,
       fixedAssetProduct: data.fixedAssetProduct.present
@@ -5407,6 +5502,8 @@ class ProductData extends i0.DataClass
           ..write('moreTags: $moreTags, ')
           ..write('jointers: $jointers, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('productType: $productType, ')
           ..write('fixedAssetProduct: $fixedAssetProduct, ')
           ..write('productFacility: $productFacility, ')
@@ -5512,6 +5609,8 @@ class ProductData extends i0.DataClass
         moreTags,
         jointers,
         acl,
+        resourceId,
+        resourceType,
         productType,
         fixedAssetProduct,
         productFacility,
@@ -5616,6 +5715,8 @@ class ProductData extends i0.DataClass
           other.moreTags == this.moreTags &&
           other.jointers == this.jointers &&
           other.acl == this.acl &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.productType == this.productType &&
           other.fixedAssetProduct == this.fixedAssetProduct &&
           other.productFacility == this.productFacility &&
@@ -5718,6 +5819,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
   final i0.Value<List<String>?> moreTags;
   final i0.Value<Map<String, String>?> jointers;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<i3.ProductType?> productType;
   final i0.Value<List<i3.FixedAssetProduct>?> fixedAssetProduct;
   final i0.Value<List<i3.ProductFacility>?> productFacility;
@@ -5819,6 +5922,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
     this.moreTags = const i0.Value.absent(),
     this.jointers = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.productType = const i0.Value.absent(),
     this.fixedAssetProduct = const i0.Value.absent(),
     this.productFacility = const i0.Value.absent(),
@@ -5921,6 +6026,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
     this.moreTags = const i0.Value.absent(),
     this.jointers = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.productType = const i0.Value.absent(),
     this.fixedAssetProduct = const i0.Value.absent(),
     this.productFacility = const i0.Value.absent(),
@@ -6023,6 +6130,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
     i0.Expression<String>? moreTags,
     i0.Expression<String>? jointers,
     i0.Expression<String>? acl,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<String>? productType,
     i0.Expression<String>? fixedAssetProduct,
     i0.Expression<String>? productFacility,
@@ -6140,6 +6249,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
       if (moreTags != null) 'more_tags': moreTags,
       if (jointers != null) 'jointers': jointers,
       if (acl != null) 'acl': acl,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (productType != null) 'product_type': productType,
       if (fixedAssetProduct != null) 'fixed_asset_product': fixedAssetProduct,
       if (productFacility != null) 'product_facility': productFacility,
@@ -6250,6 +6361,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
       i0.Value<List<String>?>? moreTags,
       i0.Value<Map<String, String>?>? jointers,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<i3.ProductType?>? productType,
       i0.Value<List<i3.FixedAssetProduct>?>? fixedAssetProduct,
       i0.Value<List<i3.ProductFacility>?>? productFacility,
@@ -6359,6 +6472,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
       moreTags: moreTags ?? this.moreTags,
       jointers: jointers ?? this.jointers,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       productType: productType ?? this.productType,
       fixedAssetProduct: fixedAssetProduct ?? this.fixedAssetProduct,
       productFacility: productFacility ?? this.productFacility,
@@ -6649,6 +6764,12 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
       map['acl'] =
           i0.Variable<String>(i1.Product.$converteracln.toSql(acl.value));
     }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
+    }
     if (productType.present) {
       map['product_type'] = i0.Variable<String>(
           i1.Product.$converterproductTypen.toSql(productType.value));
@@ -6818,6 +6939,8 @@ class ProductCompanion extends i0.UpdateCompanion<i1.ProductData> {
           ..write('moreTags: $moreTags, ')
           ..write('jointers: $jointers, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('productType: $productType, ')
           ..write('fixedAssetProduct: $fixedAssetProduct, ')
           ..write('productFacility: $productFacility, ')

@@ -21,6 +21,8 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => Config(
       statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
     );
 
 Map<String, dynamic> _$ConfigToJson(Config instance) {
@@ -42,5 +44,7 @@ Map<String, dynamic> _$ConfigToJson(Config instance) {
   writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   return val;
 }

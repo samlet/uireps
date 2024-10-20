@@ -39,6 +39,8 @@ DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource(
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       electronicText: json['electronicText'] == null
           ? null
           : ElectronicText.fromJson(
@@ -99,6 +101,8 @@ Map<String, dynamic> _$DataResourceToJson(DataResource instance) {
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('evict', instance.evict);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('electronicText', instance.electronicText?.toJson());
   writeNotNull('audioDataResource', instance.audioDataResource?.toJson());
   writeNotNull('dataResourceType', instance.dataResourceType?.toJson());

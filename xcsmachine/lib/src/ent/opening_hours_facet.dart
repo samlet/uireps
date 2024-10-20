@@ -25,6 +25,8 @@ class OpeningHoursFacet {
     this.lastUpdatedTxStamp,
     this.createdTxStamp,
     this.evict,
+    this.resourceId,
+    this.resourceType,
   });
 
   OpeningHoursFacet copyWith({
@@ -36,6 +38,8 @@ class OpeningHoursFacet {
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     bool? evict,
+    String? resourceId,
+    String? resourceType,
   }) {
     return OpeningHoursFacet(
       openingHoursId: openingHoursId ?? this.openingHoursId,
@@ -46,6 +50,8 @@ class OpeningHoursFacet {
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
       evict: evict ?? this.evict,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
     );
   }
 
@@ -89,6 +95,12 @@ class OpeningHoursFacet {
 
    
   bool? evict;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

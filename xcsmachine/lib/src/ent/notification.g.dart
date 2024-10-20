@@ -24,6 +24,8 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
       tag2: json['tag2'] as String?,
       tag3: json['tag3'] as String?,
       evict: json['evict'] as bool?,
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       notificationType: json['notificationType'] == null
           ? null
           : NotificationType.fromJson(
@@ -59,6 +61,8 @@ Map<String, dynamic> _$NotificationToJson(Notification instance) {
   writeNotNull('tag2', instance.tag2);
   writeNotNull('tag3', instance.tag3);
   writeNotNull('evict', instance.evict);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('notificationType', instance.notificationType?.toJson());
   writeNotNull('notificationSlot',
       instance.notificationSlot?.map((e) => e.toJson()).toList());

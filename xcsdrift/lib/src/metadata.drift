@@ -4,32 +4,34 @@ import 'metadata_conv.dart';
 
 
 CREATE TABLE metadata (
-    metadata_id VARCHAR(255) NOT NULL PRIMARY KEY,
-    value TEXT MAPPED BY `const StringMultimapConverter()`,
-    from_date DATETIME(3),
-    thru_date DATETIME(3),
-    creator VARCHAR(250),
-    comments VARCHAR(255),
-    token_id VARCHAR(250),
-    name VARCHAR(100),
-    image VARCHAR(2000),
-    tenant_id VARCHAR(22),
-    last_updated_tx_stamp DATETIME(3),
-    created_tx_stamp DATETIME(3),
-    metadata_type_id VARCHAR(22),
-    status_id VARCHAR(22),
-    tag1 VARCHAR(100),
-    tag2 VARCHAR(100),
-    tag3 VARCHAR(100),
-    more_tags TEXT MAPPED BY `const StringListConverter()`,
-    evict BOOLEAN,
+    "metadata_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "value" TEXT MAPPED BY `const StringMultimapConverter()`,
+    "from_date" DATETIME(3),
+    "thru_date" DATETIME(3),
+    "creator" VARCHAR(250),
+    "comments" VARCHAR(255),
+    "token_id" VARCHAR(250),
+    "name" VARCHAR(100),
+    "image" VARCHAR(2000),
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "metadata_type_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
+    "tag1" VARCHAR(100),
+    "tag2" VARCHAR(100),
+    "tag3" VARCHAR(100),
+    "more_tags" TEXT MAPPED BY `const StringListConverter()`,
+    "evict" BOOLEAN,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
 
     -- rel: one (no public-types)
-    metadata_type TEXT MAPPED BY `const MetadataTypeConverter()`,
+    "metadata_type" TEXT MAPPED BY `const MetadataTypeConverter()`,
 
     -- rel: many
-    metadata_status TEXT MAPPED BY `const MetadataStatusListConverter()`,
-    reserved_flag INTEGER
+    "metadata_status" TEXT MAPPED BY `const MetadataStatusListConverter()`,
+    "reserved_flag" INTEGER
 );
 
 allMetadata: SELECT * FROM metadata;

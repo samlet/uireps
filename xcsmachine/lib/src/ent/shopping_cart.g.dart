@@ -40,6 +40,8 @@ ShoppingCart _$ShoppingCartFromJson(Map<String, dynamic> json) => ShoppingCart(
       multiJointers: stringMultimapFromJson(
           json['multiJointers'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       shoppingCartType: json['shoppingCartType'] == null
           ? null
           : ShoppingCartType.fromJson(
@@ -89,6 +91,8 @@ Map<String, dynamic> _$ShoppingCartToJson(ShoppingCart instance) {
   writeNotNull('evict', instance.evict);
   val['multiJointers'] = stringMultimapToJson(instance.multiJointers);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('shoppingCartType', instance.shoppingCartType?.toJson());
   writeNotNull('shoppingCartSlot',
       instance.shoppingCartSlot?.map((e) => e.toJson()).toList());

@@ -26,6 +26,8 @@ class WhiteBoard {
     this.whiteBoardTypeId,
     this.statusId,
     this.evict,
+    this.resourceId,
+    this.resourceType,
     this.whiteBoardType,
   });
 
@@ -39,6 +41,8 @@ class WhiteBoard {
     String? whiteBoardTypeId,
     String? statusId,
     bool? evict,
+    String? resourceId,
+    String? resourceType,
     WhiteBoardType? whiteBoardType,
   }) {
     return WhiteBoard(
@@ -51,6 +55,8 @@ class WhiteBoard {
       whiteBoardTypeId: whiteBoardTypeId ?? this.whiteBoardTypeId,
       statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       whiteBoardType: whiteBoardType ?? this.whiteBoardType,
     );
   }
@@ -96,6 +102,12 @@ class WhiteBoard {
 
    
   bool? evict;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

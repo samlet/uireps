@@ -41,6 +41,8 @@ class DataResource {
     this.tenantId,
     this.evict,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.electronicText,
     this.audioDataResource,
     this.dataResourceType,
@@ -74,6 +76,8 @@ class DataResource {
     String? tenantId,
     bool? evict,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     ElectronicText? electronicText,
     AudioDataResource? audioDataResource,
     DataResourceType? dataResourceType,
@@ -106,6 +110,8 @@ class DataResource {
       tenantId: tenantId ?? this.tenantId,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       electronicText: electronicText ?? this.electronicText,
       audioDataResource: audioDataResource ?? this.audioDataResource,
       dataResourceType: dataResourceType ?? this.dataResourceType,
@@ -202,6 +208,12 @@ class DataResource {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

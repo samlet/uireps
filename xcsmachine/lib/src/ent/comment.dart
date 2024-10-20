@@ -19,8 +19,6 @@ class Comment {
   Comment({
     this.commentId,
     this.postedDateTime,
-    this.resourceId,
-    this.resourceType,
     this.rating,
     this.subject,
     this.review,
@@ -42,6 +40,8 @@ class Comment {
     this.statusId,
     this.evict,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.commentType,
     this.commentStatus,
   });
@@ -49,8 +49,6 @@ class Comment {
   Comment copyWith({
     String? commentId,
     DateTime? postedDateTime,
-    String? resourceId,
-    String? resourceType,
     double? rating,
     String? subject,
     String? review,
@@ -72,14 +70,14 @@ class Comment {
     String? statusId,
     bool? evict,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     CommentType? commentType,
     List<CommentStatus>? commentStatus,
   }) {
     return Comment(
       commentId: commentId ?? this.commentId,
       postedDateTime: postedDateTime ?? this.postedDateTime,
-      resourceId: resourceId ?? this.resourceId,
-      resourceType: resourceType ?? this.resourceType,
       rating: rating ?? this.rating,
       subject: subject ?? this.subject,
       review: review ?? this.review,
@@ -101,6 +99,8 @@ class Comment {
       statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       commentType: commentType ?? this.commentType,
       commentStatus: commentStatus ?? this.commentStatus,
     );
@@ -126,12 +126,6 @@ class Comment {
 
    
   DateTime? postedDateTime;
-
-   
-  String? resourceId;
-
-   
-  String? resourceType;
 
    
   double? rating;
@@ -198,6 +192,12 @@ class Comment {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

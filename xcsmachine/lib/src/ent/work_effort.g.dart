@@ -86,6 +86,8 @@ WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
       confirmation: json['confirmation'] as String?,
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       workEffortType: json['workEffortType'] == null
           ? null
           : WorkEffortType.fromJson(
@@ -203,6 +205,8 @@ Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
   writeNotNull('confirmation', instance.confirmation);
   writeNotNull('evict', instance.evict);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('workEffortType', instance.workEffortType?.toJson());
   writeNotNull('workEffortTransaction',
       instance.workEffortTransaction?.map((e) => e.toJson()).toList());

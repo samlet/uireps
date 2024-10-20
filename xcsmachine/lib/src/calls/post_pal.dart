@@ -36,6 +36,55 @@ class PostPalRepository {
   }
    
   // Query
+  Future<List<Comment>> getCommentSyncs() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getCommentSyncs",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Comment.fromJson);
+  }
+   
+  // Mutation
+  Future<void> addToContentBin({
+    
+    required String binId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "addToContentBin",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "binId": binId, 
+    });
+    
+  }
+   
+  // Query
+  Future<Map<String, double>> getStats() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getStats",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return asTypedMap<double>(resp);
+  }
+   
+  // Query
   Future<bool> isLiked() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -115,10 +164,10 @@ class PostPalRepository {
   }
    
   // Query
-  Future<Map<String, double>> getStats() async { 
+  Future<bool> isFeatured() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getStats",
+      "action": "isFeatured",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -126,7 +175,7 @@ class PostPalRepository {
     }, { 
     });
     
-    return asTypedMap<double>(resp);
+    return ResultConv.asBool(resp);
   }
    
   // Mutation
@@ -144,10 +193,10 @@ class PostPalRepository {
   }
    
   // Query
-  Future<bool> isFeatured() async { 
+  Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "isFeatured",
+      "action": "fetch",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -155,7 +204,7 @@ class PostPalRepository {
     }, { 
     });
     
-    return ResultConv.asBool(resp);
+    return PostBundle.fromJson(resp);
   }
    
   // Mutation
@@ -202,10 +251,10 @@ class PostPalRepository {
   }
    
   // Query
-  Future<PostBundle> fetch() async { 
+  Future<Map<String, bool>> persistSlotsExistent() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "fetch",
+      "action": "persistSlotsExistent",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -213,14 +262,14 @@ class PostPalRepository {
     }, { 
     });
     
-    return PostBundle.fromJson(resp);
+    return asTypedMap<bool>(resp);
   }
    
   // Query
-  Future<List<Comment>> getCommentSyncs() async { 
+  Future<BuffersMap> persistSlotValues() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getCommentSyncs",
+      "action": "persistSlotValues",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -228,26 +277,7 @@ class PostPalRepository {
     }, { 
     });
     
-    return convList(resp, Comment.fromJson);
-  }
-   
-  // Mutation
-  Future<void> addToContentBin({
-    
-    required String binId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addToContentBin",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "binId": binId, 
-    });
-    
+    return BuffersMap()..mergeFromProto3Json(resp);
   }
    
   // Mutation
@@ -282,36 +312,6 @@ class PostPalRepository {
     });
     
     return BuffersData()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<Map<String, bool>> persistSlotsExistent() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "persistSlotsExistent",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return asTypedMap<bool>(resp);
-  }
-   
-  // Query
-  Future<BuffersMap> persistSlotValues() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "persistSlotValues",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return BuffersMap()..mergeFromProto3Json(resp);
   }
    
   // Query

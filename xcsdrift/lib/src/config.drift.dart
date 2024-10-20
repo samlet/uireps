@@ -15,6 +15,8 @@ typedef $ConfigCreateCompanionBuilder = i1.ConfigCompanion Function({
   i0.Value<String?> statusId,
   i0.Value<bool?> evict,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -28,6 +30,8 @@ typedef $ConfigUpdateCompanionBuilder = i1.ConfigCompanion Function({
   i0.Value<String?> statusId,
   i0.Value<bool?> evict,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -77,6 +81,13 @@ class $ConfigFilterComposer
           column: $table.acl,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
+
   i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
       column: $table.reservedFlag,
       builder: (column) => i0.ColumnFilters(column));
@@ -121,6 +132,14 @@ class $ConfigOrderingComposer
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
       column: $table.reservedFlag,
       builder: (column) => i0.ColumnOrderings(column));
@@ -164,6 +183,12 @@ class $ConfigAnnotationComposer
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
+
   i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
       column: $table.reservedFlag, builder: (column) => column);
 }
@@ -205,6 +230,8 @@ class $ConfigTableManager extends i0.RootTableManager<
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
@@ -218,6 +245,8 @@ class $ConfigTableManager extends i0.RootTableManager<
             statusId: statusId,
             evict: evict,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             reservedFlag: reservedFlag,
             rowid: rowid,
           ),
@@ -233,6 +262,8 @@ class $ConfigTableManager extends i0.RootTableManager<
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
@@ -246,6 +277,8 @@ class $ConfigTableManager extends i0.RootTableManager<
             statusId: statusId,
             evict: evict,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             reservedFlag: reservedFlag,
             rowid: rowid,
           ),
@@ -343,6 +376,20 @@ class Config extends i0.Table with i0.TableInfo<Config, i1.ConfigData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.Config.$converteracln);
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _reservedFlagMeta =
       const i0.VerificationMeta('reservedFlag');
   late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
@@ -361,6 +408,8 @@ class Config extends i0.Table with i0.TableInfo<Config, i1.ConfigData> {
         statusId,
         evict,
         acl,
+        resourceId,
+        resourceType,
         reservedFlag
       ];
   @override
@@ -412,6 +461,18 @@ class Config extends i0.Table with i0.TableInfo<Config, i1.ConfigData> {
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     if (data.containsKey('reserved_flag')) {
       context.handle(
           _reservedFlagMeta,
@@ -447,6 +508,10 @@ class Config extends i0.Table with i0.TableInfo<Config, i1.ConfigData> {
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
       acl: i1.Config.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       reservedFlag: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
@@ -482,6 +547,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
   final String? statusId;
   final bool? evict;
   final i2.Multimap<String, String>? acl;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: many
   /// rel: one (no public-types)
@@ -496,6 +563,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
       this.statusId,
       this.evict,
       this.acl,
+      this.resourceId,
+      this.resourceType,
       this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
@@ -525,6 +594,12 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Config.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || reservedFlag != null) {
       map['reserved_flag'] = i0.Variable<int>(reservedFlag);
@@ -558,6 +633,12 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
           : i0.Value(evict),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       reservedFlag: reservedFlag == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(reservedFlag),
@@ -580,6 +661,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
       evict: serializer.fromJson<bool?>(json['evict']),
       acl: i1.Config.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
@@ -598,6 +681,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
       'evict': serializer.toJson<bool?>(evict),
       'acl': serializer
           .toJson<Map<String, dynamic>?>(i1.Config.$converteracln.toJson(acl)),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
@@ -613,6 +698,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
           i0.Value<String?> statusId = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.ConfigData(
         configId: configId ?? this.configId,
@@ -628,6 +715,9 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
         statusId: statusId.present ? statusId.value : this.statusId,
         evict: evict.present ? evict.value : this.evict,
         acl: acl.present ? acl.value : this.acl,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         reservedFlag:
             reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
@@ -648,6 +738,11 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
       statusId: data.statusId.present ? data.statusId.value : this.statusId,
       evict: data.evict.present ? data.evict.value : this.evict,
       acl: data.acl.present ? data.acl.value : this.acl,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       reservedFlag: data.reservedFlag.present
           ? data.reservedFlag.value
           : this.reservedFlag,
@@ -666,6 +761,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
           ..write('statusId: $statusId, ')
           ..write('evict: $evict, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
@@ -682,6 +779,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
       statusId,
       evict,
       acl,
+      resourceId,
+      resourceType,
       reservedFlag);
   @override
   bool operator ==(Object other) =>
@@ -696,6 +795,8 @@ class ConfigData extends i0.DataClass implements i0.Insertable<i1.ConfigData> {
           other.statusId == this.statusId &&
           other.evict == this.evict &&
           other.acl == this.acl &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.reservedFlag == this.reservedFlag);
 }
 
@@ -709,6 +810,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
   final i0.Value<String?> statusId;
   final i0.Value<bool?> evict;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const ConfigCompanion({
@@ -721,6 +824,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
     this.statusId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
@@ -734,6 +839,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
     this.statusId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : configId = i0.Value(configId);
@@ -747,6 +854,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
     i0.Expression<String>? statusId,
     i0.Expression<bool>? evict,
     i0.Expression<String>? acl,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
@@ -761,6 +870,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
       if (statusId != null) 'status_id': statusId,
       if (evict != null) 'evict': evict,
       if (acl != null) 'acl': acl,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
@@ -776,6 +887,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
       i0.Value<String?>? statusId,
       i0.Value<bool?>? evict,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.ConfigCompanion(
@@ -788,6 +901,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
       statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
@@ -826,6 +941,12 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
       map['acl'] =
           i0.Variable<String>(i1.Config.$converteracln.toSql(acl.value));
     }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
+    }
     if (reservedFlag.present) {
       map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
     }
@@ -847,6 +968,8 @@ class ConfigCompanion extends i0.UpdateCompanion<i1.ConfigData> {
           ..write('statusId: $statusId, ')
           ..write('evict: $evict, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))

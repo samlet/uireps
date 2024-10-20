@@ -46,6 +46,8 @@ class Facility {
     this.tag3,
     this.moreTags,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.facilityType,
     this.facilityCalendar,
     this.facilityMultisig,
@@ -87,6 +89,8 @@ class Facility {
     String? tag3,
     List<String?>? moreTags,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     FacilityType? facilityType,
     List<FacilityCalendar>? facilityCalendar,
     List<FacilityMultisig>? facilityMultisig,
@@ -127,6 +131,8 @@ class Facility {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       facilityType: facilityType ?? this.facilityType,
       facilityCalendar: facilityCalendar ?? this.facilityCalendar,
       facilityMultisig: facilityMultisig ?? this.facilityMultisig,
@@ -241,6 +247,12 @@ class Facility {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

@@ -58,6 +58,8 @@ Content _$ContentFromJson(Map<String, dynamic> json) => Content(
           ?.map((e) => e as String?)
           .toList(),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       contentSlot: (json['contentSlot'] as List<dynamic>?)
           ?.map((e) => ContentSlot.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -134,6 +136,8 @@ Map<String, dynamic> _$ContentToJson(Content instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull(
       'contentSlot', instance.contentSlot?.map((e) => e.toJson()).toList());
   writeNotNull(

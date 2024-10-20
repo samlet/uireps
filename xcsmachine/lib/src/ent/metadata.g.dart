@@ -36,6 +36,8 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) => Metadata(
           ?.map((e) => e as String?)
           .toList(),
       evict: json['evict'] as bool?,
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       metadataType: json['metadataType'] == null
           ? null
           : MetadataType.fromJson(json['metadataType'] as Map<String, dynamic>),
@@ -73,6 +75,8 @@ Map<String, dynamic> _$MetadataToJson(Metadata instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   writeNotNull('evict', instance.evict);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('metadataType', instance.metadataType?.toJson());
   writeNotNull('metadataStatus',
       instance.metadataStatus?.map((e) => e.toJson()).toList());

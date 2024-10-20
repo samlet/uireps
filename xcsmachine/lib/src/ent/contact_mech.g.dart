@@ -19,6 +19,8 @@ ContactMech _$ContactMechFromJson(Map<String, dynamic> json) => ContactMech(
       tenantId: json['tenantId'] as String?,
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       postalAddress: json['postalAddress'] == null
           ? null
           : PostalAddress.fromJson(
@@ -54,6 +56,8 @@ Map<String, dynamic> _$ContactMechToJson(ContactMech instance) {
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull('evict', instance.evict);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('postalAddress', instance.postalAddress?.toJson());
   writeNotNull('contactMechType', instance.contactMechType?.toJson());
   writeNotNull('telecomNumber', instance.telecomNumber?.toJson());

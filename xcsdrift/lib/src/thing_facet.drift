@@ -4,21 +4,21 @@ import 'thing_facet_conv.dart';
 
 
 CREATE TABLE thing_facet (
-    thing_id VARCHAR(255) NOT NULL PRIMARY KEY,
-    name VARCHAR(100),
-    description VARCHAR(255),
-    url VARCHAR(2000),
-    image TEXT MAPPED BY `const StringListConverter()`,
-    same_as VARCHAR(2000),
-    tenant_id VARCHAR(22),
-    last_updated_tx_stamp DATETIME(3),
-    created_tx_stamp DATETIME(3),
-    evict BOOLEAN,
+    "thing_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "name" VARCHAR(100),
+    "description" VARCHAR(255),
+    "url" VARCHAR(2000),
+    "image" TEXT MAPPED BY `const StringListConverter()`,
+    "same_as" VARCHAR(2000),
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "evict" BOOLEAN,
 
     -- rel: one (no public-types)
 
     -- rel: many
-    reserved_flag INTEGER
+    "reserved_flag" INTEGER
 );
 
 allThingFacets: SELECT * FROM thing_facet;

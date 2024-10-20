@@ -47,6 +47,8 @@ Linkage _$LinkageFromJson(Map<String, dynamic> json) => Linkage(
           .toList(),
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       linkageType: json['linkageType'] == null
           ? null
           : LinkageType.fromJson(json['linkageType'] as Map<String, dynamic>),
@@ -89,6 +91,8 @@ Map<String, dynamic> _$LinkageToJson(Linkage instance) {
   writeNotNull('moreTags', instance.moreTags);
   writeNotNull('evict', instance.evict);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('linkageType', instance.linkageType?.toJson());
   writeNotNull(
       'linkageStatus', instance.linkageStatus?.map((e) => e.toJson()).toList());

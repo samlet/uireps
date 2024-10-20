@@ -11,8 +11,6 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       postedDateTime: json['postedDateTime'] == null
           ? null
           : DateTime.parse(json['postedDateTime'] as String),
-      resourceId: json['resourceId'] as String?,
-      resourceType: json['resourceType'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),
       subject: json['subject'] as String?,
       review: json['review'] as String?,
@@ -40,6 +38,8 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       commentType: json['commentType'] == null
           ? null
           : CommentType.fromJson(json['commentType'] as Map<String, dynamic>),
@@ -59,8 +59,6 @@ Map<String, dynamic> _$CommentToJson(Comment instance) {
 
   writeNotNull('commentId', instance.commentId);
   writeNotNull('postedDateTime', instance.postedDateTime?.toIso8601String());
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('rating', instance.rating);
   writeNotNull('subject', instance.subject);
   writeNotNull('review', instance.review);
@@ -83,6 +81,8 @@ Map<String, dynamic> _$CommentToJson(Comment instance) {
   writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('commentType', instance.commentType?.toJson());
   writeNotNull(
       'commentStatus', instance.commentStatus?.map((e) => e.toJson()).toList());

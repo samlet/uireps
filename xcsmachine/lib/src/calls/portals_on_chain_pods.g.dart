@@ -1634,7 +1634,7 @@ class _PortalsGetPublicElementsProviderElement
       (origin as PortalsGetPublicElementsProvider).bundleName;
 }
 
-String _$portalsOnChainPodHash() => r'18fbd0b9cb8bd69fc5057dc04a069a00f52c92d1';
+String _$portalsOnChainPodHash() => r'e31cd01317ec0bdb19bb82f15bd50f7b37370661';
 
 abstract class _$PortalsOnChainPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

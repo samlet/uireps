@@ -62,6 +62,8 @@ class Shipment {
     this.tag3,
     this.moreTags,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.shipmentItemBilling,
     this.shippingDocument,
     this.shipmentItemFeature,
@@ -122,6 +124,8 @@ class Shipment {
     String? tag3,
     List<String?>? moreTags,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     List<ShipmentItemBilling>? shipmentItemBilling,
     List<ShippingDocument>? shippingDocument,
     List<ShipmentItemFeature>? shipmentItemFeature,
@@ -181,6 +185,8 @@ class Shipment {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       shipmentItemBilling: shipmentItemBilling ?? this.shipmentItemBilling,
       shippingDocument: shippingDocument ?? this.shippingDocument,
       shipmentItemFeature: shipmentItemFeature ?? this.shipmentItemFeature,
@@ -346,6 +352,12 @@ class Shipment {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

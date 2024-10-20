@@ -26,6 +26,8 @@ class Config {
     this.statusId,
     this.evict,
     this.acl,
+    this.resourceId,
+    this.resourceType,
   });
 
   Config copyWith({
@@ -38,6 +40,8 @@ class Config {
     String? statusId,
     bool? evict,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
   }) {
     return Config(
       configId: configId ?? this.configId,
@@ -49,6 +53,8 @@ class Config {
       statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
     );
   }
 
@@ -95,6 +101,12 @@ class Config {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

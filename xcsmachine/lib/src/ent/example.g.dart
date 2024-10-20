@@ -90,6 +90,8 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example(
           ?.map((e) => e as String?)
           .toList(),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       exampleType: json['exampleType'] == null
           ? null
           : ExampleType.fromJson(json['exampleType'] as Map<String, dynamic>),
@@ -159,6 +161,8 @@ Map<String, dynamic> _$ExampleToJson(Example instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('exampleType', instance.exampleType?.toJson());
   writeNotNull('exampleFeatureAppl',
       instance.exampleFeatureAppl?.map((e) => e.toJson()).toList());

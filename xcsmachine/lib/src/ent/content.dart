@@ -56,6 +56,8 @@ class Content {
     this.tag3,
     this.moreTags,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.contentSlot,
     this.contentWallet,
     this.fromContentAssoc,
@@ -106,6 +108,8 @@ class Content {
     String? tag3,
     List<String?>? moreTags,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     List<ContentSlot>? contentSlot,
     List<ContentWallet>? contentWallet,
     List<ContentAssoc>? fromContentAssoc,
@@ -155,6 +159,8 @@ class Content {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       contentSlot: contentSlot ?? this.contentSlot,
       contentWallet: contentWallet ?? this.contentWallet,
       fromContentAssoc: fromContentAssoc ?? this.fromContentAssoc,
@@ -298,6 +304,12 @@ class Content {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

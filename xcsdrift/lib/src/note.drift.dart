@@ -20,7 +20,13 @@ typedef $NoteDataCreateCompanionBuilder = i1.NoteDataCompanion Function({
   i0.Value<String?> moreInfoItemName,
   i0.Value<String?> tenantId,
   i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
@@ -38,7 +44,13 @@ typedef $NoteDataUpdateCompanionBuilder = i1.NoteDataCompanion Function({
   i0.Value<String?> moreInfoItemName,
   i0.Value<String?> tenantId,
   i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<List<i3.NoteDataSlot>?> noteDataSlot,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
@@ -95,11 +107,32 @@ class $NoteDataFilterComposer
   i0.ColumnFilters<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnFilters(column));
 
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
   i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
           i2.Multimap<String, String>, String>
       get acl => $composableBuilder(
           column: $table.acl,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<List<i3.NoteDataSlot>?,
           List<i3.NoteDataSlot>, String>
@@ -164,8 +197,28 @@ class $NoteDataOrderingComposer
   i0.ColumnOrderings<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
 
   i0.ColumnOrderings<String> get noteDataSlot => $composableBuilder(
       column: $table.noteDataSlot,
@@ -221,9 +274,27 @@ class $NoteDataAnnotationComposer
   i0.GeneratedColumn<bool> get evict =>
       $composableBuilder(column: $table.evict, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
 
   i0.GeneratedColumnWithTypeConverter<List<i3.NoteDataSlot>?, String>
       get noteDataSlot => $composableBuilder(
@@ -271,8 +342,14 @@ class $NoteDataTableManager extends i0.RootTableManager<
             i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
@@ -291,7 +368,13 @@ class $NoteDataTableManager extends i0.RootTableManager<
             moreInfoItemName: moreInfoItemName,
             tenantId: tenantId,
             evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             noteDataSlot: noteDataSlot,
             reservedFlag: reservedFlag,
             rowid: rowid,
@@ -309,8 +392,14 @@ class $NoteDataTableManager extends i0.RootTableManager<
             i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
@@ -329,7 +418,13 @@ class $NoteDataTableManager extends i0.RootTableManager<
             moreInfoItemName: moreInfoItemName,
             tenantId: tenantId,
             evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             noteDataSlot: noteDataSlot,
             reservedFlag: reservedFlag,
             rowid: rowid,
@@ -446,6 +541,35 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
       type: i0.DriftSqlType.bool,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _tag1Meta =
+      const i0.VerificationMeta('tag1');
+  late final i0.GeneratedColumn<String> tag1 = i0.GeneratedColumn<String>(
+      'tag1', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _tag2Meta =
+      const i0.VerificationMeta('tag2');
+  late final i0.GeneratedColumn<String> tag2 = i0.GeneratedColumn<String>(
+      'tag2', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _tag3Meta =
+      const i0.VerificationMeta('tag3');
+  late final i0.GeneratedColumn<String> tag3 = i0.GeneratedColumn<String>(
+      'tag3', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _moreTagsMeta =
+      const i0.VerificationMeta('moreTags');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.NoteData.$convertermoreTagsn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?,
       String> acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
@@ -453,6 +577,20 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.NoteData.$converteracln);
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _noteDataSlotMeta =
       const i0.VerificationMeta('noteDataSlot');
   late final i0.GeneratedColumnWithTypeConverter<List<i3.NoteDataSlot>?, String>
@@ -484,7 +622,13 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
         moreInfoItemName,
         tenantId,
         evict,
+        tag1,
+        tag2,
+        tag3,
+        moreTags,
         acl,
+        resourceId,
+        resourceType,
         noteDataSlot,
         reservedFlag
       ];
@@ -561,7 +705,32 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
       context.handle(
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
+    if (data.containsKey('tag1')) {
+      context.handle(
+          _tag1Meta, tag1.isAcceptableOrUnknown(data['tag1']!, _tag1Meta));
+    }
+    if (data.containsKey('tag2')) {
+      context.handle(
+          _tag2Meta, tag2.isAcceptableOrUnknown(data['tag2']!, _tag2Meta));
+    }
+    if (data.containsKey('tag3')) {
+      context.handle(
+          _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
+    }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     context.handle(_noteDataSlotMeta, const i0.VerificationResult.success());
     if (data.containsKey('reserved_flag')) {
       context.handle(
@@ -604,8 +773,21 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tenant_id']),
       evict: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
+      tag1: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tag1']),
+      tag2: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
+      tag3: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
+      moreTags: i1.NoteData.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       acl: i1.NoteData.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       noteDataSlot: i1.NoteData.$converternoteDataSlotn.fromSql(
           attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
               data['${effectivePrefix}note_data_slot'])),
@@ -619,6 +801,11 @@ class NoteData extends i0.Table with i0.TableInfo<NoteData, i1.NoteDataData> {
     return NoteData(attachedDatabase, alias);
   }
 
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i4.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
@@ -648,7 +835,13 @@ class NoteDataData extends i0.DataClass
   final String? moreInfoItemName;
   final String? tenantId;
   final bool? evict;
+  final String? tag1;
+  final String? tag2;
+  final String? tag3;
+  final List<String>? moreTags;
   final i2.Multimap<String, String>? acl;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: many
   /// rel: one (no public-types)
@@ -667,7 +860,13 @@ class NoteDataData extends i0.DataClass
       this.moreInfoItemName,
       this.tenantId,
       this.evict,
+      this.tag1,
+      this.tag2,
+      this.tag3,
+      this.moreTags,
       this.acl,
+      this.resourceId,
+      this.resourceType,
       this.noteDataSlot,
       this.reservedFlag});
   @override
@@ -707,8 +906,27 @@ class NoteDataData extends i0.DataClass
     if (!nullToAbsent || evict != null) {
       map['evict'] = i0.Variable<bool>(evict);
     }
+    if (!nullToAbsent || tag1 != null) {
+      map['tag1'] = i0.Variable<String>(tag1);
+    }
+    if (!nullToAbsent || tag2 != null) {
+      map['tag2'] = i0.Variable<String>(tag2);
+    }
+    if (!nullToAbsent || tag3 != null) {
+      map['tag3'] = i0.Variable<String>(tag3);
+    }
+    if (!nullToAbsent || moreTags != null) {
+      map['more_tags'] =
+          i0.Variable<String>(i1.NoteData.$convertermoreTagsn.toSql(moreTags));
+    }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.NoteData.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || noteDataSlot != null) {
       map['note_data_slot'] = i0.Variable<String>(
@@ -756,8 +974,26 @@ class NoteDataData extends i0.DataClass
       evict: evict == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(evict),
+      tag1: tag1 == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(tag1),
+      tag2: tag2 == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(tag2),
+      tag3: tag3 == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(tag3),
+      moreTags: moreTags == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(moreTags),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       noteDataSlot: noteDataSlot == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(noteDataSlot),
@@ -785,8 +1021,15 @@ class NoteDataData extends i0.DataClass
           serializer.fromJson<String?>(json['more_info_item_name']),
       tenantId: serializer.fromJson<String?>(json['tenant_id']),
       evict: serializer.fromJson<bool?>(json['evict']),
+      tag1: serializer.fromJson<String?>(json['tag1']),
+      tag2: serializer.fromJson<String?>(json['tag2']),
+      tag3: serializer.fromJson<String?>(json['tag3']),
+      moreTags: i1.NoteData.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       acl: i1.NoteData.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       noteDataSlot: i1.NoteData.$converternoteDataSlotn.fromJson(serializer
           .fromJson<List<Map<String, dynamic>>?>(json['note_data_slot'])),
       reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
@@ -808,8 +1051,15 @@ class NoteDataData extends i0.DataClass
       'more_info_item_name': serializer.toJson<String?>(moreInfoItemName),
       'tenant_id': serializer.toJson<String?>(tenantId),
       'evict': serializer.toJson<bool?>(evict),
+      'tag1': serializer.toJson<String?>(tag1),
+      'tag2': serializer.toJson<String?>(tag2),
+      'tag3': serializer.toJson<String?>(tag3),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.NoteData.$convertermoreTagsn.toJson(moreTags)),
       'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.NoteData.$converteracln.toJson(acl)),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'note_data_slot': serializer.toJson<List<Map<String, dynamic>>?>(
           i1.NoteData.$converternoteDataSlotn.toJson(noteDataSlot)),
       'reserved_flag': serializer.toJson<int?>(reservedFlag),
@@ -829,7 +1079,13 @@ class NoteDataData extends i0.DataClass
           i0.Value<String?> moreInfoItemName = const i0.Value.absent(),
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
+          i0.Value<String?> tag1 = const i0.Value.absent(),
+          i0.Value<String?> tag2 = const i0.Value.absent(),
+          i0.Value<String?> tag3 = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<List<i3.NoteDataSlot>?> noteDataSlot =
               const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
@@ -853,7 +1109,14 @@ class NoteDataData extends i0.DataClass
             : this.moreInfoItemName,
         tenantId: tenantId.present ? tenantId.value : this.tenantId,
         evict: evict.present ? evict.value : this.evict,
+        tag1: tag1.present ? tag1.value : this.tag1,
+        tag2: tag2.present ? tag2.value : this.tag2,
+        tag3: tag3.present ? tag3.value : this.tag3,
+        moreTags: moreTags.present ? moreTags.value : this.moreTags,
         acl: acl.present ? acl.value : this.acl,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         noteDataSlot:
             noteDataSlot.present ? noteDataSlot.value : this.noteDataSlot,
         reservedFlag:
@@ -884,7 +1147,16 @@ class NoteDataData extends i0.DataClass
           : this.moreInfoItemName,
       tenantId: data.tenantId.present ? data.tenantId.value : this.tenantId,
       evict: data.evict.present ? data.evict.value : this.evict,
+      tag1: data.tag1.present ? data.tag1.value : this.tag1,
+      tag2: data.tag2.present ? data.tag2.value : this.tag2,
+      tag3: data.tag3.present ? data.tag3.value : this.tag3,
+      moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       acl: data.acl.present ? data.acl.value : this.acl,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       noteDataSlot: data.noteDataSlot.present
           ? data.noteDataSlot.value
           : this.noteDataSlot,
@@ -909,7 +1181,13 @@ class NoteDataData extends i0.DataClass
           ..write('moreInfoItemName: $moreInfoItemName, ')
           ..write('tenantId: $tenantId, ')
           ..write('evict: $evict, ')
+          ..write('tag1: $tag1, ')
+          ..write('tag2: $tag2, ')
+          ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('noteDataSlot: $noteDataSlot, ')
           ..write('reservedFlag: $reservedFlag')
           ..write(')'))
@@ -917,22 +1195,29 @@ class NoteDataData extends i0.DataClass
   }
 
   @override
-  int get hashCode => Object.hash(
-      noteId,
-      noteName,
-      noteInfo,
-      noteDateTime,
-      lastUpdatedTxStamp,
-      createdTxStamp,
-      noteParty,
-      moreInfoUrl,
-      moreInfoItemId,
-      moreInfoItemName,
-      tenantId,
-      evict,
-      acl,
-      noteDataSlot,
-      reservedFlag);
+  int get hashCode => Object.hashAll([
+        noteId,
+        noteName,
+        noteInfo,
+        noteDateTime,
+        lastUpdatedTxStamp,
+        createdTxStamp,
+        noteParty,
+        moreInfoUrl,
+        moreInfoItemId,
+        moreInfoItemName,
+        tenantId,
+        evict,
+        tag1,
+        tag2,
+        tag3,
+        moreTags,
+        acl,
+        resourceId,
+        resourceType,
+        noteDataSlot,
+        reservedFlag
+      ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -949,7 +1234,13 @@ class NoteDataData extends i0.DataClass
           other.moreInfoItemName == this.moreInfoItemName &&
           other.tenantId == this.tenantId &&
           other.evict == this.evict &&
+          other.tag1 == this.tag1 &&
+          other.tag2 == this.tag2 &&
+          other.tag3 == this.tag3 &&
+          other.moreTags == this.moreTags &&
           other.acl == this.acl &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.noteDataSlot == this.noteDataSlot &&
           other.reservedFlag == this.reservedFlag);
 }
@@ -967,7 +1258,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
   final i0.Value<String?> moreInfoItemName;
   final i0.Value<String?> tenantId;
   final i0.Value<bool?> evict;
+  final i0.Value<String?> tag1;
+  final i0.Value<String?> tag2;
+  final i0.Value<String?> tag3;
+  final i0.Value<List<String>?> moreTags;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<List<i3.NoteDataSlot>?> noteDataSlot;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
@@ -984,7 +1281,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     this.moreInfoItemName = const i0.Value.absent(),
     this.tenantId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.tag1 = const i0.Value.absent(),
+    this.tag2 = const i0.Value.absent(),
+    this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.noteDataSlot = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
@@ -1002,7 +1305,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     this.moreInfoItemName = const i0.Value.absent(),
     this.tenantId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.tag1 = const i0.Value.absent(),
+    this.tag2 = const i0.Value.absent(),
+    this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.noteDataSlot = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
@@ -1020,7 +1329,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     i0.Expression<String>? moreInfoItemName,
     i0.Expression<String>? tenantId,
     i0.Expression<bool>? evict,
+    i0.Expression<String>? tag1,
+    i0.Expression<String>? tag2,
+    i0.Expression<String>? tag3,
+    i0.Expression<String>? moreTags,
     i0.Expression<String>? acl,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<String>? noteDataSlot,
     i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
@@ -1039,7 +1354,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       if (moreInfoItemName != null) 'more_info_item_name': moreInfoItemName,
       if (tenantId != null) 'tenant_id': tenantId,
       if (evict != null) 'evict': evict,
+      if (tag1 != null) 'tag1': tag1,
+      if (tag2 != null) 'tag2': tag2,
+      if (tag3 != null) 'tag3': tag3,
+      if (moreTags != null) 'more_tags': moreTags,
       if (acl != null) 'acl': acl,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (noteDataSlot != null) 'note_data_slot': noteDataSlot,
       if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
@@ -1059,7 +1380,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       i0.Value<String?>? moreInfoItemName,
       i0.Value<String?>? tenantId,
       i0.Value<bool?>? evict,
+      i0.Value<String?>? tag1,
+      i0.Value<String?>? tag2,
+      i0.Value<String?>? tag3,
+      i0.Value<List<String>?>? moreTags,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<List<i3.NoteDataSlot>?>? noteDataSlot,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
@@ -1076,7 +1403,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
       moreInfoItemName: moreInfoItemName ?? this.moreInfoItemName,
       tenantId: tenantId ?? this.tenantId,
       evict: evict ?? this.evict,
+      tag1: tag1 ?? this.tag1,
+      tag2: tag2 ?? this.tag2,
+      tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       noteDataSlot: noteDataSlot ?? this.noteDataSlot,
       reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
@@ -1123,9 +1456,28 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
     if (evict.present) {
       map['evict'] = i0.Variable<bool>(evict.value);
     }
+    if (tag1.present) {
+      map['tag1'] = i0.Variable<String>(tag1.value);
+    }
+    if (tag2.present) {
+      map['tag2'] = i0.Variable<String>(tag2.value);
+    }
+    if (tag3.present) {
+      map['tag3'] = i0.Variable<String>(tag3.value);
+    }
+    if (moreTags.present) {
+      map['more_tags'] = i0.Variable<String>(
+          i1.NoteData.$convertermoreTagsn.toSql(moreTags.value));
+    }
     if (acl.present) {
       map['acl'] =
           i0.Variable<String>(i1.NoteData.$converteracln.toSql(acl.value));
+    }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
     }
     if (noteDataSlot.present) {
       map['note_data_slot'] = i0.Variable<String>(
@@ -1155,7 +1507,13 @@ class NoteDataCompanion extends i0.UpdateCompanion<i1.NoteDataData> {
           ..write('moreInfoItemName: $moreInfoItemName, ')
           ..write('tenantId: $tenantId, ')
           ..write('evict: $evict, ')
+          ..write('tag1: $tag1, ')
+          ..write('tag2: $tag2, ')
+          ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('noteDataSlot: $noteDataSlot, ')
           ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')

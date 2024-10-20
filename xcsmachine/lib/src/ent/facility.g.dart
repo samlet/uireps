@@ -46,6 +46,8 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
           ?.map((e) => e as String?)
           .toList(),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       facilityType: json['facilityType'] == null
           ? null
           : FacilityType.fromJson(json['facilityType'] as Map<String, dynamic>),
@@ -119,6 +121,8 @@ Map<String, dynamic> _$FacilityToJson(Facility instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('facilityType', instance.facilityType?.toJson());
   writeNotNull('facilityCalendar',
       instance.facilityCalendar?.map((e) => e.toJson()).toList());

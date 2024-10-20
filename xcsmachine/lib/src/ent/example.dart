@@ -61,6 +61,8 @@ class Example {
     this.tag3,
     this.moreTags,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.exampleType,
     this.exampleFeatureAppl,
     this.exampleStatus,
@@ -112,6 +114,8 @@ class Example {
     String? tag3,
     List<String?>? moreTags,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     ExampleType? exampleType,
     List<ExampleFeatureAppl>? exampleFeatureAppl,
     List<ExampleStatus>? exampleStatus,
@@ -162,6 +166,8 @@ class Example {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       exampleType: exampleType ?? this.exampleType,
       exampleFeatureAppl: exampleFeatureAppl ?? this.exampleFeatureAppl,
       exampleStatus: exampleStatus ?? this.exampleStatus,
@@ -320,6 +326,12 @@ class Example {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

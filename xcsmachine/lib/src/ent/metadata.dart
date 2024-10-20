@@ -36,6 +36,8 @@ class Metadata {
     this.tag3,
     this.moreTags,
     this.evict,
+    this.resourceId,
+    this.resourceType,
     this.metadataType,
     this.metadataStatus,
   });
@@ -60,6 +62,8 @@ class Metadata {
     String? tag3,
     List<String?>? moreTags,
     bool? evict,
+    String? resourceId,
+    String? resourceType,
     MetadataType? metadataType,
     List<MetadataStatus>? metadataStatus,
   }) {
@@ -83,6 +87,8 @@ class Metadata {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       evict: evict ?? this.evict,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       metadataType: metadataType ?? this.metadataType,
       metadataStatus: metadataStatus ?? this.metadataStatus,
     );
@@ -160,6 +166,12 @@ class Metadata {
 
    
   bool? evict;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

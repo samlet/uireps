@@ -37,6 +37,8 @@ typedef $FacilityCreateCompanionBuilder = i1.FacilityCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i3.FacilityType?> facilityType,
   i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
   i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
@@ -79,6 +81,8 @@ typedef $FacilityUpdateCompanionBuilder = i1.FacilityCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i3.FacilityType?> facilityType,
   i0.Value<List<i3.FacilityCalendar>?> facilityCalendar,
   i0.Value<List<i3.FacilityMultisig>?> facilityMultisig,
@@ -209,6 +213,13 @@ class $FacilityFilterComposer
       get acl => $composableBuilder(
           column: $table.acl,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i3.FacilityType?, i3.FacilityType, String>
       get facilityType => $composableBuilder(
@@ -386,6 +397,14 @@ class $FacilityOrderingComposer
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get facilityType => $composableBuilder(
       column: $table.facilityType,
       builder: (column) => i0.ColumnOrderings(column));
@@ -527,6 +546,12 @@ class $FacilityAnnotationComposer
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<i3.FacilityType?, String>
       get facilityType => $composableBuilder(
           column: $table.facilityType, builder: (column) => column);
@@ -627,6 +652,8 @@ class $FacilityTableManager extends i0.RootTableManager<
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
             i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
                 const i0.Value.absent(),
@@ -677,6 +704,8 @@ class $FacilityTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             facilityType: facilityType,
             facilityCalendar: facilityCalendar,
             facilityMultisig: facilityMultisig,
@@ -721,6 +750,8 @@ class $FacilityTableManager extends i0.RootTableManager<
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
             i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
                 const i0.Value.absent(),
@@ -771,6 +802,8 @@ class $FacilityTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             facilityType: facilityType,
             facilityCalendar: facilityCalendar,
             facilityMultisig: facilityMultisig,
@@ -1016,6 +1049,20 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.Facility.$converteracln);
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _facilityTypeMeta =
       const i0.VerificationMeta('facilityType');
   late final i0.GeneratedColumnWithTypeConverter<i3.FacilityType?, String>
@@ -1151,6 +1198,8 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
         tag3,
         moreTags,
         acl,
+        resourceId,
+        resourceType,
         facilityType,
         facilityCalendar,
         facilityMultisig,
@@ -1328,6 +1377,18 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     context.handle(_facilityTypeMeta, const i0.VerificationResult.success());
     context.handle(
         _facilityCalendarMeta, const i0.VerificationResult.success());
@@ -1425,6 +1486,10 @@ class Facility extends i0.Table with i0.TableInfo<Facility, i1.FacilityData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       acl: i1.Facility.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       facilityType: i1.Facility.$converterfacilityTypen.fromSql(
           attachedDatabase.typeMapping.read(
               i0.DriftSqlType.string, data['${effectivePrefix}facility_type'])),
@@ -1561,6 +1626,8 @@ class FacilityData extends i0.DataClass
   final String? tag3;
   final List<String>? moreTags;
   final i2.Multimap<String, String>? acl;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: one (no public-types)
   final i3.FacilityType? facilityType;
@@ -1605,6 +1672,8 @@ class FacilityData extends i0.DataClass
       this.tag3,
       this.moreTags,
       this.acl,
+      this.resourceId,
+      this.resourceType,
       this.facilityType,
       this.facilityCalendar,
       this.facilityMultisig,
@@ -1706,6 +1775,12 @@ class FacilityData extends i0.DataClass
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Facility.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || facilityType != null) {
       map['facility_type'] = i0.Variable<String>(
@@ -1839,6 +1914,12 @@ class FacilityData extends i0.DataClass
           : i0.Value(moreTags),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       facilityType: facilityType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(facilityType),
@@ -1916,6 +1997,8 @@ class FacilityData extends i0.DataClass
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       acl: i1.Facility.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       facilityType: i1.Facility.$converterfacilityTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['facility_type'])),
       facilityCalendar: i1.Facility.$converterfacilityCalendarn.fromJson(
@@ -1984,6 +2067,8 @@ class FacilityData extends i0.DataClass
           i1.Facility.$convertermoreTagsn.toJson(moreTags)),
       'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.Facility.$converteracln.toJson(acl)),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'facility_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Facility.$converterfacilityTypen.toJson(facilityType)),
       'facility_calendar': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -2042,6 +2127,8 @@ class FacilityData extends i0.DataClass
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<i3.FacilityType?> facilityType = const i0.Value.absent(),
           i0.Value<List<i3.FacilityCalendar>?> facilityCalendar =
               const i0.Value.absent(),
@@ -2114,6 +2201,9 @@ class FacilityData extends i0.DataClass
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
         acl: acl.present ? acl.value : this.acl,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         facilityType:
             facilityType.present ? facilityType.value : this.facilityType,
         facilityCalendar: facilityCalendar.present
@@ -2211,6 +2301,11 @@ class FacilityData extends i0.DataClass
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       acl: data.acl.present ? data.acl.value : this.acl,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       facilityType: data.facilityType.present
           ? data.facilityType.value
           : this.facilityType,
@@ -2276,6 +2371,8 @@ class FacilityData extends i0.DataClass
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('facilityType: $facilityType, ')
           ..write('facilityCalendar: $facilityCalendar, ')
           ..write('facilityMultisig: $facilityMultisig, ')
@@ -2321,6 +2418,8 @@ class FacilityData extends i0.DataClass
         tag3,
         moreTags,
         acl,
+        resourceId,
+        resourceType,
         facilityType,
         facilityCalendar,
         facilityMultisig,
@@ -2365,6 +2464,8 @@ class FacilityData extends i0.DataClass
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
           other.acl == this.acl &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.facilityType == this.facilityType &&
           other.facilityCalendar == this.facilityCalendar &&
           other.facilityMultisig == this.facilityMultisig &&
@@ -2407,6 +2508,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<i3.FacilityType?> facilityType;
   final i0.Value<List<i3.FacilityCalendar>?> facilityCalendar;
   final i0.Value<List<i3.FacilityMultisig>?> facilityMultisig;
@@ -2449,6 +2552,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.facilityType = const i0.Value.absent(),
     this.facilityCalendar = const i0.Value.absent(),
     this.facilityMultisig = const i0.Value.absent(),
@@ -2491,6 +2596,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.facilityType = const i0.Value.absent(),
     this.facilityCalendar = const i0.Value.absent(),
     this.facilityMultisig = const i0.Value.absent(),
@@ -2533,6 +2640,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
     i0.Expression<String>? acl,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<String>? facilityType,
     i0.Expression<String>? facilityCalendar,
     i0.Expression<String>? facilityMultisig,
@@ -2580,6 +2689,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
       if (acl != null) 'acl': acl,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (facilityType != null) 'facility_type': facilityType,
       if (facilityCalendar != null) 'facility_calendar': facilityCalendar,
       if (facilityMultisig != null) 'facility_multisig': facilityMultisig,
@@ -2627,6 +2738,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<i3.FacilityType?>? facilityType,
       i0.Value<List<i3.FacilityCalendar>?>? facilityCalendar,
       i0.Value<List<i3.FacilityMultisig>?>? facilityMultisig,
@@ -2672,6 +2785,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       facilityType: facilityType ?? this.facilityType,
       facilityCalendar: facilityCalendar ?? this.facilityCalendar,
       facilityMultisig: facilityMultisig ?? this.facilityMultisig,
@@ -2786,6 +2901,12 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
       map['acl'] =
           i0.Variable<String>(i1.Facility.$converteracln.toSql(acl.value));
     }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
+    }
     if (facilityType.present) {
       map['facility_type'] = i0.Variable<String>(
           i1.Facility.$converterfacilityTypen.toSql(facilityType.value));
@@ -2871,6 +2992,8 @@ class FacilityCompanion extends i0.UpdateCompanion<i1.FacilityData> {
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('facilityType: $facilityType, ')
           ..write('facilityCalendar: $facilityCalendar, ')
           ..write('facilityMultisig: $facilityMultisig, ')

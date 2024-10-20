@@ -23,6 +23,7 @@ dependencies:
   dio: ^5.7.0
   recase: ^4.1.0
   jiffy: ^6.3.1
+  faker: ^2.2.0
 
 dev_dependencies:
   flutter_test:

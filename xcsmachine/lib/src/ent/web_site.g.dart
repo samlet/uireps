@@ -39,6 +39,8 @@ WebSite _$WebSiteFromJson(Map<String, dynamic> json) => WebSite(
           ?.map((e) => e as String?)
           .toList(),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       webSiteContactList: (json['webSiteContactList'] as List<dynamic>?)
           ?.map((e) => WebSiteContactList.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -80,6 +82,8 @@ Map<String, dynamic> _$WebSiteToJson(WebSite instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('webSiteContactList',
       instance.webSiteContactList?.map((e) => e.toJson()).toList());
   return val;

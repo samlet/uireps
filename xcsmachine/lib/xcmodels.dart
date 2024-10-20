@@ -24,6 +24,8 @@ export 'src/ent/shopping_cart.dart';
 export 'src/ent/billboard.dart';
 export 'src/ent/marketplace.dart';
 export 'src/ent/notification.dart';
+export 'src/ent/slot.dart';
+export 'src/ent/asset.dart';
 
 // plugins
 export 'commoditymodels.dart';

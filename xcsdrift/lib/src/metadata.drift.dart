@@ -27,6 +27,8 @@ typedef $MetadataCreateCompanionBuilder = i1.MetadataCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
   i0.Value<bool?> evict,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i3.MetadataType?> metadataType,
   i0.Value<List<i3.MetadataStatus>?> metadataStatus,
   i0.Value<int?> reservedFlag,
@@ -52,6 +54,8 @@ typedef $MetadataUpdateCompanionBuilder = i1.MetadataCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
   i0.Value<bool?> evict,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i3.MetadataType?> metadataType,
   i0.Value<List<i3.MetadataStatus>?> metadataStatus,
   i0.Value<int?> reservedFlag,
@@ -131,6 +135,13 @@ class $MetadataFilterComposer
 
   i0.ColumnFilters<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i3.MetadataType?, i3.MetadataType, String>
       get metadataType => $composableBuilder(
@@ -218,6 +229,14 @@ class $MetadataOrderingComposer
   i0.ColumnOrderings<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get metadataType => $composableBuilder(
       column: $table.metadataType,
       builder: (column) => i0.ColumnOrderings(column));
@@ -298,6 +317,12 @@ class $MetadataAnnotationComposer
   i0.GeneratedColumn<bool> get evict =>
       $composableBuilder(column: $table.evict, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<i3.MetadataType?, String>
       get metadataType => $composableBuilder(
           column: $table.metadataType, builder: (column) => column);
@@ -356,6 +381,8 @@ class $MetadataTableManager extends i0.RootTableManager<
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
             i0.Value<List<i3.MetadataStatus>?> metadataStatus =
                 const i0.Value.absent(),
@@ -382,6 +409,8 @@ class $MetadataTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             evict: evict,
+            resourceId: resourceId,
+            resourceType: resourceType,
             metadataType: metadataType,
             metadataStatus: metadataStatus,
             reservedFlag: reservedFlag,
@@ -408,6 +437,8 @@ class $MetadataTableManager extends i0.RootTableManager<
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
             i0.Value<List<i3.MetadataStatus>?> metadataStatus =
                 const i0.Value.absent(),
@@ -434,6 +465,8 @@ class $MetadataTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             evict: evict,
+            resourceId: resourceId,
+            resourceType: resourceType,
             metadataType: metadataType,
             metadataStatus: metadataStatus,
             reservedFlag: reservedFlag,
@@ -604,6 +637,20 @@ class Metadata extends i0.Table with i0.TableInfo<Metadata, i1.MetadataData> {
       type: i0.DriftSqlType.bool,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _metadataTypeMeta =
       const i0.VerificationMeta('metadataType');
   late final i0.GeneratedColumnWithTypeConverter<i3.MetadataType?, String>
@@ -652,6 +699,8 @@ class Metadata extends i0.Table with i0.TableInfo<Metadata, i1.MetadataData> {
         tag3,
         moreTags,
         evict,
+        resourceId,
+        resourceType,
         metadataType,
         metadataStatus,
         reservedFlag
@@ -747,6 +796,18 @@ class Metadata extends i0.Table with i0.TableInfo<Metadata, i1.MetadataData> {
       context.handle(
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     context.handle(_metadataTypeMeta, const i0.VerificationResult.success());
     context.handle(_metadataStatusMeta, const i0.VerificationResult.success());
     if (data.containsKey('reserved_flag')) {
@@ -804,6 +865,10 @@ class Metadata extends i0.Table with i0.TableInfo<Metadata, i1.MetadataData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       evict: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       metadataType: i1.Metadata.$convertermetadataTypen.fromSql(
           attachedDatabase.typeMapping.read(
               i0.DriftSqlType.string, data['${effectivePrefix}metadata_type'])),
@@ -867,6 +932,8 @@ class MetadataData extends i0.DataClass
   final String? tag3;
   final List<String>? moreTags;
   final bool? evict;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: one (no public-types)
   final i3.MetadataType? metadataType;
@@ -894,6 +961,8 @@ class MetadataData extends i0.DataClass
       this.tag3,
       this.moreTags,
       this.evict,
+      this.resourceId,
+      this.resourceType,
       this.metadataType,
       this.metadataStatus,
       this.reservedFlag});
@@ -956,6 +1025,12 @@ class MetadataData extends i0.DataClass
     }
     if (!nullToAbsent || evict != null) {
       map['evict'] = i0.Variable<bool>(evict);
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || metadataType != null) {
       map['metadata_type'] = i0.Variable<String>(
@@ -1028,6 +1103,12 @@ class MetadataData extends i0.DataClass
       evict: evict == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(evict),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       metadataType: metadataType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(metadataType),
@@ -1066,6 +1147,8 @@ class MetadataData extends i0.DataClass
       moreTags: i1.Metadata.$convertermoreTagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       evict: serializer.fromJson<bool?>(json['evict']),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       metadataType: i1.Metadata.$convertermetadataTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['metadata_type'])),
       metadataStatus: i1.Metadata.$convertermetadataStatusn.fromJson(serializer
@@ -1098,6 +1181,8 @@ class MetadataData extends i0.DataClass
       'more_tags': serializer.toJson<List<dynamic>?>(
           i1.Metadata.$convertermoreTagsn.toJson(moreTags)),
       'evict': serializer.toJson<bool?>(evict),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'metadata_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Metadata.$convertermetadataTypen.toJson(metadataType)),
       'metadata_status': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -1127,6 +1212,8 @@ class MetadataData extends i0.DataClass
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<i3.MetadataType?> metadataType = const i0.Value.absent(),
           i0.Value<List<i3.MetadataStatus>?> metadataStatus =
               const i0.Value.absent(),
@@ -1155,6 +1242,9 @@ class MetadataData extends i0.DataClass
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
         evict: evict.present ? evict.value : this.evict,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         metadataType:
             metadataType.present ? metadataType.value : this.metadataType,
         metadataStatus:
@@ -1190,6 +1280,11 @@ class MetadataData extends i0.DataClass
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       evict: data.evict.present ? data.evict.value : this.evict,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       metadataType: data.metadataType.present
           ? data.metadataType.value
           : this.metadataType,
@@ -1224,6 +1319,8 @@ class MetadataData extends i0.DataClass
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('evict: $evict, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('metadataType: $metadataType, ')
           ..write('metadataStatus: $metadataStatus, ')
           ..write('reservedFlag: $reservedFlag')
@@ -1252,6 +1349,8 @@ class MetadataData extends i0.DataClass
         tag3,
         moreTags,
         evict,
+        resourceId,
+        resourceType,
         metadataType,
         metadataStatus,
         reservedFlag
@@ -1279,6 +1378,8 @@ class MetadataData extends i0.DataClass
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
           other.evict == this.evict &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.metadataType == this.metadataType &&
           other.metadataStatus == this.metadataStatus &&
           other.reservedFlag == this.reservedFlag);
@@ -1304,6 +1405,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
   final i0.Value<bool?> evict;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<i3.MetadataType?> metadataType;
   final i0.Value<List<i3.MetadataStatus>?> metadataStatus;
   final i0.Value<int?> reservedFlag;
@@ -1328,6 +1431,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.metadataType = const i0.Value.absent(),
     this.metadataStatus = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
@@ -1353,6 +1458,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.metadataType = const i0.Value.absent(),
     this.metadataStatus = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
@@ -1378,6 +1485,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
     i0.Expression<bool>? evict,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<String>? metadataType,
     i0.Expression<String>? metadataStatus,
     i0.Expression<int>? reservedFlag,
@@ -1404,6 +1513,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
       if (evict != null) 'evict': evict,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (metadataType != null) 'metadata_type': metadataType,
       if (metadataStatus != null) 'metadata_status': metadataStatus,
       if (reservedFlag != null) 'reserved_flag': reservedFlag,
@@ -1431,6 +1542,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
       i0.Value<bool?>? evict,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<i3.MetadataType?>? metadataType,
       i0.Value<List<i3.MetadataStatus>?>? metadataStatus,
       i0.Value<int?>? reservedFlag,
@@ -1455,6 +1568,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       evict: evict ?? this.evict,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       metadataType: metadataType ?? this.metadataType,
       metadataStatus: metadataStatus ?? this.metadataStatus,
       reservedFlag: reservedFlag ?? this.reservedFlag,
@@ -1525,6 +1640,12 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
     if (evict.present) {
       map['evict'] = i0.Variable<bool>(evict.value);
     }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
+    }
     if (metadataType.present) {
       map['metadata_type'] = i0.Variable<String>(
           i1.Metadata.$convertermetadataTypen.toSql(metadataType.value));
@@ -1564,6 +1685,8 @@ class MetadataCompanion extends i0.UpdateCompanion<i1.MetadataData> {
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('evict: $evict, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('metadataType: $metadataType, ')
           ..write('metadataStatus: $metadataStatus, ')
           ..write('reservedFlag: $reservedFlag, ')

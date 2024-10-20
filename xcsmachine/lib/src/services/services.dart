@@ -24,3 +24,5 @@ export 'shopping_cart_pod.dart';
 export 'billboard_pod.dart';
 export 'marketplace_pod.dart';
 export 'notification_pod.dart';
+export 'slot_pod.dart';
+export 'asset_pod.dart';

@@ -28,6 +28,8 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
       multiJointers: stringMultimapFromJson(
           json['multiJointers'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       walletType: json['walletType'] == null
           ? null
           : WalletType.fromJson(json['walletType'] as Map<String, dynamic>),
@@ -84,6 +86,8 @@ Map<String, dynamic> _$WalletToJson(Wallet instance) {
   writeNotNull('jointers', instance.jointers);
   val['multiJointers'] = stringMultimapToJson(instance.multiJointers);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('walletType', instance.walletType?.toJson());
   writeNotNull('walletContainer',
       instance.walletContainer?.map((e) => e.toJson()).toList());

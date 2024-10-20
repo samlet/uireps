@@ -76,6 +76,8 @@ class WorkEffort {
     this.confirmation,
     this.evict,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.workEffortType,
     this.workEffortTransaction,
     this.workEffortNote,
@@ -149,6 +151,8 @@ class WorkEffort {
     String? confirmation,
     bool? evict,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     WorkEffortType? workEffortType,
     List<WorkEffortTransaction>? workEffortTransaction,
     List<WorkEffortNote>? workEffortNote,
@@ -221,6 +225,8 @@ class WorkEffort {
       confirmation: confirmation ?? this.confirmation,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       workEffortType: workEffortType ?? this.workEffortType,
       workEffortTransaction: workEffortTransaction ?? this.workEffortTransaction,
       workEffortNote: workEffortNote ?? this.workEffortNote,
@@ -427,6 +433,12 @@ class WorkEffort {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

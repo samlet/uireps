@@ -25,6 +25,8 @@ class ContactMech {
     this.tenantId,
     this.evict,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.postalAddress,
     this.contactMechType,
     this.telecomNumber,
@@ -40,6 +42,8 @@ class ContactMech {
     String? tenantId,
     bool? evict,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     PostalAddress? postalAddress,
     ContactMechType? contactMechType,
     TelecomNumber? telecomNumber,
@@ -54,6 +58,8 @@ class ContactMech {
       tenantId: tenantId ?? this.tenantId,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       postalAddress: postalAddress ?? this.postalAddress,
       contactMechType: contactMechType ?? this.contactMechType,
       telecomNumber: telecomNumber ?? this.telecomNumber,
@@ -100,6 +106,12 @@ class ContactMech {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

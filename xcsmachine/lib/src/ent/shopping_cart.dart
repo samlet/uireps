@@ -41,6 +41,8 @@ class ShoppingCart {
     this.evict,
     this.multiJointers,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.shoppingCartType,
     this.shoppingCartSlot,
     this.shoppingCartStatus,
@@ -72,6 +74,8 @@ class ShoppingCart {
     bool? evict,
     Multimap<String, String>? multiJointers,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     ShoppingCartType? shoppingCartType,
     List<ShoppingCartSlot>? shoppingCartSlot,
     List<ShoppingCartStatus>? shoppingCartStatus,
@@ -102,6 +106,8 @@ class ShoppingCart {
       evict: evict ?? this.evict,
       multiJointers: multiJointers ?? this.multiJointers,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       shoppingCartType: shoppingCartType ?? this.shoppingCartType,
       shoppingCartSlot: shoppingCartSlot ?? this.shoppingCartSlot,
       shoppingCartStatus: shoppingCartStatus ?? this.shoppingCartStatus,
@@ -197,6 +203,12 @@ class ShoppingCart {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

@@ -41,6 +41,8 @@ class Linkage {
     this.moreTags,
     this.evict,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.linkageType,
     this.linkageStatus,
   });
@@ -70,6 +72,8 @@ class Linkage {
     List<String?>? moreTags,
     bool? evict,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     LinkageType? linkageType,
     List<LinkageStatus>? linkageStatus,
   }) {
@@ -98,6 +102,8 @@ class Linkage {
       moreTags: moreTags ?? this.moreTags,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       linkageType: linkageType ?? this.linkageType,
       linkageStatus: linkageStatus ?? this.linkageStatus,
     );
@@ -190,6 +196,12 @@ class Linkage {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

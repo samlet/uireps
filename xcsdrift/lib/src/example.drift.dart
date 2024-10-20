@@ -49,7 +49,13 @@ typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<String?> slotId,
   i0.Value<String?> customerConfirmation,
   i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i4.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i5.ExampleType?> exampleType,
   i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
   i0.Value<List<i5.ExampleStatus>?> exampleStatus,
@@ -97,7 +103,13 @@ typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<String?> slotId,
   i0.Value<String?> customerConfirmation,
   i0.Value<bool?> evict,
+  i0.Value<String?> tag1,
+  i0.Value<String?> tag2,
+  i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
   i0.Value<i4.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<i5.ExampleType?> exampleType,
   i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
   i0.Value<List<i5.ExampleStatus>?> exampleStatus,
@@ -287,11 +299,32 @@ class $ExampleFilterComposer
   i0.ColumnFilters<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnFilters(column));
 
+  i0.ColumnFilters<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
   i0.ColumnWithTypeConverterFilters<i4.Multimap<String, String>?,
           i4.Multimap<String, String>, String>
       get acl => $composableBuilder(
           column: $table.acl,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i5.ExampleType?, i5.ExampleType, String>
       get exampleType => $composableBuilder(
@@ -473,8 +506,28 @@ class $ExampleOrderingComposer
   i0.ColumnOrderings<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get tag1 => $composableBuilder(
+      column: $table.tag1, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag2 => $composableBuilder(
+      column: $table.tag2, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get tag3 => $composableBuilder(
+      column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
 
   i0.ColumnOrderings<String> get exampleType => $composableBuilder(
       column: $table.exampleType,
@@ -635,9 +688,27 @@ class $ExampleAnnotationComposer
   i0.GeneratedColumn<bool> get evict =>
       $composableBuilder(column: $table.evict, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get tag1 =>
+      $composableBuilder(column: $table.tag1, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag2 =>
+      $composableBuilder(column: $table.tag2, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get tag3 =>
+      $composableBuilder(column: $table.tag3, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?, String>
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
 
   i0.GeneratedColumnWithTypeConverter<i5.ExampleType?, String>
       get exampleType => $composableBuilder(
@@ -726,8 +797,14 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<String?> slotId = const i0.Value.absent(),
             i0.Value<String?> customerConfirmation = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i4.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
             i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
                 const i0.Value.absent(),
@@ -778,7 +855,13 @@ class $ExampleTableManager extends i0.RootTableManager<
             slotId: slotId,
             customerConfirmation: customerConfirmation,
             evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             exampleType: exampleType,
             exampleFeatureAppl: exampleFeatureAppl,
             exampleStatus: exampleStatus,
@@ -828,8 +911,14 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<String?> slotId = const i0.Value.absent(),
             i0.Value<String?> customerConfirmation = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
+            i0.Value<String?> tag1 = const i0.Value.absent(),
+            i0.Value<String?> tag2 = const i0.Value.absent(),
+            i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i4.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
             i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
                 const i0.Value.absent(),
@@ -880,7 +969,13 @@ class $ExampleTableManager extends i0.RootTableManager<
             slotId: slotId,
             customerConfirmation: customerConfirmation,
             evict: evict,
+            tag1: tag1,
+            tag2: tag2,
+            tag3: tag3,
+            moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             exampleType: exampleType,
             exampleFeatureAppl: exampleFeatureAppl,
             exampleStatus: exampleStatus,
@@ -1215,6 +1310,35 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
       type: i0.DriftSqlType.bool,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _tag1Meta =
+      const i0.VerificationMeta('tag1');
+  late final i0.GeneratedColumn<String> tag1 = i0.GeneratedColumn<String>(
+      'tag1', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _tag2Meta =
+      const i0.VerificationMeta('tag2');
+  late final i0.GeneratedColumn<String> tag2 = i0.GeneratedColumn<String>(
+      'tag2', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _tag3Meta =
+      const i0.VerificationMeta('tag3');
+  late final i0.GeneratedColumn<String> tag3 = i0.GeneratedColumn<String>(
+      'tag3', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _moreTagsMeta =
+      const i0.VerificationMeta('moreTags');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Example.$convertermoreTagsn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?,
       String> acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
@@ -1222,6 +1346,20 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i4.Multimap<String, String>?>(i1.Example.$converteracln);
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _exampleTypeMeta =
       const i0.VerificationMeta('exampleType');
   late final i0.GeneratedColumnWithTypeConverter<i5.ExampleType?, String>
@@ -1311,7 +1449,13 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
         slotId,
         customerConfirmation,
         evict,
+        tag1,
+        tag2,
+        tag3,
+        moreTags,
         acl,
+        resourceId,
+        resourceType,
         exampleType,
         exampleFeatureAppl,
         exampleStatus,
@@ -1462,7 +1606,32 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
       context.handle(
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
     }
+    if (data.containsKey('tag1')) {
+      context.handle(
+          _tag1Meta, tag1.isAcceptableOrUnknown(data['tag1']!, _tag1Meta));
+    }
+    if (data.containsKey('tag2')) {
+      context.handle(
+          _tag2Meta, tag2.isAcceptableOrUnknown(data['tag2']!, _tag2Meta));
+    }
+    if (data.containsKey('tag3')) {
+      context.handle(
+          _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
+    }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     context.handle(_exampleTypeMeta, const i0.VerificationResult.success());
     context.handle(
         _exampleFeatureApplMeta, const i0.VerificationResult.success());
@@ -1577,8 +1746,21 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           data['${effectivePrefix}customer_confirmation']),
       evict: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
+      tag1: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tag1']),
+      tag2: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
+      tag3: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
+      moreTags: i1.Example.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       acl: i1.Example.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       exampleType: i1.Example.$converterexampleTypen.fromSql(
           attachedDatabase.typeMapping.read(
               i0.DriftSqlType.string, data['${effectivePrefix}example_type'])),
@@ -1696,6 +1878,11 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
   static i0
       .JsonTypeConverter2<Map<String, Object?>?, String?, Map<String, dynamic>?>
       $converterdetailn = i0.JsonTypeConverter2.asNullable($converterdetail);
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i6.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
   static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i6.StringMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
@@ -1769,7 +1956,13 @@ class ExampleData extends i0.DataClass
   final String? slotId;
   final String? customerConfirmation;
   final bool? evict;
+  final String? tag1;
+  final String? tag2;
+  final String? tag3;
+  final List<String>? moreTags;
   final i4.Multimap<String, String>? acl;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: one (no public-types)
   final i5.ExampleType? exampleType;
@@ -1819,7 +2012,13 @@ class ExampleData extends i0.DataClass
       this.slotId,
       this.customerConfirmation,
       this.evict,
+      this.tag1,
+      this.tag2,
+      this.tag3,
+      this.moreTags,
       this.acl,
+      this.resourceId,
+      this.resourceType,
       this.exampleType,
       this.exampleFeatureAppl,
       this.exampleStatus,
@@ -1959,8 +2158,27 @@ class ExampleData extends i0.DataClass
     if (!nullToAbsent || evict != null) {
       map['evict'] = i0.Variable<bool>(evict);
     }
+    if (!nullToAbsent || tag1 != null) {
+      map['tag1'] = i0.Variable<String>(tag1);
+    }
+    if (!nullToAbsent || tag2 != null) {
+      map['tag2'] = i0.Variable<String>(tag2);
+    }
+    if (!nullToAbsent || tag3 != null) {
+      map['tag3'] = i0.Variable<String>(tag3);
+    }
+    if (!nullToAbsent || moreTags != null) {
+      map['more_tags'] =
+          i0.Variable<String>(i1.Example.$convertermoreTagsn.toSql(moreTags));
+    }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Example.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || exampleType != null) {
       map['example_type'] = i0.Variable<String>(
@@ -2101,8 +2319,26 @@ class ExampleData extends i0.DataClass
       evict: evict == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(evict),
+      tag1: tag1 == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(tag1),
+      tag2: tag2 == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(tag2),
+      tag3: tag3 == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(tag3),
+      moreTags: moreTags == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(moreTags),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       exampleType: exampleType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(exampleType),
@@ -2183,8 +2419,15 @@ class ExampleData extends i0.DataClass
       customerConfirmation:
           serializer.fromJson<String?>(json['customer_confirmation']),
       evict: serializer.fromJson<bool?>(json['evict']),
+      tag1: serializer.fromJson<String?>(json['tag1']),
+      tag2: serializer.fromJson<String?>(json['tag2']),
+      tag3: serializer.fromJson<String?>(json['tag3']),
+      moreTags: i1.Example.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       acl: i1.Example.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       exampleType: i1.Example.$converterexampleTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['example_type'])),
       exampleFeatureAppl: i1.Example.$converterexampleFeatureAppln.fromJson(
@@ -2257,8 +2500,15 @@ class ExampleData extends i0.DataClass
       'slot_id': serializer.toJson<String?>(slotId),
       'customer_confirmation': serializer.toJson<String?>(customerConfirmation),
       'evict': serializer.toJson<bool?>(evict),
+      'tag1': serializer.toJson<String?>(tag1),
+      'tag2': serializer.toJson<String?>(tag2),
+      'tag3': serializer.toJson<String?>(tag3),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.Example.$convertermoreTagsn.toJson(moreTags)),
       'acl': serializer
           .toJson<Map<String, dynamic>?>(i1.Example.$converteracln.toJson(acl)),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'example_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$converterexampleTypen.toJson(exampleType)),
       'example_feature_appl': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -2312,7 +2562,13 @@ class ExampleData extends i0.DataClass
           i0.Value<String?> slotId = const i0.Value.absent(),
           i0.Value<String?> customerConfirmation = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
+          i0.Value<String?> tag1 = const i0.Value.absent(),
+          i0.Value<String?> tag2 = const i0.Value.absent(),
+          i0.Value<String?> tag3 = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<i4.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
           i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
               const i0.Value.absent(),
@@ -2374,7 +2630,14 @@ class ExampleData extends i0.DataClass
             ? customerConfirmation.value
             : this.customerConfirmation,
         evict: evict.present ? evict.value : this.evict,
+        tag1: tag1.present ? tag1.value : this.tag1,
+        tag2: tag2.present ? tag2.value : this.tag2,
+        tag3: tag3.present ? tag3.value : this.tag3,
+        moreTags: moreTags.present ? moreTags.value : this.moreTags,
         acl: acl.present ? acl.value : this.acl,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         exampleType: exampleType.present ? exampleType.value : this.exampleType,
         exampleFeatureAppl: exampleFeatureAppl.present
             ? exampleFeatureAppl.value
@@ -2455,7 +2718,16 @@ class ExampleData extends i0.DataClass
           ? data.customerConfirmation.value
           : this.customerConfirmation,
       evict: data.evict.present ? data.evict.value : this.evict,
+      tag1: data.tag1.present ? data.tag1.value : this.tag1,
+      tag2: data.tag2.present ? data.tag2.value : this.tag2,
+      tag3: data.tag3.present ? data.tag3.value : this.tag3,
+      moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       acl: data.acl.present ? data.acl.value : this.acl,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       exampleType:
           data.exampleType.present ? data.exampleType.value : this.exampleType,
       exampleFeatureAppl: data.exampleFeatureAppl.present
@@ -2514,7 +2786,13 @@ class ExampleData extends i0.DataClass
           ..write('slotId: $slotId, ')
           ..write('customerConfirmation: $customerConfirmation, ')
           ..write('evict: $evict, ')
+          ..write('tag1: $tag1, ')
+          ..write('tag2: $tag2, ')
+          ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('exampleType: $exampleType, ')
           ..write('exampleFeatureAppl: $exampleFeatureAppl, ')
           ..write('exampleStatus: $exampleStatus, ')
@@ -2565,7 +2843,13 @@ class ExampleData extends i0.DataClass
         slotId,
         customerConfirmation,
         evict,
+        tag1,
+        tag2,
+        tag3,
+        moreTags,
         acl,
+        resourceId,
+        resourceType,
         exampleType,
         exampleFeatureAppl,
         exampleStatus,
@@ -2615,7 +2899,13 @@ class ExampleData extends i0.DataClass
           other.slotId == this.slotId &&
           other.customerConfirmation == this.customerConfirmation &&
           other.evict == this.evict &&
+          other.tag1 == this.tag1 &&
+          other.tag2 == this.tag2 &&
+          other.tag3 == this.tag3 &&
+          other.moreTags == this.moreTags &&
           other.acl == this.acl &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.exampleType == this.exampleType &&
           other.exampleFeatureAppl == this.exampleFeatureAppl &&
           other.exampleStatus == this.exampleStatus &&
@@ -2663,7 +2953,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
   final i0.Value<String?> slotId;
   final i0.Value<String?> customerConfirmation;
   final i0.Value<bool?> evict;
+  final i0.Value<String?> tag1;
+  final i0.Value<String?> tag2;
+  final i0.Value<String?> tag3;
+  final i0.Value<List<String>?> moreTags;
   final i0.Value<i4.Multimap<String, String>?> acl;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<i5.ExampleType?> exampleType;
   final i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl;
   final i0.Value<List<i5.ExampleStatus>?> exampleStatus;
@@ -2710,7 +3006,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.slotId = const i0.Value.absent(),
     this.customerConfirmation = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.tag1 = const i0.Value.absent(),
+    this.tag2 = const i0.Value.absent(),
+    this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.exampleType = const i0.Value.absent(),
     this.exampleFeatureAppl = const i0.Value.absent(),
     this.exampleStatus = const i0.Value.absent(),
@@ -2758,7 +3060,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.slotId = const i0.Value.absent(),
     this.customerConfirmation = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
+    this.tag1 = const i0.Value.absent(),
+    this.tag2 = const i0.Value.absent(),
+    this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.exampleType = const i0.Value.absent(),
     this.exampleFeatureAppl = const i0.Value.absent(),
     this.exampleStatus = const i0.Value.absent(),
@@ -2806,7 +3114,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     i0.Expression<String>? slotId,
     i0.Expression<String>? customerConfirmation,
     i0.Expression<bool>? evict,
+    i0.Expression<String>? tag1,
+    i0.Expression<String>? tag2,
+    i0.Expression<String>? tag3,
+    i0.Expression<String>? moreTags,
     i0.Expression<String>? acl,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<String>? exampleType,
     i0.Expression<String>? exampleFeatureAppl,
     i0.Expression<String>? exampleStatus,
@@ -2856,7 +3170,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       if (customerConfirmation != null)
         'customer_confirmation': customerConfirmation,
       if (evict != null) 'evict': evict,
+      if (tag1 != null) 'tag1': tag1,
+      if (tag2 != null) 'tag2': tag2,
+      if (tag3 != null) 'tag3': tag3,
+      if (moreTags != null) 'more_tags': moreTags,
       if (acl != null) 'acl': acl,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (exampleType != null) 'example_type': exampleType,
       if (exampleFeatureAppl != null)
         'example_feature_appl': exampleFeatureAppl,
@@ -2907,7 +3227,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       i0.Value<String?>? slotId,
       i0.Value<String?>? customerConfirmation,
       i0.Value<bool?>? evict,
+      i0.Value<String?>? tag1,
+      i0.Value<String?>? tag2,
+      i0.Value<String?>? tag3,
+      i0.Value<List<String>?>? moreTags,
       i0.Value<i4.Multimap<String, String>?>? acl,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<i5.ExampleType?>? exampleType,
       i0.Value<List<i5.ExampleFeatureAppl>?>? exampleFeatureAppl,
       i0.Value<List<i5.ExampleStatus>?>? exampleStatus,
@@ -2954,7 +3280,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       slotId: slotId ?? this.slotId,
       customerConfirmation: customerConfirmation ?? this.customerConfirmation,
       evict: evict ?? this.evict,
+      tag1: tag1 ?? this.tag1,
+      tag2: tag2 ?? this.tag2,
+      tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       exampleType: exampleType ?? this.exampleType,
       exampleFeatureAppl: exampleFeatureAppl ?? this.exampleFeatureAppl,
       exampleStatus: exampleStatus ?? this.exampleStatus,
@@ -3103,9 +3435,28 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     if (evict.present) {
       map['evict'] = i0.Variable<bool>(evict.value);
     }
+    if (tag1.present) {
+      map['tag1'] = i0.Variable<String>(tag1.value);
+    }
+    if (tag2.present) {
+      map['tag2'] = i0.Variable<String>(tag2.value);
+    }
+    if (tag3.present) {
+      map['tag3'] = i0.Variable<String>(tag3.value);
+    }
+    if (moreTags.present) {
+      map['more_tags'] = i0.Variable<String>(
+          i1.Example.$convertermoreTagsn.toSql(moreTags.value));
+    }
     if (acl.present) {
       map['acl'] =
           i0.Variable<String>(i1.Example.$converteracln.toSql(acl.value));
+    }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
     }
     if (exampleType.present) {
       map['example_type'] = i0.Variable<String>(
@@ -3175,7 +3526,13 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
           ..write('slotId: $slotId, ')
           ..write('customerConfirmation: $customerConfirmation, ')
           ..write('evict: $evict, ')
+          ..write('tag1: $tag1, ')
+          ..write('tag2: $tag2, ')
+          ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('exampleType: $exampleType, ')
           ..write('exampleFeatureAppl: $exampleFeatureAppl, ')
           ..write('exampleStatus: $exampleStatus, ')

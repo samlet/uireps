@@ -53,6 +53,8 @@ typedef $ShipmentCreateCompanionBuilder = i1.ShipmentCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
   i0.Value<List<i3.ShippingDocument>?> shippingDocument,
   i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature,
@@ -114,6 +116,8 @@ typedef $ShipmentUpdateCompanionBuilder = i1.ShipmentCompanion Function({
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
   i0.Value<i2.Multimap<String, String>?> acl,
+  i0.Value<String?> resourceId,
+  i0.Value<String?> resourceType,
   i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling,
   i0.Value<List<i3.ShippingDocument>?> shippingDocument,
   i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature,
@@ -308,6 +312,13 @@ class $ShipmentFilterComposer
       get acl => $composableBuilder(
           column: $table.acl,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<List<i3.ShipmentItemBilling>?,
           List<i3.ShipmentItemBilling>, String>
@@ -566,6 +577,14 @@ class $ShipmentOrderingComposer
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get resourceId => $composableBuilder(
+      column: $table.resourceId,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get resourceType => $composableBuilder(
+      column: $table.resourceType,
+      builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get shipmentItemBilling => $composableBuilder(
       column: $table.shipmentItemBilling,
       builder: (column) => i0.ColumnOrderings(column));
@@ -768,6 +787,12 @@ class $ShipmentAnnotationComposer
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get resourceId => $composableBuilder(
+      column: $table.resourceId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get resourceType => $composableBuilder(
+      column: $table.resourceType, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<List<i3.ShipmentItemBilling>?, String>
       get shipmentItemBilling => $composableBuilder(
           column: $table.shipmentItemBilling, builder: (column) => column);
@@ -896,6 +921,8 @@ class $ShipmentTableManager extends i0.RootTableManager<
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
                 const i0.Value.absent(),
             i0.Value<List<i3.ShippingDocument>?> shippingDocument =
@@ -969,6 +996,8 @@ class $ShipmentTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             shipmentItemBilling: shipmentItemBilling,
             shippingDocument: shippingDocument,
             shipmentItemFeature: shipmentItemFeature,
@@ -1035,6 +1064,8 @@ class $ShipmentTableManager extends i0.RootTableManager<
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
+            i0.Value<String?> resourceId = const i0.Value.absent(),
+            i0.Value<String?> resourceType = const i0.Value.absent(),
             i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
                 const i0.Value.absent(),
             i0.Value<List<i3.ShippingDocument>?> shippingDocument =
@@ -1108,6 +1139,8 @@ class $ShipmentTableManager extends i0.RootTableManager<
             tag3: tag3,
             moreTags: moreTags,
             acl: acl,
+            resourceId: resourceId,
+            resourceType: resourceType,
             shipmentItemBilling: shipmentItemBilling,
             shippingDocument: shippingDocument,
             shipmentItemFeature: shipmentItemFeature,
@@ -1474,6 +1507,20 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
           requiredDuringInsert: false,
           $customConstraints: '')
       .withConverter<i2.Multimap<String, String>?>(i1.Shipment.$converteracln);
+  static const i0.VerificationMeta _resourceIdMeta =
+      const i0.VerificationMeta('resourceId');
+  late final i0.GeneratedColumn<String> resourceId = i0.GeneratedColumn<String>(
+      'resource_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _resourceTypeMeta =
+      const i0.VerificationMeta('resourceType');
+  late final i0.GeneratedColumn<String> resourceType =
+      i0.GeneratedColumn<String>('resource_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _shipmentItemBillingMeta =
       const i0.VerificationMeta('shipmentItemBilling');
   late final i0
@@ -1658,6 +1705,8 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
         tag3,
         moreTags,
         acl,
+        resourceId,
+        resourceType,
         shipmentItemBilling,
         shippingDocument,
         shipmentItemFeature,
@@ -1932,6 +1981,18 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
+    if (data.containsKey('resource_id')) {
+      context.handle(
+          _resourceIdMeta,
+          resourceId.isAcceptableOrUnknown(
+              data['resource_id']!, _resourceIdMeta));
+    }
+    if (data.containsKey('resource_type')) {
+      context.handle(
+          _resourceTypeMeta,
+          resourceType.isAcceptableOrUnknown(
+              data['resource_type']!, _resourceTypeMeta));
+    }
     context.handle(
         _shipmentItemBillingMeta, const i0.VerificationResult.success());
     context.handle(
@@ -2078,6 +2139,10 @@ class Shipment extends i0.Table with i0.TableInfo<Shipment, i1.ShipmentData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
       acl: i1.Shipment.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
+      resourceId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
+      resourceType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
       shipmentItemBilling: i1.Shipment.$convertershipmentItemBillingn.fromSql(
           attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
               data['${effectivePrefix}shipment_item_billing'])),
@@ -2257,6 +2322,8 @@ class ShipmentData extends i0.DataClass
   final String? tag3;
   final List<String>? moreTags;
   final i2.Multimap<String, String>? acl;
+  final String? resourceId;
+  final String? resourceType;
 
   /// rel: many
   /// rel: one (no public-types)
@@ -2319,6 +2386,8 @@ class ShipmentData extends i0.DataClass
       this.tag3,
       this.moreTags,
       this.acl,
+      this.resourceId,
+      this.resourceType,
       this.shipmentItemBilling,
       this.shippingDocument,
       this.shipmentItemFeature,
@@ -2479,6 +2548,12 @@ class ShipmentData extends i0.DataClass
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Shipment.$converteracln.toSql(acl));
+    }
+    if (!nullToAbsent || resourceId != null) {
+      map['resource_id'] = i0.Variable<String>(resourceId);
+    }
+    if (!nullToAbsent || resourceType != null) {
+      map['resource_type'] = i0.Variable<String>(resourceType);
     }
     if (!nullToAbsent || shipmentItemBilling != null) {
       map['shipment_item_billing'] = i0.Variable<String>(i1
@@ -2675,6 +2750,12 @@ class ShipmentData extends i0.DataClass
           : i0.Value(moreTags),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
+      resourceId: resourceId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceId),
+      resourceType: resourceType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(resourceType),
       shipmentItemBilling: shipmentItemBilling == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(shipmentItemBilling),
@@ -2789,6 +2870,8 @@ class ShipmentData extends i0.DataClass
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
       acl: i1.Shipment.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
+      resourceId: serializer.fromJson<String?>(json['resource_id']),
+      resourceType: serializer.fromJson<String?>(json['resource_type']),
       shipmentItemBilling: i1.Shipment.$convertershipmentItemBillingn.fromJson(
           serializer.fromJson<List<Map<String, dynamic>>?>(
               json['shipment_item_billing'])),
@@ -2888,6 +2971,8 @@ class ShipmentData extends i0.DataClass
           i1.Shipment.$convertermoreTagsn.toJson(moreTags)),
       'acl': serializer.toJson<Map<String, dynamic>?>(
           i1.Shipment.$converteracln.toJson(acl)),
+      'resource_id': serializer.toJson<String?>(resourceId),
+      'resource_type': serializer.toJson<String?>(resourceType),
       'shipment_item_billing': serializer.toJson<List<Map<String, dynamic>>?>(i1
           .Shipment.$convertershipmentItemBillingn
           .toJson(shipmentItemBilling)),
@@ -2970,6 +3055,8 @@ class ShipmentData extends i0.DataClass
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
+          i0.Value<String?> resourceId = const i0.Value.absent(),
+          i0.Value<String?> resourceType = const i0.Value.absent(),
           i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling =
               const i0.Value.absent(),
           i0.Value<List<i3.ShippingDocument>?> shippingDocument =
@@ -3091,6 +3178,9 @@ class ShipmentData extends i0.DataClass
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
         acl: acl.present ? acl.value : this.acl,
+        resourceId: resourceId.present ? resourceId.value : this.resourceId,
+        resourceType:
+            resourceType.present ? resourceType.value : this.resourceType,
         shipmentItemBilling: shipmentItemBilling.present
             ? shipmentItemBilling.value
             : this.shipmentItemBilling,
@@ -3234,6 +3324,11 @@ class ShipmentData extends i0.DataClass
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
       acl: data.acl.present ? data.acl.value : this.acl,
+      resourceId:
+          data.resourceId.present ? data.resourceId.value : this.resourceId,
+      resourceType: data.resourceType.present
+          ? data.resourceType.value
+          : this.resourceType,
       shipmentItemBilling: data.shipmentItemBilling.present
           ? data.shipmentItemBilling.value
           : this.shipmentItemBilling,
@@ -3324,6 +3419,8 @@ class ShipmentData extends i0.DataClass
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('shipmentItemBilling: $shipmentItemBilling, ')
           ..write('shippingDocument: $shippingDocument, ')
           ..write('shipmentItemFeature: $shipmentItemFeature, ')
@@ -3388,6 +3485,8 @@ class ShipmentData extends i0.DataClass
         tag3,
         moreTags,
         acl,
+        resourceId,
+        resourceType,
         shipmentItemBilling,
         shippingDocument,
         shipmentItemFeature,
@@ -3451,6 +3550,8 @@ class ShipmentData extends i0.DataClass
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
           other.acl == this.acl &&
+          other.resourceId == this.resourceId &&
+          other.resourceType == this.resourceType &&
           other.shipmentItemBilling == this.shipmentItemBilling &&
           other.shippingDocument == this.shippingDocument &&
           other.shipmentItemFeature == this.shipmentItemFeature &&
@@ -3512,6 +3613,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
   final i0.Value<i2.Multimap<String, String>?> acl;
+  final i0.Value<String?> resourceId;
+  final i0.Value<String?> resourceType;
   final i0.Value<List<i3.ShipmentItemBilling>?> shipmentItemBilling;
   final i0.Value<List<i3.ShippingDocument>?> shippingDocument;
   final i0.Value<List<i3.ShipmentItemFeature>?> shipmentItemFeature;
@@ -3572,6 +3675,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.shipmentItemBilling = const i0.Value.absent(),
     this.shippingDocument = const i0.Value.absent(),
     this.shipmentItemFeature = const i0.Value.absent(),
@@ -3633,6 +3738,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
+    this.resourceId = const i0.Value.absent(),
+    this.resourceType = const i0.Value.absent(),
     this.shipmentItemBilling = const i0.Value.absent(),
     this.shippingDocument = const i0.Value.absent(),
     this.shipmentItemFeature = const i0.Value.absent(),
@@ -3694,6 +3801,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
     i0.Expression<String>? acl,
+    i0.Expression<String>? resourceId,
+    i0.Expression<String>? resourceType,
     i0.Expression<String>? shipmentItemBilling,
     i0.Expression<String>? shippingDocument,
     i0.Expression<String>? shipmentItemFeature,
@@ -3771,6 +3880,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
       if (acl != null) 'acl': acl,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (resourceType != null) 'resource_type': resourceType,
       if (shipmentItemBilling != null)
         'shipment_item_billing': shipmentItemBilling,
       if (shippingDocument != null) 'shipping_document': shippingDocument,
@@ -3839,6 +3950,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
       i0.Value<i2.Multimap<String, String>?>? acl,
+      i0.Value<String?>? resourceId,
+      i0.Value<String?>? resourceType,
       i0.Value<List<i3.ShipmentItemBilling>?>? shipmentItemBilling,
       i0.Value<List<i3.ShippingDocument>?>? shippingDocument,
       i0.Value<List<i3.ShipmentItemFeature>?>? shipmentItemFeature,
@@ -3909,6 +4022,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       shipmentItemBilling: shipmentItemBilling ?? this.shipmentItemBilling,
       shippingDocument: shippingDocument ?? this.shippingDocument,
       shipmentItemFeature: shipmentItemFeature ?? this.shipmentItemFeature,
@@ -4085,6 +4200,12 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
       map['acl'] =
           i0.Variable<String>(i1.Shipment.$converteracln.toSql(acl.value));
     }
+    if (resourceId.present) {
+      map['resource_id'] = i0.Variable<String>(resourceId.value);
+    }
+    if (resourceType.present) {
+      map['resource_type'] = i0.Variable<String>(resourceType.value);
+    }
     if (shipmentItemBilling.present) {
       map['shipment_item_billing'] = i0.Variable<String>(i1
           .Shipment.$convertershipmentItemBillingn
@@ -4198,6 +4319,8 @@ class ShipmentCompanion extends i0.UpdateCompanion<i1.ShipmentData> {
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
           ..write('acl: $acl, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('resourceType: $resourceType, ')
           ..write('shipmentItemBilling: $shipmentItemBilling, ')
           ..write('shippingDocument: $shippingDocument, ')
           ..write('shipmentItemFeature: $shipmentItemFeature, ')

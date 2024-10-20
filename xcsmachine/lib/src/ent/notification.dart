@@ -30,6 +30,8 @@ class Notification {
     this.tag2,
     this.tag3,
     this.evict,
+    this.resourceId,
+    this.resourceType,
     this.notificationType,
     this.notificationSlot,
     this.notificationStatus,
@@ -49,6 +51,8 @@ class Notification {
     String? tag2,
     String? tag3,
     bool? evict,
+    String? resourceId,
+    String? resourceType,
     NotificationType? notificationType,
     List<NotificationSlot>? notificationSlot,
     List<NotificationStatus>? notificationStatus,
@@ -67,6 +71,8 @@ class Notification {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       evict: evict ?? this.evict,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       notificationType: notificationType ?? this.notificationType,
       notificationSlot: notificationSlot ?? this.notificationSlot,
       notificationStatus: notificationStatus ?? this.notificationStatus,
@@ -126,6 +132,12 @@ class Notification {
 
    
   bool? evict;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

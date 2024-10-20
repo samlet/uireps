@@ -22,6 +22,8 @@ WhiteBoard _$WhiteBoardFromJson(Map<String, dynamic> json) => WhiteBoard(
       whiteBoardTypeId: json['whiteBoardTypeId'] as String?,
       statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       whiteBoardType: json['whiteBoardType'] == null
           ? null
           : WhiteBoardType.fromJson(
@@ -47,6 +49,8 @@ Map<String, dynamic> _$WhiteBoardToJson(WhiteBoard instance) {
   writeNotNull('whiteBoardTypeId', instance.whiteBoardTypeId);
   writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('whiteBoardType', instance.whiteBoardType?.toJson());
   return val;
 }

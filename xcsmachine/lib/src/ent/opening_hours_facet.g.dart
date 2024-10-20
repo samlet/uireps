@@ -22,6 +22,8 @@ OpeningHoursFacet _$OpeningHoursFacetFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['createdTxStamp'] as String),
       evict: json['evict'] as bool?,
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
     );
 
 Map<String, dynamic> _$OpeningHoursFacetToJson(OpeningHoursFacet instance) {
@@ -42,5 +44,7 @@ Map<String, dynamic> _$OpeningHoursFacetToJson(OpeningHoursFacet instance) {
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   writeNotNull('evict', instance.evict);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   return val;
 }

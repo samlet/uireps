@@ -71,6 +71,8 @@ Shipment _$ShipmentFromJson(Map<String, dynamic> json) => Shipment(
           ?.map((e) => e as String?)
           .toList(),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       shipmentItemBilling: (json['shipmentItemBilling'] as List<dynamic>?)
           ?.map((e) => ShipmentItemBilling.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -173,6 +175,8 @@ Map<String, dynamic> _$ShipmentToJson(Shipment instance) {
   writeNotNull('tag3', instance.tag3);
   writeNotNull('moreTags', instance.moreTags);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('shipmentItemBilling',
       instance.shipmentItemBilling?.map((e) => e.toJson()).toList());
   writeNotNull('shippingDocument',

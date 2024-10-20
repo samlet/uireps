@@ -25,6 +25,8 @@ class ContactFacet {
     this.lastUpdatedTxStamp,
     this.createdTxStamp,
     this.evict,
+    this.resourceId,
+    this.resourceType,
   });
 
   ContactFacet copyWith({
@@ -36,6 +38,8 @@ class ContactFacet {
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
     bool? evict,
+    String? resourceId,
+    String? resourceType,
   }) {
     return ContactFacet(
       contactId: contactId ?? this.contactId,
@@ -46,6 +50,8 @@ class ContactFacet {
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
       evict: evict ?? this.evict,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
     );
   }
 
@@ -87,6 +93,12 @@ class ContactFacet {
 
    
   bool? evict;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

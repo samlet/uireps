@@ -40,27 +40,6 @@ class BundlesQueryDealerRepository {
   }
    
   // Query
-  Future<List<Map<String, dynamic>>> loadBundles({
-    
-    required RequestIds r,
-    String? regionId='default', 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadBundles",
-      "bundleName" : "BundlesQueryDealer",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "r": r,
-      if(regionId!=null) "regionId": regionId, 
-    });
-    
-    return convList(resp, (el)=>el);
-  }
-   
-  // Query
   Future<PaginatedResponse> queryBundlePage({
     
     required String bundleName,
@@ -112,6 +91,27 @@ class BundlesQueryDealerRepository {
     });
     
     return PaginatedResponse.fromJson(resp);
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> loadBundles({
+    
+    required RequestIds r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadBundles",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
   }
   
 }

@@ -66,6 +66,8 @@ class Order {
     this.tag3,
     this.moreTags,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.orderType,
     this.orderItemShipGroupAssoc,
     this.orderItemPriceInfo,
@@ -135,6 +137,8 @@ class Order {
     String? tag3,
     List<String?>? moreTags,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     OrderType? orderType,
     List<OrderItemShipGroupAssoc>? orderItemShipGroupAssoc,
     List<OrderItemPriceInfo>? orderItemPriceInfo,
@@ -203,6 +207,8 @@ class Order {
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       orderType: orderType ?? this.orderType,
       orderItemShipGroupAssoc: orderItemShipGroupAssoc ?? this.orderItemShipGroupAssoc,
       orderItemPriceInfo: orderItemPriceInfo ?? this.orderItemPriceInfo,
@@ -385,6 +391,12 @@ class Order {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

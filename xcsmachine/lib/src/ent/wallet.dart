@@ -31,6 +31,8 @@ class Wallet {
     this.jointers,
     this.multiJointers,
     this.acl,
+    this.resourceId,
+    this.resourceType,
     this.walletType,
     this.walletContainer,
     this.walletReference,
@@ -58,6 +60,8 @@ class Wallet {
     Map<String, String>? jointers,
     Multimap<String, String>? multiJointers,
     Multimap<String, String>? acl,
+    String? resourceId,
+    String? resourceType,
     WalletType? walletType,
     List<WalletContainer>? walletContainer,
     List<WalletReference>? walletReference,
@@ -84,6 +88,8 @@ class Wallet {
       jointers: jointers ?? this.jointers,
       multiJointers: multiJointers ?? this.multiJointers,
       acl: acl ?? this.acl,
+      resourceId: resourceId ?? this.resourceId,
+      resourceType: resourceType ?? this.resourceType,
       walletType: walletType ?? this.walletType,
       walletContainer: walletContainer ?? this.walletContainer,
       walletReference: walletReference ?? this.walletReference,
@@ -155,6 +161,12 @@ class Wallet {
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
   Multimap<String, String>? acl;
+
+   
+  String? resourceId;
+
+   
+  String? resourceType;
 
 
   // rel: one (no public-types)

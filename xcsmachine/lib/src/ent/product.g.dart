@@ -108,6 +108,8 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
         (k, e) => MapEntry(k, e as String),
       ),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
+      resourceId: json['resourceId'] as String?,
+      resourceType: json['resourceType'] as String?,
       productType: json['productType'] == null
           ? null
           : ProductType.fromJson(json['productType'] as Map<String, dynamic>),
@@ -261,6 +263,8 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
   writeNotNull('moreTags', instance.moreTags);
   writeNotNull('jointers', instance.jointers);
   val['acl'] = stringMultimapToJson(instance.acl);
+  writeNotNull('resourceId', instance.resourceId);
+  writeNotNull('resourceType', instance.resourceType);
   writeNotNull('productType', instance.productType?.toJson());
   writeNotNull('fixedAssetProduct',
       instance.fixedAssetProduct?.map((e) => e.toJson()).toList());
