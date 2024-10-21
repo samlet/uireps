@@ -2274,6 +2274,19 @@ class ShoppingCartDrift extends i8.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.ShoppingCartData> queryShoppingCartsByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM shopping_cart WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          shoppingCart,
+        }).asyncMap(shoppingCart.mapFromRow);
+  }
+
   i1.ShoppingCart get shoppingCart => i8.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.ShoppingCart>('shopping_cart');
 }

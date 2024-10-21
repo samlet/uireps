@@ -1570,6 +1570,19 @@ class NoteDrift extends i6.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.NoteDataData> queryNoteDataByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM note_data WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          noteData,
+        }).asyncMap(noteData.mapFromRow);
+  }
+
   i1.NoteData get noteData => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.NoteData>('note_data');
 }

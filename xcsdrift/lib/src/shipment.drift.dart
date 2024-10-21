@@ -4388,6 +4388,19 @@ class ShipmentDrift extends i6.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.ShipmentData> queryShipmentsByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM shipment WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          shipment,
+        }).asyncMap(shipment.mapFromRow);
+  }
+
   i1.Shipment get shipment => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Shipment>('shipment');
 }

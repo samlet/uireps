@@ -20,55 +20,6 @@ class CarrierPalRepository {
   final String id;
 
    
-  // Query
-  Future<Position> getCurrentPosition() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getCurrentPosition",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Position.fromJson(resp);
-  }
-   
-  // Mutation
-  Future<void> setPosition({
-    
-    required Position pos, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "setPosition",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "pos": pos, 
-    });
-    
-  }
-   
-  // Query
-  Future<List<String>> getOrders() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrders",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
   // Mutation
   Future<void> addOrder({
     
@@ -105,6 +56,55 @@ class CarrierPalRepository {
       "orderId": orderId, 
     });
     
+  }
+   
+  // Mutation
+  Future<void> setPosition({
+    
+    required Position pos, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "setPosition",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "pos": pos, 
+    });
+    
+  }
+   
+  // Query
+  Future<List<String>> getOrders() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrders",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<Position> getCurrentPosition() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getCurrentPosition",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Position.fromJson(resp);
   }
    
   // Query

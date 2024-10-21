@@ -66,6 +66,7 @@ clearExamples: DELETE FROM example;
 addExample: INSERT INTO example $el;
 getExample: SELECT * FROM example WHERE example_id = ?;
 deleteExample: DELETE FROM example WHERE example_id = :id;
+queryExamplesByResourceBinder: SELECT * FROM example WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

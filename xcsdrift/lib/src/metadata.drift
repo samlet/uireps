@@ -39,6 +39,7 @@ clearMetadata: DELETE FROM metadata;
 addMetadata: INSERT INTO metadata $el;
 getMetadata: SELECT * FROM metadata WHERE metadata_id = ?;
 deleteMetadata: DELETE FROM metadata WHERE metadata_id = :id;
+queryMetadataByResourceBinder: SELECT * FROM metadata WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

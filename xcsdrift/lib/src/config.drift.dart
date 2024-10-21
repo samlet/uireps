@@ -1025,6 +1025,19 @@ class ConfigDrift extends i4.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.ConfigData> queryConfigsByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM config WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          config,
+        }).asyncMap(config.mapFromRow);
+  }
+
   i1.Config get config =>
       i4.ReadDatabaseContainer(attachedDatabase).resultSet<i1.Config>('config');
 }

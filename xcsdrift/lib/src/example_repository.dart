@@ -342,7 +342,36 @@ class ExampleRepository implements RepositoryBase {
   }
 
      
+
+  
+  Future<List<ent.Example>> fetchByResourceBinder(String resourceId, String resourceType, {bool smartMode = true}) async {
+    var ds = await portals.listResources(
+        bundleName: _bundleName, resourceId: resourceId, resourceType: resourceType);
+    return await storeDs(ds, smartMode: smartMode);
+  }
+
+  /// Watch by multi-ids
+  Stream<List<ExampleData>> fetchAndWatchByResourceBinder(
+      {required String resourceId, required String resourceType, bool smartMode = true}) async* {
+    final rs = await fetchByResourceBinder(resourceId, resourceType, smartMode: smartMode);
+    var queryIds = rs.map((el) => el.exampleId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  /// Watch by query statement
+  Stream<List<ExampleData>> watchByResourceBinder(String resourceId, String resourceType){
+    return db.exampleDrift.queryExamplesByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {
+    var sett = database.update(database.example)..where((el) => el.exampleId.equals(id));
+    var result = await sett
+        .write(ExampleCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
+    return result;
+  }
      
+     
+  
   
 }
 

@@ -7013,6 +7013,19 @@ class ProductDrift extends i6.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.ProductData> queryProductsByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM product WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          product,
+        }).asyncMap(product.mapFromRow);
+  }
+
   i1.Product get product => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Product>('product');
 }

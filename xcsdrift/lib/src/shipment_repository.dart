@@ -342,7 +342,36 @@ class ShipmentRepository implements RepositoryBase {
   }
 
      
+
+  
+  Future<List<ent.Shipment>> fetchByResourceBinder(String resourceId, String resourceType, {bool smartMode = true}) async {
+    var ds = await portals.listResources(
+        bundleName: _bundleName, resourceId: resourceId, resourceType: resourceType);
+    return await storeDs(ds, smartMode: smartMode);
+  }
+
+  /// Watch by multi-ids
+  Stream<List<ShipmentData>> fetchAndWatchByResourceBinder(
+      {required String resourceId, required String resourceType, bool smartMode = true}) async* {
+    final rs = await fetchByResourceBinder(resourceId, resourceType, smartMode: smartMode);
+    var queryIds = rs.map((el) => el.shipmentId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  /// Watch by query statement
+  Stream<List<ShipmentData>> watchByResourceBinder(String resourceId, String resourceType){
+    return db.shipmentDrift.queryShipmentsByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {
+    var sett = database.update(database.shipment)..where((el) => el.shipmentId.equals(id));
+    var result = await sett
+        .write(ShipmentCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
+    return result;
+  }
      
+     
+  
   
 }
 

@@ -79,6 +79,20 @@ class ExampleByTags extends _$ExampleByTags {
   }
 }
    
+
+
+/// Query by resource binder
+@riverpod
+class ExampleByResourceBinder extends _$ExampleByResourceBinder {
+  @override
+  Stream<List<ExampleData>> build({required String resourceId, required String resourceType}) {
+    return ref
+        .watch(exampleRepositoryProvider)
+        .fetchAndWatchByResourceBinder(resourceId: resourceId, resourceType: resourceType);
+  }
+}
+   
+
    
 
 /*

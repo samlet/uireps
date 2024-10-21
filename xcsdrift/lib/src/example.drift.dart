@@ -3592,6 +3592,19 @@ class ExampleDrift extends i8.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.ExampleData> queryExamplesByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM example WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          example,
+        }).asyncMap(example.mapFromRow);
+  }
+
   i1.Example get example => i8.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Example>('example');
 }

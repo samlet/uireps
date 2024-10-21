@@ -116,6 +116,7 @@ clearProducts: DELETE FROM product;
 addProduct: INSERT INTO product $el;
 getProduct: SELECT * FROM product WHERE product_id = ?;
 deleteProduct: DELETE FROM product WHERE product_id = :id;
+queryProductsByResourceBinder: SELECT * FROM product WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

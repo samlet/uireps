@@ -20,15 +20,26 @@ Future<void> main(List<String> arguments) async {
         subject: faker.person.name(),
         postedDateTime: DateTime.now(),
         review: faker.lorem.sentence(),
-        resourceId: 'note_1',
+        resourceId: 'note_3',
         resourceType: 'Note'));
   }
 
   var db = commentRepo.database;
+  // db.appSettingDrift
   var rs =
-      await db.commentDrift.queryCommentsByResourceBinder(resType: 'Note', resId: 'note_1').get();
+      await db.commentDrift.queryCommentsByResourceBinder(resType: 'Note', resId: 'note_3').get();
   print('total rs: ${rs.length}');
   for (var value in rs) {
     prettyPrint(value.toJson().removeNulls());
   }
+
+  // update
+  var fid=rs.first.commentId;
+  await commentRepo.setResourceBinder(fid, 'note_1', 'Note');
+  commentRepo.watchByResourceBinder('note_1', 'Note').listen((el){
+    print('find ${el.length}');
+    for (var value in el) {
+      print('- ${value.commentId}: ${value.subject}');
+    }
+  });
 }

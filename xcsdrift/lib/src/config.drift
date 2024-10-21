@@ -27,6 +27,7 @@ clearConfigs: DELETE FROM config;
 addConfig: INSERT INTO config $el;
 getConfig: SELECT * FROM config WHERE config_id = ?;
 deleteConfig: DELETE FROM config WHERE config_id = :id;
+queryConfigsByResourceBinder: SELECT * FROM config WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

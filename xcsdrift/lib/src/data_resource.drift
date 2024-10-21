@@ -48,6 +48,7 @@ clearDataResources: DELETE FROM data_resource;
 addDataResource: INSERT INTO data_resource $el;
 getDataResource: SELECT * FROM data_resource WHERE data_resource_id = ?;
 deleteDataResource: DELETE FROM data_resource WHERE data_resource_id = :id;
+queryDataResourcesByResourceBinder: SELECT * FROM data_resource WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

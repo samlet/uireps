@@ -43,8 +43,8 @@ clearComments: DELETE FROM comment;
 addComment: INSERT INTO comment $el;
 getComment: SELECT * FROM comment WHERE comment_id = ?;
 deleteComment: DELETE FROM comment WHERE comment_id = :id;
-
 queryCommentsByResourceBinder: SELECT * FROM comment WHERE resource_type = :resType AND resource_id = :resId;
+
 
 
 

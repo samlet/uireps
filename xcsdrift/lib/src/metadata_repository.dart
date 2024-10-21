@@ -342,7 +342,36 @@ class MetadataRepository implements RepositoryBase {
   }
 
      
+
+  
+  Future<List<ent.Metadata>> fetchByResourceBinder(String resourceId, String resourceType, {bool smartMode = true}) async {
+    var ds = await portals.listResources(
+        bundleName: _bundleName, resourceId: resourceId, resourceType: resourceType);
+    return await storeDs(ds, smartMode: smartMode);
+  }
+
+  /// Watch by multi-ids
+  Stream<List<MetadataData>> fetchAndWatchByResourceBinder(
+      {required String resourceId, required String resourceType, bool smartMode = true}) async* {
+    final rs = await fetchByResourceBinder(resourceId, resourceType, smartMode: smartMode);
+    var queryIds = rs.map((el) => el.metadataId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  /// Watch by query statement
+  Stream<List<MetadataData>> watchByResourceBinder(String resourceId, String resourceType){
+    return db.metadataDrift.queryMetadataByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {
+    var sett = database.update(database.metadata)..where((el) => el.metadataId.equals(id));
+    var result = await sett
+        .write(MetadataCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
+    return result;
+  }
      
+     
+  
   
 }
 

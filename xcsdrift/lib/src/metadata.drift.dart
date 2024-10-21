@@ -1744,6 +1744,19 @@ class MetadataDrift extends i6.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.MetadataData> queryMetadataByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM metadata WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          metadata,
+        }).asyncMap(metadata.mapFromRow);
+  }
+
   i1.Metadata get metadata => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Metadata>('metadata');
 }

@@ -46,6 +46,7 @@ clearShoppingCarts: DELETE FROM shopping_cart;
 addShoppingCart: INSERT INTO shopping_cart $el;
 getShoppingCart: SELECT * FROM shopping_cart WHERE shopping_cart_id = ?;
 deleteShoppingCart: DELETE FROM shopping_cart WHERE shopping_cart_id = :id;
+queryShoppingCartsByResourceBinder: SELECT * FROM shopping_cart WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

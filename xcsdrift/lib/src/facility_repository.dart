@@ -342,7 +342,36 @@ class FacilityRepository implements RepositoryBase {
   }
 
      
+
+  
+  Future<List<ent.Facility>> fetchByResourceBinder(String resourceId, String resourceType, {bool smartMode = true}) async {
+    var ds = await portals.listResources(
+        bundleName: _bundleName, resourceId: resourceId, resourceType: resourceType);
+    return await storeDs(ds, smartMode: smartMode);
+  }
+
+  /// Watch by multi-ids
+  Stream<List<FacilityData>> fetchAndWatchByResourceBinder(
+      {required String resourceId, required String resourceType, bool smartMode = true}) async* {
+    final rs = await fetchByResourceBinder(resourceId, resourceType, smartMode: smartMode);
+    var queryIds = rs.map((el) => el.facilityId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  /// Watch by query statement
+  Stream<List<FacilityData>> watchByResourceBinder(String resourceId, String resourceType){
+    return db.facilityDrift.queryFacilitiesByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {
+    var sett = database.update(database.facility)..where((el) => el.facilityId.equals(id));
+    var result = await sett
+        .write(FacilityCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
+    return result;
+  }
      
+     
+  
   
 }
 

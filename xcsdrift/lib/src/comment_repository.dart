@@ -317,7 +317,36 @@ class CommentRepository implements RepositoryBase {
   }
 
      
+
+  
+  Future<List<ent.Comment>> fetchByResourceBinder(String resourceId, String resourceType, {bool smartMode = true}) async {
+    var ds = await portals.listResources(
+        bundleName: _bundleName, resourceId: resourceId, resourceType: resourceType);
+    return await storeDs(ds, smartMode: smartMode);
+  }
+
+  /// Watch by multi-ids
+  Stream<List<CommentData>> fetchAndWatchByResourceBinder(
+      {required String resourceId, required String resourceType, bool smartMode = true}) async* {
+    final rs = await fetchByResourceBinder(resourceId, resourceType, smartMode: smartMode);
+    var queryIds = rs.map((el) => el.commentId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  /// Watch by query statement
+  Stream<List<CommentData>> watchByResourceBinder(String resourceId, String resourceType){
+    return db.commentDrift.queryCommentsByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {
+    var sett = database.update(database.comment)..where((el) => el.commentId.equals(id));
+    var result = await sett
+        .write(CommentCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
+    return result;
+  }
      
+     
+  
   
 }
 

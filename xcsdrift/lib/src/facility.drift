@@ -56,6 +56,7 @@ clearFacilities: DELETE FROM facility;
 addFacility: INSERT INTO facility $el;
 getFacility: SELECT * FROM facility WHERE facility_id = ?;
 deleteFacility: DELETE FROM facility WHERE facility_id = :id;
+queryFacilitiesByResourceBinder: SELECT * FROM facility WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

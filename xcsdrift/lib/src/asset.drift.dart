@@ -1910,6 +1910,19 @@ class AssetDrift extends i7.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.AssetData> queryAssetsByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM asset WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          asset,
+        }).asyncMap(asset.mapFromRow);
+  }
+
   i1.Asset get asset =>
       i7.ReadDatabaseContainer(attachedDatabase).resultSet<i1.Asset>('asset');
 }

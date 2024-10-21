@@ -3058,6 +3058,19 @@ class FacilityDrift extends i6.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.FacilityData> queryFacilitiesByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM facility WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          facility,
+        }).asyncMap(facility.mapFromRow);
+  }
+
   i1.Facility get facility => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Facility>('facility');
 }

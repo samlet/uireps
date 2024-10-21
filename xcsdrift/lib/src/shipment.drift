@@ -75,6 +75,7 @@ clearShipments: DELETE FROM shipment;
 addShipment: INSERT INTO shipment $el;
 getShipment: SELECT * FROM shipment WHERE shipment_id = ?;
 deleteShipment: DELETE FROM shipment WHERE shipment_id = :id;
+queryShipmentsByResourceBinder: SELECT * FROM shipment WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

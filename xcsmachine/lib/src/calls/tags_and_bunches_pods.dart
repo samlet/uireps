@@ -31,19 +31,6 @@ class TagsAndBunchesPod extends _$TagsAndBunchesPod {
   }
 
   
-  Future<bool> removeTags({
-    
-    required ModifyTags req, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(tagsAndBunchesProvider(regionOrNs: regionOrNs)).removeTags(
-              req: req,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> applyTags({
     
     required ModifyTags req, 
@@ -65,6 +52,19 @@ class TagsAndBunchesPod extends _$TagsAndBunchesPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(tagsAndBunchesProvider(regionOrNs: regionOrNs)).replaceTags(
+              req: req,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> removeTags({
+    
+    required ModifyTags req, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(tagsAndBunchesProvider(regionOrNs: regionOrNs)).removeTags(
               req: req,
             ));
     return state.hasError == false;

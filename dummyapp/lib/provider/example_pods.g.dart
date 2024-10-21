@@ -1076,5 +1076,190 @@ class _ExampleByTagsProviderElement
   @override
   List<String> get tags => (origin as ExampleByTagsProvider).tags;
 }
+
+String _$exampleByResourceBinderHash() =>
+    r'129a161d6f6151b02b0566b7f3abd91eb9d1039a';
+
+abstract class _$ExampleByResourceBinder
+    extends BuildlessAutoDisposeStreamNotifier<List<ExampleData>> {
+  late final String resourceId;
+  late final String resourceType;
+
+  Stream<List<ExampleData>> build({
+    required String resourceId,
+    required String resourceType,
+  });
+}
+
+/// Query by resource binder
+///
+/// Copied from [ExampleByResourceBinder].
+@ProviderFor(ExampleByResourceBinder)
+const exampleByResourceBinderProvider = ExampleByResourceBinderFamily();
+
+/// Query by resource binder
+///
+/// Copied from [ExampleByResourceBinder].
+class ExampleByResourceBinderFamily
+    extends Family<AsyncValue<List<ExampleData>>> {
+  /// Query by resource binder
+  ///
+  /// Copied from [ExampleByResourceBinder].
+  const ExampleByResourceBinderFamily();
+
+  /// Query by resource binder
+  ///
+  /// Copied from [ExampleByResourceBinder].
+  ExampleByResourceBinderProvider call({
+    required String resourceId,
+    required String resourceType,
+  }) {
+    return ExampleByResourceBinderProvider(
+      resourceId: resourceId,
+      resourceType: resourceType,
+    );
+  }
+
+  @override
+  ExampleByResourceBinderProvider getProviderOverride(
+    covariant ExampleByResourceBinderProvider provider,
+  ) {
+    return call(
+      resourceId: provider.resourceId,
+      resourceType: provider.resourceType,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'exampleByResourceBinderProvider';
+}
+
+/// Query by resource binder
+///
+/// Copied from [ExampleByResourceBinder].
+class ExampleByResourceBinderProvider
+    extends AutoDisposeStreamNotifierProviderImpl<ExampleByResourceBinder,
+        List<ExampleData>> {
+  /// Query by resource binder
+  ///
+  /// Copied from [ExampleByResourceBinder].
+  ExampleByResourceBinderProvider({
+    required String resourceId,
+    required String resourceType,
+  }) : this._internal(
+          () => ExampleByResourceBinder()
+            ..resourceId = resourceId
+            ..resourceType = resourceType,
+          from: exampleByResourceBinderProvider,
+          name: r'exampleByResourceBinderProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$exampleByResourceBinderHash,
+          dependencies: ExampleByResourceBinderFamily._dependencies,
+          allTransitiveDependencies:
+              ExampleByResourceBinderFamily._allTransitiveDependencies,
+          resourceId: resourceId,
+          resourceType: resourceType,
+        );
+
+  ExampleByResourceBinderProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.resourceId,
+    required this.resourceType,
+  }) : super.internal();
+
+  final String resourceId;
+  final String resourceType;
+
+  @override
+  Stream<List<ExampleData>> runNotifierBuild(
+    covariant ExampleByResourceBinder notifier,
+  ) {
+    return notifier.build(
+      resourceId: resourceId,
+      resourceType: resourceType,
+    );
+  }
+
+  @override
+  Override overrideWith(ExampleByResourceBinder Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ExampleByResourceBinderProvider._internal(
+        () => create()
+          ..resourceId = resourceId
+          ..resourceType = resourceType,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        resourceId: resourceId,
+        resourceType: resourceType,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeStreamNotifierProviderElement<ExampleByResourceBinder,
+      List<ExampleData>> createElement() {
+    return _ExampleByResourceBinderProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ExampleByResourceBinderProvider &&
+        other.resourceId == resourceId &&
+        other.resourceType == resourceType;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, resourceId.hashCode);
+    hash = _SystemHash.combine(hash, resourceType.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ExampleByResourceBinderRef
+    on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
+  /// The parameter `resourceId` of this provider.
+  String get resourceId;
+
+  /// The parameter `resourceType` of this provider.
+  String get resourceType;
+}
+
+class _ExampleByResourceBinderProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ExampleByResourceBinder,
+        List<ExampleData>> with ExampleByResourceBinderRef {
+  _ExampleByResourceBinderProviderElement(super.provider);
+
+  @override
+  String get resourceId =>
+      (origin as ExampleByResourceBinderProvider).resourceId;
+  @override
+  String get resourceType =>
+      (origin as ExampleByResourceBinderProvider).resourceType;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

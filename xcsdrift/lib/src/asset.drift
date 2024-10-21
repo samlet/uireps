@@ -42,6 +42,7 @@ clearAssets: DELETE FROM asset;
 addAsset: INSERT INTO asset $el;
 getAsset: SELECT * FROM asset WHERE asset_id = ?;
 deleteAsset: DELETE FROM asset WHERE asset_id = :id;
+queryAssetsByResourceBinder: SELECT * FROM asset WHERE resource_type = :resType AND resource_id = :resId;
 
 
 

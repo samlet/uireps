@@ -103,15 +103,19 @@ class AclOnChainPod extends _$AclOnChainPod {
 
   
 @riverpod
-Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
+Future<bool> aocIsOwner(AocIsOwnerRef ref, {
   String regionOrNs='default',
   
-    required String mod, 
+    required String biName,
+    required String bundleId,
+    required String userOrGroup, 
 
 }) async {
   var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getPublicMethods(
-      mod: mod,
+  return await pod.isOwner(
+      biName: biName,
+      bundleId: bundleId,
+      userOrGroup: userOrGroup,
   );
 }
   
@@ -131,19 +135,15 @@ Future<bool> aocHasRole(AocHasRoleRef ref, {
 }
   
 @riverpod
-Future<bool> aocIsOwner(AocIsOwnerRef ref, {
+Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
   String regionOrNs='default',
   
-    required String biName,
-    required String bundleId,
-    required String userOrGroup, 
+    required String mod, 
 
 }) async {
   var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.isOwner(
-      biName: biName,
-      bundleId: bundleId,
-      userOrGroup: userOrGroup,
+  return await pod.getPublicMethods(
+      mod: mod,
   );
 }
 

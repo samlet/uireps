@@ -50,6 +50,21 @@ Future<Map<String, Object?>> bundlesQueryLoadBundle(BundlesQueryLoadBundleRef re
 }
   
 @riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryLoadBundles(BundlesQueryLoadBundlesRef ref, {
+  String regionOrNs='default',
+  
+    required RequestIds r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.loadBundles(
+      r: r,
+      regionId: regionId,
+  );
+}
+  
+@riverpod
 Future<PaginatedResponse> bundlesQueryQueryBundlePage(BundlesQueryQueryBundlePageRef ref, {
   String regionOrNs='default',
   
@@ -88,21 +103,6 @@ Future<PaginatedResponse> bundlesQueryQueryBundlePageByTag(BundlesQueryQueryBund
       tag: tag,
       pageLimit: pageLimit,
       orders: orders,
-  );
-}
-  
-@riverpod
-Future<List<Map<String, dynamic>>> bundlesQueryLoadBundles(BundlesQueryLoadBundlesRef ref, {
-  String regionOrNs='default',
-  
-    required RequestIds r,
-    String? regionId='default', 
-
-}) async {
-  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
-  return await pod.loadBundles(
-      r: r,
-      regionId: regionId,
   );
 }
 

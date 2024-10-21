@@ -79,6 +79,20 @@ class NoteByTags extends _$NoteByTags {
   }
 }
    
+
+
+/// Query by resource binder
+@riverpod
+class NoteByResourceBinder extends _$NoteByResourceBinder {
+  @override
+  Stream<List<NoteDataData>> build({required String resourceId, required String resourceType}) {
+    return ref
+        .watch(noteRepositoryProvider)
+        .fetchAndWatchByResourceBinder(resourceId: resourceId, resourceType: resourceType);
+  }
+}
+   
+
    
 
 /*

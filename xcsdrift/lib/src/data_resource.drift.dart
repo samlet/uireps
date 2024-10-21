@@ -2492,6 +2492,19 @@ class DataResourceDrift extends i6.ModularAccessor {
     );
   }
 
+  i0.Selectable<i1.DataResourceData> queryDataResourcesByResourceBinder(
+      {String? resType, String? resId}) {
+    return customSelect(
+        'SELECT * FROM data_resource WHERE resource_type = ?1 AND resource_id = ?2',
+        variables: [
+          i0.Variable<String>(resType),
+          i0.Variable<String>(resId)
+        ],
+        readsFrom: {
+          dataResource,
+        }).asyncMap(dataResource.mapFromRow);
+  }
+
   i1.DataResource get dataResource => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.DataResource>('data_resource');
 }
