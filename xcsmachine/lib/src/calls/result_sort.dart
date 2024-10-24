@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultSort{
-  String? fld;
+class ResultSort{   
+  String? fld;   
   String? orderBy;
   ResultSort({
     this.fld,

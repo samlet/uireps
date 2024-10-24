@@ -2,9 +2,9 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class WebSiteCubeData{
-  WebSite? site;
-  String? httpUrl;
+class WebSiteCubeData{   
+  WebSite? site;   
+  String? httpUrl;   
   String? httpsUrl;
   WebSiteCubeData({
     this.site,

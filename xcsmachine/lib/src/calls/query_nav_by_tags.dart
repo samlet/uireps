@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class QueryNavByTags{
-  String? bundleName;
+class QueryNavByTags{   
+  String? bundleName;   
   NavReqTags? req;
   QueryNavByTags({
     this.bundleName,

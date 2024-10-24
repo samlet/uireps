@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'buyer_pref.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('BuyerPrefRepository');
 const _bundleName = 'BuyerPref';
 const _fullBundleName='facet:BuyerPref';
 
-class BuyerPrefRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class BuyerPrefRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  BuyerPrefRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  BuyerPrefRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class BuyerPrefRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class BuyerPrefRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.BuyerPref data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.buyerPrefId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.BuyerPref data) async {
     data.buyerPrefId ??= slugId();
     await storeEntry(data.toJson());
     return data.buyerPrefId!;
   }
+  
   Future<String> storeAndPush(ent.BuyerPref data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.BuyerPref data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -285,6 +291,12 @@ class BuyerPrefRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, BuyerPrefCompanion values) async {
+    var sett = database.update(database.buyerPref)..where((el) => el.buyerPrefId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<BuyerPrefData>> multiGet(List<String> queryIds) async{

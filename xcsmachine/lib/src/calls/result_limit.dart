@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultLimit{
-  int? startIndex;
+class ResultLimit{   
+  int? startIndex;   
   int? limit;
   ResultLimit({
     this.startIndex,

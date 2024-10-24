@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'user_pref.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('UserPrefRepository');
 const _bundleName = 'UserPref';
 const _fullBundleName='facet:UserPref';
 
-class UserPrefRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class UserPrefRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  UserPrefRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  UserPrefRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class UserPrefRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class UserPrefRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.UserPref data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.userPrefId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.UserPref data) async {
     data.userPrefId ??= slugId();
     await storeEntry(data.toJson());
     return data.userPrefId!;
   }
+  
   Future<String> storeAndPush(ent.UserPref data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.UserPref data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -285,6 +291,12 @@ class UserPrefRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, UserPrefCompanion values) async {
+    var sett = database.update(database.userPref)..where((el) => el.userPrefId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<UserPrefData>> multiGet(List<String> queryIds) async{

@@ -2,10 +2,10 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class StoreBundle{
-  Store? store;
-  Facility? facility;
-  List<Product>? products;
+class StoreBundle{   
+  Store? store;   
+  Facility? facility;   
+  List<Product>? products;   
   List<Inventory>? inventories;
   StoreBundle({
     this.store,

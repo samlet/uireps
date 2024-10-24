@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'metadata.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('MetadataRepository');
 const _bundleName = 'Metadata';
 const _fullBundleName='default:Metadata';
 
-class MetadataRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class MetadataRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  MetadataRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  MetadataRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class MetadataRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class MetadataRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.Metadata data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.metadataId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.Metadata data) async {
     data.metadataId ??= slugId();
     await storeEntry(data.toJson());
     return data.metadataId!;
   }
+  
   Future<String> storeAndPush(ent.Metadata data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.Metadata data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -287,6 +293,12 @@ class MetadataRepository implements RepositoryBase {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
   }
 
+  Future<int> set(String id, MetadataCompanion values) async {
+    var sett = database.update(database.metadata)..where((el) => el.metadataId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
   Future<List<MetadataData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.metadata)..where((el)=>el.metadataId.isIn(queryIds));
     var rs=await q.get();
@@ -350,6 +362,11 @@ class MetadataRepository implements RepositoryBase {
     return await storeDs(ds, smartMode: smartMode);
   }
 
+  Future<List<ent.Metadata>> fetchMultiDs(List<String> resourceIds, String resourceType, {bool smartMode = true}) async {
+    final rowDs = await fetchAndExpand(resourceIds, resourceType);
+    return await storeDs(rowDs, smartMode: smartMode);
+  }
+
   /// Watch by multi-ids
   Stream<List<MetadataData>> fetchAndWatchByResourceBinder(
       {required String resourceId, required String resourceType, bool smartMode = true}) async* {
@@ -361,6 +378,14 @@ class MetadataRepository implements RepositoryBase {
   /// Watch by query statement
   Stream<List<MetadataData>> watchByResourceBinder(String resourceId, String resourceType){
     return db.metadataDrift.queryMetadataByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Stream<List<MetadataData>> multiWatchByResourceBinder(
+      List<String> resourceIds, String resourceType) {
+    var q = db.select(db.metadata)
+      ..where((el) => el.resourceId.isIn(resourceIds) & el.resourceType.equals(resourceType));
+    
+    return q.watch();
   }
 
   Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {

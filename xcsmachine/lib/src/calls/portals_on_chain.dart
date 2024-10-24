@@ -41,27 +41,6 @@ class PortalsOnChainRepository {
   }
    
   // Mutation
-  Future<DateTime> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-    return DateTime.parse(resp as String);
-  }
-   
-  // Mutation
   Future<void> addPublicNotes({
     
     required List<String> noteIds, 
@@ -77,6 +56,29 @@ class PortalsOnChainRepository {
       "noteIds": noteIds, 
     });
     
+  }
+   
+  // Query
+  Future<MultiDs> listMultiDs({
+    
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "listMultiDs",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "resourceIds": resourceIds,
+      "resourceType": resourceType, 
+    });
+    
+    return MultiDs.fromJson(resp);
   }
    
   // Query
@@ -147,6 +149,27 @@ class PortalsOnChainRepository {
     });
     
     return convList(resp, (el)=>el);
+  }
+   
+  // Mutation
+  Future<DateTime> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
+    return DateTime.parse(resp as String);
   }
    
   // Query
@@ -221,6 +244,30 @@ class PortalsOnChainRepository {
     });
     
     return BundleModifiedResult.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> batchSetResourceBinder({
+    
+    required String bundleName,
+    required List<String> bundleIds,
+    required String resourceType,
+    required String resourceId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "batchSetResourceBinder",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleIds": bundleIds,
+      "resourceType": resourceType,
+      "resourceId": resourceId, 
+    });
+    
   }
    
   // Mutation

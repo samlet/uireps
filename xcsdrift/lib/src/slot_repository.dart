@@ -16,23 +16,18 @@ import '../drift_util.dart';
 import '../intf.dart';
 import 'slot.drift.dart';
 
+
 final _logger = Logger('SlotRepository');
 const _bundleName = 'Slot';
 const _fullBundleName='default:Slot';
 
-class SlotRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class SlotRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
-  SlotRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  SlotRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
   }
@@ -50,6 +45,7 @@ class SlotRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -69,10 +65,30 @@ class SlotRepository implements RepositoryBase {
     }
   }  
 
+  Future<void> push(ent.Slot data) async {
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.slotId!, val: data.toJson());
+  }
+
   Future<String> store(ent.Slot data) async {
     data.slotId ??= slugId();
     await storeEntry(data.toJson());
     return data.slotId!;
+  }
+  
+  Future<String> storeAndPush(ent.Slot data) async {
+    var cid=await store(data);
+    await push(data);
+    return cid;
+  }
+
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
   }
 
   Future<List<ent.Slot>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
@@ -191,6 +207,12 @@ class SlotRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, SlotCompanion values) async {
+    var sett = database.update(database.slot)..where((el) => el.slotId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<SlotData>> multiGet(List<String> queryIds) async{

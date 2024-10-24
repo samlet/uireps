@@ -16,23 +16,18 @@ import '../drift_util.dart';
 import '../intf.dart';
 import 'bi_facet.drift.dart';
 
+
 final _logger = Logger('BiFacetRepository');
 const _bundleName = 'BiFacet';
 const _fullBundleName='facet:BiFacet';
 
-class BiFacetRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class BiFacetRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
-  BiFacetRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  BiFacetRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
   }
@@ -50,6 +45,7 @@ class BiFacetRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -69,10 +65,30 @@ class BiFacetRepository implements RepositoryBase {
     }
   }  
 
+  Future<void> push(ent.BiFacet data) async {
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.biId!, val: data.toJson());
+  }
+
   Future<String> store(ent.BiFacet data) async {
     data.biId ??= slugId();
     await storeEntry(data.toJson());
     return data.biId!;
+  }
+  
+  Future<String> storeAndPush(ent.BiFacet data) async {
+    var cid=await store(data);
+    await push(data);
+    return cid;
+  }
+
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
   }
 
   Future<List<ent.BiFacet>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
@@ -191,6 +207,12 @@ class BiFacetRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, BiFacetCompanion values) async {
+    var sett = database.update(database.biFacet)..where((el) => el.biId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<BiFacetData>> multiGet(List<String> queryIds) async{

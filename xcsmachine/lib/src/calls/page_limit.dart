@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class PageLimit{
-  int? page;
+class PageLimit{   
+  int? page;   
   int? pageSize;
   PageLimit({
     this.page,

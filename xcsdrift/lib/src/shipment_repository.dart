@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'shipment.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('ShipmentRepository');
 const _bundleName = 'Shipment';
 const _fullBundleName='default:Shipment';
 
-class ShipmentRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class ShipmentRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  ShipmentRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  ShipmentRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class ShipmentRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class ShipmentRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.Shipment data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.shipmentId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.Shipment data) async {
     data.shipmentId ??= slugId();
     await storeEntry(data.toJson());
     return data.shipmentId!;
   }
+  
   Future<String> storeAndPush(ent.Shipment data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.Shipment data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -287,6 +293,12 @@ class ShipmentRepository implements RepositoryBase {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
   }
 
+  Future<int> set(String id, ShipmentCompanion values) async {
+    var sett = database.update(database.shipment)..where((el) => el.shipmentId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
   Future<List<ShipmentData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.shipment)..where((el)=>el.shipmentId.isIn(queryIds));
     var rs=await q.get();
@@ -350,6 +362,11 @@ class ShipmentRepository implements RepositoryBase {
     return await storeDs(ds, smartMode: smartMode);
   }
 
+  Future<List<ent.Shipment>> fetchMultiDs(List<String> resourceIds, String resourceType, {bool smartMode = true}) async {
+    final rowDs = await fetchAndExpand(resourceIds, resourceType);
+    return await storeDs(rowDs, smartMode: smartMode);
+  }
+
   /// Watch by multi-ids
   Stream<List<ShipmentData>> fetchAndWatchByResourceBinder(
       {required String resourceId, required String resourceType, bool smartMode = true}) async* {
@@ -361,6 +378,14 @@ class ShipmentRepository implements RepositoryBase {
   /// Watch by query statement
   Stream<List<ShipmentData>> watchByResourceBinder(String resourceId, String resourceType){
     return db.shipmentDrift.queryShipmentsByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Stream<List<ShipmentData>> multiWatchByResourceBinder(
+      List<String> resourceIds, String resourceType) {
+    var q = db.select(db.shipment)
+      ..where((el) => el.resourceId.isIn(resourceIds) & el.resourceType.equals(resourceType));
+    
+    return q.watch();
   }
 
   Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {

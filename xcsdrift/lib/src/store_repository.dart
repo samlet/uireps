@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'store.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('StoreRepository');
 const _bundleName = 'Store';
 const _fullBundleName='default:Store';
 
-class StoreRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class StoreRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  StoreRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  StoreRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class StoreRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class StoreRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.Store data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.productStoreId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.Store data) async {
     data.productStoreId ??= slugId();
     await storeEntry(data.toJson());
     return data.productStoreId!;
   }
+  
   Future<String> storeAndPush(ent.Store data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.Store data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -287,6 +293,12 @@ class StoreRepository implements RepositoryBase {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
   }
 
+  Future<int> set(String id, ProductStoreCompanion values) async {
+    var sett = database.update(database.productStore)..where((el) => el.productStoreId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
   Future<List<ProductStoreData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.productStore)..where((el)=>el.productStoreId.isIn(queryIds));
     var rs=await q.get();
@@ -347,6 +359,13 @@ class StoreRepository implements RepositoryBase {
      
   
   
+  @override
+  Future<List<T>> loadJointers<T>(
+      String id, String jointKey, T Function(Map<String, dynamic>) conv) async {
+    var rec = await get(id);
+    var relKeys = rec?.multiJointers?[jointKey];
+    return await loadTypedJointers(relKeys, jointKey, conv);
+  }
 }
 
 

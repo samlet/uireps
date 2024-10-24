@@ -2,9 +2,9 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class BundleModifiedResult{
-  String? assetName;
-  List<String>? bundleIds;
+class BundleModifiedResult{   
+  String? assetName;   
+  List<String>? bundleIds;   
   Map<String, double>? replenishAmounts;
   BundleModifiedResult({
     this.assetName,

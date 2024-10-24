@@ -2,9 +2,9 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NavReqTags{
-  List<String>? tags;
-  String? pageToken;
+class NavReqTags{   
+  List<String>? tags;   
+  String? pageToken;   
   int? maxRows;
   NavReqTags({
     this.tags,

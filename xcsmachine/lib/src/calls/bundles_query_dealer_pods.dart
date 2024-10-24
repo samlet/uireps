@@ -50,6 +50,51 @@ Future<Map<String, Object?>> bundlesQueryLoadBundle(BundlesQueryLoadBundleRef re
 }
   
 @riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryQueryMap(BundlesQueryQueryMapRef ref, {
+  String regionOrNs='default',
+  
+    required QueryMap r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.queryMap(
+      r: r,
+      regionId: regionId,
+  );
+}
+  
+@riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryQueryExpr(BundlesQueryQueryExprRef ref, {
+  String regionOrNs='default',
+  
+    required QueryExpr r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.queryExpr(
+      r: r,
+      regionId: regionId,
+  );
+}
+  
+@riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryQueryTerms(BundlesQueryQueryTermsRef ref, {
+  String regionOrNs='default',
+  
+    required QueryTerms r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.queryTerms(
+      r: r,
+      regionId: regionId,
+  );
+}
+  
+@riverpod
 Future<List<Map<String, dynamic>>> bundlesQueryLoadBundles(BundlesQueryLoadBundlesRef ref, {
   String regionOrNs='default',
   

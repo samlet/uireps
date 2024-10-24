@@ -173,6 +173,175 @@ class _WebStorePalProviderElement
   String get id => (origin as WebStorePalProvider).id;
 }
 
+String _$webStorePalGetInventoriesHash() =>
+    r'135e44f87dbe10e84ae3a71a6a2fcc10015a8803';
+
+/// See also [webStorePalGetInventories].
+@ProviderFor(webStorePalGetInventories)
+const webStorePalGetInventoriesProvider = WebStorePalGetInventoriesFamily();
+
+/// See also [webStorePalGetInventories].
+class WebStorePalGetInventoriesFamily
+    extends Family<AsyncValue<List<Inventory>>> {
+  /// See also [webStorePalGetInventories].
+  const WebStorePalGetInventoriesFamily();
+
+  /// See also [webStorePalGetInventories].
+  WebStorePalGetInventoriesProvider call({
+    String regionOrNs = 'default',
+    required String id,
+    required String productId,
+  }) {
+    return WebStorePalGetInventoriesProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+      productId: productId,
+    );
+  }
+
+  @override
+  WebStorePalGetInventoriesProvider getProviderOverride(
+    covariant WebStorePalGetInventoriesProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+      productId: provider.productId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'webStorePalGetInventoriesProvider';
+}
+
+/// See also [webStorePalGetInventories].
+class WebStorePalGetInventoriesProvider
+    extends AutoDisposeFutureProvider<List<Inventory>> {
+  /// See also [webStorePalGetInventories].
+  WebStorePalGetInventoriesProvider({
+    String regionOrNs = 'default',
+    required String id,
+    required String productId,
+  }) : this._internal(
+          (ref) => webStorePalGetInventories(
+            ref as WebStorePalGetInventoriesRef,
+            regionOrNs: regionOrNs,
+            id: id,
+            productId: productId,
+          ),
+          from: webStorePalGetInventoriesProvider,
+          name: r'webStorePalGetInventoriesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$webStorePalGetInventoriesHash,
+          dependencies: WebStorePalGetInventoriesFamily._dependencies,
+          allTransitiveDependencies:
+              WebStorePalGetInventoriesFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+          productId: productId,
+        );
+
+  WebStorePalGetInventoriesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+    required this.productId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+  final String productId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Inventory>> Function(WebStorePalGetInventoriesRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: WebStorePalGetInventoriesProvider._internal(
+        (ref) => create(ref as WebStorePalGetInventoriesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+        productId: productId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Inventory>> createElement() {
+    return _WebStorePalGetInventoriesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is WebStorePalGetInventoriesProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id &&
+        other.productId == productId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, productId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin WebStorePalGetInventoriesRef
+    on AutoDisposeFutureProviderRef<List<Inventory>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+
+  /// The parameter `productId` of this provider.
+  String get productId;
+}
+
+class _WebStorePalGetInventoriesProviderElement
+    extends AutoDisposeFutureProviderElement<List<Inventory>>
+    with WebStorePalGetInventoriesRef {
+  _WebStorePalGetInventoriesProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as WebStorePalGetInventoriesProvider).regionOrNs;
+  @override
+  String get id => (origin as WebStorePalGetInventoriesProvider).id;
+  @override
+  String get productId =>
+      (origin as WebStorePalGetInventoriesProvider).productId;
+}
+
 String _$webStorePalGetProductJointersHash() =>
     r'4803927fb8804f29c0a3dc4dfa95bdd5da6de39c';
 
@@ -640,153 +809,6 @@ class _WebStorePalNameProviderElement
   String get id => (origin as WebStorePalNameProvider).id;
 }
 
-String _$webStorePalFacilityHash() =>
-    r'fa17b8e974e7c22656d7d2dfc97e1df1c9d95507';
-
-/// See also [webStorePalFacility].
-@ProviderFor(webStorePalFacility)
-const webStorePalFacilityProvider = WebStorePalFacilityFamily();
-
-/// See also [webStorePalFacility].
-class WebStorePalFacilityFamily extends Family<AsyncValue<Facility>> {
-  /// See also [webStorePalFacility].
-  const WebStorePalFacilityFamily();
-
-  /// See also [webStorePalFacility].
-  WebStorePalFacilityProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return WebStorePalFacilityProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  WebStorePalFacilityProvider getProviderOverride(
-    covariant WebStorePalFacilityProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'webStorePalFacilityProvider';
-}
-
-/// See also [webStorePalFacility].
-class WebStorePalFacilityProvider extends AutoDisposeFutureProvider<Facility> {
-  /// See also [webStorePalFacility].
-  WebStorePalFacilityProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => webStorePalFacility(
-            ref as WebStorePalFacilityRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: webStorePalFacilityProvider,
-          name: r'webStorePalFacilityProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$webStorePalFacilityHash,
-          dependencies: WebStorePalFacilityFamily._dependencies,
-          allTransitiveDependencies:
-              WebStorePalFacilityFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  WebStorePalFacilityProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<Facility> Function(WebStorePalFacilityRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: WebStorePalFacilityProvider._internal(
-        (ref) => create(ref as WebStorePalFacilityRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Facility> createElement() {
-    return _WebStorePalFacilityProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is WebStorePalFacilityProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin WebStorePalFacilityRef on AutoDisposeFutureProviderRef<Facility> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _WebStorePalFacilityProviderElement
-    extends AutoDisposeFutureProviderElement<Facility>
-    with WebStorePalFacilityRef {
-  _WebStorePalFacilityProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as WebStorePalFacilityProvider).regionOrNs;
-  @override
-  String get id => (origin as WebStorePalFacilityProvider).id;
-}
-
 String _$webStorePalGetCatalogIdsHash() =>
     r'e153d0d88c5047b6eb1fc46005532e75cfc7cc6e';
 
@@ -1235,6 +1257,153 @@ class _WebStorePalWebSiteIdsProviderElement
   String get regionOrNs => (origin as WebStorePalWebSiteIdsProvider).regionOrNs;
   @override
   String get id => (origin as WebStorePalWebSiteIdsProvider).id;
+}
+
+String _$webStorePalFacilityHash() =>
+    r'fa17b8e974e7c22656d7d2dfc97e1df1c9d95507';
+
+/// See also [webStorePalFacility].
+@ProviderFor(webStorePalFacility)
+const webStorePalFacilityProvider = WebStorePalFacilityFamily();
+
+/// See also [webStorePalFacility].
+class WebStorePalFacilityFamily extends Family<AsyncValue<Facility>> {
+  /// See also [webStorePalFacility].
+  const WebStorePalFacilityFamily();
+
+  /// See also [webStorePalFacility].
+  WebStorePalFacilityProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return WebStorePalFacilityProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  WebStorePalFacilityProvider getProviderOverride(
+    covariant WebStorePalFacilityProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'webStorePalFacilityProvider';
+}
+
+/// See also [webStorePalFacility].
+class WebStorePalFacilityProvider extends AutoDisposeFutureProvider<Facility> {
+  /// See also [webStorePalFacility].
+  WebStorePalFacilityProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => webStorePalFacility(
+            ref as WebStorePalFacilityRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: webStorePalFacilityProvider,
+          name: r'webStorePalFacilityProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$webStorePalFacilityHash,
+          dependencies: WebStorePalFacilityFamily._dependencies,
+          allTransitiveDependencies:
+              WebStorePalFacilityFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  WebStorePalFacilityProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<Facility> Function(WebStorePalFacilityRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: WebStorePalFacilityProvider._internal(
+        (ref) => create(ref as WebStorePalFacilityRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Facility> createElement() {
+    return _WebStorePalFacilityProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is WebStorePalFacilityProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin WebStorePalFacilityRef on AutoDisposeFutureProviderRef<Facility> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _WebStorePalFacilityProviderElement
+    extends AutoDisposeFutureProviderElement<Facility>
+    with WebStorePalFacilityRef {
+  _WebStorePalFacilityProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as WebStorePalFacilityProvider).regionOrNs;
+  @override
+  String get id => (origin as WebStorePalFacilityProvider).id;
 }
 
 String _$webStorePalGetDecimalsHash() =>

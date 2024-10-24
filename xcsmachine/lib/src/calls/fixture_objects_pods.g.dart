@@ -155,186 +155,32 @@ class _FixtureObjectsProviderElement
   String get regionOrNs => (origin as FixtureObjectsProvider).regionOrNs;
 }
 
-String _$fixturesEchoStringMultiMapHash() =>
-    r'e4bbf1b0c71d67fd81b877fd0952d92b7e4b08bc';
+String _$fixturesGetNoteProtoHash() =>
+    r'8d0dc18bf82e48e25e28f090ac99ae13a245ac96';
 
-/// See also [fixturesEchoStringMultiMap].
-@ProviderFor(fixturesEchoStringMultiMap)
-const fixturesEchoStringMultiMapProvider = FixturesEchoStringMultiMapFamily();
+/// See also [fixturesGetNoteProto].
+@ProviderFor(fixturesGetNoteProto)
+const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
 
-/// See also [fixturesEchoStringMultiMap].
-class FixturesEchoStringMultiMapFamily
-    extends Family<AsyncValue<Map<String, List<String>>>> {
-  /// See also [fixturesEchoStringMultiMap].
-  const FixturesEchoStringMultiMapFamily();
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetNoteProto].
+  const FixturesGetNoteProtoFamily();
 
-  /// See also [fixturesEchoStringMultiMap].
-  FixturesEchoStringMultiMapProvider call({
-    String regionOrNs = 'default',
-    required Map<String, List<String>> input,
-  }) {
-    return FixturesEchoStringMultiMapProvider(
-      regionOrNs: regionOrNs,
-      input: input,
-    );
-  }
-
-  @override
-  FixturesEchoStringMultiMapProvider getProviderOverride(
-    covariant FixturesEchoStringMultiMapProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      input: provider.input,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesEchoStringMultiMapProvider';
-}
-
-/// See also [fixturesEchoStringMultiMap].
-class FixturesEchoStringMultiMapProvider
-    extends AutoDisposeFutureProvider<Map<String, List<String>>> {
-  /// See also [fixturesEchoStringMultiMap].
-  FixturesEchoStringMultiMapProvider({
-    String regionOrNs = 'default',
-    required Map<String, List<String>> input,
-  }) : this._internal(
-          (ref) => fixturesEchoStringMultiMap(
-            ref as FixturesEchoStringMultiMapRef,
-            regionOrNs: regionOrNs,
-            input: input,
-          ),
-          from: fixturesEchoStringMultiMapProvider,
-          name: r'fixturesEchoStringMultiMapProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesEchoStringMultiMapHash,
-          dependencies: FixturesEchoStringMultiMapFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesEchoStringMultiMapFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          input: input,
-        );
-
-  FixturesEchoStringMultiMapProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.input,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final Map<String, List<String>> input;
-
-  @override
-  Override overrideWith(
-    FutureOr<Map<String, List<String>>> Function(
-            FixturesEchoStringMultiMapRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesEchoStringMultiMapProvider._internal(
-        (ref) => create(ref as FixturesEchoStringMultiMapRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        input: input,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Map<String, List<String>>> createElement() {
-    return _FixturesEchoStringMultiMapProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesEchoStringMultiMapProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.input == input;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, input.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FixturesEchoStringMultiMapRef
-    on AutoDisposeFutureProviderRef<Map<String, List<String>>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `input` of this provider.
-  Map<String, List<String>> get input;
-}
-
-class _FixturesEchoStringMultiMapProviderElement
-    extends AutoDisposeFutureProviderElement<Map<String, List<String>>>
-    with FixturesEchoStringMultiMapRef {
-  _FixturesEchoStringMultiMapProviderElement(super.provider);
-
-  @override
-  String get regionOrNs =>
-      (origin as FixturesEchoStringMultiMapProvider).regionOrNs;
-  @override
-  Map<String, List<String>> get input =>
-      (origin as FixturesEchoStringMultiMapProvider).input;
-}
-
-String _$fixturesGetNoteSlotDataHash() =>
-    r'fe1bbb7d5308fa252daec180d7e4a18da0e6b9be';
-
-/// See also [fixturesGetNoteSlotData].
-@ProviderFor(fixturesGetNoteSlotData)
-const fixturesGetNoteSlotDataProvider = FixturesGetNoteSlotDataFamily();
-
-/// See also [fixturesGetNoteSlotData].
-class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
-  /// See also [fixturesGetNoteSlotData].
-  const FixturesGetNoteSlotDataFamily();
-
-  /// See also [fixturesGetNoteSlotData].
-  FixturesGetNoteSlotDataProvider call({
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider call({
     String regionOrNs = 'default',
     required String noteId,
   }) {
-    return FixturesGetNoteSlotDataProvider(
+    return FixturesGetNoteProtoProvider(
       regionOrNs: regionOrNs,
       noteId: noteId,
     );
   }
 
   @override
-  FixturesGetNoteSlotDataProvider getProviderOverride(
-    covariant FixturesGetNoteSlotDataProvider provider,
+  FixturesGetNoteProtoProvider getProviderOverride(
+    covariant FixturesGetNoteProtoProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
@@ -354,36 +200,35 @@ class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fixturesGetNoteSlotDataProvider';
+  String? get name => r'fixturesGetNoteProtoProvider';
 }
 
-/// See also [fixturesGetNoteSlotData].
-class FixturesGetNoteSlotDataProvider
-    extends AutoDisposeFutureProvider<List<int>> {
-  /// See also [fixturesGetNoteSlotData].
-  FixturesGetNoteSlotDataProvider({
+/// See also [fixturesGetNoteProto].
+class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetNoteProto].
+  FixturesGetNoteProtoProvider({
     String regionOrNs = 'default',
     required String noteId,
   }) : this._internal(
-          (ref) => fixturesGetNoteSlotData(
-            ref as FixturesGetNoteSlotDataRef,
+          (ref) => fixturesGetNoteProto(
+            ref as FixturesGetNoteProtoRef,
             regionOrNs: regionOrNs,
             noteId: noteId,
           ),
-          from: fixturesGetNoteSlotDataProvider,
-          name: r'fixturesGetNoteSlotDataProvider',
+          from: fixturesGetNoteProtoProvider,
+          name: r'fixturesGetNoteProtoProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fixturesGetNoteSlotDataHash,
-          dependencies: FixturesGetNoteSlotDataFamily._dependencies,
+                  : _$fixturesGetNoteProtoHash,
+          dependencies: FixturesGetNoteProtoFamily._dependencies,
           allTransitiveDependencies:
-              FixturesGetNoteSlotDataFamily._allTransitiveDependencies,
+              FixturesGetNoteProtoFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
           noteId: noteId,
         );
 
-  FixturesGetNoteSlotDataProvider._internal(
+  FixturesGetNoteProtoProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -399,12 +244,12 @@ class FixturesGetNoteSlotDataProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<int>> Function(FixturesGetNoteSlotDataRef provider) create,
+    FutureOr<String> Function(FixturesGetNoteProtoRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FixturesGetNoteSlotDataProvider._internal(
-        (ref) => create(ref as FixturesGetNoteSlotDataRef),
+      override: FixturesGetNoteProtoProvider._internal(
+        (ref) => create(ref as FixturesGetNoteProtoRef),
         from: from,
         name: null,
         dependencies: null,
@@ -417,13 +262,13 @@ class FixturesGetNoteSlotDataProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<int>> createElement() {
-    return _FixturesGetNoteSlotDataProviderElement(this);
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesGetNoteProtoProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FixturesGetNoteSlotDataProvider &&
+    return other is FixturesGetNoteProtoProvider &&
         other.regionOrNs == regionOrNs &&
         other.noteId == noteId;
   }
@@ -438,7 +283,7 @@ class FixturesGetNoteSlotDataProvider
   }
 }
 
-mixin FixturesGetNoteSlotDataRef on AutoDisposeFutureProviderRef<List<int>> {
+mixin FixturesGetNoteProtoRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
@@ -446,16 +291,15 @@ mixin FixturesGetNoteSlotDataRef on AutoDisposeFutureProviderRef<List<int>> {
   String get noteId;
 }
 
-class _FixturesGetNoteSlotDataProviderElement
-    extends AutoDisposeFutureProviderElement<List<int>>
-    with FixturesGetNoteSlotDataRef {
-  _FixturesGetNoteSlotDataProviderElement(super.provider);
+class _FixturesGetNoteProtoProviderElement
+    extends AutoDisposeFutureProviderElement<String>
+    with FixturesGetNoteProtoRef {
+  _FixturesGetNoteProtoProviderElement(super.provider);
 
   @override
-  String get regionOrNs =>
-      (origin as FixturesGetNoteSlotDataProvider).regionOrNs;
+  String get regionOrNs => (origin as FixturesGetNoteProtoProvider).regionOrNs;
   @override
-  String get noteId => (origin as FixturesGetNoteSlotDataProvider).noteId;
+  String get noteId => (origin as FixturesGetNoteProtoProvider).noteId;
 }
 
 String _$fixturesPublicNotesHash() =>
@@ -604,153 +448,6 @@ class _FixturesPublicNotesProviderElement
   String get regionOrNs => (origin as FixturesPublicNotesProvider).regionOrNs;
   @override
   String get author => (origin as FixturesPublicNotesProvider).author;
-}
-
-String _$fixturesGetNoteProtoHash() =>
-    r'8d0dc18bf82e48e25e28f090ac99ae13a245ac96';
-
-/// See also [fixturesGetNoteProto].
-@ProviderFor(fixturesGetNoteProto)
-const fixturesGetNoteProtoProvider = FixturesGetNoteProtoFamily();
-
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoFamily extends Family<AsyncValue<String>> {
-  /// See also [fixturesGetNoteProto].
-  const FixturesGetNoteProtoFamily();
-
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider call({
-    String regionOrNs = 'default',
-    required String noteId,
-  }) {
-    return FixturesGetNoteProtoProvider(
-      regionOrNs: regionOrNs,
-      noteId: noteId,
-    );
-  }
-
-  @override
-  FixturesGetNoteProtoProvider getProviderOverride(
-    covariant FixturesGetNoteProtoProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      noteId: provider.noteId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesGetNoteProtoProvider';
-}
-
-/// See also [fixturesGetNoteProto].
-class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [fixturesGetNoteProto].
-  FixturesGetNoteProtoProvider({
-    String regionOrNs = 'default',
-    required String noteId,
-  }) : this._internal(
-          (ref) => fixturesGetNoteProto(
-            ref as FixturesGetNoteProtoRef,
-            regionOrNs: regionOrNs,
-            noteId: noteId,
-          ),
-          from: fixturesGetNoteProtoProvider,
-          name: r'fixturesGetNoteProtoProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesGetNoteProtoHash,
-          dependencies: FixturesGetNoteProtoFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesGetNoteProtoFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          noteId: noteId,
-        );
-
-  FixturesGetNoteProtoProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.noteId,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String noteId;
-
-  @override
-  Override overrideWith(
-    FutureOr<String> Function(FixturesGetNoteProtoRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesGetNoteProtoProvider._internal(
-        (ref) => create(ref as FixturesGetNoteProtoRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        noteId: noteId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<String> createElement() {
-    return _FixturesGetNoteProtoProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesGetNoteProtoProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.noteId == noteId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, noteId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin FixturesGetNoteProtoRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `noteId` of this provider.
-  String get noteId;
-}
-
-class _FixturesGetNoteProtoProviderElement
-    extends AutoDisposeFutureProviderElement<String>
-    with FixturesGetNoteProtoRef {
-  _FixturesGetNoteProtoProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as FixturesGetNoteProtoProvider).regionOrNs;
-  @override
-  String get noteId => (origin as FixturesGetNoteProtoProvider).noteId;
 }
 
 String _$fixturesGetFreeNameHash() =>
@@ -2870,7 +2567,310 @@ class _FixturesEchoProviderElement
   Map<String, Object?> get input => (origin as FixturesEchoProvider).input;
 }
 
-String _$fixtureObjectsPodHash() => r'72750de6b0104ba78d88971fd1b61801d5ffa86e';
+String _$fixturesEchoStringMultiMapHash() =>
+    r'e4bbf1b0c71d67fd81b877fd0952d92b7e4b08bc';
+
+/// See also [fixturesEchoStringMultiMap].
+@ProviderFor(fixturesEchoStringMultiMap)
+const fixturesEchoStringMultiMapProvider = FixturesEchoStringMultiMapFamily();
+
+/// See also [fixturesEchoStringMultiMap].
+class FixturesEchoStringMultiMapFamily
+    extends Family<AsyncValue<Map<String, List<String>>>> {
+  /// See also [fixturesEchoStringMultiMap].
+  const FixturesEchoStringMultiMapFamily();
+
+  /// See also [fixturesEchoStringMultiMap].
+  FixturesEchoStringMultiMapProvider call({
+    String regionOrNs = 'default',
+    required Map<String, List<String>> input,
+  }) {
+    return FixturesEchoStringMultiMapProvider(
+      regionOrNs: regionOrNs,
+      input: input,
+    );
+  }
+
+  @override
+  FixturesEchoStringMultiMapProvider getProviderOverride(
+    covariant FixturesEchoStringMultiMapProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      input: provider.input,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesEchoStringMultiMapProvider';
+}
+
+/// See also [fixturesEchoStringMultiMap].
+class FixturesEchoStringMultiMapProvider
+    extends AutoDisposeFutureProvider<Map<String, List<String>>> {
+  /// See also [fixturesEchoStringMultiMap].
+  FixturesEchoStringMultiMapProvider({
+    String regionOrNs = 'default',
+    required Map<String, List<String>> input,
+  }) : this._internal(
+          (ref) => fixturesEchoStringMultiMap(
+            ref as FixturesEchoStringMultiMapRef,
+            regionOrNs: regionOrNs,
+            input: input,
+          ),
+          from: fixturesEchoStringMultiMapProvider,
+          name: r'fixturesEchoStringMultiMapProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesEchoStringMultiMapHash,
+          dependencies: FixturesEchoStringMultiMapFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesEchoStringMultiMapFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          input: input,
+        );
+
+  FixturesEchoStringMultiMapProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.input,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final Map<String, List<String>> input;
+
+  @override
+  Override overrideWith(
+    FutureOr<Map<String, List<String>>> Function(
+            FixturesEchoStringMultiMapRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesEchoStringMultiMapProvider._internal(
+        (ref) => create(ref as FixturesEchoStringMultiMapRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        input: input,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Map<String, List<String>>> createElement() {
+    return _FixturesEchoStringMultiMapProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesEchoStringMultiMapProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.input == input;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, input.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesEchoStringMultiMapRef
+    on AutoDisposeFutureProviderRef<Map<String, List<String>>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `input` of this provider.
+  Map<String, List<String>> get input;
+}
+
+class _FixturesEchoStringMultiMapProviderElement
+    extends AutoDisposeFutureProviderElement<Map<String, List<String>>>
+    with FixturesEchoStringMultiMapRef {
+  _FixturesEchoStringMultiMapProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as FixturesEchoStringMultiMapProvider).regionOrNs;
+  @override
+  Map<String, List<String>> get input =>
+      (origin as FixturesEchoStringMultiMapProvider).input;
+}
+
+String _$fixturesGetNoteSlotDataHash() =>
+    r'fe1bbb7d5308fa252daec180d7e4a18da0e6b9be';
+
+/// See also [fixturesGetNoteSlotData].
+@ProviderFor(fixturesGetNoteSlotData)
+const fixturesGetNoteSlotDataProvider = FixturesGetNoteSlotDataFamily();
+
+/// See also [fixturesGetNoteSlotData].
+class FixturesGetNoteSlotDataFamily extends Family<AsyncValue<List<int>>> {
+  /// See also [fixturesGetNoteSlotData].
+  const FixturesGetNoteSlotDataFamily();
+
+  /// See also [fixturesGetNoteSlotData].
+  FixturesGetNoteSlotDataProvider call({
+    String regionOrNs = 'default',
+    required String noteId,
+  }) {
+    return FixturesGetNoteSlotDataProvider(
+      regionOrNs: regionOrNs,
+      noteId: noteId,
+    );
+  }
+
+  @override
+  FixturesGetNoteSlotDataProvider getProviderOverride(
+    covariant FixturesGetNoteSlotDataProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      noteId: provider.noteId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetNoteSlotDataProvider';
+}
+
+/// See also [fixturesGetNoteSlotData].
+class FixturesGetNoteSlotDataProvider
+    extends AutoDisposeFutureProvider<List<int>> {
+  /// See also [fixturesGetNoteSlotData].
+  FixturesGetNoteSlotDataProvider({
+    String regionOrNs = 'default',
+    required String noteId,
+  }) : this._internal(
+          (ref) => fixturesGetNoteSlotData(
+            ref as FixturesGetNoteSlotDataRef,
+            regionOrNs: regionOrNs,
+            noteId: noteId,
+          ),
+          from: fixturesGetNoteSlotDataProvider,
+          name: r'fixturesGetNoteSlotDataProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetNoteSlotDataHash,
+          dependencies: FixturesGetNoteSlotDataFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetNoteSlotDataFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          noteId: noteId,
+        );
+
+  FixturesGetNoteSlotDataProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.noteId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String noteId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<int>> Function(FixturesGetNoteSlotDataRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesGetNoteSlotDataProvider._internal(
+        (ref) => create(ref as FixturesGetNoteSlotDataRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        noteId: noteId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<int>> createElement() {
+    return _FixturesGetNoteSlotDataProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetNoteSlotDataProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.noteId == noteId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, noteId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FixturesGetNoteSlotDataRef on AutoDisposeFutureProviderRef<List<int>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `noteId` of this provider.
+  String get noteId;
+}
+
+class _FixturesGetNoteSlotDataProviderElement
+    extends AutoDisposeFutureProviderElement<List<int>>
+    with FixturesGetNoteSlotDataRef {
+  _FixturesGetNoteSlotDataProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as FixturesGetNoteSlotDataProvider).regionOrNs;
+  @override
+  String get noteId => (origin as FixturesGetNoteSlotDataProvider).noteId;
+}
+
+String _$fixtureObjectsPodHash() => r'3b56ed37d528991a0e4867eacb1486b7b69b0c7d';
 
 abstract class _$FixtureObjectsPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

@@ -2,9 +2,9 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class Position{
-  double? lat;
-  double? lon;
+class Position{   
+  double? lat;   
+  double? lon;   
   double? z;
   Position({
     this.lat,

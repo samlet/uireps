@@ -16,23 +16,18 @@ import '../drift_util.dart';
 import '../intf.dart';
 import 'app_setting.drift.dart';
 
+
 final _logger = Logger('AppSettingRepository');
 const _bundleName = 'AppSetting';
 const _fullBundleName='facet:AppSetting';
 
-class AppSettingRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class AppSettingRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
-  AppSettingRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  AppSettingRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
   }
@@ -50,6 +45,7 @@ class AppSettingRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -69,10 +65,30 @@ class AppSettingRepository implements RepositoryBase {
     }
   }  
 
+  Future<void> push(ent.AppSetting data) async {
+    await facetStorage.put(fullBundleName: _fullBundleName, key: data.appSettingId!, val: data.toJson());
+  }
+
   Future<String> store(ent.AppSetting data) async {
     data.appSettingId ??= slugId();
     await storeEntry(data.toJson());
     return data.appSettingId!;
+  }
+  
+  Future<String> storeAndPush(ent.AppSetting data) async {
+    var cid=await store(data);
+    await push(data);
+    return cid;
+  }
+
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
   }
 
   Future<List<ent.AppSetting>> storeEntries(List<BiFacetBi> elements, {bool smartMode=false}) async {
@@ -191,6 +207,12 @@ class AppSettingRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, AppSettingCompanion values) async {
+    var sett = database.update(database.appSetting)..where((el) => el.appSettingId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<AppSettingData>> multiGet(List<String> queryIds) async{

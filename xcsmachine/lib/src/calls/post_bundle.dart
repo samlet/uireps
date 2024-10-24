@@ -2,14 +2,14 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class PostBundle{
-  String? id;
-  String? name;
-  String? description;
-  Content? content;
-  DataResource? dataResource;
-  List<Comment>? comments;
-  Map<String, double>? stats;
+class PostBundle{   
+  String? id;   
+  String? name;   
+  String? description;   
+  Content? content;   
+  DataResource? dataResource;   
+  List<Comment>? comments;   
+  Map<String, double>? stats;   
   bool? featured;
   PostBundle({
     this.id,

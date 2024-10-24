@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ComplicatedRec{
-  String? poster;
+class ComplicatedRec{   
+  String? poster;   
   TestRec? data;
   ComplicatedRec({
     this.poster,

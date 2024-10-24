@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
+import 'package:drift/drift.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:drift/drift.dart' as d;
 import 'package:drift/native.dart';
@@ -12,7 +13,7 @@ import 'package:xcsdrift/session_mediator.dart';
 import 'package:xcsdrift/xcsdrift.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 import 'package:xcsmachine/xcsmachine.dart';
-import 'package:xcsproto/common_proto.dart';
+import 'package:xcsproto/common_proto.dart' as proto;
 
 import 'tokens.dart';
 
@@ -39,7 +40,12 @@ Future<void> main(List<String> arguments) async {
   // var result = await sett
   //     .write(NoteDataCompanion(lastUpdatedTxStamp: d.Value(DateTime.now())));
   var result = await noteRepo.touch(id);
-  print('update result: $result');
+  print('(1) update result: $result');
+  await noteRepo.printBundle(id);
+
+  result = await noteRepo.set(
+      id, NoteDataCompanion(noteName: Value('slogan'), noteInfo: Value('updated content.')));
+  print('(2) update result: $result');
   await noteRepo.printBundle(id);
 
   var queryIds = [id, 'n2'];

@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class QueryByBunch{
-  String? bundleName;
+class QueryByBunch{   
+  String? bundleName;   
   String? bunchId;
   QueryByBunch({
     this.bundleName,

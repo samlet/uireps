@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class LoadBundle{
-  String? bundleName;
+class LoadBundle{   
+  String? bundleName;   
   String? bundleId;
   LoadBundle({
     this.bundleName,

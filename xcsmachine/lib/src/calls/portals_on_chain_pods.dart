@@ -48,6 +48,19 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
+  Future<bool> addPublicNotes({
+    
+    required List<String> noteIds, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
+              noteIds: noteIds,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> touch({
     
     required String bundleName,
@@ -59,19 +72,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
         () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).touch(
               bundleName: bundleName,
               bundleId: bundleId,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> addPublicNotes({
-    
-    required List<String> noteIds, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
-              noteIds: noteIds,
             ));
     return state.hasError == false;
   }
@@ -102,6 +102,25 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
         () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).storeBundleSpec(
               bundleName: bundleName,
               spec: spec,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> batchSetResourceBinder({
+    
+    required String bundleName,
+    required List<String> bundleIds,
+    required String resourceType,
+    required String resourceId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).batchSetResourceBinder(
+              bundleName: bundleName,
+              bundleIds: bundleIds,
+              resourceType: resourceType,
+              resourceId: resourceId,
             ));
     return state.hasError == false;
   }
@@ -183,6 +202,23 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     
 }
 
+  
+@riverpod
+Future<MultiDs> portalsListMultiDs(PortalsListMultiDsRef ref, {
+  String regionOrNs='default',
+  
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType, 
+
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.listMultiDs(
+      bundleName: bundleName,
+      resourceIds: resourceIds,
+      resourceType: resourceType,
+  );
+}
   
 @riverpod
 Future<List<String>> portalsAllLoginIds(PortalsAllLoginIdsRef ref, {

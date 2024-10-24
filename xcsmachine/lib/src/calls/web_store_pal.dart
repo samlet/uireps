@@ -66,6 +66,26 @@ class WebStorePalRepository {
   }
    
   // Query
+  Future<List<Inventory>> getInventories({
+    
+    required String productId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getInventories",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "productId": productId, 
+    });
+    
+    return convList(resp, Inventory.fromJson);
+  }
+   
+  // Query
   Future<List<String>> getProductJointers() async { 
     var resp = await performCall(dio, {
       "module": moduleName,

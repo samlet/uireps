@@ -2,10 +2,10 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class QueryByTags{
-  String? bundleName;
-  List<String>? tags;
-  ResultLimit? limit;
+class QueryByTags{   
+  String? bundleName;   
+  List<String>? tags;   
+  ResultLimit? limit;   
   List<ResultSort>? orderBy;
   QueryByTags({
     this.bundleName,

@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'comment.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('CommentRepository');
 const _bundleName = 'Comment';
 const _fullBundleName='default:Comment';
 
-class CommentRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class CommentRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  CommentRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  CommentRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class CommentRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class CommentRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.Comment data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.commentId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.Comment data) async {
     data.commentId ??= slugId();
     await storeEntry(data.toJson());
     return data.commentId!;
   }
+  
   Future<String> storeAndPush(ent.Comment data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.Comment data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -287,6 +293,12 @@ class CommentRepository implements RepositoryBase {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
   }
 
+  Future<int> set(String id, CommentCompanion values) async {
+    var sett = database.update(database.comment)..where((el) => el.commentId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
   Future<List<CommentData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.comment)..where((el)=>el.commentId.isIn(queryIds));
     var rs=await q.get();
@@ -325,6 +337,11 @@ class CommentRepository implements RepositoryBase {
     return await storeDs(ds, smartMode: smartMode);
   }
 
+  Future<List<ent.Comment>> fetchMultiDs(List<String> resourceIds, String resourceType, {bool smartMode = true}) async {
+    final rowDs = await fetchAndExpand(resourceIds, resourceType);
+    return await storeDs(rowDs, smartMode: smartMode);
+  }
+
   /// Watch by multi-ids
   Stream<List<CommentData>> fetchAndWatchByResourceBinder(
       {required String resourceId, required String resourceType, bool smartMode = true}) async* {
@@ -336,6 +353,14 @@ class CommentRepository implements RepositoryBase {
   /// Watch by query statement
   Stream<List<CommentData>> watchByResourceBinder(String resourceId, String resourceType){
     return db.commentDrift.queryCommentsByResourceBinder(resType: resourceType, resId: resourceId).watch();
+  }
+
+  Stream<List<CommentData>> multiWatchByResourceBinder(
+      List<String> resourceIds, String resourceType) {
+    var q = db.select(db.comment)
+      ..where((el) => el.resourceId.isIn(resourceIds) & el.resourceType.equals(resourceType));
+    
+    return q.watch();
   }
 
   Future<int> setResourceBinder(String id, String resourceId, String resourceType) async {

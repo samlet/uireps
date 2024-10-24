@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'carrier.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('CarrierRepository');
 const _bundleName = 'Carrier';
 const _fullBundleName='default:Carrier';
 
-class CarrierRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class CarrierRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  CarrierRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  CarrierRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class CarrierRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class CarrierRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.Carrier data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.carrierId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.Carrier data) async {
     data.carrierId ??= slugId();
     await storeEntry(data.toJson());
     return data.carrierId!;
   }
+  
   Future<String> storeAndPush(ent.Carrier data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.Carrier data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -285,6 +291,12 @@ class CarrierRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, CarrierCompanion values) async {
+    var sett = database.update(database.carrier)..where((el) => el.carrierId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<CarrierData>> multiGet(List<String> queryIds) async{

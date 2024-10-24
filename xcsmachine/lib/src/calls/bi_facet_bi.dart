@@ -2,17 +2,17 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class BiFacetBi{
-  String? biId;
-  String? bundleName;
-  String? regionId;
-  Map<String, Object?>? data;
-  List<String>? tags;
-  bool? modified;
-  String? tenantId;
-  DateTime? lastUpdatedTxStamp;
-  DateTime? createdTxStamp;
-  bool? evict;
+class BiFacetBi{   
+  String? biId;   
+  String? bundleName;   
+  String? regionId;   
+  Map<String, Object?>? data;   
+  List<String>? tags;   
+  bool? modified;   
+  String? tenantId;   
+  DateTime? lastUpdatedTxStamp;   
+  DateTime? createdTxStamp;   
+  bool? evict;   
   String? type;
   BiFacetBi({
     this.biId,

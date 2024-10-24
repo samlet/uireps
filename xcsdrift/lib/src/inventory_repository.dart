@@ -17,26 +17,21 @@ import '../intf.dart';
 import 'inventory.drift.dart';
 import '../session_mediator.dart';
 
+
 final _logger = Logger('InventoryRepository');
 const _bundleName = 'Inventory';
 const _fullBundleName='default:Inventory';
 
-class InventoryRepository implements RepositoryBase {
-  final Dio dio;
-  final Database database;
+class InventoryRepository extends RepositoryBase {
+  @override
+  final String bundleName=_bundleName;
 
-  late PortalManagerRepository portalManager;
-  late PortalsOnChainRepository portals;
-  late FacetStorageRepository facetStorage;
   late TagsAndBunchesRepository tagsRepo;
   late BundlesQueryDealerRepository queryDealer;
   late SessionCacheRepository cacheRepo;
   late SessionMediator mediator;
   
-  InventoryRepository(this.dio, this.database) {
-    portalManager = PortalManagerRepository(dio);
-    portals = PortalsOnChainRepository(dio);
-    facetStorage=FacetStorageRepository(dio);
+  InventoryRepository(super.dio, super.database) {
     tagsRepo = TagsAndBunchesRepository(dio);
     queryDealer=BundlesQueryDealerRepository(dio);
     cacheRepo = SessionCacheRepository(dio, database);
@@ -57,6 +52,7 @@ class InventoryRepository implements RepositoryBase {
     return facs;
   }
 
+  @override
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch}) async {
     var dataMap = jsonEl!.map((k, v) {
       var rec = ReCase(k);
@@ -142,23 +138,33 @@ class InventoryRepository implements RepositoryBase {
     return await storeEntries(elements, smartMode: smartMode);
   }
 
+    
+
   Future<void> push(ent.Inventory data) async {
     await facetStorage.put(fullBundleName: _fullBundleName, key: data.inventoryItemId!, val: data.toJson());
   }
-
-    
 
   Future<String> store(ent.Inventory data) async {
     data.inventoryItemId ??= slugId();
     await storeEntry(data.toJson());
     return data.inventoryItemId!;
   }
+  
   Future<String> storeAndPush(ent.Inventory data) async {
     var cid=await store(data);
     await push(data);
     return cid;
   }
 
+  @override
+  Future<bool> commit(String id) async {
+    var ent=await getAsEnt(id);
+    if(ent!=null) {
+      await push(ent);
+      return true;
+    }
+    return false;
+  }
   Future<List<String>> storeAndPublish(ent.Inventory data, String regNode) async {
     var cid=await storeAndPush(data);
     return await portals.publishElementIds(parentNode: regNode, ids: [cid]);
@@ -285,6 +291,12 @@ class InventoryRepository implements RepositoryBase {
 
   Future<void> touchRemote(String id) async {
     await facetStorage.touch(fullBundleName: _fullBundleName, id: id);
+  }
+
+  Future<int> set(String id, InventoryItemCompanion values) async {
+    var sett = database.update(database.inventoryItem)..where((el) => el.inventoryItemId.equals(id));
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
   }
 
   Future<List<InventoryItemData>> multiGet(List<String> queryIds) async{

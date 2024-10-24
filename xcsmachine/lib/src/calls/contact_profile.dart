@@ -2,11 +2,11 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ContactProfile{
-  String? telephone;
-  String? email;
-  String? placeId;
-  String? placeType;
+class ContactProfile{   
+  String? telephone;   
+  String? email;   
+  String? placeId;   
+  String? placeType;   
   String? note;
   ContactProfile({
     this.telephone,

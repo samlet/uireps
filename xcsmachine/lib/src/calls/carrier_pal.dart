@@ -20,6 +20,21 @@ class CarrierPalRepository {
   final String id;
 
    
+  // Query
+  Future<List<String>> getOrders() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrders",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
   // Mutation
   Future<void> addOrder({
     
@@ -75,21 +90,6 @@ class CarrierPalRepository {
       "pos": pos, 
     });
     
-  }
-   
-  // Query
-  Future<List<String>> getOrders() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrders",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query

@@ -40,6 +40,69 @@ class BundlesQueryDealerRepository {
   }
    
   // Query
+  Future<List<Map<String, dynamic>>> queryMap({
+    
+    required QueryMap r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryMap",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> queryExpr({
+    
+    required QueryExpr r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryExpr",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> queryTerms({
+    
+    required QueryTerms r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryTerms",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
+   
+  // Query
   Future<List<Map<String, dynamic>>> loadBundles({
     
     required RequestIds r,

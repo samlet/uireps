@@ -2,10 +2,10 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ModifyTags{
-  String? regionId;
-  String? bundleName;
-  List<String>? bundleIds;
+class ModifyTags{   
+  String? regionId;   
+  String? bundleName;   
+  List<String>? bundleIds;   
   List<String>? tags;
   ModifyTags({
     this.regionId,

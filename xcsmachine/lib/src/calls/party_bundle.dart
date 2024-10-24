@@ -2,8 +2,8 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class PartyBundle{
-  Party? party;
+class PartyBundle{   
+  Party? party;   
   List<ContactMech>? contacts;
   PartyBundle({
     this.party,

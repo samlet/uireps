@@ -2,9 +2,9 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NavRs{
-  String? bundleName;
-  List<Map<String, dynamic>>? rows;
+class NavRs{   
+  String? bundleName;   
+  List<Map<String, dynamic>>? rows;   
   String? pageToken;
   NavRs({
     this.bundleName,

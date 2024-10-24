@@ -2,22 +2,22 @@ part of 'calls.dart';
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class BundleJoint{
-  String? id;
-  String? from;
-  String? to;
-  String? fromRole;
-  String? toRole;
-  String? fromType;
-  String? toType;
-  DateTime? fromDate;
-  DateTime? thruDate;
-  String? statusId;
-  String? relationshipName;
-  String? comments;
-  DateTime? lastUpdatedTxStamp;
-  DateTime? createdTxStamp;
-  String? regionId;
+class BundleJoint{   
+  String? id;   
+  String? from;   
+  String? to;   
+  String? fromRole;   
+  String? toRole;   
+  String? fromType;   
+  String? toType;   
+  DateTime? fromDate;   
+  DateTime? thruDate;   
+  String? statusId;   
+  String? relationshipName;   
+  String? comments;   
+  DateTime? lastUpdatedTxStamp;   
+  DateTime? createdTxStamp;   
+  String? regionId;   
   String? tenantId;
   BundleJoint({
     this.id,
