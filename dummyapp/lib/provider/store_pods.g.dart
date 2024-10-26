@@ -6,7 +6,7 @@ part of 'store_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$storeRepositoryHash() => r'a86b5db361405b27ec6c945bb52632ed386ec32b';
+String _$storeRepositoryHash() => r'2a518dd7145517fb1313aeaa5f8cf6c2bc7fe910';
 
 /// repository pod
 ///

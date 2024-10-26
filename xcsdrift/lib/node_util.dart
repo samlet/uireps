@@ -16,7 +16,7 @@ void printDetails(List<NodeSeries> details) {
     var value = entry.nodes;
     print('- total: ${value.length}');
     for (var node in entry.nodes) {
-      print('\t${node.dataType} => (${node.parentKey})');
+      print('\t${node.dataType} => (${node.id}/${node.parentKey})');
 
       if (node.entity is ent.Comment) {
         var row = node.entity as ent.Comment;
