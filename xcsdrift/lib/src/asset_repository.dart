@@ -234,6 +234,7 @@ class AssetRepository extends RepositoryBase {
     return rec.assetId!;
   }
 
+  @override
   Future<AssetData?> get(String id) async {
     return await tbl.getAsset(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class AssetRepository extends RepositoryBase {
     var result = await sett
         .write(AssetCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

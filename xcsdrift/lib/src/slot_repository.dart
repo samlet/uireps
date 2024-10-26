@@ -150,6 +150,7 @@ class SlotRepository extends RepositoryBase {
     return rec.slotId!;
   }
 
+  @override
   Future<SlotData?> get(String id) async {
     return await tbl.getSlot(id).getSingleOrNull();
   }

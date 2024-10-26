@@ -234,6 +234,7 @@ class MetadataRepository extends RepositoryBase {
     return rec.metadataId!;
   }
 
+  @override
   Future<MetadataData?> get(String id) async {
     return await tbl.getMetadata(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class MetadataRepository extends RepositoryBase {
     var result = await sett
         .write(MetadataCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

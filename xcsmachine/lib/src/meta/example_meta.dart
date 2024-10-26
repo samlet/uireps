@@ -51,6 +51,8 @@ final exampleProfile = BundleMeta(
           FieldMeta("tag3", "name"),
           FieldMeta("moreTags", "strings"),
           FieldMeta("acl", "string-multimap"),
+          FieldMeta("resourceId", "id-vlong"),
+          FieldMeta("resourceType", "id-long"),
           FieldMeta("xcCommentId", "xid"),
           FieldMeta("xcNoteId", "xid"),
         ],

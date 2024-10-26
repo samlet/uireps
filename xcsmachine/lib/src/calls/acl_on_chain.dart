@@ -67,50 +67,6 @@ class AclOnChainRepository {
   }
    
   // Query
-  Future<bool> isOwner({
-    
-    required String biName,
-    required String bundleId,
-    required String userOrGroup, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isOwner",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "biName": biName,
-      "bundleId": bundleId,
-      "userOrGroup": userOrGroup, 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
-  Future<bool> hasRole({
-    
-    required String partyId,
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "hasRole",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "partyId": partyId,
-      "role": role, 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
   Future<List<String>> getPublicMethods({
     
     required String mod, 
@@ -168,6 +124,50 @@ class AclOnChainRepository {
       "bundleNames": bundleNames, 
     });
     
+  }
+   
+  // Query
+  Future<bool> isOwner({
+    
+    required String biName,
+    required String bundleId,
+    required String userOrGroup, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isOwner",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "biName": biName,
+      "bundleId": bundleId,
+      "userOrGroup": userOrGroup, 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
+  Future<bool> hasRole({
+    
+    required String partyId,
+    required String role, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "hasRole",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "partyId": partyId,
+      "role": role, 
+    });
+    
+    return ResultConv.asBool(resp);
   }
   
 }

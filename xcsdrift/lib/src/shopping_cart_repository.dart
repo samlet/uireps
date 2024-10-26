@@ -234,6 +234,7 @@ class ShoppingCartRepository extends RepositoryBase {
     return rec.shoppingCartId!;
   }
 
+  @override
   Future<ShoppingCartData?> get(String id) async {
     return await tbl.getShoppingCart(id).getSingleOrNull();
   }
@@ -368,12 +369,9 @@ class ShoppingCartRepository extends RepositoryBase {
     var result = await sett
         .write(ShoppingCartCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
-  @override
   Future<List<T>> loadJointers<T>(
       String id, String jointKey, T Function(Map<String, dynamic>) conv) async {
     var rec = await get(id);

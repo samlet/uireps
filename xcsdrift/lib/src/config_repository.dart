@@ -234,6 +234,7 @@ class ConfigRepository extends RepositoryBase {
     return rec.configId!;
   }
 
+  @override
   Future<ConfigData?> get(String id) async {
     return await tbl.getConfig(id).getSingleOrNull();
   }
@@ -368,9 +369,7 @@ class ConfigRepository extends RepositoryBase {
     var result = await sett
         .write(ConfigCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

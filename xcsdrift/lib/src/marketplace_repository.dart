@@ -234,6 +234,7 @@ class MarketplaceRepository extends RepositoryBase {
     return rec.marketplaceId!;
   }
 
+  @override
   Future<MarketplaceData?> get(String id) async {
     return await tbl.getMarketplace(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class MarketplaceRepository extends RepositoryBase {
 
      
 
-     
      
   
   

@@ -234,6 +234,7 @@ class CommentRepository extends RepositoryBase {
     return rec.commentId!;
   }
 
+  @override
   Future<CommentData?> get(String id) async {
     return await tbl.getComment(id).getSingleOrNull();
   }
@@ -368,9 +369,7 @@ class CommentRepository extends RepositoryBase {
     var result = await sett
         .write(CommentCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

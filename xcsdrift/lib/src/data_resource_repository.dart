@@ -234,6 +234,7 @@ class DataResourceRepository extends RepositoryBase {
     return rec.dataResourceId!;
   }
 
+  @override
   Future<DataResourceData?> get(String id) async {
     return await tbl.getDataResource(id).getSingleOrNull();
   }
@@ -368,9 +369,7 @@ class DataResourceRepository extends RepositoryBase {
     var result = await sett
         .write(DataResourceCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

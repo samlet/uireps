@@ -150,6 +150,7 @@ class BiFacetRepository extends RepositoryBase {
     return rec.biId!;
   }
 
+  @override
   Future<BiFacetData?> get(String id) async {
     return await tbl.getBiFacet(id).getSingleOrNull();
   }

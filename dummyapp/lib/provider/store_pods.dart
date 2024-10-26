@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:xcsmachine/generic_srv.dart';
 import 'provider.dart';
 import 'package:xcsdrift/xcsdrift.dart';
+import 'package:xcsdrift/repo_init.dart'; // +
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 part 'store_pods.g.dart';
@@ -12,7 +13,8 @@ part 'store_pods.g.dart';
 StoreRepository storeRepository(StoreRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
   Database database=ref.watch(databaseProvider);
-  return StoreRepository(conn.dio, database);
+  // return StoreRepository(conn.dio, database);
+  return repositoryInitor.getRepository('Store', conn.dio, database) as StoreRepository;
 }
 
 /// watch stream (localDb)

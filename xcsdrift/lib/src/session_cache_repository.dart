@@ -150,6 +150,7 @@ class SessionCacheRepository extends RepositoryBase {
     return rec.sessionCacheId!;
   }
 
+  @override
   Future<SessionCacheData?> get(String id) async {
     return await tbl.getSessionCache(id).getSingleOrNull();
   }

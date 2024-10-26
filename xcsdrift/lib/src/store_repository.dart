@@ -234,6 +234,7 @@ class StoreRepository extends RepositoryBase {
     return rec.productStoreId!;
   }
 
+  @override
   Future<ProductStoreData?> get(String id) async {
     return await tbl.getProductStore(id).getSingleOrNull();
   }
@@ -356,10 +357,8 @@ class StoreRepository extends RepositoryBase {
      
 
      
-     
   
   
-  @override
   Future<List<T>> loadJointers<T>(
       String id, String jointKey, T Function(Map<String, dynamic>) conv) async {
     var rec = await get(id);

@@ -234,6 +234,7 @@ class NoteRepository extends RepositoryBase {
     return rec.noteId!;
   }
 
+  @override
   Future<NoteDataData?> get(String id) async {
     return await tbl.getNoteData(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class NoteRepository extends RepositoryBase {
     var result = await sett
         .write(NoteDataCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

@@ -234,6 +234,7 @@ class UserPrefRepository extends RepositoryBase {
     return rec.userPrefId!;
   }
 
+  @override
   Future<UserPrefData?> get(String id) async {
     return await tbl.getUserPref(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class UserPrefRepository extends RepositoryBase {
 
      
 
-     
      
   
   

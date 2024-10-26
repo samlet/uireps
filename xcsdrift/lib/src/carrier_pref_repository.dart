@@ -234,6 +234,7 @@ class CarrierPrefRepository extends RepositoryBase {
     return rec.carrierPrefId!;
   }
 
+  @override
   Future<CarrierPrefData?> get(String id) async {
     return await tbl.getCarrierPref(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class CarrierPrefRepository extends RepositoryBase {
 
      
 
-     
      
   
   

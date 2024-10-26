@@ -88,6 +88,8 @@ final productProfile = BundleMeta(
           FieldMeta("moreTags", "strings"),
           FieldMeta("jointers", "string-map"),
           FieldMeta("acl", "string-multimap"),
+          FieldMeta("resourceId", "id-vlong"),
+          FieldMeta("resourceType", "id-long"),
           FieldMeta("xcPrimaryProductCategoryId", "xid"),
           FieldMeta("xcFacilityId", "xid"),
           FieldMeta("xcCreatedByUserLogin", "xid"),

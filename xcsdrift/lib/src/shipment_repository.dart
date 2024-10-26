@@ -234,6 +234,7 @@ class ShipmentRepository extends RepositoryBase {
     return rec.shipmentId!;
   }
 
+  @override
   Future<ShipmentData?> get(String id) async {
     return await tbl.getShipment(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class ShipmentRepository extends RepositoryBase {
     var result = await sett
         .write(ShipmentCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

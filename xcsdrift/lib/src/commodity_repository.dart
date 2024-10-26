@@ -234,6 +234,7 @@ class CommodityRepository extends RepositoryBase {
     return rec.commodityId!;
   }
 
+  @override
   Future<CommodityData?> get(String id) async {
     return await tbl.getCommodity(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class CommodityRepository extends RepositoryBase {
 
      
 
-     
      
   
   

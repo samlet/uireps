@@ -150,6 +150,7 @@ class AppSettingRepository extends RepositoryBase {
     return rec.appSettingId!;
   }
 
+  @override
   Future<AppSettingData?> get(String id) async {
     return await tbl.getAppSetting(id).getSingleOrNull();
   }

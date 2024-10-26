@@ -234,6 +234,7 @@ class BillboardRepository extends RepositoryBase {
     return rec.billboardId!;
   }
 
+  @override
   Future<BillboardData?> get(String id) async {
     return await tbl.getBillboard(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class BillboardRepository extends RepositoryBase {
 
      
 
-     
      
   
   

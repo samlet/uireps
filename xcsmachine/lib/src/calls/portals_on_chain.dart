@@ -40,138 +40,6 @@ class PortalsOnChainRepository {
     
   }
    
-  // Mutation
-  Future<void> addPublicNotes({
-    
-    required List<String> noteIds, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addPublicNotes",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "noteIds": noteIds, 
-    });
-    
-  }
-   
-  // Query
-  Future<MultiDs> listMultiDs({
-    
-    required String bundleName,
-    required List<String> resourceIds,
-    required String resourceType, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "listMultiDs",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "resourceIds": resourceIds,
-      "resourceType": resourceType, 
-    });
-    
-    return MultiDs.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<String>> allLoginIds() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "allLoginIds",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> allBundleIds({
-    
-    required String bundleName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "allBundleIds",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<BiFacetBi>> getPublicNotes() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPublicNotes",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return convList(resp, BiFacetBi.fromJson);
-  }
-   
-  // Query
-  Future<List<Map<String, dynamic>>> listResources({
-    
-    required String bundleName,
-    required String resourceId,
-    required String resourceType, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "listResources",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "resourceId": resourceId,
-      "resourceType": resourceType, 
-    });
-    
-    return convList(resp, (el)=>el);
-  }
-   
-  // Mutation
-  Future<DateTime> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
-    return DateTime.parse(resp as String);
-  }
-   
   // Query
   Future<List<String>> getPublicElementIds({
     
@@ -460,6 +328,161 @@ class PortalsOnChainRepository {
       "spec": spec, 
     });
     
+  }
+   
+  // Query
+  Future<MasterDetailDs> listMasterDetail({
+    
+    required String bundleName,
+    required List<String> resourceIds,
+    required List<String> binders, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "listMasterDetail",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "resourceIds": resourceIds,
+      "binders": binders, 
+    });
+    
+    return MasterDetailDs.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> addPublicNotes({
+    
+    required List<String> noteIds, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "addPublicNotes",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "noteIds": noteIds, 
+    });
+    
+  }
+   
+  // Query
+  Future<MultiDs> listMultiDs({
+    
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "listMultiDs",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "resourceIds": resourceIds,
+      "resourceType": resourceType, 
+    });
+    
+    return MultiDs.fromJson(resp);
+  }
+   
+  // Query
+  Future<List<String>> allLoginIds() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "allLoginIds",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<String>> allBundleIds({
+    
+    required String bundleName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "allBundleIds",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<BiFacetBi>> getPublicNotes() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPublicNotes",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return convList(resp, BiFacetBi.fromJson);
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> listResources({
+    
+    required String bundleName,
+    required String resourceId,
+    required String resourceType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "listResources",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "resourceId": resourceId,
+      "resourceType": resourceType, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
+   
+  // Mutation
+  Future<DateTime> touch({
+    
+    required String bundleName,
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
+    });
+    
+    return DateTime.parse(resp as String);
   }
   
 }

@@ -69,20 +69,6 @@ class WebStorePalPod extends _$WebStorePalPod {
 
   
 @riverpod
-Future<List<Inventory>> webStorePalGetInventories(WebStorePalGetInventoriesRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String productId, 
-
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getInventories(
-      productId: productId,
-  );
-}
-  
-@riverpod
 Future<List<String>> webStorePalGetProductJointers(WebStorePalGetProductJointersRef ref, {
   String regionOrNs='default',
   required String id,
@@ -107,12 +93,36 @@ Future<List<String>> webStorePalGetProductsByRole(WebStorePalGetProductsByRoleRe
 }
   
 @riverpod
+Future<List<Inventory>> webStorePalGetInventories(WebStorePalGetInventoriesRef ref, {
+  String regionOrNs='default',
+  required String id,
+  
+    required String productId, 
+
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getInventories(
+      productId: productId,
+  );
+}
+  
+@riverpod
 Future<String> webStorePalName(WebStorePalNameRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.name(
+  );
+}
+  
+@riverpod
+Future<Facility> webStorePalFacility(WebStorePalFacilityRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.facility(
   );
 }
   
@@ -143,16 +153,6 @@ Future<List<String>> webStorePalWebSiteIds(WebStorePalWebSiteIdsRef ref, {
 }) async {
   var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.webSiteIds(
-  );
-}
-  
-@riverpod
-Future<Facility> webStorePalFacility(WebStorePalFacilityRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.facility(
   );
 }
   

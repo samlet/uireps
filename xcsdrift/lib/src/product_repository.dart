@@ -234,6 +234,7 @@ class ProductRepository extends RepositoryBase {
     return rec.productId!;
   }
 
+  @override
   Future<ProductData?> get(String id) async {
     return await tbl.getProduct(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class ProductRepository extends RepositoryBase {
     var result = await sett
         .write(ProductCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

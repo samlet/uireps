@@ -2000,7 +2000,193 @@ class _PortalsGetPublicElementsProviderElement
       (origin as PortalsGetPublicElementsProvider).bundleName;
 }
 
-String _$portalsOnChainPodHash() => r'316062dd0598e885ce4bcfe0ed84c0f6a5c3bdd8';
+String _$portalsListMasterDetailHash() =>
+    r'cc16d5dd66a2023978316bb1ef10e81085675664';
+
+/// See also [portalsListMasterDetail].
+@ProviderFor(portalsListMasterDetail)
+const portalsListMasterDetailProvider = PortalsListMasterDetailFamily();
+
+/// See also [portalsListMasterDetail].
+class PortalsListMasterDetailFamily extends Family<AsyncValue<MasterDetailDs>> {
+  /// See also [portalsListMasterDetail].
+  const PortalsListMasterDetailFamily();
+
+  /// See also [portalsListMasterDetail].
+  PortalsListMasterDetailProvider call({
+    String regionOrNs = 'default',
+    required String bundleName,
+    required List<String> resourceIds,
+    required List<String> binders,
+  }) {
+    return PortalsListMasterDetailProvider(
+      regionOrNs: regionOrNs,
+      bundleName: bundleName,
+      resourceIds: resourceIds,
+      binders: binders,
+    );
+  }
+
+  @override
+  PortalsListMasterDetailProvider getProviderOverride(
+    covariant PortalsListMasterDetailProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      bundleName: provider.bundleName,
+      resourceIds: provider.resourceIds,
+      binders: provider.binders,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'portalsListMasterDetailProvider';
+}
+
+/// See also [portalsListMasterDetail].
+class PortalsListMasterDetailProvider
+    extends AutoDisposeFutureProvider<MasterDetailDs> {
+  /// See also [portalsListMasterDetail].
+  PortalsListMasterDetailProvider({
+    String regionOrNs = 'default',
+    required String bundleName,
+    required List<String> resourceIds,
+    required List<String> binders,
+  }) : this._internal(
+          (ref) => portalsListMasterDetail(
+            ref as PortalsListMasterDetailRef,
+            regionOrNs: regionOrNs,
+            bundleName: bundleName,
+            resourceIds: resourceIds,
+            binders: binders,
+          ),
+          from: portalsListMasterDetailProvider,
+          name: r'portalsListMasterDetailProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$portalsListMasterDetailHash,
+          dependencies: PortalsListMasterDetailFamily._dependencies,
+          allTransitiveDependencies:
+              PortalsListMasterDetailFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          bundleName: bundleName,
+          resourceIds: resourceIds,
+          binders: binders,
+        );
+
+  PortalsListMasterDetailProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.bundleName,
+    required this.resourceIds,
+    required this.binders,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String bundleName;
+  final List<String> resourceIds;
+  final List<String> binders;
+
+  @override
+  Override overrideWith(
+    FutureOr<MasterDetailDs> Function(PortalsListMasterDetailRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PortalsListMasterDetailProvider._internal(
+        (ref) => create(ref as PortalsListMasterDetailRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        bundleName: bundleName,
+        resourceIds: resourceIds,
+        binders: binders,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<MasterDetailDs> createElement() {
+    return _PortalsListMasterDetailProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PortalsListMasterDetailProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.bundleName == bundleName &&
+        other.resourceIds == resourceIds &&
+        other.binders == binders;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
+    hash = _SystemHash.combine(hash, resourceIds.hashCode);
+    hash = _SystemHash.combine(hash, binders.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin PortalsListMasterDetailRef
+    on AutoDisposeFutureProviderRef<MasterDetailDs> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
+
+  /// The parameter `resourceIds` of this provider.
+  List<String> get resourceIds;
+
+  /// The parameter `binders` of this provider.
+  List<String> get binders;
+}
+
+class _PortalsListMasterDetailProviderElement
+    extends AutoDisposeFutureProviderElement<MasterDetailDs>
+    with PortalsListMasterDetailRef {
+  _PortalsListMasterDetailProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as PortalsListMasterDetailProvider).regionOrNs;
+  @override
+  String get bundleName =>
+      (origin as PortalsListMasterDetailProvider).bundleName;
+  @override
+  List<String> get resourceIds =>
+      (origin as PortalsListMasterDetailProvider).resourceIds;
+  @override
+  List<String> get binders =>
+      (origin as PortalsListMasterDetailProvider).binders;
+}
+
+String _$portalsOnChainPodHash() => r'19e902b9ea2736d7b5de8244e9f7108b30fe238f';
 
 abstract class _$PortalsOnChainPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

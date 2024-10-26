@@ -234,6 +234,7 @@ class SellerPrefRepository extends RepositoryBase {
     return rec.sellerPrefId!;
   }
 
+  @override
   Future<SellerPrefData?> get(String id) async {
     return await tbl.getSellerPref(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class SellerPrefRepository extends RepositoryBase {
 
      
 
-     
      
   
   

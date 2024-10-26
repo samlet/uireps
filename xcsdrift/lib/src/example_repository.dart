@@ -234,6 +234,7 @@ class ExampleRepository extends RepositoryBase {
     return rec.exampleId!;
   }
 
+  @override
   Future<ExampleData?> get(String id) async {
     return await tbl.getExample(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class ExampleRepository extends RepositoryBase {
     var result = await sett
         .write(ExampleCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }

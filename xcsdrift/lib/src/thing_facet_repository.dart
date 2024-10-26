@@ -234,6 +234,7 @@ class ThingFacetRepository extends RepositoryBase {
     return rec.thingId!;
   }
 
+  @override
   Future<ThingFacetData?> get(String id) async {
     return await tbl.getThingFacet(id).getSingleOrNull();
   }
@@ -330,7 +331,6 @@ class ThingFacetRepository extends RepositoryBase {
 
      
 
-     
      
   
   

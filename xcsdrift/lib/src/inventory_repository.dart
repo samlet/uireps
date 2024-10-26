@@ -234,6 +234,7 @@ class InventoryRepository extends RepositoryBase {
     return rec.inventoryItemId!;
   }
 
+  @override
   Future<InventoryItemData?> get(String id) async {
     return await tbl.getInventoryItem(id).getSingleOrNull();
   }
@@ -355,7 +356,6 @@ class InventoryRepository extends RepositoryBase {
 
      
 
-     
      
   
   

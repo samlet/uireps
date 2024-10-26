@@ -3,14 +3,18 @@ import 'package:drift/drift.dart';
 import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
 import 'database.dart';
+import 'drift_util.dart';
 
 abstract class RepositoryBase{
   final Dio dio;
   final Database database;
   Future<DateTime?> lastTs(String id);
+  Future<DataClass?> get(String id);
   String get bundleName;
 
+  /// Store to localDb
   Future<void> storeEntry(Map<String, dynamic>? jsonEl, {Batch? batch});
+  /// Commit to remote server
   Future<bool> commit(String id);
   // Future<List<T>> loadJointers<T>(String id, String jointKey, T Function(Map<String, dynamic>) conv);
 
@@ -22,6 +26,15 @@ abstract class RepositoryBase{
     portalManager = PortalManagerRepository(dio);
     portals = PortalsOnChainRepository(dio);
     facetStorage = FacetStorageRepository(dio);
+  }
+
+  Future<Map<String, dynamic>?> getAsJson(String id) async{
+    var rec=await get(id);
+    if(rec!=null) {
+      Map<String, dynamic> normMap = normalizeMap(rec);
+      return normMap;
+    }
+    return null;
   }
 
   Future<List<Map<String, dynamic>>> fetchAndExpand(List<String> resourceIds, String resourceType) async {

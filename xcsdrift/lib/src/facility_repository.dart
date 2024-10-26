@@ -234,6 +234,7 @@ class FacilityRepository extends RepositoryBase {
     return rec.facilityId!;
   }
 
+  @override
   Future<FacilityData?> get(String id) async {
     return await tbl.getFacility(id).getSingleOrNull();
   }
@@ -393,9 +394,7 @@ class FacilityRepository extends RepositoryBase {
     var result = await sett
         .write(FacilityCompanion(resourceId: Value(resourceId), resourceType: Value(resourceType)));
     return result;
-  }
-     
-     
+  }   
   
   
 }
