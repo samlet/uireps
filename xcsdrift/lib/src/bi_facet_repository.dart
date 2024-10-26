@@ -63,6 +63,14 @@ class BiFacetRepository extends RepositoryBase {
       batch.insert(database.biFacet, entry,
           onConflict: DoUpdate((old) => entry));
     }
+  }
+
+  Future<ent.BiFacet> fetchSingle(String bundleId) async {
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.BiFacet.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
+    return elData;
   }  
 
   Future<void> push(ent.BiFacet data) async {

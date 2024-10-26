@@ -1,0 +1,38 @@
+import '../fldconv.dart';
+import 'morph/morph.dart';
+import 'section_conv.dart';
+
+
+CREATE TABLE section (
+    "section_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "status_id" VARCHAR(22),
+    "section_name" VARCHAR(100),
+    "classified" VARCHAR(100),
+    "description" VARCHAR(255),
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "chan_id" VARCHAR(250),
+    "evict" BOOLEAN,
+    "acl" TEXT MAPPED BY `const StringMultimapConverter()`,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
+
+    -- rel: one (no public-types)
+
+    -- rel: many
+    "section_reference" TEXT MAPPED BY `const SectionReferenceListConverter()`,
+    "section_slot" TEXT MAPPED BY `const SectionSlotListConverter()`,
+    "reserved_flag" INTEGER
+);
+
+allSections: SELECT * FROM section;
+clearSections: DELETE FROM section;
+addSection: INSERT INTO section $el;
+getSection: SELECT * FROM section WHERE section_id = ?;
+deleteSection: DELETE FROM section WHERE section_id = :id;
+querySectionsByResourceBinder: SELECT * FROM section WHERE resource_type = :resType AND resource_id = :resId;
+
+
+
+

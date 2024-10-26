@@ -153,6 +153,25 @@ class FixtureObjectsRepository {
   }
    
   // Query
+  Future<List<Note>> publicNotes({
+    
+    required String author, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "publicNotes",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "author": author, 
+    });
+    
+    return convList(resp, Note.fromJson);
+  }
+   
+  // Query
   Future<String> getFreeName() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -530,23 +549,24 @@ class FixtureObjectsRepository {
     return IntMap()..mergeFromProto3Json(resp);
   }
    
-  // Query
-  Future<List<Note>> publicNotes({
+  // Mutation
+  Future<void> touch({
     
-    required String author, 
+    required String bundleName,
+    required String bundleId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "publicNotes",
+      "action": "touch",
       "bundleName" : "FixtureObjects",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "author": author, 
+      "bundleName": bundleName,
+      "bundleId": bundleId, 
     });
     
-    return convList(resp, Note.fromJson);
   }
    
   // Query
@@ -585,26 +605,6 @@ class FixtureObjectsRepository {
     });
     
     return asTypedMap(resp);
-  }
-   
-  // Mutation
-  Future<void> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "touch",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "bundleId": bundleId, 
-    });
-    
   }
   
 }

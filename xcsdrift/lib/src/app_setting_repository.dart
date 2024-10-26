@@ -63,6 +63,14 @@ class AppSettingRepository extends RepositoryBase {
       batch.insert(database.appSetting, entry,
           onConflict: DoUpdate((old) => entry));
     }
+  }
+
+  Future<ent.AppSetting> fetchSingle(String bundleId) async {
+    var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
+    final elData = ent.AppSetting.fromJson(jsonEl);
+    // elData.toJson() is required, for drift serde.
+    storeEntry(elData.toJson());
+    return elData;
   }  
 
   Future<void> push(ent.AppSetting data) async {

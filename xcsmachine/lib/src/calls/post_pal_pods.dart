@@ -195,22 +195,22 @@ Future<bool> postIsLiked(PostIsLikedRef ref, {
 }
   
 @riverpod
-Future<double> postLikes(PostLikesRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.likes(
-  );
-}
-  
-@riverpod
 Future<PostBundle> postFetch(PostFetchRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.fetch(
+  );
+}
+  
+@riverpod
+Future<double> postLikes(PostLikesRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.likes(
   );
 }
   

@@ -1,0 +1,42 @@
+import '../fldconv.dart';
+import 'morph/morph.dart';
+import 'headline_conv.dart';
+
+
+CREATE TABLE headline (
+    "headline_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "ref_xid" VARCHAR(60),
+    "summary" TEXT,
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "sender" VARCHAR(22),
+    "stats_id" VARCHAR(22),
+    "tag1" VARCHAR(100),
+    "tag2" VARCHAR(100),
+    "tag3" VARCHAR(100),
+    "headline_type_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
+    "section_id" VARCHAR(22),
+    "evict" BOOLEAN,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
+
+    -- rel: one (no public-types)
+    "headline_type" TEXT MAPPED BY `const HeadlineTypeConverter()`,
+
+    -- rel: many
+    "headline_slot" TEXT MAPPED BY `const HeadlineSlotListConverter()`,
+    "reserved_flag" INTEGER
+);
+
+allHeadlines: SELECT * FROM headline;
+clearHeadlines: DELETE FROM headline;
+addHeadline: INSERT INTO headline $el;
+getHeadline: SELECT * FROM headline WHERE headline_id = ?;
+deleteHeadline: DELETE FROM headline WHERE headline_id = :id;
+queryHeadlinesByResourceBinder: SELECT * FROM headline WHERE resource_type = :resType AND resource_id = :resId;
+
+
+
+

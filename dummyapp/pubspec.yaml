@@ -32,6 +32,7 @@ dependencies:
   pubspec_parse: ^1.2.1
   riverpod_annotation:
   shimmer: ^2.0.0
+  animated_tree_view: ^2.3.0
 
   drift: ^2.21.0
   xcsmachine:

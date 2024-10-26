@@ -6,6 +6,7 @@ import 'database.dart';
 import 'repo_init.dart';
 import 'src/all_nodes.dart';
 
+export 'data_node.dart';
 export 'src/all_nodes.dart';
 
 class NodeSeries{

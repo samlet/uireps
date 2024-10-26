@@ -21,6 +21,8 @@ import 'database.drift.dart';
   'src/asset.drift',
   'src/data_resource.drift',
   'src/slot.drift',
+  'src/section.drift',
+  'src/headline.drift',
   'src/bi_facet.drift',
   'src/thing_facet.drift',
   'src/session_cache.drift',

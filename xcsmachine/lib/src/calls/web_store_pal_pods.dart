@@ -117,16 +117,6 @@ Future<String> webStorePalName(WebStorePalNameRef ref, {
 }
   
 @riverpod
-Future<Facility> webStorePalFacility(WebStorePalFacilityRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.facility(
-  );
-}
-  
-@riverpod
 Future<List<String>> webStorePalGetCatalogIds(WebStorePalGetCatalogIdsRef ref, {
   String regionOrNs='default',
   required String id,
@@ -153,6 +143,16 @@ Future<List<String>> webStorePalWebSiteIds(WebStorePalWebSiteIdsRef ref, {
 }) async {
   var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.webSiteIds(
+  );
+}
+  
+@riverpod
+Future<Facility> webStorePalFacility(WebStorePalFacilityRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.facility(
   );
 }
   

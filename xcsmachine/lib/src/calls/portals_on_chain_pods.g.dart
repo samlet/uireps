@@ -2186,7 +2186,7 @@ class _PortalsListMasterDetailProviderElement
       (origin as PortalsListMasterDetailProvider).binders;
 }
 
-String _$portalsOnChainPodHash() => r'19e902b9ea2736d7b5de8244e9f7108b30fe238f';
+String _$portalsOnChainPodHash() => r'316062dd0598e885ce4bcfe0ed84c0f6a5c3bdd8';
 
 abstract class _$PortalsOnChainPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

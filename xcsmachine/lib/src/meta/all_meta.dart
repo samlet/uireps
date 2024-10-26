@@ -1,26 +1,92 @@
 
 import 'note_meta.dart';
 export 'note_meta.dart';
+import 'shipment_meta.dart';
+export 'shipment_meta.dart';
 import 'example_meta.dart';
 export 'example_meta.dart';
-import 'product_meta.dart';
-export 'product_meta.dart';
-import 'comment_meta.dart';
-export 'comment_meta.dart';
+import 'facility_meta.dart';
+export 'facility_meta.dart';
+import 'inventory_meta.dart';
+export 'inventory_meta.dart';
+import 'metadata_meta.dart';
+export 'metadata_meta.dart';
+import 'config_meta.dart';
+export 'config_meta.dart';
+import 'shopping_cart_meta.dart';
+export 'shopping_cart_meta.dart';
+import 'billboard_meta.dart';
+export 'billboard_meta.dart';
+import 'marketplace_meta.dart';
+export 'marketplace_meta.dart';
 import 'store_meta.dart';
 export 'store_meta.dart';
+import 'product_meta.dart';
+export 'product_meta.dart';
+import 'carrier_meta.dart';
+export 'carrier_meta.dart';
+import 'comment_meta.dart';
+export 'comment_meta.dart';
 import 'asset_meta.dart';
 export 'asset_meta.dart';
+import 'data_resource_meta.dart';
+export 'data_resource_meta.dart';
+import 'slot_meta.dart';
+export 'slot_meta.dart';
+import 'section_meta.dart';
+export 'section_meta.dart';
+import 'headline_meta.dart';
+export 'headline_meta.dart';
+import 'bi_facet_meta.dart';
+export 'bi_facet_meta.dart';
+import 'thing_facet_meta.dart';
+export 'thing_facet_meta.dart';
+import 'session_cache_meta.dart';
+export 'session_cache_meta.dart';
+import 'app_setting_meta.dart';
+export 'app_setting_meta.dart';
+import 'user_pref_meta.dart';
+export 'user_pref_meta.dart';
+import 'buyer_pref_meta.dart';
+export 'buyer_pref_meta.dart';
+import 'seller_pref_meta.dart';
+export 'seller_pref_meta.dart';
+import 'carrier_pref_meta.dart';
+export 'carrier_pref_meta.dart';
+import 'commodity_meta.dart';
+export 'commodity_meta.dart';
 
 export '../bundle_meta.dart';
 
 final bundleProfiles={
   'Note': noteProfile,
+  'Shipment': shipmentProfile,
   'Example': exampleProfile,
-  'Product': productProfile,
-  'Comment': commentProfile,
+  'Facility': facilityProfile,
+  'Inventory': inventoryProfile,
+  'Metadata': metadataProfile,
+  'Config': configProfile,
+  'ShoppingCart': shoppingCartProfile,
+  'Billboard': billboardProfile,
+  'Marketplace': marketplaceProfile,
   'Store': storeProfile,
+  'Product': productProfile,
+  'Carrier': carrierProfile,
+  'Comment': commentProfile,
   'Asset': assetProfile,
+  'DataResource': dataResourceProfile,
+  'Slot': slotProfile,
+  'Section': sectionProfile,
+  'Headline': headlineProfile,
+  'BiFacet': biFacetProfile,
+  'ThingFacet': thingFacetProfile,
+  'SessionCache': sessionCacheProfile,
+  'AppSetting': appSettingProfile,
+  'UserPref': userPrefProfile,
+  'BuyerPref': buyerPrefProfile,
+  'SellerPref': sellerPrefProfile,
+  'CarrierPref': carrierPrefProfile,
+  'Commodity': commodityProfile,
 };
 
 

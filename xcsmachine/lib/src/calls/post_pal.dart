@@ -192,6 +192,21 @@ class PostPalRepository {
     return ResultConv.asString(resp);
   }
    
+  // Query
+  Future<PostBundle> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "fetch",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return PostBundle.fromJson(resp);
+  }
+   
   // Mutation
   Future<void> like() async { 
     var resp = await performCall(dio, {
@@ -233,21 +248,6 @@ class PostPalRepository {
     }, { 
     });
     
-  }
-   
-  // Query
-  Future<PostBundle> fetch() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "fetch",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return PostBundle.fromJson(resp);
   }
    
   // Query

@@ -121,29 +121,6 @@ Map<String, dynamic> _$TestRecToJson(TestRec instance) {
   return val;
 }
 
-PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
-      party: json['party'] == null
-          ? null
-          : Party.fromJson(json['party'] as Map<String, dynamic>),
-      contacts: (json['contacts'] as List<dynamic>?)
-          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('party', instance.party?.toJson());
-  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
-  return val;
-}
-
 StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
       store: json['store'] == null
           ? null
@@ -173,6 +150,29 @@ Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) {
   writeNotNull('products', instance.products?.map((e) => e.toJson()).toList());
   writeNotNull(
       'inventories', instance.inventories?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
+      party: json['party'] == null
+          ? null
+          : Party.fromJson(json['party'] as Map<String, dynamic>),
+      contacts: (json['contacts'] as List<dynamic>?)
+          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('party', instance.party?.toJson());
+  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -591,6 +591,29 @@ Map<String, dynamic> _$QueryByBunchToJson(QueryByBunch instance) {
   return val;
 }
 
+NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
+      bundleName: json['bundleName'] as String?,
+      rows: (json['rows'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+      pageToken: json['pageToken'] as String?,
+    );
+
+Map<String, dynamic> _$NavRsToJson(NavRs instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('rows', instance.rows);
+  writeNotNull('pageToken', instance.pageToken);
+  return val;
+}
+
 QueryByTags _$QueryByTagsFromJson(Map<String, dynamic> json) => QueryByTags(
       bundleName: json['bundleName'] as String?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -615,29 +638,6 @@ Map<String, dynamic> _$QueryByTagsToJson(QueryByTags instance) {
   writeNotNull('tags', instance.tags);
   writeNotNull('limit', instance.limit?.toJson());
   writeNotNull('orderBy', instance.orderBy?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
-      bundleName: json['bundleName'] as String?,
-      rows: (json['rows'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>)
-          .toList(),
-      pageToken: json['pageToken'] as String?,
-    );
-
-Map<String, dynamic> _$NavRsToJson(NavRs instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('rows', instance.rows);
-  writeNotNull('pageToken', instance.pageToken);
   return val;
 }
 

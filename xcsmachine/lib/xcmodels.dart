@@ -26,6 +26,8 @@ export 'src/ent/marketplace.dart';
 export 'src/ent/notification.dart';
 export 'src/ent/slot.dart';
 export 'src/ent/asset.dart';
+export 'src/ent/section.dart';
+export 'src/ent/headline.dart';
 
 // plugins
 export 'commoditymodels.dart';

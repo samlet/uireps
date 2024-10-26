@@ -3,6 +3,7 @@ import 'package:xcsmachine/xcsmetas.dart';
 
 import 'intf.dart';
 
+const rootNodeKey='_root_';
 abstract class DataNode {
   final String parentKey;
   final String id;
@@ -22,7 +23,7 @@ abstract class DataNode {
 
   @override
   String toString() => id;
-
+  bool get isRoot => parentKey==rootNodeKey;
   void print() {
     prettyPrint(data.removeNulls());
   }

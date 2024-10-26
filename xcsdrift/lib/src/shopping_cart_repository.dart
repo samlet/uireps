@@ -71,6 +71,7 @@ class ShoppingCartRepository extends RepositoryBase {
           onConflict: DoUpdate((old) => entry));
     }
   }
+
   Future<ent.ShoppingCart> fetchSingle(String bundleId) async {
     var jsonEl=await facetStorage.get(fullBundleName: _fullBundleName, key: bundleId);
     final elData = ent.ShoppingCart.fromJson(jsonEl);
@@ -78,8 +79,6 @@ class ShoppingCartRepository extends RepositoryBase {
     storeEntry(elData.toJson());
     return elData;
   }
-
-
   /// 智能获取数据: 先检测缓存时效, 只在失效时从远程获取.
   /// 在获取到远程数据后, 会比对本地和远程条目的时间戳, 
   /// 如果本地较新(比如已经在本地做了修改), 则返回本地条目, 否则返回从服务端获取的条目.

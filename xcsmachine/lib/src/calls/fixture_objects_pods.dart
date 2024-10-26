@@ -244,6 +244,19 @@ Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
 }
   
 @riverpod
+Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
+  String regionOrNs='default',
+  
+    required String author, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.publicNotes(
+      author: author,
+  );
+}
+  
+@riverpod
 Future<String> fixturesGetFreeName(FixturesGetFreeNameRef ref, {
   String regionOrNs='default',
 }) async {
@@ -394,19 +407,6 @@ Future<IntMap> fixturesProtoInput(FixturesProtoInputRef ref, {
       timestamps: timestamps,
       stringMap: stringMap,
       decimalMap: decimalMap,
-  );
-}
-  
-@riverpod
-Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
-  String regionOrNs='default',
-  
-    required String author, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.publicNotes(
-      author: author,
   );
 }
   
