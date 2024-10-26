@@ -60,4 +60,3 @@ Future<TreeNode<DataNode>> buildSection(BuildSectionRef ref,
   }
   return root;
 }
-
