@@ -9,6 +9,14 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 import 'services.dart';
 
+/*
+* https://github.com/AbdulRahmanAlHamali/flutter_typeahead/blob/master/example/lib/main.dart
+* https://pub.dev/packages/flutter_typeahead
+            (动态搜索+下拉列表: typeahead)
+ */
+
+
+/*
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -435,9 +443,4 @@ class AlternativeLayoutArchitecture extends StatelessWidget {
     );
   }
 }
-
-/*
-* https://github.com/AbdulRahmanAlHamali/flutter_typeahead/blob/master/example/lib/main.dart
-* https://pub.dev/packages/flutter_typeahead
-            (动态搜索+下拉列表: typeahead)
- */
+*/
