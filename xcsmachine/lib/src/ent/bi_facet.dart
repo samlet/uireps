@@ -26,7 +26,10 @@ class BiFacet {
     this.tenantId,
     this.lastUpdatedTxStamp,
     this.createdTxStamp,
+    this.biFacetTypeId,
+    this.statusId,
     this.evict,
+    this.biFacetStatus,
   });
 
   BiFacet copyWith({
@@ -39,7 +42,10 @@ class BiFacet {
     String? tenantId,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
+    String? biFacetTypeId,
+    String? statusId,
     bool? evict,
+    List<BiFacetStatus>? biFacetStatus,
   }) {
     return BiFacet(
       biId: biId ?? this.biId,
@@ -51,7 +57,10 @@ class BiFacet {
       tenantId: tenantId ?? this.tenantId,
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
+      biFacetTypeId: biFacetTypeId ?? this.biFacetTypeId,
+      statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
+      biFacetStatus: biFacetStatus ?? this.biFacetStatus,
     );
   }
 
@@ -98,6 +107,12 @@ class BiFacet {
   DateTime? createdTxStamp;
 
    
+  String? biFacetTypeId;
+
+   
+  String? statusId;
+
+   
   bool? evict;
 
 
@@ -105,11 +120,124 @@ class BiFacet {
   
 
   // rel: many
+  List<BiFacetStatus>? biFacetStatus;
   
 
   // rel: many ops    
+  /// rel - BiFacetStatus
+  void addBiFacetStatus(BiFacetStatus newItem) {
+    biFacetStatus = [...?biFacetStatus, newItem];
+  }
+
+  void removeBiFacetStatus(String itemId) {
+    biFacetStatus = biFacetStatus?.where((el) => el.id != itemId).toList();
+  }
+
+  void updateBiFacetStatus(String id, {
+    String? biFacetId_,
+    DateTime? statusDate_,
+    DateTime? statusEndDate_,
+    String? changeByUserLoginId_,
+    String? statusId_,
+    DateTime? lastUpdatedTxStamp_,
+    DateTime? createdTxStamp_,
+  }) {
+    biFacetStatus = [
+      for (BiFacetStatus el in biFacetStatus??[])
+        if (el.id == id)
+          BiFacetStatus(
+            id: id,
+            biFacetId: biFacetId_??el.biFacetId,
+            statusDate: statusDate_??el.statusDate,
+            statusEndDate: statusEndDate_??el.statusEndDate,
+            changeByUserLoginId: changeByUserLoginId_??el.changeByUserLoginId,
+            statusId: statusId_??el.statusId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp_??el.lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp_??el.createdTxStamp,
+          )
+        else
+          el,
+    ];
+  }  
+
+  bool hasBiFacetStatus(String itemId){
+    return biFacetStatus?.any((el) => el.id == itemId)??false;
+  }
+      
 }
 
+
+// entity: BiFacetStatus
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class BiFacetStatus {
+  BiFacetStatus({
+    this.biFacetId,
+    this.statusDate,
+    this.statusEndDate,
+    this.changeByUserLoginId,
+    this.statusId,
+    this.lastUpdatedTxStamp,
+    this.createdTxStamp,
+    this.id,
+  });
+
+  BiFacetStatus copyWith({
+    String? biFacetId,
+    DateTime? statusDate,
+    DateTime? statusEndDate,
+    String? changeByUserLoginId,
+    String? statusId,
+    DateTime? lastUpdatedTxStamp,
+    DateTime? createdTxStamp,
+    String? id,
+  }) {
+    return BiFacetStatus(
+      biFacetId: biFacetId ?? this.biFacetId,
+      statusDate: statusDate ?? this.statusDate,
+      statusEndDate: statusEndDate ?? this.statusEndDate,
+      changeByUserLoginId: changeByUserLoginId ?? this.changeByUserLoginId,
+      statusId: statusId ?? this.statusId,
+      lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
+      createdTxStamp: createdTxStamp ?? this.createdTxStamp,
+      id: id ?? this.id,
+    );
+  }
+
+  factory BiFacetStatus.fromJson(Map<String, dynamic> json) => _$BiFacetStatusFromJson(json);
+  Map<String, dynamic> toJson() => _$BiFacetStatusToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<BiFacetStatus, String> converter = df.TypeConverter.json(
+    fromJson: (json) => BiFacetStatus.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
+   
+  String? biFacetId;
+
+   
+  DateTime? statusDate;
+
+   
+  DateTime? statusEndDate;
+
+   
+  String? changeByUserLoginId;
+
+   
+  String? statusId;
+
+   
+  DateTime? lastUpdatedTxStamp;
+
+   
+  DateTime? createdTxStamp;
+
+   
+  String? id;
+
+  
+}
 
 
 

@@ -32,7 +32,8 @@ import 'database.drift.dart';
   'src/seller_pref.drift',
   'src/carrier_pref.drift',
   'src/commodity.drift',
-  'src/all_facets.drift'
+  'src/all_facets.drift',
+  'src/sys_table.drift'
 })
 class Database extends $Database {
   Database(super.e);

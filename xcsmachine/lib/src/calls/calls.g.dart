@@ -121,6 +121,29 @@ Map<String, dynamic> _$TestRecToJson(TestRec instance) {
   return val;
 }
 
+PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
+      party: json['party'] == null
+          ? null
+          : Party.fromJson(json['party'] as Map<String, dynamic>),
+      contacts: (json['contacts'] as List<dynamic>?)
+          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('party', instance.party?.toJson());
+  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
+  return val;
+}
+
 StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
       store: json['store'] == null
           ? null
@@ -150,29 +173,6 @@ Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) {
   writeNotNull('products', instance.products?.map((e) => e.toJson()).toList());
   writeNotNull(
       'inventories', instance.inventories?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
-      party: json['party'] == null
-          ? null
-          : Party.fromJson(json['party'] as Map<String, dynamic>),
-      contacts: (json['contacts'] as List<dynamic>?)
-          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('party', instance.party?.toJson());
-  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -227,6 +227,66 @@ Map<String, dynamic> _$BundleModifiedResultToJson(
   return val;
 }
 
+BiFacetStatusAtt _$BiFacetStatusAttFromJson(Map<String, dynamic> json) =>
+    BiFacetStatusAtt(
+      biFacetId: json['biFacetId'] as String?,
+      statusDate: _$JsonConverterFromJson<String, DateTime>(
+          json['statusDate'], const OffsetDateTimeConverter().fromJson),
+      statusEndDate: _$JsonConverterFromJson<String, DateTime>(
+          json['statusEndDate'], const OffsetDateTimeConverter().fromJson),
+      changeByUserLoginId: json['changeByUserLoginId'] as String?,
+      statusId: json['statusId'] as String?,
+      lastUpdatedTxStamp: _$JsonConverterFromJson<String, DateTime>(
+          json['lastUpdatedTxStamp'], const OffsetDateTimeConverter().fromJson),
+      createdTxStamp: _$JsonConverterFromJson<String, DateTime>(
+          json['createdTxStamp'], const OffsetDateTimeConverter().fromJson),
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$BiFacetStatusAttToJson(BiFacetStatusAtt instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('biFacetId', instance.biFacetId);
+  writeNotNull(
+      'statusDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.statusDate, const OffsetDateTimeConverter().toJson));
+  writeNotNull(
+      'statusEndDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.statusEndDate, const OffsetDateTimeConverter().toJson));
+  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
+  writeNotNull('statusId', instance.statusId);
+  writeNotNull(
+      'lastUpdatedTxStamp',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.lastUpdatedTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull(
+      'createdTxStamp',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull('id', instance.id);
+  return val;
+}
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
+
 BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
       biId: json['biId'] as String?,
       bundleName: json['bundleName'] as String?,
@@ -239,7 +299,12 @@ BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
           json['lastUpdatedTxStamp'], const OffsetDateTimeConverter().fromJson),
       createdTxStamp: _$JsonConverterFromJson<String, DateTime>(
           json['createdTxStamp'], const OffsetDateTimeConverter().fromJson),
+      biFacetTypeId: json['biFacetTypeId'] as String?,
+      statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
+      biFacetStatus: (json['biFacetStatus'] as List<dynamic>?)
+          ?.map((e) => BiFacetStatusAtt.fromJson(e as Map<String, dynamic>))
+          .toList(),
       type: json['type'] as String?,
     );
 
@@ -267,22 +332,14 @@ Map<String, dynamic> _$BiFacetBiToJson(BiFacetBi instance) {
       'createdTxStamp',
       _$JsonConverterToJson<String, DateTime>(
           instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
+  writeNotNull('biFacetTypeId', instance.biFacetTypeId);
+  writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
+  writeNotNull(
+      'biFacetStatus', instance.biFacetStatus?.map((e) => e.toJson()).toList());
   writeNotNull('type', instance.type);
   return val;
 }
-
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
 
 ResultSort _$ResultSortFromJson(Map<String, dynamic> json) => ResultSort(
       fld: json['fld'] as String?,
@@ -380,29 +437,6 @@ Map<String, dynamic> _$QueryMapToJson(QueryMap instance) {
   return val;
 }
 
-QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
-      bundleName: json['bundleName'] as String?,
-      expr: json['expr'] as String?,
-      limit: json['limit'] == null
-          ? null
-          : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('expr', instance.expr);
-  writeNotNull('limit', instance.limit?.toJson());
-  return val;
-}
-
 QueryTerms _$QueryTermsFromJson(Map<String, dynamic> json) => QueryTerms(
       bundleName: json['bundleName'] as String?,
       terms: (json['terms'] as List<dynamic>?)
@@ -424,6 +458,29 @@ Map<String, dynamic> _$QueryTermsToJson(QueryTerms instance) {
 
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('terms', instance.terms?.map((e) => e.toJson()).toList());
+  writeNotNull('limit', instance.limit?.toJson());
+  return val;
+}
+
+QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
+      bundleName: json['bundleName'] as String?,
+      expr: json['expr'] as String?,
+      limit: json['limit'] == null
+          ? null
+          : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('expr', instance.expr);
   writeNotNull('limit', instance.limit?.toJson());
   return val;
 }
@@ -591,29 +648,6 @@ Map<String, dynamic> _$QueryByBunchToJson(QueryByBunch instance) {
   return val;
 }
 
-NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
-      bundleName: json['bundleName'] as String?,
-      rows: (json['rows'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>)
-          .toList(),
-      pageToken: json['pageToken'] as String?,
-    );
-
-Map<String, dynamic> _$NavRsToJson(NavRs instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('rows', instance.rows);
-  writeNotNull('pageToken', instance.pageToken);
-  return val;
-}
-
 QueryByTags _$QueryByTagsFromJson(Map<String, dynamic> json) => QueryByTags(
       bundleName: json['bundleName'] as String?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -638,6 +672,29 @@ Map<String, dynamic> _$QueryByTagsToJson(QueryByTags instance) {
   writeNotNull('tags', instance.tags);
   writeNotNull('limit', instance.limit?.toJson());
   writeNotNull('orderBy', instance.orderBy?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
+      bundleName: json['bundleName'] as String?,
+      rows: (json['rows'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+      pageToken: json['pageToken'] as String?,
+    );
+
+Map<String, dynamic> _$NavRsToJson(NavRs instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('rows', instance.rows);
+  writeNotNull('pageToken', instance.pageToken);
   return val;
 }
 

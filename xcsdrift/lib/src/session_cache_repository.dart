@@ -71,6 +71,11 @@ class SessionCacheRepository extends RepositoryBase {
     // elData.toJson() is required, for drift serde.
     storeEntry(elData.toJson());
     return elData;
+  }
+
+  Future<List<ent.SessionCache>> fetchMulti(List<String> ids, {bool smartMode=false}) async {
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements, smartMode: smartMode);
   }  
 
   Future<void> push(ent.SessionCache data) async {

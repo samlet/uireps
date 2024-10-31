@@ -20,7 +20,12 @@ BiFacet _$BiFacetFromJson(Map<String, dynamic> json) => BiFacet(
       createdTxStamp: json['createdTxStamp'] == null
           ? null
           : DateTime.parse(json['createdTxStamp'] as String),
+      biFacetTypeId: json['biFacetTypeId'] as String?,
+      statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
+      biFacetStatus: (json['biFacetStatus'] as List<dynamic>?)
+          ?.map((e) => BiFacetStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$BiFacetToJson(BiFacet instance) {
@@ -42,6 +47,51 @@ Map<String, dynamic> _$BiFacetToJson(BiFacet instance) {
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
+  writeNotNull('biFacetTypeId', instance.biFacetTypeId);
+  writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
+  writeNotNull(
+      'biFacetStatus', instance.biFacetStatus?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+BiFacetStatus _$BiFacetStatusFromJson(Map<String, dynamic> json) =>
+    BiFacetStatus(
+      biFacetId: json['biFacetId'] as String?,
+      statusDate: json['statusDate'] == null
+          ? null
+          : DateTime.parse(json['statusDate'] as String),
+      statusEndDate: json['statusEndDate'] == null
+          ? null
+          : DateTime.parse(json['statusEndDate'] as String),
+      changeByUserLoginId: json['changeByUserLoginId'] as String?,
+      statusId: json['statusId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$BiFacetStatusToJson(BiFacetStatus instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('biFacetId', instance.biFacetId);
+  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
+  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
+  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
+  writeNotNull('statusId', instance.statusId);
+  writeNotNull(
+      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
+  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
+  writeNotNull('id', instance.id);
   return val;
 }

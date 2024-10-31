@@ -23,8 +23,6 @@ class AclFacet {
     this.tenantId,
     this.lastUpdatedTxStamp,
     this.createdTxStamp,
-    this.aclFacetTypeId,
-    this.statusId,
     this.evict,
   });
 
@@ -35,8 +33,6 @@ class AclFacet {
     String? tenantId,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
-    String? aclFacetTypeId,
-    String? statusId,
     bool? evict,
   }) {
     return AclFacet(
@@ -46,8 +42,6 @@ class AclFacet {
       tenantId: tenantId ?? this.tenantId,
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
-      aclFacetTypeId: aclFacetTypeId ?? this.aclFacetTypeId,
-      statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
     );
   }
@@ -85,12 +79,6 @@ class AclFacet {
 
    
   DateTime? createdTxStamp;
-
-   
-  String? aclFacetTypeId;
-
-   
-  String? statusId;
 
    
   bool? evict;

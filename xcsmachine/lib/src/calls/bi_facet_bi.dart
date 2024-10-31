@@ -12,7 +12,10 @@ class BiFacetBi{
   String? tenantId;   
   DateTime? lastUpdatedTxStamp;   
   DateTime? createdTxStamp;   
+  String? biFacetTypeId;   
+  String? statusId;   
   bool? evict;   
+  List<BiFacetStatusAtt>? biFacetStatus;   
   String? type;
   BiFacetBi({
     this.biId,
@@ -24,7 +27,10 @@ class BiFacetBi{
     this.tenantId,
     this.lastUpdatedTxStamp,
     this.createdTxStamp,
+    this.biFacetTypeId,
+    this.statusId,
     this.evict,
+    this.biFacetStatus,
     this.type,
   });
 

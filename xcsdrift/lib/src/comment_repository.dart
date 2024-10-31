@@ -79,6 +79,11 @@ class CommentRepository extends RepositoryBase {
     storeEntry(elData.toJson());
     return elData;
   }
+
+  Future<List<ent.Comment>> fetchMulti(List<String> ids, {bool smartMode=false}) async {
+    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
+    return await storeDs(elements, smartMode: smartMode);
+  }
   /// 智能获取数据: 先检测缓存时效, 只在失效时从远程获取.
   /// 在获取到远程数据后, 会比对本地和远程条目的时间戳, 
   /// 如果本地较新(比如已经在本地做了修改), 则返回本地条目, 否则返回从服务端获取的条目.
@@ -120,11 +125,6 @@ class CommentRepository extends RepositoryBase {
     }
   }
 
-
-  Future<List<ent.Comment>> fetchMulti(List<String> ids, {bool smartMode=false}) async {
-    final elements=await facetStorage.multiGet(fullBundleName: _fullBundleName, keys: ids);
-    return await storeDs(elements, smartMode: smartMode);
-  }
 
   Future<List<ent.Comment>> fetchFromReg(String regNode, {bool smartMode=false}) async {
     List<BiFacetBi> elements = await portals.getPublicElements(

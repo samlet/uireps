@@ -13,11 +13,14 @@ CREATE TABLE bi_facet (
     "tenant_id" VARCHAR(22),
     "last_updated_tx_stamp" DATETIME(3),
     "created_tx_stamp" DATETIME(3),
+    "bi_facet_type_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
     "evict" BOOLEAN,
 
     -- rel: one (no public-types)
 
     -- rel: many
+    "bi_facet_status" TEXT MAPPED BY `const BiFacetStatusListConverter()`,
     "reserved_flag" INTEGER
 );
 

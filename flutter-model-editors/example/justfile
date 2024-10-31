@@ -1,0 +1,5 @@
+app:
+	open build/macos/Build/Products/Debug/example.app/
+rel:
+	open example/build/macos/Build/Products/Release/example.app/
+

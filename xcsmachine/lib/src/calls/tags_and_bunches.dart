@@ -18,24 +18,6 @@ class TagsAndBunchesRepository {
   final String moduleName;
 
    
-  // Mutation
-  Future<void> removeTags({
-    
-    required ModifyTags req, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "removeTags",
-      "bundleName" : "TagsAndBunches",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "req": req, 
-    });
-    
-  }
-   
   // Query
   Future<List<Map<String, dynamic>>> queryByTags({
     
@@ -133,6 +115,24 @@ class TagsAndBunchesRepository {
     });
     
     return convList(resp, (el)=>el);
+  }
+   
+  // Mutation
+  Future<void> removeTags({
+    
+    required ModifyTags req, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "removeTags",
+      "bundleName" : "TagsAndBunches",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "req": req, 
+    });
+    
   }
   
 }

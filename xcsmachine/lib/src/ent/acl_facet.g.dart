@@ -17,8 +17,6 @@ AclFacet _$AclFacetFromJson(Map<String, dynamic> json) => AclFacet(
       createdTxStamp: json['createdTxStamp'] == null
           ? null
           : DateTime.parse(json['createdTxStamp'] as String),
-      aclFacetTypeId: json['aclFacetTypeId'] as String?,
-      statusId: json['statusId'] as String?,
       evict: json['evict'] as bool?,
     );
 
@@ -38,8 +36,6 @@ Map<String, dynamic> _$AclFacetToJson(AclFacet instance) {
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('aclFacetTypeId', instance.aclFacetTypeId);
-  writeNotNull('statusId', instance.statusId);
   writeNotNull('evict', instance.evict);
   return val;
 }
