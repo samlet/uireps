@@ -69,35 +69,6 @@ class PostPalRepository {
     
   }
    
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "featured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
-  // Query
-  Future<bool> isFeatured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "isFeatured",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
   // Query
   Future<Map<String, double>> getStats() async { 
     var resp = await performCall(dio, {
@@ -192,11 +163,11 @@ class PostPalRepository {
     return ResultConv.asString(resp);
   }
    
-  // Query
-  Future<PostBundle> fetch() async { 
+  // Mutation
+  Future<void> featured() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "fetch",
+      "action": "featured",
       "bundleName" : "Content",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -204,7 +175,21 @@ class PostPalRepository {
     }, { 
     });
     
-    return PostBundle.fromJson(resp);
+  }
+   
+  // Query
+  Future<bool> isFeatured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "isFeatured",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asBool(resp);
   }
    
   // Mutation
@@ -248,6 +233,21 @@ class PostPalRepository {
     }, { 
     });
     
+  }
+   
+  // Query
+  Future<PostBundle> fetch() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "fetch",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return PostBundle.fromJson(resp);
   }
    
   // Query

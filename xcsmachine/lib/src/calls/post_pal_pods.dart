@@ -46,14 +46,6 @@ class PostPalPod extends _$PostPalPod {
     return state.hasError == false;
   }
   
-  Future<bool> featured() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> setCharge({
     
     required double fee, 
@@ -95,6 +87,14 @@ class PostPalPod extends _$PostPalPod {
               review: review,
               rating: rating,
               reward: reward,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
             ));
     return state.hasError == false;
   }
@@ -165,16 +165,6 @@ Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
 }
   
 @riverpod
-Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.isFeatured(
-  );
-}
-  
-@riverpod
 Future<Map<String, double>> postGetStats(PostGetStatsRef ref, {
   String regionOrNs='default',
   required String id,
@@ -195,12 +185,12 @@ Future<bool> postIsLiked(PostIsLikedRef ref, {
 }
   
 @riverpod
-Future<PostBundle> postFetch(PostFetchRef ref, {
+Future<bool> postIsFeatured(PostIsFeaturedRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.fetch(
+  return await pod.isFeatured(
   );
 }
   
@@ -211,6 +201,16 @@ Future<double> postLikes(PostLikesRef ref, {
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.likes(
+  );
+}
+  
+@riverpod
+Future<PostBundle> postFetch(PostFetchRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.fetch(
   );
 }
   

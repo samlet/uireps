@@ -136,6 +136,21 @@ class WebStorePalRepository {
   }
    
   // Query
+  Future<Facility> facility() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "facility",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Facility.fromJson(resp);
+  }
+   
+  // Query
   Future<List<String>> getCatalogIds() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -178,21 +193,6 @@ class WebStorePalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<Facility> facility() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "facility",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Facility.fromJson(resp);
   }
    
   // Query

@@ -1,8 +1,8 @@
 import 'type.dart';
 
-CREATE VIRTUAL TABLE bundle_ft USING fts5 (bundle_id, bundle_name, keywords);
+CREATE VIRTUAL TABLE bundle_ft USING fts5 (
+  bundle_id, bundle_name, keywords);
 
 itemMatch: SELECT * FROM bundle_ft where bundle_name = :bundle and keywords MATCH :keywords;
 addItem: INSERT INTO bundle_ft $el;
-
 
