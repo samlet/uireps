@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'app_setting.drift.dart';
@@ -229,6 +230,20 @@ class AppSettingRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, AppSettingCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.appSetting)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<AppSettingData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.appSetting)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<AppSettingData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.appSetting)..where((el)=>el.appSettingId.isIn(queryIds));
     var rs=await q.get();
@@ -257,9 +272,30 @@ class AppSettingPagedDs{
   AppSettingPagedDs(this.response, this.ds);
 }
 
+extension AppSettingPagedEx on PaginatedResponse{
+  List<ent.AppSetting> asAppSettings(){
+    var rs = results?.map((el) => ent.AppSetting.fromJson(el)).toList();
+    return rs ?? <ent.AppSetting>[];
+  }
+}
+
 extension GetAppSettingEnt on AppSettingData {
   ent.AppSetting get asEnt => ent.AppSetting.fromJson(normalizeMap(this));
 }
 
+extension AppSettingQueryEx on Database {
+  SimpleSelectStatement<AppSetting, AppSettingData> queryAppSettings(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(appSetting)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<AppSetting, AppSettingData> paginatedAppSettings(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(appSetting)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

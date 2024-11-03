@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'commodity.drift.dart';
@@ -299,6 +300,20 @@ class CommodityRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, CommodityCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.commodity)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<CommodityData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.commodity)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<CommodityData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.commodity)..where((el)=>el.commodityId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class CommodityPagedDs{
   CommodityPagedDs(this.response, this.ds);
 }
 
+extension CommodityPagedEx on PaginatedResponse{
+  List<ent.Commodity> asCommodities(){
+    var rs = results?.map((el) => ent.Commodity.fromJson(el)).toList();
+    return rs ?? <ent.Commodity>[];
+  }
+}
+
 extension GetCommodityEnt on CommodityData {
   ent.Commodity get asEnt => ent.Commodity.fromJson(normalizeMap(this));
 }
 
+extension CommodityQueryEx on Database {
+  SimpleSelectStatement<Commodity, CommodityData> queryCommodities(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(commodity)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Commodity, CommodityData> paginatedCommodities(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(commodity)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

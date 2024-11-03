@@ -1,8 +1,11 @@
 // app_pods.j2
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/generic_pods.dart';
 import 'provider.dart';
 import 'package:xcsdrift/xcsdrift.dart';
+import 'package:xcsdrift/repo_init.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 part 'user_pref_pods.g.dart';
@@ -12,7 +15,8 @@ part 'user_pref_pods.g.dart';
 UserPrefRepository userPrefRepository(UserPrefRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
   Database database=ref.watch(databaseProvider);
-  return UserPrefRepository(conn.dio, database);
+  // return UserPrefRepository(conn.dio, database);
+  return repositoryInitor.getRepository('UserPref', conn.dio, database) as UserPrefRepository;
 }
 
 /// watch stream (localDb)
@@ -52,6 +56,18 @@ Future<List<ent.UserPref>> fetchUserPrefsFromReg(
     FetchUserPrefsFromRegRef ref,
     {required String regNode}) async {
   return ref.watch(userPrefRepositoryProvider).fetchFromReg(regNode, smartMode: true);
+}
+
+/// fetch by map-condition
+@riverpod
+Future<List<ent.UserPref>> queryUserPrefByCond(
+    QueryUserPrefByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
+  final queryDealer=ref.watch(bundlesQueryDealerProvider());
+  PaginatedResponse ds = await queryDealer.queryBundlePage(
+      bundleName: 'UserPref',
+      cond: cond,
+      pageLimit: PageLimit(page: pageIndex, pageSize: 10));
+  return ds.asUserPrefs();
 }
 
 @riverpod

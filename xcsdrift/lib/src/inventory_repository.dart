@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'inventory.drift.dart';
@@ -299,6 +300,20 @@ class InventoryRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, InventoryItemCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.inventoryItem)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<InventoryItemData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.inventoryItem)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<InventoryItemData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.inventoryItem)..where((el)=>el.inventoryItemId.isIn(queryIds));
     var rs=await q.get();
@@ -367,9 +382,30 @@ class InventoryPagedDs{
   InventoryPagedDs(this.response, this.ds);
 }
 
+extension InventoryPagedEx on PaginatedResponse{
+  List<ent.Inventory> asInventories(){
+    var rs = results?.map((el) => ent.Inventory.fromJson(el)).toList();
+    return rs ?? <ent.Inventory>[];
+  }
+}
+
 extension GetInventoryEnt on InventoryItemData {
   ent.Inventory get asEnt => ent.Inventory.fromJson(normalizeMap(this));
 }
 
+extension InventoryQueryEx on Database {
+  SimpleSelectStatement<InventoryItem, InventoryItemData> queryInventories(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(inventoryItem)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<InventoryItem, InventoryItemData> paginatedInventories(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(inventoryItem)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

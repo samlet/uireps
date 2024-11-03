@@ -1,8 +1,11 @@
 // app_pods.j2
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/generic_pods.dart';
 import 'provider.dart';
 import 'package:xcsdrift/xcsdrift.dart';
+import 'package:xcsdrift/repo_init.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 part 'thing_facet_pods.g.dart';
@@ -12,7 +15,8 @@ part 'thing_facet_pods.g.dart';
 ThingFacetRepository thingFacetRepository(ThingFacetRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
   Database database=ref.watch(databaseProvider);
-  return ThingFacetRepository(conn.dio, database);
+  // return ThingFacetRepository(conn.dio, database);
+  return repositoryInitor.getRepository('ThingFacet', conn.dio, database) as ThingFacetRepository;
 }
 
 /// watch stream (localDb)
@@ -52,6 +56,18 @@ Future<List<ent.ThingFacet>> fetchThingFacetsFromReg(
     FetchThingFacetsFromRegRef ref,
     {required String regNode}) async {
   return ref.watch(thingFacetRepositoryProvider).fetchFromReg(regNode, smartMode: true);
+}
+
+/// fetch by map-condition
+@riverpod
+Future<List<ent.ThingFacet>> queryThingFacetByCond(
+    QueryThingFacetByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
+  final queryDealer=ref.watch(bundlesQueryDealerProvider());
+  PaginatedResponse ds = await queryDealer.queryBundlePage(
+      bundleName: 'ThingFacet',
+      cond: cond,
+      pageLimit: PageLimit(page: pageIndex, pageSize: 10));
+  return ds.asThingFacets();
 }
 
 @riverpod

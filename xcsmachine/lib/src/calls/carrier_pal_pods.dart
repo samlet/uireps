@@ -76,22 +76,22 @@ class CarrierPalPod extends _$CarrierPalPod {
 
   
 @riverpod
-Future<Position> carrierPalGetCurrentPosition(CarrierPalGetCurrentPositionRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(carrierPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getCurrentPosition(
-  );
-}
-  
-@riverpod
 Future<List<String>> carrierPalGetOrders(CarrierPalGetOrdersRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(carrierPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getOrders(
+  );
+}
+  
+@riverpod
+Future<Position> carrierPalGetCurrentPosition(CarrierPalGetCurrentPositionRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(carrierPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getCurrentPosition(
   );
 }
   

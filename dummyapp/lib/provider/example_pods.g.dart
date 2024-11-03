@@ -6,7 +6,7 @@ part of 'example_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$exampleRepositoryHash() => r'6d0b123281f7d5cdcea36a93ff6738c878f5fae9';
+String _$exampleRepositoryHash() => r'393671eedf86740e502e03c310c5705fa15f3a87';
 
 /// repository pod
 ///
@@ -468,6 +468,166 @@ class _FetchExamplesFromRegProviderElement
 
   @override
   String get regNode => (origin as FetchExamplesFromRegProvider).regNode;
+}
+
+String _$queryExampleByCondHash() =>
+    r'9653f8a7e881b58fe3941901929f4d6fbda759c6';
+
+/// fetch by map-condition
+///
+/// Copied from [queryExampleByCond].
+@ProviderFor(queryExampleByCond)
+const queryExampleByCondProvider = QueryExampleByCondFamily();
+
+/// fetch by map-condition
+///
+/// Copied from [queryExampleByCond].
+class QueryExampleByCondFamily extends Family<AsyncValue<List<ent.Example>>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryExampleByCond].
+  const QueryExampleByCondFamily();
+
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryExampleByCond].
+  QueryExampleByCondProvider call(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) {
+    return QueryExampleByCondProvider(
+      pageIndex,
+      cond,
+    );
+  }
+
+  @override
+  QueryExampleByCondProvider getProviderOverride(
+    covariant QueryExampleByCondProvider provider,
+  ) {
+    return call(
+      provider.pageIndex,
+      provider.cond,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'queryExampleByCondProvider';
+}
+
+/// fetch by map-condition
+///
+/// Copied from [queryExampleByCond].
+class QueryExampleByCondProvider
+    extends AutoDisposeFutureProvider<List<ent.Example>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryExampleByCond].
+  QueryExampleByCondProvider(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) : this._internal(
+          (ref) => queryExampleByCond(
+            ref as QueryExampleByCondRef,
+            pageIndex,
+            cond,
+          ),
+          from: queryExampleByCondProvider,
+          name: r'queryExampleByCondProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$queryExampleByCondHash,
+          dependencies: QueryExampleByCondFamily._dependencies,
+          allTransitiveDependencies:
+              QueryExampleByCondFamily._allTransitiveDependencies,
+          pageIndex: pageIndex,
+          cond: cond,
+        );
+
+  QueryExampleByCondProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pageIndex,
+    required this.cond,
+  }) : super.internal();
+
+  final int pageIndex;
+  final Map<String, Object?> cond;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ent.Example>> Function(QueryExampleByCondRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: QueryExampleByCondProvider._internal(
+        (ref) => create(ref as QueryExampleByCondRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pageIndex: pageIndex,
+        cond: cond,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ent.Example>> createElement() {
+    return _QueryExampleByCondProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is QueryExampleByCondProvider &&
+        other.pageIndex == pageIndex &&
+        other.cond == cond;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageIndex.hashCode);
+    hash = _SystemHash.combine(hash, cond.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin QueryExampleByCondRef on AutoDisposeFutureProviderRef<List<ent.Example>> {
+  /// The parameter `pageIndex` of this provider.
+  int get pageIndex;
+
+  /// The parameter `cond` of this provider.
+  Map<String, Object?> get cond;
+}
+
+class _QueryExampleByCondProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Example>>
+    with QueryExampleByCondRef {
+  _QueryExampleByCondProviderElement(super.provider);
+
+  @override
+  int get pageIndex => (origin as QueryExampleByCondProvider).pageIndex;
+  @override
+  Map<String, Object?> get cond => (origin as QueryExampleByCondProvider).cond;
 }
 
 String _$exampleBucketHash() => r'89af0b366d9e8c9cb588b6e78f4c781c0fa15946';

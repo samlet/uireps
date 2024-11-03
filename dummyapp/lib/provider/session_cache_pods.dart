@@ -1,8 +1,11 @@
 // app_pods.j2
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/generic_pods.dart';
 import 'provider.dart';
 import 'package:xcsdrift/xcsdrift.dart';
+import 'package:xcsdrift/repo_init.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 part 'session_cache_pods.g.dart';
@@ -12,7 +15,8 @@ part 'session_cache_pods.g.dart';
 SessionCacheRepository sessionCacheRepository(SessionCacheRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
   Database database=ref.watch(databaseProvider);
-  return SessionCacheRepository(conn.dio, database);
+  // return SessionCacheRepository(conn.dio, database);
+  return repositoryInitor.getRepository('SessionCache', conn.dio, database) as SessionCacheRepository;
 }
 
 /// watch stream (localDb)

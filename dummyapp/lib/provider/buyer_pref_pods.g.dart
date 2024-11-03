@@ -7,7 +7,7 @@ part of 'buyer_pref_pods.dart';
 // **************************************************************************
 
 String _$buyerPrefRepositoryHash() =>
-    r'9db237cd7fb0fce68687eef2a334926454d44fa5';
+    r'92edaa2057ff97dcfe10ae5216c84101fbb242f6';
 
 /// repository pod
 ///
@@ -471,6 +471,170 @@ class _FetchBuyerPrefsFromRegProviderElement
 
   @override
   String get regNode => (origin as FetchBuyerPrefsFromRegProvider).regNode;
+}
+
+String _$queryBuyerPrefByCondHash() =>
+    r'10143fb3d13aebf7a5fb3875e7eb7e9cf49e4755';
+
+/// fetch by map-condition
+///
+/// Copied from [queryBuyerPrefByCond].
+@ProviderFor(queryBuyerPrefByCond)
+const queryBuyerPrefByCondProvider = QueryBuyerPrefByCondFamily();
+
+/// fetch by map-condition
+///
+/// Copied from [queryBuyerPrefByCond].
+class QueryBuyerPrefByCondFamily
+    extends Family<AsyncValue<List<ent.BuyerPref>>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryBuyerPrefByCond].
+  const QueryBuyerPrefByCondFamily();
+
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryBuyerPrefByCond].
+  QueryBuyerPrefByCondProvider call(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) {
+    return QueryBuyerPrefByCondProvider(
+      pageIndex,
+      cond,
+    );
+  }
+
+  @override
+  QueryBuyerPrefByCondProvider getProviderOverride(
+    covariant QueryBuyerPrefByCondProvider provider,
+  ) {
+    return call(
+      provider.pageIndex,
+      provider.cond,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'queryBuyerPrefByCondProvider';
+}
+
+/// fetch by map-condition
+///
+/// Copied from [queryBuyerPrefByCond].
+class QueryBuyerPrefByCondProvider
+    extends AutoDisposeFutureProvider<List<ent.BuyerPref>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryBuyerPrefByCond].
+  QueryBuyerPrefByCondProvider(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) : this._internal(
+          (ref) => queryBuyerPrefByCond(
+            ref as QueryBuyerPrefByCondRef,
+            pageIndex,
+            cond,
+          ),
+          from: queryBuyerPrefByCondProvider,
+          name: r'queryBuyerPrefByCondProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$queryBuyerPrefByCondHash,
+          dependencies: QueryBuyerPrefByCondFamily._dependencies,
+          allTransitiveDependencies:
+              QueryBuyerPrefByCondFamily._allTransitiveDependencies,
+          pageIndex: pageIndex,
+          cond: cond,
+        );
+
+  QueryBuyerPrefByCondProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pageIndex,
+    required this.cond,
+  }) : super.internal();
+
+  final int pageIndex;
+  final Map<String, Object?> cond;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ent.BuyerPref>> Function(QueryBuyerPrefByCondRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: QueryBuyerPrefByCondProvider._internal(
+        (ref) => create(ref as QueryBuyerPrefByCondRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pageIndex: pageIndex,
+        cond: cond,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ent.BuyerPref>> createElement() {
+    return _QueryBuyerPrefByCondProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is QueryBuyerPrefByCondProvider &&
+        other.pageIndex == pageIndex &&
+        other.cond == cond;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageIndex.hashCode);
+    hash = _SystemHash.combine(hash, cond.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin QueryBuyerPrefByCondRef
+    on AutoDisposeFutureProviderRef<List<ent.BuyerPref>> {
+  /// The parameter `pageIndex` of this provider.
+  int get pageIndex;
+
+  /// The parameter `cond` of this provider.
+  Map<String, Object?> get cond;
+}
+
+class _QueryBuyerPrefByCondProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.BuyerPref>>
+    with QueryBuyerPrefByCondRef {
+  _QueryBuyerPrefByCondProviderElement(super.provider);
+
+  @override
+  int get pageIndex => (origin as QueryBuyerPrefByCondProvider).pageIndex;
+  @override
+  Map<String, Object?> get cond =>
+      (origin as QueryBuyerPrefByCondProvider).cond;
 }
 
 String _$buyerPrefBucketHash() => r'd78ee78bb028fdec341c58f48c725e65cbe75631';

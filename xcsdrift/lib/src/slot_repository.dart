@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'slot.drift.dart';
@@ -229,6 +230,20 @@ class SlotRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, SlotCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.slot)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<SlotData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.slot)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<SlotData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.slot)..where((el)=>el.slotId.isIn(queryIds));
     var rs=await q.get();
@@ -257,9 +272,30 @@ class SlotPagedDs{
   SlotPagedDs(this.response, this.ds);
 }
 
+extension SlotPagedEx on PaginatedResponse{
+  List<ent.Slot> asSlots(){
+    var rs = results?.map((el) => ent.Slot.fromJson(el)).toList();
+    return rs ?? <ent.Slot>[];
+  }
+}
+
 extension GetSlotEnt on SlotData {
   ent.Slot get asEnt => ent.Slot.fromJson(normalizeMap(this));
 }
 
+extension SlotQueryEx on Database {
+  SimpleSelectStatement<Slot, SlotData> querySlots(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(slot)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Slot, SlotData> paginatedSlots(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(slot)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

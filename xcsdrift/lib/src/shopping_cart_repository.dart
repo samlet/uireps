@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'shopping_cart.drift.dart';
@@ -299,6 +300,20 @@ class ShoppingCartRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, ShoppingCartCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.shoppingCart)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<ShoppingCartData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.shoppingCart)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<ShoppingCartData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.shoppingCart)..where((el)=>el.shoppingCartId.isIn(queryIds));
     var rs=await q.get();
@@ -386,9 +401,30 @@ class ShoppingCartPagedDs{
   ShoppingCartPagedDs(this.response, this.ds);
 }
 
+extension ShoppingCartPagedEx on PaginatedResponse{
+  List<ent.ShoppingCart> asShoppingCarts(){
+    var rs = results?.map((el) => ent.ShoppingCart.fromJson(el)).toList();
+    return rs ?? <ent.ShoppingCart>[];
+  }
+}
+
 extension GetShoppingCartEnt on ShoppingCartData {
   ent.ShoppingCart get asEnt => ent.ShoppingCart.fromJson(normalizeMap(this));
 }
 
+extension ShoppingCartQueryEx on Database {
+  SimpleSelectStatement<ShoppingCart, ShoppingCartData> queryShoppingCarts(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(shoppingCart)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<ShoppingCart, ShoppingCartData> paginatedShoppingCarts(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(shoppingCart)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

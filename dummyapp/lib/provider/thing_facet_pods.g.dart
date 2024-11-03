@@ -7,7 +7,7 @@ part of 'thing_facet_pods.dart';
 // **************************************************************************
 
 String _$thingFacetRepositoryHash() =>
-    r'857fe07b5a55fffb700247c1dfd6e44d29ccc2f9';
+    r'fedf1bff2d1025d29894004c8d63862992815438';
 
 /// repository pod
 ///
@@ -472,6 +472,170 @@ class _FetchThingFacetsFromRegProviderElement
 
   @override
   String get regNode => (origin as FetchThingFacetsFromRegProvider).regNode;
+}
+
+String _$queryThingFacetByCondHash() =>
+    r'a604370d5505b2a63f0dbafb403e62e9ec941460';
+
+/// fetch by map-condition
+///
+/// Copied from [queryThingFacetByCond].
+@ProviderFor(queryThingFacetByCond)
+const queryThingFacetByCondProvider = QueryThingFacetByCondFamily();
+
+/// fetch by map-condition
+///
+/// Copied from [queryThingFacetByCond].
+class QueryThingFacetByCondFamily
+    extends Family<AsyncValue<List<ent.ThingFacet>>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryThingFacetByCond].
+  const QueryThingFacetByCondFamily();
+
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryThingFacetByCond].
+  QueryThingFacetByCondProvider call(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) {
+    return QueryThingFacetByCondProvider(
+      pageIndex,
+      cond,
+    );
+  }
+
+  @override
+  QueryThingFacetByCondProvider getProviderOverride(
+    covariant QueryThingFacetByCondProvider provider,
+  ) {
+    return call(
+      provider.pageIndex,
+      provider.cond,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'queryThingFacetByCondProvider';
+}
+
+/// fetch by map-condition
+///
+/// Copied from [queryThingFacetByCond].
+class QueryThingFacetByCondProvider
+    extends AutoDisposeFutureProvider<List<ent.ThingFacet>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryThingFacetByCond].
+  QueryThingFacetByCondProvider(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) : this._internal(
+          (ref) => queryThingFacetByCond(
+            ref as QueryThingFacetByCondRef,
+            pageIndex,
+            cond,
+          ),
+          from: queryThingFacetByCondProvider,
+          name: r'queryThingFacetByCondProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$queryThingFacetByCondHash,
+          dependencies: QueryThingFacetByCondFamily._dependencies,
+          allTransitiveDependencies:
+              QueryThingFacetByCondFamily._allTransitiveDependencies,
+          pageIndex: pageIndex,
+          cond: cond,
+        );
+
+  QueryThingFacetByCondProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pageIndex,
+    required this.cond,
+  }) : super.internal();
+
+  final int pageIndex;
+  final Map<String, Object?> cond;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ent.ThingFacet>> Function(QueryThingFacetByCondRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: QueryThingFacetByCondProvider._internal(
+        (ref) => create(ref as QueryThingFacetByCondRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pageIndex: pageIndex,
+        cond: cond,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ent.ThingFacet>> createElement() {
+    return _QueryThingFacetByCondProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is QueryThingFacetByCondProvider &&
+        other.pageIndex == pageIndex &&
+        other.cond == cond;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageIndex.hashCode);
+    hash = _SystemHash.combine(hash, cond.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin QueryThingFacetByCondRef
+    on AutoDisposeFutureProviderRef<List<ent.ThingFacet>> {
+  /// The parameter `pageIndex` of this provider.
+  int get pageIndex;
+
+  /// The parameter `cond` of this provider.
+  Map<String, Object?> get cond;
+}
+
+class _QueryThingFacetByCondProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.ThingFacet>>
+    with QueryThingFacetByCondRef {
+  _QueryThingFacetByCondProviderElement(super.provider);
+
+  @override
+  int get pageIndex => (origin as QueryThingFacetByCondProvider).pageIndex;
+  @override
+  Map<String, Object?> get cond =>
+      (origin as QueryThingFacetByCondProvider).cond;
 }
 
 String _$thingFacetBucketHash() => r'e3591b037b6563a2ec460508bdbd39952344f4b4';

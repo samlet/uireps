@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'seller_pref.drift.dart';
@@ -299,6 +300,20 @@ class SellerPrefRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, SellerPrefCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.sellerPref)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<SellerPrefData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.sellerPref)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<SellerPrefData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.sellerPref)..where((el)=>el.sellerPrefId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class SellerPrefPagedDs{
   SellerPrefPagedDs(this.response, this.ds);
 }
 
+extension SellerPrefPagedEx on PaginatedResponse{
+  List<ent.SellerPref> asSellerPrefs(){
+    var rs = results?.map((el) => ent.SellerPref.fromJson(el)).toList();
+    return rs ?? <ent.SellerPref>[];
+  }
+}
+
 extension GetSellerPrefEnt on SellerPrefData {
   ent.SellerPref get asEnt => ent.SellerPref.fromJson(normalizeMap(this));
 }
 
+extension SellerPrefQueryEx on Database {
+  SimpleSelectStatement<SellerPref, SellerPrefData> querySellerPrefs(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(sellerPref)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<SellerPref, SellerPrefData> paginatedSellerPrefs(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(sellerPref)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

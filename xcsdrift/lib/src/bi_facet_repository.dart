@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'bi_facet.drift.dart';
@@ -229,6 +230,20 @@ class BiFacetRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, BiFacetCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.biFacet)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<BiFacetData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.biFacet)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<BiFacetData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.biFacet)..where((el)=>el.biId.isIn(queryIds));
     var rs=await q.get();
@@ -257,9 +272,30 @@ class BiFacetPagedDs{
   BiFacetPagedDs(this.response, this.ds);
 }
 
+extension BiFacetPagedEx on PaginatedResponse{
+  List<ent.BiFacet> asBiFacets(){
+    var rs = results?.map((el) => ent.BiFacet.fromJson(el)).toList();
+    return rs ?? <ent.BiFacet>[];
+  }
+}
+
 extension GetBiFacetEnt on BiFacetData {
   ent.BiFacet get asEnt => ent.BiFacet.fromJson(normalizeMap(this));
 }
 
+extension BiFacetQueryEx on Database {
+  SimpleSelectStatement<BiFacet, BiFacetData> queryBiFacets(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(biFacet)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<BiFacet, BiFacetData> paginatedBiFacets(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(biFacet)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

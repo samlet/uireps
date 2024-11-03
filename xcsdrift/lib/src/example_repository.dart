@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'example.drift.dart';
@@ -299,6 +300,20 @@ class ExampleRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, ExampleCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.example)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<ExampleData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.example)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<ExampleData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.example)..where((el)=>el.exampleId.isIn(queryIds));
     var rs=await q.get();
@@ -405,9 +420,30 @@ class ExamplePagedDs{
   ExamplePagedDs(this.response, this.ds);
 }
 
+extension ExamplePagedEx on PaginatedResponse{
+  List<ent.Example> asExamples(){
+    var rs = results?.map((el) => ent.Example.fromJson(el)).toList();
+    return rs ?? <ent.Example>[];
+  }
+}
+
 extension GetExampleEnt on ExampleData {
   ent.Example get asEnt => ent.Example.fromJson(normalizeMap(this));
 }
 
+extension ExampleQueryEx on Database {
+  SimpleSelectStatement<Example, ExampleData> queryExamples(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(example)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Example, ExampleData> paginatedExamples(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(example)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

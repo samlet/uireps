@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'carrier_pref.drift.dart';
@@ -299,6 +300,20 @@ class CarrierPrefRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, CarrierPrefCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.carrierPref)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<CarrierPrefData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.carrierPref)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<CarrierPrefData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.carrierPref)..where((el)=>el.carrierPrefId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class CarrierPrefPagedDs{
   CarrierPrefPagedDs(this.response, this.ds);
 }
 
+extension CarrierPrefPagedEx on PaginatedResponse{
+  List<ent.CarrierPref> asCarrierPrefs(){
+    var rs = results?.map((el) => ent.CarrierPref.fromJson(el)).toList();
+    return rs ?? <ent.CarrierPref>[];
+  }
+}
+
 extension GetCarrierPrefEnt on CarrierPrefData {
   ent.CarrierPref get asEnt => ent.CarrierPref.fromJson(normalizeMap(this));
 }
 
+extension CarrierPrefQueryEx on Database {
+  SimpleSelectStatement<CarrierPref, CarrierPrefData> queryCarrierPrefs(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(carrierPref)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<CarrierPref, CarrierPrefData> paginatedCarrierPrefs(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(carrierPref)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'marketplace.drift.dart';
@@ -299,6 +300,20 @@ class MarketplaceRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, MarketplaceCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.marketplace)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<MarketplaceData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.marketplace)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<MarketplaceData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.marketplace)..where((el)=>el.marketplaceId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class MarketplacePagedDs{
   MarketplacePagedDs(this.response, this.ds);
 }
 
+extension MarketplacePagedEx on PaginatedResponse{
+  List<ent.Marketplace> asMarketplaces(){
+    var rs = results?.map((el) => ent.Marketplace.fromJson(el)).toList();
+    return rs ?? <ent.Marketplace>[];
+  }
+}
+
 extension GetMarketplaceEnt on MarketplaceData {
   ent.Marketplace get asEnt => ent.Marketplace.fromJson(normalizeMap(this));
 }
 
+extension MarketplaceQueryEx on Database {
+  SimpleSelectStatement<Marketplace, MarketplaceData> queryMarketplaces(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(marketplace)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Marketplace, MarketplaceData> paginatedMarketplaces(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(marketplace)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

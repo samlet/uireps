@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'buyer_pref.drift.dart';
@@ -299,6 +300,20 @@ class BuyerPrefRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, BuyerPrefCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.buyerPref)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<BuyerPrefData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.buyerPref)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<BuyerPrefData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.buyerPref)..where((el)=>el.buyerPrefId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class BuyerPrefPagedDs{
   BuyerPrefPagedDs(this.response, this.ds);
 }
 
+extension BuyerPrefPagedEx on PaginatedResponse{
+  List<ent.BuyerPref> asBuyerPrefs(){
+    var rs = results?.map((el) => ent.BuyerPref.fromJson(el)).toList();
+    return rs ?? <ent.BuyerPref>[];
+  }
+}
+
 extension GetBuyerPrefEnt on BuyerPrefData {
   ent.BuyerPref get asEnt => ent.BuyerPref.fromJson(normalizeMap(this));
 }
 
+extension BuyerPrefQueryEx on Database {
+  SimpleSelectStatement<BuyerPref, BuyerPrefData> queryBuyerPrefs(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(buyerPref)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<BuyerPref, BuyerPrefData> paginatedBuyerPrefs(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(buyerPref)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

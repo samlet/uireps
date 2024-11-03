@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'note.drift.dart';
@@ -299,6 +300,20 @@ class NoteRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, NoteDataCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.noteData)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<NoteDataData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.noteData)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<NoteDataData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.noteData)..where((el)=>el.noteId.isIn(queryIds));
     var rs=await q.get();
@@ -405,9 +420,30 @@ class NotePagedDs{
   NotePagedDs(this.response, this.ds);
 }
 
+extension NotePagedEx on PaginatedResponse{
+  List<ent.Note> asNotes(){
+    var rs = results?.map((el) => ent.Note.fromJson(el)).toList();
+    return rs ?? <ent.Note>[];
+  }
+}
+
 extension GetNoteEnt on NoteDataData {
   ent.Note get asEnt => ent.Note.fromJson(normalizeMap(this));
 }
 
+extension NoteQueryEx on Database {
+  SimpleSelectStatement<NoteData, NoteDataData> queryNotes(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(noteData)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<NoteData, NoteDataData> paginatedNotes(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(noteData)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

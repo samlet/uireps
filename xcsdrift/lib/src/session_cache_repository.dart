@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'session_cache.drift.dart';
@@ -229,6 +230,20 @@ class SessionCacheRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, SessionCacheCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.sessionCache)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<SessionCacheData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.sessionCache)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<SessionCacheData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.sessionCache)..where((el)=>el.sessionCacheId.isIn(queryIds));
     var rs=await q.get();
@@ -257,9 +272,30 @@ class SessionCachePagedDs{
   SessionCachePagedDs(this.response, this.ds);
 }
 
+extension SessionCachePagedEx on PaginatedResponse{
+  List<ent.SessionCache> asSessionCaches(){
+    var rs = results?.map((el) => ent.SessionCache.fromJson(el)).toList();
+    return rs ?? <ent.SessionCache>[];
+  }
+}
+
 extension GetSessionCacheEnt on SessionCacheData {
   ent.SessionCache get asEnt => ent.SessionCache.fromJson(normalizeMap(this));
 }
 
+extension SessionCacheQueryEx on Database {
+  SimpleSelectStatement<SessionCache, SessionCacheData> querySessionCaches(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(sessionCache)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<SessionCache, SessionCacheData> paginatedSessionCaches(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(sessionCache)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

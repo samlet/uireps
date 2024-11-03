@@ -33,6 +33,14 @@ Future<void> main(List<String> arguments) async {
       moreTags: ['java', 'programming'],
       lastUpdatedTxStamp: DateTime.now())
     ..addNoteDataSlot(ent.NoteDataSlot(bindType: 'stars', slotId: 'slot_1')));
+  // store other
+  await noteRepo.store(ent.Note(
+      noteName: 'the second note',
+      tag1: 'test',
+      moreTags: ['job', 'programming'],
+      lastUpdatedTxStamp: DateTime.now())
+    ..addNoteDataSlot(ent.NoteDataSlot(bindType: 'stars', slotId: 'slot_1')));
+
   await noteRepo.printBundle(id);
 
   await waitSecs(1);
@@ -52,9 +60,20 @@ Future<void> main(List<String> arguments) async {
   // var q=db.select(db.noteData)..where((el)=>el.noteId.isIn(queryIds));
   // var rs=await q.get();
   var rs = await noteRepo.multiGet(queryIds);
-  print('query result ${rs.length}');
+  print('query by ids ${queryIds} result ${rs.length}');
   for (var value in rs) {
     print('- ${value.noteId}: ${value.noteName}');
+  }
+
+  // test: setBy & getBy
+  var values=NoteDataCompanion(noteName: Value('log'), noteInfo: Value('tested'));
+  var updated=await noteRepo.setBy({'tag1':'test'}, values);
+  print('updated result by setBy: $updated');
+  var testRecs=await noteRepo.getBy({'tag1': 'test'});
+  assert(testRecs.length==1);
+  print('print updated');
+  for (var rec in testRecs) {
+    print('- ${rec.noteId}: ${rec.noteName}, ${rec.noteInfo}');
   }
 }
 //

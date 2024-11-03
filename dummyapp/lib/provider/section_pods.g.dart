@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'comment_pods.dart';
+part of 'section_pods.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$commentRepositoryHash() => r'88b3f7c53e7c8ef0427b554c830461bf36635cda';
+String _$sectionRepositoryHash() => r'3e6ab9075d284ab13af4b8292824d589e300a7aa';
 
 /// repository pod
 ///
-/// Copied from [commentRepository].
-@ProviderFor(commentRepository)
-final commentRepositoryProvider = Provider<CommentRepository>.internal(
-  commentRepository,
-  name: r'commentRepositoryProvider',
+/// Copied from [sectionRepository].
+@ProviderFor(sectionRepository)
+final sectionRepositoryProvider = Provider<SectionRepository>.internal(
+  sectionRepository,
+  name: r'sectionRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$commentRepositoryHash,
+      : _$sectionRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef CommentRepositoryRef = ProviderRef<CommentRepository>;
-String _$getCommentHash() => r'437655888336ac5f3e28082fd52400845420e660';
+typedef SectionRepositoryRef = ProviderRef<SectionRepository>;
+String _$getSectionHash() => r'02d3a9df52ddbf246624c3955dad7f013d759b63';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -48,33 +48,33 @@ class _SystemHash {
 
 /// get single
 ///
-/// Copied from [getComment].
-@ProviderFor(getComment)
-const getCommentProvider = GetCommentFamily();
+/// Copied from [getSection].
+@ProviderFor(getSection)
+const getSectionProvider = GetSectionFamily();
 
 /// get single
 ///
-/// Copied from [getComment].
-class GetCommentFamily extends Family<AsyncValue<CommentData?>> {
+/// Copied from [getSection].
+class GetSectionFamily extends Family<AsyncValue<SectionData?>> {
   /// get single
   ///
-  /// Copied from [getComment].
-  const GetCommentFamily();
+  /// Copied from [getSection].
+  const GetSectionFamily();
 
   /// get single
   ///
-  /// Copied from [getComment].
-  GetCommentProvider call({
+  /// Copied from [getSection].
+  GetSectionProvider call({
     required String id,
   }) {
-    return GetCommentProvider(
+    return GetSectionProvider(
       id: id,
     );
   }
 
   @override
-  GetCommentProvider getProviderOverride(
-    covariant GetCommentProvider provider,
+  GetSectionProvider getProviderOverride(
+    covariant GetSectionProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -93,36 +93,36 @@ class GetCommentFamily extends Family<AsyncValue<CommentData?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'getCommentProvider';
+  String? get name => r'getSectionProvider';
 }
 
 /// get single
 ///
-/// Copied from [getComment].
-class GetCommentProvider extends AutoDisposeFutureProvider<CommentData?> {
+/// Copied from [getSection].
+class GetSectionProvider extends AutoDisposeFutureProvider<SectionData?> {
   /// get single
   ///
-  /// Copied from [getComment].
-  GetCommentProvider({
+  /// Copied from [getSection].
+  GetSectionProvider({
     required String id,
   }) : this._internal(
-          (ref) => getComment(
-            ref as GetCommentRef,
+          (ref) => getSection(
+            ref as GetSectionRef,
             id: id,
           ),
-          from: getCommentProvider,
-          name: r'getCommentProvider',
+          from: getSectionProvider,
+          name: r'getSectionProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$getCommentHash,
-          dependencies: GetCommentFamily._dependencies,
+                  : _$getSectionHash,
+          dependencies: GetSectionFamily._dependencies,
           allTransitiveDependencies:
-              GetCommentFamily._allTransitiveDependencies,
+              GetSectionFamily._allTransitiveDependencies,
           id: id,
         );
 
-  GetCommentProvider._internal(
+  GetSectionProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -136,12 +136,12 @@ class GetCommentProvider extends AutoDisposeFutureProvider<CommentData?> {
 
   @override
   Override overrideWith(
-    FutureOr<CommentData?> Function(GetCommentRef provider) create,
+    FutureOr<SectionData?> Function(GetSectionRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: GetCommentProvider._internal(
-        (ref) => create(ref as GetCommentRef),
+      override: GetSectionProvider._internal(
+        (ref) => create(ref as GetSectionRef),
         from: from,
         name: null,
         dependencies: null,
@@ -153,13 +153,13 @@ class GetCommentProvider extends AutoDisposeFutureProvider<CommentData?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<CommentData?> createElement() {
-    return _GetCommentProviderElement(this);
+  AutoDisposeFutureProviderElement<SectionData?> createElement() {
+    return _GetSectionProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GetCommentProvider && other.id == id;
+    return other is GetSectionProvider && other.id == id;
   }
 
   @override
@@ -171,50 +171,50 @@ class GetCommentProvider extends AutoDisposeFutureProvider<CommentData?> {
   }
 }
 
-mixin GetCommentRef on AutoDisposeFutureProviderRef<CommentData?> {
+mixin GetSectionRef on AutoDisposeFutureProviderRef<SectionData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _GetCommentProviderElement
-    extends AutoDisposeFutureProviderElement<CommentData?> with GetCommentRef {
-  _GetCommentProviderElement(super.provider);
+class _GetSectionProviderElement
+    extends AutoDisposeFutureProviderElement<SectionData?> with GetSectionRef {
+  _GetSectionProviderElement(super.provider);
 
   @override
-  String get id => (origin as GetCommentProvider).id;
+  String get id => (origin as GetSectionProvider).id;
 }
 
-String _$fetchCommentHash() => r'e2624204a7bf0b5643ae54b87f5fe725d667d050';
+String _$fetchSectionHash() => r'cad56d2617f2534fd06114e64abee844b882000e';
 
 /// fetch single
 ///
-/// Copied from [fetchComment].
-@ProviderFor(fetchComment)
-const fetchCommentProvider = FetchCommentFamily();
+/// Copied from [fetchSection].
+@ProviderFor(fetchSection)
+const fetchSectionProvider = FetchSectionFamily();
 
 /// fetch single
 ///
-/// Copied from [fetchComment].
-class FetchCommentFamily extends Family<AsyncValue<ent.Comment?>> {
+/// Copied from [fetchSection].
+class FetchSectionFamily extends Family<AsyncValue<ent.Section?>> {
   /// fetch single
   ///
-  /// Copied from [fetchComment].
-  const FetchCommentFamily();
+  /// Copied from [fetchSection].
+  const FetchSectionFamily();
 
   /// fetch single
   ///
-  /// Copied from [fetchComment].
-  FetchCommentProvider call({
+  /// Copied from [fetchSection].
+  FetchSectionProvider call({
     required String id,
   }) {
-    return FetchCommentProvider(
+    return FetchSectionProvider(
       id: id,
     );
   }
 
   @override
-  FetchCommentProvider getProviderOverride(
-    covariant FetchCommentProvider provider,
+  FetchSectionProvider getProviderOverride(
+    covariant FetchSectionProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -233,36 +233,36 @@ class FetchCommentFamily extends Family<AsyncValue<ent.Comment?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchCommentProvider';
+  String? get name => r'fetchSectionProvider';
 }
 
 /// fetch single
 ///
-/// Copied from [fetchComment].
-class FetchCommentProvider extends AutoDisposeFutureProvider<ent.Comment?> {
+/// Copied from [fetchSection].
+class FetchSectionProvider extends AutoDisposeFutureProvider<ent.Section?> {
   /// fetch single
   ///
-  /// Copied from [fetchComment].
-  FetchCommentProvider({
+  /// Copied from [fetchSection].
+  FetchSectionProvider({
     required String id,
   }) : this._internal(
-          (ref) => fetchComment(
-            ref as FetchCommentRef,
+          (ref) => fetchSection(
+            ref as FetchSectionRef,
             id: id,
           ),
-          from: fetchCommentProvider,
-          name: r'fetchCommentProvider',
+          from: fetchSectionProvider,
+          name: r'fetchSectionProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchCommentHash,
-          dependencies: FetchCommentFamily._dependencies,
+                  : _$fetchSectionHash,
+          dependencies: FetchSectionFamily._dependencies,
           allTransitiveDependencies:
-              FetchCommentFamily._allTransitiveDependencies,
+              FetchSectionFamily._allTransitiveDependencies,
           id: id,
         );
 
-  FetchCommentProvider._internal(
+  FetchSectionProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -276,12 +276,12 @@ class FetchCommentProvider extends AutoDisposeFutureProvider<ent.Comment?> {
 
   @override
   Override overrideWith(
-    FutureOr<ent.Comment?> Function(FetchCommentRef provider) create,
+    FutureOr<ent.Section?> Function(FetchSectionRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchCommentProvider._internal(
-        (ref) => create(ref as FetchCommentRef),
+      override: FetchSectionProvider._internal(
+        (ref) => create(ref as FetchSectionRef),
         from: from,
         name: null,
         dependencies: null,
@@ -293,13 +293,13 @@ class FetchCommentProvider extends AutoDisposeFutureProvider<ent.Comment?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ent.Comment?> createElement() {
-    return _FetchCommentProviderElement(this);
+  AutoDisposeFutureProviderElement<ent.Section?> createElement() {
+    return _FetchSectionProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchCommentProvider && other.id == id;
+    return other is FetchSectionProvider && other.id == id;
   }
 
   @override
@@ -311,52 +311,52 @@ class FetchCommentProvider extends AutoDisposeFutureProvider<ent.Comment?> {
   }
 }
 
-mixin FetchCommentRef on AutoDisposeFutureProviderRef<ent.Comment?> {
+mixin FetchSectionRef on AutoDisposeFutureProviderRef<ent.Section?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _FetchCommentProviderElement
-    extends AutoDisposeFutureProviderElement<ent.Comment?>
-    with FetchCommentRef {
-  _FetchCommentProviderElement(super.provider);
+class _FetchSectionProviderElement
+    extends AutoDisposeFutureProviderElement<ent.Section?>
+    with FetchSectionRef {
+  _FetchSectionProviderElement(super.provider);
 
   @override
-  String get id => (origin as FetchCommentProvider).id;
+  String get id => (origin as FetchSectionProvider).id;
 }
 
-String _$fetchCommentsFromRegHash() =>
-    r'6442ee36e84415e8d720374b3f7e99f3e940780a';
+String _$fetchSectionsFromRegHash() =>
+    r'59235915a73be709befba27fea21893d49f1d890';
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchCommentsFromReg].
-@ProviderFor(fetchCommentsFromReg)
-const fetchCommentsFromRegProvider = FetchCommentsFromRegFamily();
+/// Copied from [fetchSectionsFromReg].
+@ProviderFor(fetchSectionsFromReg)
+const fetchSectionsFromRegProvider = FetchSectionsFromRegFamily();
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchCommentsFromReg].
-class FetchCommentsFromRegFamily extends Family<AsyncValue<List<ent.Comment>>> {
+/// Copied from [fetchSectionsFromReg].
+class FetchSectionsFromRegFamily extends Family<AsyncValue<List<ent.Section>>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchCommentsFromReg].
-  const FetchCommentsFromRegFamily();
+  /// Copied from [fetchSectionsFromReg].
+  const FetchSectionsFromRegFamily();
 
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchCommentsFromReg].
-  FetchCommentsFromRegProvider call({
+  /// Copied from [fetchSectionsFromReg].
+  FetchSectionsFromRegProvider call({
     required String regNode,
   }) {
-    return FetchCommentsFromRegProvider(
+    return FetchSectionsFromRegProvider(
       regNode: regNode,
     );
   }
 
   @override
-  FetchCommentsFromRegProvider getProviderOverride(
-    covariant FetchCommentsFromRegProvider provider,
+  FetchSectionsFromRegProvider getProviderOverride(
+    covariant FetchSectionsFromRegProvider provider,
   ) {
     return call(
       regNode: provider.regNode,
@@ -375,37 +375,37 @@ class FetchCommentsFromRegFamily extends Family<AsyncValue<List<ent.Comment>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchCommentsFromRegProvider';
+  String? get name => r'fetchSectionsFromRegProvider';
 }
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchCommentsFromReg].
-class FetchCommentsFromRegProvider
-    extends AutoDisposeFutureProvider<List<ent.Comment>> {
+/// Copied from [fetchSectionsFromReg].
+class FetchSectionsFromRegProvider
+    extends AutoDisposeFutureProvider<List<ent.Section>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchCommentsFromReg].
-  FetchCommentsFromRegProvider({
+  /// Copied from [fetchSectionsFromReg].
+  FetchSectionsFromRegProvider({
     required String regNode,
   }) : this._internal(
-          (ref) => fetchCommentsFromReg(
-            ref as FetchCommentsFromRegRef,
+          (ref) => fetchSectionsFromReg(
+            ref as FetchSectionsFromRegRef,
             regNode: regNode,
           ),
-          from: fetchCommentsFromRegProvider,
-          name: r'fetchCommentsFromRegProvider',
+          from: fetchSectionsFromRegProvider,
+          name: r'fetchSectionsFromRegProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchCommentsFromRegHash,
-          dependencies: FetchCommentsFromRegFamily._dependencies,
+                  : _$fetchSectionsFromRegHash,
+          dependencies: FetchSectionsFromRegFamily._dependencies,
           allTransitiveDependencies:
-              FetchCommentsFromRegFamily._allTransitiveDependencies,
+              FetchSectionsFromRegFamily._allTransitiveDependencies,
           regNode: regNode,
         );
 
-  FetchCommentsFromRegProvider._internal(
+  FetchSectionsFromRegProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -419,13 +419,13 @@ class FetchCommentsFromRegProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Comment>> Function(FetchCommentsFromRegRef provider)
+    FutureOr<List<ent.Section>> Function(FetchSectionsFromRegRef provider)
         create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchCommentsFromRegProvider._internal(
-        (ref) => create(ref as FetchCommentsFromRegRef),
+      override: FetchSectionsFromRegProvider._internal(
+        (ref) => create(ref as FetchSectionsFromRegRef),
         from: from,
         name: null,
         dependencies: null,
@@ -437,13 +437,13 @@ class FetchCommentsFromRegProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Comment>> createElement() {
-    return _FetchCommentsFromRegProviderElement(this);
+  AutoDisposeFutureProviderElement<List<ent.Section>> createElement() {
+    return _FetchSectionsFromRegProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchCommentsFromRegProvider && other.regNode == regNode;
+    return other is FetchSectionsFromRegProvider && other.regNode == regNode;
   }
 
   @override
@@ -455,55 +455,55 @@ class FetchCommentsFromRegProvider
   }
 }
 
-mixin FetchCommentsFromRegRef
-    on AutoDisposeFutureProviderRef<List<ent.Comment>> {
+mixin FetchSectionsFromRegRef
+    on AutoDisposeFutureProviderRef<List<ent.Section>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
 }
 
-class _FetchCommentsFromRegProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Comment>>
-    with FetchCommentsFromRegRef {
-  _FetchCommentsFromRegProviderElement(super.provider);
+class _FetchSectionsFromRegProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Section>>
+    with FetchSectionsFromRegRef {
+  _FetchSectionsFromRegProviderElement(super.provider);
 
   @override
-  String get regNode => (origin as FetchCommentsFromRegProvider).regNode;
+  String get regNode => (origin as FetchSectionsFromRegProvider).regNode;
 }
 
-String _$queryCommentByCondHash() =>
-    r'bfaca7bf35aa4758f019cc6140e9572ff4258eee';
+String _$querySectionByCondHash() =>
+    r'036e879368c5f3631443029cab562273cec333a8';
 
 /// fetch by map-condition
 ///
-/// Copied from [queryCommentByCond].
-@ProviderFor(queryCommentByCond)
-const queryCommentByCondProvider = QueryCommentByCondFamily();
+/// Copied from [querySectionByCond].
+@ProviderFor(querySectionByCond)
+const querySectionByCondProvider = QuerySectionByCondFamily();
 
 /// fetch by map-condition
 ///
-/// Copied from [queryCommentByCond].
-class QueryCommentByCondFamily extends Family<AsyncValue<List<ent.Comment>>> {
+/// Copied from [querySectionByCond].
+class QuerySectionByCondFamily extends Family<AsyncValue<List<ent.Section>>> {
   /// fetch by map-condition
   ///
-  /// Copied from [queryCommentByCond].
-  const QueryCommentByCondFamily();
+  /// Copied from [querySectionByCond].
+  const QuerySectionByCondFamily();
 
   /// fetch by map-condition
   ///
-  /// Copied from [queryCommentByCond].
-  QueryCommentByCondProvider call(
+  /// Copied from [querySectionByCond].
+  QuerySectionByCondProvider call(
     int pageIndex,
     Map<String, Object?> cond,
   ) {
-    return QueryCommentByCondProvider(
+    return QuerySectionByCondProvider(
       pageIndex,
       cond,
     );
   }
 
   @override
-  QueryCommentByCondProvider getProviderOverride(
-    covariant QueryCommentByCondProvider provider,
+  QuerySectionByCondProvider getProviderOverride(
+    covariant QuerySectionByCondProvider provider,
   ) {
     return call(
       provider.pageIndex,
@@ -523,40 +523,40 @@ class QueryCommentByCondFamily extends Family<AsyncValue<List<ent.Comment>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'queryCommentByCondProvider';
+  String? get name => r'querySectionByCondProvider';
 }
 
 /// fetch by map-condition
 ///
-/// Copied from [queryCommentByCond].
-class QueryCommentByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Comment>> {
+/// Copied from [querySectionByCond].
+class QuerySectionByCondProvider
+    extends AutoDisposeFutureProvider<List<ent.Section>> {
   /// fetch by map-condition
   ///
-  /// Copied from [queryCommentByCond].
-  QueryCommentByCondProvider(
+  /// Copied from [querySectionByCond].
+  QuerySectionByCondProvider(
     int pageIndex,
     Map<String, Object?> cond,
   ) : this._internal(
-          (ref) => queryCommentByCond(
-            ref as QueryCommentByCondRef,
+          (ref) => querySectionByCond(
+            ref as QuerySectionByCondRef,
             pageIndex,
             cond,
           ),
-          from: queryCommentByCondProvider,
-          name: r'queryCommentByCondProvider',
+          from: querySectionByCondProvider,
+          name: r'querySectionByCondProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$queryCommentByCondHash,
-          dependencies: QueryCommentByCondFamily._dependencies,
+                  : _$querySectionByCondHash,
+          dependencies: QuerySectionByCondFamily._dependencies,
           allTransitiveDependencies:
-              QueryCommentByCondFamily._allTransitiveDependencies,
+              QuerySectionByCondFamily._allTransitiveDependencies,
           pageIndex: pageIndex,
           cond: cond,
         );
 
-  QueryCommentByCondProvider._internal(
+  QuerySectionByCondProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -572,12 +572,12 @@ class QueryCommentByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Comment>> Function(QueryCommentByCondRef provider) create,
+    FutureOr<List<ent.Section>> Function(QuerySectionByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: QueryCommentByCondProvider._internal(
-        (ref) => create(ref as QueryCommentByCondRef),
+      override: QuerySectionByCondProvider._internal(
+        (ref) => create(ref as QuerySectionByCondRef),
         from: from,
         name: null,
         dependencies: null,
@@ -590,13 +590,13 @@ class QueryCommentByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Comment>> createElement() {
-    return _QueryCommentByCondProviderElement(this);
+  AutoDisposeFutureProviderElement<List<ent.Section>> createElement() {
+    return _QuerySectionByCondProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is QueryCommentByCondProvider &&
+    return other is QuerySectionByCondProvider &&
         other.pageIndex == pageIndex &&
         other.cond == cond;
   }
@@ -611,7 +611,7 @@ class QueryCommentByCondProvider
   }
 }
 
-mixin QueryCommentByCondRef on AutoDisposeFutureProviderRef<List<ent.Comment>> {
+mixin QuerySectionByCondRef on AutoDisposeFutureProviderRef<List<ent.Section>> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -619,75 +619,75 @@ mixin QueryCommentByCondRef on AutoDisposeFutureProviderRef<List<ent.Comment>> {
   Map<String, Object?> get cond;
 }
 
-class _QueryCommentByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Comment>>
-    with QueryCommentByCondRef {
-  _QueryCommentByCondProviderElement(super.provider);
+class _QuerySectionByCondProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Section>>
+    with QuerySectionByCondRef {
+  _QuerySectionByCondProviderElement(super.provider);
 
   @override
-  int get pageIndex => (origin as QueryCommentByCondProvider).pageIndex;
+  int get pageIndex => (origin as QuerySectionByCondProvider).pageIndex;
   @override
-  Map<String, Object?> get cond => (origin as QueryCommentByCondProvider).cond;
+  Map<String, Object?> get cond => (origin as QuerySectionByCondProvider).cond;
 }
 
-String _$commentBucketHash() => r'f28842e6bf419b81c4d647f827db636cc4287217';
+String _$sectionBucketHash() => r'1e1a4fca0fa4bbfb7e2cb214ed50b037f70700a9';
 
 /// watch stream (localDb)
 ///
-/// Copied from [CommentBucket].
-@ProviderFor(CommentBucket)
-final commentBucketProvider = AutoDisposeStreamNotifierProvider<CommentBucket,
-    List<CommentData>>.internal(
-  CommentBucket.new,
-  name: r'commentBucketProvider',
+/// Copied from [SectionBucket].
+@ProviderFor(SectionBucket)
+final sectionBucketProvider = AutoDisposeStreamNotifierProvider<SectionBucket,
+    List<SectionData>>.internal(
+  SectionBucket.new,
+  name: r'sectionBucketProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$commentBucketHash,
+      : _$sectionBucketHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$CommentBucket = AutoDisposeStreamNotifier<List<CommentData>>;
-String _$commentElHash() => r'5da341f641ceb915c1afeb463dc7f70e340dffc7';
+typedef _$SectionBucket = AutoDisposeStreamNotifier<List<SectionData>>;
+String _$sectionElHash() => r'8385a45ff66b47e3e697a9ac7ea7990ff90872de';
 
-abstract class _$CommentEl
-    extends BuildlessAutoDisposeStreamNotifier<CommentData> {
+abstract class _$SectionEl
+    extends BuildlessAutoDisposeStreamNotifier<SectionData> {
   late final String id;
 
-  Stream<CommentData> build(
+  Stream<SectionData> build(
     String id,
   );
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [CommentEl].
-@ProviderFor(CommentEl)
-const commentElProvider = CommentElFamily();
+/// Copied from [SectionEl].
+@ProviderFor(SectionEl)
+const sectionElProvider = SectionElFamily();
 
 /// watch single (localDb)
 ///
-/// Copied from [CommentEl].
-class CommentElFamily extends Family<AsyncValue<CommentData>> {
+/// Copied from [SectionEl].
+class SectionElFamily extends Family<AsyncValue<SectionData>> {
   /// watch single (localDb)
   ///
-  /// Copied from [CommentEl].
-  const CommentElFamily();
+  /// Copied from [SectionEl].
+  const SectionElFamily();
 
   /// watch single (localDb)
   ///
-  /// Copied from [CommentEl].
-  CommentElProvider call(
+  /// Copied from [SectionEl].
+  SectionElProvider call(
     String id,
   ) {
-    return CommentElProvider(
+    return SectionElProvider(
       id,
     );
   }
 
   @override
-  CommentElProvider getProviderOverride(
-    covariant CommentElProvider provider,
+  SectionElProvider getProviderOverride(
+    covariant SectionElProvider provider,
   ) {
     return call(
       provider.id,
@@ -706,33 +706,33 @@ class CommentElFamily extends Family<AsyncValue<CommentData>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'commentElProvider';
+  String? get name => r'sectionElProvider';
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [CommentEl].
-class CommentElProvider
-    extends AutoDisposeStreamNotifierProviderImpl<CommentEl, CommentData> {
+/// Copied from [SectionEl].
+class SectionElProvider
+    extends AutoDisposeStreamNotifierProviderImpl<SectionEl, SectionData> {
   /// watch single (localDb)
   ///
-  /// Copied from [CommentEl].
-  CommentElProvider(
+  /// Copied from [SectionEl].
+  SectionElProvider(
     String id,
   ) : this._internal(
-          () => CommentEl()..id = id,
-          from: commentElProvider,
-          name: r'commentElProvider',
+          () => SectionEl()..id = id,
+          from: sectionElProvider,
+          name: r'sectionElProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$commentElHash,
-          dependencies: CommentElFamily._dependencies,
-          allTransitiveDependencies: CommentElFamily._allTransitiveDependencies,
+                  : _$sectionElHash,
+          dependencies: SectionElFamily._dependencies,
+          allTransitiveDependencies: SectionElFamily._allTransitiveDependencies,
           id: id,
         );
 
-  CommentElProvider._internal(
+  SectionElProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -745,8 +745,8 @@ class CommentElProvider
   final String id;
 
   @override
-  Stream<CommentData> runNotifierBuild(
-    covariant CommentEl notifier,
+  Stream<SectionData> runNotifierBuild(
+    covariant SectionEl notifier,
   ) {
     return notifier.build(
       id,
@@ -754,10 +754,10 @@ class CommentElProvider
   }
 
   @override
-  Override overrideWith(CommentEl Function() create) {
+  Override overrideWith(SectionEl Function() create) {
     return ProviderOverride(
       origin: this,
-      override: CommentElProvider._internal(
+      override: SectionElProvider._internal(
         () => create()..id = id,
         from: from,
         name: null,
@@ -770,14 +770,14 @@ class CommentElProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<CommentEl, CommentData>
+  AutoDisposeStreamNotifierProviderElement<SectionEl, SectionData>
       createElement() {
-    return _CommentElProviderElement(this);
+    return _SectionElProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CommentElProvider && other.id == id;
+    return other is SectionElProvider && other.id == id;
   }
 
   @override
@@ -789,52 +789,52 @@ class CommentElProvider
   }
 }
 
-mixin CommentElRef on AutoDisposeStreamNotifierProviderRef<CommentData> {
+mixin SectionElRef on AutoDisposeStreamNotifierProviderRef<SectionData> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _CommentElProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<CommentEl, CommentData>
-    with CommentElRef {
-  _CommentElProviderElement(super.provider);
+class _SectionElProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<SectionEl, SectionData>
+    with SectionElRef {
+  _SectionElProviderElement(super.provider);
 
   @override
-  String get id => (origin as CommentElProvider).id;
+  String get id => (origin as SectionElProvider).id;
 }
 
-String _$commentRegHash() => r'7e0ffc9b344a3b2098748a0e19d5926b23b779a9';
+String _$sectionRegHash() => r'382676c91856a4cd6591244d137c10c68f24b440';
 
-abstract class _$CommentReg
-    extends BuildlessAutoDisposeStreamNotifier<List<CommentData>> {
+abstract class _$SectionReg
+    extends BuildlessAutoDisposeStreamNotifier<List<SectionData>> {
   late final String regNode;
 
-  Stream<List<CommentData>> build(
+  Stream<List<SectionData>> build(
     String regNode,
   );
 }
 
-/// See also [CommentReg].
-@ProviderFor(CommentReg)
-const commentRegProvider = CommentRegFamily();
+/// See also [SectionReg].
+@ProviderFor(SectionReg)
+const sectionRegProvider = SectionRegFamily();
 
-/// See also [CommentReg].
-class CommentRegFamily extends Family<AsyncValue<List<CommentData>>> {
-  /// See also [CommentReg].
-  const CommentRegFamily();
+/// See also [SectionReg].
+class SectionRegFamily extends Family<AsyncValue<List<SectionData>>> {
+  /// See also [SectionReg].
+  const SectionRegFamily();
 
-  /// See also [CommentReg].
-  CommentRegProvider call(
+  /// See also [SectionReg].
+  SectionRegProvider call(
     String regNode,
   ) {
-    return CommentRegProvider(
+    return SectionRegProvider(
       regNode,
     );
   }
 
   @override
-  CommentRegProvider getProviderOverride(
-    covariant CommentRegProvider provider,
+  SectionRegProvider getProviderOverride(
+    covariant SectionRegProvider provider,
   ) {
     return call(
       provider.regNode,
@@ -853,30 +853,30 @@ class CommentRegFamily extends Family<AsyncValue<List<CommentData>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'commentRegProvider';
+  String? get name => r'sectionRegProvider';
 }
 
-/// See also [CommentReg].
-class CommentRegProvider extends AutoDisposeStreamNotifierProviderImpl<
-    CommentReg, List<CommentData>> {
-  /// See also [CommentReg].
-  CommentRegProvider(
+/// See also [SectionReg].
+class SectionRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    SectionReg, List<SectionData>> {
+  /// See also [SectionReg].
+  SectionRegProvider(
     String regNode,
   ) : this._internal(
-          () => CommentReg()..regNode = regNode,
-          from: commentRegProvider,
-          name: r'commentRegProvider',
+          () => SectionReg()..regNode = regNode,
+          from: sectionRegProvider,
+          name: r'sectionRegProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$commentRegHash,
-          dependencies: CommentRegFamily._dependencies,
+                  : _$sectionRegHash,
+          dependencies: SectionRegFamily._dependencies,
           allTransitiveDependencies:
-              CommentRegFamily._allTransitiveDependencies,
+              SectionRegFamily._allTransitiveDependencies,
           regNode: regNode,
         );
 
-  CommentRegProvider._internal(
+  SectionRegProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -889,8 +889,8 @@ class CommentRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   final String regNode;
 
   @override
-  Stream<List<CommentData>> runNotifierBuild(
-    covariant CommentReg notifier,
+  Stream<List<SectionData>> runNotifierBuild(
+    covariant SectionReg notifier,
   ) {
     return notifier.build(
       regNode,
@@ -898,10 +898,10 @@ class CommentRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(CommentReg Function() create) {
+  Override overrideWith(SectionReg Function() create) {
     return ProviderOverride(
       origin: this,
-      override: CommentRegProvider._internal(
+      override: SectionRegProvider._internal(
         () => create()..regNode = regNode,
         from: from,
         name: null,
@@ -914,14 +914,14 @@ class CommentRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<CommentReg, List<CommentData>>
+  AutoDisposeStreamNotifierProviderElement<SectionReg, List<SectionData>>
       createElement() {
-    return _CommentRegProviderElement(this);
+    return _SectionRegProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CommentRegProvider && other.regNode == regNode;
+    return other is SectionRegProvider && other.regNode == regNode;
   }
 
   @override
@@ -933,52 +933,52 @@ class CommentRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
-mixin CommentRegRef on AutoDisposeStreamNotifierProviderRef<List<CommentData>> {
+mixin SectionRegRef on AutoDisposeStreamNotifierProviderRef<List<SectionData>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
 }
 
-class _CommentRegProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<CommentReg,
-        List<CommentData>> with CommentRegRef {
-  _CommentRegProviderElement(super.provider);
+class _SectionRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<SectionReg,
+        List<SectionData>> with SectionRegRef {
+  _SectionRegProviderElement(super.provider);
 
   @override
-  String get regNode => (origin as CommentRegProvider).regNode;
+  String get regNode => (origin as SectionRegProvider).regNode;
 }
 
-String _$commentTenantHash() => r'f4f55d0f17c2482080daae65046947f4f56f2aed';
+String _$sectionTenantHash() => r'b897fe6036e42d52b2a3afde4b154fcfc903365e';
 
-abstract class _$CommentTenant
-    extends BuildlessAutoDisposeStreamNotifier<List<CommentData>> {
+abstract class _$SectionTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<SectionData>> {
   late final String tenantId;
 
-  Stream<List<CommentData>> build({
+  Stream<List<SectionData>> build({
     String tenantId = 'default',
   });
 }
 
-/// See also [CommentTenant].
-@ProviderFor(CommentTenant)
-const commentTenantProvider = CommentTenantFamily();
+/// See also [SectionTenant].
+@ProviderFor(SectionTenant)
+const sectionTenantProvider = SectionTenantFamily();
 
-/// See also [CommentTenant].
-class CommentTenantFamily extends Family<AsyncValue<List<CommentData>>> {
-  /// See also [CommentTenant].
-  const CommentTenantFamily();
+/// See also [SectionTenant].
+class SectionTenantFamily extends Family<AsyncValue<List<SectionData>>> {
+  /// See also [SectionTenant].
+  const SectionTenantFamily();
 
-  /// See also [CommentTenant].
-  CommentTenantProvider call({
+  /// See also [SectionTenant].
+  SectionTenantProvider call({
     String tenantId = 'default',
   }) {
-    return CommentTenantProvider(
+    return SectionTenantProvider(
       tenantId: tenantId,
     );
   }
 
   @override
-  CommentTenantProvider getProviderOverride(
-    covariant CommentTenantProvider provider,
+  SectionTenantProvider getProviderOverride(
+    covariant SectionTenantProvider provider,
   ) {
     return call(
       tenantId: provider.tenantId,
@@ -997,30 +997,30 @@ class CommentTenantFamily extends Family<AsyncValue<List<CommentData>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'commentTenantProvider';
+  String? get name => r'sectionTenantProvider';
 }
 
-/// See also [CommentTenant].
-class CommentTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
-    CommentTenant, List<CommentData>> {
-  /// See also [CommentTenant].
-  CommentTenantProvider({
+/// See also [SectionTenant].
+class SectionTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    SectionTenant, List<SectionData>> {
+  /// See also [SectionTenant].
+  SectionTenantProvider({
     String tenantId = 'default',
   }) : this._internal(
-          () => CommentTenant()..tenantId = tenantId,
-          from: commentTenantProvider,
-          name: r'commentTenantProvider',
+          () => SectionTenant()..tenantId = tenantId,
+          from: sectionTenantProvider,
+          name: r'sectionTenantProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$commentTenantHash,
-          dependencies: CommentTenantFamily._dependencies,
+                  : _$sectionTenantHash,
+          dependencies: SectionTenantFamily._dependencies,
           allTransitiveDependencies:
-              CommentTenantFamily._allTransitiveDependencies,
+              SectionTenantFamily._allTransitiveDependencies,
           tenantId: tenantId,
         );
 
-  CommentTenantProvider._internal(
+  SectionTenantProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1033,8 +1033,8 @@ class CommentTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   final String tenantId;
 
   @override
-  Stream<List<CommentData>> runNotifierBuild(
-    covariant CommentTenant notifier,
+  Stream<List<SectionData>> runNotifierBuild(
+    covariant SectionTenant notifier,
   ) {
     return notifier.build(
       tenantId: tenantId,
@@ -1042,10 +1042,10 @@ class CommentTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(CommentTenant Function() create) {
+  Override overrideWith(SectionTenant Function() create) {
     return ProviderOverride(
       origin: this,
-      override: CommentTenantProvider._internal(
+      override: SectionTenantProvider._internal(
         () => create()..tenantId = tenantId,
         from: from,
         name: null,
@@ -1058,14 +1058,14 @@ class CommentTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<CommentTenant, List<CommentData>>
+  AutoDisposeStreamNotifierProviderElement<SectionTenant, List<SectionData>>
       createElement() {
-    return _CommentTenantProviderElement(this);
+    return _SectionTenantProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CommentTenantProvider && other.tenantId == tenantId;
+    return other is SectionTenantProvider && other.tenantId == tenantId;
   }
 
   @override
@@ -1077,30 +1077,30 @@ class CommentTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
-mixin CommentTenantRef
-    on AutoDisposeStreamNotifierProviderRef<List<CommentData>> {
+mixin SectionTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<SectionData>> {
   /// The parameter `tenantId` of this provider.
   String get tenantId;
 }
 
-class _CommentTenantProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<CommentTenant,
-        List<CommentData>> with CommentTenantRef {
-  _CommentTenantProviderElement(super.provider);
+class _SectionTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<SectionTenant,
+        List<SectionData>> with SectionTenantRef {
+  _SectionTenantProviderElement(super.provider);
 
   @override
-  String get tenantId => (origin as CommentTenantProvider).tenantId;
+  String get tenantId => (origin as SectionTenantProvider).tenantId;
 }
 
-String _$commentByResourceBinderHash() =>
-    r'3480982f285b84270a77ca1f65e91edc226f2885';
+String _$sectionByResourceBinderHash() =>
+    r'a2df9fc805fa183620a6b690f1313741d0f8f404';
 
-abstract class _$CommentByResourceBinder
-    extends BuildlessAutoDisposeStreamNotifier<List<CommentData>> {
+abstract class _$SectionByResourceBinder
+    extends BuildlessAutoDisposeStreamNotifier<List<SectionData>> {
   late final String resourceId;
   late final String resourceType;
 
-  Stream<List<CommentData>> build({
+  Stream<List<SectionData>> build({
     required String resourceId,
     required String resourceType,
   });
@@ -1108,36 +1108,36 @@ abstract class _$CommentByResourceBinder
 
 /// Query by resource binder
 ///
-/// Copied from [CommentByResourceBinder].
-@ProviderFor(CommentByResourceBinder)
-const commentByResourceBinderProvider = CommentByResourceBinderFamily();
+/// Copied from [SectionByResourceBinder].
+@ProviderFor(SectionByResourceBinder)
+const sectionByResourceBinderProvider = SectionByResourceBinderFamily();
 
 /// Query by resource binder
 ///
-/// Copied from [CommentByResourceBinder].
-class CommentByResourceBinderFamily
-    extends Family<AsyncValue<List<CommentData>>> {
+/// Copied from [SectionByResourceBinder].
+class SectionByResourceBinderFamily
+    extends Family<AsyncValue<List<SectionData>>> {
   /// Query by resource binder
   ///
-  /// Copied from [CommentByResourceBinder].
-  const CommentByResourceBinderFamily();
+  /// Copied from [SectionByResourceBinder].
+  const SectionByResourceBinderFamily();
 
   /// Query by resource binder
   ///
-  /// Copied from [CommentByResourceBinder].
-  CommentByResourceBinderProvider call({
+  /// Copied from [SectionByResourceBinder].
+  SectionByResourceBinderProvider call({
     required String resourceId,
     required String resourceType,
   }) {
-    return CommentByResourceBinderProvider(
+    return SectionByResourceBinderProvider(
       resourceId: resourceId,
       resourceType: resourceType,
     );
   }
 
   @override
-  CommentByResourceBinderProvider getProviderOverride(
-    covariant CommentByResourceBinderProvider provider,
+  SectionByResourceBinderProvider getProviderOverride(
+    covariant SectionByResourceBinderProvider provider,
   ) {
     return call(
       resourceId: provider.resourceId,
@@ -1157,39 +1157,39 @@ class CommentByResourceBinderFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'commentByResourceBinderProvider';
+  String? get name => r'sectionByResourceBinderProvider';
 }
 
 /// Query by resource binder
 ///
-/// Copied from [CommentByResourceBinder].
-class CommentByResourceBinderProvider
-    extends AutoDisposeStreamNotifierProviderImpl<CommentByResourceBinder,
-        List<CommentData>> {
+/// Copied from [SectionByResourceBinder].
+class SectionByResourceBinderProvider
+    extends AutoDisposeStreamNotifierProviderImpl<SectionByResourceBinder,
+        List<SectionData>> {
   /// Query by resource binder
   ///
-  /// Copied from [CommentByResourceBinder].
-  CommentByResourceBinderProvider({
+  /// Copied from [SectionByResourceBinder].
+  SectionByResourceBinderProvider({
     required String resourceId,
     required String resourceType,
   }) : this._internal(
-          () => CommentByResourceBinder()
+          () => SectionByResourceBinder()
             ..resourceId = resourceId
             ..resourceType = resourceType,
-          from: commentByResourceBinderProvider,
-          name: r'commentByResourceBinderProvider',
+          from: sectionByResourceBinderProvider,
+          name: r'sectionByResourceBinderProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$commentByResourceBinderHash,
-          dependencies: CommentByResourceBinderFamily._dependencies,
+                  : _$sectionByResourceBinderHash,
+          dependencies: SectionByResourceBinderFamily._dependencies,
           allTransitiveDependencies:
-              CommentByResourceBinderFamily._allTransitiveDependencies,
+              SectionByResourceBinderFamily._allTransitiveDependencies,
           resourceId: resourceId,
           resourceType: resourceType,
         );
 
-  CommentByResourceBinderProvider._internal(
+  SectionByResourceBinderProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1204,8 +1204,8 @@ class CommentByResourceBinderProvider
   final String resourceType;
 
   @override
-  Stream<List<CommentData>> runNotifierBuild(
-    covariant CommentByResourceBinder notifier,
+  Stream<List<SectionData>> runNotifierBuild(
+    covariant SectionByResourceBinder notifier,
   ) {
     return notifier.build(
       resourceId: resourceId,
@@ -1214,10 +1214,10 @@ class CommentByResourceBinderProvider
   }
 
   @override
-  Override overrideWith(CommentByResourceBinder Function() create) {
+  Override overrideWith(SectionByResourceBinder Function() create) {
     return ProviderOverride(
       origin: this,
-      override: CommentByResourceBinderProvider._internal(
+      override: SectionByResourceBinderProvider._internal(
         () => create()
           ..resourceId = resourceId
           ..resourceType = resourceType,
@@ -1233,14 +1233,14 @@ class CommentByResourceBinderProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<CommentByResourceBinder,
-      List<CommentData>> createElement() {
-    return _CommentByResourceBinderProviderElement(this);
+  AutoDisposeStreamNotifierProviderElement<SectionByResourceBinder,
+      List<SectionData>> createElement() {
+    return _SectionByResourceBinderProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CommentByResourceBinderProvider &&
+    return other is SectionByResourceBinderProvider &&
         other.resourceId == resourceId &&
         other.resourceType == resourceType;
   }
@@ -1255,8 +1255,8 @@ class CommentByResourceBinderProvider
   }
 }
 
-mixin CommentByResourceBinderRef
-    on AutoDisposeStreamNotifierProviderRef<List<CommentData>> {
+mixin SectionByResourceBinderRef
+    on AutoDisposeStreamNotifierProviderRef<List<SectionData>> {
   /// The parameter `resourceId` of this provider.
   String get resourceId;
 
@@ -1264,17 +1264,17 @@ mixin CommentByResourceBinderRef
   String get resourceType;
 }
 
-class _CommentByResourceBinderProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<CommentByResourceBinder,
-        List<CommentData>> with CommentByResourceBinderRef {
-  _CommentByResourceBinderProviderElement(super.provider);
+class _SectionByResourceBinderProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<SectionByResourceBinder,
+        List<SectionData>> with SectionByResourceBinderRef {
+  _SectionByResourceBinderProviderElement(super.provider);
 
   @override
   String get resourceId =>
-      (origin as CommentByResourceBinderProvider).resourceId;
+      (origin as SectionByResourceBinderProvider).resourceId;
   @override
   String get resourceType =>
-      (origin as CommentByResourceBinderProvider).resourceType;
+      (origin as SectionByResourceBinderProvider).resourceType;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

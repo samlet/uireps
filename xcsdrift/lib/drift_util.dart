@@ -11,3 +11,9 @@ Map<String, dynamic> normalizeMap(DataClass rec) {
   });
   return normMap;
 }
+
+int getTotalPages(int total, int pageSize) {
+  int leave = total % pageSize;
+  int totalPages = total ~/ pageSize + (leave != 0 ? 1 : 0);
+  return totalPages;
+}

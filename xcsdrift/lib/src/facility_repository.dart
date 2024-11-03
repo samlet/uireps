@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'facility.drift.dart';
@@ -299,6 +300,20 @@ class FacilityRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, FacilityCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.facility)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<FacilityData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.facility)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<FacilityData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.facility)..where((el)=>el.facilityId.isIn(queryIds));
     var rs=await q.get();
@@ -405,9 +420,30 @@ class FacilityPagedDs{
   FacilityPagedDs(this.response, this.ds);
 }
 
+extension FacilityPagedEx on PaginatedResponse{
+  List<ent.Facility> asFacilities(){
+    var rs = results?.map((el) => ent.Facility.fromJson(el)).toList();
+    return rs ?? <ent.Facility>[];
+  }
+}
+
 extension GetFacilityEnt on FacilityData {
   ent.Facility get asEnt => ent.Facility.fromJson(normalizeMap(this));
 }
 
+extension FacilityQueryEx on Database {
+  SimpleSelectStatement<Facility, FacilityData> queryFacilities(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(facility)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Facility, FacilityData> paginatedFacilities(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(facility)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_pods.dart';
+part of 'product_pods.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteRepositoryHash() => r'bb3c07d94284c933f9f13f9aa7559e37546193e6';
+String _$productRepositoryHash() => r'eb51c95a042d54fe2e0fad586f8c04207cb68376';
 
 /// repository pod
 ///
-/// Copied from [noteRepository].
-@ProviderFor(noteRepository)
-final noteRepositoryProvider = Provider<NoteRepository>.internal(
-  noteRepository,
-  name: r'noteRepositoryProvider',
+/// Copied from [productRepository].
+@ProviderFor(productRepository)
+final productRepositoryProvider = Provider<ProductRepository>.internal(
+  productRepository,
+  name: r'productRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$noteRepositoryHash,
+      : _$productRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef NoteRepositoryRef = ProviderRef<NoteRepository>;
-String _$getNoteHash() => r'af522d062f9649f4011504d849117ea94e234d8f';
+typedef ProductRepositoryRef = ProviderRef<ProductRepository>;
+String _$getProductHash() => r'b8c8d0ae0b01206d4e9d2a2aee43260f02d06818';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -48,33 +48,33 @@ class _SystemHash {
 
 /// get single
 ///
-/// Copied from [getNote].
-@ProviderFor(getNote)
-const getNoteProvider = GetNoteFamily();
+/// Copied from [getProduct].
+@ProviderFor(getProduct)
+const getProductProvider = GetProductFamily();
 
 /// get single
 ///
-/// Copied from [getNote].
-class GetNoteFamily extends Family<AsyncValue<NoteDataData?>> {
+/// Copied from [getProduct].
+class GetProductFamily extends Family<AsyncValue<ProductData?>> {
   /// get single
   ///
-  /// Copied from [getNote].
-  const GetNoteFamily();
+  /// Copied from [getProduct].
+  const GetProductFamily();
 
   /// get single
   ///
-  /// Copied from [getNote].
-  GetNoteProvider call({
+  /// Copied from [getProduct].
+  GetProductProvider call({
     required String id,
   }) {
-    return GetNoteProvider(
+    return GetProductProvider(
       id: id,
     );
   }
 
   @override
-  GetNoteProvider getProviderOverride(
-    covariant GetNoteProvider provider,
+  GetProductProvider getProviderOverride(
+    covariant GetProductProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -93,35 +93,36 @@ class GetNoteFamily extends Family<AsyncValue<NoteDataData?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'getNoteProvider';
+  String? get name => r'getProductProvider';
 }
 
 /// get single
 ///
-/// Copied from [getNote].
-class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
+/// Copied from [getProduct].
+class GetProductProvider extends AutoDisposeFutureProvider<ProductData?> {
   /// get single
   ///
-  /// Copied from [getNote].
-  GetNoteProvider({
+  /// Copied from [getProduct].
+  GetProductProvider({
     required String id,
   }) : this._internal(
-          (ref) => getNote(
-            ref as GetNoteRef,
+          (ref) => getProduct(
+            ref as GetProductRef,
             id: id,
           ),
-          from: getNoteProvider,
-          name: r'getNoteProvider',
+          from: getProductProvider,
+          name: r'getProductProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$getNoteHash,
-          dependencies: GetNoteFamily._dependencies,
-          allTransitiveDependencies: GetNoteFamily._allTransitiveDependencies,
+                  : _$getProductHash,
+          dependencies: GetProductFamily._dependencies,
+          allTransitiveDependencies:
+              GetProductFamily._allTransitiveDependencies,
           id: id,
         );
 
-  GetNoteProvider._internal(
+  GetProductProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -135,12 +136,12 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
 
   @override
   Override overrideWith(
-    FutureOr<NoteDataData?> Function(GetNoteRef provider) create,
+    FutureOr<ProductData?> Function(GetProductRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: GetNoteProvider._internal(
-        (ref) => create(ref as GetNoteRef),
+      override: GetProductProvider._internal(
+        (ref) => create(ref as GetProductRef),
         from: from,
         name: null,
         dependencies: null,
@@ -152,13 +153,13 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<NoteDataData?> createElement() {
-    return _GetNoteProviderElement(this);
+  AutoDisposeFutureProviderElement<ProductData?> createElement() {
+    return _GetProductProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is GetNoteProvider && other.id == id;
+    return other is GetProductProvider && other.id == id;
   }
 
   @override
@@ -170,50 +171,50 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   }
 }
 
-mixin GetNoteRef on AutoDisposeFutureProviderRef<NoteDataData?> {
+mixin GetProductRef on AutoDisposeFutureProviderRef<ProductData?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _GetNoteProviderElement
-    extends AutoDisposeFutureProviderElement<NoteDataData?> with GetNoteRef {
-  _GetNoteProviderElement(super.provider);
+class _GetProductProviderElement
+    extends AutoDisposeFutureProviderElement<ProductData?> with GetProductRef {
+  _GetProductProviderElement(super.provider);
 
   @override
-  String get id => (origin as GetNoteProvider).id;
+  String get id => (origin as GetProductProvider).id;
 }
 
-String _$fetchNoteHash() => r'20662c3a1895ece7f4c384b69d92a2e260f48209';
+String _$fetchProductHash() => r'2633c52fff2b5319503ad8d7aa57d1647b1f789c';
 
 /// fetch single
 ///
-/// Copied from [fetchNote].
-@ProviderFor(fetchNote)
-const fetchNoteProvider = FetchNoteFamily();
+/// Copied from [fetchProduct].
+@ProviderFor(fetchProduct)
+const fetchProductProvider = FetchProductFamily();
 
 /// fetch single
 ///
-/// Copied from [fetchNote].
-class FetchNoteFamily extends Family<AsyncValue<ent.Note?>> {
+/// Copied from [fetchProduct].
+class FetchProductFamily extends Family<AsyncValue<ent.Product?>> {
   /// fetch single
   ///
-  /// Copied from [fetchNote].
-  const FetchNoteFamily();
+  /// Copied from [fetchProduct].
+  const FetchProductFamily();
 
   /// fetch single
   ///
-  /// Copied from [fetchNote].
-  FetchNoteProvider call({
+  /// Copied from [fetchProduct].
+  FetchProductProvider call({
     required String id,
   }) {
-    return FetchNoteProvider(
+    return FetchProductProvider(
       id: id,
     );
   }
 
   @override
-  FetchNoteProvider getProviderOverride(
-    covariant FetchNoteProvider provider,
+  FetchProductProvider getProviderOverride(
+    covariant FetchProductProvider provider,
   ) {
     return call(
       id: provider.id,
@@ -232,35 +233,36 @@ class FetchNoteFamily extends Family<AsyncValue<ent.Note?>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchNoteProvider';
+  String? get name => r'fetchProductProvider';
 }
 
 /// fetch single
 ///
-/// Copied from [fetchNote].
-class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
+/// Copied from [fetchProduct].
+class FetchProductProvider extends AutoDisposeFutureProvider<ent.Product?> {
   /// fetch single
   ///
-  /// Copied from [fetchNote].
-  FetchNoteProvider({
+  /// Copied from [fetchProduct].
+  FetchProductProvider({
     required String id,
   }) : this._internal(
-          (ref) => fetchNote(
-            ref as FetchNoteRef,
+          (ref) => fetchProduct(
+            ref as FetchProductRef,
             id: id,
           ),
-          from: fetchNoteProvider,
-          name: r'fetchNoteProvider',
+          from: fetchProductProvider,
+          name: r'fetchProductProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchNoteHash,
-          dependencies: FetchNoteFamily._dependencies,
-          allTransitiveDependencies: FetchNoteFamily._allTransitiveDependencies,
+                  : _$fetchProductHash,
+          dependencies: FetchProductFamily._dependencies,
+          allTransitiveDependencies:
+              FetchProductFamily._allTransitiveDependencies,
           id: id,
         );
 
-  FetchNoteProvider._internal(
+  FetchProductProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -274,12 +276,12 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
 
   @override
   Override overrideWith(
-    FutureOr<ent.Note?> Function(FetchNoteRef provider) create,
+    FutureOr<ent.Product?> Function(FetchProductRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchNoteProvider._internal(
-        (ref) => create(ref as FetchNoteRef),
+      override: FetchProductProvider._internal(
+        (ref) => create(ref as FetchProductRef),
         from: from,
         name: null,
         dependencies: null,
@@ -291,13 +293,13 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<ent.Note?> createElement() {
-    return _FetchNoteProviderElement(this);
+  AutoDisposeFutureProviderElement<ent.Product?> createElement() {
+    return _FetchProductProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchNoteProvider && other.id == id;
+    return other is FetchProductProvider && other.id == id;
   }
 
   @override
@@ -309,50 +311,52 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
   }
 }
 
-mixin FetchNoteRef on AutoDisposeFutureProviderRef<ent.Note?> {
+mixin FetchProductRef on AutoDisposeFutureProviderRef<ent.Product?> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _FetchNoteProviderElement
-    extends AutoDisposeFutureProviderElement<ent.Note?> with FetchNoteRef {
-  _FetchNoteProviderElement(super.provider);
+class _FetchProductProviderElement
+    extends AutoDisposeFutureProviderElement<ent.Product?>
+    with FetchProductRef {
+  _FetchProductProviderElement(super.provider);
 
   @override
-  String get id => (origin as FetchNoteProvider).id;
+  String get id => (origin as FetchProductProvider).id;
 }
 
-String _$fetchNotesFromRegHash() => r'77168bb29da89862dd750850ae02d84366b28400';
+String _$fetchProductsFromRegHash() =>
+    r'78c485b906749ac0a6fd43cd3301b0de44e086b1';
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchNotesFromReg].
-@ProviderFor(fetchNotesFromReg)
-const fetchNotesFromRegProvider = FetchNotesFromRegFamily();
+/// Copied from [fetchProductsFromReg].
+@ProviderFor(fetchProductsFromReg)
+const fetchProductsFromRegProvider = FetchProductsFromRegFamily();
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchNotesFromReg].
-class FetchNotesFromRegFamily extends Family<AsyncValue<List<ent.Note>>> {
+/// Copied from [fetchProductsFromReg].
+class FetchProductsFromRegFamily extends Family<AsyncValue<List<ent.Product>>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchNotesFromReg].
-  const FetchNotesFromRegFamily();
+  /// Copied from [fetchProductsFromReg].
+  const FetchProductsFromRegFamily();
 
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchNotesFromReg].
-  FetchNotesFromRegProvider call({
+  /// Copied from [fetchProductsFromReg].
+  FetchProductsFromRegProvider call({
     required String regNode,
   }) {
-    return FetchNotesFromRegProvider(
+    return FetchProductsFromRegProvider(
       regNode: regNode,
     );
   }
 
   @override
-  FetchNotesFromRegProvider getProviderOverride(
-    covariant FetchNotesFromRegProvider provider,
+  FetchProductsFromRegProvider getProviderOverride(
+    covariant FetchProductsFromRegProvider provider,
   ) {
     return call(
       regNode: provider.regNode,
@@ -371,37 +375,37 @@ class FetchNotesFromRegFamily extends Family<AsyncValue<List<ent.Note>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchNotesFromRegProvider';
+  String? get name => r'fetchProductsFromRegProvider';
 }
 
 /// fetch multi from register-node
 ///
-/// Copied from [fetchNotesFromReg].
-class FetchNotesFromRegProvider
-    extends AutoDisposeFutureProvider<List<ent.Note>> {
+/// Copied from [fetchProductsFromReg].
+class FetchProductsFromRegProvider
+    extends AutoDisposeFutureProvider<List<ent.Product>> {
   /// fetch multi from register-node
   ///
-  /// Copied from [fetchNotesFromReg].
-  FetchNotesFromRegProvider({
+  /// Copied from [fetchProductsFromReg].
+  FetchProductsFromRegProvider({
     required String regNode,
   }) : this._internal(
-          (ref) => fetchNotesFromReg(
-            ref as FetchNotesFromRegRef,
+          (ref) => fetchProductsFromReg(
+            ref as FetchProductsFromRegRef,
             regNode: regNode,
           ),
-          from: fetchNotesFromRegProvider,
-          name: r'fetchNotesFromRegProvider',
+          from: fetchProductsFromRegProvider,
+          name: r'fetchProductsFromRegProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchNotesFromRegHash,
-          dependencies: FetchNotesFromRegFamily._dependencies,
+                  : _$fetchProductsFromRegHash,
+          dependencies: FetchProductsFromRegFamily._dependencies,
           allTransitiveDependencies:
-              FetchNotesFromRegFamily._allTransitiveDependencies,
+              FetchProductsFromRegFamily._allTransitiveDependencies,
           regNode: regNode,
         );
 
-  FetchNotesFromRegProvider._internal(
+  FetchProductsFromRegProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -415,12 +419,13 @@ class FetchNotesFromRegProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Note>> Function(FetchNotesFromRegRef provider) create,
+    FutureOr<List<ent.Product>> Function(FetchProductsFromRegRef provider)
+        create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchNotesFromRegProvider._internal(
-        (ref) => create(ref as FetchNotesFromRegRef),
+      override: FetchProductsFromRegProvider._internal(
+        (ref) => create(ref as FetchProductsFromRegRef),
         from: from,
         name: null,
         dependencies: null,
@@ -432,13 +437,13 @@ class FetchNotesFromRegProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Note>> createElement() {
-    return _FetchNotesFromRegProviderElement(this);
+  AutoDisposeFutureProviderElement<List<ent.Product>> createElement() {
+    return _FetchProductsFromRegProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchNotesFromRegProvider && other.regNode == regNode;
+    return other is FetchProductsFromRegProvider && other.regNode == regNode;
   }
 
   @override
@@ -450,53 +455,55 @@ class FetchNotesFromRegProvider
   }
 }
 
-mixin FetchNotesFromRegRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
+mixin FetchProductsFromRegRef
+    on AutoDisposeFutureProviderRef<List<ent.Product>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
 }
 
-class _FetchNotesFromRegProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Note>>
-    with FetchNotesFromRegRef {
-  _FetchNotesFromRegProviderElement(super.provider);
+class _FetchProductsFromRegProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Product>>
+    with FetchProductsFromRegRef {
+  _FetchProductsFromRegProviderElement(super.provider);
 
   @override
-  String get regNode => (origin as FetchNotesFromRegProvider).regNode;
+  String get regNode => (origin as FetchProductsFromRegProvider).regNode;
 }
 
-String _$queryNoteByCondHash() => r'644c2233ef3ee45121e3c7f6a4f30b7bcfc60eb3';
+String _$queryProductByCondHash() =>
+    r'7ebc1bbb7a0e7763f94f49ca2b2f95bc911844dd';
 
 /// fetch by map-condition
 ///
-/// Copied from [queryNoteByCond].
-@ProviderFor(queryNoteByCond)
-const queryNoteByCondProvider = QueryNoteByCondFamily();
+/// Copied from [queryProductByCond].
+@ProviderFor(queryProductByCond)
+const queryProductByCondProvider = QueryProductByCondFamily();
 
 /// fetch by map-condition
 ///
-/// Copied from [queryNoteByCond].
-class QueryNoteByCondFamily extends Family<AsyncValue<List<ent.Note>>> {
+/// Copied from [queryProductByCond].
+class QueryProductByCondFamily extends Family<AsyncValue<List<ent.Product>>> {
   /// fetch by map-condition
   ///
-  /// Copied from [queryNoteByCond].
-  const QueryNoteByCondFamily();
+  /// Copied from [queryProductByCond].
+  const QueryProductByCondFamily();
 
   /// fetch by map-condition
   ///
-  /// Copied from [queryNoteByCond].
-  QueryNoteByCondProvider call(
+  /// Copied from [queryProductByCond].
+  QueryProductByCondProvider call(
     int pageIndex,
     Map<String, Object?> cond,
   ) {
-    return QueryNoteByCondProvider(
+    return QueryProductByCondProvider(
       pageIndex,
       cond,
     );
   }
 
   @override
-  QueryNoteByCondProvider getProviderOverride(
-    covariant QueryNoteByCondProvider provider,
+  QueryProductByCondProvider getProviderOverride(
+    covariant QueryProductByCondProvider provider,
   ) {
     return call(
       provider.pageIndex,
@@ -516,40 +523,40 @@ class QueryNoteByCondFamily extends Family<AsyncValue<List<ent.Note>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'queryNoteByCondProvider';
+  String? get name => r'queryProductByCondProvider';
 }
 
 /// fetch by map-condition
 ///
-/// Copied from [queryNoteByCond].
-class QueryNoteByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Note>> {
+/// Copied from [queryProductByCond].
+class QueryProductByCondProvider
+    extends AutoDisposeFutureProvider<List<ent.Product>> {
   /// fetch by map-condition
   ///
-  /// Copied from [queryNoteByCond].
-  QueryNoteByCondProvider(
+  /// Copied from [queryProductByCond].
+  QueryProductByCondProvider(
     int pageIndex,
     Map<String, Object?> cond,
   ) : this._internal(
-          (ref) => queryNoteByCond(
-            ref as QueryNoteByCondRef,
+          (ref) => queryProductByCond(
+            ref as QueryProductByCondRef,
             pageIndex,
             cond,
           ),
-          from: queryNoteByCondProvider,
-          name: r'queryNoteByCondProvider',
+          from: queryProductByCondProvider,
+          name: r'queryProductByCondProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$queryNoteByCondHash,
-          dependencies: QueryNoteByCondFamily._dependencies,
+                  : _$queryProductByCondHash,
+          dependencies: QueryProductByCondFamily._dependencies,
           allTransitiveDependencies:
-              QueryNoteByCondFamily._allTransitiveDependencies,
+              QueryProductByCondFamily._allTransitiveDependencies,
           pageIndex: pageIndex,
           cond: cond,
         );
 
-  QueryNoteByCondProvider._internal(
+  QueryProductByCondProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -565,12 +572,12 @@ class QueryNoteByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Note>> Function(QueryNoteByCondRef provider) create,
+    FutureOr<List<ent.Product>> Function(QueryProductByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: QueryNoteByCondProvider._internal(
-        (ref) => create(ref as QueryNoteByCondRef),
+      override: QueryProductByCondProvider._internal(
+        (ref) => create(ref as QueryProductByCondRef),
         from: from,
         name: null,
         dependencies: null,
@@ -583,13 +590,13 @@ class QueryNoteByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Note>> createElement() {
-    return _QueryNoteByCondProviderElement(this);
+  AutoDisposeFutureProviderElement<List<ent.Product>> createElement() {
+    return _QueryProductByCondProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is QueryNoteByCondProvider &&
+    return other is QueryProductByCondProvider &&
         other.pageIndex == pageIndex &&
         other.cond == cond;
   }
@@ -604,7 +611,7 @@ class QueryNoteByCondProvider
   }
 }
 
-mixin QueryNoteByCondRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
+mixin QueryProductByCondRef on AutoDisposeFutureProviderRef<List<ent.Product>> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -612,74 +619,75 @@ mixin QueryNoteByCondRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
   Map<String, Object?> get cond;
 }
 
-class _QueryNoteByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Note>>
-    with QueryNoteByCondRef {
-  _QueryNoteByCondProviderElement(super.provider);
+class _QueryProductByCondProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Product>>
+    with QueryProductByCondRef {
+  _QueryProductByCondProviderElement(super.provider);
 
   @override
-  int get pageIndex => (origin as QueryNoteByCondProvider).pageIndex;
+  int get pageIndex => (origin as QueryProductByCondProvider).pageIndex;
   @override
-  Map<String, Object?> get cond => (origin as QueryNoteByCondProvider).cond;
+  Map<String, Object?> get cond => (origin as QueryProductByCondProvider).cond;
 }
 
-String _$noteBucketHash() => r'1a750bfc9642e91ea86d791e79c9970cd1f10f84';
+String _$productBucketHash() => r'8410da251a9e809b3d4316e7be2be398b975779b';
 
 /// watch stream (localDb)
 ///
-/// Copied from [NoteBucket].
-@ProviderFor(NoteBucket)
-final noteBucketProvider =
-    AutoDisposeStreamNotifierProvider<NoteBucket, List<NoteDataData>>.internal(
-  NoteBucket.new,
-  name: r'noteBucketProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$noteBucketHash,
+/// Copied from [ProductBucket].
+@ProviderFor(ProductBucket)
+final productBucketProvider = AutoDisposeStreamNotifierProvider<ProductBucket,
+    List<ProductData>>.internal(
+  ProductBucket.new,
+  name: r'productBucketProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$productBucketHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$NoteBucket = AutoDisposeStreamNotifier<List<NoteDataData>>;
-String _$noteElHash() => r'c59a81db7e06cab56984882f2f3f8ab45c351e4b';
+typedef _$ProductBucket = AutoDisposeStreamNotifier<List<ProductData>>;
+String _$productElHash() => r'dc778f3867dfa8f3f6c8e2a5a9d7be0581a0706b';
 
-abstract class _$NoteEl
-    extends BuildlessAutoDisposeStreamNotifier<NoteDataData> {
+abstract class _$ProductEl
+    extends BuildlessAutoDisposeStreamNotifier<ProductData> {
   late final String id;
 
-  Stream<NoteDataData> build(
+  Stream<ProductData> build(
     String id,
   );
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [NoteEl].
-@ProviderFor(NoteEl)
-const noteElProvider = NoteElFamily();
+/// Copied from [ProductEl].
+@ProviderFor(ProductEl)
+const productElProvider = ProductElFamily();
 
 /// watch single (localDb)
 ///
-/// Copied from [NoteEl].
-class NoteElFamily extends Family<AsyncValue<NoteDataData>> {
+/// Copied from [ProductEl].
+class ProductElFamily extends Family<AsyncValue<ProductData>> {
   /// watch single (localDb)
   ///
-  /// Copied from [NoteEl].
-  const NoteElFamily();
+  /// Copied from [ProductEl].
+  const ProductElFamily();
 
   /// watch single (localDb)
   ///
-  /// Copied from [NoteEl].
-  NoteElProvider call(
+  /// Copied from [ProductEl].
+  ProductElProvider call(
     String id,
   ) {
-    return NoteElProvider(
+    return ProductElProvider(
       id,
     );
   }
 
   @override
-  NoteElProvider getProviderOverride(
-    covariant NoteElProvider provider,
+  ProductElProvider getProviderOverride(
+    covariant ProductElProvider provider,
   ) {
     return call(
       provider.id,
@@ -698,33 +706,33 @@ class NoteElFamily extends Family<AsyncValue<NoteDataData>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteElProvider';
+  String? get name => r'productElProvider';
 }
 
 /// watch single (localDb)
 ///
-/// Copied from [NoteEl].
-class NoteElProvider
-    extends AutoDisposeStreamNotifierProviderImpl<NoteEl, NoteDataData> {
+/// Copied from [ProductEl].
+class ProductElProvider
+    extends AutoDisposeStreamNotifierProviderImpl<ProductEl, ProductData> {
   /// watch single (localDb)
   ///
-  /// Copied from [NoteEl].
-  NoteElProvider(
+  /// Copied from [ProductEl].
+  ProductElProvider(
     String id,
   ) : this._internal(
-          () => NoteEl()..id = id,
-          from: noteElProvider,
-          name: r'noteElProvider',
+          () => ProductEl()..id = id,
+          from: productElProvider,
+          name: r'productElProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteElHash,
-          dependencies: NoteElFamily._dependencies,
-          allTransitiveDependencies: NoteElFamily._allTransitiveDependencies,
+                  : _$productElHash,
+          dependencies: ProductElFamily._dependencies,
+          allTransitiveDependencies: ProductElFamily._allTransitiveDependencies,
           id: id,
         );
 
-  NoteElProvider._internal(
+  ProductElProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -737,8 +745,8 @@ class NoteElProvider
   final String id;
 
   @override
-  Stream<NoteDataData> runNotifierBuild(
-    covariant NoteEl notifier,
+  Stream<ProductData> runNotifierBuild(
+    covariant ProductEl notifier,
   ) {
     return notifier.build(
       id,
@@ -746,10 +754,10 @@ class NoteElProvider
   }
 
   @override
-  Override overrideWith(NoteEl Function() create) {
+  Override overrideWith(ProductEl Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteElProvider._internal(
+      override: ProductElProvider._internal(
         () => create()..id = id,
         from: from,
         name: null,
@@ -762,14 +770,14 @@ class NoteElProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<NoteEl, NoteDataData>
+  AutoDisposeStreamNotifierProviderElement<ProductEl, ProductData>
       createElement() {
-    return _NoteElProviderElement(this);
+    return _ProductElProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteElProvider && other.id == id;
+    return other is ProductElProvider && other.id == id;
   }
 
   @override
@@ -781,52 +789,52 @@ class NoteElProvider
   }
 }
 
-mixin NoteElRef on AutoDisposeStreamNotifierProviderRef<NoteDataData> {
+mixin ProductElRef on AutoDisposeStreamNotifierProviderRef<ProductData> {
   /// The parameter `id` of this provider.
   String get id;
 }
 
-class _NoteElProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<NoteEl, NoteDataData>
-    with NoteElRef {
-  _NoteElProviderElement(super.provider);
+class _ProductElProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ProductEl, ProductData>
+    with ProductElRef {
+  _ProductElProviderElement(super.provider);
 
   @override
-  String get id => (origin as NoteElProvider).id;
+  String get id => (origin as ProductElProvider).id;
 }
 
-String _$noteRegHash() => r'8c464f17cfacd9711527935b664f3430cc24313d';
+String _$productRegHash() => r'2f1c0a57171f02f255c08608958fd013946a96ad';
 
-abstract class _$NoteReg
-    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+abstract class _$ProductReg
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductData>> {
   late final String regNode;
 
-  Stream<List<NoteDataData>> build(
+  Stream<List<ProductData>> build(
     String regNode,
   );
 }
 
-/// See also [NoteReg].
-@ProviderFor(NoteReg)
-const noteRegProvider = NoteRegFamily();
+/// See also [ProductReg].
+@ProviderFor(ProductReg)
+const productRegProvider = ProductRegFamily();
 
-/// See also [NoteReg].
-class NoteRegFamily extends Family<AsyncValue<List<NoteDataData>>> {
-  /// See also [NoteReg].
-  const NoteRegFamily();
+/// See also [ProductReg].
+class ProductRegFamily extends Family<AsyncValue<List<ProductData>>> {
+  /// See also [ProductReg].
+  const ProductRegFamily();
 
-  /// See also [NoteReg].
-  NoteRegProvider call(
+  /// See also [ProductReg].
+  ProductRegProvider call(
     String regNode,
   ) {
-    return NoteRegProvider(
+    return ProductRegProvider(
       regNode,
     );
   }
 
   @override
-  NoteRegProvider getProviderOverride(
-    covariant NoteRegProvider provider,
+  ProductRegProvider getProviderOverride(
+    covariant ProductRegProvider provider,
   ) {
     return call(
       provider.regNode,
@@ -845,29 +853,30 @@ class NoteRegFamily extends Family<AsyncValue<List<NoteDataData>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteRegProvider';
+  String? get name => r'productRegProvider';
 }
 
-/// See also [NoteReg].
-class NoteRegProvider
-    extends AutoDisposeStreamNotifierProviderImpl<NoteReg, List<NoteDataData>> {
-  /// See also [NoteReg].
-  NoteRegProvider(
+/// See also [ProductReg].
+class ProductRegProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ProductReg, List<ProductData>> {
+  /// See also [ProductReg].
+  ProductRegProvider(
     String regNode,
   ) : this._internal(
-          () => NoteReg()..regNode = regNode,
-          from: noteRegProvider,
-          name: r'noteRegProvider',
+          () => ProductReg()..regNode = regNode,
+          from: productRegProvider,
+          name: r'productRegProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteRegHash,
-          dependencies: NoteRegFamily._dependencies,
-          allTransitiveDependencies: NoteRegFamily._allTransitiveDependencies,
+                  : _$productRegHash,
+          dependencies: ProductRegFamily._dependencies,
+          allTransitiveDependencies:
+              ProductRegFamily._allTransitiveDependencies,
           regNode: regNode,
         );
 
-  NoteRegProvider._internal(
+  ProductRegProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -880,8 +889,8 @@ class NoteRegProvider
   final String regNode;
 
   @override
-  Stream<List<NoteDataData>> runNotifierBuild(
-    covariant NoteReg notifier,
+  Stream<List<ProductData>> runNotifierBuild(
+    covariant ProductReg notifier,
   ) {
     return notifier.build(
       regNode,
@@ -889,10 +898,10 @@ class NoteRegProvider
   }
 
   @override
-  Override overrideWith(NoteReg Function() create) {
+  Override overrideWith(ProductReg Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteRegProvider._internal(
+      override: ProductRegProvider._internal(
         () => create()..regNode = regNode,
         from: from,
         name: null,
@@ -905,14 +914,14 @@ class NoteRegProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<NoteReg, List<NoteDataData>>
+  AutoDisposeStreamNotifierProviderElement<ProductReg, List<ProductData>>
       createElement() {
-    return _NoteRegProviderElement(this);
+    return _ProductRegProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteRegProvider && other.regNode == regNode;
+    return other is ProductRegProvider && other.regNode == regNode;
   }
 
   @override
@@ -924,51 +933,52 @@ class NoteRegProvider
   }
 }
 
-mixin NoteRegRef on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+mixin ProductRegRef on AutoDisposeStreamNotifierProviderRef<List<ProductData>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
 }
 
-class _NoteRegProviderElement extends AutoDisposeStreamNotifierProviderElement<
-    NoteReg, List<NoteDataData>> with NoteRegRef {
-  _NoteRegProviderElement(super.provider);
+class _ProductRegProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ProductReg,
+        List<ProductData>> with ProductRegRef {
+  _ProductRegProviderElement(super.provider);
 
   @override
-  String get regNode => (origin as NoteRegProvider).regNode;
+  String get regNode => (origin as ProductRegProvider).regNode;
 }
 
-String _$noteTenantHash() => r'070e54823b893c9a7b03174db73e8835dd927812';
+String _$productTenantHash() => r'1dd180a1cf31471de60105ac66f5d19f9c32f28b';
 
-abstract class _$NoteTenant
-    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+abstract class _$ProductTenant
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductData>> {
   late final String tenantId;
 
-  Stream<List<NoteDataData>> build({
+  Stream<List<ProductData>> build({
     String tenantId = 'default',
   });
 }
 
-/// See also [NoteTenant].
-@ProviderFor(NoteTenant)
-const noteTenantProvider = NoteTenantFamily();
+/// See also [ProductTenant].
+@ProviderFor(ProductTenant)
+const productTenantProvider = ProductTenantFamily();
 
-/// See also [NoteTenant].
-class NoteTenantFamily extends Family<AsyncValue<List<NoteDataData>>> {
-  /// See also [NoteTenant].
-  const NoteTenantFamily();
+/// See also [ProductTenant].
+class ProductTenantFamily extends Family<AsyncValue<List<ProductData>>> {
+  /// See also [ProductTenant].
+  const ProductTenantFamily();
 
-  /// See also [NoteTenant].
-  NoteTenantProvider call({
+  /// See also [ProductTenant].
+  ProductTenantProvider call({
     String tenantId = 'default',
   }) {
-    return NoteTenantProvider(
+    return ProductTenantProvider(
       tenantId: tenantId,
     );
   }
 
   @override
-  NoteTenantProvider getProviderOverride(
-    covariant NoteTenantProvider provider,
+  ProductTenantProvider getProviderOverride(
+    covariant ProductTenantProvider provider,
   ) {
     return call(
       tenantId: provider.tenantId,
@@ -987,30 +997,30 @@ class NoteTenantFamily extends Family<AsyncValue<List<NoteDataData>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteTenantProvider';
+  String? get name => r'productTenantProvider';
 }
 
-/// See also [NoteTenant].
-class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
-    NoteTenant, List<NoteDataData>> {
-  /// See also [NoteTenant].
-  NoteTenantProvider({
+/// See also [ProductTenant].
+class ProductTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ProductTenant, List<ProductData>> {
+  /// See also [ProductTenant].
+  ProductTenantProvider({
     String tenantId = 'default',
   }) : this._internal(
-          () => NoteTenant()..tenantId = tenantId,
-          from: noteTenantProvider,
-          name: r'noteTenantProvider',
+          () => ProductTenant()..tenantId = tenantId,
+          from: productTenantProvider,
+          name: r'productTenantProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteTenantHash,
-          dependencies: NoteTenantFamily._dependencies,
+                  : _$productTenantHash,
+          dependencies: ProductTenantFamily._dependencies,
           allTransitiveDependencies:
-              NoteTenantFamily._allTransitiveDependencies,
+              ProductTenantFamily._allTransitiveDependencies,
           tenantId: tenantId,
         );
 
-  NoteTenantProvider._internal(
+  ProductTenantProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1023,8 +1033,8 @@ class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   final String tenantId;
 
   @override
-  Stream<List<NoteDataData>> runNotifierBuild(
-    covariant NoteTenant notifier,
+  Stream<List<ProductData>> runNotifierBuild(
+    covariant ProductTenant notifier,
   ) {
     return notifier.build(
       tenantId: tenantId,
@@ -1032,10 +1042,10 @@ class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(NoteTenant Function() create) {
+  Override overrideWith(ProductTenant Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteTenantProvider._internal(
+      override: ProductTenantProvider._internal(
         () => create()..tenantId = tenantId,
         from: from,
         name: null,
@@ -1048,14 +1058,14 @@ class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<NoteTenant, List<NoteDataData>>
+  AutoDisposeStreamNotifierProviderElement<ProductTenant, List<ProductData>>
       createElement() {
-    return _NoteTenantProviderElement(this);
+    return _ProductTenantProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteTenantProvider && other.tenantId == tenantId;
+    return other is ProductTenantProvider && other.tenantId == tenantId;
   }
 
   @override
@@ -1067,53 +1077,53 @@ class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
-mixin NoteTenantRef
-    on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+mixin ProductTenantRef
+    on AutoDisposeStreamNotifierProviderRef<List<ProductData>> {
   /// The parameter `tenantId` of this provider.
   String get tenantId;
 }
 
-class _NoteTenantProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<NoteTenant,
-        List<NoteDataData>> with NoteTenantRef {
-  _NoteTenantProviderElement(super.provider);
+class _ProductTenantProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ProductTenant,
+        List<ProductData>> with ProductTenantRef {
+  _ProductTenantProviderElement(super.provider);
 
   @override
-  String get tenantId => (origin as NoteTenantProvider).tenantId;
+  String get tenantId => (origin as ProductTenantProvider).tenantId;
 }
 
-String _$noteByTagsHash() => r'8541959b2c47521c12746406889fda58c260bf97';
+String _$productByTagsHash() => r'39c7bbf7a8dff7a9f7fccbad0ec5b2571541919c';
 
-abstract class _$NoteByTags
-    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+abstract class _$ProductByTags
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductData>> {
   late final List<String> tags;
 
-  Stream<List<NoteDataData>> build(
+  Stream<List<ProductData>> build(
     List<String> tags,
   );
 }
 
-/// See also [NoteByTags].
-@ProviderFor(NoteByTags)
-const noteByTagsProvider = NoteByTagsFamily();
+/// See also [ProductByTags].
+@ProviderFor(ProductByTags)
+const productByTagsProvider = ProductByTagsFamily();
 
-/// See also [NoteByTags].
-class NoteByTagsFamily extends Family<AsyncValue<List<NoteDataData>>> {
-  /// See also [NoteByTags].
-  const NoteByTagsFamily();
+/// See also [ProductByTags].
+class ProductByTagsFamily extends Family<AsyncValue<List<ProductData>>> {
+  /// See also [ProductByTags].
+  const ProductByTagsFamily();
 
-  /// See also [NoteByTags].
-  NoteByTagsProvider call(
+  /// See also [ProductByTags].
+  ProductByTagsProvider call(
     List<String> tags,
   ) {
-    return NoteByTagsProvider(
+    return ProductByTagsProvider(
       tags,
     );
   }
 
   @override
-  NoteByTagsProvider getProviderOverride(
-    covariant NoteByTagsProvider provider,
+  ProductByTagsProvider getProviderOverride(
+    covariant ProductByTagsProvider provider,
   ) {
     return call(
       provider.tags,
@@ -1132,30 +1142,30 @@ class NoteByTagsFamily extends Family<AsyncValue<List<NoteDataData>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteByTagsProvider';
+  String? get name => r'productByTagsProvider';
 }
 
-/// See also [NoteByTags].
-class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
-    NoteByTags, List<NoteDataData>> {
-  /// See also [NoteByTags].
-  NoteByTagsProvider(
+/// See also [ProductByTags].
+class ProductByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
+    ProductByTags, List<ProductData>> {
+  /// See also [ProductByTags].
+  ProductByTagsProvider(
     List<String> tags,
   ) : this._internal(
-          () => NoteByTags()..tags = tags,
-          from: noteByTagsProvider,
-          name: r'noteByTagsProvider',
+          () => ProductByTags()..tags = tags,
+          from: productByTagsProvider,
+          name: r'productByTagsProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteByTagsHash,
-          dependencies: NoteByTagsFamily._dependencies,
+                  : _$productByTagsHash,
+          dependencies: ProductByTagsFamily._dependencies,
           allTransitiveDependencies:
-              NoteByTagsFamily._allTransitiveDependencies,
+              ProductByTagsFamily._allTransitiveDependencies,
           tags: tags,
         );
 
-  NoteByTagsProvider._internal(
+  ProductByTagsProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1168,8 +1178,8 @@ class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   final List<String> tags;
 
   @override
-  Stream<List<NoteDataData>> runNotifierBuild(
-    covariant NoteByTags notifier,
+  Stream<List<ProductData>> runNotifierBuild(
+    covariant ProductByTags notifier,
   ) {
     return notifier.build(
       tags,
@@ -1177,10 +1187,10 @@ class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(NoteByTags Function() create) {
+  Override overrideWith(ProductByTags Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteByTagsProvider._internal(
+      override: ProductByTagsProvider._internal(
         () => create()..tags = tags,
         from: from,
         name: null,
@@ -1193,14 +1203,14 @@ class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<NoteByTags, List<NoteDataData>>
+  AutoDisposeStreamNotifierProviderElement<ProductByTags, List<ProductData>>
       createElement() {
-    return _NoteByTagsProviderElement(this);
+    return _ProductByTagsProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteByTagsProvider && other.tags == tags;
+    return other is ProductByTagsProvider && other.tags == tags;
   }
 
   @override
@@ -1212,30 +1222,30 @@ class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
-mixin NoteByTagsRef
-    on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+mixin ProductByTagsRef
+    on AutoDisposeStreamNotifierProviderRef<List<ProductData>> {
   /// The parameter `tags` of this provider.
   List<String> get tags;
 }
 
-class _NoteByTagsProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<NoteByTags,
-        List<NoteDataData>> with NoteByTagsRef {
-  _NoteByTagsProviderElement(super.provider);
+class _ProductByTagsProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ProductByTags,
+        List<ProductData>> with ProductByTagsRef {
+  _ProductByTagsProviderElement(super.provider);
 
   @override
-  List<String> get tags => (origin as NoteByTagsProvider).tags;
+  List<String> get tags => (origin as ProductByTagsProvider).tags;
 }
 
-String _$noteByResourceBinderHash() =>
-    r'e0a6a9e00aea4ed0e677b3ce5cf56366d2ecb256';
+String _$productByResourceBinderHash() =>
+    r'b561eb8518fe1a808c4e5ab96f928eef55df4076';
 
-abstract class _$NoteByResourceBinder
-    extends BuildlessAutoDisposeStreamNotifier<List<NoteDataData>> {
+abstract class _$ProductByResourceBinder
+    extends BuildlessAutoDisposeStreamNotifier<List<ProductData>> {
   late final String resourceId;
   late final String resourceType;
 
-  Stream<List<NoteDataData>> build({
+  Stream<List<ProductData>> build({
     required String resourceId,
     required String resourceType,
   });
@@ -1243,36 +1253,36 @@ abstract class _$NoteByResourceBinder
 
 /// Query by resource binder
 ///
-/// Copied from [NoteByResourceBinder].
-@ProviderFor(NoteByResourceBinder)
-const noteByResourceBinderProvider = NoteByResourceBinderFamily();
+/// Copied from [ProductByResourceBinder].
+@ProviderFor(ProductByResourceBinder)
+const productByResourceBinderProvider = ProductByResourceBinderFamily();
 
 /// Query by resource binder
 ///
-/// Copied from [NoteByResourceBinder].
-class NoteByResourceBinderFamily
-    extends Family<AsyncValue<List<NoteDataData>>> {
+/// Copied from [ProductByResourceBinder].
+class ProductByResourceBinderFamily
+    extends Family<AsyncValue<List<ProductData>>> {
   /// Query by resource binder
   ///
-  /// Copied from [NoteByResourceBinder].
-  const NoteByResourceBinderFamily();
+  /// Copied from [ProductByResourceBinder].
+  const ProductByResourceBinderFamily();
 
   /// Query by resource binder
   ///
-  /// Copied from [NoteByResourceBinder].
-  NoteByResourceBinderProvider call({
+  /// Copied from [ProductByResourceBinder].
+  ProductByResourceBinderProvider call({
     required String resourceId,
     required String resourceType,
   }) {
-    return NoteByResourceBinderProvider(
+    return ProductByResourceBinderProvider(
       resourceId: resourceId,
       resourceType: resourceType,
     );
   }
 
   @override
-  NoteByResourceBinderProvider getProviderOverride(
-    covariant NoteByResourceBinderProvider provider,
+  ProductByResourceBinderProvider getProviderOverride(
+    covariant ProductByResourceBinderProvider provider,
   ) {
     return call(
       resourceId: provider.resourceId,
@@ -1292,39 +1302,39 @@ class NoteByResourceBinderFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'noteByResourceBinderProvider';
+  String? get name => r'productByResourceBinderProvider';
 }
 
 /// Query by resource binder
 ///
-/// Copied from [NoteByResourceBinder].
-class NoteByResourceBinderProvider
-    extends AutoDisposeStreamNotifierProviderImpl<NoteByResourceBinder,
-        List<NoteDataData>> {
+/// Copied from [ProductByResourceBinder].
+class ProductByResourceBinderProvider
+    extends AutoDisposeStreamNotifierProviderImpl<ProductByResourceBinder,
+        List<ProductData>> {
   /// Query by resource binder
   ///
-  /// Copied from [NoteByResourceBinder].
-  NoteByResourceBinderProvider({
+  /// Copied from [ProductByResourceBinder].
+  ProductByResourceBinderProvider({
     required String resourceId,
     required String resourceType,
   }) : this._internal(
-          () => NoteByResourceBinder()
+          () => ProductByResourceBinder()
             ..resourceId = resourceId
             ..resourceType = resourceType,
-          from: noteByResourceBinderProvider,
-          name: r'noteByResourceBinderProvider',
+          from: productByResourceBinderProvider,
+          name: r'productByResourceBinderProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$noteByResourceBinderHash,
-          dependencies: NoteByResourceBinderFamily._dependencies,
+                  : _$productByResourceBinderHash,
+          dependencies: ProductByResourceBinderFamily._dependencies,
           allTransitiveDependencies:
-              NoteByResourceBinderFamily._allTransitiveDependencies,
+              ProductByResourceBinderFamily._allTransitiveDependencies,
           resourceId: resourceId,
           resourceType: resourceType,
         );
 
-  NoteByResourceBinderProvider._internal(
+  ProductByResourceBinderProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1339,8 +1349,8 @@ class NoteByResourceBinderProvider
   final String resourceType;
 
   @override
-  Stream<List<NoteDataData>> runNotifierBuild(
-    covariant NoteByResourceBinder notifier,
+  Stream<List<ProductData>> runNotifierBuild(
+    covariant ProductByResourceBinder notifier,
   ) {
     return notifier.build(
       resourceId: resourceId,
@@ -1349,10 +1359,10 @@ class NoteByResourceBinderProvider
   }
 
   @override
-  Override overrideWith(NoteByResourceBinder Function() create) {
+  Override overrideWith(ProductByResourceBinder Function() create) {
     return ProviderOverride(
       origin: this,
-      override: NoteByResourceBinderProvider._internal(
+      override: ProductByResourceBinderProvider._internal(
         () => create()
           ..resourceId = resourceId
           ..resourceType = resourceType,
@@ -1368,14 +1378,14 @@ class NoteByResourceBinderProvider
   }
 
   @override
-  AutoDisposeStreamNotifierProviderElement<NoteByResourceBinder,
-      List<NoteDataData>> createElement() {
-    return _NoteByResourceBinderProviderElement(this);
+  AutoDisposeStreamNotifierProviderElement<ProductByResourceBinder,
+      List<ProductData>> createElement() {
+    return _ProductByResourceBinderProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is NoteByResourceBinderProvider &&
+    return other is ProductByResourceBinderProvider &&
         other.resourceId == resourceId &&
         other.resourceType == resourceType;
   }
@@ -1390,8 +1400,8 @@ class NoteByResourceBinderProvider
   }
 }
 
-mixin NoteByResourceBinderRef
-    on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
+mixin ProductByResourceBinderRef
+    on AutoDisposeStreamNotifierProviderRef<List<ProductData>> {
   /// The parameter `resourceId` of this provider.
   String get resourceId;
 
@@ -1399,16 +1409,17 @@ mixin NoteByResourceBinderRef
   String get resourceType;
 }
 
-class _NoteByResourceBinderProviderElement
-    extends AutoDisposeStreamNotifierProviderElement<NoteByResourceBinder,
-        List<NoteDataData>> with NoteByResourceBinderRef {
-  _NoteByResourceBinderProviderElement(super.provider);
+class _ProductByResourceBinderProviderElement
+    extends AutoDisposeStreamNotifierProviderElement<ProductByResourceBinder,
+        List<ProductData>> with ProductByResourceBinderRef {
+  _ProductByResourceBinderProviderElement(super.provider);
 
   @override
-  String get resourceId => (origin as NoteByResourceBinderProvider).resourceId;
+  String get resourceId =>
+      (origin as ProductByResourceBinderProvider).resourceId;
   @override
   String get resourceType =>
-      (origin as NoteByResourceBinderProvider).resourceType;
+      (origin as ProductByResourceBinderProvider).resourceType;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -13,6 +13,11 @@ Future<void> main(List<String> arguments) async {
   final database = Database(NativeDatabase.memory(logStatements: false));
   var noteRepo = NoteRepository(dio, database);
 
+  var tbls=database.allTables.map((el)=>el.actualTableName).toList();
+  print('all tbls: ${tbls}');
+  // TableInfo<Table, Object?> tbl=database.allTables.first;
+  // var q=database.select(tbl);
+
   // https://drift.simonbinder.eu/dart_api/manager/#updates
   var managers = database.managers;
   await managers.noteData.bulkCreate((o) => [

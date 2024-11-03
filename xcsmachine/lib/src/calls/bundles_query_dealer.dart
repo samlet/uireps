@@ -40,60 +40,6 @@ class BundlesQueryDealerRepository {
   }
    
   // Query
-  Future<PaginatedResponse> queryBundlePage({
-    
-    required String bundleName,
-    String? regionId='default',
-    required Map<String, Object?> cond,
-    PageLimit? pageLimit,
-    List<ResultSort>? orders, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "queryBundlePage",
-      "bundleName" : "BundlesQueryDealer",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "cond": cond,
-      if(pageLimit!=null) "pageLimit": pageLimit,
-      if(orders!=null) "orders": orders, 
-    });
-    
-    return PaginatedResponse.fromJson(resp);
-  }
-   
-  // Query
-  Future<PaginatedResponse> queryBundlePageByTag({
-    
-    required String bundleName,
-    String? regionId='default',
-    required String tag,
-    PageLimit? pageLimit,
-    List<ResultSort>? orders, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "queryBundlePageByTag",
-      "bundleName" : "BundlesQueryDealer",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "tag": tag,
-      if(pageLimit!=null) "pageLimit": pageLimit,
-      if(orders!=null) "orders": orders, 
-    });
-    
-    return PaginatedResponse.fromJson(resp);
-  }
-   
-  // Query
   Future<List<Map<String, dynamic>>> queryMap({
     
     required QueryMap r,
@@ -175,6 +121,60 @@ class BundlesQueryDealerRepository {
     });
     
     return convList(resp, (el)=>el);
+  }
+   
+  // Query
+  Future<PaginatedResponse> queryBundlePage({
+    
+    required String bundleName,
+    String? regionId='default',
+    required Map<String, Object?> cond,
+    PageLimit? pageLimit,
+    List<ResultSort>? orders, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryBundlePage",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "cond": cond,
+      if(pageLimit!=null) "pageLimit": pageLimit,
+      if(orders!=null) "orders": orders, 
+    });
+    
+    return PaginatedResponse.fromJson(resp);
+  }
+   
+  // Query
+  Future<PaginatedResponse> queryBundlePageByTag({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String tag,
+    PageLimit? pageLimit,
+    List<ResultSort>? orders, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryBundlePageByTag",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "tag": tag,
+      if(pageLimit!=null) "pageLimit": pageLimit,
+      if(orders!=null) "orders": orders, 
+    });
+    
+    return PaginatedResponse.fromJson(resp);
   }
   
 }

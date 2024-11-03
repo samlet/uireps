@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'headline.drift.dart';
@@ -299,6 +300,20 @@ class HeadlineRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, HeadlineCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.headline)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<HeadlineData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.headline)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<HeadlineData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.headline)..where((el)=>el.headlineId.isIn(queryIds));
     var rs=await q.get();
@@ -380,9 +395,30 @@ class HeadlinePagedDs{
   HeadlinePagedDs(this.response, this.ds);
 }
 
+extension HeadlinePagedEx on PaginatedResponse{
+  List<ent.Headline> asHeadlines(){
+    var rs = results?.map((el) => ent.Headline.fromJson(el)).toList();
+    return rs ?? <ent.Headline>[];
+  }
+}
+
 extension GetHeadlineEnt on HeadlineData {
   ent.Headline get asEnt => ent.Headline.fromJson(normalizeMap(this));
 }
 
+extension HeadlineQueryEx on Database {
+  SimpleSelectStatement<Headline, HeadlineData> queryHeadlines(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(headline)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Headline, HeadlineData> paginatedHeadlines(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(headline)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

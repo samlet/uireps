@@ -6,7 +6,7 @@ part of 'bi_facet_pods.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$biFacetRepositoryHash() => r'894eabf4c11c8c6d14ce7633c64f912e957a7c65';
+String _$biFacetRepositoryHash() => r'5fc59696bcc0d4fba56774d58ebe6751f6f1abc2';
 
 /// repository pod
 ///

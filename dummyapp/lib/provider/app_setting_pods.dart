@@ -1,8 +1,11 @@
 // app_pods.j2
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/generic_pods.dart';
 import 'provider.dart';
 import 'package:xcsdrift/xcsdrift.dart';
+import 'package:xcsdrift/repo_init.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 part 'app_setting_pods.g.dart';
@@ -12,7 +15,8 @@ part 'app_setting_pods.g.dart';
 AppSettingRepository appSettingRepository(AppSettingRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
   Database database=ref.watch(databaseProvider);
-  return AppSettingRepository(conn.dio, database);
+  // return AppSettingRepository(conn.dio, database);
+  return repositoryInitor.getRepository('AppSetting', conn.dio, database) as AppSettingRepository;
 }
 
 /// watch stream (localDb)

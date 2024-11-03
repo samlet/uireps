@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'product.drift.dart';
@@ -299,6 +300,20 @@ class ProductRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, ProductCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.product)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<ProductData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.product)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<ProductData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.product)..where((el)=>el.productId.isIn(queryIds));
     var rs=await q.get();
@@ -405,9 +420,30 @@ class ProductPagedDs{
   ProductPagedDs(this.response, this.ds);
 }
 
+extension ProductPagedEx on PaginatedResponse{
+  List<ent.Product> asProducts(){
+    var rs = results?.map((el) => ent.Product.fromJson(el)).toList();
+    return rs ?? <ent.Product>[];
+  }
+}
+
 extension GetProductEnt on ProductData {
   ent.Product get asEnt => ent.Product.fromJson(normalizeMap(this));
 }
 
+extension ProductQueryEx on Database {
+  SimpleSelectStatement<Product, ProductData> queryProducts(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(product)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Product, ProductData> paginatedProducts(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(product)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

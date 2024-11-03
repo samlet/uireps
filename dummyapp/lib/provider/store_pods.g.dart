@@ -467,6 +467,165 @@ class _FetchStoresFromRegProviderElement
   String get regNode => (origin as FetchStoresFromRegProvider).regNode;
 }
 
+String _$queryStoreByCondHash() => r'2e3bffd1b7313c138a1f6ed066a6ee0e8451db0b';
+
+/// fetch by map-condition
+///
+/// Copied from [queryStoreByCond].
+@ProviderFor(queryStoreByCond)
+const queryStoreByCondProvider = QueryStoreByCondFamily();
+
+/// fetch by map-condition
+///
+/// Copied from [queryStoreByCond].
+class QueryStoreByCondFamily extends Family<AsyncValue<List<ent.Store>>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryStoreByCond].
+  const QueryStoreByCondFamily();
+
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryStoreByCond].
+  QueryStoreByCondProvider call(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) {
+    return QueryStoreByCondProvider(
+      pageIndex,
+      cond,
+    );
+  }
+
+  @override
+  QueryStoreByCondProvider getProviderOverride(
+    covariant QueryStoreByCondProvider provider,
+  ) {
+    return call(
+      provider.pageIndex,
+      provider.cond,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'queryStoreByCondProvider';
+}
+
+/// fetch by map-condition
+///
+/// Copied from [queryStoreByCond].
+class QueryStoreByCondProvider
+    extends AutoDisposeFutureProvider<List<ent.Store>> {
+  /// fetch by map-condition
+  ///
+  /// Copied from [queryStoreByCond].
+  QueryStoreByCondProvider(
+    int pageIndex,
+    Map<String, Object?> cond,
+  ) : this._internal(
+          (ref) => queryStoreByCond(
+            ref as QueryStoreByCondRef,
+            pageIndex,
+            cond,
+          ),
+          from: queryStoreByCondProvider,
+          name: r'queryStoreByCondProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$queryStoreByCondHash,
+          dependencies: QueryStoreByCondFamily._dependencies,
+          allTransitiveDependencies:
+              QueryStoreByCondFamily._allTransitiveDependencies,
+          pageIndex: pageIndex,
+          cond: cond,
+        );
+
+  QueryStoreByCondProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pageIndex,
+    required this.cond,
+  }) : super.internal();
+
+  final int pageIndex;
+  final Map<String, Object?> cond;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ent.Store>> Function(QueryStoreByCondRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: QueryStoreByCondProvider._internal(
+        (ref) => create(ref as QueryStoreByCondRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pageIndex: pageIndex,
+        cond: cond,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ent.Store>> createElement() {
+    return _QueryStoreByCondProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is QueryStoreByCondProvider &&
+        other.pageIndex == pageIndex &&
+        other.cond == cond;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pageIndex.hashCode);
+    hash = _SystemHash.combine(hash, cond.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin QueryStoreByCondRef on AutoDisposeFutureProviderRef<List<ent.Store>> {
+  /// The parameter `pageIndex` of this provider.
+  int get pageIndex;
+
+  /// The parameter `cond` of this provider.
+  Map<String, Object?> get cond;
+}
+
+class _QueryStoreByCondProviderElement
+    extends AutoDisposeFutureProviderElement<List<ent.Store>>
+    with QueryStoreByCondRef {
+  _QueryStoreByCondProviderElement(super.provider);
+
+  @override
+  int get pageIndex => (origin as QueryStoreByCondProvider).pageIndex;
+  @override
+  Map<String, Object?> get cond => (origin as QueryStoreByCondProvider).cond;
+}
+
 String _$storeBucketHash() => r'f3a66d80545dec91fcafb09840defdd1b53f69e8';
 
 /// watch stream (localDb)

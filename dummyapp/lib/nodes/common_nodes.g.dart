@@ -6,7 +6,7 @@ part of 'common_nodes.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$buildSectionHash() => r'906766bc74e8359b484fd6627ce6f5b8dbf25a8c';
+String _$buildSectionHash() => r'11eaaf7ba98d0caee2bbabf7301047f8d700c91e';
 
 /// Copied from Dart SDK
 class _SystemHash {

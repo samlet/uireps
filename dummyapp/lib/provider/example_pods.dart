@@ -1,8 +1,11 @@
 // app_pods.j2
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:xcsmachine/callmodels.dart';
 import 'package:xcsmachine/generic_srv.dart';
+import 'package:xcsmachine/generic_pods.dart';
 import 'provider.dart';
 import 'package:xcsdrift/xcsdrift.dart';
+import 'package:xcsdrift/repo_init.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 part 'example_pods.g.dart';
@@ -12,7 +15,8 @@ part 'example_pods.g.dart';
 ExampleRepository exampleRepository(ExampleRepositoryRef ref) {
   var conn = ref.watch(httpConnectorProvider);
   Database database=ref.watch(databaseProvider);
-  return ExampleRepository(conn.dio, database);
+  // return ExampleRepository(conn.dio, database);
+  return repositoryInitor.getRepository('Example', conn.dio, database) as ExampleRepository;
 }
 
 /// watch stream (localDb)
@@ -52,6 +56,18 @@ Future<List<ent.Example>> fetchExamplesFromReg(
     FetchExamplesFromRegRef ref,
     {required String regNode}) async {
   return ref.watch(exampleRepositoryProvider).fetchFromReg(regNode, smartMode: true);
+}
+
+/// fetch by map-condition
+@riverpod
+Future<List<ent.Example>> queryExampleByCond(
+    QueryExampleByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
+  final queryDealer=ref.watch(bundlesQueryDealerProvider());
+  PaginatedResponse ds = await queryDealer.queryBundlePage(
+      bundleName: 'Example',
+      cond: cond,
+      pageLimit: PageLimit(page: pageIndex, pageSize: 10));
+  return ds.asExamples();
 }
 
 @riverpod

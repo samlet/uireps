@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'shipment.drift.dart';
@@ -299,6 +300,20 @@ class ShipmentRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, ShipmentCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.shipment)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<ShipmentData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.shipment)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<ShipmentData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.shipment)..where((el)=>el.shipmentId.isIn(queryIds));
     var rs=await q.get();
@@ -405,9 +420,30 @@ class ShipmentPagedDs{
   ShipmentPagedDs(this.response, this.ds);
 }
 
+extension ShipmentPagedEx on PaginatedResponse{
+  List<ent.Shipment> asShipments(){
+    var rs = results?.map((el) => ent.Shipment.fromJson(el)).toList();
+    return rs ?? <ent.Shipment>[];
+  }
+}
+
 extension GetShipmentEnt on ShipmentData {
   ent.Shipment get asEnt => ent.Shipment.fromJson(normalizeMap(this));
 }
 
+extension ShipmentQueryEx on Database {
+  SimpleSelectStatement<Shipment, ShipmentData> queryShipments(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(shipment)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Shipment, ShipmentData> paginatedShipments(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(shipment)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

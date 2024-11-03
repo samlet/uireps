@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'asset.drift.dart';
@@ -299,6 +300,20 @@ class AssetRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, AssetCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.asset)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<AssetData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.asset)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<AssetData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.asset)..where((el)=>el.assetId.isIn(queryIds));
     var rs=await q.get();
@@ -405,9 +420,30 @@ class AssetPagedDs{
   AssetPagedDs(this.response, this.ds);
 }
 
+extension AssetPagedEx on PaginatedResponse{
+  List<ent.Asset> asAssets(){
+    var rs = results?.map((el) => ent.Asset.fromJson(el)).toList();
+    return rs ?? <ent.Asset>[];
+  }
+}
+
 extension GetAssetEnt on AssetData {
   ent.Asset get asEnt => ent.Asset.fromJson(normalizeMap(this));
 }
 
+extension AssetQueryEx on Database {
+  SimpleSelectStatement<Asset, AssetData> queryAssets(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(asset)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Asset, AssetData> paginatedAssets(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(asset)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

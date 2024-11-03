@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'user_pref.drift.dart';
@@ -299,6 +300,20 @@ class UserPrefRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, UserPrefCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.userPref)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<UserPrefData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.userPref)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<UserPrefData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.userPref)..where((el)=>el.userPrefId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class UserPrefPagedDs{
   UserPrefPagedDs(this.response, this.ds);
 }
 
+extension UserPrefPagedEx on PaginatedResponse{
+  List<ent.UserPref> asUserPrefs(){
+    var rs = results?.map((el) => ent.UserPref.fromJson(el)).toList();
+    return rs ?? <ent.UserPref>[];
+  }
+}
+
 extension GetUserPrefEnt on UserPrefData {
   ent.UserPref get asEnt => ent.UserPref.fromJson(normalizeMap(this));
 }
 
+extension UserPrefQueryEx on Database {
+  SimpleSelectStatement<UserPref, UserPrefData> queryUserPrefs(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(userPref)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<UserPref, UserPrefData> paginatedUserPrefs(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(userPref)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

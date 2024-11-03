@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'thing_facet.drift.dart';
@@ -299,6 +300,20 @@ class ThingFacetRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, ThingFacetCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.thingFacet)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<ThingFacetData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.thingFacet)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<ThingFacetData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.thingFacet)..where((el)=>el.thingId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class ThingFacetPagedDs{
   ThingFacetPagedDs(this.response, this.ds);
 }
 
+extension ThingFacetPagedEx on PaginatedResponse{
+  List<ent.ThingFacet> asThingFacets(){
+    var rs = results?.map((el) => ent.ThingFacet.fromJson(el)).toList();
+    return rs ?? <ent.ThingFacet>[];
+  }
+}
+
 extension GetThingFacetEnt on ThingFacetData {
   ent.ThingFacet get asEnt => ent.ThingFacet.fromJson(normalizeMap(this));
 }
 
+extension ThingFacetQueryEx on Database {
+  SimpleSelectStatement<ThingFacet, ThingFacetData> queryThingFacets(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(thingFacet)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<ThingFacet, ThingFacetData> paginatedThingFacets(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(thingFacet)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 

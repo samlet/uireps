@@ -12,6 +12,7 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/xcmodels.dart' as ent;
 
 import '../database.dart';
+import '../database_util.dart';
 import '../drift_util.dart';
 import '../intf.dart';
 import 'billboard.drift.dart';
@@ -299,6 +300,20 @@ class BillboardRepository extends RepositoryBase {
     return await sett.write(values);
   }
 
+  /// Update records by condition-map
+  Future<int> setBy(Map<String, String> cond, BillboardCompanion values) async {
+    var filter = database.buildQueryExprs(cond);
+    var sett = database.update(database.billboard)..where((el) => filter);
+    values = values.copyWith(lastUpdatedTxStamp: Value(DateTime.now()));
+    return await sett.write(values);
+  }
+
+  /// Get records by condition-map
+  Future<List<BillboardData>> getBy(Map<String, String> cond) async{
+    var q=db.select(db.billboard)..where((el)=>database.buildQueryExprs(cond));
+    return await q.get();
+  }
+
   Future<List<BillboardData>> multiGet(List<String> queryIds) async{
     var q=db.select(db.billboard)..where((el)=>el.billboardId.isIn(queryIds));
     var rs=await q.get();
@@ -342,9 +357,30 @@ class BillboardPagedDs{
   BillboardPagedDs(this.response, this.ds);
 }
 
+extension BillboardPagedEx on PaginatedResponse{
+  List<ent.Billboard> asBillboards(){
+    var rs = results?.map((el) => ent.Billboard.fromJson(el)).toList();
+    return rs ?? <ent.Billboard>[];
+  }
+}
+
 extension GetBillboardEnt on BillboardData {
   ent.Billboard get asEnt => ent.Billboard.fromJson(normalizeMap(this));
 }
 
+extension BillboardQueryEx on Database {
+  SimpleSelectStatement<Billboard, BillboardData> queryBillboards(Map<String, String> exprs) {
+    var filter = buildQueryExprs(exprs);
+    return select(billboard)..where((u) => filter);
+  }
+
+  SimpleSelectStatement<Billboard, BillboardData> paginatedBillboards(
+      Map<String, String> exprs, int pageIndex, {int pageSize=5}) {
+    var filter = buildQueryExprs(exprs);
+    var start = pageIndex * pageSize;
+    _logger.info('.. offset $start, limit $pageSize');
+    return select(billboard)..where((u) => filter)..limit(pageSize, offset: start);
+  }
+}
 
 
