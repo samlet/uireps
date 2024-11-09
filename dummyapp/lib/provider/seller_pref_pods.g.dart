@@ -475,7 +475,7 @@ class _FetchSellerPrefsFromRegProviderElement
 }
 
 String _$querySellerPrefByCondHash() =>
-    r'f3ed5ce098b2203ef12567a8e5d908a6e2dbc492';
+    r'1c2ad6705d8251e05ab48a9c9361a1b3d40ef8d1';
 
 /// fetch by map-condition
 ///
@@ -487,7 +487,7 @@ const querySellerPrefByCondProvider = QuerySellerPrefByCondFamily();
 ///
 /// Copied from [querySellerPrefByCond].
 class QuerySellerPrefByCondFamily
-    extends Family<AsyncValue<List<ent.SellerPref>>> {
+    extends Family<AsyncValue<PaginatedSellerPrefs>> {
   /// fetch by map-condition
   ///
   /// Copied from [querySellerPrefByCond].
@@ -535,7 +535,7 @@ class QuerySellerPrefByCondFamily
 ///
 /// Copied from [querySellerPrefByCond].
 class QuerySellerPrefByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.SellerPref>> {
+    extends AutoDisposeFutureProvider<PaginatedSellerPrefs> {
   /// fetch by map-condition
   ///
   /// Copied from [querySellerPrefByCond].
@@ -577,7 +577,7 @@ class QuerySellerPrefByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.SellerPref>> Function(QuerySellerPrefByCondRef provider)
+    FutureOr<PaginatedSellerPrefs> Function(QuerySellerPrefByCondRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -596,7 +596,7 @@ class QuerySellerPrefByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.SellerPref>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedSellerPrefs> createElement() {
     return _QuerySellerPrefByCondProviderElement(this);
   }
 
@@ -618,7 +618,7 @@ class QuerySellerPrefByCondProvider
 }
 
 mixin QuerySellerPrefByCondRef
-    on AutoDisposeFutureProviderRef<List<ent.SellerPref>> {
+    on AutoDisposeFutureProviderRef<PaginatedSellerPrefs> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -627,7 +627,7 @@ mixin QuerySellerPrefByCondRef
 }
 
 class _QuerySellerPrefByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.SellerPref>>
+    extends AutoDisposeFutureProviderElement<PaginatedSellerPrefs>
     with QuerySellerPrefByCondRef {
   _QuerySellerPrefByCondProviderElement(super.provider);
 

@@ -474,7 +474,7 @@ class _FetchBuyerPrefsFromRegProviderElement
 }
 
 String _$queryBuyerPrefByCondHash() =>
-    r'10143fb3d13aebf7a5fb3875e7eb7e9cf49e4755';
+    r'7d8273c936d7509d2b882c7c1684f8d1c51e3c39';
 
 /// fetch by map-condition
 ///
@@ -486,7 +486,7 @@ const queryBuyerPrefByCondProvider = QueryBuyerPrefByCondFamily();
 ///
 /// Copied from [queryBuyerPrefByCond].
 class QueryBuyerPrefByCondFamily
-    extends Family<AsyncValue<List<ent.BuyerPref>>> {
+    extends Family<AsyncValue<PaginatedBuyerPrefs>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryBuyerPrefByCond].
@@ -534,7 +534,7 @@ class QueryBuyerPrefByCondFamily
 ///
 /// Copied from [queryBuyerPrefByCond].
 class QueryBuyerPrefByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.BuyerPref>> {
+    extends AutoDisposeFutureProvider<PaginatedBuyerPrefs> {
   /// fetch by map-condition
   ///
   /// Copied from [queryBuyerPrefByCond].
@@ -576,7 +576,7 @@ class QueryBuyerPrefByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.BuyerPref>> Function(QueryBuyerPrefByCondRef provider)
+    FutureOr<PaginatedBuyerPrefs> Function(QueryBuyerPrefByCondRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -595,7 +595,7 @@ class QueryBuyerPrefByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.BuyerPref>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedBuyerPrefs> createElement() {
     return _QueryBuyerPrefByCondProviderElement(this);
   }
 
@@ -617,7 +617,7 @@ class QueryBuyerPrefByCondProvider
 }
 
 mixin QueryBuyerPrefByCondRef
-    on AutoDisposeFutureProviderRef<List<ent.BuyerPref>> {
+    on AutoDisposeFutureProviderRef<PaginatedBuyerPrefs> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -626,7 +626,7 @@ mixin QueryBuyerPrefByCondRef
 }
 
 class _QueryBuyerPrefByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.BuyerPref>>
+    extends AutoDisposeFutureProviderElement<PaginatedBuyerPrefs>
     with QueryBuyerPrefByCondRef {
   _QueryBuyerPrefByCondProviderElement(super.provider);
 

@@ -471,7 +471,7 @@ class _FetchSectionsFromRegProviderElement
 }
 
 String _$querySectionByCondHash() =>
-    r'036e879368c5f3631443029cab562273cec333a8';
+    r'257cb55e49dbb44f205f568074f7d0654b53c6c4';
 
 /// fetch by map-condition
 ///
@@ -482,7 +482,7 @@ const querySectionByCondProvider = QuerySectionByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [querySectionByCond].
-class QuerySectionByCondFamily extends Family<AsyncValue<List<ent.Section>>> {
+class QuerySectionByCondFamily extends Family<AsyncValue<PaginatedSections>> {
   /// fetch by map-condition
   ///
   /// Copied from [querySectionByCond].
@@ -530,7 +530,7 @@ class QuerySectionByCondFamily extends Family<AsyncValue<List<ent.Section>>> {
 ///
 /// Copied from [querySectionByCond].
 class QuerySectionByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Section>> {
+    extends AutoDisposeFutureProvider<PaginatedSections> {
   /// fetch by map-condition
   ///
   /// Copied from [querySectionByCond].
@@ -572,7 +572,7 @@ class QuerySectionByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Section>> Function(QuerySectionByCondRef provider) create,
+    FutureOr<PaginatedSections> Function(QuerySectionByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -590,7 +590,7 @@ class QuerySectionByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Section>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedSections> createElement() {
     return _QuerySectionByCondProviderElement(this);
   }
 
@@ -611,7 +611,7 @@ class QuerySectionByCondProvider
   }
 }
 
-mixin QuerySectionByCondRef on AutoDisposeFutureProviderRef<List<ent.Section>> {
+mixin QuerySectionByCondRef on AutoDisposeFutureProviderRef<PaginatedSections> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -620,7 +620,7 @@ mixin QuerySectionByCondRef on AutoDisposeFutureProviderRef<List<ent.Section>> {
 }
 
 class _QuerySectionByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Section>>
+    extends AutoDisposeFutureProviderElement<PaginatedSections>
     with QuerySectionByCondRef {
   _QuerySectionByCondProviderElement(super.provider);
 

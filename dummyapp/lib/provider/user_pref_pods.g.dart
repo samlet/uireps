@@ -474,7 +474,7 @@ class _FetchUserPrefsFromRegProviderElement
 }
 
 String _$queryUserPrefByCondHash() =>
-    r'00590099bff36952c3ae89100ece0dc42d818027';
+    r'9cdbc5d507e1d21bfcc31dde1df06b086bcdade1';
 
 /// fetch by map-condition
 ///
@@ -485,7 +485,7 @@ const queryUserPrefByCondProvider = QueryUserPrefByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [queryUserPrefByCond].
-class QueryUserPrefByCondFamily extends Family<AsyncValue<List<ent.UserPref>>> {
+class QueryUserPrefByCondFamily extends Family<AsyncValue<PaginatedUserPrefs>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryUserPrefByCond].
@@ -533,7 +533,7 @@ class QueryUserPrefByCondFamily extends Family<AsyncValue<List<ent.UserPref>>> {
 ///
 /// Copied from [queryUserPrefByCond].
 class QueryUserPrefByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.UserPref>> {
+    extends AutoDisposeFutureProvider<PaginatedUserPrefs> {
   /// fetch by map-condition
   ///
   /// Copied from [queryUserPrefByCond].
@@ -575,7 +575,7 @@ class QueryUserPrefByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.UserPref>> Function(QueryUserPrefByCondRef provider)
+    FutureOr<PaginatedUserPrefs> Function(QueryUserPrefByCondRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -594,7 +594,7 @@ class QueryUserPrefByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.UserPref>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedUserPrefs> createElement() {
     return _QueryUserPrefByCondProviderElement(this);
   }
 
@@ -616,7 +616,7 @@ class QueryUserPrefByCondProvider
 }
 
 mixin QueryUserPrefByCondRef
-    on AutoDisposeFutureProviderRef<List<ent.UserPref>> {
+    on AutoDisposeFutureProviderRef<PaginatedUserPrefs> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -625,7 +625,7 @@ mixin QueryUserPrefByCondRef
 }
 
 class _QueryUserPrefByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.UserPref>>
+    extends AutoDisposeFutureProviderElement<PaginatedUserPrefs>
     with QueryUserPrefByCondRef {
   _QueryUserPrefByCondProviderElement(super.provider);
 

@@ -41,6 +41,8 @@ export 'src/section_repository.dart';
 export 'src/section.drift.dart';
 export 'src/headline_repository.dart';
 export 'src/headline.drift.dart';
+export 'src/user_login_repository.dart';
+export 'src/user_login.drift.dart';
 export 'src/bi_facet_repository.dart';
 export 'src/bi_facet.drift.dart';
 export 'src/thing_facet_repository.dart';

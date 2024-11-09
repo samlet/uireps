@@ -58,16 +58,25 @@ Future<List<ent.Commodity>> fetchCommoditiesFromReg(
   return ref.watch(commodityRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedCommodities {
+  final List<ent.Commodity> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedCommodities({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.Commodity>> queryCommodityByCond(
+Future<PaginatedCommodities> queryCommodityByCond(
     QueryCommodityByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'Commodity',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asCommodities();
+  return PaginatedCommodities(
+      items: ds.asCommodities(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

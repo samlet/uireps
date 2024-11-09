@@ -58,16 +58,25 @@ Future<List<ent.Section>> fetchSectionsFromReg(
   return ref.watch(sectionRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedSections {
+  final List<ent.Section> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedSections({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.Section>> querySectionByCond(
+Future<PaginatedSections> querySectionByCond(
     QuerySectionByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'Section',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asSections();
+  return PaginatedSections(
+      items: ds.asSections(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

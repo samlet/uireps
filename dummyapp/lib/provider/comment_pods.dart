@@ -58,16 +58,25 @@ Future<List<ent.Comment>> fetchCommentsFromReg(
   return ref.watch(commentRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedComments {
+  final List<ent.Comment> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedComments({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.Comment>> queryCommentByCond(
+Future<PaginatedComments> queryCommentByCond(
     QueryCommentByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'Comment',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asComments();
+  return PaginatedComments(
+      items: ds.asComments(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

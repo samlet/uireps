@@ -10,6 +10,8 @@ typedef $BiFacetCreateCompanionBuilder = i1.BiFacetCompanion Function({
   required String biId,
   i0.Value<String?> bundleName,
   i0.Value<String?> regionId,
+  i0.Value<String?> ownerId,
+  i0.Value<String?> group,
   i0.Value<String?> data,
   i0.Value<List<String>?> tags,
   i0.Value<bool?> modified,
@@ -27,6 +29,8 @@ typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<String> biId,
   i0.Value<String?> bundleName,
   i0.Value<String?> regionId,
+  i0.Value<String?> ownerId,
+  i0.Value<String?> group,
   i0.Value<String?> data,
   i0.Value<List<String>?> tags,
   i0.Value<bool?> modified,
@@ -58,6 +62,12 @@ class $BiFacetFilterComposer
 
   i0.ColumnFilters<String> get regionId => $composableBuilder(
       column: $table.regionId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get ownerId => $composableBuilder(
+      column: $table.ownerId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get group => $composableBuilder(
+      column: $table.group, builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnFilters<String> get data => $composableBuilder(
       column: $table.data, builder: (column) => i0.ColumnFilters(column));
@@ -121,6 +131,12 @@ class $BiFacetOrderingComposer
   i0.ColumnOrderings<String> get regionId => $composableBuilder(
       column: $table.regionId, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get ownerId => $composableBuilder(
+      column: $table.ownerId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get group => $composableBuilder(
+      column: $table.group, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get data => $composableBuilder(
       column: $table.data, builder: (column) => i0.ColumnOrderings(column));
 
@@ -177,6 +193,12 @@ class $BiFacetAnnotationComposer
 
   i0.GeneratedColumn<String> get regionId =>
       $composableBuilder(column: $table.regionId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get ownerId =>
+      $composableBuilder(column: $table.ownerId, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get group =>
+      $composableBuilder(column: $table.group, builder: (column) => column);
 
   i0.GeneratedColumn<String> get data =>
       $composableBuilder(column: $table.data, builder: (column) => column);
@@ -242,6 +264,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<String> biId = const i0.Value.absent(),
             i0.Value<String?> bundleName = const i0.Value.absent(),
             i0.Value<String?> regionId = const i0.Value.absent(),
+            i0.Value<String?> ownerId = const i0.Value.absent(),
+            i0.Value<String?> group = const i0.Value.absent(),
             i0.Value<String?> data = const i0.Value.absent(),
             i0.Value<List<String>?> tags = const i0.Value.absent(),
             i0.Value<bool?> modified = const i0.Value.absent(),
@@ -260,6 +284,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             biId: biId,
             bundleName: bundleName,
             regionId: regionId,
+            ownerId: ownerId,
+            group: group,
             data: data,
             tags: tags,
             modified: modified,
@@ -277,6 +303,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             required String biId,
             i0.Value<String?> bundleName = const i0.Value.absent(),
             i0.Value<String?> regionId = const i0.Value.absent(),
+            i0.Value<String?> ownerId = const i0.Value.absent(),
+            i0.Value<String?> group = const i0.Value.absent(),
             i0.Value<String?> data = const i0.Value.absent(),
             i0.Value<List<String>?> tags = const i0.Value.absent(),
             i0.Value<bool?> modified = const i0.Value.absent(),
@@ -295,6 +323,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             biId: biId,
             bundleName: bundleName,
             regionId: regionId,
+            ownerId: ownerId,
+            group: group,
             data: data,
             tags: tags,
             modified: modified,
@@ -354,6 +384,20 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
       const i0.VerificationMeta('regionId');
   late final i0.GeneratedColumn<String> regionId = i0.GeneratedColumn<String>(
       'region_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _ownerIdMeta =
+      const i0.VerificationMeta('ownerId');
+  late final i0.GeneratedColumn<String> ownerId = i0.GeneratedColumn<String>(
+      'owner_id', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _groupMeta =
+      const i0.VerificationMeta('group');
+  late final i0.GeneratedColumn<String> group = i0.GeneratedColumn<String>(
+      'group', aliasedName, true,
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
@@ -444,6 +488,8 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
         biId,
         bundleName,
         regionId,
+        ownerId,
+        group,
         data,
         tags,
         modified,
@@ -482,6 +528,14 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
     if (data.containsKey('region_id')) {
       context.handle(_regionIdMeta,
           regionId.isAcceptableOrUnknown(data['region_id']!, _regionIdMeta));
+    }
+    if (data.containsKey('owner_id')) {
+      context.handle(_ownerIdMeta,
+          ownerId.isAcceptableOrUnknown(data['owner_id']!, _ownerIdMeta));
+    }
+    if (data.containsKey('group')) {
+      context.handle(
+          _groupMeta, group.isAcceptableOrUnknown(data['group']!, _groupMeta));
     }
     if (data.containsKey('data')) {
       context.handle(
@@ -544,6 +598,10 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}bundle_name']),
       regionId: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}region_id']),
+      ownerId: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}owner_id']),
+      group: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}group']),
       data: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}data']),
       tags: i1.BiFacet.$convertertagsn.fromSql(attachedDatabase.typeMapping
@@ -595,6 +653,8 @@ class BiFacetData extends i0.DataClass
   final String biId;
   final String? bundleName;
   final String? regionId;
+  final String? ownerId;
+  final String? group;
   final String? data;
   final List<String>? tags;
   final bool? modified;
@@ -613,6 +673,8 @@ class BiFacetData extends i0.DataClass
       {required this.biId,
       this.bundleName,
       this.regionId,
+      this.ownerId,
+      this.group,
       this.data,
       this.tags,
       this.modified,
@@ -633,6 +695,12 @@ class BiFacetData extends i0.DataClass
     }
     if (!nullToAbsent || regionId != null) {
       map['region_id'] = i0.Variable<String>(regionId);
+    }
+    if (!nullToAbsent || ownerId != null) {
+      map['owner_id'] = i0.Variable<String>(ownerId);
+    }
+    if (!nullToAbsent || group != null) {
+      map['group'] = i0.Variable<String>(group);
     }
     if (!nullToAbsent || data != null) {
       map['data'] = i0.Variable<String>(data);
@@ -680,6 +748,12 @@ class BiFacetData extends i0.DataClass
       regionId: regionId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(regionId),
+      ownerId: ownerId == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(ownerId),
+      group: group == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(group),
       data: data == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(data),
@@ -723,6 +797,8 @@ class BiFacetData extends i0.DataClass
       biId: serializer.fromJson<String>(json['bi_id']),
       bundleName: serializer.fromJson<String?>(json['bundle_name']),
       regionId: serializer.fromJson<String?>(json['region_id']),
+      ownerId: serializer.fromJson<String?>(json['owner_id']),
+      group: serializer.fromJson<String?>(json['group']),
       data: serializer.fromJson<String?>(json['data']),
       tags: i1.BiFacet.$convertertagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['tags'])),
@@ -746,6 +822,8 @@ class BiFacetData extends i0.DataClass
       'bi_id': serializer.toJson<String>(biId),
       'bundle_name': serializer.toJson<String?>(bundleName),
       'region_id': serializer.toJson<String?>(regionId),
+      'owner_id': serializer.toJson<String?>(ownerId),
+      'group': serializer.toJson<String?>(group),
       'data': serializer.toJson<String?>(data),
       'tags': serializer
           .toJson<List<dynamic>?>(i1.BiFacet.$convertertagsn.toJson(tags)),
@@ -766,6 +844,8 @@ class BiFacetData extends i0.DataClass
           {String? biId,
           i0.Value<String?> bundleName = const i0.Value.absent(),
           i0.Value<String?> regionId = const i0.Value.absent(),
+          i0.Value<String?> ownerId = const i0.Value.absent(),
+          i0.Value<String?> group = const i0.Value.absent(),
           i0.Value<String?> data = const i0.Value.absent(),
           i0.Value<List<String>?> tags = const i0.Value.absent(),
           i0.Value<bool?> modified = const i0.Value.absent(),
@@ -782,6 +862,8 @@ class BiFacetData extends i0.DataClass
         biId: biId ?? this.biId,
         bundleName: bundleName.present ? bundleName.value : this.bundleName,
         regionId: regionId.present ? regionId.value : this.regionId,
+        ownerId: ownerId.present ? ownerId.value : this.ownerId,
+        group: group.present ? group.value : this.group,
         data: data.present ? data.value : this.data,
         tags: tags.present ? tags.value : this.tags,
         modified: modified.present ? modified.value : this.modified,
@@ -806,6 +888,8 @@ class BiFacetData extends i0.DataClass
       bundleName:
           data.bundleName.present ? data.bundleName.value : this.bundleName,
       regionId: data.regionId.present ? data.regionId.value : this.regionId,
+      ownerId: data.ownerId.present ? data.ownerId.value : this.ownerId,
+      group: data.group.present ? data.group.value : this.group,
       data: data.data.present ? data.data.value : this.data,
       tags: data.tags.present ? data.tags.value : this.tags,
       modified: data.modified.present ? data.modified.value : this.modified,
@@ -836,6 +920,8 @@ class BiFacetData extends i0.DataClass
           ..write('biId: $biId, ')
           ..write('bundleName: $bundleName, ')
           ..write('regionId: $regionId, ')
+          ..write('ownerId: $ownerId, ')
+          ..write('group: $group, ')
           ..write('data: $data, ')
           ..write('tags: $tags, ')
           ..write('modified: $modified, ')
@@ -856,6 +942,8 @@ class BiFacetData extends i0.DataClass
       biId,
       bundleName,
       regionId,
+      ownerId,
+      group,
       data,
       tags,
       modified,
@@ -874,6 +962,8 @@ class BiFacetData extends i0.DataClass
           other.biId == this.biId &&
           other.bundleName == this.bundleName &&
           other.regionId == this.regionId &&
+          other.ownerId == this.ownerId &&
+          other.group == this.group &&
           other.data == this.data &&
           other.tags == this.tags &&
           other.modified == this.modified &&
@@ -891,6 +981,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
   final i0.Value<String> biId;
   final i0.Value<String?> bundleName;
   final i0.Value<String?> regionId;
+  final i0.Value<String?> ownerId;
+  final i0.Value<String?> group;
   final i0.Value<String?> data;
   final i0.Value<List<String>?> tags;
   final i0.Value<bool?> modified;
@@ -907,6 +999,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     this.biId = const i0.Value.absent(),
     this.bundleName = const i0.Value.absent(),
     this.regionId = const i0.Value.absent(),
+    this.ownerId = const i0.Value.absent(),
+    this.group = const i0.Value.absent(),
     this.data = const i0.Value.absent(),
     this.tags = const i0.Value.absent(),
     this.modified = const i0.Value.absent(),
@@ -924,6 +1018,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     required String biId,
     this.bundleName = const i0.Value.absent(),
     this.regionId = const i0.Value.absent(),
+    this.ownerId = const i0.Value.absent(),
+    this.group = const i0.Value.absent(),
     this.data = const i0.Value.absent(),
     this.tags = const i0.Value.absent(),
     this.modified = const i0.Value.absent(),
@@ -941,6 +1037,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     i0.Expression<String>? biId,
     i0.Expression<String>? bundleName,
     i0.Expression<String>? regionId,
+    i0.Expression<String>? ownerId,
+    i0.Expression<String>? group,
     i0.Expression<String>? data,
     i0.Expression<String>? tags,
     i0.Expression<bool>? modified,
@@ -958,6 +1056,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       if (biId != null) 'bi_id': biId,
       if (bundleName != null) 'bundle_name': bundleName,
       if (regionId != null) 'region_id': regionId,
+      if (ownerId != null) 'owner_id': ownerId,
+      if (group != null) 'group': group,
       if (data != null) 'data': data,
       if (tags != null) 'tags': tags,
       if (modified != null) 'modified': modified,
@@ -978,6 +1078,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       {i0.Value<String>? biId,
       i0.Value<String?>? bundleName,
       i0.Value<String?>? regionId,
+      i0.Value<String?>? ownerId,
+      i0.Value<String?>? group,
       i0.Value<String?>? data,
       i0.Value<List<String>?>? tags,
       i0.Value<bool?>? modified,
@@ -994,6 +1096,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       biId: biId ?? this.biId,
       bundleName: bundleName ?? this.bundleName,
       regionId: regionId ?? this.regionId,
+      ownerId: ownerId ?? this.ownerId,
+      group: group ?? this.group,
       data: data ?? this.data,
       tags: tags ?? this.tags,
       modified: modified ?? this.modified,
@@ -1020,6 +1124,12 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     }
     if (regionId.present) {
       map['region_id'] = i0.Variable<String>(regionId.value);
+    }
+    if (ownerId.present) {
+      map['owner_id'] = i0.Variable<String>(ownerId.value);
+    }
+    if (group.present) {
+      map['group'] = i0.Variable<String>(group.value);
     }
     if (data.present) {
       map['data'] = i0.Variable<String>(data.value);
@@ -1069,6 +1179,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
           ..write('biId: $biId, ')
           ..write('bundleName: $bundleName, ')
           ..write('regionId: $regionId, ')
+          ..write('ownerId: $ownerId, ')
+          ..write('group: $group, ')
           ..write('data: $data, ')
           ..write('tags: $tags, ')
           ..write('modified: $modified, ')

@@ -58,16 +58,25 @@ Future<List<ent.Store>> fetchStoresFromReg(
   return ref.watch(storeRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedStores {
+  final List<ent.Store> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedStores({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.Store>> queryStoreByCond(
+Future<PaginatedStores> queryStoreByCond(
     QueryStoreByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'Store',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asStores();
+  return PaginatedStores(
+      items: ds.asStores(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

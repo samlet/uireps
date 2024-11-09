@@ -1,0 +1,46 @@
+import '../fldconv.dart';
+import 'morph/morph.dart';
+import 'user_login_conv.dart';
+
+
+CREATE TABLE user_login (
+    "user_login_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "current_password" VARCHAR(255),
+    "password_hint" VARCHAR(255),
+    "is_system" CHAR(1),
+    "enabled" CHAR(1),
+    "has_logged_out" CHAR(1),
+    "require_password_change" CHAR(1),
+    "last_currency_uom" VARCHAR(22),
+    "last_locale" VARCHAR(10),
+    "last_time_zone" VARCHAR(60),
+    "disabled_date_time" DATETIME(3),
+    "successive_failed_logins" BIGINT,
+    "external_auth_id" VARCHAR(250),
+    "user_ldap_dn" VARCHAR(250),
+    "disabled_by" VARCHAR(250),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "party_id" VARCHAR(22),
+    "tenant_id" VARCHAR(22),
+    "evict" BOOLEAN,
+
+    -- rel: one (no public-types)
+    "user_login_session" TEXT MAPPED BY `const UserLoginSessionConverter()`,
+
+    -- rel: many
+    "user_preference" TEXT MAPPED BY `const UserPreferenceListConverter()`,
+    "user_login_security_group" TEXT MAPPED BY `const UserLoginSecurityGroupListConverter()`,
+    "user_login_password_history" TEXT MAPPED BY `const UserLoginPasswordHistoryListConverter()`,
+    "reserved_flag" INTEGER
+);
+
+allUserLogins: SELECT * FROM user_login;
+clearUserLogins: DELETE FROM user_login;
+addUserLogin: INSERT INTO user_login $el;
+getUserLogin: SELECT * FROM user_login WHERE user_login_id = ?;
+deleteUserLogin: DELETE FROM user_login WHERE user_login_id = :id;
+
+
+
+

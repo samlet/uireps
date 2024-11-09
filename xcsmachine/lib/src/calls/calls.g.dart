@@ -561,6 +561,28 @@ Map<String, dynamic> _$RequestIdsToJson(RequestIds instance) {
   return val;
 }
 
+QueryNavByTags _$QueryNavByTagsFromJson(Map<String, dynamic> json) =>
+    QueryNavByTags(
+      bundleName: json['bundleName'] as String?,
+      req: json['req'] == null
+          ? null
+          : NavReqTags.fromJson(json['req'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$QueryNavByTagsToJson(QueryNavByTags instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('req', instance.req?.toJson());
+  return val;
+}
+
 ModifyTags _$ModifyTagsFromJson(Map<String, dynamic> json) => ModifyTags(
       regionId: json['regionId'] as String?,
       bundleName: json['bundleName'] as String?,
@@ -583,28 +605,6 @@ Map<String, dynamic> _$ModifyTagsToJson(ModifyTags instance) {
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('bundleIds', instance.bundleIds);
   writeNotNull('tags', instance.tags);
-  return val;
-}
-
-QueryNavByTags _$QueryNavByTagsFromJson(Map<String, dynamic> json) =>
-    QueryNavByTags(
-      bundleName: json['bundleName'] as String?,
-      req: json['req'] == null
-          ? null
-          : NavReqTags.fromJson(json['req'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$QueryNavByTagsToJson(QueryNavByTags instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('req', instance.req?.toJson());
   return val;
 }
 

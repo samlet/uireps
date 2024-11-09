@@ -58,16 +58,25 @@ Future<List<ent.UserPref>> fetchUserPrefsFromReg(
   return ref.watch(userPrefRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedUserPrefs {
+  final List<ent.UserPref> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedUserPrefs({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.UserPref>> queryUserPrefByCond(
+Future<PaginatedUserPrefs> queryUserPrefByCond(
     QueryUserPrefByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'UserPref',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asUserPrefs();
+  return PaginatedUserPrefs(
+      items: ds.asUserPrefs(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

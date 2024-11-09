@@ -475,7 +475,7 @@ class _FetchThingFacetsFromRegProviderElement
 }
 
 String _$queryThingFacetByCondHash() =>
-    r'a604370d5505b2a63f0dbafb403e62e9ec941460';
+    r'8c9a23c7f57d8d3423e8b835596b1bacc0a4bdda';
 
 /// fetch by map-condition
 ///
@@ -487,7 +487,7 @@ const queryThingFacetByCondProvider = QueryThingFacetByCondFamily();
 ///
 /// Copied from [queryThingFacetByCond].
 class QueryThingFacetByCondFamily
-    extends Family<AsyncValue<List<ent.ThingFacet>>> {
+    extends Family<AsyncValue<PaginatedThingFacets>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryThingFacetByCond].
@@ -535,7 +535,7 @@ class QueryThingFacetByCondFamily
 ///
 /// Copied from [queryThingFacetByCond].
 class QueryThingFacetByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.ThingFacet>> {
+    extends AutoDisposeFutureProvider<PaginatedThingFacets> {
   /// fetch by map-condition
   ///
   /// Copied from [queryThingFacetByCond].
@@ -577,7 +577,7 @@ class QueryThingFacetByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.ThingFacet>> Function(QueryThingFacetByCondRef provider)
+    FutureOr<PaginatedThingFacets> Function(QueryThingFacetByCondRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -596,7 +596,7 @@ class QueryThingFacetByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.ThingFacet>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedThingFacets> createElement() {
     return _QueryThingFacetByCondProviderElement(this);
   }
 
@@ -618,7 +618,7 @@ class QueryThingFacetByCondProvider
 }
 
 mixin QueryThingFacetByCondRef
-    on AutoDisposeFutureProviderRef<List<ent.ThingFacet>> {
+    on AutoDisposeFutureProviderRef<PaginatedThingFacets> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -627,7 +627,7 @@ mixin QueryThingFacetByCondRef
 }
 
 class _QueryThingFacetByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.ThingFacet>>
+    extends AutoDisposeFutureProviderElement<PaginatedThingFacets>
     with QueryThingFacetByCondRef {
   _QueryThingFacetByCondProviderElement(super.provider);
 

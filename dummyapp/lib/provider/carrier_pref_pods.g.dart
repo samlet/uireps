@@ -478,7 +478,7 @@ class _FetchCarrierPrefsFromRegProviderElement
 }
 
 String _$queryCarrierPrefByCondHash() =>
-    r'244607ac952f0dcb59fa94ab07b59f1710b407c9';
+    r'1a0d81e036bcb8868277d362fa5840ce3ea343e3';
 
 /// fetch by map-condition
 ///
@@ -490,7 +490,7 @@ const queryCarrierPrefByCondProvider = QueryCarrierPrefByCondFamily();
 ///
 /// Copied from [queryCarrierPrefByCond].
 class QueryCarrierPrefByCondFamily
-    extends Family<AsyncValue<List<ent.CarrierPref>>> {
+    extends Family<AsyncValue<PaginatedCarrierPrefs>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryCarrierPrefByCond].
@@ -538,7 +538,7 @@ class QueryCarrierPrefByCondFamily
 ///
 /// Copied from [queryCarrierPrefByCond].
 class QueryCarrierPrefByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.CarrierPref>> {
+    extends AutoDisposeFutureProvider<PaginatedCarrierPrefs> {
   /// fetch by map-condition
   ///
   /// Copied from [queryCarrierPrefByCond].
@@ -580,7 +580,7 @@ class QueryCarrierPrefByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.CarrierPref>> Function(QueryCarrierPrefByCondRef provider)
+    FutureOr<PaginatedCarrierPrefs> Function(QueryCarrierPrefByCondRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -599,7 +599,7 @@ class QueryCarrierPrefByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.CarrierPref>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedCarrierPrefs> createElement() {
     return _QueryCarrierPrefByCondProviderElement(this);
   }
 
@@ -621,7 +621,7 @@ class QueryCarrierPrefByCondProvider
 }
 
 mixin QueryCarrierPrefByCondRef
-    on AutoDisposeFutureProviderRef<List<ent.CarrierPref>> {
+    on AutoDisposeFutureProviderRef<PaginatedCarrierPrefs> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -630,7 +630,7 @@ mixin QueryCarrierPrefByCondRef
 }
 
 class _QueryCarrierPrefByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.CarrierPref>>
+    extends AutoDisposeFutureProviderElement<PaginatedCarrierPrefs>
     with QueryCarrierPrefByCondRef {
   _QueryCarrierPrefByCondProviderElement(super.provider);
 

@@ -58,16 +58,25 @@ Future<List<ent.Note>> fetchNotesFromReg(
   return ref.watch(noteRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedNotes {
+  final List<ent.Note> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedNotes({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.Note>> queryNoteByCond(
+Future<PaginatedNotes> queryNoteByCond(
     QueryNoteByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'Note',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asNotes();
+  return PaginatedNotes(
+      items: ds.asNotes(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

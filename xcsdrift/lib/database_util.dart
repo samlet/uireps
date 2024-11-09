@@ -2,7 +2,7 @@ import 'package:drift/drift.dart';
 import 'database.dart';
 
 extension QueryEx on Database {
-  buildQueryExprs(Map<String, String> exprs) {
+  Expression<bool> buildQueryExprs(Map<String, String> exprs) {
     var conds = exprs.entries.map((e) {
       var fld = e.key;
       var tag1 = CustomExpression<String>(fld, precedence: Precedence.primary);
@@ -26,5 +26,8 @@ extension QueryEx on Database {
       ..where(filter);
     return await query.map((row) => row.read(all)!).getSingle();
   }
+
+  Expression<bool> get inactive =>
+      const CustomExpression<bool>("julianday('now') - julianday(last_updated_tx_stamp) > 60");
 }
 

@@ -471,7 +471,7 @@ class _FetchProductsFromRegProviderElement
 }
 
 String _$queryProductByCondHash() =>
-    r'7ebc1bbb7a0e7763f94f49ca2b2f95bc911844dd';
+    r'ed09c327ddf436a6f006362e9000897602113d21';
 
 /// fetch by map-condition
 ///
@@ -482,7 +482,7 @@ const queryProductByCondProvider = QueryProductByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [queryProductByCond].
-class QueryProductByCondFamily extends Family<AsyncValue<List<ent.Product>>> {
+class QueryProductByCondFamily extends Family<AsyncValue<PaginatedProducts>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryProductByCond].
@@ -530,7 +530,7 @@ class QueryProductByCondFamily extends Family<AsyncValue<List<ent.Product>>> {
 ///
 /// Copied from [queryProductByCond].
 class QueryProductByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Product>> {
+    extends AutoDisposeFutureProvider<PaginatedProducts> {
   /// fetch by map-condition
   ///
   /// Copied from [queryProductByCond].
@@ -572,7 +572,7 @@ class QueryProductByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Product>> Function(QueryProductByCondRef provider) create,
+    FutureOr<PaginatedProducts> Function(QueryProductByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -590,7 +590,7 @@ class QueryProductByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Product>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedProducts> createElement() {
     return _QueryProductByCondProviderElement(this);
   }
 
@@ -611,7 +611,7 @@ class QueryProductByCondProvider
   }
 }
 
-mixin QueryProductByCondRef on AutoDisposeFutureProviderRef<List<ent.Product>> {
+mixin QueryProductByCondRef on AutoDisposeFutureProviderRef<PaginatedProducts> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -620,7 +620,7 @@ mixin QueryProductByCondRef on AutoDisposeFutureProviderRef<List<ent.Product>> {
 }
 
 class _QueryProductByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Product>>
+    extends AutoDisposeFutureProviderElement<PaginatedProducts>
     with QueryProductByCondRef {
   _QueryProductByCondProviderElement(super.provider);
 

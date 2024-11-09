@@ -471,7 +471,7 @@ class _FetchCommentsFromRegProviderElement
 }
 
 String _$queryCommentByCondHash() =>
-    r'bfaca7bf35aa4758f019cc6140e9572ff4258eee';
+    r'5b515bca7c01025c8c4b124d4b103c95eea8fd88';
 
 /// fetch by map-condition
 ///
@@ -482,7 +482,7 @@ const queryCommentByCondProvider = QueryCommentByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [queryCommentByCond].
-class QueryCommentByCondFamily extends Family<AsyncValue<List<ent.Comment>>> {
+class QueryCommentByCondFamily extends Family<AsyncValue<PaginatedComments>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryCommentByCond].
@@ -530,7 +530,7 @@ class QueryCommentByCondFamily extends Family<AsyncValue<List<ent.Comment>>> {
 ///
 /// Copied from [queryCommentByCond].
 class QueryCommentByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Comment>> {
+    extends AutoDisposeFutureProvider<PaginatedComments> {
   /// fetch by map-condition
   ///
   /// Copied from [queryCommentByCond].
@@ -572,7 +572,7 @@ class QueryCommentByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Comment>> Function(QueryCommentByCondRef provider) create,
+    FutureOr<PaginatedComments> Function(QueryCommentByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -590,7 +590,7 @@ class QueryCommentByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Comment>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedComments> createElement() {
     return _QueryCommentByCondProviderElement(this);
   }
 
@@ -611,7 +611,7 @@ class QueryCommentByCondProvider
   }
 }
 
-mixin QueryCommentByCondRef on AutoDisposeFutureProviderRef<List<ent.Comment>> {
+mixin QueryCommentByCondRef on AutoDisposeFutureProviderRef<PaginatedComments> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -620,7 +620,7 @@ mixin QueryCommentByCondRef on AutoDisposeFutureProviderRef<List<ent.Comment>> {
 }
 
 class _QueryCommentByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Comment>>
+    extends AutoDisposeFutureProviderElement<PaginatedComments>
     with QueryCommentByCondRef {
   _QueryCommentByCondProviderElement(super.provider);
 

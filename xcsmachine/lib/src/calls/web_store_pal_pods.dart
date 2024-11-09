@@ -69,20 +69,6 @@ class WebStorePalPod extends _$WebStorePalPod {
 
   
 @riverpod
-Future<List<Inventory>> webStorePalGetInventories(WebStorePalGetInventoriesRef ref, {
-  String regionOrNs='default',
-  required String id,
-  
-    required String productId, 
-
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getInventories(
-      productId: productId,
-  );
-}
-  
-@riverpod
 Future<List<String>> webStorePalGetProductJointers(WebStorePalGetProductJointersRef ref, {
   String regionOrNs='default',
   required String id,
@@ -103,6 +89,20 @@ Future<List<String>> webStorePalGetProductsByRole(WebStorePalGetProductsByRoleRe
   var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getProductsByRole(
       role: role,
+  );
+}
+  
+@riverpod
+Future<List<Inventory>> webStorePalGetInventories(WebStorePalGetInventoriesRef ref, {
+  String regionOrNs='default',
+  required String id,
+  
+    required String productId, 
+
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getInventories(
+      productId: productId,
   );
 }
   

@@ -471,7 +471,7 @@ class _FetchExamplesFromRegProviderElement
 }
 
 String _$queryExampleByCondHash() =>
-    r'9653f8a7e881b58fe3941901929f4d6fbda759c6';
+    r'1256ddf8801c5b9b467148967877ff2273edea92';
 
 /// fetch by map-condition
 ///
@@ -482,7 +482,7 @@ const queryExampleByCondProvider = QueryExampleByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [queryExampleByCond].
-class QueryExampleByCondFamily extends Family<AsyncValue<List<ent.Example>>> {
+class QueryExampleByCondFamily extends Family<AsyncValue<PaginatedExamples>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryExampleByCond].
@@ -530,7 +530,7 @@ class QueryExampleByCondFamily extends Family<AsyncValue<List<ent.Example>>> {
 ///
 /// Copied from [queryExampleByCond].
 class QueryExampleByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Example>> {
+    extends AutoDisposeFutureProvider<PaginatedExamples> {
   /// fetch by map-condition
   ///
   /// Copied from [queryExampleByCond].
@@ -572,7 +572,7 @@ class QueryExampleByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Example>> Function(QueryExampleByCondRef provider) create,
+    FutureOr<PaginatedExamples> Function(QueryExampleByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -590,7 +590,7 @@ class QueryExampleByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Example>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedExamples> createElement() {
     return _QueryExampleByCondProviderElement(this);
   }
 
@@ -611,7 +611,7 @@ class QueryExampleByCondProvider
   }
 }
 
-mixin QueryExampleByCondRef on AutoDisposeFutureProviderRef<List<ent.Example>> {
+mixin QueryExampleByCondRef on AutoDisposeFutureProviderRef<PaginatedExamples> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -620,7 +620,7 @@ mixin QueryExampleByCondRef on AutoDisposeFutureProviderRef<List<ent.Example>> {
 }
 
 class _QueryExampleByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Example>>
+    extends AutoDisposeFutureProviderElement<PaginatedExamples>
     with QueryExampleByCondRef {
   _QueryExampleByCondProviderElement(super.provider);
 

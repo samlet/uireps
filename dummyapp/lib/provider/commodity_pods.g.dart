@@ -474,7 +474,7 @@ class _FetchCommoditiesFromRegProviderElement
 }
 
 String _$queryCommodityByCondHash() =>
-    r'b7252c2a650c67bb9c1e747cde9e46a8e329acc9';
+    r'7010a5bd7fc1ec58092240881e4070bda472a300';
 
 /// fetch by map-condition
 ///
@@ -486,7 +486,7 @@ const queryCommodityByCondProvider = QueryCommodityByCondFamily();
 ///
 /// Copied from [queryCommodityByCond].
 class QueryCommodityByCondFamily
-    extends Family<AsyncValue<List<ent.Commodity>>> {
+    extends Family<AsyncValue<PaginatedCommodities>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryCommodityByCond].
@@ -534,7 +534,7 @@ class QueryCommodityByCondFamily
 ///
 /// Copied from [queryCommodityByCond].
 class QueryCommodityByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Commodity>> {
+    extends AutoDisposeFutureProvider<PaginatedCommodities> {
   /// fetch by map-condition
   ///
   /// Copied from [queryCommodityByCond].
@@ -576,7 +576,7 @@ class QueryCommodityByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Commodity>> Function(QueryCommodityByCondRef provider)
+    FutureOr<PaginatedCommodities> Function(QueryCommodityByCondRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -595,7 +595,7 @@ class QueryCommodityByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Commodity>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedCommodities> createElement() {
     return _QueryCommodityByCondProviderElement(this);
   }
 
@@ -617,7 +617,7 @@ class QueryCommodityByCondProvider
 }
 
 mixin QueryCommodityByCondRef
-    on AutoDisposeFutureProviderRef<List<ent.Commodity>> {
+    on AutoDisposeFutureProviderRef<PaginatedCommodities> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -626,7 +626,7 @@ mixin QueryCommodityByCondRef
 }
 
 class _QueryCommodityByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Commodity>>
+    extends AutoDisposeFutureProviderElement<PaginatedCommodities>
     with QueryCommodityByCondRef {
   _QueryCommodityByCondProviderElement(super.provider);
 

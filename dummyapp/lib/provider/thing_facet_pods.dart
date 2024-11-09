@@ -58,16 +58,25 @@ Future<List<ent.ThingFacet>> fetchThingFacetsFromReg(
   return ref.watch(thingFacetRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedThingFacets {
+  final List<ent.ThingFacet> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedThingFacets({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.ThingFacet>> queryThingFacetByCond(
+Future<PaginatedThingFacets> queryThingFacetByCond(
     QueryThingFacetByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'ThingFacet',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asThingFacets();
+  return PaginatedThingFacets(
+      items: ds.asThingFacets(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

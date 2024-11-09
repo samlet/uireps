@@ -10,6 +10,8 @@ BiFacet _$BiFacetFromJson(Map<String, dynamic> json) => BiFacet(
       biId: json['biId'] as String?,
       bundleName: json['bundleName'] as String?,
       regionId: json['regionId'] as String?,
+      ownerId: json['ownerId'] as String?,
+      group: json['group'] as String?,
       data: json['data'] as Map<String, dynamic>?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String?).toList(),
       modified: json['modified'] as bool?,
@@ -40,6 +42,8 @@ Map<String, dynamic> _$BiFacetToJson(BiFacet instance) {
   writeNotNull('biId', instance.biId);
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('regionId', instance.regionId);
+  writeNotNull('ownerId', instance.ownerId);
+  writeNotNull('group', instance.group);
   writeNotNull('data', instance.data);
   writeNotNull('tags', instance.tags);
   writeNotNull('modified', instance.modified);

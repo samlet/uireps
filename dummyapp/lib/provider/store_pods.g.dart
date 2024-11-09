@@ -467,7 +467,7 @@ class _FetchStoresFromRegProviderElement
   String get regNode => (origin as FetchStoresFromRegProvider).regNode;
 }
 
-String _$queryStoreByCondHash() => r'2e3bffd1b7313c138a1f6ed066a6ee0e8451db0b';
+String _$queryStoreByCondHash() => r'99e3a85dabb1b01aa7441f7aced3c3f3787a7bef';
 
 /// fetch by map-condition
 ///
@@ -478,7 +478,7 @@ const queryStoreByCondProvider = QueryStoreByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [queryStoreByCond].
-class QueryStoreByCondFamily extends Family<AsyncValue<List<ent.Store>>> {
+class QueryStoreByCondFamily extends Family<AsyncValue<PaginatedStores>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryStoreByCond].
@@ -526,7 +526,7 @@ class QueryStoreByCondFamily extends Family<AsyncValue<List<ent.Store>>> {
 ///
 /// Copied from [queryStoreByCond].
 class QueryStoreByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Store>> {
+    extends AutoDisposeFutureProvider<PaginatedStores> {
   /// fetch by map-condition
   ///
   /// Copied from [queryStoreByCond].
@@ -568,7 +568,7 @@ class QueryStoreByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Store>> Function(QueryStoreByCondRef provider) create,
+    FutureOr<PaginatedStores> Function(QueryStoreByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -586,7 +586,7 @@ class QueryStoreByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Store>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedStores> createElement() {
     return _QueryStoreByCondProviderElement(this);
   }
 
@@ -607,7 +607,7 @@ class QueryStoreByCondProvider
   }
 }
 
-mixin QueryStoreByCondRef on AutoDisposeFutureProviderRef<List<ent.Store>> {
+mixin QueryStoreByCondRef on AutoDisposeFutureProviderRef<PaginatedStores> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -616,7 +616,7 @@ mixin QueryStoreByCondRef on AutoDisposeFutureProviderRef<List<ent.Store>> {
 }
 
 class _QueryStoreByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Store>>
+    extends AutoDisposeFutureProviderElement<PaginatedStores>
     with QueryStoreByCondRef {
   _QueryStoreByCondProviderElement(super.provider);
 

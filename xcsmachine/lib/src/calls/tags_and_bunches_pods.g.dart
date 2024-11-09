@@ -662,7 +662,7 @@ class _TagsAndBunchesQueryByBunchProviderElement
       (origin as TagsAndBunchesQueryByBunchProvider).regionId;
 }
 
-String _$tagsAndBunchesPodHash() => r'4ab1c2573387edb68ff7d1bd0f3a444bb87fe5d0';
+String _$tagsAndBunchesPodHash() => r'e0f5e4297d6c3958f074444d84fab34c3523d928';
 
 abstract class _$TagsAndBunchesPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

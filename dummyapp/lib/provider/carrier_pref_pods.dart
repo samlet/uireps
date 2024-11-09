@@ -58,16 +58,25 @@ Future<List<ent.CarrierPref>> fetchCarrierPrefsFromReg(
   return ref.watch(carrierPrefRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedCarrierPrefs {
+  final List<ent.CarrierPref> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedCarrierPrefs({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.CarrierPref>> queryCarrierPrefByCond(
+Future<PaginatedCarrierPrefs> queryCarrierPrefByCond(
     QueryCarrierPrefByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'CarrierPref',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asCarrierPrefs();
+  return PaginatedCarrierPrefs(
+      items: ds.asCarrierPrefs(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

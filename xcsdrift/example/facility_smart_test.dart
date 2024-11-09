@@ -25,7 +25,7 @@ Future<void> main(List<String> arguments) async {
     // refresh -> false
   }
   {
-    // touch
+    // touch (local)
     var facetRepo = FacetStorageRepository(dio);
     await facetRepo.touch(fullBundleName: 'Facility', id: bundleId);
   }

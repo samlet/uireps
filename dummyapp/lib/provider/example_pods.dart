@@ -58,16 +58,25 @@ Future<List<ent.Example>> fetchExamplesFromReg(
   return ref.watch(exampleRepositoryProvider).fetchFromReg(regNode, smartMode: true);
 }
 
+class PaginatedExamples {
+  final List<ent.Example> items;
+  final int total;
+  final int totalPages;
+
+  PaginatedExamples({required this.items, required this.total, required this.totalPages});
+}
+
 /// fetch by map-condition
 @riverpod
-Future<List<ent.Example>> queryExampleByCond(
+Future<PaginatedExamples> queryExampleByCond(
     QueryExampleByCondRef ref, int pageIndex, Map<String, Object?> cond) async {
   final queryDealer=ref.watch(bundlesQueryDealerProvider());
   PaginatedResponse ds = await queryDealer.queryBundlePage(
       bundleName: 'Example',
       cond: cond,
       pageLimit: PageLimit(page: pageIndex, pageSize: 10));
-  return ds.asExamples();
+  return PaginatedExamples(
+      items: ds.asExamples(), total: ds.totalResults ?? 0, totalPages: ds.totalPages ?? 0);
 }
 
 @riverpod

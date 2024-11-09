@@ -30,8 +30,8 @@ export 'src/ent/section.dart';
 export 'src/ent/headline.dart';
 
 // plugins
-export 'commoditymodels.dart';
-export 'whiteboardmodels.dart';
 export 'facetmodels.dart';
+export 'commoditymodels.dart';
+export 'knowledgebasemodels.dart';
 
 

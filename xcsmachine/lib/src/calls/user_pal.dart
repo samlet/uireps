@@ -20,6 +20,86 @@ class UserPalRepository {
   final String id;
 
    
+  // Query
+  Future<List<String>> getOrdersAsRole({
+    
+    required String roleType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrdersAsRole",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "roleType": roleType, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<Shipment>> getShipsAsDestination() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getShipsAsDestination",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Shipment.fromJson);
+  }
+   
+  // Query
+  Future<List<Shipment>> getShipsAsOrigin() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getShipsAsOrigin",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Shipment.fromJson);
+  }
+   
+  // Query
+  Future<List<String>> getOrdersAsCustomer() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrdersAsCustomer",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<String>> getOrdersAsCarrier() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getOrdersAsCarrier",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
   // Mutation
   Future<String> createNote({
     
@@ -115,86 +195,6 @@ class UserPalRepository {
   }
    
   // Query
-  Future<List<String>> getOrdersAsRole({
-    
-    required String roleType, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrdersAsRole",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "roleType": roleType, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<Shipment>> getShipsAsDestination() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getShipsAsDestination",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Shipment.fromJson);
-  }
-   
-  // Query
-  Future<List<Shipment>> getShipsAsOrigin() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getShipsAsOrigin",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Shipment.fromJson);
-  }
-   
-  // Query
-  Future<List<String>> getOrdersAsCustomer() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrdersAsCustomer",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> getOrdersAsCarrier() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrdersAsCarrier",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
   Future<String> name() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -242,6 +242,130 @@ class UserPalRepository {
     });
     
     return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<String> getDefaultPayMeth({
+    
+    required String storeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getDefaultPayMeth",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "storeId": storeId, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<Response> setDefaultPayMeth({
+    
+    required String storeId,
+    required String defaultPayMeth, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "setDefaultPayMeth",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "storeId": storeId,
+      "defaultPayMeth": defaultPayMeth, 
+    });
+    
+    return Response()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<List<String>> getPaymentMethods() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPaymentMethods",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<List<String>> getUserLoginIds() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getUserLoginIds",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Mutation
+  Future<String> addNotification({
+    
+    required String typeId,
+    required String content, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "addNotification",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "typeId": typeId,
+      "content": content, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<List<Notification>> getNotifications() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNotifications",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Notification.fromJson);
+  }
+   
+  // Query
+  Future<List<Notification>> getUnreadNotifications() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getUnreadNotifications",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Notification.fromJson);
   }
    
   // Query
@@ -402,52 +526,10 @@ class UserPalRepository {
   }
    
   // Query
-  Future<String> getDefaultPayMeth({
-    
-    required String storeId, 
-
-  }) async { 
+  Future<ContactProto> getPrimaryContact() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getDefaultPayMeth",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "storeId": storeId, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Mutation
-  Future<Response> setDefaultPayMeth({
-    
-    required String storeId,
-    required String defaultPayMeth, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "setDefaultPayMeth",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "storeId": storeId,
-      "defaultPayMeth": defaultPayMeth, 
-    });
-    
-    return Response()..mergeFromProto3Json(resp);
-  }
-   
-  // Query
-  Future<List<String>> getPaymentMethods() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPaymentMethods",
+      "action": "getPrimaryContact",
       "bundleName" : "Party",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -455,74 +537,7 @@ class UserPalRepository {
     }, { 
     });
     
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> getUserLoginIds() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getUserLoginIds",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Mutation
-  Future<String> addNotification({
-    
-    required String typeId,
-    required String content, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addNotification",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "typeId": typeId,
-      "content": content, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<List<Notification>> getNotifications() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNotifications",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Notification.fromJson);
-  }
-   
-  // Query
-  Future<List<Notification>> getUnreadNotifications() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getUnreadNotifications",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Notification.fromJson);
+    return ContactProto()..mergeFromProto3Json(resp);
   }
    
   // Query
@@ -613,21 +628,6 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<ContactProto> getPrimaryContact() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPrimaryContact",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ContactProto()..mergeFromProto3Json(resp);
   }
    
   // Query

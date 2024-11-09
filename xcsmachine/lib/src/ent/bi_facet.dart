@@ -20,6 +20,8 @@ class BiFacet {
     this.biId,
     this.bundleName,
     this.regionId,
+    this.ownerId,
+    this.group,
     this.data,
     this.tags,
     this.modified,
@@ -36,6 +38,8 @@ class BiFacet {
     String? biId,
     String? bundleName,
     String? regionId,
+    String? ownerId,
+    String? group,
     Map<String, dynamic>? data,
     List<String?>? tags,
     bool? modified,
@@ -51,6 +55,8 @@ class BiFacet {
       biId: biId ?? this.biId,
       bundleName: bundleName ?? this.bundleName,
       regionId: regionId ?? this.regionId,
+      ownerId: ownerId ?? this.ownerId,
+      group: group ?? this.group,
       data: data ?? this.data,
       tags: tags ?? this.tags,
       modified: modified ?? this.modified,
@@ -87,6 +93,12 @@ class BiFacet {
 
    
   String? regionId;
+
+   
+  String? ownerId;
+
+   
+  String? group;
 
    
   Map<String, dynamic>? data;

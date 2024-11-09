@@ -464,7 +464,7 @@ class _FetchNotesFromRegProviderElement
   String get regNode => (origin as FetchNotesFromRegProvider).regNode;
 }
 
-String _$queryNoteByCondHash() => r'644c2233ef3ee45121e3c7f6a4f30b7bcfc60eb3';
+String _$queryNoteByCondHash() => r'f2b853383efb542d6079b28b6d44b12a7f691cb0';
 
 /// fetch by map-condition
 ///
@@ -475,7 +475,7 @@ const queryNoteByCondProvider = QueryNoteByCondFamily();
 /// fetch by map-condition
 ///
 /// Copied from [queryNoteByCond].
-class QueryNoteByCondFamily extends Family<AsyncValue<List<ent.Note>>> {
+class QueryNoteByCondFamily extends Family<AsyncValue<PaginatedNotes>> {
   /// fetch by map-condition
   ///
   /// Copied from [queryNoteByCond].
@@ -523,7 +523,7 @@ class QueryNoteByCondFamily extends Family<AsyncValue<List<ent.Note>>> {
 ///
 /// Copied from [queryNoteByCond].
 class QueryNoteByCondProvider
-    extends AutoDisposeFutureProvider<List<ent.Note>> {
+    extends AutoDisposeFutureProvider<PaginatedNotes> {
   /// fetch by map-condition
   ///
   /// Copied from [queryNoteByCond].
@@ -565,7 +565,7 @@ class QueryNoteByCondProvider
 
   @override
   Override overrideWith(
-    FutureOr<List<ent.Note>> Function(QueryNoteByCondRef provider) create,
+    FutureOr<PaginatedNotes> Function(QueryNoteByCondRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -583,7 +583,7 @@ class QueryNoteByCondProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ent.Note>> createElement() {
+  AutoDisposeFutureProviderElement<PaginatedNotes> createElement() {
     return _QueryNoteByCondProviderElement(this);
   }
 
@@ -604,7 +604,7 @@ class QueryNoteByCondProvider
   }
 }
 
-mixin QueryNoteByCondRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
+mixin QueryNoteByCondRef on AutoDisposeFutureProviderRef<PaginatedNotes> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
 
@@ -613,7 +613,7 @@ mixin QueryNoteByCondRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
 }
 
 class _QueryNoteByCondProviderElement
-    extends AutoDisposeFutureProviderElement<List<ent.Note>>
+    extends AutoDisposeFutureProviderElement<PaginatedNotes>
     with QueryNoteByCondRef {
   _QueryNoteByCondProviderElement(super.provider);
 
