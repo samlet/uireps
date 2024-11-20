@@ -72,14 +72,6 @@ class PostPalPod extends _$PostPalPod {
     return state.hasError == false;
   }
   
-  Future<bool> featured() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> postComment({
     
     required String subject,
@@ -95,6 +87,14 @@ class PostPalPod extends _$PostPalPod {
               review: review,
               rating: rating,
               reward: reward,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> featured() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
             ));
     return state.hasError == false;
   }

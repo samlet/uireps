@@ -59,6 +59,19 @@ class NoteCoPod extends _$NoteCoPod {
     return state.hasError == false;
   }
   
+  Future<bool> applyContent({
+    
+    required NoteContent cnt, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).applyContent(
+              cnt: cnt,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> attachToParty({
     
     required String partyId, 
@@ -136,6 +149,16 @@ Future<String> noteGetContent(NoteGetContentRef ref, {
 }) async {
   var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getContent(
+  );
+}
+  
+@riverpod
+Future<NoteContent> noteViewContent(NoteViewContentRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(noteCoProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.viewContent(
   );
 }
   

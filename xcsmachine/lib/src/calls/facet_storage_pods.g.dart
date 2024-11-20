@@ -653,7 +653,156 @@ class _FacetStorageMultiGetProviderElement
   List<String> get keys => (origin as FacetStorageMultiGetProvider).keys;
 }
 
-String _$facetStoragePodHash() => r'0bcd259c5532e8c05434d4ef3a74e621f0cebf80';
+String _$facetStorageGetBiDraftHash() =>
+    r'ea60592508dd2f822f6175e3218541791fdb9307';
+
+/// See also [facetStorageGetBiDraft].
+@ProviderFor(facetStorageGetBiDraft)
+const facetStorageGetBiDraftProvider = FacetStorageGetBiDraftFamily();
+
+/// See also [facetStorageGetBiDraft].
+class FacetStorageGetBiDraftFamily extends Family<AsyncValue<BiFacetBi>> {
+  /// See also [facetStorageGetBiDraft].
+  const FacetStorageGetBiDraftFamily();
+
+  /// See also [facetStorageGetBiDraft].
+  FacetStorageGetBiDraftProvider call({
+    String regionOrNs = 'default',
+    required String key,
+  }) {
+    return FacetStorageGetBiDraftProvider(
+      regionOrNs: regionOrNs,
+      key: key,
+    );
+  }
+
+  @override
+  FacetStorageGetBiDraftProvider getProviderOverride(
+    covariant FacetStorageGetBiDraftProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      key: provider.key,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'facetStorageGetBiDraftProvider';
+}
+
+/// See also [facetStorageGetBiDraft].
+class FacetStorageGetBiDraftProvider
+    extends AutoDisposeFutureProvider<BiFacetBi> {
+  /// See also [facetStorageGetBiDraft].
+  FacetStorageGetBiDraftProvider({
+    String regionOrNs = 'default',
+    required String key,
+  }) : this._internal(
+          (ref) => facetStorageGetBiDraft(
+            ref as FacetStorageGetBiDraftRef,
+            regionOrNs: regionOrNs,
+            key: key,
+          ),
+          from: facetStorageGetBiDraftProvider,
+          name: r'facetStorageGetBiDraftProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$facetStorageGetBiDraftHash,
+          dependencies: FacetStorageGetBiDraftFamily._dependencies,
+          allTransitiveDependencies:
+              FacetStorageGetBiDraftFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          key: key,
+        );
+
+  FacetStorageGetBiDraftProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.key,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String key;
+
+  @override
+  Override overrideWith(
+    FutureOr<BiFacetBi> Function(FacetStorageGetBiDraftRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FacetStorageGetBiDraftProvider._internal(
+        (ref) => create(ref as FacetStorageGetBiDraftRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        key: key,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<BiFacetBi> createElement() {
+    return _FacetStorageGetBiDraftProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FacetStorageGetBiDraftProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.key == key;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, key.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FacetStorageGetBiDraftRef on AutoDisposeFutureProviderRef<BiFacetBi> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `key` of this provider.
+  String get key;
+}
+
+class _FacetStorageGetBiDraftProviderElement
+    extends AutoDisposeFutureProviderElement<BiFacetBi>
+    with FacetStorageGetBiDraftRef {
+  _FacetStorageGetBiDraftProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as FacetStorageGetBiDraftProvider).regionOrNs;
+  @override
+  String get key => (origin as FacetStorageGetBiDraftProvider).key;
+}
+
+String _$facetStoragePodHash() => r'fd171a2adef0651c093f7167ac98fdd4e1bac9d2';
 
 abstract class _$FacetStoragePod
     extends BuildlessAutoDisposeAsyncNotifier<void> {

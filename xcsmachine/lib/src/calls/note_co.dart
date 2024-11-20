@@ -104,6 +104,41 @@ class NoteCoRepository {
   }
    
   // Mutation
+  Future<Note> applyContent({
+    
+    required NoteContent cnt, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "applyContent",
+      "bundleName" : "Note",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "cnt": cnt, 
+    });
+    
+    return Note.fromJson(resp);
+  }
+   
+  // Query
+  Future<NoteContent> viewContent() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "viewContent",
+      "bundleName" : "Note",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return NoteContent.fromJson(resp);
+  }
+   
+  // Mutation
   Future<void> attachToParty({
     
     required String partyId, 

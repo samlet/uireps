@@ -25,6 +25,8 @@ class BiFacet {
     this.data,
     this.tags,
     this.modified,
+    this.applyTarget,
+    this.applyRecordType,
     this.tenantId,
     this.lastUpdatedTxStamp,
     this.createdTxStamp,
@@ -43,6 +45,8 @@ class BiFacet {
     Map<String, dynamic>? data,
     List<String?>? tags,
     bool? modified,
+    String? applyTarget,
+    String? applyRecordType,
     String? tenantId,
     DateTime? lastUpdatedTxStamp,
     DateTime? createdTxStamp,
@@ -60,6 +64,8 @@ class BiFacet {
       data: data ?? this.data,
       tags: tags ?? this.tags,
       modified: modified ?? this.modified,
+      applyTarget: applyTarget ?? this.applyTarget,
+      applyRecordType: applyRecordType ?? this.applyRecordType,
       tenantId: tenantId ?? this.tenantId,
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
@@ -108,6 +114,12 @@ class BiFacet {
 
    
   bool? modified;
+
+   
+  String? applyTarget;
+
+   
+  String? applyRecordType;
 
    
   String? tenantId;

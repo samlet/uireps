@@ -48,6 +48,19 @@ class FacetStoragePod extends _$FacetStoragePod {
     return state.hasError == false;
   }
   
+  Future<bool> putBiDraft({
+    
+    required BiFacetBi data, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(facetStorageProvider(regionOrNs: regionOrNs)).putBiDraft(
+              data: data,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> touch({
     
     required String fullBundleName,
@@ -82,21 +95,6 @@ Future<Map<String, Object?>> facetStorageGet(FacetStorageGetRef ref, {
 }
   
 @riverpod
-Future<DateTime> facetStorageGetLastTs(FacetStorageGetLastTsRef ref, {
-  String regionOrNs='default',
-  
-    required String fullBundleName,
-    required String bundleId, 
-
-}) async {
-  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
-  return await pod.getLastTs(
-      fullBundleName: fullBundleName,
-      bundleId: bundleId,
-  );
-}
-  
-@riverpod
 Future<List<Map<String, dynamic>>> facetStorageMultiGet(FacetStorageMultiGetRef ref, {
   String regionOrNs='default',
   
@@ -108,6 +106,34 @@ Future<List<Map<String, dynamic>>> facetStorageMultiGet(FacetStorageMultiGetRef 
   return await pod.multiGet(
       fullBundleName: fullBundleName,
       keys: keys,
+  );
+}
+  
+@riverpod
+Future<BiFacetBi> facetStorageGetBiDraft(FacetStorageGetBiDraftRef ref, {
+  String regionOrNs='default',
+  
+    required String key, 
+
+}) async {
+  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
+  return await pod.getBiDraft(
+      key: key,
+  );
+}
+  
+@riverpod
+Future<DateTime> facetStorageGetLastTs(FacetStorageGetLastTsRef ref, {
+  String regionOrNs='default',
+  
+    required String fullBundleName,
+    required String bundleId, 
+
+}) async {
+  var pod=ref.watch(facetStorageProvider(regionOrNs: regionOrNs));
+  return await pod.getLastTs(
+      fullBundleName: fullBundleName,
+      bundleId: bundleId,
   );
 }
 

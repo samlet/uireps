@@ -82,6 +82,7 @@ AdapterResult dispatchAdapter(
     'co': palletAdapter,
     'chain': chainAdapter,
     'slab': slabAdapter,
+    'kit': kitAdapter,
     'machineComp': machineAdapter
   };
   var conv = convMapping[callType];
@@ -132,6 +133,17 @@ AdapterResult chainAdapter(
     "chainName": ctx['module'],
     "methodName": ctx['action'],
     "regionId": ctx['regionId'],
+    "req": {"input": inputParams},
+    "resultConv": "json"
+  });
+}
+
+AdapterResult kitAdapter(
+    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+  return AdapterResult("/kitDisp", {
+    "plugName": ctx['module'],
+    "methodName": ctx['action'],
+    // "regionId": ctx['regionId'],
     "req": {"input": inputParams},
     "resultConv": "json"
   });

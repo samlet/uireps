@@ -138,6 +138,32 @@ class PostPalRepository {
   }
    
   // Mutation
+  Future<String> postComment({
+    
+    required String subject,
+    required String review,
+    required double rating,
+    required double reward, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "postComment",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "subject": subject,
+      "review": review,
+      "rating": rating,
+      "reward": reward, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Mutation
   Future<void> featured() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -164,32 +190,6 @@ class PostPalRepository {
     });
     
     return ResultConv.asBool(resp);
-  }
-   
-  // Mutation
-  Future<String> postComment({
-    
-    required String subject,
-    required String review,
-    required double rating,
-    required double reward, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "postComment",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "subject": subject,
-      "review": review,
-      "rating": rating,
-      "reward": reward, 
-    });
-    
-    return ResultConv.asString(resp);
   }
    
   // Query

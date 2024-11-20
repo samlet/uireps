@@ -127,6 +127,27 @@ class AclOnChainRepository {
   }
    
   // Query
+  Future<bool> hasRole({
+    
+    required String partyId,
+    required String role, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "hasRole",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "partyId": partyId,
+      "role": role, 
+    });
+    
+    return ResultConv.asBool(resp);
+  }
+   
+  // Query
   Future<bool> isOwner({
     
     required String biName,
@@ -144,27 +165,6 @@ class AclOnChainRepository {
       "biName": biName,
       "bundleId": bundleId,
       "userOrGroup": userOrGroup, 
-    });
-    
-    return ResultConv.asBool(resp);
-  }
-   
-  // Query
-  Future<bool> hasRole({
-    
-    required String partyId,
-    required String role, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "hasRole",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "partyId": partyId,
-      "role": role, 
     });
     
     return ResultConv.asBool(resp);

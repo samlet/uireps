@@ -14,8 +14,11 @@ export 'auth.dart';
 export 'facet_storage.dart';
 export 'bundles_query_dealer.dart';
 export 'tags_and_bunches.dart';
+export 'bundles_meta_dealer.dart';
 export 'acl_on_chain.dart';
 export 'portals_on_chain.dart';
+export 'default_gen_meta.dart';
 export 'counter_comp.dart';
+export 'common_gen_meta.dart';
 
 

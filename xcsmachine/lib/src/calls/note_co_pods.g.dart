@@ -604,6 +604,152 @@ class _NoteGetContentProviderElement
   String get id => (origin as NoteGetContentProvider).id;
 }
 
+String _$noteViewContentHash() => r'ce73c7a16f4fceacfd69770893cd9a7f67b38ffd';
+
+/// See also [noteViewContent].
+@ProviderFor(noteViewContent)
+const noteViewContentProvider = NoteViewContentFamily();
+
+/// See also [noteViewContent].
+class NoteViewContentFamily extends Family<AsyncValue<NoteContent>> {
+  /// See also [noteViewContent].
+  const NoteViewContentFamily();
+
+  /// See also [noteViewContent].
+  NoteViewContentProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return NoteViewContentProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  NoteViewContentProvider getProviderOverride(
+    covariant NoteViewContentProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'noteViewContentProvider';
+}
+
+/// See also [noteViewContent].
+class NoteViewContentProvider extends AutoDisposeFutureProvider<NoteContent> {
+  /// See also [noteViewContent].
+  NoteViewContentProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => noteViewContent(
+            ref as NoteViewContentRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: noteViewContentProvider,
+          name: r'noteViewContentProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$noteViewContentHash,
+          dependencies: NoteViewContentFamily._dependencies,
+          allTransitiveDependencies:
+              NoteViewContentFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  NoteViewContentProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<NoteContent> Function(NoteViewContentRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: NoteViewContentProvider._internal(
+        (ref) => create(ref as NoteViewContentRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<NoteContent> createElement() {
+    return _NoteViewContentProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is NoteViewContentProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin NoteViewContentRef on AutoDisposeFutureProviderRef<NoteContent> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _NoteViewContentProviderElement
+    extends AutoDisposeFutureProviderElement<NoteContent>
+    with NoteViewContentRef {
+  _NoteViewContentProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as NoteViewContentProvider).regionOrNs;
+  @override
+  String get id => (origin as NoteViewContentProvider).id;
+}
+
 String _$noteGetDecimalsHash() => r'20c0e5793d8c368d98bacb2bd68a58e4367c6d82';
 
 /// See also [noteGetDecimals].
@@ -1073,7 +1219,7 @@ class _NoteHasSlotValueProviderElement
   String get slotName => (origin as NoteHasSlotValueProvider).slotName;
 }
 
-String _$noteCoPodHash() => r'5f85823cd1a8896d38d8eadb9c5ab05126854dd8';
+String _$noteCoPodHash() => r'e47fb6c33a82b6c8ae2f4b75f3fbaa22f5dc445f';
 
 abstract class _$NoteCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionOrNs;

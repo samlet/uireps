@@ -46,6 +46,18 @@ class NoteCoCube extends _$NoteCoCube {
     ref.invalidateSelf();
   }
   
+  Future<void> applyContent({
+    
+    required NoteContent cnt, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).applyContent(
+      cnt: cnt,
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
   Future<void> attachToParty({
     
     required String partyId, 

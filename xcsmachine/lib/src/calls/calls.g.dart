@@ -6,6 +6,27 @@ part of 'calls.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+NoteContent _$NoteContentFromJson(Map<String, dynamic> json) => NoteContent(
+      key: json['key'] as String?,
+      title: json['title'] as String?,
+      body: json['body'] as String?,
+    );
+
+Map<String, dynamic> _$NoteContentToJson(NoteContent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('title', instance.title);
+  writeNotNull('body', instance.body);
+  return val;
+}
+
 PostBundle _$PostBundleFromJson(Map<String, dynamic> json) => PostBundle(
       id: json['id'] as String?,
       name: json['name'] as String?,
@@ -121,29 +142,6 @@ Map<String, dynamic> _$TestRecToJson(TestRec instance) {
   return val;
 }
 
-PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
-      party: json['party'] == null
-          ? null
-          : Party.fromJson(json['party'] as Map<String, dynamic>),
-      contacts: (json['contacts'] as List<dynamic>?)
-          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('party', instance.party?.toJson());
-  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
-  return val;
-}
-
 StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
       store: json['store'] == null
           ? null
@@ -173,6 +171,29 @@ Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) {
   writeNotNull('products', instance.products?.map((e) => e.toJson()).toList());
   writeNotNull(
       'inventories', instance.inventories?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
+      party: json['party'] == null
+          ? null
+          : Party.fromJson(json['party'] as Map<String, dynamic>),
+      contacts: (json['contacts'] as List<dynamic>?)
+          ?.map((e) => ContactMech.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('party', instance.party?.toJson());
+  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -291,9 +312,13 @@ BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
       biId: json['biId'] as String?,
       bundleName: json['bundleName'] as String?,
       regionId: json['regionId'] as String?,
+      ownerId: json['ownerId'] as String?,
+      group: json['group'] as String?,
       data: json['data'] as Map<String, dynamic>?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
       modified: json['modified'] as bool?,
+      applyTarget: json['applyTarget'] as String?,
+      applyRecordType: json['applyRecordType'] as String?,
       tenantId: json['tenantId'] as String?,
       lastUpdatedTxStamp: _$JsonConverterFromJson<String, DateTime>(
           json['lastUpdatedTxStamp'], const OffsetDateTimeConverter().fromJson),
@@ -320,9 +345,13 @@ Map<String, dynamic> _$BiFacetBiToJson(BiFacetBi instance) {
   writeNotNull('biId', instance.biId);
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('regionId', instance.regionId);
+  writeNotNull('ownerId', instance.ownerId);
+  writeNotNull('group', instance.group);
   writeNotNull('data', instance.data);
   writeNotNull('tags', instance.tags);
   writeNotNull('modified', instance.modified);
+  writeNotNull('applyTarget', instance.applyTarget);
+  writeNotNull('applyRecordType', instance.applyRecordType);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull(
       'lastUpdatedTxStamp',
@@ -437,6 +466,29 @@ Map<String, dynamic> _$QueryMapToJson(QueryMap instance) {
   return val;
 }
 
+QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
+      bundleName: json['bundleName'] as String?,
+      expr: json['expr'] as String?,
+      limit: json['limit'] == null
+          ? null
+          : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('expr', instance.expr);
+  writeNotNull('limit', instance.limit?.toJson());
+  return val;
+}
+
 QueryTerms _$QueryTermsFromJson(Map<String, dynamic> json) => QueryTerms(
       bundleName: json['bundleName'] as String?,
       terms: (json['terms'] as List<dynamic>?)
@@ -458,29 +510,6 @@ Map<String, dynamic> _$QueryTermsToJson(QueryTerms instance) {
 
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('terms', instance.terms?.map((e) => e.toJson()).toList());
-  writeNotNull('limit', instance.limit?.toJson());
-  return val;
-}
-
-QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
-      bundleName: json['bundleName'] as String?,
-      expr: json['expr'] as String?,
-      limit: json['limit'] == null
-          ? null
-          : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('expr', instance.expr);
   writeNotNull('limit', instance.limit?.toJson());
   return val;
 }
@@ -698,6 +727,146 @@ Map<String, dynamic> _$NavRsToJson(NavRs instance) {
   return val;
 }
 
+FieldProfile _$FieldProfileFromJson(Map<String, dynamic> json) => FieldProfile(
+      name: json['name'] as String?,
+      type: json['type'] as String?,
+      groupType: json['groupType'] as String?,
+    );
+
+Map<String, dynamic> _$FieldProfileToJson(FieldProfile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('type', instance.type);
+  writeNotNull('groupType', instance.groupType);
+  return val;
+}
+
+BundleMetaReq _$BundleMetaReqFromJson(Map<String, dynamic> json) =>
+    BundleMetaReq(
+      bundleName: json['bundleName'] as String?,
+    );
+
+Map<String, dynamic> _$BundleMetaReqToJson(BundleMetaReq instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  return val;
+}
+
+EntityProfile _$EntityProfileFromJson(Map<String, dynamic> json) =>
+    EntityProfile(
+      name: json['name'] as String?,
+      pk: json['pk'] as String?,
+      pks: (json['pks'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      fields: (json['fields'] as List<dynamic>?)
+          ?.map((e) => FieldProfile.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      relations: (json['relations'] as List<dynamic>?)
+          ?.map((e) => RelationProfile.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$EntityProfileToJson(EntityProfile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('pk', instance.pk);
+  writeNotNull('pks', instance.pks);
+  writeNotNull('fields', instance.fields?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'relations', instance.relations?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+BundleAttProfile _$BundleAttProfileFromJson(Map<String, dynamic> json) =>
+    BundleAttProfile(
+      relType: json['relType'] as String?,
+      att: json['att'] == null
+          ? null
+          : EntityProfile.fromJson(json['att'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$BundleAttProfileToJson(BundleAttProfile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('relType', instance.relType);
+  writeNotNull('att', instance.att?.toJson());
+  return val;
+}
+
+BundleProfile _$BundleProfileFromJson(Map<String, dynamic> json) =>
+    BundleProfile(
+      name: json['name'] as String?,
+      main: json['main'] == null
+          ? null
+          : EntityProfile.fromJson(json['main'] as Map<String, dynamic>),
+      atts: (json['atts'] as List<dynamic>?)
+          ?.map((e) => BundleAttProfile.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$BundleProfileToJson(BundleProfile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('main', instance.main?.toJson());
+  writeNotNull('atts', instance.atts?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+RelationProfile _$RelationProfileFromJson(Map<String, dynamic> json) =>
+    RelationProfile(
+      name: json['name'] as String?,
+      type: json['type'] as String?,
+      relEnt: json['relEnt'] as String?,
+    );
+
+Map<String, dynamic> _$RelationProfileToJson(RelationProfile instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('type', instance.type);
+  writeNotNull('relEnt', instance.relEnt);
+  return val;
+}
+
 MultiDs _$MultiDsFromJson(Map<String, dynamic> json) => MultiDs(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => BundleSeries.fromJson(e as Map<String, dynamic>))
@@ -780,6 +949,60 @@ Map<String, dynamic> _$BundleSeriesToJson(BundleSeries instance) {
   writeNotNull('key', instance.key);
   writeNotNull('type', instance.type);
   writeNotNull('rows', instance.rows?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+TemplateErrorRec _$TemplateErrorRecFromJson(Map<String, dynamic> json) =>
+    TemplateErrorRec(
+      severity: json['severity'] as String?,
+      reason: json['reason'] as String?,
+      item: json['item'] as String?,
+      message: json['message'] as String?,
+      fieldName: json['fieldName'] as String?,
+      lineno: (json['lineno'] as num?)?.toInt(),
+      startPosition: (json['startPosition'] as num?)?.toInt(),
+      errorMsg: json['errorMsg'] as String?,
+    );
+
+Map<String, dynamic> _$TemplateErrorRecToJson(TemplateErrorRec instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('severity', instance.severity);
+  writeNotNull('reason', instance.reason);
+  writeNotNull('item', instance.item);
+  writeNotNull('message', instance.message);
+  writeNotNull('fieldName', instance.fieldName);
+  writeNotNull('lineno', instance.lineno);
+  writeNotNull('startPosition', instance.startPosition);
+  writeNotNull('errorMsg', instance.errorMsg);
+  return val;
+}
+
+TemplateExecResult _$TemplateExecResultFromJson(Map<String, dynamic> json) =>
+    TemplateExecResult(
+      output: json['output'] as String?,
+      errors: (json['errors'] as List<dynamic>?)
+          ?.map((e) => TemplateErrorRec.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$TemplateExecResultToJson(TemplateExecResult instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('output', instance.output);
+  writeNotNull('errors', instance.errors?.map((e) => e.toJson()).toList());
   return val;
 }
 

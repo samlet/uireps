@@ -134,25 +134,6 @@ class FixtureObjectsRepository {
   }
    
   // Query
-  Future<String> getNoteProto({
-    
-    required String noteId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNoteProto",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "noteId": noteId, 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
   Future<List<Note>> publicNotes({
     
     required String author, 
@@ -169,6 +150,25 @@ class FixtureObjectsRepository {
     });
     
     return convList(resp, Note.fromJson);
+  }
+   
+  // Query
+  Future<String> getNoteProto({
+    
+    required String noteId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNoteProto",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "noteId": noteId, 
+    });
+    
+    return ResultConv.asString(resp);
   }
    
   // Query

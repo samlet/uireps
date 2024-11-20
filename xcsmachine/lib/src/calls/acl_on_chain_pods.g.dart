@@ -303,6 +303,167 @@ class _AocGetPublicMethodsProviderElement
   String get mod => (origin as AocGetPublicMethodsProvider).mod;
 }
 
+String _$aocHasRoleHash() => r'048e9618ea887804c1aaf013630547338fe6e493';
+
+/// See also [aocHasRole].
+@ProviderFor(aocHasRole)
+const aocHasRoleProvider = AocHasRoleFamily();
+
+/// See also [aocHasRole].
+class AocHasRoleFamily extends Family<AsyncValue<bool>> {
+  /// See also [aocHasRole].
+  const AocHasRoleFamily();
+
+  /// See also [aocHasRole].
+  AocHasRoleProvider call({
+    String regionOrNs = 'default',
+    required String partyId,
+    required String role,
+  }) {
+    return AocHasRoleProvider(
+      regionOrNs: regionOrNs,
+      partyId: partyId,
+      role: role,
+    );
+  }
+
+  @override
+  AocHasRoleProvider getProviderOverride(
+    covariant AocHasRoleProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      partyId: provider.partyId,
+      role: provider.role,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'aocHasRoleProvider';
+}
+
+/// See also [aocHasRole].
+class AocHasRoleProvider extends AutoDisposeFutureProvider<bool> {
+  /// See also [aocHasRole].
+  AocHasRoleProvider({
+    String regionOrNs = 'default',
+    required String partyId,
+    required String role,
+  }) : this._internal(
+          (ref) => aocHasRole(
+            ref as AocHasRoleRef,
+            regionOrNs: regionOrNs,
+            partyId: partyId,
+            role: role,
+          ),
+          from: aocHasRoleProvider,
+          name: r'aocHasRoleProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$aocHasRoleHash,
+          dependencies: AocHasRoleFamily._dependencies,
+          allTransitiveDependencies:
+              AocHasRoleFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          partyId: partyId,
+          role: role,
+        );
+
+  AocHasRoleProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.partyId,
+    required this.role,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String partyId;
+  final String role;
+
+  @override
+  Override overrideWith(
+    FutureOr<bool> Function(AocHasRoleRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AocHasRoleProvider._internal(
+        (ref) => create(ref as AocHasRoleRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        partyId: partyId,
+        role: role,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<bool> createElement() {
+    return _AocHasRoleProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AocHasRoleProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.partyId == partyId &&
+        other.role == role;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, partyId.hashCode);
+    hash = _SystemHash.combine(hash, role.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin AocHasRoleRef on AutoDisposeFutureProviderRef<bool> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `partyId` of this provider.
+  String get partyId;
+
+  /// The parameter `role` of this provider.
+  String get role;
+}
+
+class _AocHasRoleProviderElement extends AutoDisposeFutureProviderElement<bool>
+    with AocHasRoleRef {
+  _AocHasRoleProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as AocHasRoleProvider).regionOrNs;
+  @override
+  String get partyId => (origin as AocHasRoleProvider).partyId;
+  @override
+  String get role => (origin as AocHasRoleProvider).role;
+}
+
 String _$aocIsOwnerHash() => r'dca8c882001475f894f18bc8372188ef6bf91c63';
 
 /// See also [aocIsOwner].
@@ -478,167 +639,6 @@ class _AocIsOwnerProviderElement extends AutoDisposeFutureProviderElement<bool>
   String get bundleId => (origin as AocIsOwnerProvider).bundleId;
   @override
   String get userOrGroup => (origin as AocIsOwnerProvider).userOrGroup;
-}
-
-String _$aocHasRoleHash() => r'048e9618ea887804c1aaf013630547338fe6e493';
-
-/// See also [aocHasRole].
-@ProviderFor(aocHasRole)
-const aocHasRoleProvider = AocHasRoleFamily();
-
-/// See also [aocHasRole].
-class AocHasRoleFamily extends Family<AsyncValue<bool>> {
-  /// See also [aocHasRole].
-  const AocHasRoleFamily();
-
-  /// See also [aocHasRole].
-  AocHasRoleProvider call({
-    String regionOrNs = 'default',
-    required String partyId,
-    required String role,
-  }) {
-    return AocHasRoleProvider(
-      regionOrNs: regionOrNs,
-      partyId: partyId,
-      role: role,
-    );
-  }
-
-  @override
-  AocHasRoleProvider getProviderOverride(
-    covariant AocHasRoleProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      partyId: provider.partyId,
-      role: provider.role,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'aocHasRoleProvider';
-}
-
-/// See also [aocHasRole].
-class AocHasRoleProvider extends AutoDisposeFutureProvider<bool> {
-  /// See also [aocHasRole].
-  AocHasRoleProvider({
-    String regionOrNs = 'default',
-    required String partyId,
-    required String role,
-  }) : this._internal(
-          (ref) => aocHasRole(
-            ref as AocHasRoleRef,
-            regionOrNs: regionOrNs,
-            partyId: partyId,
-            role: role,
-          ),
-          from: aocHasRoleProvider,
-          name: r'aocHasRoleProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$aocHasRoleHash,
-          dependencies: AocHasRoleFamily._dependencies,
-          allTransitiveDependencies:
-              AocHasRoleFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          partyId: partyId,
-          role: role,
-        );
-
-  AocHasRoleProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.partyId,
-    required this.role,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String partyId;
-  final String role;
-
-  @override
-  Override overrideWith(
-    FutureOr<bool> Function(AocHasRoleRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AocHasRoleProvider._internal(
-        (ref) => create(ref as AocHasRoleRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        partyId: partyId,
-        role: role,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<bool> createElement() {
-    return _AocHasRoleProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AocHasRoleProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.partyId == partyId &&
-        other.role == role;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, partyId.hashCode);
-    hash = _SystemHash.combine(hash, role.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin AocHasRoleRef on AutoDisposeFutureProviderRef<bool> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `partyId` of this provider.
-  String get partyId;
-
-  /// The parameter `role` of this provider.
-  String get role;
-}
-
-class _AocHasRoleProviderElement extends AutoDisposeFutureProviderElement<bool>
-    with AocHasRoleRef {
-  _AocHasRoleProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as AocHasRoleProvider).regionOrNs;
-  @override
-  String get partyId => (origin as AocHasRoleProvider).partyId;
-  @override
-  String get role => (origin as AocHasRoleProvider).role;
 }
 
 String _$aclOnChainPodHash() => r'9f30eaeb325918853dce78c76d951920519308b2';

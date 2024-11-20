@@ -12,6 +12,8 @@ CREATE TABLE bi_facet (
     "data" TEXT,
     "tags" TEXT MAPPED BY `const StringListConverter()`,
     "modified" BOOLEAN,
+    "apply_target" VARCHAR(250),
+    "apply_record_type" VARCHAR(255),
     "tenant_id" VARCHAR(22),
     "last_updated_tx_stamp" DATETIME(3),
     "created_tx_stamp" DATETIME(3),

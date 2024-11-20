@@ -231,19 +231,6 @@ Future<List<int>> fixturesGetNoteSlotData(FixturesGetNoteSlotDataRef ref, {
 }
   
 @riverpod
-Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
-  String regionOrNs='default',
-  
-    required String noteId, 
-
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.getNoteProto(
-      noteId: noteId,
-  );
-}
-  
-@riverpod
 Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
   String regionOrNs='default',
   
@@ -253,6 +240,19 @@ Future<List<Note>> fixturesPublicNotes(FixturesPublicNotesRef ref, {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
   return await pod.publicNotes(
       author: author,
+  );
+}
+  
+@riverpod
+Future<String> fixturesGetNoteProto(FixturesGetNoteProtoRef ref, {
+  String regionOrNs='default',
+  
+    required String noteId, 
+
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.getNoteProto(
+      noteId: noteId,
   );
 }
   

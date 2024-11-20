@@ -15,6 +15,8 @@ BiFacet _$BiFacetFromJson(Map<String, dynamic> json) => BiFacet(
       data: json['data'] as Map<String, dynamic>?,
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String?).toList(),
       modified: json['modified'] as bool?,
+      applyTarget: json['applyTarget'] as String?,
+      applyRecordType: json['applyRecordType'] as String?,
       tenantId: json['tenantId'] as String?,
       lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
           ? null
@@ -47,6 +49,8 @@ Map<String, dynamic> _$BiFacetToJson(BiFacet instance) {
   writeNotNull('data', instance.data);
   writeNotNull('tags', instance.tags);
   writeNotNull('modified', instance.modified);
+  writeNotNull('applyTarget', instance.applyTarget);
+  writeNotNull('applyRecordType', instance.applyRecordType);
   writeNotNull('tenantId', instance.tenantId);
   writeNotNull(
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
