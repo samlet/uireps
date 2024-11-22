@@ -25,8 +25,3 @@ Future<void> main(List<String> arguments) async {
     errDioProc(ex, s);
   }
 }
-
-extension TplEx on TemplateExecResult{
-  bool get hasErr => errors!=null && errors!.isNotEmpty;
-}
-

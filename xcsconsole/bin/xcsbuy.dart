@@ -12,7 +12,7 @@ var dio = createAuthDioWithToken(samletToken);
 
 Future<void> main(List<String> args) async {
   Database database = getSessionDb();
-  var runner = CommandRunner("xcsgen", "Xcs trade tool.")
+  var runner = CommandRunner("xcsbuy", "Xcs trade tool.")
     ..addCommand(SessionGetCommand(database, dio))
     ..addCommand(SessionSetCommand(database, dio))
     ..addCommand(StoreCommand(database, dio));
