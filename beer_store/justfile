@@ -1,0 +1,4 @@
+app:
+	open "$(ls -d build/macos/Build/Products/Debug/*.app)"
+rel:
+	open "$(ls -d build/macos/Build/Products/Release/*.app)"
