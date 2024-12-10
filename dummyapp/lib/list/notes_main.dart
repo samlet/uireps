@@ -59,6 +59,9 @@ class NotesPage extends ConsumerWidget {
               var result = await askInput(context);
               print('get input result: $result');
               if (result.isNotEmpty) {
+                // ent.Note()
+                //   ..noteName='xx'
+                //   ..noteInfo='yy';
                 var els = await ref.read(noteRepositoryProvider).storeAndPublish(
                     ent.Note(noteName: result, lastUpdatedTxStamp: DateTime.now()), regNode);
                 print('$regNode elements: $els');

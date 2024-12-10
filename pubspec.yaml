@@ -99,7 +99,7 @@ dev_dependencies:
   bloc_test: ^9.1.0
   mockingjay: ^0.3.0
   mocktail: ^0.3.0
-  json_serializable: ^6.2.0
+  json_serializable: ^6.3.0
   build_runner: ^2.1.8
   hive_generator: any
 

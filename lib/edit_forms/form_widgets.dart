@@ -31,6 +31,7 @@ class _FormWidgetsDemoState extends State<FormWidgetsDemo> {
             alignment: Alignment.topCenter,
             child: Card(
               child: SingleChildScrollView(
+                primary: true, // + add
                 padding: const EdgeInsets.all(16),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 400),
