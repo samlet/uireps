@@ -21,10 +21,10 @@ class CarrierPalRepository {
 
    
   // Query
-  Future<Position> getCurrentPosition() async { 
+  Future<List<String>> getOrders() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getCurrentPosition",
+      "action": "getOrders",
       "bundleName" : "Carrier",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -32,7 +32,7 @@ class CarrierPalRepository {
     }, { 
     });
     
-    return Position.fromJson(resp);
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Mutation
@@ -54,21 +54,6 @@ class CarrierPalRepository {
     
   }
    
-  // Query
-  Future<List<String>> getOrders() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getOrders",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
   // Mutation
   Future<void> addOrder({
     
@@ -88,6 +73,36 @@ class CarrierPalRepository {
     
   }
    
+  // Query
+  Future<Position> getCurrentPosition() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getCurrentPosition",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Position.fromJson(resp);
+  }
+   
+  // Query
+  Future<DecimalMap> getDecimals() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getDecimals",
+      "bundleName" : "Carrier",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return DecimalMap()..mergeFromProto3Json(resp);
+  }
+   
   // Mutation
   Future<void> removeOrder({
     
@@ -105,21 +120,6 @@ class CarrierPalRepository {
       "orderId": orderId, 
     });
     
-  }
-   
-  // Query
-  Future<DecimalMap> getDecimals() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getDecimals",
-      "bundleName" : "Carrier",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return DecimalMap()..mergeFromProto3Json(resp);
   }
   
 }

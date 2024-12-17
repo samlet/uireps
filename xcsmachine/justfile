@@ -11,3 +11,6 @@ deps:
 db:
   open /Users/xiaofeiwu/Library/Containers/com.example.dummyapp/Data/Documents/sampleNotes.sqlite
 
+clean:
+  dart run build_runner clean
+

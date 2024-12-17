@@ -31,6 +31,19 @@ class TagsAndBunchesPod extends _$TagsAndBunchesPod {
   }
 
   
+  Future<bool> replaceTags({
+    
+    required ModifyTags req, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(tagsAndBunchesProvider(regionOrNs: regionOrNs)).replaceTags(
+              req: req,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> removeTags({
     
     required ModifyTags req, 
@@ -56,22 +69,24 @@ class TagsAndBunchesPod extends _$TagsAndBunchesPod {
             ));
     return state.hasError == false;
   }
-  
-  Future<bool> replaceTags({
-    
-    required ModifyTags req, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(tagsAndBunchesProvider(regionOrNs: regionOrNs)).replaceTags(
-              req: req,
-            ));
-    return state.hasError == false;
-  }
     
 }
 
+  
+@riverpod
+Future<List<Map<String, dynamic>>> tagsAndBunchesQueryByBunch(TagsAndBunchesQueryByBunchRef ref, {
+  String regionOrNs='default',
+  
+    required QueryByBunch r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(tagsAndBunchesProvider(regionOrNs: regionOrNs));
+  return await pod.queryByBunch(
+      r: r,
+      regionId: regionId,
+  );
+}
   
 @riverpod
 Future<List<Map<String, dynamic>>> tagsAndBunchesQueryByTags(TagsAndBunchesQueryByTagsRef ref, {
@@ -98,21 +113,6 @@ Future<NavRs> tagsAndBunchesQueryNavByTags(TagsAndBunchesQueryNavByTagsRef ref, 
 }) async {
   var pod=ref.watch(tagsAndBunchesProvider(regionOrNs: regionOrNs));
   return await pod.queryNavByTags(
-      r: r,
-      regionId: regionId,
-  );
-}
-  
-@riverpod
-Future<List<Map<String, dynamic>>> tagsAndBunchesQueryByBunch(TagsAndBunchesQueryByBunchRef ref, {
-  String regionOrNs='default',
-  
-    required QueryByBunch r,
-    String? regionId='default', 
-
-}) async {
-  var pod=ref.watch(tagsAndBunchesProvider(regionOrNs: regionOrNs));
-  return await pod.queryByBunch(
       r: r,
       regionId: regionId,
   );

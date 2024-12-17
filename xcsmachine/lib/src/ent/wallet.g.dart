@@ -30,6 +30,14 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      description: json['description'] as String?,
       walletType: json['walletType'] == null
           ? null
           : WalletType.fromJson(json['walletType'] as Map<String, dynamic>),
@@ -38,6 +46,9 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
           .toList(),
       walletReference: (json['walletReference'] as List<dynamic>?)
           ?.map((e) => WalletReference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      walletFinAccount: (json['walletFinAccount'] as List<dynamic>?)
+          ?.map((e) => WalletFinAccount.fromJson(e as Map<String, dynamic>))
           .toList(),
       walletStatus: (json['walletStatus'] as List<dynamic>?)
           ?.map((e) => WalletStatus.fromJson(e as Map<String, dynamic>))
@@ -88,11 +99,20 @@ Map<String, dynamic> _$WalletToJson(Wallet instance) {
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('resourceId', instance.resourceId);
   writeNotNull('resourceType', instance.resourceType);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
+  writeNotNull('name', instance.name);
+  writeNotNull('description', instance.description);
   writeNotNull('walletType', instance.walletType?.toJson());
   writeNotNull('walletContainer',
       instance.walletContainer?.map((e) => e.toJson()).toList());
   writeNotNull('walletReference',
       instance.walletReference?.map((e) => e.toJson()).toList());
+  writeNotNull('walletFinAccount',
+      instance.walletFinAccount?.map((e) => e.toJson()).toList());
   writeNotNull(
       'walletStatus', instance.walletStatus?.map((e) => e.toJson()).toList());
   writeNotNull('walletOrderBin',
@@ -184,6 +204,43 @@ Map<String, dynamic> _$WalletReferenceToJson(WalletReference instance) {
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   writeNotNull('kind', instance.kind);
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
+  writeNotNull('id', instance.id);
+  return val;
+}
+
+WalletFinAccount _$WalletFinAccountFromJson(Map<String, dynamic> json) =>
+    WalletFinAccount(
+      walletId: json['walletId'] as String?,
+      finAccountId: json['finAccountId'] as String?,
+      bindType: json['bindType'] as String?,
+      tenantId: json['tenantId'] as String?,
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      purpose: json['purpose'] as String?,
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$WalletFinAccountToJson(WalletFinAccount instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('walletId', instance.walletId);
+  writeNotNull('finAccountId', instance.finAccountId);
+  writeNotNull('bindType', instance.bindType);
+  writeNotNull('tenantId', instance.tenantId);
+  writeNotNull(
+      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
+  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
+  writeNotNull('purpose', instance.purpose);
   writeNotNull('id', instance.id);
   return val;
 }

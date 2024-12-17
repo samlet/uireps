@@ -68,12 +68,18 @@ class Order {
     this.acl,
     this.resourceId,
     this.resourceType,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.orderType,
     this.orderItemShipGroupAssoc,
     this.orderItemPriceInfo,
     this.orderAdjustment,
     this.orderItemShipGrpInvRes,
     this.orderItemAttribute,
+    this.orderContent,
     this.orderHeaderComposable,
     this.orderItemShipGroup,
     this.orderPaymentPreference,
@@ -139,12 +145,18 @@ class Order {
     Multimap<String, String>? acl,
     String? resourceId,
     String? resourceType,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     OrderType? orderType,
     List<OrderItemShipGroupAssoc>? orderItemShipGroupAssoc,
     List<OrderItemPriceInfo>? orderItemPriceInfo,
     List<OrderAdjustment>? orderAdjustment,
     List<OrderItemShipGrpInvRes>? orderItemShipGrpInvRes,
     List<OrderItemAttribute>? orderItemAttribute,
+    List<OrderContent>? orderContent,
     List<OrderHeaderComposable>? orderHeaderComposable,
     List<OrderItemShipGroup>? orderItemShipGroup,
     List<OrderPaymentPreference>? orderPaymentPreference,
@@ -209,12 +221,18 @@ class Order {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       orderType: orderType ?? this.orderType,
       orderItemShipGroupAssoc: orderItemShipGroupAssoc ?? this.orderItemShipGroupAssoc,
       orderItemPriceInfo: orderItemPriceInfo ?? this.orderItemPriceInfo,
       orderAdjustment: orderAdjustment ?? this.orderAdjustment,
       orderItemShipGrpInvRes: orderItemShipGrpInvRes ?? this.orderItemShipGrpInvRes,
       orderItemAttribute: orderItemAttribute ?? this.orderItemAttribute,
+      orderContent: orderContent ?? this.orderContent,
       orderHeaderComposable: orderHeaderComposable ?? this.orderHeaderComposable,
       orderItemShipGroup: orderItemShipGroup ?? this.orderItemShipGroup,
       orderPaymentPreference: orderPaymentPreference ?? this.orderPaymentPreference,
@@ -398,6 +416,21 @@ class Order {
    
   String? resourceType;
 
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
+
 
   // rel: one (no public-types)
   OrderType? orderType;
@@ -409,6 +442,7 @@ class Order {
   List<OrderAdjustment>? orderAdjustment;
   List<OrderItemShipGrpInvRes>? orderItemShipGrpInvRes;
   List<OrderItemAttribute>? orderItemAttribute;
+  List<OrderContent>? orderContent;
   List<OrderHeaderComposable>? orderHeaderComposable;
   List<OrderItemShipGroup>? orderItemShipGroup;
   List<OrderPaymentPreference>? orderPaymentPreference;
@@ -699,6 +733,48 @@ class Order {
 
   bool hasOrderItemAttribute(String itemId){
     return orderItemAttribute?.any((el) => el.id == itemId)??false;
+  }
+      
+  /// rel - OrderContent
+  void addOrderContent(OrderContent newItem) {
+    orderContent = [...?orderContent, newItem];
+  }
+
+  void removeOrderContent(String itemId) {
+    orderContent = orderContent?.where((el) => el.id != itemId).toList();
+  }
+
+  void updateOrderContent(String id, {
+    String? orderId_,
+    String? orderItemSeqId_,
+    String? contentId_,
+    String? orderContentTypeId_,
+    DateTime? fromDate_,
+    DateTime? thruDate_,
+    DateTime? lastUpdatedTxStamp_,
+    DateTime? createdTxStamp_,
+  }) {
+    orderContent = [
+      for (OrderContent el in orderContent??[])
+        if (el.id == id)
+          OrderContent(
+            id: id,
+            orderId: orderId_??el.orderId,
+            orderItemSeqId: orderItemSeqId_??el.orderItemSeqId,
+            contentId: contentId_??el.contentId,
+            orderContentTypeId: orderContentTypeId_??el.orderContentTypeId,
+            fromDate: fromDate_??el.fromDate,
+            thruDate: thruDate_??el.thruDate,
+            lastUpdatedTxStamp: lastUpdatedTxStamp_??el.lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp_??el.createdTxStamp,
+          )
+        else
+          el,
+    ];
+  }  
+
+  bool hasOrderContent(String itemId){
+    return orderContent?.any((el) => el.id == itemId)??false;
   }
       
   /// rel - OrderHeaderComposable
@@ -1544,6 +1620,84 @@ class OrderAdjustment {
 
    
   String? tenantId;
+
+  
+}
+
+// entity: OrderContent
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class OrderContent {
+  OrderContent({
+    this.orderId,
+    this.orderItemSeqId,
+    this.contentId,
+    this.orderContentTypeId,
+    this.fromDate,
+    this.thruDate,
+    this.lastUpdatedTxStamp,
+    this.createdTxStamp,
+    this.id,
+  });
+
+  OrderContent copyWith({
+    String? orderId,
+    String? orderItemSeqId,
+    String? contentId,
+    String? orderContentTypeId,
+    DateTime? fromDate,
+    DateTime? thruDate,
+    DateTime? lastUpdatedTxStamp,
+    DateTime? createdTxStamp,
+    String? id,
+  }) {
+    return OrderContent(
+      orderId: orderId ?? this.orderId,
+      orderItemSeqId: orderItemSeqId ?? this.orderItemSeqId,
+      contentId: contentId ?? this.contentId,
+      orderContentTypeId: orderContentTypeId ?? this.orderContentTypeId,
+      fromDate: fromDate ?? this.fromDate,
+      thruDate: thruDate ?? this.thruDate,
+      lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
+      createdTxStamp: createdTxStamp ?? this.createdTxStamp,
+      id: id ?? this.id,
+    );
+  }
+
+  factory OrderContent.fromJson(Map<String, dynamic> json) => _$OrderContentFromJson(json);
+  Map<String, dynamic> toJson() => _$OrderContentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<OrderContent, String> converter = df.TypeConverter.json(
+    fromJson: (json) => OrderContent.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
+   
+  String? orderId;
+
+   
+  String? orderItemSeqId;
+
+   
+  String? contentId;
+
+   
+  String? orderContentTypeId;
+
+   
+  DateTime? fromDate;
+
+   
+  DateTime? thruDate;
+
+   
+  DateTime? lastUpdatedTxStamp;
+
+   
+  DateTime? createdTxStamp;
+
+   
+  String? id;
 
   
 }

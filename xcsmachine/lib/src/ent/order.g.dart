@@ -72,6 +72,12 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       orderType: json['orderType'] == null
           ? null
           : OrderType.fromJson(json['orderType'] as Map<String, dynamic>),
@@ -92,6 +98,9 @@ Order _$OrderFromJson(Map<String, dynamic> json) => Order(
           .toList(),
       orderItemAttribute: (json['orderItemAttribute'] as List<dynamic>?)
           ?.map((e) => OrderItemAttribute.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      orderContent: (json['orderContent'] as List<dynamic>?)
+          ?.map((e) => OrderContent.fromJson(e as Map<String, dynamic>))
           .toList(),
       orderHeaderComposable: (json['orderHeaderComposable'] as List<dynamic>?)
           ?.map(
@@ -195,6 +204,11 @@ Map<String, dynamic> _$OrderToJson(Order instance) {
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('resourceId', instance.resourceId);
   writeNotNull('resourceType', instance.resourceType);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('orderType', instance.orderType?.toJson());
   writeNotNull('orderItemShipGroupAssoc',
       instance.orderItemShipGroupAssoc?.map((e) => e.toJson()).toList());
@@ -206,6 +220,8 @@ Map<String, dynamic> _$OrderToJson(Order instance) {
       instance.orderItemShipGrpInvRes?.map((e) => e.toJson()).toList());
   writeNotNull('orderItemAttribute',
       instance.orderItemAttribute?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'orderContent', instance.orderContent?.map((e) => e.toJson()).toList());
   writeNotNull('orderHeaderComposable',
       instance.orderHeaderComposable?.map((e) => e.toJson()).toList());
   writeNotNull('orderItemShipGroup',
@@ -327,6 +343,48 @@ Map<String, dynamic> _$OrderAdjustmentToJson(OrderAdjustment instance) {
       'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
   writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
   writeNotNull('tenantId', instance.tenantId);
+  return val;
+}
+
+OrderContent _$OrderContentFromJson(Map<String, dynamic> json) => OrderContent(
+      orderId: json['orderId'] as String?,
+      orderItemSeqId: json['orderItemSeqId'] as String?,
+      contentId: json['contentId'] as String?,
+      orderContentTypeId: json['orderContentTypeId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$OrderContentToJson(OrderContent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('orderId', instance.orderId);
+  writeNotNull('orderItemSeqId', instance.orderItemSeqId);
+  writeNotNull('contentId', instance.contentId);
+  writeNotNull('orderContentTypeId', instance.orderContentTypeId);
+  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
+  writeNotNull(
+      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
+  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
+  writeNotNull('id', instance.id);
   return val;
 }
 

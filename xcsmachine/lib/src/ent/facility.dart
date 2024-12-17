@@ -48,6 +48,11 @@ class Facility {
     this.acl,
     this.resourceId,
     this.resourceType,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.facilityType,
     this.facilityCalendar,
     this.facilityMultisig,
@@ -56,6 +61,7 @@ class Facility {
     this.facilityContactMechPurpose,
     this.facilityLocation,
     this.facilityLocationGeoPoint,
+    this.facilityContent,
     this.facilityContactMech,
   });
 
@@ -91,6 +97,11 @@ class Facility {
     Multimap<String, String>? acl,
     String? resourceId,
     String? resourceType,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     FacilityType? facilityType,
     List<FacilityCalendar>? facilityCalendar,
     List<FacilityMultisig>? facilityMultisig,
@@ -99,6 +110,7 @@ class Facility {
     List<FacilityContactMechPurpose>? facilityContactMechPurpose,
     List<FacilityLocation>? facilityLocation,
     List<FacilityLocationGeoPoint>? facilityLocationGeoPoint,
+    List<FacilityContent>? facilityContent,
     List<FacilityContactMech>? facilityContactMech,
   }) {
     return Facility(
@@ -133,6 +145,11 @@ class Facility {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       facilityType: facilityType ?? this.facilityType,
       facilityCalendar: facilityCalendar ?? this.facilityCalendar,
       facilityMultisig: facilityMultisig ?? this.facilityMultisig,
@@ -141,6 +158,7 @@ class Facility {
       facilityContactMechPurpose: facilityContactMechPurpose ?? this.facilityContactMechPurpose,
       facilityLocation: facilityLocation ?? this.facilityLocation,
       facilityLocationGeoPoint: facilityLocationGeoPoint ?? this.facilityLocationGeoPoint,
+      facilityContent: facilityContent ?? this.facilityContent,
       facilityContactMech: facilityContactMech ?? this.facilityContactMech,
     );
   }
@@ -254,6 +272,21 @@ class Facility {
    
   String? resourceType;
 
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
+
 
   // rel: one (no public-types)
   FacilityType? facilityType;
@@ -267,6 +300,7 @@ class Facility {
   List<FacilityContactMechPurpose>? facilityContactMechPurpose;
   List<FacilityLocation>? facilityLocation;
   List<FacilityLocationGeoPoint>? facilityLocationGeoPoint;
+  List<FacilityContent>? facilityContent;
   List<FacilityContactMech>? facilityContactMech;
   
 
@@ -553,6 +587,44 @@ class Facility {
 
   bool hasFacilityLocationGeoPoint(String itemId){
     return facilityLocationGeoPoint?.any((el) => el.id == itemId)??false;
+  }
+      
+  /// rel - FacilityContent
+  void addFacilityContent(FacilityContent newItem) {
+    facilityContent = [...?facilityContent, newItem];
+  }
+
+  void removeFacilityContent(String itemId) {
+    facilityContent = facilityContent?.where((el) => el.id != itemId).toList();
+  }
+
+  void updateFacilityContent(String id, {
+    String? facilityId_,
+    String? contentId_,
+    DateTime? fromDate_,
+    DateTime? thruDate_,
+    DateTime? lastUpdatedTxStamp_,
+    DateTime? createdTxStamp_,
+  }) {
+    facilityContent = [
+      for (FacilityContent el in facilityContent??[])
+        if (el.id == id)
+          FacilityContent(
+            id: id,
+            facilityId: facilityId_??el.facilityId,
+            contentId: contentId_??el.contentId,
+            fromDate: fromDate_??el.fromDate,
+            thruDate: thruDate_??el.thruDate,
+            lastUpdatedTxStamp: lastUpdatedTxStamp_??el.lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp_??el.createdTxStamp,
+          )
+        else
+          el,
+    ];
+  }  
+
+  bool hasFacilityContent(String itemId){
+    return facilityContent?.any((el) => el.id == itemId)??false;
   }
       
   /// rel - FacilityContactMech
@@ -1097,6 +1169,72 @@ class FacilityLocationGeoPoint {
 
    
   String? geoPointId;
+
+   
+  DateTime? fromDate;
+
+   
+  DateTime? thruDate;
+
+   
+  DateTime? lastUpdatedTxStamp;
+
+   
+  DateTime? createdTxStamp;
+
+   
+  String? id;
+
+  
+}
+
+// entity: FacilityContent
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class FacilityContent {
+  FacilityContent({
+    this.facilityId,
+    this.contentId,
+    this.fromDate,
+    this.thruDate,
+    this.lastUpdatedTxStamp,
+    this.createdTxStamp,
+    this.id,
+  });
+
+  FacilityContent copyWith({
+    String? facilityId,
+    String? contentId,
+    DateTime? fromDate,
+    DateTime? thruDate,
+    DateTime? lastUpdatedTxStamp,
+    DateTime? createdTxStamp,
+    String? id,
+  }) {
+    return FacilityContent(
+      facilityId: facilityId ?? this.facilityId,
+      contentId: contentId ?? this.contentId,
+      fromDate: fromDate ?? this.fromDate,
+      thruDate: thruDate ?? this.thruDate,
+      lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
+      createdTxStamp: createdTxStamp ?? this.createdTxStamp,
+      id: id ?? this.id,
+    );
+  }
+
+  factory FacilityContent.fromJson(Map<String, dynamic> json) => _$FacilityContentFromJson(json);
+  Map<String, dynamic> toJson() => _$FacilityContentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<FacilityContent, String> converter = df.TypeConverter.json(
+    fromJson: (json) => FacilityContent.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
+   
+  String? facilityId;
+
+   
+  String? contentId;
 
    
   DateTime? fromDate;

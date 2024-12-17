@@ -63,6 +63,11 @@ class Example {
     this.acl,
     this.resourceId,
     this.resourceType,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.exampleType,
     this.exampleFeatureAppl,
     this.exampleStatus,
@@ -116,6 +121,11 @@ class Example {
     Multimap<String, String>? acl,
     String? resourceId,
     String? resourceType,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     ExampleType? exampleType,
     List<ExampleFeatureAppl>? exampleFeatureAppl,
     List<ExampleStatus>? exampleStatus,
@@ -168,6 +178,11 @@ class Example {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       exampleType: exampleType ?? this.exampleType,
       exampleFeatureAppl: exampleFeatureAppl ?? this.exampleFeatureAppl,
       exampleStatus: exampleStatus ?? this.exampleStatus,
@@ -332,6 +347,21 @@ class Example {
 
    
   String? resourceType;
+
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
 
 
   // rel: one (no public-types)

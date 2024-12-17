@@ -31,6 +31,19 @@ class CounterCompPod extends _$CounterCompPod {
   }
 
   
+  Future<bool> decr({
+    
+    required int l, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(counterCompProvider(regionOrNs: regionOrNs)).decr(
+              l: l,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> reset() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
@@ -47,19 +60,6 @@ class CounterCompPod extends _$CounterCompPod {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
         () => ref.read(counterCompProvider(regionOrNs: regionOrNs)).incr(
-              l: l,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> decr({
-    
-    required int l, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(counterCompProvider(regionOrNs: regionOrNs)).decr(
               l: l,
             ));
     return state.hasError == false;

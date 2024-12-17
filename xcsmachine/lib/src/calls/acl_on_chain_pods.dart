@@ -31,23 +31,17 @@ class AclOnChainPod extends _$AclOnChainPod {
   }
 
   
-  Future<bool> grant({
+  Future<bool> enableMutMultiBundles({
     
-    required String caller,
-    required String biName,
-    required String bundleId,
-    required String userOrGroup,
-    required String permGroup, 
+    required String login,
+    required List<String> bundleNames, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).grant(
-              caller: caller,
-              biName: biName,
-              bundleId: bundleId,
-              userOrGroup: userOrGroup,
-              permGroup: permGroup,
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutMultiBundles(
+              login: login,
+              bundleNames: bundleNames,
             ));
     return state.hasError == false;
   }
@@ -84,36 +78,29 @@ class AclOnChainPod extends _$AclOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> enableMutMultiBundles({
+  Future<bool> grant({
     
-    required String login,
-    required List<String> bundleNames, 
+    required String caller,
+    required String biName,
+    required String bundleId,
+    required String userOrGroup,
+    required String permGroup, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).enableMutMultiBundles(
-              login: login,
-              bundleNames: bundleNames,
+        () => ref.read(aclOnChainProvider(regionOrNs: regionOrNs)).grant(
+              caller: caller,
+              biName: biName,
+              bundleId: bundleId,
+              userOrGroup: userOrGroup,
+              permGroup: permGroup,
             ));
     return state.hasError == false;
   }
     
 }
 
-  
-@riverpod
-Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
-  String regionOrNs='default',
-  
-    required String mod, 
-
-}) async {
-  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getPublicMethods(
-      mod: mod,
-  );
-}
   
 @riverpod
 Future<bool> aocHasRole(AocHasRoleRef ref, {
@@ -127,6 +114,19 @@ Future<bool> aocHasRole(AocHasRoleRef ref, {
   return await pod.hasRole(
       partyId: partyId,
       role: role,
+  );
+}
+  
+@riverpod
+Future<List<String>> aocGetPublicMethods(AocGetPublicMethodsRef ref, {
+  String regionOrNs='default',
+  
+    required String mod, 
+
+}) async {
+  var pod=ref.watch(aclOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.getPublicMethods(
+      mod: mod,
   );
 }
   

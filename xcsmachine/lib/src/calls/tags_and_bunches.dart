@@ -19,6 +19,45 @@ class TagsAndBunchesRepository {
 
    
   // Mutation
+  Future<void> replaceTags({
+    
+    required ModifyTags req, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "replaceTags",
+      "bundleName" : "TagsAndBunches",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "req": req, 
+    });
+    
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> queryByBunch({
+    
+    required QueryByBunch r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryByBunch",
+      "bundleName" : "TagsAndBunches",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
+   
+  // Mutation
   Future<void> removeTags({
     
     required ModifyTags req, 
@@ -27,6 +66,24 @@ class TagsAndBunchesRepository {
     var resp = await performCall(dio, {
       "module": moduleName,
       "action": "removeTags",
+      "bundleName" : "TagsAndBunches",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "req": req, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<void> applyTags({
+    
+    required ModifyTags req, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "applyTags",
       "bundleName" : "TagsAndBunches",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -76,63 +133,6 @@ class TagsAndBunchesRepository {
     });
     
     return NavRs.fromJson(resp);
-  }
-   
-  // Mutation
-  Future<void> applyTags({
-    
-    required ModifyTags req, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "applyTags",
-      "bundleName" : "TagsAndBunches",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "req": req, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> replaceTags({
-    
-    required ModifyTags req, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "replaceTags",
-      "bundleName" : "TagsAndBunches",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "req": req, 
-    });
-    
-  }
-   
-  // Query
-  Future<List<Map<String, dynamic>>> queryByBunch({
-    
-    required QueryByBunch r,
-    String? regionId='default', 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "queryByBunch",
-      "bundleName" : "TagsAndBunches",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "r": r,
-      if(regionId!=null) "regionId": regionId, 
-    });
-    
-    return convList(resp, (el)=>el);
   }
   
 }

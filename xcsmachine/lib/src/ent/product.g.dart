@@ -110,6 +110,12 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       productType: json['productType'] == null
           ? null
           : ProductType.fromJson(json['productType'] as Map<String, dynamic>),
@@ -265,6 +271,11 @@ Map<String, dynamic> _$ProductToJson(Product instance) {
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('resourceId', instance.resourceId);
   writeNotNull('resourceType', instance.resourceType);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('productType', instance.productType?.toJson());
   writeNotNull('fixedAssetProduct',
       instance.fixedAssetProduct?.map((e) => e.toJson()).toList());

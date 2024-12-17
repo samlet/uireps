@@ -87,6 +87,11 @@ CREATE TABLE product (
     "acl" TEXT MAPPED BY `const StringMultimapConverter()`,
     "resource_id" VARCHAR(250),
     "resource_type" VARCHAR(60),
+    "url" VARCHAR(2000),
+    "image" TEXT MAPPED BY `const StringListConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
 
     -- rel: one (no public-types)
     "product_type" TEXT MAPPED BY `const ProductTypeConverter()`,

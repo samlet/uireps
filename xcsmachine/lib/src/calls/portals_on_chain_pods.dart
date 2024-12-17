@@ -31,19 +31,92 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
   }
 
   
-  Future<bool> register({
+  Future<bool> touch({
     
-    required String type,
+    required String bundleName,
+    required String bundleId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).touch(
+              bundleName: bundleName,
+              bundleId: bundleId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> unpublishElement({
+    
+    required String parentNode,
+    required String id, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).unpublishElement(
+              parentNode: parentNode,
+              id: id,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> registerStarterElement({
+    
+    required String elementName,
+    required String bundleName,
+    required String elementId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).registerStarterElement(
+              elementName: elementName,
+              bundleName: bundleName,
+              elementId: elementId,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> publishElementIds({
+    
     required String parentNode,
     required List<String> ids, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).register(
-              type: type,
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).publishElementIds(
               parentNode: parentNode,
               ids: ids,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> storeBundleSpec({
+    
+    required String bundleName,
+    required Map<String, Object?> spec, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).storeBundleSpec(
+              bundleName: bundleName,
+              spec: spec,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addPublicNotes({
+    
+    required List<String> noteIds, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
+              noteIds: noteIds,
             ));
     return state.hasError == false;
   }
@@ -63,17 +136,19 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> storeBundleSpec({
+  Future<bool> register({
     
-    required String bundleName,
-    required Map<String, Object?> spec, 
+    required String type,
+    required String parentNode,
+    required List<String> ids, 
 
   }) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).storeBundleSpec(
-              bundleName: bundleName,
-              spec: spec,
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).register(
+              type: type,
+              parentNode: parentNode,
+              ids: ids,
             ));
     return state.hasError == false;
   }
@@ -97,38 +172,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> registerStarterElement({
-    
-    required String elementName,
-    required String bundleName,
-    required String elementId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).registerStarterElement(
-              elementName: elementName,
-              bundleName: bundleName,
-              elementId: elementId,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> unpublishElement({
-    
-    required String parentNode,
-    required String id, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).unpublishElement(
-              parentNode: parentNode,
-              id: id,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> unpublishElements({
     
     required String parentNode,
@@ -144,21 +187,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> publishElementIds({
-    
-    required String parentNode,
-    required List<String> ids, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).publishElementIds(
-              parentNode: parentNode,
-              ids: ids,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> storePublicNote({
     
     required Map<String, Object?> spec, 
@@ -168,34 +196,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     state = await AsyncValue.guard(
         () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).storePublicNote(
               spec: spec,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> addPublicNotes({
-    
-    required List<String> noteIds, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
-              noteIds: noteIds,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> touch({
-    
-    required String bundleName,
-    required String bundleId, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).touch(
-              bundleName: bundleName,
-              bundleId: bundleId,
             ));
     return state.hasError == false;
   }
@@ -217,15 +217,6 @@ Future<List<String>> portalsGetPublicElementIds(PortalsGetPublicElementIdsRef re
 }
   
 @riverpod
-Future<List<String>> portalsGetPublicNoteIds(PortalsGetPublicNoteIdsRef ref, {
-  String regionOrNs='default',
-}) async {
-  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getPublicNoteIds(
-  );
-}
-  
-@riverpod
 Future<BiFacetBi> portalsGetStarterElement(PortalsGetStarterElementRef ref, {
   String regionOrNs='default',
   
@@ -239,15 +230,6 @@ Future<BiFacetBi> portalsGetStarterElement(PortalsGetStarterElementRef ref, {
 }
   
 @riverpod
-Future<List<Linkage>> portalsGetAllStarterElements(PortalsGetAllStarterElementsRef ref, {
-  String regionOrNs='default',
-}) async {
-  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getAllStarterElements(
-  );
-}
-  
-@riverpod
 Future<List<Linkage>> portalsGetAllPublicElements(PortalsGetAllPublicElementsRef ref, {
   String regionOrNs='default',
 }) async {
@@ -257,19 +239,28 @@ Future<List<Linkage>> portalsGetAllPublicElements(PortalsGetAllPublicElementsRef
 }
   
 @riverpod
-Future<List<BiFacetBi>> portalsChildrenAsBundles(PortalsChildrenAsBundlesRef ref, {
+Future<List<Map<String, dynamic>>> portalsListResources(PortalsListResourcesRef ref, {
   String regionOrNs='default',
   
-    required String type,
-    required String parentNode,
-    required String bundleName, 
+    required String bundleName,
+    required String resourceId,
+    required String resourceType, 
 
 }) async {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.childrenAsBundles(
-      type: type,
-      parentNode: parentNode,
+  return await pod.listResources(
       bundleName: bundleName,
+      resourceId: resourceId,
+      resourceType: resourceType,
+  );
+}
+  
+@riverpod
+Future<List<BiFacetBi>> portalsGetPublicNotes(PortalsGetPublicNotesRef ref, {
+  String regionOrNs='default',
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.getPublicNotes(
   );
 }
   
@@ -285,6 +276,23 @@ Future<List<BiFacetBi>> portalsGetPublicElements(PortalsGetPublicElementsRef ref
   return await pod.getPublicElements(
       parentNode: parentNode,
       bundleName: bundleName,
+  );
+}
+  
+@riverpod
+Future<MultiDs> portalsListMultiDs(PortalsListMultiDsRef ref, {
+  String regionOrNs='default',
+  
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType, 
+
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.listMultiDs(
+      bundleName: bundleName,
+      resourceIds: resourceIds,
+      resourceType: resourceType,
   );
 }
   
@@ -306,19 +314,19 @@ Future<MasterDetailDs> portalsListMasterDetail(PortalsListMasterDetailRef ref, {
 }
   
 @riverpod
-Future<MultiDs> portalsListMultiDs(PortalsListMultiDsRef ref, {
+Future<List<BiFacetBi>> portalsChildrenAsBundles(PortalsChildrenAsBundlesRef ref, {
   String regionOrNs='default',
   
-    required String bundleName,
-    required List<String> resourceIds,
-    required String resourceType, 
+    required String type,
+    required String parentNode,
+    required String bundleName, 
 
 }) async {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.listMultiDs(
+  return await pod.childrenAsBundles(
+      type: type,
+      parentNode: parentNode,
       bundleName: bundleName,
-      resourceIds: resourceIds,
-      resourceType: resourceType,
   );
 }
   
@@ -345,28 +353,20 @@ Future<List<String>> portalsAllBundleIds(PortalsAllBundleIdsRef ref, {
 }
   
 @riverpod
-Future<List<BiFacetBi>> portalsGetPublicNotes(PortalsGetPublicNotesRef ref, {
+Future<List<Linkage>> portalsGetAllStarterElements(PortalsGetAllStarterElementsRef ref, {
   String regionOrNs='default',
 }) async {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getPublicNotes(
+  return await pod.getAllStarterElements(
   );
 }
   
 @riverpod
-Future<List<Map<String, dynamic>>> portalsListResources(PortalsListResourcesRef ref, {
+Future<List<String>> portalsGetPublicNoteIds(PortalsGetPublicNoteIdsRef ref, {
   String regionOrNs='default',
-  
-    required String bundleName,
-    required String resourceId,
-    required String resourceType, 
-
 }) async {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.listResources(
-      bundleName: bundleName,
-      resourceId: resourceId,
-      resourceType: resourceType,
+  return await pod.getPublicNoteIds(
   );
 }
 

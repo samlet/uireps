@@ -42,6 +42,11 @@ class Party {
     this.telephone,
     this.email,
     this.placeId,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.partyGroup,
     this.partyType,
     this.partyAcctgPreference,
@@ -111,6 +116,11 @@ class Party {
     String? telephone,
     String? email,
     String? placeId,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     PartyGroup? partyGroup,
     PartyType? partyType,
     PartyAcctgPreference? partyAcctgPreference,
@@ -179,6 +189,11 @@ class Party {
       telephone: telephone ?? this.telephone,
       email: email ?? this.email,
       placeId: placeId ?? this.placeId,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       partyGroup: partyGroup ?? this.partyGroup,
       partyType: partyType ?? this.partyType,
       partyAcctgPreference: partyAcctgPreference ?? this.partyAcctgPreference,
@@ -313,6 +328,21 @@ class Party {
 
    
   String? placeId;
+
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
 
 
   // rel: one (no public-types)

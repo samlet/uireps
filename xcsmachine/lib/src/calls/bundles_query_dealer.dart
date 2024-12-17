@@ -40,30 +40,66 @@ class BundlesQueryDealerRepository {
   }
    
   // Query
-  Future<PaginatedResponse> queryBundlePage({
+  Future<List<Map<String, dynamic>>> queryTerms({
     
-    required String bundleName,
-    String? regionId='default',
-    required Map<String, Object?> cond,
-    PageLimit? pageLimit,
-    List<ResultSort>? orders, 
+    required QueryTerms r,
+    String? regionId='default', 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "queryBundlePage",
+      "action": "queryTerms",
       "bundleName" : "BundlesQueryDealer",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "cond": cond,
-      if(pageLimit!=null) "pageLimit": pageLimit,
-      if(orders!=null) "orders": orders, 
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
     });
     
-    return PaginatedResponse.fromJson(resp);
+    return convList(resp, (el)=>el);
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> queryMap({
+    
+    required QueryMap r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryMap",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
+  }
+   
+  // Query
+  Future<List<Map<String, dynamic>>> loadBundles({
+    
+    required RequestIds r,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadBundles",
+      "bundleName" : "BundlesQueryDealer",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "r": r,
+      if(regionId!=null) "regionId": regionId, 
+    });
+    
+    return convList(resp, (el)=>el);
   }
    
   // Query
@@ -94,24 +130,30 @@ class BundlesQueryDealerRepository {
   }
    
   // Query
-  Future<List<Map<String, dynamic>>> queryMap({
+  Future<PaginatedResponse> queryBundlePage({
     
-    required QueryMap r,
-    String? regionId='default', 
+    required String bundleName,
+    String? regionId='default',
+    required Map<String, Object?> cond,
+    PageLimit? pageLimit,
+    List<ResultSort>? orders, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "queryMap",
+      "action": "queryBundlePage",
       "bundleName" : "BundlesQueryDealer",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "r": r,
-      if(regionId!=null) "regionId": regionId, 
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "cond": cond,
+      if(pageLimit!=null) "pageLimit": pageLimit,
+      if(orders!=null) "orders": orders, 
     });
     
-    return convList(resp, (el)=>el);
+    return PaginatedResponse.fromJson(resp);
   }
    
   // Query
@@ -124,48 +166,6 @@ class BundlesQueryDealerRepository {
     var resp = await performCall(dio, {
       "module": moduleName,
       "action": "queryExpr",
-      "bundleName" : "BundlesQueryDealer",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "r": r,
-      if(regionId!=null) "regionId": regionId, 
-    });
-    
-    return convList(resp, (el)=>el);
-  }
-   
-  // Query
-  Future<List<Map<String, dynamic>>> queryTerms({
-    
-    required QueryTerms r,
-    String? regionId='default', 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "queryTerms",
-      "bundleName" : "BundlesQueryDealer",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "r": r,
-      if(regionId!=null) "regionId": regionId, 
-    });
-    
-    return convList(resp, (el)=>el);
-  }
-   
-  // Query
-  Future<List<Map<String, dynamic>>> loadBundles({
-    
-    required RequestIds r,
-    String? regionId='default', 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadBundles",
       "bundleName" : "BundlesQueryDealer",
       "call-type": "slab",
       "regionId": regionOrNs,

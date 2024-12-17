@@ -78,6 +78,11 @@ class WorkEffort {
     this.acl,
     this.resourceId,
     this.resourceType,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.workEffortType,
     this.workEffortTransaction,
     this.workEffortNote,
@@ -153,6 +158,11 @@ class WorkEffort {
     Multimap<String, String>? acl,
     String? resourceId,
     String? resourceType,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     WorkEffortType? workEffortType,
     List<WorkEffortTransaction>? workEffortTransaction,
     List<WorkEffortNote>? workEffortNote,
@@ -227,6 +237,11 @@ class WorkEffort {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       workEffortType: workEffortType ?? this.workEffortType,
       workEffortTransaction: workEffortTransaction ?? this.workEffortTransaction,
       workEffortNote: workEffortNote ?? this.workEffortNote,
@@ -439,6 +454,21 @@ class WorkEffort {
 
    
   String? resourceType;
+
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
 
 
   // rel: one (no public-types)

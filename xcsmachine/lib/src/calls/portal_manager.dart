@@ -19,26 +19,93 @@ class PortalManagerRepository {
 
    
   // Query
-  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
+  Future<List<BiFacetBi>> loadAsBiFacets({
     
     required String bundleName,
     String? regionId='default',
-    required String tenantId, 
+    required List<String> bundleIds, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "loadAsBiFacetsByTenant",
+      "action": "loadAsBiFacets",
       "bundleName" : "PortalManager",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
       "bundleName": bundleName,
       if(regionId!=null) "regionId": regionId,
-      "tenantId": tenantId, 
+      "bundleIds": bundleIds, 
     });
     
     return convList(resp, BiFacetBi.fromJson);
+  }
+   
+  // Query
+  Future<BiFacetBi> loadAsBiFacet({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String bundleId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "loadAsBiFacet",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "bundleId": bundleId, 
+    });
+    
+    return BiFacetBi.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<Response> storeEnt({
+    
+    required String entName,
+    String? regionId='default',
+    required List<int> data, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "storeEnt",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "entName": entName,
+      if(regionId!=null) "regionId": regionId,
+      "data": data, 
+    });
+    
+    return Response()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
+  Future<Response> mutate({
+    
+    required String bundleName,
+    required List<int> mutParams, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "mutate",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "mutParams": mutParams, 
+    });
+    
+    return Response()..mergeFromProto3Json(resp);
   }
    
   // Mutation
@@ -65,46 +132,23 @@ class PortalManagerRepository {
   }
    
   // Query
-  Future<BiFacetBi> loadAsBiFacet({
+  Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
     
     required String bundleName,
     String? regionId='default',
-    required String bundleId, 
+    required String tenantId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "loadAsBiFacet",
+      "action": "loadAsBiFacetsByTenant",
       "bundleName" : "PortalManager",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
       "bundleName": bundleName,
       if(regionId!=null) "regionId": regionId,
-      "bundleId": bundleId, 
-    });
-    
-    return BiFacetBi.fromJson(resp);
-  }
-   
-  // Query
-  Future<List<BiFacetBi>> loadAsBiFacets({
-    
-    required String bundleName,
-    String? regionId='default',
-    required List<String> bundleIds, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "loadAsBiFacets",
-      "bundleName" : "PortalManager",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      if(regionId!=null) "regionId": regionId,
-      "bundleIds": bundleIds, 
+      "tenantId": tenantId, 
     });
     
     return convList(resp, BiFacetBi.fromJson);

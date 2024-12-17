@@ -31,6 +31,38 @@ class PortalManagerPod extends _$PortalManagerPod {
   }
 
   
+  Future<bool> storeEnt({
+    
+    required String entName,
+    String? regionId='default',
+    required List<int> data, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalManagerProvider(regionOrNs: regionOrNs)).storeEnt(
+              entName: entName,
+              regionId: regionId,
+              data: data,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> mutate({
+    
+    required String bundleName,
+    required List<int> mutParams, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalManagerProvider(regionOrNs: regionOrNs)).mutate(
+              bundleName: bundleName,
+              mutParams: mutParams,
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> storeBundleSpec({
     
     required String bundleName,
@@ -52,19 +84,19 @@ class PortalManagerPod extends _$PortalManagerPod {
 
   
 @riverpod
-Future<List<BiFacetBi>> portalManagerLoadAsBiFacetsByTenant(PortalManagerLoadAsBiFacetsByTenantRef ref, {
+Future<List<BiFacetBi>> portalManagerLoadAsBiFacets(PortalManagerLoadAsBiFacetsRef ref, {
   String regionOrNs='default',
   
     required String bundleName,
     String? regionId='default',
-    required String tenantId, 
+    required List<String> bundleIds, 
 
 }) async {
   var pod=ref.watch(portalManagerProvider(regionOrNs: regionOrNs));
-  return await pod.loadAsBiFacetsByTenant(
+  return await pod.loadAsBiFacets(
       bundleName: bundleName,
       regionId: regionId,
-      tenantId: tenantId,
+      bundleIds: bundleIds,
   );
 }
   
@@ -86,19 +118,19 @@ Future<BiFacetBi> portalManagerLoadAsBiFacet(PortalManagerLoadAsBiFacetRef ref, 
 }
   
 @riverpod
-Future<List<BiFacetBi>> portalManagerLoadAsBiFacets(PortalManagerLoadAsBiFacetsRef ref, {
+Future<List<BiFacetBi>> portalManagerLoadAsBiFacetsByTenant(PortalManagerLoadAsBiFacetsByTenantRef ref, {
   String regionOrNs='default',
   
     required String bundleName,
     String? regionId='default',
-    required List<String> bundleIds, 
+    required String tenantId, 
 
 }) async {
   var pod=ref.watch(portalManagerProvider(regionOrNs: regionOrNs));
-  return await pod.loadAsBiFacets(
+  return await pod.loadAsBiFacetsByTenant(
       bundleName: bundleName,
       regionId: regionId,
-      bundleIds: bundleIds,
+      tenantId: tenantId,
   );
 }
 

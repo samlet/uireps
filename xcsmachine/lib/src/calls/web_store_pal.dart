@@ -21,6 +21,21 @@ class WebStorePalRepository {
 
    
   // Query
+  Future<List<String>> getProductIds() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getProductIds",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
   Future<List<String>> getProductJointers() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -81,23 +96,19 @@ class WebStorePalRepository {
     return ResultConv.asString(resp);
   }
    
-  // Mutation
-  Future<void> addProducts({
-    
-    required List<String> productIds, 
-
-  }) async { 
+  // Query
+  Future<List<String>> webSiteIds() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "addProducts",
+      "action": "webSiteIds",
       "bundleName" : "Store",
       "call-type": "co",
       "regionId": regionOrNs,
       "id": id,
-    }, {
-      "productIds": productIds, 
+    }, { 
     });
     
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query
@@ -121,70 +132,10 @@ class WebStorePalRepository {
   }
    
   // Query
-  Future<String> name() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "name",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
-  Future<Facility> facility() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "facility",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return Facility.fromJson(resp);
-  }
-   
-  // Query
   Future<List<String>> getCatalogIds() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
       "action": "getCatalogIds",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> getProductIds() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getProductIds",
-      "bundleName" : "Store",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<String>> webSiteIds() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "webSiteIds",
       "bundleName" : "Store",
       "call-type": "co",
       "regionId": regionOrNs,
@@ -208,6 +159,55 @@ class WebStorePalRepository {
     });
     
     return DecimalMap()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<String> name() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "name",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Mutation
+  Future<void> addProducts({
+    
+    required List<String> productIds, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "addProducts",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "productIds": productIds, 
+    });
+    
+  }
+   
+  // Query
+  Future<Facility> facility() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "facility",
+      "bundleName" : "Store",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return Facility.fromJson(resp);
   }
   
 }

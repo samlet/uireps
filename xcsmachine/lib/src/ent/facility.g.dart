@@ -48,6 +48,12 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       facilityType: json['facilityType'] == null
           ? null
           : FacilityType.fromJson(json['facilityType'] as Map<String, dynamic>),
@@ -76,6 +82,9 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
               ?.map((e) =>
                   FacilityLocationGeoPoint.fromJson(e as Map<String, dynamic>))
               .toList(),
+      facilityContent: (json['facilityContent'] as List<dynamic>?)
+          ?.map((e) => FacilityContent.fromJson(e as Map<String, dynamic>))
+          .toList(),
       facilityContactMech: (json['facilityContactMech'] as List<dynamic>?)
           ?.map((e) => FacilityContactMech.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -123,6 +132,11 @@ Map<String, dynamic> _$FacilityToJson(Facility instance) {
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('resourceId', instance.resourceId);
   writeNotNull('resourceType', instance.resourceType);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('facilityType', instance.facilityType?.toJson());
   writeNotNull('facilityCalendar',
       instance.facilityCalendar?.map((e) => e.toJson()).toList());
@@ -138,6 +152,8 @@ Map<String, dynamic> _$FacilityToJson(Facility instance) {
       instance.facilityLocation?.map((e) => e.toJson()).toList());
   writeNotNull('facilityLocationGeoPoint',
       instance.facilityLocationGeoPoint?.map((e) => e.toJson()).toList());
+  writeNotNull('facilityContent',
+      instance.facilityContent?.map((e) => e.toJson()).toList());
   writeNotNull('facilityContactMech',
       instance.facilityContactMech?.map((e) => e.toJson()).toList());
   return val;
@@ -413,6 +429,45 @@ Map<String, dynamic> _$FacilityLocationGeoPointToJson(
   writeNotNull('facilityId', instance.facilityId);
   writeNotNull('locationSeqId', instance.locationSeqId);
   writeNotNull('geoPointId', instance.geoPointId);
+  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
+  writeNotNull(
+      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
+  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
+  writeNotNull('id', instance.id);
+  return val;
+}
+
+FacilityContent _$FacilityContentFromJson(Map<String, dynamic> json) =>
+    FacilityContent(
+      facilityId: json['facilityId'] as String?,
+      contentId: json['contentId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$FacilityContentToJson(FacilityContent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('facilityId', instance.facilityId);
+  writeNotNull('contentId', instance.contentId);
   writeNotNull('fromDate', instance.fromDate?.toIso8601String());
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
   writeNotNull(

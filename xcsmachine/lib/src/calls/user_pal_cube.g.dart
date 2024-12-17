@@ -6,7 +6,7 @@ part of 'user_pal_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userPalCubeHash() => r'53bf131f3a292c0cf6b99d438558fba0f546748f';
+String _$userPalCubeHash() => r'18f66131014cb88da25e7a0f9173630b92aa81d9';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,11 +29,12 @@ class _SystemHash {
   }
 }
 
-abstract class _$UserPalCube extends BuildlessAutoDisposeAsyncNotifier<Party> {
+abstract class _$UserPalCube
+    extends BuildlessAutoDisposeAsyncNotifier<UserObj> {
   late final String regionOrNs;
   late final String id;
 
-  FutureOr<Party> build({
+  FutureOr<UserObj> build({
     String regionOrNs = 'default',
     required String id,
   });
@@ -44,7 +45,7 @@ abstract class _$UserPalCube extends BuildlessAutoDisposeAsyncNotifier<Party> {
 const userPalCubeProvider = UserPalCubeFamily();
 
 /// See also [UserPalCube].
-class UserPalCubeFamily extends Family<AsyncValue<Party>> {
+class UserPalCubeFamily extends Family<AsyncValue<UserObj>> {
   /// See also [UserPalCube].
   const UserPalCubeFamily();
 
@@ -86,7 +87,7 @@ class UserPalCubeFamily extends Family<AsyncValue<Party>> {
 
 /// See also [UserPalCube].
 class UserPalCubeProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<UserPalCube, Party> {
+    extends AutoDisposeAsyncNotifierProviderImpl<UserPalCube, UserObj> {
   /// See also [UserPalCube].
   UserPalCubeProvider({
     String regionOrNs = 'default',
@@ -123,7 +124,7 @@ class UserPalCubeProvider
   final String id;
 
   @override
-  FutureOr<Party> runNotifierBuild(
+  FutureOr<UserObj> runNotifierBuild(
     covariant UserPalCube notifier,
   ) {
     return notifier.build(
@@ -152,7 +153,8 @@ class UserPalCubeProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<UserPalCube, Party> createElement() {
+  AutoDisposeAsyncNotifierProviderElement<UserPalCube, UserObj>
+      createElement() {
     return _UserPalCubeProviderElement(this);
   }
 
@@ -173,7 +175,7 @@ class UserPalCubeProvider
   }
 }
 
-mixin UserPalCubeRef on AutoDisposeAsyncNotifierProviderRef<Party> {
+mixin UserPalCubeRef on AutoDisposeAsyncNotifierProviderRef<UserObj> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
@@ -182,7 +184,7 @@ mixin UserPalCubeRef on AutoDisposeAsyncNotifierProviderRef<Party> {
 }
 
 class _UserPalCubeProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<UserPalCube, Party>
+    extends AutoDisposeAsyncNotifierProviderElement<UserPalCube, UserObj>
     with UserPalCubeRef {
   _UserPalCubeProviderElement(super.provider);
 

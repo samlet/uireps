@@ -88,6 +88,12 @@ WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       workEffortType: json['workEffortType'] == null
           ? null
           : WorkEffortType.fromJson(
@@ -207,6 +213,11 @@ Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('resourceId', instance.resourceId);
   writeNotNull('resourceType', instance.resourceType);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('workEffortType', instance.workEffortType?.toJson());
   writeNotNull('workEffortTransaction',
       instance.workEffortTransaction?.map((e) => e.toJson()).toList());

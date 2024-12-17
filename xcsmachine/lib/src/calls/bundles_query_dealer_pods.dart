@@ -50,23 +50,47 @@ Future<Map<String, Object?>> bundlesQueryLoadBundle(BundlesQueryLoadBundleRef re
 }
   
 @riverpod
-Future<PaginatedResponse> bundlesQueryQueryBundlePage(BundlesQueryQueryBundlePageRef ref, {
+Future<List<Map<String, dynamic>>> bundlesQueryQueryTerms(BundlesQueryQueryTermsRef ref, {
   String regionOrNs='default',
   
-    required String bundleName,
-    String? regionId='default',
-    required Map<String, Object?> cond,
-    PageLimit? pageLimit,
-    List<ResultSort>? orders, 
+    required QueryTerms r,
+    String? regionId='default', 
 
 }) async {
   var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
-  return await pod.queryBundlePage(
-      bundleName: bundleName,
+  return await pod.queryTerms(
+      r: r,
       regionId: regionId,
-      cond: cond,
-      pageLimit: pageLimit,
-      orders: orders,
+  );
+}
+  
+@riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryQueryMap(BundlesQueryQueryMapRef ref, {
+  String regionOrNs='default',
+  
+    required QueryMap r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.queryMap(
+      r: r,
+      regionId: regionId,
+  );
+}
+  
+@riverpod
+Future<List<Map<String, dynamic>>> bundlesQueryLoadBundles(BundlesQueryLoadBundlesRef ref, {
+  String regionOrNs='default',
+  
+    required RequestIds r,
+    String? regionId='default', 
+
+}) async {
+  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
+  return await pod.loadBundles(
+      r: r,
+      regionId: regionId,
   );
 }
   
@@ -92,17 +116,23 @@ Future<PaginatedResponse> bundlesQueryQueryBundlePageByTag(BundlesQueryQueryBund
 }
   
 @riverpod
-Future<List<Map<String, dynamic>>> bundlesQueryQueryMap(BundlesQueryQueryMapRef ref, {
+Future<PaginatedResponse> bundlesQueryQueryBundlePage(BundlesQueryQueryBundlePageRef ref, {
   String regionOrNs='default',
   
-    required QueryMap r,
-    String? regionId='default', 
+    required String bundleName,
+    String? regionId='default',
+    required Map<String, Object?> cond,
+    PageLimit? pageLimit,
+    List<ResultSort>? orders, 
 
 }) async {
   var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
-  return await pod.queryMap(
-      r: r,
+  return await pod.queryBundlePage(
+      bundleName: bundleName,
       regionId: regionId,
+      cond: cond,
+      pageLimit: pageLimit,
+      orders: orders,
   );
 }
   
@@ -116,36 +146,6 @@ Future<List<Map<String, dynamic>>> bundlesQueryQueryExpr(BundlesQueryQueryExprRe
 }) async {
   var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
   return await pod.queryExpr(
-      r: r,
-      regionId: regionId,
-  );
-}
-  
-@riverpod
-Future<List<Map<String, dynamic>>> bundlesQueryQueryTerms(BundlesQueryQueryTermsRef ref, {
-  String regionOrNs='default',
-  
-    required QueryTerms r,
-    String? regionId='default', 
-
-}) async {
-  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
-  return await pod.queryTerms(
-      r: r,
-      regionId: regionId,
-  );
-}
-  
-@riverpod
-Future<List<Map<String, dynamic>>> bundlesQueryLoadBundles(BundlesQueryLoadBundlesRef ref, {
-  String regionOrNs='default',
-  
-    required RequestIds r,
-    String? regionId='default', 
-
-}) async {
-  var pod=ref.watch(bundlesQueryDealerProvider(regionOrNs: regionOrNs));
-  return await pod.loadBundles(
       r: r,
       regionId: regionId,
   );

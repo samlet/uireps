@@ -35,6 +35,11 @@ CREATE TABLE facility (
     "acl" TEXT MAPPED BY `const StringMultimapConverter()`,
     "resource_id" VARCHAR(250),
     "resource_type" VARCHAR(60),
+    "url" VARCHAR(2000),
+    "image" TEXT MAPPED BY `const StringListConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
 
     -- rel: one (no public-types)
     "facility_type" TEXT MAPPED BY `const FacilityTypeConverter()`,
@@ -47,6 +52,7 @@ CREATE TABLE facility (
     "facility_contact_mech_purpose" TEXT MAPPED BY `const FacilityContactMechPurposeListConverter()`,
     "facility_location" TEXT MAPPED BY `const FacilityLocationListConverter()`,
     "facility_location_geo_point" TEXT MAPPED BY `const FacilityLocationGeoPointListConverter()`,
+    "facility_content" TEXT MAPPED BY `const FacilityContentListConverter()`,
     "facility_contact_mech" TEXT MAPPED BY `const FacilityContactMechListConverter()`,
     "reserved_flag" INTEGER
 );

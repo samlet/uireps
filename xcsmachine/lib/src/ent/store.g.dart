@@ -108,6 +108,12 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
       placeId: json['placeId'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       productStorePromoAppl: (json['productStorePromoAppl'] as List<dynamic>?)
           ?.map(
               (e) => ProductStorePromoAppl.fromJson(e as Map<String, dynamic>))
@@ -247,6 +253,11 @@ Map<String, dynamic> _$StoreToJson(Store instance) {
   writeNotNull('telephone', instance.telephone);
   writeNotNull('email', instance.email);
   writeNotNull('placeId', instance.placeId);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('productStorePromoAppl',
       instance.productStorePromoAppl?.map((e) => e.toJson()).toList());
   writeNotNull('productStoreEmailSetting',

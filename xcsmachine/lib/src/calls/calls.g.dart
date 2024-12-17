@@ -90,6 +90,113 @@ Map<String, dynamic> _$WebSiteCubeDataToJson(WebSiteCubeData instance) {
   return val;
 }
 
+PhoneNumber _$PhoneNumberFromJson(Map<String, dynamic> json) => PhoneNumber(
+      key: json['key'] as String?,
+      areaCode: json['areaCode'] as String?,
+      tel: json['tel'] as String?,
+    );
+
+Map<String, dynamic> _$PhoneNumberToJson(PhoneNumber instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('key', instance.key);
+  writeNotNull('areaCode', instance.areaCode);
+  writeNotNull('tel', instance.tel);
+  return val;
+}
+
+Location _$LocationFromJson(Map<String, dynamic> json) => Location(
+      locationId: json['locationId'] as String?,
+      address1: json['address1'] as String?,
+      address2: json['address2'] as String?,
+      city: json['city'] as String?,
+      stateProvinceGeoId: json['stateProvinceGeoId'] as String?,
+      countryGeoId: json['countryGeoId'] as String?,
+      postalCode: json['postalCode'] as String?,
+      toName: json['toName'] as String?,
+      geoPointId: json['geoPointId'] as String?,
+    );
+
+Map<String, dynamic> _$LocationToJson(Location instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('locationId', instance.locationId);
+  writeNotNull('address1', instance.address1);
+  writeNotNull('address2', instance.address2);
+  writeNotNull('city', instance.city);
+  writeNotNull('stateProvinceGeoId', instance.stateProvinceGeoId);
+  writeNotNull('countryGeoId', instance.countryGeoId);
+  writeNotNull('postalCode', instance.postalCode);
+  writeNotNull('toName', instance.toName);
+  writeNotNull('geoPointId', instance.geoPointId);
+  return val;
+}
+
+UserObj _$UserObjFromJson(Map<String, dynamic> json) => UserObj(
+      partyId: json['partyId'] as String?,
+      lastName: json['lastName'] as String?,
+      firstName: json['firstName'] as String?,
+      name: json['name'] as String?,
+      nickname: json['nickname'] as String?,
+      gender: json['gender'] as String?,
+      birthDate: _$JsonConverterFromJson<String, DateTime>(
+          json['birthDate'], const OffsetDateTimeConverter().fromJson),
+      createdByUserLogin: json['createdByUserLogin'] as String?,
+      email: json['email'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$UserObjToJson(UserObj instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('partyId', instance.partyId);
+  writeNotNull('lastName', instance.lastName);
+  writeNotNull('firstName', instance.firstName);
+  writeNotNull('name', instance.name);
+  writeNotNull('nickname', instance.nickname);
+  writeNotNull('gender', instance.gender);
+  writeNotNull(
+      'birthDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.birthDate, const OffsetDateTimeConverter().toJson));
+  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
+  writeNotNull('email', instance.email);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
+  return val;
+}
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
+
 Position _$PositionFromJson(Map<String, dynamic> json) => Position(
       lat: (json['lat'] as num?)?.toDouble(),
       lon: (json['lon'] as num?)?.toDouble(),
@@ -108,6 +215,35 @@ Map<String, dynamic> _$PositionToJson(Position instance) {
   writeNotNull('lat', instance.lat);
   writeNotNull('lon', instance.lon);
   writeNotNull('z', instance.z);
+  return val;
+}
+
+PayDetail _$PayDetailFromJson(Map<String, dynamic> json) => PayDetail(
+      paymentId: json['paymentId'] as String?,
+      budgetId: json['budgetId'] as String?,
+      budgetItemSeqId: json['budgetItemSeqId'] as String?,
+      budgetItemAmount: (json['budgetItemAmount'] as num?)?.toDouble(),
+      budgetPurpose: json['budgetPurpose'] as String?,
+      payAmount: (json['payAmount'] as num?)?.toDouble(),
+      finTransId: json['finTransId'] as String?,
+    );
+
+Map<String, dynamic> _$PayDetailToJson(PayDetail instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('paymentId', instance.paymentId);
+  writeNotNull('budgetId', instance.budgetId);
+  writeNotNull('budgetItemSeqId', instance.budgetItemSeqId);
+  writeNotNull('budgetItemAmount', instance.budgetItemAmount);
+  writeNotNull('budgetPurpose', instance.budgetPurpose);
+  writeNotNull('payAmount', instance.payAmount);
+  writeNotNull('finTransId', instance.finTransId);
   return val;
 }
 
@@ -296,18 +432,6 @@ Map<String, dynamic> _$BiFacetStatusAttToJson(BiFacetStatusAtt instance) {
   return val;
 }
 
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
-
 BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
       biId: json['biId'] as String?,
       bundleName: json['bundleName'] as String?,
@@ -389,6 +513,215 @@ Map<String, dynamic> _$ResultSortToJson(ResultSort instance) {
   return val;
 }
 
+NumberRange _$NumberRangeFromJson(Map<String, dynamic> json) => NumberRange(
+      field: json['field'] as String?,
+      from: (json['from'] as num?)?.toInt(),
+      to: (json['to'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$NumberRangeToJson(NumberRange instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('field', instance.field);
+  writeNotNull('from', instance.from);
+  writeNotNull('to', instance.to);
+  return val;
+}
+
+FoldRegion _$FoldRegionFromJson(Map<String, dynamic> json) => FoldRegion(
+      regionId: json['regionId'] as String?,
+      ent: json['ent'] as String?,
+    );
+
+Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('regionId', instance.regionId);
+  writeNotNull('ent', instance.ent);
+  return val;
+}
+
+PaginatedEntBytes _$PaginatedEntBytesFromJson(Map<String, dynamic> json) =>
+    PaginatedEntBytes(
+      ent: json['ent'] as String?,
+      page: (json['page'] as num?)?.toInt(),
+      rsb: (json['rsb'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
+      totalPages: (json['totalPages'] as num?)?.toInt(),
+      totalResults: (json['totalResults'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PaginatedEntBytesToJson(PaginatedEntBytes instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ent', instance.ent);
+  writeNotNull('page', instance.page);
+  writeNotNull('rsb', instance.rsb);
+  writeNotNull('totalPages', instance.totalPages);
+  writeNotNull('totalResults', instance.totalResults);
+  return val;
+}
+
+MatchTerm _$MatchTermFromJson(Map<String, dynamic> json) => MatchTerm(
+      field: json['field'] as String?,
+      op: json['op'] as String?,
+      value: json['value'],
+    );
+
+Map<String, dynamic> _$MatchTermToJson(MatchTerm instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('field', instance.field);
+  writeNotNull('op', instance.op);
+  writeNotNull('value', instance.value);
+  return val;
+}
+
+ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
+      startIndex: (json['startIndex'] as num?)?.toInt(),
+      limit: (json['limit'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ResultLimitToJson(ResultLimit instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('startIndex', instance.startIndex);
+  writeNotNull('limit', instance.limit);
+  return val;
+}
+
+DateTimeRange _$DateTimeRangeFromJson(Map<String, dynamic> json) =>
+    DateTimeRange(
+      field: json['field'] as String?,
+      from: _$JsonConverterFromJson<String, DateTime>(
+          json['from'], const OffsetDateTimeConverter().fromJson),
+      to: _$JsonConverterFromJson<String, DateTime>(
+          json['to'], const OffsetDateTimeConverter().fromJson),
+    );
+
+Map<String, dynamic> _$DateTimeRangeToJson(DateTimeRange instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('field', instance.field);
+  writeNotNull(
+      'from',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.from, const OffsetDateTimeConverter().toJson));
+  writeNotNull(
+      'to',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.to, const OffsetDateTimeConverter().toJson));
+  return val;
+}
+
+PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
+      page: (json['page'] as num?)?.toInt(),
+      pageSize: (json['pageSize'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PageLimitToJson(PageLimit instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('page', instance.page);
+  writeNotNull('pageSize', instance.pageSize);
+  return val;
+}
+
+Match _$MatchFromJson(Map<String, dynamic> json) => Match(
+      terms: (json['terms'] as List<dynamic>?)
+          ?.map((e) => MatchTerm.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      numberRanges: (json['numberRanges'] as List<dynamic>?)
+          ?.map((e) => NumberRange.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      periods: (json['periods'] as List<dynamic>?)
+          ?.map((e) => DateTimeRange.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MatchToJson(Match instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('terms', instance.terms?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'numberRanges', instance.numberRanges?.map((e) => e.toJson()).toList());
+  writeNotNull('periods', instance.periods?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+ResultBytesWithMeta _$ResultBytesWithMetaFromJson(Map<String, dynamic> json) =>
+    ResultBytesWithMeta(
+      rsb: (json['rsb'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
+      start: (json['start'] as num?)?.toInt(),
+      total: (json['total'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ResultBytesWithMetaToJson(ResultBytesWithMeta instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('rsb', instance.rsb);
+  writeNotNull('start', instance.start);
+  writeNotNull('total', instance.total);
+  return val;
+}
+
 PredicateTerm _$PredicateTermFromJson(Map<String, dynamic> json) =>
     PredicateTerm(
       fld: json['fld'] as String?,
@@ -466,29 +799,6 @@ Map<String, dynamic> _$QueryMapToJson(QueryMap instance) {
   return val;
 }
 
-QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
-      bundleName: json['bundleName'] as String?,
-      expr: json['expr'] as String?,
-      limit: json['limit'] == null
-          ? null
-          : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('expr', instance.expr);
-  writeNotNull('limit', instance.limit?.toJson());
-  return val;
-}
-
 QueryTerms _$QueryTermsFromJson(Map<String, dynamic> json) => QueryTerms(
       bundleName: json['bundleName'] as String?,
       terms: (json['terms'] as List<dynamic>?)
@@ -514,6 +824,29 @@ Map<String, dynamic> _$QueryTermsToJson(QueryTerms instance) {
   return val;
 }
 
+QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
+      bundleName: json['bundleName'] as String?,
+      expr: json['expr'] as String?,
+      limit: json['limit'] == null
+          ? null
+          : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('bundleName', instance.bundleName);
+  writeNotNull('expr', instance.expr);
+  writeNotNull('limit', instance.limit?.toJson());
+  return val;
+}
+
 LoadBundle _$LoadBundleFromJson(Map<String, dynamic> json) => LoadBundle(
       bundleName: json['bundleName'] as String?,
       bundleId: json['bundleId'] as String?,
@@ -530,44 +863,6 @@ Map<String, dynamic> _$LoadBundleToJson(LoadBundle instance) {
 
   writeNotNull('bundleName', instance.bundleName);
   writeNotNull('bundleId', instance.bundleId);
-  return val;
-}
-
-ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
-      startIndex: (json['startIndex'] as num?)?.toInt(),
-      limit: (json['limit'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$ResultLimitToJson(ResultLimit instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('startIndex', instance.startIndex);
-  writeNotNull('limit', instance.limit);
-  return val;
-}
-
-PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
-      page: (json['page'] as num?)?.toInt(),
-      pageSize: (json['pageSize'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$PageLimitToJson(PageLimit instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('page', instance.page);
-  writeNotNull('pageSize', instance.pageSize);
   return val;
 }
 

@@ -19,6 +19,20 @@ class AuthRepository {
 
    
   // Mutation
+  Future<ExtractedToken> quickRegister() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "quickRegister",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation
   Future<ExtractedToken> register({
     
     required String loginId,
@@ -43,41 +57,6 @@ class AuthRepository {
     return ExtractedToken()..mergeFromProto3Json(resp);
   }
    
-  // Query
-  Future<ExtractedToken> generateToken({
-    
-    String? regionId='default',
-    required String loginId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "generateToken",
-      "bundleName" : "Auth",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      if(regionId!=null) "regionId": regionId,
-      "loginId": loginId, 
-    });
-    
-    return ExtractedToken()..mergeFromProto3Json(resp);
-  }
-   
-  // Mutation
-  Future<ExtractedToken> quickRegister() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "quickRegister",
-      "bundleName" : "Auth",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return ExtractedToken()..mergeFromProto3Json(resp);
-  }
-   
   // Mutation
   Future<ExtractedToken> login({
     
@@ -94,6 +73,27 @@ class AuthRepository {
     }, {
       "loginId": loginId,
       "passwd": passwd, 
+    });
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Query
+  Future<ExtractedToken> generateToken({
+    
+    String? regionId='default',
+    required String loginId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "generateToken",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      if(regionId!=null) "regionId": regionId,
+      "loginId": loginId, 
     });
     
     return ExtractedToken()..mergeFromProto3Json(resp);

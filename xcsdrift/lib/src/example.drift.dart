@@ -56,6 +56,11 @@ typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<i4.Multimap<String, String>?> acl,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
+  i0.Value<String?> url,
+  i0.Value<List<String>?> image,
+  i0.Value<String?> sameAs,
+  i0.Value<int?> icon,
+  i0.Value<int?> color,
   i0.Value<i5.ExampleType?> exampleType,
   i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
   i0.Value<List<i5.ExampleStatus>?> exampleStatus,
@@ -110,6 +115,11 @@ typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<i4.Multimap<String, String>?> acl,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
+  i0.Value<String?> url,
+  i0.Value<List<String>?> image,
+  i0.Value<String?> sameAs,
+  i0.Value<int?> icon,
+  i0.Value<int?> color,
   i0.Value<i5.ExampleType?> exampleType,
   i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl,
   i0.Value<List<i5.ExampleStatus>?> exampleStatus,
@@ -326,6 +336,23 @@ class $ExampleFilterComposer
       column: $table.resourceType,
       builder: (column) => i0.ColumnFilters(column));
 
+  i0.ColumnFilters<String> get url => $composableBuilder(
+      column: $table.url, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get image => $composableBuilder(
+          column: $table.image,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get sameAs => $composableBuilder(
+      column: $table.sameAs, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get icon => $composableBuilder(
+      column: $table.icon, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get color => $composableBuilder(
+      column: $table.color, builder: (column) => i0.ColumnFilters(column));
+
   i0.ColumnWithTypeConverterFilters<i5.ExampleType?, i5.ExampleType, String>
       get exampleType => $composableBuilder(
           column: $table.exampleType,
@@ -529,6 +556,21 @@ class $ExampleOrderingComposer
       column: $table.resourceType,
       builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get url => $composableBuilder(
+      column: $table.url, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get sameAs => $composableBuilder(
+      column: $table.sameAs, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get icon => $composableBuilder(
+      column: $table.icon, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get color => $composableBuilder(
+      column: $table.color, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get exampleType => $composableBuilder(
       column: $table.exampleType,
       builder: (column) => i0.ColumnOrderings(column));
@@ -710,6 +752,21 @@ class $ExampleAnnotationComposer
   i0.GeneratedColumn<String> get resourceType => $composableBuilder(
       column: $table.resourceType, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get url =>
+      $composableBuilder(column: $table.url, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get image =>
+      $composableBuilder(column: $table.image, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get sameAs =>
+      $composableBuilder(column: $table.sameAs, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get icon =>
+      $composableBuilder(column: $table.icon, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get color =>
+      $composableBuilder(column: $table.color, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<i5.ExampleType?, String>
       get exampleType => $composableBuilder(
           column: $table.exampleType, builder: (column) => column);
@@ -805,6 +862,11 @@ class $ExampleTableManager extends i0.RootTableManager<
                 const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
             i0.Value<String?> resourceType = const i0.Value.absent(),
+            i0.Value<String?> url = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
+            i0.Value<String?> sameAs = const i0.Value.absent(),
+            i0.Value<int?> icon = const i0.Value.absent(),
+            i0.Value<int?> color = const i0.Value.absent(),
             i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
             i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
                 const i0.Value.absent(),
@@ -862,6 +924,11 @@ class $ExampleTableManager extends i0.RootTableManager<
             acl: acl,
             resourceId: resourceId,
             resourceType: resourceType,
+            url: url,
+            image: image,
+            sameAs: sameAs,
+            icon: icon,
+            color: color,
             exampleType: exampleType,
             exampleFeatureAppl: exampleFeatureAppl,
             exampleStatus: exampleStatus,
@@ -919,6 +986,11 @@ class $ExampleTableManager extends i0.RootTableManager<
                 const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
             i0.Value<String?> resourceType = const i0.Value.absent(),
+            i0.Value<String?> url = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
+            i0.Value<String?> sameAs = const i0.Value.absent(),
+            i0.Value<int?> icon = const i0.Value.absent(),
+            i0.Value<int?> color = const i0.Value.absent(),
             i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
             i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
                 const i0.Value.absent(),
@@ -976,6 +1048,11 @@ class $ExampleTableManager extends i0.RootTableManager<
             acl: acl,
             resourceId: resourceId,
             resourceType: resourceType,
+            url: url,
+            image: image,
+            sameAs: sameAs,
+            icon: icon,
+            color: color,
             exampleType: exampleType,
             exampleFeatureAppl: exampleFeatureAppl,
             exampleStatus: exampleStatus,
@@ -1360,6 +1437,41 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           type: i0.DriftSqlType.string,
           requiredDuringInsert: false,
           $customConstraints: '');
+  static const i0.VerificationMeta _urlMeta = const i0.VerificationMeta('url');
+  late final i0.GeneratedColumn<String> url = i0.GeneratedColumn<String>(
+      'url', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _imageMeta =
+      const i0.VerificationMeta('image');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String> image =
+      i0.GeneratedColumn<String>('image', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Example.$converterimagen);
+  static const i0.VerificationMeta _sameAsMeta =
+      const i0.VerificationMeta('sameAs');
+  late final i0.GeneratedColumn<String> sameAs = i0.GeneratedColumn<String>(
+      'same_as', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _iconMeta =
+      const i0.VerificationMeta('icon');
+  late final i0.GeneratedColumn<int> icon = i0.GeneratedColumn<int>(
+      'icon', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _colorMeta =
+      const i0.VerificationMeta('color');
+  late final i0.GeneratedColumn<int> color = i0.GeneratedColumn<int>(
+      'color', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   static const i0.VerificationMeta _exampleTypeMeta =
       const i0.VerificationMeta('exampleType');
   late final i0.GeneratedColumnWithTypeConverter<i5.ExampleType?, String>
@@ -1456,6 +1568,11 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
         acl,
         resourceId,
         resourceType,
+        url,
+        image,
+        sameAs,
+        icon,
+        color,
         exampleType,
         exampleFeatureAppl,
         exampleStatus,
@@ -1632,6 +1749,23 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           resourceType.isAcceptableOrUnknown(
               data['resource_type']!, _resourceTypeMeta));
     }
+    if (data.containsKey('url')) {
+      context.handle(
+          _urlMeta, url.isAcceptableOrUnknown(data['url']!, _urlMeta));
+    }
+    context.handle(_imageMeta, const i0.VerificationResult.success());
+    if (data.containsKey('same_as')) {
+      context.handle(_sameAsMeta,
+          sameAs.isAcceptableOrUnknown(data['same_as']!, _sameAsMeta));
+    }
+    if (data.containsKey('icon')) {
+      context.handle(
+          _iconMeta, icon.isAcceptableOrUnknown(data['icon']!, _iconMeta));
+    }
+    if (data.containsKey('color')) {
+      context.handle(
+          _colorMeta, color.isAcceptableOrUnknown(data['color']!, _colorMeta));
+    }
     context.handle(_exampleTypeMeta, const i0.VerificationResult.success());
     context.handle(
         _exampleFeatureApplMeta, const i0.VerificationResult.success());
@@ -1761,6 +1895,16 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}resource_id']),
       resourceType: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}resource_type']),
+      url: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}url']),
+      image: i1.Example.$converterimagen.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}image'])),
+      sameAs: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}same_as']),
+      icon: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}icon']),
+      color: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}color']),
       exampleType: i1.Example.$converterexampleTypen.fromSql(
           attachedDatabase.typeMapping.read(
               i0.DriftSqlType.string, data['${effectivePrefix}example_type'])),
@@ -1888,6 +2032,10 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $converterimage = const i6.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $converterimagen = i0.JsonTypeConverter2.asNullable($converterimage);
   static i0.JsonTypeConverter2<i5.ExampleType, String, Map<String, dynamic>>
       $converterexampleType = const i7.ExampleTypeConverter();
   static i0.JsonTypeConverter2<i5.ExampleType?, String?, Map<String, dynamic>?>
@@ -1963,6 +2111,11 @@ class ExampleData extends i0.DataClass
   final i4.Multimap<String, String>? acl;
   final String? resourceId;
   final String? resourceType;
+  final String? url;
+  final List<String>? image;
+  final String? sameAs;
+  final int? icon;
+  final int? color;
 
   /// rel: one (no public-types)
   final i5.ExampleType? exampleType;
@@ -2019,6 +2172,11 @@ class ExampleData extends i0.DataClass
       this.acl,
       this.resourceId,
       this.resourceType,
+      this.url,
+      this.image,
+      this.sameAs,
+      this.icon,
+      this.color,
       this.exampleType,
       this.exampleFeatureAppl,
       this.exampleStatus,
@@ -2180,6 +2338,22 @@ class ExampleData extends i0.DataClass
     if (!nullToAbsent || resourceType != null) {
       map['resource_type'] = i0.Variable<String>(resourceType);
     }
+    if (!nullToAbsent || url != null) {
+      map['url'] = i0.Variable<String>(url);
+    }
+    if (!nullToAbsent || image != null) {
+      map['image'] =
+          i0.Variable<String>(i1.Example.$converterimagen.toSql(image));
+    }
+    if (!nullToAbsent || sameAs != null) {
+      map['same_as'] = i0.Variable<String>(sameAs);
+    }
+    if (!nullToAbsent || icon != null) {
+      map['icon'] = i0.Variable<int>(icon);
+    }
+    if (!nullToAbsent || color != null) {
+      map['color'] = i0.Variable<int>(color);
+    }
     if (!nullToAbsent || exampleType != null) {
       map['example_type'] = i0.Variable<String>(
           i1.Example.$converterexampleTypen.toSql(exampleType));
@@ -2339,6 +2513,20 @@ class ExampleData extends i0.DataClass
       resourceType: resourceType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(resourceType),
+      url:
+          url == null && nullToAbsent ? const i0.Value.absent() : i0.Value(url),
+      image: image == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(image),
+      sameAs: sameAs == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(sameAs),
+      icon: icon == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(icon),
+      color: color == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(color),
       exampleType: exampleType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(exampleType),
@@ -2428,6 +2616,12 @@ class ExampleData extends i0.DataClass
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       resourceId: serializer.fromJson<String?>(json['resource_id']),
       resourceType: serializer.fromJson<String?>(json['resource_type']),
+      url: serializer.fromJson<String?>(json['url']),
+      image: i1.Example.$converterimagen
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['image'])),
+      sameAs: serializer.fromJson<String?>(json['same_as']),
+      icon: serializer.fromJson<int?>(json['icon']),
+      color: serializer.fromJson<int?>(json['color']),
       exampleType: i1.Example.$converterexampleTypen.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['example_type'])),
       exampleFeatureAppl: i1.Example.$converterexampleFeatureAppln.fromJson(
@@ -2509,6 +2703,12 @@ class ExampleData extends i0.DataClass
           .toJson<Map<String, dynamic>?>(i1.Example.$converteracln.toJson(acl)),
       'resource_id': serializer.toJson<String?>(resourceId),
       'resource_type': serializer.toJson<String?>(resourceType),
+      'url': serializer.toJson<String?>(url),
+      'image': serializer
+          .toJson<List<dynamic>?>(i1.Example.$converterimagen.toJson(image)),
+      'same_as': serializer.toJson<String?>(sameAs),
+      'icon': serializer.toJson<int?>(icon),
+      'color': serializer.toJson<int?>(color),
       'example_type': serializer.toJson<Map<String, dynamic>?>(
           i1.Example.$converterexampleTypen.toJson(exampleType)),
       'example_feature_appl': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -2569,6 +2769,11 @@ class ExampleData extends i0.DataClass
           i0.Value<i4.Multimap<String, String>?> acl = const i0.Value.absent(),
           i0.Value<String?> resourceId = const i0.Value.absent(),
           i0.Value<String?> resourceType = const i0.Value.absent(),
+          i0.Value<String?> url = const i0.Value.absent(),
+          i0.Value<List<String>?> image = const i0.Value.absent(),
+          i0.Value<String?> sameAs = const i0.Value.absent(),
+          i0.Value<int?> icon = const i0.Value.absent(),
+          i0.Value<int?> color = const i0.Value.absent(),
           i0.Value<i5.ExampleType?> exampleType = const i0.Value.absent(),
           i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl =
               const i0.Value.absent(),
@@ -2638,6 +2843,11 @@ class ExampleData extends i0.DataClass
         resourceId: resourceId.present ? resourceId.value : this.resourceId,
         resourceType:
             resourceType.present ? resourceType.value : this.resourceType,
+        url: url.present ? url.value : this.url,
+        image: image.present ? image.value : this.image,
+        sameAs: sameAs.present ? sameAs.value : this.sameAs,
+        icon: icon.present ? icon.value : this.icon,
+        color: color.present ? color.value : this.color,
         exampleType: exampleType.present ? exampleType.value : this.exampleType,
         exampleFeatureAppl: exampleFeatureAppl.present
             ? exampleFeatureAppl.value
@@ -2728,6 +2938,11 @@ class ExampleData extends i0.DataClass
       resourceType: data.resourceType.present
           ? data.resourceType.value
           : this.resourceType,
+      url: data.url.present ? data.url.value : this.url,
+      image: data.image.present ? data.image.value : this.image,
+      sameAs: data.sameAs.present ? data.sameAs.value : this.sameAs,
+      icon: data.icon.present ? data.icon.value : this.icon,
+      color: data.color.present ? data.color.value : this.color,
       exampleType:
           data.exampleType.present ? data.exampleType.value : this.exampleType,
       exampleFeatureAppl: data.exampleFeatureAppl.present
@@ -2793,6 +3008,11 @@ class ExampleData extends i0.DataClass
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
           ..write('resourceType: $resourceType, ')
+          ..write('url: $url, ')
+          ..write('image: $image, ')
+          ..write('sameAs: $sameAs, ')
+          ..write('icon: $icon, ')
+          ..write('color: $color, ')
           ..write('exampleType: $exampleType, ')
           ..write('exampleFeatureAppl: $exampleFeatureAppl, ')
           ..write('exampleStatus: $exampleStatus, ')
@@ -2850,6 +3070,11 @@ class ExampleData extends i0.DataClass
         acl,
         resourceId,
         resourceType,
+        url,
+        image,
+        sameAs,
+        icon,
+        color,
         exampleType,
         exampleFeatureAppl,
         exampleStatus,
@@ -2906,6 +3131,11 @@ class ExampleData extends i0.DataClass
           other.acl == this.acl &&
           other.resourceId == this.resourceId &&
           other.resourceType == this.resourceType &&
+          other.url == this.url &&
+          other.image == this.image &&
+          other.sameAs == this.sameAs &&
+          other.icon == this.icon &&
+          other.color == this.color &&
           other.exampleType == this.exampleType &&
           other.exampleFeatureAppl == this.exampleFeatureAppl &&
           other.exampleStatus == this.exampleStatus &&
@@ -2960,6 +3190,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
   final i0.Value<i4.Multimap<String, String>?> acl;
   final i0.Value<String?> resourceId;
   final i0.Value<String?> resourceType;
+  final i0.Value<String?> url;
+  final i0.Value<List<String>?> image;
+  final i0.Value<String?> sameAs;
+  final i0.Value<int?> icon;
+  final i0.Value<int?> color;
   final i0.Value<i5.ExampleType?> exampleType;
   final i0.Value<List<i5.ExampleFeatureAppl>?> exampleFeatureAppl;
   final i0.Value<List<i5.ExampleStatus>?> exampleStatus;
@@ -3013,6 +3248,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
     this.resourceType = const i0.Value.absent(),
+    this.url = const i0.Value.absent(),
+    this.image = const i0.Value.absent(),
+    this.sameAs = const i0.Value.absent(),
+    this.icon = const i0.Value.absent(),
+    this.color = const i0.Value.absent(),
     this.exampleType = const i0.Value.absent(),
     this.exampleFeatureAppl = const i0.Value.absent(),
     this.exampleStatus = const i0.Value.absent(),
@@ -3067,6 +3307,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
     this.resourceType = const i0.Value.absent(),
+    this.url = const i0.Value.absent(),
+    this.image = const i0.Value.absent(),
+    this.sameAs = const i0.Value.absent(),
+    this.icon = const i0.Value.absent(),
+    this.color = const i0.Value.absent(),
     this.exampleType = const i0.Value.absent(),
     this.exampleFeatureAppl = const i0.Value.absent(),
     this.exampleStatus = const i0.Value.absent(),
@@ -3121,6 +3366,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     i0.Expression<String>? acl,
     i0.Expression<String>? resourceId,
     i0.Expression<String>? resourceType,
+    i0.Expression<String>? url,
+    i0.Expression<String>? image,
+    i0.Expression<String>? sameAs,
+    i0.Expression<int>? icon,
+    i0.Expression<int>? color,
     i0.Expression<String>? exampleType,
     i0.Expression<String>? exampleFeatureAppl,
     i0.Expression<String>? exampleStatus,
@@ -3177,6 +3427,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       if (acl != null) 'acl': acl,
       if (resourceId != null) 'resource_id': resourceId,
       if (resourceType != null) 'resource_type': resourceType,
+      if (url != null) 'url': url,
+      if (image != null) 'image': image,
+      if (sameAs != null) 'same_as': sameAs,
+      if (icon != null) 'icon': icon,
+      if (color != null) 'color': color,
       if (exampleType != null) 'example_type': exampleType,
       if (exampleFeatureAppl != null)
         'example_feature_appl': exampleFeatureAppl,
@@ -3234,6 +3489,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       i0.Value<i4.Multimap<String, String>?>? acl,
       i0.Value<String?>? resourceId,
       i0.Value<String?>? resourceType,
+      i0.Value<String?>? url,
+      i0.Value<List<String>?>? image,
+      i0.Value<String?>? sameAs,
+      i0.Value<int?>? icon,
+      i0.Value<int?>? color,
       i0.Value<i5.ExampleType?>? exampleType,
       i0.Value<List<i5.ExampleFeatureAppl>?>? exampleFeatureAppl,
       i0.Value<List<i5.ExampleStatus>?>? exampleStatus,
@@ -3287,6 +3547,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       exampleType: exampleType ?? this.exampleType,
       exampleFeatureAppl: exampleFeatureAppl ?? this.exampleFeatureAppl,
       exampleStatus: exampleStatus ?? this.exampleStatus,
@@ -3458,6 +3723,22 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     if (resourceType.present) {
       map['resource_type'] = i0.Variable<String>(resourceType.value);
     }
+    if (url.present) {
+      map['url'] = i0.Variable<String>(url.value);
+    }
+    if (image.present) {
+      map['image'] =
+          i0.Variable<String>(i1.Example.$converterimagen.toSql(image.value));
+    }
+    if (sameAs.present) {
+      map['same_as'] = i0.Variable<String>(sameAs.value);
+    }
+    if (icon.present) {
+      map['icon'] = i0.Variable<int>(icon.value);
+    }
+    if (color.present) {
+      map['color'] = i0.Variable<int>(color.value);
+    }
     if (exampleType.present) {
       map['example_type'] = i0.Variable<String>(
           i1.Example.$converterexampleTypen.toSql(exampleType.value));
@@ -3533,6 +3814,11 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
           ..write('resourceType: $resourceType, ')
+          ..write('url: $url, ')
+          ..write('image: $image, ')
+          ..write('sameAs: $sameAs, ')
+          ..write('icon: $icon, ')
+          ..write('color: $color, ')
           ..write('exampleType: $exampleType, ')
           ..write('exampleFeatureAppl: $exampleFeatureAppl, ')
           ..write('exampleStatus: $exampleStatus, ')

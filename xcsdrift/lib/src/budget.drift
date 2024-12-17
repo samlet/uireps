@@ -1,0 +1,51 @@
+import '../fldconv.dart';
+import 'morph/morph.dart';
+import 'budget_conv.dart';
+
+
+CREATE TABLE budget (
+    "budget_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "budget_type_id" VARCHAR(22),
+    "custom_time_period_id" VARCHAR(22),
+    "comments" VARCHAR(255),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "tenant_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
+    "budget_bin_id" VARCHAR(22),
+    "budget_erc_id" VARCHAR(22),
+    "evict" BOOLEAN,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
+    "url" VARCHAR(2000),
+    "image" TEXT MAPPED BY `const StringListConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
+    "name" VARCHAR(100),
+    "description" VARCHAR(255),
+
+    -- rel: one (no public-types)
+    "budget_type" TEXT MAPPED BY `const BudgetTypeConverter()`,
+
+    -- rel: many
+    "budget_status" TEXT MAPPED BY `const BudgetStatusListConverter()`,
+    "budget_revision" TEXT MAPPED BY `const BudgetRevisionListConverter()`,
+    "budget_item" TEXT MAPPED BY `const BudgetItemListConverter()`,
+    "budget_attribute" TEXT MAPPED BY `const BudgetAttributeListConverter()`,
+    "budget_review" TEXT MAPPED BY `const BudgetReviewListConverter()`,
+    "budget_multisig" TEXT MAPPED BY `const BudgetMultisigListConverter()`,
+    "budget_role" TEXT MAPPED BY `const BudgetRoleListConverter()`,
+    "reserved_flag" INTEGER
+);
+
+allBudgets: SELECT * FROM budget;
+clearBudgets: DELETE FROM budget;
+addBudget: INSERT INTO budget $el;
+getBudget: SELECT * FROM budget WHERE budget_id = ?;
+deleteBudget: DELETE FROM budget WHERE budget_id = :id;
+queryBudgetsByResourceBinder: SELECT * FROM budget WHERE resource_type = :resType AND resource_id = :resId;
+
+
+
+

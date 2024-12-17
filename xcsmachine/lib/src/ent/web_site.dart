@@ -45,7 +45,13 @@ class WebSite {
     this.acl,
     this.resourceId,
     this.resourceType,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.webSiteContactList,
+    this.webSiteContent,
   });
 
   WebSite copyWith({
@@ -77,7 +83,13 @@ class WebSite {
     Multimap<String, String>? acl,
     String? resourceId,
     String? resourceType,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     List<WebSiteContactList>? webSiteContactList,
+    List<WebSiteContent>? webSiteContent,
   }) {
     return WebSite(
       webSiteId: webSiteId ?? this.webSiteId,
@@ -108,7 +120,13 @@ class WebSite {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       webSiteContactList: webSiteContactList ?? this.webSiteContactList,
+      webSiteContent: webSiteContent ?? this.webSiteContent,
     );
   }
 
@@ -212,12 +230,28 @@ class WebSite {
    
   String? resourceType;
 
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
+
 
   // rel: one (no public-types)
   
 
   // rel: many
   List<WebSiteContactList>? webSiteContactList;
+  List<WebSiteContent>? webSiteContent;
   
 
   // rel: many ops    
@@ -257,6 +291,46 @@ class WebSite {
 
   bool hasWebSiteContactList(String itemId){
     return webSiteContactList?.any((el) => el.id == itemId)??false;
+  }
+      
+  /// rel - WebSiteContent
+  void addWebSiteContent(WebSiteContent newItem) {
+    webSiteContent = [...?webSiteContent, newItem];
+  }
+
+  void removeWebSiteContent(String itemId) {
+    webSiteContent = webSiteContent?.where((el) => el.id != itemId).toList();
+  }
+
+  void updateWebSiteContent(String id, {
+    String? webSiteId_,
+    String? contentId_,
+    String? webSiteContentTypeId_,
+    DateTime? fromDate_,
+    DateTime? thruDate_,
+    DateTime? lastUpdatedTxStamp_,
+    DateTime? createdTxStamp_,
+  }) {
+    webSiteContent = [
+      for (WebSiteContent el in webSiteContent??[])
+        if (el.id == id)
+          WebSiteContent(
+            id: id,
+            webSiteId: webSiteId_??el.webSiteId,
+            contentId: contentId_??el.contentId,
+            webSiteContentTypeId: webSiteContentTypeId_??el.webSiteContentTypeId,
+            fromDate: fromDate_??el.fromDate,
+            thruDate: thruDate_??el.thruDate,
+            lastUpdatedTxStamp: lastUpdatedTxStamp_??el.lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp_??el.createdTxStamp,
+          )
+        else
+          el,
+    ];
+  }  
+
+  bool hasWebSiteContent(String itemId){
+    return webSiteContent?.any((el) => el.id == itemId)??false;
   }
       
 }
@@ -309,6 +383,78 @@ class WebSiteContactList {
 
    
   String? contactListId;
+
+   
+  DateTime? fromDate;
+
+   
+  DateTime? thruDate;
+
+   
+  DateTime? lastUpdatedTxStamp;
+
+   
+  DateTime? createdTxStamp;
+
+   
+  String? id;
+
+  
+}
+
+// entity: WebSiteContent
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class WebSiteContent {
+  WebSiteContent({
+    this.webSiteId,
+    this.contentId,
+    this.webSiteContentTypeId,
+    this.fromDate,
+    this.thruDate,
+    this.lastUpdatedTxStamp,
+    this.createdTxStamp,
+    this.id,
+  });
+
+  WebSiteContent copyWith({
+    String? webSiteId,
+    String? contentId,
+    String? webSiteContentTypeId,
+    DateTime? fromDate,
+    DateTime? thruDate,
+    DateTime? lastUpdatedTxStamp,
+    DateTime? createdTxStamp,
+    String? id,
+  }) {
+    return WebSiteContent(
+      webSiteId: webSiteId ?? this.webSiteId,
+      contentId: contentId ?? this.contentId,
+      webSiteContentTypeId: webSiteContentTypeId ?? this.webSiteContentTypeId,
+      fromDate: fromDate ?? this.fromDate,
+      thruDate: thruDate ?? this.thruDate,
+      lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
+      createdTxStamp: createdTxStamp ?? this.createdTxStamp,
+      id: id ?? this.id,
+    );
+  }
+
+  factory WebSiteContent.fromJson(Map<String, dynamic> json) => _$WebSiteContentFromJson(json);
+  Map<String, dynamic> toJson() => _$WebSiteContentToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WebSiteContent, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WebSiteContent.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
+   
+  String? webSiteId;
+
+   
+  String? contentId;
+
+   
+  String? webSiteContentTypeId;
 
    
   DateTime? fromDate;

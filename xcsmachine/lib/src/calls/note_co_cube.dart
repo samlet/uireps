@@ -22,13 +22,13 @@ class NoteCoCube extends _$NoteCoCube {
    
 
   
-  Future<void> attachToWorkEffort({
+  Future<void> doneSlot({
     
-    required String workEffId, 
+    required String slotName, 
 
   }) async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToWorkEffort(
-      workEffId: workEffId,
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
+      slotName: slotName,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();
@@ -40,18 +40,6 @@ class NoteCoCube extends _$NoteCoCube {
 
   }) async { 
     await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContent(
-      cnt: cnt,
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
-  Future<void> applyContent({
-    
-    required NoteContent cnt, 
-
-  }) async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).applyContent(
       cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
@@ -70,18 +58,6 @@ class NoteCoCube extends _$NoteCoCube {
     ref.invalidateSelf();
   }
   
-  Future<void> setContentComp({
-    
-    required String cnt, 
-
-  }) async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContentComp(
-      cnt: cnt,
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
   Future<void> revokeContent() async { 
     await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
     );
@@ -89,13 +65,37 @@ class NoteCoCube extends _$NoteCoCube {
     ref.invalidateSelf();
   }
   
-  Future<void> doneSlot({
+  Future<void> attachToWorkEffort({
     
-    required String slotName, 
+    required String workEffId, 
 
   }) async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
-      slotName: slotName,
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToWorkEffort(
+      workEffId: workEffId,
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> applyContent({
+    
+    required NoteContent cnt, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).applyContent(
+      cnt: cnt,
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> setContentComp({
+    
+    required String cnt, 
+
+  }) async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).setContentComp(
+      cnt: cnt,
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();

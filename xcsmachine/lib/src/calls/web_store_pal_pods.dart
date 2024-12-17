@@ -69,6 +69,16 @@ class WebStorePalPod extends _$WebStorePalPod {
 
   
 @riverpod
+Future<List<String>> webStorePalGetProductIds(WebStorePalGetProductIdsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getProductIds(
+  );
+}
+  
+@riverpod
 Future<List<String>> webStorePalGetProductJointers(WebStorePalGetProductJointersRef ref, {
   String regionOrNs='default',
   required String id,
@@ -93,6 +103,16 @@ Future<List<String>> webStorePalGetProductsByRole(WebStorePalGetProductsByRoleRe
 }
   
 @riverpod
+Future<List<String>> webStorePalWebSiteIds(WebStorePalWebSiteIdsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.webSiteIds(
+  );
+}
+  
+@riverpod
 Future<List<Inventory>> webStorePalGetInventories(WebStorePalGetInventoriesRef ref, {
   String regionOrNs='default',
   required String id,
@@ -103,6 +123,26 @@ Future<List<Inventory>> webStorePalGetInventories(WebStorePalGetInventoriesRef r
   var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getInventories(
       productId: productId,
+  );
+}
+  
+@riverpod
+Future<List<String>> webStorePalGetCatalogIds(WebStorePalGetCatalogIdsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getCatalogIds(
+  );
+}
+  
+@riverpod
+Future<DecimalMap> webStorePalGetDecimals(WebStorePalGetDecimalsRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.getDecimals(
   );
 }
   
@@ -123,46 +163,6 @@ Future<Facility> webStorePalFacility(WebStorePalFacilityRef ref, {
 }) async {
   var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.facility(
-  );
-}
-  
-@riverpod
-Future<List<String>> webStorePalGetCatalogIds(WebStorePalGetCatalogIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getCatalogIds(
-  );
-}
-  
-@riverpod
-Future<List<String>> webStorePalGetProductIds(WebStorePalGetProductIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getProductIds(
-  );
-}
-  
-@riverpod
-Future<List<String>> webStorePalWebSiteIds(WebStorePalWebSiteIdsRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.webSiteIds(
-  );
-}
-  
-@riverpod
-Future<DecimalMap> webStorePalGetDecimals(WebStorePalGetDecimalsRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(webStorePalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.getDecimals(
   );
 }
 

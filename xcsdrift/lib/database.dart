@@ -24,6 +24,7 @@ import 'database.drift.dart';
   'src/section.drift',
   'src/headline.drift',
   'src/user_login.drift',
+  'src/budget.drift',
   'src/bi_facet.drift',
   'src/thing_facet.drift',
   'src/session_cache.drift',

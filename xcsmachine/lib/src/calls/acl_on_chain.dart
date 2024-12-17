@@ -19,94 +19,6 @@ class AclOnChainRepository {
 
    
   // Mutation
-  Future<void> grant({
-    
-    required String caller,
-    required String biName,
-    required String bundleId,
-    required String userOrGroup,
-    required String permGroup, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "grant",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "caller": caller,
-      "biName": biName,
-      "bundleId": bundleId,
-      "userOrGroup": userOrGroup,
-      "permGroup": permGroup, 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> setOwner({
-    
-    required String biName,
-    required String bundleId,
-    required String userOrGroup, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "setOwner",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "biName": biName,
-      "bundleId": bundleId,
-      "userOrGroup": userOrGroup, 
-    });
-    
-  }
-   
-  // Query
-  Future<List<String>> getPublicMethods({
-    
-    required String mod, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPublicMethods",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "mod": mod, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Mutation
-  Future<Linkage> enableMutBundles({
-    
-    required String login,
-    required String bundleName, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "enableMutBundles",
-      "bundleName" : "AclOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "login": login,
-      "bundleName": bundleName, 
-    });
-    
-    return Linkage.fromJson(resp);
-  }
-   
-  // Mutation
   Future<void> enableMutMultiBundles({
     
     required String login,
@@ -145,6 +57,94 @@ class AclOnChainRepository {
     });
     
     return ResultConv.asBool(resp);
+  }
+   
+  // Mutation
+  Future<void> setOwner({
+    
+    required String biName,
+    required String bundleId,
+    required String userOrGroup, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "setOwner",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "biName": biName,
+      "bundleId": bundleId,
+      "userOrGroup": userOrGroup, 
+    });
+    
+  }
+   
+  // Mutation
+  Future<Linkage> enableMutBundles({
+    
+    required String login,
+    required String bundleName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "enableMutBundles",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "login": login,
+      "bundleName": bundleName, 
+    });
+    
+    return Linkage.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> grant({
+    
+    required String caller,
+    required String biName,
+    required String bundleId,
+    required String userOrGroup,
+    required String permGroup, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "grant",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "caller": caller,
+      "biName": biName,
+      "bundleId": bundleId,
+      "userOrGroup": userOrGroup,
+      "permGroup": permGroup, 
+    });
+    
+  }
+   
+  // Query
+  Future<List<String>> getPublicMethods({
+    
+    required String mod, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPublicMethods",
+      "bundleName" : "AclOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "mod": mod, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query

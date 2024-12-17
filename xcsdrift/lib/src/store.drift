@@ -96,6 +96,11 @@ CREATE TABLE product_store (
     "telephone" VARCHAR(60),
     "email" VARCHAR(320),
     "place_id" VARCHAR(22),
+    "url" VARCHAR(2000),
+    "image" TEXT MAPPED BY `const StringListConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
 
     -- rel: one (no public-types)
 

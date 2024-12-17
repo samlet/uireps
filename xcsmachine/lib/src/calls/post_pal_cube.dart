@@ -26,6 +26,57 @@ class PostPalCube extends _$PostPalCube {
   } 
 
   
+  Future<void> doneSlot({
+    
+    required String slotName, 
+
+  }) async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
+      slotName: slotName,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> updateText({
+    
+    required String text, 
+
+  }) async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).updateText(
+      text: text,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> setContentSlot({
+    
+    required BuffersData data, 
+
+  }) async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).setContentSlot(
+      data: data,
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> like() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> featured() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
+    );
+    ref.invalidateSelf();
+  }
+  
+  Future<void> unlike() async { 
+    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
+    );
+    ref.invalidateSelf();
+  }
+  
   Future<void> addToContentBin({
     
     required String binId, 
@@ -48,17 +99,6 @@ class PostPalCube extends _$PostPalCube {
     ref.invalidateSelf();
   }
   
-  Future<void> updateText({
-    
-    required String text, 
-
-  }) async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).updateText(
-      text: text,
-    );
-    ref.invalidateSelf();
-  }
-  
   Future<void> postComment({
     
     required String subject,
@@ -72,46 +112,6 @@ class PostPalCube extends _$PostPalCube {
       review: review,
       rating: rating,
       reward: reward,
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> featured() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).featured(
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> like() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).like(
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> unlike() async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).unlike(
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> setContentSlot({
-    
-    required BuffersData data, 
-
-  }) async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).setContentSlot(
-      data: data,
-    );
-    ref.invalidateSelf();
-  }
-  
-  Future<void> doneSlot({
-    
-    required String slotName, 
-
-  }) async { 
-    await ref.read(postPalProvider(regionOrNs: regionOrNs, id: id)).doneSlot(
-      slotName: slotName,
     );
     ref.invalidateSelf();
   }

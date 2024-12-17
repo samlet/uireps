@@ -1,6 +1,8 @@
 import 'package:dummyapp/helper/testvals.dart';
 import 'package:flutter/material.dart';
 
+import '../helper/category_seeder.dart';
+
 void main() => runApp(AppSkel());
 
 class AppSkel extends StatelessWidget {
@@ -58,18 +60,24 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _incrementCounter();
-          var testVal = TestVal()
-            ..name = 'test'
-            ..icon = Icons.add_box
-            ..color = Colors.deepOrange;
-          var jsonVal=testVal.toJson();
-          print(jsonVal);
-          var newVal=TestVal.fromJson(jsonVal);
-          print('${newVal.name}: ${newVal.icon?.codePoint}, ${newVal.color?.value}');
+          testColorAndIcon();
+          catsSeeder();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  void testColorAndIcon() {
+    var testVal = TestVal()
+      ..name = 'test'
+      ..icon = Icons.add_box
+      ..color = Colors.deepOrange;
+    var jsonVal=testVal.toJson();
+    print(jsonVal);
+    var newVal=TestVal.fromJson(jsonVal);
+    print('${newVal.name}: ${newVal.icon?.codePoint}, ${newVal.color?.value}');
+  }
 }
+

@@ -109,6 +109,11 @@ class Store {
     this.telephone,
     this.email,
     this.placeId,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
     this.productStorePromoAppl,
     this.productStoreEmailSetting,
     this.productStoreFacility,
@@ -213,6 +218,11 @@ class Store {
     String? telephone,
     String? email,
     String? placeId,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
     List<ProductStorePromoAppl>? productStorePromoAppl,
     List<ProductStoreEmailSetting>? productStoreEmailSetting,
     List<ProductStoreFacility>? productStoreFacility,
@@ -316,6 +326,11 @@ class Store {
       telephone: telephone ?? this.telephone,
       email: email ?? this.email,
       placeId: placeId ?? this.placeId,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       productStorePromoAppl: productStorePromoAppl ?? this.productStorePromoAppl,
       productStoreEmailSetting: productStoreEmailSetting ?? this.productStoreEmailSetting,
       productStoreFacility: productStoreFacility ?? this.productStoreFacility,
@@ -620,6 +635,21 @@ class Store {
 
    
   String? placeId;
+
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
 
 
   // rel: one (no public-types)

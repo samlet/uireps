@@ -33,9 +33,17 @@ class Wallet {
     this.acl,
     this.resourceId,
     this.resourceType,
+    this.url,
+    this.image,
+    this.sameAs,
+    this.icon,
+    this.color,
+    this.name,
+    this.description,
     this.walletType,
     this.walletContainer,
     this.walletReference,
+    this.walletFinAccount,
     this.walletStatus,
     this.walletOrderBin,
     this.walletPicklist,
@@ -62,9 +70,17 @@ class Wallet {
     Multimap<String, String>? acl,
     String? resourceId,
     String? resourceType,
+    String? url,
+    List<String?>? image,
+    String? sameAs,
+    int? icon,
+    int? color,
+    String? name,
+    String? description,
     WalletType? walletType,
     List<WalletContainer>? walletContainer,
     List<WalletReference>? walletReference,
+    List<WalletFinAccount>? walletFinAccount,
     List<WalletStatus>? walletStatus,
     List<WalletOrderBin>? walletOrderBin,
     List<WalletPicklist>? walletPicklist,
@@ -90,9 +106,17 @@ class Wallet {
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
+      name: name ?? this.name,
+      description: description ?? this.description,
       walletType: walletType ?? this.walletType,
       walletContainer: walletContainer ?? this.walletContainer,
       walletReference: walletReference ?? this.walletReference,
+      walletFinAccount: walletFinAccount ?? this.walletFinAccount,
       walletStatus: walletStatus ?? this.walletStatus,
       walletOrderBin: walletOrderBin ?? this.walletOrderBin,
       walletPicklist: walletPicklist ?? this.walletPicklist,
@@ -168,6 +192,27 @@ class Wallet {
    
   String? resourceType;
 
+   
+  String? url;
+
+   
+  List<String?>? image;
+
+   
+  String? sameAs;
+
+   
+  int? icon;
+
+   
+  int? color;
+
+   
+  String? name;
+
+   
+  String? description;
+
 
   // rel: one (no public-types)
   WalletType? walletType;
@@ -176,6 +221,7 @@ class Wallet {
   // rel: many
   List<WalletContainer>? walletContainer;
   List<WalletReference>? walletReference;
+  List<WalletFinAccount>? walletFinAccount;
   List<WalletStatus>? walletStatus;
   List<WalletOrderBin>? walletOrderBin;
   List<WalletPicklist>? walletPicklist;
@@ -266,6 +312,46 @@ class Wallet {
 
   bool hasWalletReference(String itemId){
     return walletReference?.any((el) => el.id == itemId)??false;
+  }
+      
+  /// rel - WalletFinAccount
+  void addWalletFinAccount(WalletFinAccount newItem) {
+    walletFinAccount = [...?walletFinAccount, newItem];
+  }
+
+  void removeWalletFinAccount(String itemId) {
+    walletFinAccount = walletFinAccount?.where((el) => el.id != itemId).toList();
+  }
+
+  void updateWalletFinAccount(String id, {
+    String? walletId_,
+    String? finAccountId_,
+    String? bindType_,
+    String? tenantId_,
+    DateTime? lastUpdatedTxStamp_,
+    DateTime? createdTxStamp_,
+    String? purpose_,
+  }) {
+    walletFinAccount = [
+      for (WalletFinAccount el in walletFinAccount??[])
+        if (el.id == id)
+          WalletFinAccount(
+            id: id,
+            walletId: walletId_??el.walletId,
+            finAccountId: finAccountId_??el.finAccountId,
+            bindType: bindType_??el.bindType,
+            tenantId: tenantId_??el.tenantId,
+            lastUpdatedTxStamp: lastUpdatedTxStamp_??el.lastUpdatedTxStamp,
+            createdTxStamp: createdTxStamp_??el.createdTxStamp,
+            purpose: purpose_??el.purpose,
+          )
+        else
+          el,
+    ];
+  }  
+
+  bool hasWalletFinAccount(String itemId){
+    return walletFinAccount?.any((el) => el.id == itemId)??false;
   }
       
   /// rel - WalletStatus
@@ -710,6 +796,78 @@ class WalletReference {
 
    
   DateTime? thruDate;
+
+   
+  String? id;
+
+  
+}
+
+// entity: WalletFinAccount
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+class WalletFinAccount {
+  WalletFinAccount({
+    this.walletId,
+    this.finAccountId,
+    this.bindType,
+    this.tenantId,
+    this.lastUpdatedTxStamp,
+    this.createdTxStamp,
+    this.purpose,
+    this.id,
+  });
+
+  WalletFinAccount copyWith({
+    String? walletId,
+    String? finAccountId,
+    String? bindType,
+    String? tenantId,
+    DateTime? lastUpdatedTxStamp,
+    DateTime? createdTxStamp,
+    String? purpose,
+    String? id,
+  }) {
+    return WalletFinAccount(
+      walletId: walletId ?? this.walletId,
+      finAccountId: finAccountId ?? this.finAccountId,
+      bindType: bindType ?? this.bindType,
+      tenantId: tenantId ?? this.tenantId,
+      lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
+      createdTxStamp: createdTxStamp ?? this.createdTxStamp,
+      purpose: purpose ?? this.purpose,
+      id: id ?? this.id,
+    );
+  }
+
+  factory WalletFinAccount.fromJson(Map<String, dynamic> json) => _$WalletFinAccountFromJson(json);
+  Map<String, dynamic> toJson() => _$WalletFinAccountToJson(this);
+
+  // for drift serde
+  static df.TypeConverter<WalletFinAccount, String> converter = df.TypeConverter.json(
+    fromJson: (json) => WalletFinAccount.fromJson(json as Map<String, Object?>),
+    toJson: (pref) => pref.toJson(),
+  );
+
+   
+  String? walletId;
+
+   
+  String? finAccountId;
+
+   
+  String? bindType;
+
+   
+  String? tenantId;
+
+   
+  DateTime? lastUpdatedTxStamp;
+
+   
+  DateTime? createdTxStamp;
+
+   
+  String? purpose;
 
    
   String? id;

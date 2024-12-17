@@ -19,6 +19,24 @@ class CounterCompRepository {
 
    
   // Mutation
+  Future<void> decr({
+    
+    required int l, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "decr",
+      "bundleName" : "CounterComp",
+      "call-type": "machineComp",
+      "regionId": regionOrNs,
+    }, {
+      "l": l, 
+    });
+    
+  }
+   
+  // Mutation
   Future<void> reset() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -29,20 +47,6 @@ class CounterCompRepository {
     }, { 
     });
     
-  }
-   
-  // Query
-  Future<int> getValue() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getValue",
-      "bundleName" : "CounterComp",
-      "call-type": "machineComp",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return ResultConv.asInt(resp);
   }
    
   // Mutation
@@ -64,22 +68,18 @@ class CounterCompRepository {
     return ResultConv.asInt(resp);
   }
    
-  // Mutation
-  Future<void> decr({
-    
-    required int l, 
-
-  }) async { 
+  // Query
+  Future<int> getValue() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "decr",
+      "action": "getValue",
       "bundleName" : "CounterComp",
       "call-type": "machineComp",
       "regionId": regionOrNs,
-    }, {
-      "l": l, 
+    }, { 
     });
     
+    return ResultConv.asInt(resp);
   }
   
 }

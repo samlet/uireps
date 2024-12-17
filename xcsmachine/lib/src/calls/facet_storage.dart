@@ -18,27 +18,6 @@ class FacetStorageRepository {
   final String moduleName;
 
    
-  // Query
-  Future<Map<String, Object?>> get({
-    
-    required String fullBundleName,
-    required String key, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "get",
-      "bundleName" : "FacetStorage",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "fullBundleName": fullBundleName,
-      "key": key, 
-    });
-    
-    return asTypedMap(resp);
-  }
-   
   // Mutation
   Future<void> put({
     
@@ -59,6 +38,27 @@ class FacetStorageRepository {
       "val": val, 
     });
     
+  }
+   
+  // Mutation
+  Future<DateTime> touch({
+    
+    required String fullBundleName,
+    required String id, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "touch",
+      "bundleName" : "FacetStorage",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "fullBundleName": fullBundleName,
+      "id": id, 
+    });
+    
+    return DateTime.parse(resp as String);
   }
    
   // Query
@@ -82,22 +82,25 @@ class FacetStorageRepository {
     return convList(resp, (el)=>el);
   }
    
-  // Mutation
-  Future<void> putBiDraft({
+  // Query
+  Future<DateTime> getLastTs({
     
-    required BiFacetBi data, 
+    required String fullBundleName,
+    required String bundleId, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "putBiDraft",
+      "action": "getLastTs",
       "bundleName" : "FacetStorage",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "data": data, 
+      "fullBundleName": fullBundleName,
+      "bundleId": bundleId, 
     });
     
+    return DateTime.parse(resp as String);
   }
    
   // Query
@@ -120,45 +123,42 @@ class FacetStorageRepository {
   }
    
   // Query
-  Future<DateTime> getLastTs({
+  Future<Map<String, Object?>> get({
     
     required String fullBundleName,
-    required String bundleId, 
+    required String key, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getLastTs",
+      "action": "get",
       "bundleName" : "FacetStorage",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
       "fullBundleName": fullBundleName,
-      "bundleId": bundleId, 
+      "key": key, 
     });
     
-    return DateTime.parse(resp as String);
+    return asTypedMap(resp);
   }
    
   // Mutation
-  Future<DateTime> touch({
+  Future<void> putBiDraft({
     
-    required String fullBundleName,
-    required String id, 
+    required BiFacetBi data, 
 
   }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "touch",
+      "action": "putBiDraft",
       "bundleName" : "FacetStorage",
       "call-type": "slab",
       "regionId": regionOrNs,
     }, {
-      "fullBundleName": fullBundleName,
-      "id": id, 
+      "data": data, 
     });
     
-    return DateTime.parse(resp as String);
   }
   
 }

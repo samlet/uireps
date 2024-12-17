@@ -20,21 +20,6 @@ class DataResourceCoRepository {
   final String id;
 
    
-  // Query
-  Future<String> name() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "name",
-      "bundleName" : "DataResource",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
   // Mutation
   Future<void> setText({
     
@@ -52,6 +37,21 @@ class DataResourceCoRepository {
       "text": text, 
     });
     
+  }
+   
+  // Query
+  Future<String> name() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "name",
+      "bundleName" : "DataResource",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
   }
    
   // Query

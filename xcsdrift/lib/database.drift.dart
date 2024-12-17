@@ -10,28 +10,29 @@ import 'package:xcsdrift/src/seller_pref.drift.dart' as i7;
 import 'package:xcsdrift/src/buyer_pref.drift.dart' as i8;
 import 'package:xcsdrift/src/thing_facet.drift.dart' as i9;
 import 'package:xcsdrift/src/bi_facet.drift.dart' as i10;
-import 'package:xcsdrift/src/user_login.drift.dart' as i11;
-import 'package:xcsdrift/src/headline.drift.dart' as i12;
-import 'package:xcsdrift/src/section.drift.dart' as i13;
-import 'package:xcsdrift/src/slot.drift.dart' as i14;
-import 'package:xcsdrift/src/data_resource.drift.dart' as i15;
-import 'package:xcsdrift/src/asset.drift.dart' as i16;
-import 'package:xcsdrift/src/comment.drift.dart' as i17;
-import 'package:xcsdrift/src/carrier.drift.dart' as i18;
-import 'package:xcsdrift/src/product.drift.dart' as i19;
-import 'package:xcsdrift/src/store.drift.dart' as i20;
-import 'package:xcsdrift/src/marketplace.drift.dart' as i21;
-import 'package:xcsdrift/src/billboard.drift.dart' as i22;
-import 'package:xcsdrift/src/shopping_cart.drift.dart' as i23;
-import 'package:xcsdrift/src/config.drift.dart' as i24;
-import 'package:xcsdrift/src/metadata.drift.dart' as i25;
-import 'package:xcsdrift/src/inventory.drift.dart' as i26;
-import 'package:xcsdrift/src/facility.drift.dart' as i27;
-import 'package:xcsdrift/src/example.drift.dart' as i28;
-import 'package:xcsdrift/src/shipment.drift.dart' as i29;
-import 'package:xcsdrift/src/note.drift.dart' as i30;
-import 'package:drift/internal/modular.dart' as i31;
-import 'package:xcsdrift/src/all_facets.drift.dart' as i32;
+import 'package:xcsdrift/src/budget.drift.dart' as i11;
+import 'package:xcsdrift/src/user_login.drift.dart' as i12;
+import 'package:xcsdrift/src/headline.drift.dart' as i13;
+import 'package:xcsdrift/src/section.drift.dart' as i14;
+import 'package:xcsdrift/src/slot.drift.dart' as i15;
+import 'package:xcsdrift/src/data_resource.drift.dart' as i16;
+import 'package:xcsdrift/src/asset.drift.dart' as i17;
+import 'package:xcsdrift/src/comment.drift.dart' as i18;
+import 'package:xcsdrift/src/carrier.drift.dart' as i19;
+import 'package:xcsdrift/src/product.drift.dart' as i20;
+import 'package:xcsdrift/src/store.drift.dart' as i21;
+import 'package:xcsdrift/src/marketplace.drift.dart' as i22;
+import 'package:xcsdrift/src/billboard.drift.dart' as i23;
+import 'package:xcsdrift/src/shopping_cart.drift.dart' as i24;
+import 'package:xcsdrift/src/config.drift.dart' as i25;
+import 'package:xcsdrift/src/metadata.drift.dart' as i26;
+import 'package:xcsdrift/src/inventory.drift.dart' as i27;
+import 'package:xcsdrift/src/facility.drift.dart' as i28;
+import 'package:xcsdrift/src/example.drift.dart' as i29;
+import 'package:xcsdrift/src/shipment.drift.dart' as i30;
+import 'package:xcsdrift/src/note.drift.dart' as i31;
+import 'package:drift/internal/modular.dart' as i32;
+import 'package:xcsdrift/src/all_facets.drift.dart' as i33;
 
 abstract class $Database extends i0.GeneratedDatabase {
   $Database(i0.QueryExecutor e) : super(e);
@@ -46,87 +47,90 @@ abstract class $Database extends i0.GeneratedDatabase {
   late final i8.BuyerPref buyerPref = i8.BuyerPref(this);
   late final i9.ThingFacet thingFacet = i9.ThingFacet(this);
   late final i10.BiFacet biFacet = i10.BiFacet(this);
-  late final i11.UserLogin userLogin = i11.UserLogin(this);
-  late final i12.Headline headline = i12.Headline(this);
-  late final i13.Section section = i13.Section(this);
-  late final i14.Slot slot = i14.Slot(this);
-  late final i15.DataResource dataResource = i15.DataResource(this);
-  late final i16.Asset asset = i16.Asset(this);
-  late final i17.Comment comment = i17.Comment(this);
-  late final i18.Carrier carrier = i18.Carrier(this);
-  late final i19.Product product = i19.Product(this);
-  late final i20.ProductStore productStore = i20.ProductStore(this);
-  late final i21.Marketplace marketplace = i21.Marketplace(this);
-  late final i22.Billboard billboard = i22.Billboard(this);
-  late final i23.ShoppingCart shoppingCart = i23.ShoppingCart(this);
-  late final i24.Config config = i24.Config(this);
-  late final i25.Metadata metadata = i25.Metadata(this);
-  late final i26.InventoryItem inventoryItem = i26.InventoryItem(this);
-  late final i27.Facility facility = i27.Facility(this);
-  late final i28.Example example = i28.Example(this);
-  late final i29.Shipment shipment = i29.Shipment(this);
-  late final i30.NoteData noteData = i30.NoteData(this);
-  i30.NoteDrift get noteDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i30.NoteDrift>(i30.NoteDrift.new);
-  i29.ShipmentDrift get shipmentDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i29.ShipmentDrift>(i29.ShipmentDrift.new);
-  i28.ExampleDrift get exampleDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i28.ExampleDrift>(i28.ExampleDrift.new);
-  i27.FacilityDrift get facilityDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i27.FacilityDrift>(i27.FacilityDrift.new);
-  i26.InventoryDrift get inventoryDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i26.InventoryDrift>(i26.InventoryDrift.new);
-  i25.MetadataDrift get metadataDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i25.MetadataDrift>(i25.MetadataDrift.new);
-  i24.ConfigDrift get configDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i24.ConfigDrift>(i24.ConfigDrift.new);
-  i23.ShoppingCartDrift get shoppingCartDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i23.ShoppingCartDrift>(i23.ShoppingCartDrift.new);
-  i22.BillboardDrift get billboardDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i22.BillboardDrift>(i22.BillboardDrift.new);
-  i21.MarketplaceDrift get marketplaceDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i21.MarketplaceDrift>(i21.MarketplaceDrift.new);
-  i20.StoreDrift get storeDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i20.StoreDrift>(i20.StoreDrift.new);
-  i19.ProductDrift get productDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i19.ProductDrift>(i19.ProductDrift.new);
-  i18.CarrierDrift get carrierDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i18.CarrierDrift>(i18.CarrierDrift.new);
-  i17.CommentDrift get commentDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i17.CommentDrift>(i17.CommentDrift.new);
-  i16.AssetDrift get assetDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i16.AssetDrift>(i16.AssetDrift.new);
-  i15.DataResourceDrift get dataResourceDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i15.DataResourceDrift>(i15.DataResourceDrift.new);
-  i14.SlotDrift get slotDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i14.SlotDrift>(i14.SlotDrift.new);
-  i13.SectionDrift get sectionDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i13.SectionDrift>(i13.SectionDrift.new);
-  i12.HeadlineDrift get headlineDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i12.HeadlineDrift>(i12.HeadlineDrift.new);
-  i11.UserLoginDrift get userLoginDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i11.UserLoginDrift>(i11.UserLoginDrift.new);
-  i10.BiFacetDrift get biFacetDrift => i31.ReadDatabaseContainer(this)
+  late final i11.Budget budget = i11.Budget(this);
+  late final i12.UserLogin userLogin = i12.UserLogin(this);
+  late final i13.Headline headline = i13.Headline(this);
+  late final i14.Section section = i14.Section(this);
+  late final i15.Slot slot = i15.Slot(this);
+  late final i16.DataResource dataResource = i16.DataResource(this);
+  late final i17.Asset asset = i17.Asset(this);
+  late final i18.Comment comment = i18.Comment(this);
+  late final i19.Carrier carrier = i19.Carrier(this);
+  late final i20.Product product = i20.Product(this);
+  late final i21.ProductStore productStore = i21.ProductStore(this);
+  late final i22.Marketplace marketplace = i22.Marketplace(this);
+  late final i23.Billboard billboard = i23.Billboard(this);
+  late final i24.ShoppingCart shoppingCart = i24.ShoppingCart(this);
+  late final i25.Config config = i25.Config(this);
+  late final i26.Metadata metadata = i26.Metadata(this);
+  late final i27.InventoryItem inventoryItem = i27.InventoryItem(this);
+  late final i28.Facility facility = i28.Facility(this);
+  late final i29.Example example = i29.Example(this);
+  late final i30.Shipment shipment = i30.Shipment(this);
+  late final i31.NoteData noteData = i31.NoteData(this);
+  i31.NoteDrift get noteDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i31.NoteDrift>(i31.NoteDrift.new);
+  i30.ShipmentDrift get shipmentDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i30.ShipmentDrift>(i30.ShipmentDrift.new);
+  i29.ExampleDrift get exampleDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i29.ExampleDrift>(i29.ExampleDrift.new);
+  i28.FacilityDrift get facilityDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i28.FacilityDrift>(i28.FacilityDrift.new);
+  i27.InventoryDrift get inventoryDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i27.InventoryDrift>(i27.InventoryDrift.new);
+  i26.MetadataDrift get metadataDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i26.MetadataDrift>(i26.MetadataDrift.new);
+  i25.ConfigDrift get configDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i25.ConfigDrift>(i25.ConfigDrift.new);
+  i24.ShoppingCartDrift get shoppingCartDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i24.ShoppingCartDrift>(i24.ShoppingCartDrift.new);
+  i23.BillboardDrift get billboardDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i23.BillboardDrift>(i23.BillboardDrift.new);
+  i22.MarketplaceDrift get marketplaceDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i22.MarketplaceDrift>(i22.MarketplaceDrift.new);
+  i21.StoreDrift get storeDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i21.StoreDrift>(i21.StoreDrift.new);
+  i20.ProductDrift get productDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i20.ProductDrift>(i20.ProductDrift.new);
+  i19.CarrierDrift get carrierDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i19.CarrierDrift>(i19.CarrierDrift.new);
+  i18.CommentDrift get commentDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i18.CommentDrift>(i18.CommentDrift.new);
+  i17.AssetDrift get assetDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i17.AssetDrift>(i17.AssetDrift.new);
+  i16.DataResourceDrift get dataResourceDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i16.DataResourceDrift>(i16.DataResourceDrift.new);
+  i15.SlotDrift get slotDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i15.SlotDrift>(i15.SlotDrift.new);
+  i14.SectionDrift get sectionDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i14.SectionDrift>(i14.SectionDrift.new);
+  i13.HeadlineDrift get headlineDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i13.HeadlineDrift>(i13.HeadlineDrift.new);
+  i12.UserLoginDrift get userLoginDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i12.UserLoginDrift>(i12.UserLoginDrift.new);
+  i11.BudgetDrift get budgetDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i11.BudgetDrift>(i11.BudgetDrift.new);
+  i10.BiFacetDrift get biFacetDrift => i32.ReadDatabaseContainer(this)
       .accessor<i10.BiFacetDrift>(i10.BiFacetDrift.new);
-  i9.ThingFacetDrift get thingFacetDrift => i31.ReadDatabaseContainer(this)
+  i9.ThingFacetDrift get thingFacetDrift => i32.ReadDatabaseContainer(this)
       .accessor<i9.ThingFacetDrift>(i9.ThingFacetDrift.new);
-  i2.SessionCacheDrift get sessionCacheDrift => i31.ReadDatabaseContainer(this)
+  i2.SessionCacheDrift get sessionCacheDrift => i32.ReadDatabaseContainer(this)
       .accessor<i2.SessionCacheDrift>(i2.SessionCacheDrift.new);
-  i3.AppSettingDrift get appSettingDrift => i31.ReadDatabaseContainer(this)
+  i3.AppSettingDrift get appSettingDrift => i32.ReadDatabaseContainer(this)
       .accessor<i3.AppSettingDrift>(i3.AppSettingDrift.new);
-  i4.UserPrefDrift get userPrefDrift => i31.ReadDatabaseContainer(this)
+  i4.UserPrefDrift get userPrefDrift => i32.ReadDatabaseContainer(this)
       .accessor<i4.UserPrefDrift>(i4.UserPrefDrift.new);
-  i8.BuyerPrefDrift get buyerPrefDrift => i31.ReadDatabaseContainer(this)
+  i8.BuyerPrefDrift get buyerPrefDrift => i32.ReadDatabaseContainer(this)
       .accessor<i8.BuyerPrefDrift>(i8.BuyerPrefDrift.new);
-  i7.SellerPrefDrift get sellerPrefDrift => i31.ReadDatabaseContainer(this)
+  i7.SellerPrefDrift get sellerPrefDrift => i32.ReadDatabaseContainer(this)
       .accessor<i7.SellerPrefDrift>(i7.SellerPrefDrift.new);
-  i6.CarrierPrefDrift get carrierPrefDrift => i31.ReadDatabaseContainer(this)
+  i6.CarrierPrefDrift get carrierPrefDrift => i32.ReadDatabaseContainer(this)
       .accessor<i6.CarrierPrefDrift>(i6.CarrierPrefDrift.new);
-  i5.CommodityDrift get commodityDrift => i31.ReadDatabaseContainer(this)
+  i5.CommodityDrift get commodityDrift => i32.ReadDatabaseContainer(this)
       .accessor<i5.CommodityDrift>(i5.CommodityDrift.new);
-  i32.AllFacetsDrift get allFacetsDrift => i31.ReadDatabaseContainer(this)
-      .accessor<i32.AllFacetsDrift>(i32.AllFacetsDrift.new);
-  i1.SysTableDrift get sysTableDrift => i31.ReadDatabaseContainer(this)
+  i33.AllFacetsDrift get allFacetsDrift => i32.ReadDatabaseContainer(this)
+      .accessor<i33.AllFacetsDrift>(i33.AllFacetsDrift.new);
+  i1.SysTableDrift get sysTableDrift => i32.ReadDatabaseContainer(this)
       .accessor<i1.SysTableDrift>(i1.SysTableDrift.new);
   @override
   Iterable<i0.TableInfo<i0.Table, Object?>> get allTables =>
@@ -143,6 +147,7 @@ abstract class $Database extends i0.GeneratedDatabase {
         buyerPref,
         thingFacet,
         biFacet,
+        budget,
         userLogin,
         headline,
         section,
@@ -192,42 +197,44 @@ class $DatabaseManager {
       i9.$ThingFacetTableManager(_db, _db.thingFacet);
   i10.$BiFacetTableManager get biFacet =>
       i10.$BiFacetTableManager(_db, _db.biFacet);
-  i11.$UserLoginTableManager get userLogin =>
-      i11.$UserLoginTableManager(_db, _db.userLogin);
-  i12.$HeadlineTableManager get headline =>
-      i12.$HeadlineTableManager(_db, _db.headline);
-  i13.$SectionTableManager get section =>
-      i13.$SectionTableManager(_db, _db.section);
-  i14.$SlotTableManager get slot => i14.$SlotTableManager(_db, _db.slot);
-  i15.$DataResourceTableManager get dataResource =>
-      i15.$DataResourceTableManager(_db, _db.dataResource);
-  i16.$AssetTableManager get asset => i16.$AssetTableManager(_db, _db.asset);
-  i17.$CommentTableManager get comment =>
-      i17.$CommentTableManager(_db, _db.comment);
-  i18.$CarrierTableManager get carrier =>
-      i18.$CarrierTableManager(_db, _db.carrier);
-  i19.$ProductTableManager get product =>
-      i19.$ProductTableManager(_db, _db.product);
-  i20.$ProductStoreTableManager get productStore =>
-      i20.$ProductStoreTableManager(_db, _db.productStore);
-  i21.$MarketplaceTableManager get marketplace =>
-      i21.$MarketplaceTableManager(_db, _db.marketplace);
-  i22.$BillboardTableManager get billboard =>
-      i22.$BillboardTableManager(_db, _db.billboard);
-  i23.$ShoppingCartTableManager get shoppingCart =>
-      i23.$ShoppingCartTableManager(_db, _db.shoppingCart);
-  i24.$ConfigTableManager get config =>
-      i24.$ConfigTableManager(_db, _db.config);
-  i25.$MetadataTableManager get metadata =>
-      i25.$MetadataTableManager(_db, _db.metadata);
-  i26.$InventoryItemTableManager get inventoryItem =>
-      i26.$InventoryItemTableManager(_db, _db.inventoryItem);
-  i27.$FacilityTableManager get facility =>
-      i27.$FacilityTableManager(_db, _db.facility);
-  i28.$ExampleTableManager get example =>
-      i28.$ExampleTableManager(_db, _db.example);
-  i29.$ShipmentTableManager get shipment =>
-      i29.$ShipmentTableManager(_db, _db.shipment);
-  i30.$NoteDataTableManager get noteData =>
-      i30.$NoteDataTableManager(_db, _db.noteData);
+  i11.$BudgetTableManager get budget =>
+      i11.$BudgetTableManager(_db, _db.budget);
+  i12.$UserLoginTableManager get userLogin =>
+      i12.$UserLoginTableManager(_db, _db.userLogin);
+  i13.$HeadlineTableManager get headline =>
+      i13.$HeadlineTableManager(_db, _db.headline);
+  i14.$SectionTableManager get section =>
+      i14.$SectionTableManager(_db, _db.section);
+  i15.$SlotTableManager get slot => i15.$SlotTableManager(_db, _db.slot);
+  i16.$DataResourceTableManager get dataResource =>
+      i16.$DataResourceTableManager(_db, _db.dataResource);
+  i17.$AssetTableManager get asset => i17.$AssetTableManager(_db, _db.asset);
+  i18.$CommentTableManager get comment =>
+      i18.$CommentTableManager(_db, _db.comment);
+  i19.$CarrierTableManager get carrier =>
+      i19.$CarrierTableManager(_db, _db.carrier);
+  i20.$ProductTableManager get product =>
+      i20.$ProductTableManager(_db, _db.product);
+  i21.$ProductStoreTableManager get productStore =>
+      i21.$ProductStoreTableManager(_db, _db.productStore);
+  i22.$MarketplaceTableManager get marketplace =>
+      i22.$MarketplaceTableManager(_db, _db.marketplace);
+  i23.$BillboardTableManager get billboard =>
+      i23.$BillboardTableManager(_db, _db.billboard);
+  i24.$ShoppingCartTableManager get shoppingCart =>
+      i24.$ShoppingCartTableManager(_db, _db.shoppingCart);
+  i25.$ConfigTableManager get config =>
+      i25.$ConfigTableManager(_db, _db.config);
+  i26.$MetadataTableManager get metadata =>
+      i26.$MetadataTableManager(_db, _db.metadata);
+  i27.$InventoryItemTableManager get inventoryItem =>
+      i27.$InventoryItemTableManager(_db, _db.inventoryItem);
+  i28.$FacilityTableManager get facility =>
+      i28.$FacilityTableManager(_db, _db.facility);
+  i29.$ExampleTableManager get example =>
+      i29.$ExampleTableManager(_db, _db.example);
+  i30.$ShipmentTableManager get shipment =>
+      i30.$ShipmentTableManager(_db, _db.shipment);
+  i31.$NoteDataTableManager get noteData =>
+      i31.$NoteDataTableManager(_db, _db.noteData);
 }

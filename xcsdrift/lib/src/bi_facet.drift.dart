@@ -15,6 +15,8 @@ typedef $BiFacetCreateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<String?> data,
   i0.Value<List<String>?> tags,
   i0.Value<bool?> modified,
+  i0.Value<String?> applyTarget,
+  i0.Value<String?> applyRecordType,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
   i0.Value<DateTime?> createdTxStamp,
@@ -34,6 +36,8 @@ typedef $BiFacetUpdateCompanionBuilder = i1.BiFacetCompanion Function({
   i0.Value<String?> data,
   i0.Value<List<String>?> tags,
   i0.Value<bool?> modified,
+  i0.Value<String?> applyTarget,
+  i0.Value<String?> applyRecordType,
   i0.Value<String?> tenantId,
   i0.Value<DateTime?> lastUpdatedTxStamp,
   i0.Value<DateTime?> createdTxStamp,
@@ -79,6 +83,14 @@ class $BiFacetFilterComposer
 
   i0.ColumnFilters<bool> get modified => $composableBuilder(
       column: $table.modified, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get applyTarget => $composableBuilder(
+      column: $table.applyTarget,
+      builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get applyRecordType => $composableBuilder(
+      column: $table.applyRecordType,
+      builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnFilters<String> get tenantId => $composableBuilder(
       column: $table.tenantId, builder: (column) => i0.ColumnFilters(column));
@@ -146,6 +158,14 @@ class $BiFacetOrderingComposer
   i0.ColumnOrderings<bool> get modified => $composableBuilder(
       column: $table.modified, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get applyTarget => $composableBuilder(
+      column: $table.applyTarget,
+      builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get applyRecordType => $composableBuilder(
+      column: $table.applyRecordType,
+      builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get tenantId => $composableBuilder(
       column: $table.tenantId, builder: (column) => i0.ColumnOrderings(column));
 
@@ -209,6 +229,12 @@ class $BiFacetAnnotationComposer
   i0.GeneratedColumn<bool> get modified =>
       $composableBuilder(column: $table.modified, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get applyTarget => $composableBuilder(
+      column: $table.applyTarget, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get applyRecordType => $composableBuilder(
+      column: $table.applyRecordType, builder: (column) => column);
+
   i0.GeneratedColumn<String> get tenantId =>
       $composableBuilder(column: $table.tenantId, builder: (column) => column);
 
@@ -269,6 +295,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<String?> data = const i0.Value.absent(),
             i0.Value<List<String>?> tags = const i0.Value.absent(),
             i0.Value<bool?> modified = const i0.Value.absent(),
+            i0.Value<String?> applyTarget = const i0.Value.absent(),
+            i0.Value<String?> applyRecordType = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
             i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
@@ -289,6 +317,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             data: data,
             tags: tags,
             modified: modified,
+            applyTarget: applyTarget,
+            applyRecordType: applyRecordType,
             tenantId: tenantId,
             lastUpdatedTxStamp: lastUpdatedTxStamp,
             createdTxStamp: createdTxStamp,
@@ -308,6 +338,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             i0.Value<String?> data = const i0.Value.absent(),
             i0.Value<List<String>?> tags = const i0.Value.absent(),
             i0.Value<bool?> modified = const i0.Value.absent(),
+            i0.Value<String?> applyTarget = const i0.Value.absent(),
+            i0.Value<String?> applyRecordType = const i0.Value.absent(),
             i0.Value<String?> tenantId = const i0.Value.absent(),
             i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
             i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
@@ -328,6 +360,8 @@ class $BiFacetTableManager extends i0.RootTableManager<
             data: data,
             tags: tags,
             modified: modified,
+            applyTarget: applyTarget,
+            applyRecordType: applyRecordType,
             tenantId: tenantId,
             lastUpdatedTxStamp: lastUpdatedTxStamp,
             createdTxStamp: createdTxStamp,
@@ -423,6 +457,20 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
       type: i0.DriftSqlType.bool,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _applyTargetMeta =
+      const i0.VerificationMeta('applyTarget');
+  late final i0.GeneratedColumn<String> applyTarget =
+      i0.GeneratedColumn<String>('apply_target', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
+  static const i0.VerificationMeta _applyRecordTypeMeta =
+      const i0.VerificationMeta('applyRecordType');
+  late final i0.GeneratedColumn<String> applyRecordType =
+      i0.GeneratedColumn<String>('apply_record_type', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '');
   static const i0.VerificationMeta _tenantIdMeta =
       const i0.VerificationMeta('tenantId');
   late final i0.GeneratedColumn<String> tenantId = i0.GeneratedColumn<String>(
@@ -493,6 +541,8 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
         data,
         tags,
         modified,
+        applyTarget,
+        applyRecordType,
         tenantId,
         lastUpdatedTxStamp,
         createdTxStamp,
@@ -545,6 +595,18 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
     if (data.containsKey('modified')) {
       context.handle(_modifiedMeta,
           modified.isAcceptableOrUnknown(data['modified']!, _modifiedMeta));
+    }
+    if (data.containsKey('apply_target')) {
+      context.handle(
+          _applyTargetMeta,
+          applyTarget.isAcceptableOrUnknown(
+              data['apply_target']!, _applyTargetMeta));
+    }
+    if (data.containsKey('apply_record_type')) {
+      context.handle(
+          _applyRecordTypeMeta,
+          applyRecordType.isAcceptableOrUnknown(
+              data['apply_record_type']!, _applyRecordTypeMeta));
     }
     if (data.containsKey('tenant_id')) {
       context.handle(_tenantIdMeta,
@@ -608,6 +670,10 @@ class BiFacet extends i0.Table with i0.TableInfo<BiFacet, i1.BiFacetData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tags'])),
       modified: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}modified']),
+      applyTarget: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}apply_target']),
+      applyRecordType: attachedDatabase.typeMapping.read(
+          i0.DriftSqlType.string, data['${effectivePrefix}apply_record_type']),
       tenantId: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tenant_id']),
       lastUpdatedTxStamp: attachedDatabase.typeMapping.read(
@@ -658,6 +724,8 @@ class BiFacetData extends i0.DataClass
   final String? data;
   final List<String>? tags;
   final bool? modified;
+  final String? applyTarget;
+  final String? applyRecordType;
   final String? tenantId;
   final DateTime? lastUpdatedTxStamp;
   final DateTime? createdTxStamp;
@@ -678,6 +746,8 @@ class BiFacetData extends i0.DataClass
       this.data,
       this.tags,
       this.modified,
+      this.applyTarget,
+      this.applyRecordType,
       this.tenantId,
       this.lastUpdatedTxStamp,
       this.createdTxStamp,
@@ -710,6 +780,12 @@ class BiFacetData extends i0.DataClass
     }
     if (!nullToAbsent || modified != null) {
       map['modified'] = i0.Variable<bool>(modified);
+    }
+    if (!nullToAbsent || applyTarget != null) {
+      map['apply_target'] = i0.Variable<String>(applyTarget);
+    }
+    if (!nullToAbsent || applyRecordType != null) {
+      map['apply_record_type'] = i0.Variable<String>(applyRecordType);
     }
     if (!nullToAbsent || tenantId != null) {
       map['tenant_id'] = i0.Variable<String>(tenantId);
@@ -763,6 +839,12 @@ class BiFacetData extends i0.DataClass
       modified: modified == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(modified),
+      applyTarget: applyTarget == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(applyTarget),
+      applyRecordType: applyRecordType == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(applyRecordType),
       tenantId: tenantId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(tenantId),
@@ -803,6 +885,8 @@ class BiFacetData extends i0.DataClass
       tags: i1.BiFacet.$convertertagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['tags'])),
       modified: serializer.fromJson<bool?>(json['modified']),
+      applyTarget: serializer.fromJson<String?>(json['apply_target']),
+      applyRecordType: serializer.fromJson<String?>(json['apply_record_type']),
       tenantId: serializer.fromJson<String?>(json['tenant_id']),
       lastUpdatedTxStamp:
           serializer.fromJson<DateTime?>(json['last_updated_tx_stamp']),
@@ -828,6 +912,8 @@ class BiFacetData extends i0.DataClass
       'tags': serializer
           .toJson<List<dynamic>?>(i1.BiFacet.$convertertagsn.toJson(tags)),
       'modified': serializer.toJson<bool?>(modified),
+      'apply_target': serializer.toJson<String?>(applyTarget),
+      'apply_record_type': serializer.toJson<String?>(applyRecordType),
       'tenant_id': serializer.toJson<String?>(tenantId),
       'last_updated_tx_stamp': serializer.toJson<DateTime?>(lastUpdatedTxStamp),
       'created_tx_stamp': serializer.toJson<DateTime?>(createdTxStamp),
@@ -849,6 +935,8 @@ class BiFacetData extends i0.DataClass
           i0.Value<String?> data = const i0.Value.absent(),
           i0.Value<List<String>?> tags = const i0.Value.absent(),
           i0.Value<bool?> modified = const i0.Value.absent(),
+          i0.Value<String?> applyTarget = const i0.Value.absent(),
+          i0.Value<String?> applyRecordType = const i0.Value.absent(),
           i0.Value<String?> tenantId = const i0.Value.absent(),
           i0.Value<DateTime?> lastUpdatedTxStamp = const i0.Value.absent(),
           i0.Value<DateTime?> createdTxStamp = const i0.Value.absent(),
@@ -867,6 +955,10 @@ class BiFacetData extends i0.DataClass
         data: data.present ? data.value : this.data,
         tags: tags.present ? tags.value : this.tags,
         modified: modified.present ? modified.value : this.modified,
+        applyTarget: applyTarget.present ? applyTarget.value : this.applyTarget,
+        applyRecordType: applyRecordType.present
+            ? applyRecordType.value
+            : this.applyRecordType,
         tenantId: tenantId.present ? tenantId.value : this.tenantId,
         lastUpdatedTxStamp: lastUpdatedTxStamp.present
             ? lastUpdatedTxStamp.value
@@ -893,6 +985,11 @@ class BiFacetData extends i0.DataClass
       data: data.data.present ? data.data.value : this.data,
       tags: data.tags.present ? data.tags.value : this.tags,
       modified: data.modified.present ? data.modified.value : this.modified,
+      applyTarget:
+          data.applyTarget.present ? data.applyTarget.value : this.applyTarget,
+      applyRecordType: data.applyRecordType.present
+          ? data.applyRecordType.value
+          : this.applyRecordType,
       tenantId: data.tenantId.present ? data.tenantId.value : this.tenantId,
       lastUpdatedTxStamp: data.lastUpdatedTxStamp.present
           ? data.lastUpdatedTxStamp.value
@@ -925,6 +1022,8 @@ class BiFacetData extends i0.DataClass
           ..write('data: $data, ')
           ..write('tags: $tags, ')
           ..write('modified: $modified, ')
+          ..write('applyTarget: $applyTarget, ')
+          ..write('applyRecordType: $applyRecordType, ')
           ..write('tenantId: $tenantId, ')
           ..write('lastUpdatedTxStamp: $lastUpdatedTxStamp, ')
           ..write('createdTxStamp: $createdTxStamp, ')
@@ -947,6 +1046,8 @@ class BiFacetData extends i0.DataClass
       data,
       tags,
       modified,
+      applyTarget,
+      applyRecordType,
       tenantId,
       lastUpdatedTxStamp,
       createdTxStamp,
@@ -967,6 +1068,8 @@ class BiFacetData extends i0.DataClass
           other.data == this.data &&
           other.tags == this.tags &&
           other.modified == this.modified &&
+          other.applyTarget == this.applyTarget &&
+          other.applyRecordType == this.applyRecordType &&
           other.tenantId == this.tenantId &&
           other.lastUpdatedTxStamp == this.lastUpdatedTxStamp &&
           other.createdTxStamp == this.createdTxStamp &&
@@ -986,6 +1089,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
   final i0.Value<String?> data;
   final i0.Value<List<String>?> tags;
   final i0.Value<bool?> modified;
+  final i0.Value<String?> applyTarget;
+  final i0.Value<String?> applyRecordType;
   final i0.Value<String?> tenantId;
   final i0.Value<DateTime?> lastUpdatedTxStamp;
   final i0.Value<DateTime?> createdTxStamp;
@@ -1004,6 +1109,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     this.data = const i0.Value.absent(),
     this.tags = const i0.Value.absent(),
     this.modified = const i0.Value.absent(),
+    this.applyTarget = const i0.Value.absent(),
+    this.applyRecordType = const i0.Value.absent(),
     this.tenantId = const i0.Value.absent(),
     this.lastUpdatedTxStamp = const i0.Value.absent(),
     this.createdTxStamp = const i0.Value.absent(),
@@ -1023,6 +1130,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     this.data = const i0.Value.absent(),
     this.tags = const i0.Value.absent(),
     this.modified = const i0.Value.absent(),
+    this.applyTarget = const i0.Value.absent(),
+    this.applyRecordType = const i0.Value.absent(),
     this.tenantId = const i0.Value.absent(),
     this.lastUpdatedTxStamp = const i0.Value.absent(),
     this.createdTxStamp = const i0.Value.absent(),
@@ -1042,6 +1151,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     i0.Expression<String>? data,
     i0.Expression<String>? tags,
     i0.Expression<bool>? modified,
+    i0.Expression<String>? applyTarget,
+    i0.Expression<String>? applyRecordType,
     i0.Expression<String>? tenantId,
     i0.Expression<DateTime>? lastUpdatedTxStamp,
     i0.Expression<DateTime>? createdTxStamp,
@@ -1061,6 +1172,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       if (data != null) 'data': data,
       if (tags != null) 'tags': tags,
       if (modified != null) 'modified': modified,
+      if (applyTarget != null) 'apply_target': applyTarget,
+      if (applyRecordType != null) 'apply_record_type': applyRecordType,
       if (tenantId != null) 'tenant_id': tenantId,
       if (lastUpdatedTxStamp != null)
         'last_updated_tx_stamp': lastUpdatedTxStamp,
@@ -1083,6 +1196,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       i0.Value<String?>? data,
       i0.Value<List<String>?>? tags,
       i0.Value<bool?>? modified,
+      i0.Value<String?>? applyTarget,
+      i0.Value<String?>? applyRecordType,
       i0.Value<String?>? tenantId,
       i0.Value<DateTime?>? lastUpdatedTxStamp,
       i0.Value<DateTime?>? createdTxStamp,
@@ -1101,6 +1216,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
       data: data ?? this.data,
       tags: tags ?? this.tags,
       modified: modified ?? this.modified,
+      applyTarget: applyTarget ?? this.applyTarget,
+      applyRecordType: applyRecordType ?? this.applyRecordType,
       tenantId: tenantId ?? this.tenantId,
       lastUpdatedTxStamp: lastUpdatedTxStamp ?? this.lastUpdatedTxStamp,
       createdTxStamp: createdTxStamp ?? this.createdTxStamp,
@@ -1140,6 +1257,12 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
     }
     if (modified.present) {
       map['modified'] = i0.Variable<bool>(modified.value);
+    }
+    if (applyTarget.present) {
+      map['apply_target'] = i0.Variable<String>(applyTarget.value);
+    }
+    if (applyRecordType.present) {
+      map['apply_record_type'] = i0.Variable<String>(applyRecordType.value);
     }
     if (tenantId.present) {
       map['tenant_id'] = i0.Variable<String>(tenantId.value);
@@ -1184,6 +1307,8 @@ class BiFacetCompanion extends i0.UpdateCompanion<i1.BiFacetData> {
           ..write('data: $data, ')
           ..write('tags: $tags, ')
           ..write('modified: $modified, ')
+          ..write('applyTarget: $applyTarget, ')
+          ..write('applyRecordType: $applyRecordType, ')
           ..write('tenantId: $tenantId, ')
           ..write('lastUpdatedTxStamp: $lastUpdatedTxStamp, ')
           ..write('createdTxStamp: $createdTxStamp, ')

@@ -360,6 +360,57 @@ class FacilityLocationGeoPointListConverter extends TypeConverter<List<ent.Facil
   }
 }
 
+class FacilityContentConverter extends TypeConverter<ent.FacilityContent, String>
+    with JsonTypeConverter2<ent.FacilityContent, String, Map<String, dynamic>>{
+  const FacilityContentConverter();
+
+  @override
+  ent.FacilityContent fromSql(String fromDb) {
+    return ent.FacilityContent.fromJson(json.decode(fromDb) as Map<String, dynamic>);
+  }
+
+  @override
+  String toSql(ent.FacilityContent value) {
+    return json.encode(value.toJson());
+  }
+
+  @override
+  ent.FacilityContent fromJson(Map<String, dynamic> json) {
+    return ent.FacilityContent.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic> toJson(ent.FacilityContent value) {
+    return value.toJson();
+  }
+}
+
+class FacilityContentListConverter extends TypeConverter<List<ent.FacilityContent>, String>
+    with JsonTypeConverter2<List<ent.FacilityContent>, String, List<Map<String, dynamic>>>{
+  const FacilityContentListConverter();
+
+  @override
+  List<ent.FacilityContent> fromSql(String fromDb) {
+    final list=json.decode(fromDb) as List<dynamic>;
+    return list.map((el) => ent.FacilityContent.fromJson(el)).toList();
+  }
+
+  @override
+  String toSql(List<ent.FacilityContent> value) {
+    return json.encode(value.map((el)=>el.toJson()).toList());
+  }
+
+  @override
+  List<ent.FacilityContent> fromJson(List<Map<String, dynamic>> json) {
+    return json.map((el) => ent.FacilityContent.fromJson(el)).toList();
+  }
+
+  @override
+  List<Map<String, dynamic>> toJson(List<ent.FacilityContent> value) {
+    return value.map((el)=>el.toJson()).toList();
+  }
+}
+
 class FacilityContactMechConverter extends TypeConverter<ent.FacilityContactMech, String>
     with JsonTypeConverter2<ent.FacilityContactMech, String, Map<String, dynamic>>{
   const FacilityContactMechConverter();

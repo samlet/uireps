@@ -101,6 +101,11 @@ typedef $ProductStoreCreateCompanionBuilder = i1.ProductStoreCompanion
   i0.Value<String?> telephone,
   i0.Value<String?> email,
   i0.Value<String?> placeId,
+  i0.Value<String?> url,
+  i0.Value<List<String>?> image,
+  i0.Value<String?> sameAs,
+  i0.Value<int?> icon,
+  i0.Value<int?> color,
   i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl,
   i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting,
   i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility,
@@ -207,6 +212,11 @@ typedef $ProductStoreUpdateCompanionBuilder = i1.ProductStoreCompanion
   i0.Value<String?> telephone,
   i0.Value<String?> email,
   i0.Value<String?> placeId,
+  i0.Value<String?> url,
+  i0.Value<List<String>?> image,
+  i0.Value<String?> sameAs,
+  i0.Value<int?> icon,
+  i0.Value<int?> color,
   i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl,
   i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting,
   i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility,
@@ -592,6 +602,23 @@ class $ProductStoreFilterComposer
 
   i0.ColumnFilters<String> get placeId => $composableBuilder(
       column: $table.placeId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<String> get url => $composableBuilder(
+      column: $table.url, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get image => $composableBuilder(
+          column: $table.image,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnFilters<String> get sameAs => $composableBuilder(
+      column: $table.sameAs, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get icon => $composableBuilder(
+      column: $table.icon, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnFilters<int> get color => $composableBuilder(
+      column: $table.color, builder: (column) => i0.ColumnFilters(column));
 
   i0.ColumnWithTypeConverterFilters<List<i3.ProductStorePromoAppl>?,
           List<i3.ProductStorePromoAppl>, String>
@@ -1022,6 +1049,21 @@ class $ProductStoreOrderingComposer
   i0.ColumnOrderings<String> get placeId => $composableBuilder(
       column: $table.placeId, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get url => $composableBuilder(
+      column: $table.url, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get image => $composableBuilder(
+      column: $table.image, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get sameAs => $composableBuilder(
+      column: $table.sameAs, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get icon => $composableBuilder(
+      column: $table.icon, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<int> get color => $composableBuilder(
+      column: $table.color, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get productStorePromoAppl => $composableBuilder(
       column: $table.productStorePromoAppl,
       builder: (column) => i0.ColumnOrderings(column));
@@ -1362,6 +1404,21 @@ class $ProductStoreAnnotationComposer
   i0.GeneratedColumn<String> get placeId =>
       $composableBuilder(column: $table.placeId, builder: (column) => column);
 
+  i0.GeneratedColumn<String> get url =>
+      $composableBuilder(column: $table.url, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get image =>
+      $composableBuilder(column: $table.image, builder: (column) => column);
+
+  i0.GeneratedColumn<String> get sameAs =>
+      $composableBuilder(column: $table.sameAs, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get icon =>
+      $composableBuilder(column: $table.icon, builder: (column) => column);
+
+  i0.GeneratedColumn<int> get color =>
+      $composableBuilder(column: $table.color, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<List<i3.ProductStorePromoAppl>?, String>
       get productStorePromoAppl => $composableBuilder(
           column: $table.productStorePromoAppl, builder: (column) => column);
@@ -1535,6 +1592,11 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             i0.Value<String?> telephone = const i0.Value.absent(),
             i0.Value<String?> email = const i0.Value.absent(),
             i0.Value<String?> placeId = const i0.Value.absent(),
+            i0.Value<String?> url = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
+            i0.Value<String?> sameAs = const i0.Value.absent(),
+            i0.Value<int?> icon = const i0.Value.absent(),
+            i0.Value<int?> color = const i0.Value.absent(),
             i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
                 const i0.Value.absent(),
             i0.Value<List<i3.ProductStoreEmailSetting>?>
@@ -1649,6 +1711,11 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             telephone: telephone,
             email: email,
             placeId: placeId,
+            url: url,
+            image: image,
+            sameAs: sameAs,
+            icon: icon,
+            color: color,
             productStorePromoAppl: productStorePromoAppl,
             productStoreEmailSetting: productStoreEmailSetting,
             productStoreFacility: productStoreFacility,
@@ -1765,6 +1832,11 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             i0.Value<String?> telephone = const i0.Value.absent(),
             i0.Value<String?> email = const i0.Value.absent(),
             i0.Value<String?> placeId = const i0.Value.absent(),
+            i0.Value<String?> url = const i0.Value.absent(),
+            i0.Value<List<String>?> image = const i0.Value.absent(),
+            i0.Value<String?> sameAs = const i0.Value.absent(),
+            i0.Value<int?> icon = const i0.Value.absent(),
+            i0.Value<int?> color = const i0.Value.absent(),
             i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
                 const i0.Value.absent(),
             i0.Value<List<i3.ProductStoreEmailSetting>?>
@@ -1879,6 +1951,11 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             telephone: telephone,
             email: email,
             placeId: placeId,
+            url: url,
+            image: image,
+            sameAs: sameAs,
+            icon: icon,
+            color: color,
             productStorePromoAppl: productStorePromoAppl,
             productStoreEmailSetting: productStoreEmailSetting,
             productStoreFacility: productStoreFacility,
@@ -2594,6 +2671,41 @@ class ProductStore extends i0.Table
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _urlMeta = const i0.VerificationMeta('url');
+  late final i0.GeneratedColumn<String> url = i0.GeneratedColumn<String>(
+      'url', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _imageMeta =
+      const i0.VerificationMeta('image');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String> image =
+      i0.GeneratedColumn<String>('image', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.ProductStore.$converterimagen);
+  static const i0.VerificationMeta _sameAsMeta =
+      const i0.VerificationMeta('sameAs');
+  late final i0.GeneratedColumn<String> sameAs = i0.GeneratedColumn<String>(
+      'same_as', aliasedName, true,
+      type: i0.DriftSqlType.string,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _iconMeta =
+      const i0.VerificationMeta('icon');
+  late final i0.GeneratedColumn<int> icon = i0.GeneratedColumn<int>(
+      'icon', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
+  static const i0.VerificationMeta _colorMeta =
+      const i0.VerificationMeta('color');
+  late final i0.GeneratedColumn<int> color = i0.GeneratedColumn<int>(
+      'color', aliasedName, true,
+      type: i0.DriftSqlType.int,
+      requiredDuringInsert: false,
+      $customConstraints: '');
   static const i0.VerificationMeta _productStorePromoApplMeta =
       const i0.VerificationMeta('productStorePromoAppl');
   late final i0
@@ -2793,6 +2905,11 @@ class ProductStore extends i0.Table
         telephone,
         email,
         placeId,
+        url,
+        image,
+        sameAs,
+        icon,
+        color,
         productStorePromoAppl,
         productStoreEmailSetting,
         productStoreFacility,
@@ -3347,6 +3464,23 @@ class ProductStore extends i0.Table
       context.handle(_placeIdMeta,
           placeId.isAcceptableOrUnknown(data['place_id']!, _placeIdMeta));
     }
+    if (data.containsKey('url')) {
+      context.handle(
+          _urlMeta, url.isAcceptableOrUnknown(data['url']!, _urlMeta));
+    }
+    context.handle(_imageMeta, const i0.VerificationResult.success());
+    if (data.containsKey('same_as')) {
+      context.handle(_sameAsMeta,
+          sameAs.isAcceptableOrUnknown(data['same_as']!, _sameAsMeta));
+    }
+    if (data.containsKey('icon')) {
+      context.handle(
+          _iconMeta, icon.isAcceptableOrUnknown(data['icon']!, _iconMeta));
+    }
+    if (data.containsKey('color')) {
+      context.handle(
+          _colorMeta, color.isAcceptableOrUnknown(data['color']!, _colorMeta));
+    }
     context.handle(
         _productStorePromoApplMeta, const i0.VerificationResult.success());
     context.handle(
@@ -3617,6 +3751,17 @@ class ProductStore extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}email']),
       placeId: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}place_id']),
+      url: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}url']),
+      image: i1.ProductStore.$converterimagen.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}image'])),
+      sameAs: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}same_as']),
+      icon: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}icon']),
+      color: attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.int, data['${effectivePrefix}color']),
       productStorePromoAppl: i1.ProductStore.$converterproductStorePromoAppln
           .fromSql(attachedDatabase.typeMapping.read(i0.DriftSqlType.string,
               data['${effectivePrefix}product_store_promo_appl'])),
@@ -3680,6 +3825,10 @@ class ProductStore extends i0.Table
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $converteracln =
       i0.JsonTypeConverter2.asNullable($converteracl);
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $converterimage = const i4.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $converterimagen = i0.JsonTypeConverter2.asNullable($converterimage);
   static i0.JsonTypeConverter2<List<i3.ProductStorePromoAppl>, String,
           List<Map<String, dynamic>>> $converterproductStorePromoAppl =
       const i5.ProductStorePromoApplListConverter();
@@ -3832,6 +3981,11 @@ class ProductStoreData extends i0.DataClass
   final String? telephone;
   final String? email;
   final String? placeId;
+  final String? url;
+  final List<String>? image;
+  final String? sameAs;
+  final int? icon;
+  final int? color;
 
   /// rel: many
   /// rel: one (no public-types)
@@ -3938,6 +4092,11 @@ class ProductStoreData extends i0.DataClass
       this.telephone,
       this.email,
       this.placeId,
+      this.url,
+      this.image,
+      this.sameAs,
+      this.icon,
+      this.color,
       this.productStorePromoAppl,
       this.productStoreEmailSetting,
       this.productStoreFacility,
@@ -4254,6 +4413,22 @@ class ProductStoreData extends i0.DataClass
     }
     if (!nullToAbsent || placeId != null) {
       map['place_id'] = i0.Variable<String>(placeId);
+    }
+    if (!nullToAbsent || url != null) {
+      map['url'] = i0.Variable<String>(url);
+    }
+    if (!nullToAbsent || image != null) {
+      map['image'] =
+          i0.Variable<String>(i1.ProductStore.$converterimagen.toSql(image));
+    }
+    if (!nullToAbsent || sameAs != null) {
+      map['same_as'] = i0.Variable<String>(sameAs);
+    }
+    if (!nullToAbsent || icon != null) {
+      map['icon'] = i0.Variable<int>(icon);
+    }
+    if (!nullToAbsent || color != null) {
+      map['color'] = i0.Variable<int>(color);
     }
     if (!nullToAbsent || productStorePromoAppl != null) {
       map['product_store_promo_appl'] = i0.Variable<String>(i1
@@ -4585,6 +4760,20 @@ class ProductStoreData extends i0.DataClass
       placeId: placeId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(placeId),
+      url:
+          url == null && nullToAbsent ? const i0.Value.absent() : i0.Value(url),
+      image: image == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(image),
+      sameAs: sameAs == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(sameAs),
+      icon: icon == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(icon),
+      color: color == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(color),
       productStorePromoAppl: productStorePromoAppl == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(productStorePromoAppl),
@@ -4777,6 +4966,12 @@ class ProductStoreData extends i0.DataClass
       telephone: serializer.fromJson<String?>(json['telephone']),
       email: serializer.fromJson<String?>(json['email']),
       placeId: serializer.fromJson<String?>(json['place_id']),
+      url: serializer.fromJson<String?>(json['url']),
+      image: i1.ProductStore.$converterimagen
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['image'])),
+      sameAs: serializer.fromJson<String?>(json['same_as']),
+      icon: serializer.fromJson<int?>(json['icon']),
+      color: serializer.fromJson<int?>(json['color']),
       productStorePromoAppl: i1.ProductStore.$converterproductStorePromoAppln
           .fromJson(serializer.fromJson<List<Map<String, dynamic>>?>(
               json['product_store_promo_appl'])),
@@ -4940,6 +5135,12 @@ class ProductStoreData extends i0.DataClass
       'telephone': serializer.toJson<String?>(telephone),
       'email': serializer.toJson<String?>(email),
       'place_id': serializer.toJson<String?>(placeId),
+      'url': serializer.toJson<String?>(url),
+      'image': serializer.toJson<List<dynamic>?>(
+          i1.ProductStore.$converterimagen.toJson(image)),
+      'same_as': serializer.toJson<String?>(sameAs),
+      'icon': serializer.toJson<int?>(icon),
+      'color': serializer.toJson<int?>(color),
       'product_store_promo_appl':
           serializer.toJson<List<Map<String, dynamic>>?>(i1
               .ProductStore.$converterproductStorePromoAppln
@@ -5069,6 +5270,11 @@ class ProductStoreData extends i0.DataClass
           i0.Value<String?> telephone = const i0.Value.absent(),
           i0.Value<String?> email = const i0.Value.absent(),
           i0.Value<String?> placeId = const i0.Value.absent(),
+          i0.Value<String?> url = const i0.Value.absent(),
+          i0.Value<List<String>?> image = const i0.Value.absent(),
+          i0.Value<String?> sameAs = const i0.Value.absent(),
+          i0.Value<int?> icon = const i0.Value.absent(),
+          i0.Value<int?> color = const i0.Value.absent(),
           i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl =
               const i0.Value.absent(),
           i0.Value<List<i3.ProductStoreEmailSetting>?>
@@ -5319,6 +5525,11 @@ class ProductStoreData extends i0.DataClass
         telephone: telephone.present ? telephone.value : this.telephone,
         email: email.present ? email.value : this.email,
         placeId: placeId.present ? placeId.value : this.placeId,
+        url: url.present ? url.value : this.url,
+        image: image.present ? image.value : this.image,
+        sameAs: sameAs.present ? sameAs.value : this.sameAs,
+        icon: icon.present ? icon.value : this.icon,
+        color: color.present ? color.value : this.color,
         productStorePromoAppl: productStorePromoAppl.present
             ? productStorePromoAppl.value
             : this.productStorePromoAppl,
@@ -5597,6 +5808,11 @@ class ProductStoreData extends i0.DataClass
       telephone: data.telephone.present ? data.telephone.value : this.telephone,
       email: data.email.present ? data.email.value : this.email,
       placeId: data.placeId.present ? data.placeId.value : this.placeId,
+      url: data.url.present ? data.url.value : this.url,
+      image: data.image.present ? data.image.value : this.image,
+      sameAs: data.sameAs.present ? data.sameAs.value : this.sameAs,
+      icon: data.icon.present ? data.icon.value : this.icon,
+      color: data.color.present ? data.color.value : this.color,
       productStorePromoAppl: data.productStorePromoAppl.present
           ? data.productStorePromoAppl.value
           : this.productStorePromoAppl,
@@ -5725,6 +5941,11 @@ class ProductStoreData extends i0.DataClass
           ..write('telephone: $telephone, ')
           ..write('email: $email, ')
           ..write('placeId: $placeId, ')
+          ..write('url: $url, ')
+          ..write('image: $image, ')
+          ..write('sameAs: $sameAs, ')
+          ..write('icon: $icon, ')
+          ..write('color: $color, ')
           ..write('productStorePromoAppl: $productStorePromoAppl, ')
           ..write('productStoreEmailSetting: $productStoreEmailSetting, ')
           ..write('productStoreFacility: $productStoreFacility, ')
@@ -5833,6 +6054,11 @@ class ProductStoreData extends i0.DataClass
         telephone,
         email,
         placeId,
+        url,
+        image,
+        sameAs,
+        icon,
+        color,
         productStorePromoAppl,
         productStoreEmailSetting,
         productStoreFacility,
@@ -5940,6 +6166,11 @@ class ProductStoreData extends i0.DataClass
           other.telephone == this.telephone &&
           other.email == this.email &&
           other.placeId == this.placeId &&
+          other.url == this.url &&
+          other.image == this.image &&
+          other.sameAs == this.sameAs &&
+          other.icon == this.icon &&
+          other.color == this.color &&
           other.productStorePromoAppl == this.productStorePromoAppl &&
           other.productStoreEmailSetting == this.productStoreEmailSetting &&
           other.productStoreFacility == this.productStoreFacility &&
@@ -6045,6 +6276,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
   final i0.Value<String?> telephone;
   final i0.Value<String?> email;
   final i0.Value<String?> placeId;
+  final i0.Value<String?> url;
+  final i0.Value<List<String>?> image;
+  final i0.Value<String?> sameAs;
+  final i0.Value<int?> icon;
+  final i0.Value<int?> color;
   final i0.Value<List<i3.ProductStorePromoAppl>?> productStorePromoAppl;
   final i0.Value<List<i3.ProductStoreEmailSetting>?> productStoreEmailSetting;
   final i0.Value<List<i3.ProductStoreFacility>?> productStoreFacility;
@@ -6150,6 +6386,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     this.telephone = const i0.Value.absent(),
     this.email = const i0.Value.absent(),
     this.placeId = const i0.Value.absent(),
+    this.url = const i0.Value.absent(),
+    this.image = const i0.Value.absent(),
+    this.sameAs = const i0.Value.absent(),
+    this.icon = const i0.Value.absent(),
+    this.color = const i0.Value.absent(),
     this.productStorePromoAppl = const i0.Value.absent(),
     this.productStoreEmailSetting = const i0.Value.absent(),
     this.productStoreFacility = const i0.Value.absent(),
@@ -6255,6 +6496,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     this.telephone = const i0.Value.absent(),
     this.email = const i0.Value.absent(),
     this.placeId = const i0.Value.absent(),
+    this.url = const i0.Value.absent(),
+    this.image = const i0.Value.absent(),
+    this.sameAs = const i0.Value.absent(),
+    this.icon = const i0.Value.absent(),
+    this.color = const i0.Value.absent(),
     this.productStorePromoAppl = const i0.Value.absent(),
     this.productStoreEmailSetting = const i0.Value.absent(),
     this.productStoreFacility = const i0.Value.absent(),
@@ -6360,6 +6606,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     i0.Expression<String>? telephone,
     i0.Expression<String>? email,
     i0.Expression<String>? placeId,
+    i0.Expression<String>? url,
+    i0.Expression<String>? image,
+    i0.Expression<String>? sameAs,
+    i0.Expression<int>? icon,
+    i0.Expression<int>? color,
     i0.Expression<String>? productStorePromoAppl,
     i0.Expression<String>? productStoreEmailSetting,
     i0.Expression<String>? productStoreFacility,
@@ -6512,6 +6763,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       if (telephone != null) 'telephone': telephone,
       if (email != null) 'email': email,
       if (placeId != null) 'place_id': placeId,
+      if (url != null) 'url': url,
+      if (image != null) 'image': image,
+      if (sameAs != null) 'same_as': sameAs,
+      if (icon != null) 'icon': icon,
+      if (color != null) 'color': color,
       if (productStorePromoAppl != null)
         'product_store_promo_appl': productStorePromoAppl,
       if (productStoreEmailSetting != null)
@@ -6626,6 +6882,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       i0.Value<String?>? telephone,
       i0.Value<String?>? email,
       i0.Value<String?>? placeId,
+      i0.Value<String?>? url,
+      i0.Value<List<String>?>? image,
+      i0.Value<String?>? sameAs,
+      i0.Value<int?>? icon,
+      i0.Value<int?>? color,
       i0.Value<List<i3.ProductStorePromoAppl>?>? productStorePromoAppl,
       i0.Value<List<i3.ProductStoreEmailSetting>?>? productStoreEmailSetting,
       i0.Value<List<i3.ProductStoreFacility>?>? productStoreFacility,
@@ -6754,6 +7015,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       telephone: telephone ?? this.telephone,
       email: email ?? this.email,
       placeId: placeId ?? this.placeId,
+      url: url ?? this.url,
+      image: image ?? this.image,
+      sameAs: sameAs ?? this.sameAs,
+      icon: icon ?? this.icon,
+      color: color ?? this.color,
       productStorePromoAppl:
           productStorePromoAppl ?? this.productStorePromoAppl,
       productStoreEmailSetting:
@@ -7105,6 +7371,22 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     if (placeId.present) {
       map['place_id'] = i0.Variable<String>(placeId.value);
     }
+    if (url.present) {
+      map['url'] = i0.Variable<String>(url.value);
+    }
+    if (image.present) {
+      map['image'] = i0.Variable<String>(
+          i1.ProductStore.$converterimagen.toSql(image.value));
+    }
+    if (sameAs.present) {
+      map['same_as'] = i0.Variable<String>(sameAs.value);
+    }
+    if (icon.present) {
+      map['icon'] = i0.Variable<int>(icon.value);
+    }
+    if (color.present) {
+      map['color'] = i0.Variable<int>(color.value);
+    }
     if (productStorePromoAppl.present) {
       map['product_store_promo_appl'] = i0.Variable<String>(i1
           .ProductStore.$converterproductStorePromoAppln
@@ -7254,6 +7536,11 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
           ..write('telephone: $telephone, ')
           ..write('email: $email, ')
           ..write('placeId: $placeId, ')
+          ..write('url: $url, ')
+          ..write('image: $image, ')
+          ..write('sameAs: $sameAs, ')
+          ..write('icon: $icon, ')
+          ..write('color: $color, ')
           ..write('productStorePromoAppl: $productStorePromoAppl, ')
           ..write('productStoreEmailSetting: $productStoreEmailSetting, ')
           ..write('productStoreFacility: $productStoreFacility, ')

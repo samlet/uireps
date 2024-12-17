@@ -42,6 +42,12 @@ Party _$PartyFromJson(Map<String, dynamic> json) => Party(
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
       placeId: json['placeId'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       partyGroup: json['partyGroup'] == null
           ? null
           : PartyGroup.fromJson(json['partyGroup'] as Map<String, dynamic>),
@@ -213,6 +219,11 @@ Map<String, dynamic> _$PartyToJson(Party instance) {
   writeNotNull('telephone', instance.telephone);
   writeNotNull('email', instance.email);
   writeNotNull('placeId', instance.placeId);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('partyGroup', instance.partyGroup?.toJson());
   writeNotNull('partyType', instance.partyType?.toJson());
   writeNotNull('partyAcctgPreference', instance.partyAcctgPreference?.toJson());

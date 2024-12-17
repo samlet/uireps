@@ -31,6 +31,14 @@ class AuthPod extends _$AuthPod {
   }
 
   
+  Future<bool> quickRegister() async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(authProvider(regionOrNs: regionOrNs)).quickRegister(
+            ));
+    return state.hasError == false;
+  }
+  
   Future<bool> register({
     
     required String loginId,
@@ -46,14 +54,6 @@ class AuthPod extends _$AuthPod {
               passwd: passwd,
               regionId: regionId,
               tenantId: tenantId,
-            ));
-    return state.hasError == false;
-  }
-  
-  Future<bool> quickRegister() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(authProvider(regionOrNs: regionOrNs)).quickRegister(
             ));
     return state.hasError == false;
   }

@@ -41,8 +41,17 @@ WebSite _$WebSiteFromJson(Map<String, dynamic> json) => WebSite(
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
+      url: json['url'] as String?,
+      image:
+          (json['image'] as List<dynamic>?)?.map((e) => e as String?).toList(),
+      sameAs: json['sameAs'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
+      color: (json['color'] as num?)?.toInt(),
       webSiteContactList: (json['webSiteContactList'] as List<dynamic>?)
           ?.map((e) => WebSiteContactList.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      webSiteContent: (json['webSiteContent'] as List<dynamic>?)
+          ?.map((e) => WebSiteContent.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -84,8 +93,15 @@ Map<String, dynamic> _$WebSiteToJson(WebSite instance) {
   val['acl'] = stringMultimapToJson(instance.acl);
   writeNotNull('resourceId', instance.resourceId);
   writeNotNull('resourceType', instance.resourceType);
+  writeNotNull('url', instance.url);
+  writeNotNull('image', instance.image);
+  writeNotNull('sameAs', instance.sameAs);
+  writeNotNull('icon', instance.icon);
+  writeNotNull('color', instance.color);
   writeNotNull('webSiteContactList',
       instance.webSiteContactList?.map((e) => e.toJson()).toList());
+  writeNotNull('webSiteContent',
+      instance.webSiteContent?.map((e) => e.toJson()).toList());
   return val;
 }
 
@@ -119,6 +135,47 @@ Map<String, dynamic> _$WebSiteContactListToJson(WebSiteContactList instance) {
 
   writeNotNull('webSiteId', instance.webSiteId);
   writeNotNull('contactListId', instance.contactListId);
+  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
+  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
+  writeNotNull(
+      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
+  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
+  writeNotNull('id', instance.id);
+  return val;
+}
+
+WebSiteContent _$WebSiteContentFromJson(Map<String, dynamic> json) =>
+    WebSiteContent(
+      webSiteId: json['webSiteId'] as String?,
+      contentId: json['contentId'] as String?,
+      webSiteContentTypeId: json['webSiteContentTypeId'] as String?,
+      fromDate: json['fromDate'] == null
+          ? null
+          : DateTime.parse(json['fromDate'] as String),
+      thruDate: json['thruDate'] == null
+          ? null
+          : DateTime.parse(json['thruDate'] as String),
+      lastUpdatedTxStamp: json['lastUpdatedTxStamp'] == null
+          ? null
+          : DateTime.parse(json['lastUpdatedTxStamp'] as String),
+      createdTxStamp: json['createdTxStamp'] == null
+          ? null
+          : DateTime.parse(json['createdTxStamp'] as String),
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$WebSiteContentToJson(WebSiteContent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('webSiteId', instance.webSiteId);
+  writeNotNull('contentId', instance.contentId);
+  writeNotNull('webSiteContentTypeId', instance.webSiteContentTypeId);
   writeNotNull('fromDate', instance.fromDate?.toIso8601String());
   writeNotNull('thruDate', instance.thruDate?.toIso8601String());
   writeNotNull(

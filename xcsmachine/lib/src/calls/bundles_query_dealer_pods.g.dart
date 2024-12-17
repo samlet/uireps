@@ -328,49 +328,40 @@ class _BundlesQueryLoadBundleProviderElement
   String? get regionId => (origin as BundlesQueryLoadBundleProvider).regionId;
 }
 
-String _$bundlesQueryQueryBundlePageHash() =>
-    r'0199532b493ffdcbf31ff4307fba55c4313ebd67';
+String _$bundlesQueryQueryTermsHash() =>
+    r'3f184e64bd40f4de32c697e4e2e699714e593877';
 
-/// See also [bundlesQueryQueryBundlePage].
-@ProviderFor(bundlesQueryQueryBundlePage)
-const bundlesQueryQueryBundlePageProvider = BundlesQueryQueryBundlePageFamily();
+/// See also [bundlesQueryQueryTerms].
+@ProviderFor(bundlesQueryQueryTerms)
+const bundlesQueryQueryTermsProvider = BundlesQueryQueryTermsFamily();
 
-/// See also [bundlesQueryQueryBundlePage].
-class BundlesQueryQueryBundlePageFamily
-    extends Family<AsyncValue<PaginatedResponse>> {
-  /// See also [bundlesQueryQueryBundlePage].
-  const BundlesQueryQueryBundlePageFamily();
+/// See also [bundlesQueryQueryTerms].
+class BundlesQueryQueryTermsFamily
+    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
+  /// See also [bundlesQueryQueryTerms].
+  const BundlesQueryQueryTermsFamily();
 
-  /// See also [bundlesQueryQueryBundlePage].
-  BundlesQueryQueryBundlePageProvider call({
+  /// See also [bundlesQueryQueryTerms].
+  BundlesQueryQueryTermsProvider call({
     String regionOrNs = 'default',
-    required String bundleName,
+    required QueryTerms r,
     String? regionId = 'default',
-    required Map<String, Object?> cond,
-    PageLimit? pageLimit,
-    List<ResultSort>? orders,
   }) {
-    return BundlesQueryQueryBundlePageProvider(
+    return BundlesQueryQueryTermsProvider(
       regionOrNs: regionOrNs,
-      bundleName: bundleName,
+      r: r,
       regionId: regionId,
-      cond: cond,
-      pageLimit: pageLimit,
-      orders: orders,
     );
   }
 
   @override
-  BundlesQueryQueryBundlePageProvider getProviderOverride(
-    covariant BundlesQueryQueryBundlePageProvider provider,
+  BundlesQueryQueryTermsProvider getProviderOverride(
+    covariant BundlesQueryQueryTermsProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
-      bundleName: provider.bundleName,
+      r: provider.r,
       regionId: provider.regionId,
-      cond: provider.cond,
-      pageLimit: provider.pageLimit,
-      orders: provider.orders,
     );
   }
 
@@ -386,48 +377,39 @@ class BundlesQueryQueryBundlePageFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'bundlesQueryQueryBundlePageProvider';
+  String? get name => r'bundlesQueryQueryTermsProvider';
 }
 
-/// See also [bundlesQueryQueryBundlePage].
-class BundlesQueryQueryBundlePageProvider
-    extends AutoDisposeFutureProvider<PaginatedResponse> {
-  /// See also [bundlesQueryQueryBundlePage].
-  BundlesQueryQueryBundlePageProvider({
+/// See also [bundlesQueryQueryTerms].
+class BundlesQueryQueryTermsProvider
+    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
+  /// See also [bundlesQueryQueryTerms].
+  BundlesQueryQueryTermsProvider({
     String regionOrNs = 'default',
-    required String bundleName,
+    required QueryTerms r,
     String? regionId = 'default',
-    required Map<String, Object?> cond,
-    PageLimit? pageLimit,
-    List<ResultSort>? orders,
   }) : this._internal(
-          (ref) => bundlesQueryQueryBundlePage(
-            ref as BundlesQueryQueryBundlePageRef,
+          (ref) => bundlesQueryQueryTerms(
+            ref as BundlesQueryQueryTermsRef,
             regionOrNs: regionOrNs,
-            bundleName: bundleName,
+            r: r,
             regionId: regionId,
-            cond: cond,
-            pageLimit: pageLimit,
-            orders: orders,
           ),
-          from: bundlesQueryQueryBundlePageProvider,
-          name: r'bundlesQueryQueryBundlePageProvider',
+          from: bundlesQueryQueryTermsProvider,
+          name: r'bundlesQueryQueryTermsProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$bundlesQueryQueryBundlePageHash,
-          dependencies: BundlesQueryQueryBundlePageFamily._dependencies,
+                  : _$bundlesQueryQueryTermsHash,
+          dependencies: BundlesQueryQueryTermsFamily._dependencies,
           allTransitiveDependencies:
-              BundlesQueryQueryBundlePageFamily._allTransitiveDependencies,
+              BundlesQueryQueryTermsFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
-          bundleName: bundleName,
+          r: r,
           regionId: regionId,
-          cond: cond,
-          pageLimit: pageLimit,
-          orders: orders,
         );
 
-  BundlesQueryQueryBundlePageProvider._internal(
+  BundlesQueryQueryTermsProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -435,119 +417,421 @@ class BundlesQueryQueryBundlePageProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.regionOrNs,
-    required this.bundleName,
+    required this.r,
     required this.regionId,
-    required this.cond,
-    required this.pageLimit,
-    required this.orders,
   }) : super.internal();
 
   final String regionOrNs;
-  final String bundleName;
+  final QueryTerms r;
   final String? regionId;
-  final Map<String, Object?> cond;
-  final PageLimit? pageLimit;
-  final List<ResultSort>? orders;
 
   @override
   Override overrideWith(
-    FutureOr<PaginatedResponse> Function(
-            BundlesQueryQueryBundlePageRef provider)
+    FutureOr<List<Map<String, dynamic>>> Function(
+            BundlesQueryQueryTermsRef provider)
         create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: BundlesQueryQueryBundlePageProvider._internal(
-        (ref) => create(ref as BundlesQueryQueryBundlePageRef),
+      override: BundlesQueryQueryTermsProvider._internal(
+        (ref) => create(ref as BundlesQueryQueryTermsRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         regionOrNs: regionOrNs,
-        bundleName: bundleName,
+        r: r,
         regionId: regionId,
-        cond: cond,
-        pageLimit: pageLimit,
-        orders: orders,
       ),
     );
   }
 
   @override
-  AutoDisposeFutureProviderElement<PaginatedResponse> createElement() {
-    return _BundlesQueryQueryBundlePageProviderElement(this);
+  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
+    return _BundlesQueryQueryTermsProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is BundlesQueryQueryBundlePageProvider &&
+    return other is BundlesQueryQueryTermsProvider &&
         other.regionOrNs == regionOrNs &&
-        other.bundleName == bundleName &&
-        other.regionId == regionId &&
-        other.cond == cond &&
-        other.pageLimit == pageLimit &&
-        other.orders == orders;
+        other.r == r &&
+        other.regionId == regionId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, bundleName.hashCode);
+    hash = _SystemHash.combine(hash, r.hashCode);
     hash = _SystemHash.combine(hash, regionId.hashCode);
-    hash = _SystemHash.combine(hash, cond.hashCode);
-    hash = _SystemHash.combine(hash, pageLimit.hashCode);
-    hash = _SystemHash.combine(hash, orders.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin BundlesQueryQueryBundlePageRef
-    on AutoDisposeFutureProviderRef<PaginatedResponse> {
+mixin BundlesQueryQueryTermsRef
+    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
-  /// The parameter `bundleName` of this provider.
-  String get bundleName;
+  /// The parameter `r` of this provider.
+  QueryTerms get r;
 
   /// The parameter `regionId` of this provider.
   String? get regionId;
-
-  /// The parameter `cond` of this provider.
-  Map<String, Object?> get cond;
-
-  /// The parameter `pageLimit` of this provider.
-  PageLimit? get pageLimit;
-
-  /// The parameter `orders` of this provider.
-  List<ResultSort>? get orders;
 }
 
-class _BundlesQueryQueryBundlePageProviderElement
-    extends AutoDisposeFutureProviderElement<PaginatedResponse>
-    with BundlesQueryQueryBundlePageRef {
-  _BundlesQueryQueryBundlePageProviderElement(super.provider);
+class _BundlesQueryQueryTermsProviderElement
+    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
+    with BundlesQueryQueryTermsRef {
+  _BundlesQueryQueryTermsProviderElement(super.provider);
 
   @override
   String get regionOrNs =>
-      (origin as BundlesQueryQueryBundlePageProvider).regionOrNs;
+      (origin as BundlesQueryQueryTermsProvider).regionOrNs;
   @override
-  String get bundleName =>
-      (origin as BundlesQueryQueryBundlePageProvider).bundleName;
+  QueryTerms get r => (origin as BundlesQueryQueryTermsProvider).r;
   @override
-  String? get regionId =>
-      (origin as BundlesQueryQueryBundlePageProvider).regionId;
+  String? get regionId => (origin as BundlesQueryQueryTermsProvider).regionId;
+}
+
+String _$bundlesQueryQueryMapHash() =>
+    r'a2b1adc6547c9f1d3f53712b79307ad050a22d8a';
+
+/// See also [bundlesQueryQueryMap].
+@ProviderFor(bundlesQueryQueryMap)
+const bundlesQueryQueryMapProvider = BundlesQueryQueryMapFamily();
+
+/// See also [bundlesQueryQueryMap].
+class BundlesQueryQueryMapFamily
+    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
+  /// See also [bundlesQueryQueryMap].
+  const BundlesQueryQueryMapFamily();
+
+  /// See also [bundlesQueryQueryMap].
+  BundlesQueryQueryMapProvider call({
+    String regionOrNs = 'default',
+    required QueryMap r,
+    String? regionId = 'default',
+  }) {
+    return BundlesQueryQueryMapProvider(
+      regionOrNs: regionOrNs,
+      r: r,
+      regionId: regionId,
+    );
+  }
+
   @override
-  Map<String, Object?> get cond =>
-      (origin as BundlesQueryQueryBundlePageProvider).cond;
+  BundlesQueryQueryMapProvider getProviderOverride(
+    covariant BundlesQueryQueryMapProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      r: provider.r,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
   @override
-  PageLimit? get pageLimit =>
-      (origin as BundlesQueryQueryBundlePageProvider).pageLimit;
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
   @override
-  List<ResultSort>? get orders =>
-      (origin as BundlesQueryQueryBundlePageProvider).orders;
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'bundlesQueryQueryMapProvider';
+}
+
+/// See also [bundlesQueryQueryMap].
+class BundlesQueryQueryMapProvider
+    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
+  /// See also [bundlesQueryQueryMap].
+  BundlesQueryQueryMapProvider({
+    String regionOrNs = 'default',
+    required QueryMap r,
+    String? regionId = 'default',
+  }) : this._internal(
+          (ref) => bundlesQueryQueryMap(
+            ref as BundlesQueryQueryMapRef,
+            regionOrNs: regionOrNs,
+            r: r,
+            regionId: regionId,
+          ),
+          from: bundlesQueryQueryMapProvider,
+          name: r'bundlesQueryQueryMapProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$bundlesQueryQueryMapHash,
+          dependencies: BundlesQueryQueryMapFamily._dependencies,
+          allTransitiveDependencies:
+              BundlesQueryQueryMapFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          r: r,
+          regionId: regionId,
+        );
+
+  BundlesQueryQueryMapProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.r,
+    required this.regionId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final QueryMap r;
+  final String? regionId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Map<String, dynamic>>> Function(
+            BundlesQueryQueryMapRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: BundlesQueryQueryMapProvider._internal(
+        (ref) => create(ref as BundlesQueryQueryMapRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        r: r,
+        regionId: regionId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
+    return _BundlesQueryQueryMapProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is BundlesQueryQueryMapProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.r == r &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, r.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin BundlesQueryQueryMapRef
+    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `r` of this provider.
+  QueryMap get r;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+}
+
+class _BundlesQueryQueryMapProviderElement
+    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
+    with BundlesQueryQueryMapRef {
+  _BundlesQueryQueryMapProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as BundlesQueryQueryMapProvider).regionOrNs;
+  @override
+  QueryMap get r => (origin as BundlesQueryQueryMapProvider).r;
+  @override
+  String? get regionId => (origin as BundlesQueryQueryMapProvider).regionId;
+}
+
+String _$bundlesQueryLoadBundlesHash() =>
+    r'cc749c0c49eae6ca6d27047873bf8589461578f8';
+
+/// See also [bundlesQueryLoadBundles].
+@ProviderFor(bundlesQueryLoadBundles)
+const bundlesQueryLoadBundlesProvider = BundlesQueryLoadBundlesFamily();
+
+/// See also [bundlesQueryLoadBundles].
+class BundlesQueryLoadBundlesFamily
+    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
+  /// See also [bundlesQueryLoadBundles].
+  const BundlesQueryLoadBundlesFamily();
+
+  /// See also [bundlesQueryLoadBundles].
+  BundlesQueryLoadBundlesProvider call({
+    String regionOrNs = 'default',
+    required RequestIds r,
+    String? regionId = 'default',
+  }) {
+    return BundlesQueryLoadBundlesProvider(
+      regionOrNs: regionOrNs,
+      r: r,
+      regionId: regionId,
+    );
+  }
+
+  @override
+  BundlesQueryLoadBundlesProvider getProviderOverride(
+    covariant BundlesQueryLoadBundlesProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      r: provider.r,
+      regionId: provider.regionId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'bundlesQueryLoadBundlesProvider';
+}
+
+/// See also [bundlesQueryLoadBundles].
+class BundlesQueryLoadBundlesProvider
+    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
+  /// See also [bundlesQueryLoadBundles].
+  BundlesQueryLoadBundlesProvider({
+    String regionOrNs = 'default',
+    required RequestIds r,
+    String? regionId = 'default',
+  }) : this._internal(
+          (ref) => bundlesQueryLoadBundles(
+            ref as BundlesQueryLoadBundlesRef,
+            regionOrNs: regionOrNs,
+            r: r,
+            regionId: regionId,
+          ),
+          from: bundlesQueryLoadBundlesProvider,
+          name: r'bundlesQueryLoadBundlesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$bundlesQueryLoadBundlesHash,
+          dependencies: BundlesQueryLoadBundlesFamily._dependencies,
+          allTransitiveDependencies:
+              BundlesQueryLoadBundlesFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          r: r,
+          regionId: regionId,
+        );
+
+  BundlesQueryLoadBundlesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.r,
+    required this.regionId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final RequestIds r;
+  final String? regionId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Map<String, dynamic>>> Function(
+            BundlesQueryLoadBundlesRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: BundlesQueryLoadBundlesProvider._internal(
+        (ref) => create(ref as BundlesQueryLoadBundlesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        r: r,
+        regionId: regionId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
+    return _BundlesQueryLoadBundlesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is BundlesQueryLoadBundlesProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.r == r &&
+        other.regionId == regionId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, r.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin BundlesQueryLoadBundlesRef
+    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `r` of this provider.
+  RequestIds get r;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+}
+
+class _BundlesQueryLoadBundlesProviderElement
+    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
+    with BundlesQueryLoadBundlesRef {
+  _BundlesQueryLoadBundlesProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as BundlesQueryLoadBundlesProvider).regionOrNs;
+  @override
+  RequestIds get r => (origin as BundlesQueryLoadBundlesProvider).r;
+  @override
+  String? get regionId => (origin as BundlesQueryLoadBundlesProvider).regionId;
 }
 
 String _$bundlesQueryQueryBundlePageByTagHash() =>
@@ -772,40 +1056,49 @@ class _BundlesQueryQueryBundlePageByTagProviderElement
       (origin as BundlesQueryQueryBundlePageByTagProvider).orders;
 }
 
-String _$bundlesQueryQueryMapHash() =>
-    r'a2b1adc6547c9f1d3f53712b79307ad050a22d8a';
+String _$bundlesQueryQueryBundlePageHash() =>
+    r'0199532b493ffdcbf31ff4307fba55c4313ebd67';
 
-/// See also [bundlesQueryQueryMap].
-@ProviderFor(bundlesQueryQueryMap)
-const bundlesQueryQueryMapProvider = BundlesQueryQueryMapFamily();
+/// See also [bundlesQueryQueryBundlePage].
+@ProviderFor(bundlesQueryQueryBundlePage)
+const bundlesQueryQueryBundlePageProvider = BundlesQueryQueryBundlePageFamily();
 
-/// See also [bundlesQueryQueryMap].
-class BundlesQueryQueryMapFamily
-    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
-  /// See also [bundlesQueryQueryMap].
-  const BundlesQueryQueryMapFamily();
+/// See also [bundlesQueryQueryBundlePage].
+class BundlesQueryQueryBundlePageFamily
+    extends Family<AsyncValue<PaginatedResponse>> {
+  /// See also [bundlesQueryQueryBundlePage].
+  const BundlesQueryQueryBundlePageFamily();
 
-  /// See also [bundlesQueryQueryMap].
-  BundlesQueryQueryMapProvider call({
+  /// See also [bundlesQueryQueryBundlePage].
+  BundlesQueryQueryBundlePageProvider call({
     String regionOrNs = 'default',
-    required QueryMap r,
+    required String bundleName,
     String? regionId = 'default',
+    required Map<String, Object?> cond,
+    PageLimit? pageLimit,
+    List<ResultSort>? orders,
   }) {
-    return BundlesQueryQueryMapProvider(
+    return BundlesQueryQueryBundlePageProvider(
       regionOrNs: regionOrNs,
-      r: r,
+      bundleName: bundleName,
       regionId: regionId,
+      cond: cond,
+      pageLimit: pageLimit,
+      orders: orders,
     );
   }
 
   @override
-  BundlesQueryQueryMapProvider getProviderOverride(
-    covariant BundlesQueryQueryMapProvider provider,
+  BundlesQueryQueryBundlePageProvider getProviderOverride(
+    covariant BundlesQueryQueryBundlePageProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
-      r: provider.r,
+      bundleName: provider.bundleName,
       regionId: provider.regionId,
+      cond: provider.cond,
+      pageLimit: provider.pageLimit,
+      orders: provider.orders,
     );
   }
 
@@ -821,39 +1114,48 @@ class BundlesQueryQueryMapFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'bundlesQueryQueryMapProvider';
+  String? get name => r'bundlesQueryQueryBundlePageProvider';
 }
 
-/// See also [bundlesQueryQueryMap].
-class BundlesQueryQueryMapProvider
-    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
-  /// See also [bundlesQueryQueryMap].
-  BundlesQueryQueryMapProvider({
+/// See also [bundlesQueryQueryBundlePage].
+class BundlesQueryQueryBundlePageProvider
+    extends AutoDisposeFutureProvider<PaginatedResponse> {
+  /// See also [bundlesQueryQueryBundlePage].
+  BundlesQueryQueryBundlePageProvider({
     String regionOrNs = 'default',
-    required QueryMap r,
+    required String bundleName,
     String? regionId = 'default',
+    required Map<String, Object?> cond,
+    PageLimit? pageLimit,
+    List<ResultSort>? orders,
   }) : this._internal(
-          (ref) => bundlesQueryQueryMap(
-            ref as BundlesQueryQueryMapRef,
+          (ref) => bundlesQueryQueryBundlePage(
+            ref as BundlesQueryQueryBundlePageRef,
             regionOrNs: regionOrNs,
-            r: r,
+            bundleName: bundleName,
             regionId: regionId,
+            cond: cond,
+            pageLimit: pageLimit,
+            orders: orders,
           ),
-          from: bundlesQueryQueryMapProvider,
-          name: r'bundlesQueryQueryMapProvider',
+          from: bundlesQueryQueryBundlePageProvider,
+          name: r'bundlesQueryQueryBundlePageProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$bundlesQueryQueryMapHash,
-          dependencies: BundlesQueryQueryMapFamily._dependencies,
+                  : _$bundlesQueryQueryBundlePageHash,
+          dependencies: BundlesQueryQueryBundlePageFamily._dependencies,
           allTransitiveDependencies:
-              BundlesQueryQueryMapFamily._allTransitiveDependencies,
+              BundlesQueryQueryBundlePageFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
-          r: r,
+          bundleName: bundleName,
           regionId: regionId,
+          cond: cond,
+          pageLimit: pageLimit,
+          orders: orders,
         );
 
-  BundlesQueryQueryMapProvider._internal(
+  BundlesQueryQueryBundlePageProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -861,83 +1163,119 @@ class BundlesQueryQueryMapProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.regionOrNs,
-    required this.r,
+    required this.bundleName,
     required this.regionId,
+    required this.cond,
+    required this.pageLimit,
+    required this.orders,
   }) : super.internal();
 
   final String regionOrNs;
-  final QueryMap r;
+  final String bundleName;
   final String? regionId;
+  final Map<String, Object?> cond;
+  final PageLimit? pageLimit;
+  final List<ResultSort>? orders;
 
   @override
   Override overrideWith(
-    FutureOr<List<Map<String, dynamic>>> Function(
-            BundlesQueryQueryMapRef provider)
+    FutureOr<PaginatedResponse> Function(
+            BundlesQueryQueryBundlePageRef provider)
         create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: BundlesQueryQueryMapProvider._internal(
-        (ref) => create(ref as BundlesQueryQueryMapRef),
+      override: BundlesQueryQueryBundlePageProvider._internal(
+        (ref) => create(ref as BundlesQueryQueryBundlePageRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         regionOrNs: regionOrNs,
-        r: r,
+        bundleName: bundleName,
         regionId: regionId,
+        cond: cond,
+        pageLimit: pageLimit,
+        orders: orders,
       ),
     );
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
-    return _BundlesQueryQueryMapProviderElement(this);
+  AutoDisposeFutureProviderElement<PaginatedResponse> createElement() {
+    return _BundlesQueryQueryBundlePageProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is BundlesQueryQueryMapProvider &&
+    return other is BundlesQueryQueryBundlePageProvider &&
         other.regionOrNs == regionOrNs &&
-        other.r == r &&
-        other.regionId == regionId;
+        other.bundleName == bundleName &&
+        other.regionId == regionId &&
+        other.cond == cond &&
+        other.pageLimit == pageLimit &&
+        other.orders == orders;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, r.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
     hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, cond.hashCode);
+    hash = _SystemHash.combine(hash, pageLimit.hashCode);
+    hash = _SystemHash.combine(hash, orders.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin BundlesQueryQueryMapRef
-    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
+mixin BundlesQueryQueryBundlePageRef
+    on AutoDisposeFutureProviderRef<PaginatedResponse> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
 
-  /// The parameter `r` of this provider.
-  QueryMap get r;
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
 
   /// The parameter `regionId` of this provider.
   String? get regionId;
+
+  /// The parameter `cond` of this provider.
+  Map<String, Object?> get cond;
+
+  /// The parameter `pageLimit` of this provider.
+  PageLimit? get pageLimit;
+
+  /// The parameter `orders` of this provider.
+  List<ResultSort>? get orders;
 }
 
-class _BundlesQueryQueryMapProviderElement
-    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
-    with BundlesQueryQueryMapRef {
-  _BundlesQueryQueryMapProviderElement(super.provider);
+class _BundlesQueryQueryBundlePageProviderElement
+    extends AutoDisposeFutureProviderElement<PaginatedResponse>
+    with BundlesQueryQueryBundlePageRef {
+  _BundlesQueryQueryBundlePageProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as BundlesQueryQueryMapProvider).regionOrNs;
+  String get regionOrNs =>
+      (origin as BundlesQueryQueryBundlePageProvider).regionOrNs;
   @override
-  QueryMap get r => (origin as BundlesQueryQueryMapProvider).r;
+  String get bundleName =>
+      (origin as BundlesQueryQueryBundlePageProvider).bundleName;
   @override
-  String? get regionId => (origin as BundlesQueryQueryMapProvider).regionId;
+  String? get regionId =>
+      (origin as BundlesQueryQueryBundlePageProvider).regionId;
+  @override
+  Map<String, Object?> get cond =>
+      (origin as BundlesQueryQueryBundlePageProvider).cond;
+  @override
+  PageLimit? get pageLimit =>
+      (origin as BundlesQueryQueryBundlePageProvider).pageLimit;
+  @override
+  List<ResultSort>? get orders =>
+      (origin as BundlesQueryQueryBundlePageProvider).orders;
 }
 
 String _$bundlesQueryQueryExprHash() =>
@@ -1106,344 +1444,6 @@ class _BundlesQueryQueryExprProviderElement
   QueryExpr get r => (origin as BundlesQueryQueryExprProvider).r;
   @override
   String? get regionId => (origin as BundlesQueryQueryExprProvider).regionId;
-}
-
-String _$bundlesQueryQueryTermsHash() =>
-    r'3f184e64bd40f4de32c697e4e2e699714e593877';
-
-/// See also [bundlesQueryQueryTerms].
-@ProviderFor(bundlesQueryQueryTerms)
-const bundlesQueryQueryTermsProvider = BundlesQueryQueryTermsFamily();
-
-/// See also [bundlesQueryQueryTerms].
-class BundlesQueryQueryTermsFamily
-    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
-  /// See also [bundlesQueryQueryTerms].
-  const BundlesQueryQueryTermsFamily();
-
-  /// See also [bundlesQueryQueryTerms].
-  BundlesQueryQueryTermsProvider call({
-    String regionOrNs = 'default',
-    required QueryTerms r,
-    String? regionId = 'default',
-  }) {
-    return BundlesQueryQueryTermsProvider(
-      regionOrNs: regionOrNs,
-      r: r,
-      regionId: regionId,
-    );
-  }
-
-  @override
-  BundlesQueryQueryTermsProvider getProviderOverride(
-    covariant BundlesQueryQueryTermsProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      r: provider.r,
-      regionId: provider.regionId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'bundlesQueryQueryTermsProvider';
-}
-
-/// See also [bundlesQueryQueryTerms].
-class BundlesQueryQueryTermsProvider
-    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
-  /// See also [bundlesQueryQueryTerms].
-  BundlesQueryQueryTermsProvider({
-    String regionOrNs = 'default',
-    required QueryTerms r,
-    String? regionId = 'default',
-  }) : this._internal(
-          (ref) => bundlesQueryQueryTerms(
-            ref as BundlesQueryQueryTermsRef,
-            regionOrNs: regionOrNs,
-            r: r,
-            regionId: regionId,
-          ),
-          from: bundlesQueryQueryTermsProvider,
-          name: r'bundlesQueryQueryTermsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$bundlesQueryQueryTermsHash,
-          dependencies: BundlesQueryQueryTermsFamily._dependencies,
-          allTransitiveDependencies:
-              BundlesQueryQueryTermsFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          r: r,
-          regionId: regionId,
-        );
-
-  BundlesQueryQueryTermsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.r,
-    required this.regionId,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final QueryTerms r;
-  final String? regionId;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<Map<String, dynamic>>> Function(
-            BundlesQueryQueryTermsRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: BundlesQueryQueryTermsProvider._internal(
-        (ref) => create(ref as BundlesQueryQueryTermsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        r: r,
-        regionId: regionId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
-    return _BundlesQueryQueryTermsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is BundlesQueryQueryTermsProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.r == r &&
-        other.regionId == regionId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, r.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin BundlesQueryQueryTermsRef
-    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `r` of this provider.
-  QueryTerms get r;
-
-  /// The parameter `regionId` of this provider.
-  String? get regionId;
-}
-
-class _BundlesQueryQueryTermsProviderElement
-    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
-    with BundlesQueryQueryTermsRef {
-  _BundlesQueryQueryTermsProviderElement(super.provider);
-
-  @override
-  String get regionOrNs =>
-      (origin as BundlesQueryQueryTermsProvider).regionOrNs;
-  @override
-  QueryTerms get r => (origin as BundlesQueryQueryTermsProvider).r;
-  @override
-  String? get regionId => (origin as BundlesQueryQueryTermsProvider).regionId;
-}
-
-String _$bundlesQueryLoadBundlesHash() =>
-    r'cc749c0c49eae6ca6d27047873bf8589461578f8';
-
-/// See also [bundlesQueryLoadBundles].
-@ProviderFor(bundlesQueryLoadBundles)
-const bundlesQueryLoadBundlesProvider = BundlesQueryLoadBundlesFamily();
-
-/// See also [bundlesQueryLoadBundles].
-class BundlesQueryLoadBundlesFamily
-    extends Family<AsyncValue<List<Map<String, dynamic>>>> {
-  /// See also [bundlesQueryLoadBundles].
-  const BundlesQueryLoadBundlesFamily();
-
-  /// See also [bundlesQueryLoadBundles].
-  BundlesQueryLoadBundlesProvider call({
-    String regionOrNs = 'default',
-    required RequestIds r,
-    String? regionId = 'default',
-  }) {
-    return BundlesQueryLoadBundlesProvider(
-      regionOrNs: regionOrNs,
-      r: r,
-      regionId: regionId,
-    );
-  }
-
-  @override
-  BundlesQueryLoadBundlesProvider getProviderOverride(
-    covariant BundlesQueryLoadBundlesProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      r: provider.r,
-      regionId: provider.regionId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'bundlesQueryLoadBundlesProvider';
-}
-
-/// See also [bundlesQueryLoadBundles].
-class BundlesQueryLoadBundlesProvider
-    extends AutoDisposeFutureProvider<List<Map<String, dynamic>>> {
-  /// See also [bundlesQueryLoadBundles].
-  BundlesQueryLoadBundlesProvider({
-    String regionOrNs = 'default',
-    required RequestIds r,
-    String? regionId = 'default',
-  }) : this._internal(
-          (ref) => bundlesQueryLoadBundles(
-            ref as BundlesQueryLoadBundlesRef,
-            regionOrNs: regionOrNs,
-            r: r,
-            regionId: regionId,
-          ),
-          from: bundlesQueryLoadBundlesProvider,
-          name: r'bundlesQueryLoadBundlesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$bundlesQueryLoadBundlesHash,
-          dependencies: BundlesQueryLoadBundlesFamily._dependencies,
-          allTransitiveDependencies:
-              BundlesQueryLoadBundlesFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          r: r,
-          regionId: regionId,
-        );
-
-  BundlesQueryLoadBundlesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.r,
-    required this.regionId,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final RequestIds r;
-  final String? regionId;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<Map<String, dynamic>>> Function(
-            BundlesQueryLoadBundlesRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: BundlesQueryLoadBundlesProvider._internal(
-        (ref) => create(ref as BundlesQueryLoadBundlesRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        r: r,
-        regionId: regionId,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<Map<String, dynamic>>> createElement() {
-    return _BundlesQueryLoadBundlesProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is BundlesQueryLoadBundlesProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.r == r &&
-        other.regionId == regionId;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, r.hashCode);
-    hash = _SystemHash.combine(hash, regionId.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin BundlesQueryLoadBundlesRef
-    on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `r` of this provider.
-  RequestIds get r;
-
-  /// The parameter `regionId` of this provider.
-  String? get regionId;
-}
-
-class _BundlesQueryLoadBundlesProviderElement
-    extends AutoDisposeFutureProviderElement<List<Map<String, dynamic>>>
-    with BundlesQueryLoadBundlesRef {
-  _BundlesQueryLoadBundlesProviderElement(super.provider);
-
-  @override
-  String get regionOrNs =>
-      (origin as BundlesQueryLoadBundlesProvider).regionOrNs;
-  @override
-  RequestIds get r => (origin as BundlesQueryLoadBundlesProvider).r;
-  @override
-  String? get regionId => (origin as BundlesQueryLoadBundlesProvider).regionId;
 }
 
 String _$bundlesQueryDealerPodHash() =>
