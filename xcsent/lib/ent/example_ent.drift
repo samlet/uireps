@@ -1,0 +1,69 @@
+import '../proto_fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE example_ent (
+    "example_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "example_type_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
+    "example_name" VARCHAR(100),
+    "description" VARCHAR(255),
+    "long_description" LONGTEXT,
+    "comments" VARCHAR(255),
+    "example_size" BIGINT,
+    "example_date" DATETIME(3),
+    "another_date" DATETIME(3),
+    "another_text" VARCHAR(255),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "tenant_id" VARCHAR(22),
+    "note_id" VARCHAR(22),
+    "extra_date" DATE,
+    "extra_time" BLOB MAPPED BY `const TimeConverter()`,
+    "extra_currency" DECIMAL(18,2),
+    "extra_amount" DECIMAL(18,6),
+    "extra_blob" LongBlob,
+    "extra_strings" BLOB MAPPED BY `const StringsConverter()`,
+    "extra_ints" BLOB MAPPED BY `const IntsConverter()`,
+    "extra_bools" BLOB MAPPED BY `const BoolsConverter()`,
+    "extra_decimals" BLOB MAPPED BY `const DecimalsConverter()`,
+    "extra_timestamps" BLOB MAPPED BY `const TimestampsConverter()`,
+    "extra_buffers" BLOB MAPPED BY `const BuffersDataConverter()`,
+    "measures" BLOB MAPPED BY `const DecimalMapConverter()`,
+    "series" BLOB MAPPED BY `const IntMapConverter()`,
+    "describes" BLOB MAPPED BY `const StringMapConverter()`,
+    "refs" BLOB MAPPED BY `const StringMapConverter()`,
+    "options" BLOB MAPPED BY `const BoolMapConverter()`,
+    "media_links" BLOB MAPPED BY `const StringMapConverter()`,
+    "bookmarks" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "symbols" BLOB MAPPED BY `const SymbolMultimapConverter()`,
+    "detail" BLOB MAPPED BY `const DatagramDataConverter()`,
+    "metadata" TEXT,
+    "slot_id" VARCHAR(22),
+    "customer_confirmation" CHAR(1),
+    "evict" BOOLEAN,
+    "tag1" VARCHAR(100),
+    "tag2" VARCHAR(100),
+    "tag3" VARCHAR(100),
+    "more_tags" BLOB MAPPED BY `const StringsConverter()`,
+    "acl" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
+    "url" VARCHAR(2000),
+    "image" BLOB MAPPED BY `const StringsConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
+
+    "reserved_flag" INTEGER
+);
+
+allExamples: SELECT * FROM example_ent;
+clearExamples: DELETE FROM example_ent;
+addExample: INSERT INTO example_ent $el;
+getExample: SELECT * FROM example_ent WHERE example_id = ?;
+deleteExample: DELETE FROM example_ent WHERE example_id = :id;
+
+
+
+
+

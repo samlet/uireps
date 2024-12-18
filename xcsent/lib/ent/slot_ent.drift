@@ -1,0 +1,31 @@
+import '../proto_fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE slot_ent (
+    "slot_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "slot_name" VARCHAR(100),
+    "slot_type" VARCHAR(100),
+    "default_value" VARCHAR(255),
+    "required" CHAR(1),
+    "status_id" VARCHAR(22),
+    "slot_data" MediumBlob,
+    "group_name" VARCHAR(100),
+    "slot_seq" INTEGER,
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "evict" BOOLEAN,
+
+    "reserved_flag" INTEGER
+);
+
+allSlots: SELECT * FROM slot_ent;
+clearSlots: DELETE FROM slot_ent;
+addSlot: INSERT INTO slot_ent $el;
+getSlot: SELECT * FROM slot_ent WHERE slot_id = ?;
+deleteSlot: DELETE FROM slot_ent WHERE slot_id = :id;
+
+
+
+
+

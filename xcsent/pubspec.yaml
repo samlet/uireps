@@ -1,10 +1,10 @@
-name: xcsdrift
+name: xcsent
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: ^3.5.1
+  sdk: ^3.5.3
   flutter: ">=1.17.0"
 
 dependencies:
@@ -15,8 +15,6 @@ dependencies:
   # it is important that drift_dev is a regular dependency here.
   drift_dev: ^2.21.0
   quiver: ^3.2.2
-  xcsmachine:
-    path: ../xcsmachine
   json_annotation: ^4.9.0
   riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
@@ -25,6 +23,10 @@ dependencies:
   jiffy: ^6.3.1
   faker: ^2.2.0
   pinyin: ^3.3.0
+  xcsmachine:
+    path: ../xcsmachine
+  xcsproto:
+    path: ../xcsproto
 
 dev_dependencies:
   flutter_test:

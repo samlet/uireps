@@ -1,0 +1,53 @@
+import '../proto_fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE person_ent (
+    "party_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "salutation" VARCHAR(100),
+    "first_name" VARCHAR(100),
+    "middle_name" VARCHAR(100),
+    "last_name" VARCHAR(100),
+    "personal_title" VARCHAR(100),
+    "suffix" VARCHAR(100),
+    "nickname" VARCHAR(100),
+    "first_name_local" VARCHAR(100),
+    "middle_name_local" VARCHAR(100),
+    "last_name_local" VARCHAR(100),
+    "other_local" VARCHAR(100),
+    "member_id" VARCHAR(22),
+    "gender" CHAR(1),
+    "birth_date" DATE,
+    "deceased_date" DATE,
+    "height" DOUBLE,
+    "weight" DOUBLE,
+    "mothers_maiden_name" VARCHAR(255),
+    "marital_status_enum_id" VARCHAR(22),
+    "social_security_number" VARCHAR(255),
+    "passport_number" VARCHAR(255),
+    "passport_expire_date" DATE,
+    "total_years_work_experience" DOUBLE,
+    "comments" VARCHAR(255),
+    "employment_status_enum_id" VARCHAR(22),
+    "residence_status_enum_id" VARCHAR(22),
+    "occupation" VARCHAR(100),
+    "years_with_employer" BIGINT,
+    "months_with_employer" BIGINT,
+    "existing_customer" CHAR(1),
+    "card_id" VARCHAR(60),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "tenant_id" VARCHAR(22),
+
+    "reserved_flag" INTEGER
+);
+
+allPeople: SELECT * FROM person_ent;
+clearPeople: DELETE FROM person_ent;
+addPerson: INSERT INTO person_ent $el;
+getPerson: SELECT * FROM person_ent WHERE party_id = ?;
+deletePerson: DELETE FROM person_ent WHERE party_id = :id;
+
+
+
+
+
