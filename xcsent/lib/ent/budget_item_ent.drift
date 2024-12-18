@@ -1,0 +1,35 @@
+import '../proto_fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE budget_item_ent (
+    "id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "budget_id" VARCHAR(22),
+    "budget_item_seq_id" VARCHAR(22),
+    "budget_item_type_id" VARCHAR(22),
+    "amount" DECIMAL(18,2),
+    "purpose" VARCHAR(255),
+    "justification" VARCHAR(255),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "account_id" VARCHAR(22),
+    "token_id" VARCHAR(22),
+    "origin" CHAR(1),
+    "url" VARCHAR(2000),
+    "image" BLOB MAPPED BY `const StringsConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
+
+    "reserved_flag" INTEGER
+);
+
+allBudgetItems: SELECT * FROM budget_item_ent;
+clearBudgetItems: DELETE FROM budget_item_ent;
+addBudgetItem: INSERT INTO budget_item_ent $el;
+getBudgetItem: SELECT * FROM budget_item_ent WHERE id = ?;
+deleteBudgetItem: DELETE FROM budget_item_ent WHERE id = :id;
+
+
+
+
+
