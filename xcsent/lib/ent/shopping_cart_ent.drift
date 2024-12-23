@@ -1,0 +1,46 @@
+import '../fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE shopping_cart_ent (
+    "shopping_cart_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "store_id" VARCHAR(22),
+    "contacts" TEXT MAPPED BY `const ContactProfileConverter()`,
+    "create_date" DATETIME(3),
+    "name" VARCHAR(100),
+    "info" TEXT,
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "wallet_id" VARCHAR(22),
+    "party_id" VARCHAR(22),
+    "user_login_id" VARCHAR(22),
+    "order_id" VARCHAR(22),
+    "ship_meth_type" VARCHAR(22),
+    "ship_meth_provider" VARCHAR(22),
+    "slot_id" VARCHAR(22),
+    "tag1" VARCHAR(100),
+    "tag2" VARCHAR(100),
+    "tag3" VARCHAR(100),
+    "more_tags" BLOB MAPPED BY `const StringsConverter()`,
+    "labels" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "shopping_cart_type_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
+    "evict" BOOLEAN,
+    "multi_jointers" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "acl" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
+
+    "reserved_flag" INTEGER
+);
+
+allShoppingCarts: SELECT * FROM shopping_cart_ent;
+clearShoppingCarts: DELETE FROM shopping_cart_ent;
+addShoppingCart: INSERT INTO shopping_cart_ent $el;
+getShoppingCart: SELECT * FROM shopping_cart_ent WHERE shopping_cart_id = ?;
+deleteShoppingCart: DELETE FROM shopping_cart_ent WHERE shopping_cart_id = :id;
+
+
+
+
+

@@ -46,6 +46,7 @@ typedef $InventoryItemEntCreateCompanionBuilder = i1.InventoryItemEntCompanion
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<i2.Strings?> moreTags,
+  i0.Value<i2.StringMultimap?> labels,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -88,6 +89,7 @@ typedef $InventoryItemEntUpdateCompanionBuilder = i1.InventoryItemEntCompanion
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<i2.Strings?> moreTags,
+  i0.Value<i2.StringMultimap?> labels,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -230,6 +232,12 @@ class $InventoryItemEntFilterComposer
   i0.ColumnWithTypeConverterFilters<i2.Strings?, i2.Strings, i3.Uint8List>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.StringMultimap?, i2.StringMultimap,
+          i3.Uint8List>
+      get labels => $composableBuilder(
+          column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnFilters<int> get reservedFlag => $composableBuilder(
@@ -380,6 +388,9 @@ class $InventoryItemEntOrderingComposer
   i0.ColumnOrderings<i3.Uint8List> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<i3.Uint8List> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<int> get reservedFlag => $composableBuilder(
       column: $table.reservedFlag,
       builder: (column) => i0.ColumnOrderings(column));
@@ -505,6 +516,10 @@ class $InventoryItemEntAnnotationComposer
   i0.GeneratedColumnWithTypeConverter<i2.Strings?, i3.Uint8List> get moreTags =>
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
+  i0.GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
   i0.GeneratedColumn<int> get reservedFlag => $composableBuilder(
       column: $table.reservedFlag, builder: (column) => column);
 }
@@ -574,6 +589,7 @@ class $InventoryItemEntTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
@@ -615,6 +631,7 @@ class $InventoryItemEntTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             reservedFlag: reservedFlag,
             rowid: rowid,
           ),
@@ -656,6 +673,7 @@ class $InventoryItemEntTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
           }) =>
@@ -697,6 +715,7 @@ class $InventoryItemEntTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             reservedFlag: reservedFlag,
             rowid: rowid,
           ),
@@ -992,6 +1011,15 @@ class InventoryItemEnt extends i0.Table
               requiredDuringInsert: false,
               $customConstraints: '')
           .withConverter<i2.Strings?>(i1.InventoryItemEnt.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0.GeneratedColumnWithTypeConverter<i2.StringMultimap?,
+      i3.Uint8List> labels = i0.GeneratedColumn<i3.Uint8List>(
+          'labels', aliasedName, true,
+          type: i0.DriftSqlType.blob,
+          requiredDuringInsert: false,
+          $customConstraints: '')
+      .withConverter<i2.StringMultimap?>(i1.InventoryItemEnt.$converterlabelsn);
   static const i0.VerificationMeta _reservedFlagMeta =
       const i0.VerificationMeta('reservedFlag');
   late final i0.GeneratedColumn<int> reservedFlag = i0.GeneratedColumn<int>(
@@ -1038,6 +1066,7 @@ class InventoryItemEnt extends i0.Table
         tag2,
         tag3,
         moreTags,
+        labels,
         reservedFlag
       ];
   @override
@@ -1240,6 +1269,7 @@ class InventoryItemEnt extends i0.Table
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     if (data.containsKey('reserved_flag')) {
       context.handle(
           _reservedFlagMeta,
@@ -1339,6 +1369,9 @@ class InventoryItemEnt extends i0.Table
       moreTags: i1.InventoryItemEnt.$convertermoreTagsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.blob, data['${effectivePrefix}more_tags'])),
+      labels: i1.InventoryItemEnt.$converterlabelsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.blob, data['${effectivePrefix}labels'])),
       reservedFlag: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.int, data['${effectivePrefix}reserved_flag']),
     );
@@ -1353,6 +1386,10 @@ class InventoryItemEnt extends i0.Table
       const i4.StringsConverter();
   static i0.TypeConverter<i2.Strings?, i3.Uint8List?> $convertermoreTagsn =
       i0.NullAwareTypeConverter.wrap($convertermoreTags);
+  static i0.TypeConverter<i2.StringMultimap, i3.Uint8List> $converterlabels =
+      const i4.StringMultimapConverter();
+  static i0.TypeConverter<i2.StringMultimap?, i3.Uint8List?> $converterlabelsn =
+      i0.NullAwareTypeConverter.wrap($converterlabels);
   @override
   bool get dontWriteConstraints => true;
 }
@@ -1396,6 +1433,7 @@ class InventoryItemEntData extends i0.DataClass
   final String? tag2;
   final String? tag3;
   final i2.Strings? moreTags;
+  final i2.StringMultimap? labels;
   final int? reservedFlag;
   const InventoryItemEntData(
       {required this.inventoryItemId,
@@ -1435,6 +1473,7 @@ class InventoryItemEntData extends i0.DataClass
       this.tag2,
       this.tag3,
       this.moreTags,
+      this.labels,
       this.reservedFlag});
   @override
   Map<String, i0.Expression> toColumns(bool nullToAbsent) {
@@ -1551,6 +1590,10 @@ class InventoryItemEntData extends i0.DataClass
     if (!nullToAbsent || moreTags != null) {
       map['more_tags'] = i0.Variable<i3.Uint8List>(
           i1.InventoryItemEnt.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] = i0.Variable<i3.Uint8List>(
+          i1.InventoryItemEnt.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || reservedFlag != null) {
       map['reserved_flag'] = i0.Variable<int>(reservedFlag);
@@ -1669,6 +1712,9 @@ class InventoryItemEntData extends i0.DataClass
       moreTags: moreTags == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       reservedFlag: reservedFlag == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(reservedFlag),
@@ -1724,6 +1770,7 @@ class InventoryItemEntData extends i0.DataClass
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: serializer.fromJson<i2.Strings?>(json['more_tags']),
+      labels: serializer.fromJson<i2.StringMultimap?>(json['labels']),
       reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
   }
@@ -1772,6 +1819,7 @@ class InventoryItemEntData extends i0.DataClass
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<i2.Strings?>(moreTags),
+      'labels': serializer.toJson<i2.StringMultimap?>(labels),
       'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
   }
@@ -1814,6 +1862,7 @@ class InventoryItemEntData extends i0.DataClass
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
+          i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.InventoryItemEntData(
         inventoryItemId: inventoryItemId ?? this.inventoryItemId,
@@ -1878,6 +1927,7 @@ class InventoryItemEntData extends i0.DataClass
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         reservedFlag:
             reservedFlag.present ? reservedFlag.value : this.reservedFlag,
       );
@@ -1957,6 +2007,7 @@ class InventoryItemEntData extends i0.DataClass
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       reservedFlag: data.reservedFlag.present
           ? data.reservedFlag.value
           : this.reservedFlag,
@@ -2003,6 +2054,7 @@ class InventoryItemEntData extends i0.DataClass
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('reservedFlag: $reservedFlag')
           ..write(')'))
         .toString();
@@ -2047,6 +2099,7 @@ class InventoryItemEntData extends i0.DataClass
         tag2,
         tag3,
         moreTags,
+        labels,
         reservedFlag
       ]);
   @override
@@ -2090,6 +2143,7 @@ class InventoryItemEntData extends i0.DataClass
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.reservedFlag == this.reservedFlag);
 }
 
@@ -2132,6 +2186,7 @@ class InventoryItemEntCompanion
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
   final i0.Value<i2.Strings?> moreTags;
+  final i0.Value<i2.StringMultimap?> labels;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const InventoryItemEntCompanion({
@@ -2172,6 +2227,7 @@ class InventoryItemEntCompanion
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   });
@@ -2213,6 +2269,7 @@ class InventoryItemEntCompanion
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
     this.rowid = const i0.Value.absent(),
   }) : inventoryItemId = i0.Value(inventoryItemId);
@@ -2254,6 +2311,7 @@ class InventoryItemEntCompanion
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
     i0.Expression<i3.Uint8List>? moreTags,
+    i0.Expression<i3.Uint8List>? labels,
     i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
   }) {
@@ -2302,6 +2360,7 @@ class InventoryItemEntCompanion
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (reservedFlag != null) 'reserved_flag': reservedFlag,
       if (rowid != null) 'rowid': rowid,
     });
@@ -2345,6 +2404,7 @@ class InventoryItemEntCompanion
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
       i0.Value<i2.Strings?>? moreTags,
+      i0.Value<i2.StringMultimap?>? labels,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.InventoryItemEntCompanion(
@@ -2387,6 +2447,7 @@ class InventoryItemEntCompanion
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       reservedFlag: reservedFlag ?? this.reservedFlag,
       rowid: rowid ?? this.rowid,
     );
@@ -2514,6 +2575,10 @@ class InventoryItemEntCompanion
       map['more_tags'] = i0.Variable<i3.Uint8List>(
           i1.InventoryItemEnt.$convertermoreTagsn.toSql(moreTags.value));
     }
+    if (labels.present) {
+      map['labels'] = i0.Variable<i3.Uint8List>(
+          i1.InventoryItemEnt.$converterlabelsn.toSql(labels.value));
+    }
     if (reservedFlag.present) {
       map['reserved_flag'] = i0.Variable<int>(reservedFlag.value);
     }
@@ -2563,6 +2628,7 @@ class InventoryItemEntCompanion
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('reservedFlag: $reservedFlag, ')
           ..write('rowid: $rowid')
           ..write(')'))

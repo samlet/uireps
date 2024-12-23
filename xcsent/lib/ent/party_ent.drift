@@ -1,0 +1,49 @@
+import '../fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE party_ent (
+    "party_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "party_type_id" VARCHAR(22),
+    "external_id" VARCHAR(22),
+    "preferred_currency_uom_id" VARCHAR(22),
+    "description" LONGTEXT,
+    "status_id" VARCHAR(22),
+    "created_date" DATETIME(3),
+    "created_by_user_login" VARCHAR(250),
+    "last_modified_date" DATETIME(3),
+    "last_modified_by_user_login" VARCHAR(250),
+    "data_source_id" VARCHAR(22),
+    "is_unread" CHAR(1),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "tenant_id" VARCHAR(22),
+    "default_login_id" VARCHAR(22),
+    "evict" BOOLEAN,
+    "tag1" VARCHAR(100),
+    "tag2" VARCHAR(100),
+    "tag3" VARCHAR(100),
+    "more_tags" BLOB MAPPED BY `const StringsConverter()`,
+    "labels" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "acl" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "telephone" VARCHAR(60),
+    "email" VARCHAR(320),
+    "place_id" VARCHAR(22),
+    "url" VARCHAR(2000),
+    "image" BLOB MAPPED BY `const StringsConverter()`,
+    "same_as" VARCHAR(2000),
+    "icon" BIGINT,
+    "color" BIGINT,
+
+    "reserved_flag" INTEGER
+);
+
+allParties: SELECT * FROM party_ent;
+clearParties: DELETE FROM party_ent;
+addParty: INSERT INTO party_ent $el;
+getParty: SELECT * FROM party_ent WHERE party_id = ?;
+deleteParty: DELETE FROM party_ent WHERE party_id = :id;
+
+
+
+
+

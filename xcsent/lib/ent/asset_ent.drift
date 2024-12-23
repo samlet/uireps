@@ -1,0 +1,43 @@
+import '../fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE asset_ent (
+    "asset_id" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "creator" VARCHAR(22),
+    "uri" VARCHAR(2000),
+    "data" LongBlob,
+    "group" VARCHAR(100),
+    "parent_asset_id" VARCHAR(22),
+    "seq_id" BIGINT,
+    "erc" VARCHAR(22),
+    "erc_type" VARCHAR(22),
+    "token_id" VARCHAR(22),
+    "accessors" BLOB MAPPED BY `const IntMapConverter()`,
+    "tenant_id" VARCHAR(22),
+    "last_updated_tx_stamp" DATETIME(3),
+    "created_tx_stamp" DATETIME(3),
+    "asset_type_id" VARCHAR(22),
+    "status_id" VARCHAR(22),
+    "tag1" VARCHAR(100),
+    "tag2" VARCHAR(100),
+    "tag3" VARCHAR(100),
+    "more_tags" BLOB MAPPED BY `const StringsConverter()`,
+    "labels" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "evict" BOOLEAN,
+    "acl" BLOB MAPPED BY `const StringMultimapConverter()`,
+    "resource_id" VARCHAR(250),
+    "resource_type" VARCHAR(60),
+
+    "reserved_flag" INTEGER
+);
+
+allAssets: SELECT * FROM asset_ent;
+clearAssets: DELETE FROM asset_ent;
+addAsset: INSERT INTO asset_ent $el;
+getAsset: SELECT * FROM asset_ent WHERE asset_id = ?;
+deleteAsset: DELETE FROM asset_ent WHERE asset_id = :id;
+
+
+
+
+

@@ -1,4 +1,4 @@
-import '../proto_fldconv.dart';
+import '../fldconv.dart';
 -- gentool: DriftEntGenTool
 
 CREATE TABLE budget_item_ent (

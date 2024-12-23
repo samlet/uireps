@@ -1,4 +1,4 @@
-import '../proto_fldconv.dart';
+import '../fldconv.dart';
 -- gentool: DriftEntGenTool
 
 CREATE TABLE inventory_item_ent (
@@ -39,6 +39,7 @@ CREATE TABLE inventory_item_ent (
     "tag2" VARCHAR(100),
     "tag3" VARCHAR(100),
     "more_tags" BLOB MAPPED BY `const StringsConverter()`,
+    "labels" BLOB MAPPED BY `const StringMultimapConverter()`,
 
     "reserved_flag" INTEGER
 );

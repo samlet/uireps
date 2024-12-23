@@ -27,6 +27,8 @@ dependencies:
     path: ../xcsmachine
   xcsproto:
     path: ../xcsproto
+  xcsdrift:
+    path: ../xcsdrift
 
 dev_dependencies:
   flutter_test:

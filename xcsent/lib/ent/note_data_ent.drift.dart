@@ -24,6 +24,7 @@ typedef $NoteDataEntCreateCompanionBuilder = i1.NoteDataEntCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<i2.Strings?> moreTags,
+  i0.Value<i2.StringMultimap?> labels,
   i0.Value<i2.StringMultimap?> acl,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
@@ -47,6 +48,7 @@ typedef $NoteDataEntUpdateCompanionBuilder = i1.NoteDataEntCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<i2.Strings?> moreTags,
+  i0.Value<i2.StringMultimap?> labels,
   i0.Value<i2.StringMultimap?> acl,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
@@ -117,6 +119,12 @@ class $NoteDataEntFilterComposer
   i0.ColumnWithTypeConverterFilters<i2.Strings?, i2.Strings, i3.Uint8List>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.StringMultimap?, i2.StringMultimap,
+          i3.Uint8List>
+      get labels => $composableBuilder(
+          column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i2.StringMultimap?, i2.StringMultimap,
@@ -201,6 +209,9 @@ class $NoteDataEntOrderingComposer
   i0.ColumnOrderings<i3.Uint8List> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<i3.Uint8List> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<i3.Uint8List> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
@@ -275,6 +286,10 @@ class $NoteDataEntAnnotationComposer
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
   i0.GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List>
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
@@ -331,6 +346,7 @@ class $NoteDataEntTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
             i0.Value<i2.StringMultimap?> acl = const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
             i0.Value<String?> resourceType = const i0.Value.absent(),
@@ -354,6 +370,7 @@ class $NoteDataEntTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             acl: acl,
             resourceId: resourceId,
             resourceType: resourceType,
@@ -377,6 +394,7 @@ class $NoteDataEntTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
             i0.Value<i2.StringMultimap?> acl = const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
             i0.Value<String?> resourceType = const i0.Value.absent(),
@@ -400,6 +418,7 @@ class $NoteDataEntTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             acl: acl,
             resourceId: resourceId,
             resourceType: resourceType,
@@ -550,6 +569,15 @@ class NoteDataEnt extends i0.Table
               requiredDuringInsert: false,
               $customConstraints: '')
           .withConverter<i2.Strings?>(i1.NoteDataEnt.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List>
+      labels = i0.GeneratedColumn<i3.Uint8List>('labels', aliasedName, true,
+              type: i0.DriftSqlType.blob,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.StringMultimap?>(i1.NoteDataEnt.$converterlabelsn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0
       .GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List> acl =
@@ -597,6 +625,7 @@ class NoteDataEnt extends i0.Table
         tag2,
         tag3,
         moreTags,
+        labels,
         acl,
         resourceId,
         resourceType,
@@ -688,6 +717,7 @@ class NoteDataEnt extends i0.Table
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
     if (data.containsKey('resource_id')) {
       context.handle(
@@ -751,6 +781,9 @@ class NoteDataEnt extends i0.Table
       moreTags: i1.NoteDataEnt.$convertermoreTagsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.blob, data['${effectivePrefix}more_tags'])),
+      labels: i1.NoteDataEnt.$converterlabelsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.blob, data['${effectivePrefix}labels'])),
       acl: i1.NoteDataEnt.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.blob, data['${effectivePrefix}acl'])),
       resourceId: attachedDatabase.typeMapping
@@ -771,6 +804,10 @@ class NoteDataEnt extends i0.Table
       const i4.StringsConverter();
   static i0.TypeConverter<i2.Strings?, i3.Uint8List?> $convertermoreTagsn =
       i0.NullAwareTypeConverter.wrap($convertermoreTags);
+  static i0.TypeConverter<i2.StringMultimap, i3.Uint8List> $converterlabels =
+      const i4.StringMultimapConverter();
+  static i0.TypeConverter<i2.StringMultimap?, i3.Uint8List?> $converterlabelsn =
+      i0.NullAwareTypeConverter.wrap($converterlabels);
   static i0.TypeConverter<i2.StringMultimap, i3.Uint8List> $converteracl =
       const i4.StringMultimapConverter();
   static i0.TypeConverter<i2.StringMultimap?, i3.Uint8List?> $converteracln =
@@ -797,6 +834,7 @@ class NoteDataEntData extends i0.DataClass
   final String? tag2;
   final String? tag3;
   final i2.Strings? moreTags;
+  final i2.StringMultimap? labels;
   final i2.StringMultimap? acl;
   final String? resourceId;
   final String? resourceType;
@@ -818,6 +856,7 @@ class NoteDataEntData extends i0.DataClass
       this.tag2,
       this.tag3,
       this.moreTags,
+      this.labels,
       this.acl,
       this.resourceId,
       this.resourceType,
@@ -871,6 +910,10 @@ class NoteDataEntData extends i0.DataClass
     if (!nullToAbsent || moreTags != null) {
       map['more_tags'] = i0.Variable<i3.Uint8List>(
           i1.NoteDataEnt.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] = i0.Variable<i3.Uint8List>(
+          i1.NoteDataEnt.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] =
@@ -936,6 +979,9 @@ class NoteDataEntData extends i0.DataClass
       moreTags: moreTags == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
       resourceId: resourceId == null && nullToAbsent
@@ -972,6 +1018,7 @@ class NoteDataEntData extends i0.DataClass
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: serializer.fromJson<i2.Strings?>(json['more_tags']),
+      labels: serializer.fromJson<i2.StringMultimap?>(json['labels']),
       acl: serializer.fromJson<i2.StringMultimap?>(json['acl']),
       resourceId: serializer.fromJson<String?>(json['resource_id']),
       resourceType: serializer.fromJson<String?>(json['resource_type']),
@@ -998,6 +1045,7 @@ class NoteDataEntData extends i0.DataClass
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<i2.Strings?>(moreTags),
+      'labels': serializer.toJson<i2.StringMultimap?>(labels),
       'acl': serializer.toJson<i2.StringMultimap?>(acl),
       'resource_id': serializer.toJson<String?>(resourceId),
       'resource_type': serializer.toJson<String?>(resourceType),
@@ -1022,6 +1070,7 @@ class NoteDataEntData extends i0.DataClass
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
+          i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
           i0.Value<i2.StringMultimap?> acl = const i0.Value.absent(),
           i0.Value<String?> resourceId = const i0.Value.absent(),
           i0.Value<String?> resourceType = const i0.Value.absent(),
@@ -1050,6 +1099,7 @@ class NoteDataEntData extends i0.DataClass
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         acl: acl.present ? acl.value : this.acl,
         resourceId: resourceId.present ? resourceId.value : this.resourceId,
         resourceType:
@@ -1086,6 +1136,7 @@ class NoteDataEntData extends i0.DataClass
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       acl: data.acl.present ? data.acl.value : this.acl,
       resourceId:
           data.resourceId.present ? data.resourceId.value : this.resourceId,
@@ -1117,6 +1168,7 @@ class NoteDataEntData extends i0.DataClass
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
           ..write('resourceType: $resourceType, ')
@@ -1126,27 +1178,29 @@ class NoteDataEntData extends i0.DataClass
   }
 
   @override
-  int get hashCode => Object.hash(
-      noteId,
-      noteName,
-      noteInfo,
-      noteDateTime,
-      lastUpdatedTxStamp,
-      createdTxStamp,
-      noteParty,
-      moreInfoUrl,
-      moreInfoItemId,
-      moreInfoItemName,
-      tenantId,
-      evict,
-      tag1,
-      tag2,
-      tag3,
-      moreTags,
-      acl,
-      resourceId,
-      resourceType,
-      reservedFlag);
+  int get hashCode => Object.hashAll([
+        noteId,
+        noteName,
+        noteInfo,
+        noteDateTime,
+        lastUpdatedTxStamp,
+        createdTxStamp,
+        noteParty,
+        moreInfoUrl,
+        moreInfoItemId,
+        moreInfoItemName,
+        tenantId,
+        evict,
+        tag1,
+        tag2,
+        tag3,
+        moreTags,
+        labels,
+        acl,
+        resourceId,
+        resourceType,
+        reservedFlag
+      ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1167,6 +1221,7 @@ class NoteDataEntData extends i0.DataClass
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.acl == this.acl &&
           other.resourceId == this.resourceId &&
           other.resourceType == this.resourceType &&
@@ -1190,6 +1245,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
   final i0.Value<i2.Strings?> moreTags;
+  final i0.Value<i2.StringMultimap?> labels;
   final i0.Value<i2.StringMultimap?> acl;
   final i0.Value<String?> resourceId;
   final i0.Value<String?> resourceType;
@@ -1212,6 +1268,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
     this.resourceType = const i0.Value.absent(),
@@ -1235,6 +1292,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
     this.resourceType = const i0.Value.absent(),
@@ -1258,6 +1316,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
     i0.Expression<i3.Uint8List>? moreTags,
+    i0.Expression<i3.Uint8List>? labels,
     i0.Expression<i3.Uint8List>? acl,
     i0.Expression<String>? resourceId,
     i0.Expression<String>? resourceType,
@@ -1282,6 +1341,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (acl != null) 'acl': acl,
       if (resourceId != null) 'resource_id': resourceId,
       if (resourceType != null) 'resource_type': resourceType,
@@ -1307,6 +1367,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
       i0.Value<i2.Strings?>? moreTags,
+      i0.Value<i2.StringMultimap?>? labels,
       i0.Value<i2.StringMultimap?>? acl,
       i0.Value<String?>? resourceId,
       i0.Value<String?>? resourceType,
@@ -1329,6 +1390,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
@@ -1390,6 +1452,10 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
       map['more_tags'] = i0.Variable<i3.Uint8List>(
           i1.NoteDataEnt.$convertermoreTagsn.toSql(moreTags.value));
     }
+    if (labels.present) {
+      map['labels'] = i0.Variable<i3.Uint8List>(
+          i1.NoteDataEnt.$converterlabelsn.toSql(labels.value));
+    }
     if (acl.present) {
       map['acl'] = i0.Variable<i3.Uint8List>(
           i1.NoteDataEnt.$converteracln.toSql(acl.value));
@@ -1428,6 +1494,7 @@ class NoteDataEntCompanion extends i0.UpdateCompanion<i1.NoteDataEntData> {
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
           ..write('resourceType: $resourceType, ')

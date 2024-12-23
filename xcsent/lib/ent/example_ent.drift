@@ -1,4 +1,4 @@
-import '../proto_fldconv.dart';
+import '../fldconv.dart';
 -- gentool: DriftEntGenTool
 
 CREATE TABLE example_ent (
@@ -45,6 +45,7 @@ CREATE TABLE example_ent (
     "tag2" VARCHAR(100),
     "tag3" VARCHAR(100),
     "more_tags" BLOB MAPPED BY `const StringsConverter()`,
+    "labels" BLOB MAPPED BY `const StringMultimapConverter()`,
     "acl" BLOB MAPPED BY `const StringMultimapConverter()`,
     "resource_id" VARCHAR(250),
     "resource_type" VARCHAR(60),
