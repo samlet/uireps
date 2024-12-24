@@ -44,6 +44,7 @@ class KbQuestion {
     this.tag2,
     this.tag3,
     this.moreTags,
+    this.labels,
     this.resourceId,
     this.resourceType,
     this.kbQuestionType,
@@ -77,6 +78,7 @@ class KbQuestion {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
+    Multimap<String, String>? labels,
     String? resourceId,
     String? resourceType,
     KbQuestionType? kbQuestionType,
@@ -109,6 +111,7 @@ class KbQuestion {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
       kbQuestionType: kbQuestionType ?? this.kbQuestionType,
@@ -210,6 +213,10 @@ class KbQuestion {
 
    
   List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   String? resourceId;

@@ -51,46 +51,44 @@ UserLogin _$UserLoginFromJson(Map<String, dynamic> json) => UserLogin(
               .toList(),
     );
 
-Map<String, dynamic> _$UserLoginToJson(UserLogin instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('currentPassword', instance.currentPassword);
-  writeNotNull('passwordHint', instance.passwordHint);
-  writeNotNull('isSystem', instance.isSystem);
-  writeNotNull('enabled', instance.enabled);
-  writeNotNull('hasLoggedOut', instance.hasLoggedOut);
-  writeNotNull('requirePasswordChange', instance.requirePasswordChange);
-  writeNotNull('lastCurrencyUom', instance.lastCurrencyUom);
-  writeNotNull('lastLocale', instance.lastLocale);
-  writeNotNull('lastTimeZone', instance.lastTimeZone);
-  writeNotNull(
-      'disabledDateTime', instance.disabledDateTime?.toIso8601String());
-  writeNotNull('successiveFailedLogins', instance.successiveFailedLogins);
-  writeNotNull('externalAuthId', instance.externalAuthId);
-  writeNotNull('userLdapDn', instance.userLdapDn);
-  writeNotNull('disabledBy', instance.disabledBy);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('userLoginSession', instance.userLoginSession?.toJson());
-  writeNotNull('userPreference',
-      instance.userPreference?.map((e) => e.toJson()).toList());
-  writeNotNull('userLoginSecurityGroup',
-      instance.userLoginSecurityGroup?.map((e) => e.toJson()).toList());
-  writeNotNull('userLoginPasswordHistory',
-      instance.userLoginPasswordHistory?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$UserLoginToJson(UserLogin instance) => <String, dynamic>{
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.currentPassword case final value?) 'currentPassword': value,
+      if (instance.passwordHint case final value?) 'passwordHint': value,
+      if (instance.isSystem case final value?) 'isSystem': value,
+      if (instance.enabled case final value?) 'enabled': value,
+      if (instance.hasLoggedOut case final value?) 'hasLoggedOut': value,
+      if (instance.requirePasswordChange case final value?)
+        'requirePasswordChange': value,
+      if (instance.lastCurrencyUom case final value?) 'lastCurrencyUom': value,
+      if (instance.lastLocale case final value?) 'lastLocale': value,
+      if (instance.lastTimeZone case final value?) 'lastTimeZone': value,
+      if (instance.disabledDateTime?.toIso8601String() case final value?)
+        'disabledDateTime': value,
+      if (instance.successiveFailedLogins case final value?)
+        'successiveFailedLogins': value,
+      if (instance.externalAuthId case final value?) 'externalAuthId': value,
+      if (instance.userLdapDn case final value?) 'userLdapDn': value,
+      if (instance.disabledBy case final value?) 'disabledBy': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.userLoginSession?.toJson() case final value?)
+        'userLoginSession': value,
+      if (instance.userPreference?.map((e) => e.toJson()).toList()
+          case final value?)
+        'userPreference': value,
+      if (instance.userLoginSecurityGroup?.map((e) => e.toJson()).toList()
+          case final value?)
+        'userLoginSecurityGroup': value,
+      if (instance.userLoginPasswordHistory?.map((e) => e.toJson()).toList()
+          case final value?)
+        'userLoginPasswordHistory': value,
+    };
 
 UserPreference _$UserPreferenceFromJson(Map<String, dynamic> json) =>
     UserPreference(
@@ -108,26 +106,21 @@ UserPreference _$UserPreferenceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$UserPreferenceToJson(UserPreference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('userPrefTypeId', instance.userPrefTypeId);
-  writeNotNull('userPrefGroupTypeId', instance.userPrefGroupTypeId);
-  writeNotNull('userPrefValue', instance.userPrefValue);
-  writeNotNull('userPrefDataType', instance.userPrefDataType);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$UserPreferenceToJson(UserPreference instance) =>
+    <String, dynamic>{
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.userPrefTypeId case final value?) 'userPrefTypeId': value,
+      if (instance.userPrefGroupTypeId case final value?)
+        'userPrefGroupTypeId': value,
+      if (instance.userPrefValue case final value?) 'userPrefValue': value,
+      if (instance.userPrefDataType case final value?)
+        'userPrefDataType': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 UserLoginSecurityGroup _$UserLoginSecurityGroupFromJson(
         Map<String, dynamic> json) =>
@@ -150,25 +143,20 @@ UserLoginSecurityGroup _$UserLoginSecurityGroupFromJson(
     );
 
 Map<String, dynamic> _$UserLoginSecurityGroupToJson(
-    UserLoginSecurityGroup instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('groupId', instance.groupId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        UserLoginSecurityGroup instance) =>
+    <String, dynamic>{
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.groupId case final value?) 'groupId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 UserLoginPasswordHistory _$UserLoginPasswordHistoryFromJson(
         Map<String, dynamic> json) =>
@@ -191,25 +179,20 @@ UserLoginPasswordHistory _$UserLoginPasswordHistoryFromJson(
     );
 
 Map<String, dynamic> _$UserLoginPasswordHistoryToJson(
-    UserLoginPasswordHistory instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('currentPassword', instance.currentPassword);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        UserLoginPasswordHistory instance) =>
+    <String, dynamic>{
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.currentPassword case final value?) 'currentPassword': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 UserLoginSession _$UserLoginSessionFromJson(Map<String, dynamic> json) =>
     UserLoginSession(
@@ -227,21 +210,15 @@ UserLoginSession _$UserLoginSessionFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$UserLoginSessionToJson(UserLoginSession instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('savedDate', instance.savedDate?.toIso8601String());
-  writeNotNull('sessionData', instance.sessionData);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$UserLoginSessionToJson(UserLoginSession instance) =>
+    <String, dynamic>{
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.savedDate?.toIso8601String() case final value?)
+        'savedDate': value,
+      if (instance.sessionData case final value?) 'sessionData': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

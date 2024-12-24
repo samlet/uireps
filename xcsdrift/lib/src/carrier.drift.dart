@@ -32,6 +32,7 @@ typedef $CarrierCreateCompanionBuilder = i1.CarrierCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<i2.Multimap<String, String>?> acl,
   i0.Value<List<i3.CarrierMultisig>?> carrierMultisig,
   i0.Value<int?> reservedFlag,
@@ -62,6 +63,7 @@ typedef $CarrierUpdateCompanionBuilder = i1.CarrierCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<i2.Multimap<String, String>?> acl,
   i0.Value<List<i3.CarrierMultisig>?> carrierMultisig,
   i0.Value<int?> reservedFlag,
@@ -163,6 +165,12 @@ class $CarrierFilterComposer
   i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
@@ -275,6 +283,9 @@ class $CarrierOrderingComposer
   i0.ColumnOrderings<String> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
@@ -370,6 +381,10 @@ class $CarrierAnnotationComposer
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
   i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
@@ -432,6 +447,8 @@ class $CarrierTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
             i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
@@ -464,6 +481,7 @@ class $CarrierTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             acl: acl,
             carrierMultisig: carrierMultisig,
             reservedFlag: reservedFlag,
@@ -495,6 +513,8 @@ class $CarrierTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
             i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
@@ -527,6 +547,7 @@ class $CarrierTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             acl: acl,
             carrierMultisig: carrierMultisig,
             reservedFlag: reservedFlag,
@@ -733,6 +754,16 @@ class Carrier extends i0.Table with i0.TableInfo<Carrier, i1.CarrierData> {
               requiredDuringInsert: false,
               $customConstraints: '')
           .withConverter<List<String>?>(i1.Carrier.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.Multimap<String, String>?>(
+              i1.Carrier.$converterlabelsn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?,
       String> acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
@@ -784,6 +815,7 @@ class Carrier extends i0.Table with i0.TableInfo<Carrier, i1.CarrierData> {
         tag2,
         tag3,
         moreTags,
+        labels,
         acl,
         carrierMultisig,
         reservedFlag
@@ -910,6 +942,7 @@ class Carrier extends i0.Table with i0.TableInfo<Carrier, i1.CarrierData> {
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
     context.handle(_carrierMultisigMeta, const i0.VerificationResult.success());
     if (data.containsKey('reserved_flag')) {
@@ -977,6 +1010,8 @@ class Carrier extends i0.Table with i0.TableInfo<Carrier, i1.CarrierData> {
       moreTags: i1.Carrier.$convertermoreTagsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.Carrier.$converterlabelsn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       acl: i1.Carrier.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
       carrierMultisig: i1.Carrier.$convertercarrierMultisign.fromSql(
@@ -1007,6 +1042,12 @@ class Carrier extends i0.Table with i0.TableInfo<Carrier, i1.CarrierData> {
   static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
       $convertermoreTagsn =
       i0.JsonTypeConverter2.asNullable($convertermoreTags);
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i4.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
@@ -1048,6 +1089,7 @@ class CarrierData extends i0.DataClass
   final String? tag2;
   final String? tag3;
   final List<String>? moreTags;
+  final i2.Multimap<String, String>? labels;
   final i2.Multimap<String, String>? acl;
 
   /// rel: many
@@ -1079,6 +1121,7 @@ class CarrierData extends i0.DataClass
       this.tag2,
       this.tag3,
       this.moreTags,
+      this.labels,
       this.acl,
       this.carrierMultisig,
       this.reservedFlag});
@@ -1157,6 +1200,10 @@ class CarrierData extends i0.DataClass
     if (!nullToAbsent || moreTags != null) {
       map['more_tags'] =
           i0.Variable<String>(i1.Carrier.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.Carrier.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Carrier.$converteracln.toSql(acl));
@@ -1243,6 +1290,9 @@ class CarrierData extends i0.DataClass
       moreTags: moreTags == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
       carrierMultisig: carrierMultisig == null && nullToAbsent
@@ -1286,6 +1336,8 @@ class CarrierData extends i0.DataClass
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: i1.Carrier.$convertermoreTagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.Carrier.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       acl: i1.Carrier.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       carrierMultisig: i1.Carrier.$convertercarrierMultisign.fromJson(serializer
@@ -1324,6 +1376,8 @@ class CarrierData extends i0.DataClass
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<List<dynamic>?>(
           i1.Carrier.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.Carrier.$converterlabelsn.toJson(labels)),
       'acl': serializer
           .toJson<Map<String, dynamic>?>(i1.Carrier.$converteracln.toJson(acl)),
       'carrier_multisig': serializer.toJson<List<Map<String, dynamic>>?>(
@@ -1358,6 +1412,8 @@ class CarrierData extends i0.DataClass
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i2.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> acl = const i0.Value.absent(),
           i0.Value<List<i3.CarrierMultisig>?> carrierMultisig =
               const i0.Value.absent(),
@@ -1396,6 +1452,7 @@ class CarrierData extends i0.DataClass
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         acl: acl.present ? acl.value : this.acl,
         carrierMultisig: carrierMultisig.present
             ? carrierMultisig.value
@@ -1447,6 +1504,7 @@ class CarrierData extends i0.DataClass
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       acl: data.acl.present ? data.acl.value : this.acl,
       carrierMultisig: data.carrierMultisig.present
           ? data.carrierMultisig.value
@@ -1484,6 +1542,7 @@ class CarrierData extends i0.DataClass
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('acl: $acl, ')
           ..write('carrierMultisig: $carrierMultisig, ')
           ..write('reservedFlag: $reservedFlag')
@@ -1517,6 +1576,7 @@ class CarrierData extends i0.DataClass
         tag2,
         tag3,
         moreTags,
+        labels,
         acl,
         carrierMultisig,
         reservedFlag
@@ -1549,6 +1609,7 @@ class CarrierData extends i0.DataClass
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.acl == this.acl &&
           other.carrierMultisig == this.carrierMultisig &&
           other.reservedFlag == this.reservedFlag);
@@ -1579,6 +1640,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
+  final i0.Value<i2.Multimap<String, String>?> labels;
   final i0.Value<i2.Multimap<String, String>?> acl;
   final i0.Value<List<i3.CarrierMultisig>?> carrierMultisig;
   final i0.Value<int?> reservedFlag;
@@ -1608,6 +1670,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.carrierMultisig = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
@@ -1638,6 +1701,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.carrierMultisig = const i0.Value.absent(),
     this.reservedFlag = const i0.Value.absent(),
@@ -1668,6 +1732,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<String>? acl,
     i0.Expression<String>? carrierMultisig,
     i0.Expression<int>? reservedFlag,
@@ -1699,6 +1764,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (acl != null) 'acl': acl,
       if (carrierMultisig != null) 'carrier_multisig': carrierMultisig,
       if (reservedFlag != null) 'reserved_flag': reservedFlag,
@@ -1731,6 +1797,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
+      i0.Value<i2.Multimap<String, String>?>? labels,
       i0.Value<i2.Multimap<String, String>?>? acl,
       i0.Value<List<i3.CarrierMultisig>?>? carrierMultisig,
       i0.Value<int?>? reservedFlag,
@@ -1760,6 +1827,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       acl: acl ?? this.acl,
       carrierMultisig: carrierMultisig ?? this.carrierMultisig,
       reservedFlag: reservedFlag ?? this.reservedFlag,
@@ -1846,6 +1914,10 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
       map['more_tags'] = i0.Variable<String>(
           i1.Carrier.$convertermoreTagsn.toSql(moreTags.value));
     }
+    if (labels.present) {
+      map['labels'] =
+          i0.Variable<String>(i1.Carrier.$converterlabelsn.toSql(labels.value));
+    }
     if (acl.present) {
       map['acl'] =
           i0.Variable<String>(i1.Carrier.$converteracln.toSql(acl.value));
@@ -1890,6 +1962,7 @@ class CarrierCompanion extends i0.UpdateCompanion<i1.CarrierData> {
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('acl: $acl, ')
           ..write('carrierMultisig: $carrierMultisig, ')
           ..write('reservedFlag: $reservedFlag, ')

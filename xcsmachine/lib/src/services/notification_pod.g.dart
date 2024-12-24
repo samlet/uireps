@@ -142,6 +142,8 @@ class LoadNotificationProvider extends AutoDisposeFutureProvider<Notification> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadNotificationRef on AutoDisposeFutureProviderRef<Notification> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -331,6 +333,8 @@ class LoadNotificationListProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadNotificationListRef
     on AutoDisposeFutureProviderRef<List<Notification>> {
   /// The parameter `pageSize` of this provider.
@@ -538,6 +542,8 @@ class LoadNotificationPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadNotificationPageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Notification>> {
   /// The parameter `pageSize` of this provider.
@@ -703,6 +709,8 @@ class FetchNotificationsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchNotificationsRef
     on AutoDisposeFutureProviderRef<List<Notification>> {
   /// The parameter `ids` of this provider.
@@ -723,4 +731,4 @@ class _FetchNotificationsProviderElement
   String get regionId => (origin as FetchNotificationsProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

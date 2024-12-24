@@ -141,6 +141,8 @@ class LoadOrderProvider extends AutoDisposeFutureProvider<Order> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadOrderRef on AutoDisposeFutureProviderRef<Order> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -325,6 +327,8 @@ class LoadOrderListProvider extends AutoDisposeFutureProvider<List<Order>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadOrderListRef on AutoDisposeFutureProviderRef<List<Order>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -526,6 +530,8 @@ class LoadOrderPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadOrderPageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Order>> {
   /// The parameter `pageSize` of this provider.
@@ -688,6 +694,8 @@ class FetchOrdersProvider extends AutoDisposeFutureProvider<List<Order>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchOrdersRef on AutoDisposeFutureProviderRef<List<Order>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -706,4 +714,4 @@ class _FetchOrdersProviderElement
   String get regionId => (origin as FetchOrdersProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

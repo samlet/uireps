@@ -137,110 +137,138 @@ WorkEffort _$WorkEffortFromJson(Map<String, dynamic> json) => WorkEffort(
           .toList(),
     );
 
-Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('workEffortTypeId', instance.workEffortTypeId);
-  writeNotNull('currentStatusId', instance.currentStatusId);
-  writeNotNull(
-      'lastStatusUpdate', instance.lastStatusUpdate?.toIso8601String());
-  writeNotNull('workEffortPurposeTypeId', instance.workEffortPurposeTypeId);
-  writeNotNull('workEffortParentId', instance.workEffortParentId);
-  writeNotNull('scopeEnumId', instance.scopeEnumId);
-  writeNotNull('priority', instance.priority);
-  writeNotNull('percentComplete', instance.percentComplete);
-  writeNotNull('workEffortName', instance.workEffortName);
-  writeNotNull('showAsEnumId', instance.showAsEnumId);
-  writeNotNull('sendNotificationEmail', instance.sendNotificationEmail);
-  writeNotNull('description', instance.description);
-  writeNotNull('locationDesc', instance.locationDesc);
-  writeNotNull(
-      'estimatedStartDate', instance.estimatedStartDate?.toIso8601String());
-  writeNotNull('estimatedCompletionDate',
-      instance.estimatedCompletionDate?.toIso8601String());
-  writeNotNull('actualStartDate', instance.actualStartDate?.toIso8601String());
-  writeNotNull(
-      'actualCompletionDate', instance.actualCompletionDate?.toIso8601String());
-  writeNotNull('estimatedMilliSeconds', instance.estimatedMilliSeconds);
-  writeNotNull('estimatedSetupMillis', instance.estimatedSetupMillis);
-  writeNotNull('estimateCalcMethod', instance.estimateCalcMethod);
-  writeNotNull('actualMilliSeconds', instance.actualMilliSeconds);
-  writeNotNull('actualSetupMillis', instance.actualSetupMillis);
-  writeNotNull('totalMilliSecondsAllowed', instance.totalMilliSecondsAllowed);
-  writeNotNull('totalMoneyAllowed', instance.totalMoneyAllowed);
-  writeNotNull('moneyUomId', instance.moneyUomId);
-  writeNotNull('specialTerms', instance.specialTerms);
-  writeNotNull('timeTransparency', instance.timeTransparency);
-  writeNotNull('universalId', instance.universalId);
-  writeNotNull('sourceReferenceId', instance.sourceReferenceId);
-  writeNotNull('fixedAssetId', instance.fixedAssetId);
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('infoUrl', instance.infoUrl);
-  writeNotNull('recurrenceInfoId', instance.recurrenceInfoId);
-  writeNotNull('tempExprId', instance.tempExprId);
-  writeNotNull('runtimeDataId', instance.runtimeDataId);
-  writeNotNull('noteId', instance.noteId);
-  writeNotNull('serviceLoaderName', instance.serviceLoaderName);
-  writeNotNull('quantityToProduce', instance.quantityToProduce);
-  writeNotNull('quantityProduced', instance.quantityProduced);
-  writeNotNull('quantityRejected', instance.quantityRejected);
-  writeNotNull('reservPersons', instance.reservPersons);
-  writeNotNull('reserv2ndPPPerc', instance.reserv2ndPPPerc);
-  writeNotNull('reservNthPPPerc', instance.reservNthPPPerc);
-  writeNotNull('accommodationMapId', instance.accommodationMapId);
-  writeNotNull('accommodationSpotId', instance.accommodationSpotId);
-  writeNotNull('revisionNumber', instance.revisionNumber);
-  writeNotNull('createdDate', instance.createdDate?.toIso8601String());
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull(
-      'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
-  writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('confirmation', instance.confirmation);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('workEffortType', instance.workEffortType?.toJson());
-  writeNotNull('workEffortTransaction',
-      instance.workEffortTransaction?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortNote',
-      instance.workEffortNote?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortFixedAssetAssign',
-      instance.workEffortFixedAssetAssign?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortSkillStandard',
-      instance.workEffortSkillStandard?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortCostCalc',
-      instance.workEffortCostCalc?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortAttribute',
-      instance.workEffortAttribute?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortPartyAssignment',
-      instance.workEffortPartyAssignment?.map((e) => e.toJson()).toList());
-  writeNotNull('workEffortStatus',
-      instance.workEffortStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('fromWorkEffortAssoc',
-      instance.fromWorkEffortAssoc?.map((e) => e.toJson()).toList());
-  writeNotNull('toWorkEffortAssoc',
-      instance.toWorkEffortAssoc?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$WorkEffortToJson(WorkEffort instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.workEffortTypeId case final value?)
+        'workEffortTypeId': value,
+      if (instance.currentStatusId case final value?) 'currentStatusId': value,
+      if (instance.lastStatusUpdate?.toIso8601String() case final value?)
+        'lastStatusUpdate': value,
+      if (instance.workEffortPurposeTypeId case final value?)
+        'workEffortPurposeTypeId': value,
+      if (instance.workEffortParentId case final value?)
+        'workEffortParentId': value,
+      if (instance.scopeEnumId case final value?) 'scopeEnumId': value,
+      if (instance.priority case final value?) 'priority': value,
+      if (instance.percentComplete case final value?) 'percentComplete': value,
+      if (instance.workEffortName case final value?) 'workEffortName': value,
+      if (instance.showAsEnumId case final value?) 'showAsEnumId': value,
+      if (instance.sendNotificationEmail case final value?)
+        'sendNotificationEmail': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.locationDesc case final value?) 'locationDesc': value,
+      if (instance.estimatedStartDate?.toIso8601String() case final value?)
+        'estimatedStartDate': value,
+      if (instance.estimatedCompletionDate?.toIso8601String() case final value?)
+        'estimatedCompletionDate': value,
+      if (instance.actualStartDate?.toIso8601String() case final value?)
+        'actualStartDate': value,
+      if (instance.actualCompletionDate?.toIso8601String() case final value?)
+        'actualCompletionDate': value,
+      if (instance.estimatedMilliSeconds case final value?)
+        'estimatedMilliSeconds': value,
+      if (instance.estimatedSetupMillis case final value?)
+        'estimatedSetupMillis': value,
+      if (instance.estimateCalcMethod case final value?)
+        'estimateCalcMethod': value,
+      if (instance.actualMilliSeconds case final value?)
+        'actualMilliSeconds': value,
+      if (instance.actualSetupMillis case final value?)
+        'actualSetupMillis': value,
+      if (instance.totalMilliSecondsAllowed case final value?)
+        'totalMilliSecondsAllowed': value,
+      if (instance.totalMoneyAllowed case final value?)
+        'totalMoneyAllowed': value,
+      if (instance.moneyUomId case final value?) 'moneyUomId': value,
+      if (instance.specialTerms case final value?) 'specialTerms': value,
+      if (instance.timeTransparency case final value?)
+        'timeTransparency': value,
+      if (instance.universalId case final value?) 'universalId': value,
+      if (instance.sourceReferenceId case final value?)
+        'sourceReferenceId': value,
+      if (instance.fixedAssetId case final value?) 'fixedAssetId': value,
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.infoUrl case final value?) 'infoUrl': value,
+      if (instance.recurrenceInfoId case final value?)
+        'recurrenceInfoId': value,
+      if (instance.tempExprId case final value?) 'tempExprId': value,
+      if (instance.runtimeDataId case final value?) 'runtimeDataId': value,
+      if (instance.noteId case final value?) 'noteId': value,
+      if (instance.serviceLoaderName case final value?)
+        'serviceLoaderName': value,
+      if (instance.quantityToProduce case final value?)
+        'quantityToProduce': value,
+      if (instance.quantityProduced case final value?)
+        'quantityProduced': value,
+      if (instance.quantityRejected case final value?)
+        'quantityRejected': value,
+      if (instance.reservPersons case final value?) 'reservPersons': value,
+      if (instance.reserv2ndPPPerc case final value?) 'reserv2ndPPPerc': value,
+      if (instance.reservNthPPPerc case final value?) 'reservNthPPPerc': value,
+      if (instance.accommodationMapId case final value?)
+        'accommodationMapId': value,
+      if (instance.accommodationSpotId case final value?)
+        'accommodationSpotId': value,
+      if (instance.revisionNumber case final value?) 'revisionNumber': value,
+      if (instance.createdDate?.toIso8601String() case final value?)
+        'createdDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.lastModifiedDate?.toIso8601String() case final value?)
+        'lastModifiedDate': value,
+      if (instance.lastModifiedByUserLogin case final value?)
+        'lastModifiedByUserLogin': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.confirmation case final value?) 'confirmation': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.workEffortType?.toJson() case final value?)
+        'workEffortType': value,
+      if (instance.workEffortTransaction?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortTransaction': value,
+      if (instance.workEffortNote?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortNote': value,
+      if (instance.workEffortFixedAssetAssign?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortFixedAssetAssign': value,
+      if (instance.workEffortSkillStandard?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortSkillStandard': value,
+      if (instance.workEffortCostCalc?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortCostCalc': value,
+      if (instance.workEffortAttribute?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortAttribute': value,
+      if (instance.workEffortPartyAssignment?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortPartyAssignment': value,
+      if (instance.workEffortStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'workEffortStatus': value,
+      if (instance.fromWorkEffortAssoc?.map((e) => e.toJson()).toList()
+          case final value?)
+        'fromWorkEffortAssoc': value,
+      if (instance.toWorkEffortAssoc?.map((e) => e.toJson()).toList()
+          case final value?)
+        'toWorkEffortAssoc': value,
+    };
 
 WorkEffortTransaction _$WorkEffortTransactionFromJson(
         Map<String, dynamic> json) =>
@@ -259,25 +287,18 @@ WorkEffortTransaction _$WorkEffortTransactionFromJson(
     );
 
 Map<String, dynamic> _$WorkEffortTransactionToJson(
-    WorkEffortTransaction instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('transactionId', instance.transactionId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        WorkEffortTransaction instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.transactionId case final value?) 'transactionId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortNote _$WorkEffortNoteFromJson(Map<String, dynamic> json) =>
     WorkEffortNote(
@@ -293,24 +314,17 @@ WorkEffortNote _$WorkEffortNoteFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WorkEffortNoteToJson(WorkEffortNote instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('noteId', instance.noteId);
-  writeNotNull('internalNote', instance.internalNote);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WorkEffortNoteToJson(WorkEffortNote instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.noteId case final value?) 'noteId': value,
+      if (instance.internalNote case final value?) 'internalNote': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortFixedAssetAssign _$WorkEffortFixedAssetAssignFromJson(
         Map<String, dynamic> json) =>
@@ -337,29 +351,25 @@ WorkEffortFixedAssetAssign _$WorkEffortFixedAssetAssignFromJson(
     );
 
 Map<String, dynamic> _$WorkEffortFixedAssetAssignToJson(
-    WorkEffortFixedAssetAssign instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('fixedAssetId', instance.fixedAssetId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('availabilityStatusId', instance.availabilityStatusId);
-  writeNotNull('allocatedCost', instance.allocatedCost);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        WorkEffortFixedAssetAssign instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.fixedAssetId case final value?) 'fixedAssetId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.availabilityStatusId case final value?)
+        'availabilityStatusId': value,
+      if (instance.allocatedCost case final value?) 'allocatedCost': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortSkillStandard _$WorkEffortSkillStandardFromJson(
         Map<String, dynamic> json) =>
@@ -379,26 +389,21 @@ WorkEffortSkillStandard _$WorkEffortSkillStandardFromJson(
     );
 
 Map<String, dynamic> _$WorkEffortSkillStandardToJson(
-    WorkEffortSkillStandard instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('skillTypeId', instance.skillTypeId);
-  writeNotNull('estimatedNumPeople', instance.estimatedNumPeople);
-  writeNotNull('estimatedDuration', instance.estimatedDuration);
-  writeNotNull('estimatedCost', instance.estimatedCost);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        WorkEffortSkillStandard instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.skillTypeId case final value?) 'skillTypeId': value,
+      if (instance.estimatedNumPeople case final value?)
+        'estimatedNumPeople': value,
+      if (instance.estimatedDuration case final value?)
+        'estimatedDuration': value,
+      if (instance.estimatedCost case final value?) 'estimatedCost': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortCostCalc _$WorkEffortCostCalcFromJson(Map<String, dynamic> json) =>
     WorkEffortCostCalc(
@@ -420,26 +425,23 @@ WorkEffortCostCalc _$WorkEffortCostCalcFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WorkEffortCostCalcToJson(WorkEffortCostCalc instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('costComponentTypeId', instance.costComponentTypeId);
-  writeNotNull('costComponentCalcId', instance.costComponentCalcId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WorkEffortCostCalcToJson(WorkEffortCostCalc instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.costComponentTypeId case final value?)
+        'costComponentTypeId': value,
+      if (instance.costComponentCalcId case final value?)
+        'costComponentCalcId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortAttribute _$WorkEffortAttributeFromJson(Map<String, dynamic> json) =>
     WorkEffortAttribute(
@@ -456,25 +458,19 @@ WorkEffortAttribute _$WorkEffortAttributeFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WorkEffortAttributeToJson(WorkEffortAttribute instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('attrName', instance.attrName);
-  writeNotNull('attrValue', instance.attrValue);
-  writeNotNull('attrDescription', instance.attrDescription);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WorkEffortAttributeToJson(
+        WorkEffortAttribute instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.attrName case final value?) 'attrName': value,
+      if (instance.attrValue case final value?) 'attrValue': value,
+      if (instance.attrDescription case final value?) 'attrDescription': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortPartyAssignment _$WorkEffortPartyAssignmentFromJson(
         Map<String, dynamic> json) =>
@@ -509,35 +505,35 @@ WorkEffortPartyAssignment _$WorkEffortPartyAssignmentFromJson(
     );
 
 Map<String, dynamic> _$WorkEffortPartyAssignmentToJson(
-    WorkEffortPartyAssignment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('assignedByUserLoginId', instance.assignedByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('statusDateTime', instance.statusDateTime?.toIso8601String());
-  writeNotNull('expectationEnumId', instance.expectationEnumId);
-  writeNotNull('delegateReasonEnumId', instance.delegateReasonEnumId);
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('comments', instance.comments);
-  writeNotNull('mustRsvp', instance.mustRsvp);
-  writeNotNull('availabilityStatusId', instance.availabilityStatusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        WorkEffortPartyAssignment instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.assignedByUserLoginId case final value?)
+        'assignedByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.statusDateTime?.toIso8601String() case final value?)
+        'statusDateTime': value,
+      if (instance.expectationEnumId case final value?)
+        'expectationEnumId': value,
+      if (instance.delegateReasonEnumId case final value?)
+        'delegateReasonEnumId': value,
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.mustRsvp case final value?) 'mustRsvp': value,
+      if (instance.availabilityStatusId case final value?)
+        'availabilityStatusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortStatus _$WorkEffortStatusFromJson(Map<String, dynamic> json) =>
     WorkEffortStatus(
@@ -557,26 +553,20 @@ WorkEffortStatus _$WorkEffortStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WorkEffortStatusToJson(WorkEffortStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('statusDatetime', instance.statusDatetime?.toIso8601String());
-  writeNotNull('setByUserLogin', instance.setByUserLogin);
-  writeNotNull('reason', instance.reason);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WorkEffortStatusToJson(WorkEffortStatus instance) =>
+    <String, dynamic>{
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.statusDatetime?.toIso8601String() case final value?)
+        'statusDatetime': value,
+      if (instance.setByUserLogin case final value?) 'setByUserLogin': value,
+      if (instance.reason case final value?) 'reason': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WorkEffortType _$WorkEffortTypeFromJson(Map<String, dynamic> json) =>
     WorkEffortType(
@@ -593,25 +583,19 @@ WorkEffortType _$WorkEffortTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$WorkEffortTypeToJson(WorkEffortType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortTypeId', instance.workEffortTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', instance.hasTable);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$WorkEffortTypeToJson(WorkEffortType instance) =>
+    <String, dynamic>{
+      if (instance.workEffortTypeId case final value?)
+        'workEffortTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.hasTable case final value?) 'hasTable': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 WorkEffortAssoc _$WorkEffortAssocFromJson(Map<String, dynamic> json) =>
     WorkEffortAssoc(
@@ -634,24 +618,21 @@ WorkEffortAssoc _$WorkEffortAssocFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WorkEffortAssocToJson(WorkEffortAssoc instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('workEffortIdFrom', instance.workEffortIdFrom);
-  writeNotNull('workEffortIdTo', instance.workEffortIdTo);
-  writeNotNull('workEffortAssocTypeId', instance.workEffortAssocTypeId);
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WorkEffortAssocToJson(WorkEffortAssoc instance) =>
+    <String, dynamic>{
+      if (instance.workEffortIdFrom case final value?)
+        'workEffortIdFrom': value,
+      if (instance.workEffortIdTo case final value?) 'workEffortIdTo': value,
+      if (instance.workEffortAssocTypeId case final value?)
+        'workEffortAssocTypeId': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

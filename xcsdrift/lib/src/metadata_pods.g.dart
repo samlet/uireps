@@ -21,6 +21,8 @@ final metadataRepositoryProvider = Provider<MetadataRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef MetadataRepositoryRef = ProviderRef<MetadataRepository>;
 String _$getMetadataHash() => r'bfa138a4b05e77d28032fad76aef4e8e00fe941d';
 
@@ -158,6 +160,8 @@ class GetMetadataProvider extends AutoDisposeFutureProvider<MetadataData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetMetadataRef on AutoDisposeFutureProviderRef<MetadataData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -189,4 +193,4 @@ final metadataBucketProvider = AutoDisposeStreamNotifierProvider<MetadataBucket,
 
 typedef _$MetadataBucket = AutoDisposeStreamNotifier<List<MetadataData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

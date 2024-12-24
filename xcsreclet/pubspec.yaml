@@ -1,0 +1,38 @@
+name: xcsreclet
+description: "A new Flutter package project."
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  path: ^1.8.0
+  drift: ^2.21.0
+  # it is important that drift_dev is a regular dependency here.
+  drift_dev: ^2.21.0
+  quiver: ^3.2.2
+  json_annotation: ^4.9.0
+  dio: ^5.7.0
+  recase: ^4.1.0
+  jiffy: ^6.3.1
+  faker: ^2.2.0
+  pinyin: ^3.3.0
+  xcsmachine:
+    path: ../xcsmachine
+  xcsproto:
+    path: ../xcsproto
+  xcsdrift:
+    path: ../xcsdrift
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner:
+  json_serializable: ^6.3.0
+
+flutter:

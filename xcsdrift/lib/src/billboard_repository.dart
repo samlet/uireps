@@ -343,6 +343,31 @@ class BillboardRepository extends RepositoryBase {
     yield* multiWatch(queryIds);
   }
 
+  
+  // ---- tags ----
+  Future<List<ent.Billboard>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Billboard', tags: tags));
+    _logger.info("query billboard result ${result.length}");
+    // var rs=result.map((el)=>ent.Billboard.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
+    return rs;
+  }
+
+  Stream<List<BillboardData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.billboardId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Future<BillboardPagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return BillboardPagedDs(ds, rs);
+  }
+
      
 
      

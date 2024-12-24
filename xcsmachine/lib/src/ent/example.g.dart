@@ -89,6 +89,7 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -112,77 +113,80 @@ Example _$ExampleFromJson(Map<String, dynamic> json) => Example(
           .toList(),
     );
 
-Map<String, dynamic> _$ExampleToJson(Example instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exampleId', instance.exampleId);
-  writeNotNull('exampleTypeId', instance.exampleTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('exampleName', instance.exampleName);
-  writeNotNull('description', instance.description);
-  writeNotNull('longDescription', instance.longDescription);
-  writeNotNull('comments', instance.comments);
-  writeNotNull('exampleSize', instance.exampleSize);
-  writeNotNull('exampleDate', instance.exampleDate?.toIso8601String());
-  writeNotNull('anotherDate', instance.anotherDate?.toIso8601String());
-  writeNotNull('anotherText', instance.anotherText);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('noteId', instance.noteId);
-  writeNotNull('extraDate', instance.extraDate?.toIso8601String());
-  writeNotNull('extraTime', timeToJson(instance.extraTime));
-  writeNotNull('extraCurrency', instance.extraCurrency);
-  writeNotNull('extraAmount', instance.extraAmount);
-  writeNotNull('extraBlob', const BytesConverter().toJson(instance.extraBlob));
-  writeNotNull('extraStrings', instance.extraStrings);
-  writeNotNull('extraInts', instance.extraInts);
-  writeNotNull('extraBools', instance.extraBools);
-  writeNotNull('extraDecimals', instance.extraDecimals);
-  writeNotNull('extraTimestamps',
-      instance.extraTimestamps?.map((e) => e?.toIso8601String()).toList());
-  writeNotNull('extraBuffers', instance.extraBuffers);
-  writeNotNull('measures', instance.measures);
-  writeNotNull('series', instance.series);
-  writeNotNull('describes', instance.describes);
-  writeNotNull('refs', instance.refs);
-  writeNotNull('options', instance.options);
-  writeNotNull('mediaLinks', instance.mediaLinks);
-  val['bookmarks'] = stringMultimapToJson(instance.bookmarks);
-  val['symbols'] = intMultimapToJson(instance.symbols);
-  writeNotNull('detail', instance.detail?.toJson());
-  writeNotNull('metadata', instance.metadata);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('customerConfirmation', instance.customerConfirmation);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('exampleType', instance.exampleType?.toJson());
-  writeNotNull('exampleFeatureAppl',
-      instance.exampleFeatureAppl?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'exampleStatus', instance.exampleStatus?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'exampleItem', instance.exampleItem?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$ExampleToJson(Example instance) => <String, dynamic>{
+      if (instance.exampleId case final value?) 'exampleId': value,
+      if (instance.exampleTypeId case final value?) 'exampleTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.exampleName case final value?) 'exampleName': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.longDescription case final value?) 'longDescription': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.exampleSize case final value?) 'exampleSize': value,
+      if (instance.exampleDate?.toIso8601String() case final value?)
+        'exampleDate': value,
+      if (instance.anotherDate?.toIso8601String() case final value?)
+        'anotherDate': value,
+      if (instance.anotherText case final value?) 'anotherText': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.noteId case final value?) 'noteId': value,
+      if (instance.extraDate?.toIso8601String() case final value?)
+        'extraDate': value,
+      if (timeToJson(instance.extraTime) case final value?) 'extraTime': value,
+      if (instance.extraCurrency case final value?) 'extraCurrency': value,
+      if (instance.extraAmount case final value?) 'extraAmount': value,
+      if (const BytesConverter().toJson(instance.extraBlob) case final value?)
+        'extraBlob': value,
+      if (instance.extraStrings case final value?) 'extraStrings': value,
+      if (instance.extraInts case final value?) 'extraInts': value,
+      if (instance.extraBools case final value?) 'extraBools': value,
+      if (instance.extraDecimals case final value?) 'extraDecimals': value,
+      if (instance.extraTimestamps?.map((e) => e?.toIso8601String()).toList()
+          case final value?)
+        'extraTimestamps': value,
+      if (instance.extraBuffers case final value?) 'extraBuffers': value,
+      if (instance.measures case final value?) 'measures': value,
+      if (instance.series case final value?) 'series': value,
+      if (instance.describes case final value?) 'describes': value,
+      if (instance.refs case final value?) 'refs': value,
+      if (instance.options case final value?) 'options': value,
+      if (instance.mediaLinks case final value?) 'mediaLinks': value,
+      'bookmarks': stringMultimapToJson(instance.bookmarks),
+      'symbols': intMultimapToJson(instance.symbols),
+      if (instance.detail?.toJson() case final value?) 'detail': value,
+      if (instance.metadata case final value?) 'metadata': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.customerConfirmation case final value?)
+        'customerConfirmation': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.exampleType?.toJson() case final value?)
+        'exampleType': value,
+      if (instance.exampleFeatureAppl?.map((e) => e.toJson()).toList()
+          case final value?)
+        'exampleFeatureAppl': value,
+      if (instance.exampleStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'exampleStatus': value,
+      if (instance.exampleItem?.map((e) => e.toJson()).toList()
+          case final value?)
+        'exampleItem': value,
+    };
 
 ExampleFeatureAppl _$ExampleFeatureApplFromJson(Map<String, dynamic> json) =>
     ExampleFeatureAppl(
@@ -205,27 +209,24 @@ ExampleFeatureAppl _$ExampleFeatureApplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ExampleFeatureApplToJson(ExampleFeatureAppl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exampleId', instance.exampleId);
-  writeNotNull('exampleFeatureId', instance.exampleFeatureId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('exampleFeatureApplTypeId', instance.exampleFeatureApplTypeId);
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ExampleFeatureApplToJson(ExampleFeatureAppl instance) =>
+    <String, dynamic>{
+      if (instance.exampleId case final value?) 'exampleId': value,
+      if (instance.exampleFeatureId case final value?)
+        'exampleFeatureId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.exampleFeatureApplTypeId case final value?)
+        'exampleFeatureApplTypeId': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ExampleStatus _$ExampleStatusFromJson(Map<String, dynamic> json) =>
     ExampleStatus(
@@ -247,26 +248,22 @@ ExampleStatus _$ExampleStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ExampleStatusToJson(ExampleStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exampleId', instance.exampleId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ExampleStatusToJson(ExampleStatus instance) =>
+    <String, dynamic>{
+      if (instance.exampleId case final value?) 'exampleId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ExampleItem _$ExampleItemFromJson(Map<String, dynamic> json) => ExampleItem(
       exampleId: json['exampleId'] as String?,
@@ -283,26 +280,20 @@ ExampleItem _$ExampleItemFromJson(Map<String, dynamic> json) => ExampleItem(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ExampleItemToJson(ExampleItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exampleId', instance.exampleId);
-  writeNotNull('exampleItemSeqId', instance.exampleItemSeqId);
-  writeNotNull('description', instance.description);
-  writeNotNull('amount', instance.amount);
-  writeNotNull('amountUomId', instance.amountUomId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ExampleItemToJson(ExampleItem instance) =>
+    <String, dynamic>{
+      if (instance.exampleId case final value?) 'exampleId': value,
+      if (instance.exampleItemSeqId case final value?)
+        'exampleItemSeqId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.amount case final value?) 'amount': value,
+      if (instance.amountUomId case final value?) 'amountUomId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ExampleType _$ExampleTypeFromJson(Map<String, dynamic> json) => ExampleType(
       exampleTypeId: json['exampleTypeId'] as String?,
@@ -317,21 +308,14 @@ ExampleType _$ExampleTypeFromJson(Map<String, dynamic> json) => ExampleType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ExampleTypeToJson(ExampleType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exampleTypeId', instance.exampleTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ExampleTypeToJson(ExampleType instance) =>
+    <String, dynamic>{
+      if (instance.exampleTypeId case final value?) 'exampleTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

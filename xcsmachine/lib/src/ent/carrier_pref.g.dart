@@ -27,25 +27,19 @@ CarrierPref _$CarrierPrefFromJson(Map<String, dynamic> json) => CarrierPref(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$CarrierPrefToJson(CarrierPref instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('carrierPrefId', instance.carrierPrefId);
-  writeNotNull('loginId', instance.loginId);
-  writeNotNull('ordersOnHand', instance.ordersOnHand);
-  writeNotNull('contacts', instance.contacts?.toJson());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('carrierPrefTypeId', instance.carrierPrefTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$CarrierPrefToJson(CarrierPref instance) =>
+    <String, dynamic>{
+      if (instance.carrierPrefId case final value?) 'carrierPrefId': value,
+      if (instance.loginId case final value?) 'loginId': value,
+      if (instance.ordersOnHand case final value?) 'ordersOnHand': value,
+      if (instance.contacts?.toJson() case final value?) 'contacts': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.carrierPrefTypeId case final value?)
+        'carrierPrefTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

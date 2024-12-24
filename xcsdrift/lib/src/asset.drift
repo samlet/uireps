@@ -24,6 +24,7 @@ CREATE TABLE asset (
     "tag2" VARCHAR(100),
     "tag3" VARCHAR(100),
     "more_tags" TEXT MAPPED BY `const StringListConverter()`,
+    "labels" TEXT MAPPED BY `const StringMultimapConverter()`,
     "evict" BOOLEAN,
     "acl" TEXT MAPPED BY `const StringMultimapConverter()`,
     "resource_id" VARCHAR(250),

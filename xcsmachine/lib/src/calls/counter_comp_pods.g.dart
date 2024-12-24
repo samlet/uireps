@@ -142,6 +142,8 @@ class CounterCompProvider extends Provider<CounterCompRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CounterCompRef on ProviderRef<CounterCompRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -272,6 +274,8 @@ class CounterCompGetValueProvider extends AutoDisposeFutureProvider<int> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CounterCompGetValueRef on AutoDisposeFutureProviderRef<int> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -415,6 +419,8 @@ class CounterCompPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CounterCompPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -429,4 +435,4 @@ class _CounterCompPodProviderElement
   String get regionOrNs => (origin as CounterCompPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

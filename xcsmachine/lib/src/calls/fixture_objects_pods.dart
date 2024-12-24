@@ -393,15 +393,6 @@ Future<TestRec> fixturesMakeTestRec(FixturesMakeTestRecRef ref, {
 }
   
 @riverpod
-Future<String> fixturesGetNickName(FixturesGetNickNameRef ref, {
-  String regionOrNs='default',
-}) async {
-  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
-  return await pod.getNickName(
-  );
-}
-  
-@riverpod
 Future<String> fixturesPing(FixturesPingRef ref, {
   String regionOrNs='default',
   
@@ -411,6 +402,15 @@ Future<String> fixturesPing(FixturesPingRef ref, {
   var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
   return await pod.ping(
       req: req,
+  );
+}
+  
+@riverpod
+Future<String> fixturesGetNickName(FixturesGetNickNameRef ref, {
+  String regionOrNs='default',
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.getNickName(
   );
 }
   

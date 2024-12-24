@@ -21,6 +21,10 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => Headline(
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
       tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       headlineId: json['headlineId'] as String?,
       headlineTypeId: json['headlineTypeId'] as String?,
       statusId: json['statusId'] as String?,
@@ -36,38 +40,34 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => Headline(
           .toList(),
     );
 
-Map<String, dynamic> _$HeadlineToJson(Headline instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('refXid', instance.refXid);
-  writeNotNull('summary', instance.summary);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('sender', instance.sender);
-  writeNotNull('statsId', instance.statsId);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('headlineId', instance.headlineId);
-  writeNotNull('headlineTypeId', instance.headlineTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('sectionId', instance.sectionId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('headlineType', instance.headlineType?.toJson());
-  writeNotNull(
-      'headlineSlot', instance.headlineSlot?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
+      if (instance.refXid case final value?) 'refXid': value,
+      if (instance.summary case final value?) 'summary': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.sender case final value?) 'sender': value,
+      if (instance.statsId case final value?) 'statsId': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.headlineId case final value?) 'headlineId': value,
+      if (instance.headlineTypeId case final value?) 'headlineTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.sectionId case final value?) 'sectionId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.headlineType?.toJson() case final value?)
+        'headlineType': value,
+      if (instance.headlineSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'headlineSlot': value,
+    };
 
 HeadlineType _$HeadlineTypeFromJson(Map<String, dynamic> json) => HeadlineType(
       headlineTypeId: json['headlineTypeId'] as String?,
@@ -82,24 +82,17 @@ HeadlineType _$HeadlineTypeFromJson(Map<String, dynamic> json) => HeadlineType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$HeadlineTypeToJson(HeadlineType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('headlineTypeId', instance.headlineTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$HeadlineTypeToJson(HeadlineType instance) =>
+    <String, dynamic>{
+      if (instance.headlineTypeId case final value?) 'headlineTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 HeadlineSlot _$HeadlineSlotFromJson(Map<String, dynamic> json) => HeadlineSlot(
       headlineId: json['headlineId'] as String?,
@@ -116,23 +109,16 @@ HeadlineSlot _$HeadlineSlotFromJson(Map<String, dynamic> json) => HeadlineSlot(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$HeadlineSlotToJson(HeadlineSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('headlineId', instance.headlineId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('group', instance.group);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$HeadlineSlotToJson(HeadlineSlot instance) =>
+    <String, dynamic>{
+      if (instance.headlineId case final value?) 'headlineId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.group case final value?) 'group': value,
+      if (instance.id case final value?) 'id': value,
+    };

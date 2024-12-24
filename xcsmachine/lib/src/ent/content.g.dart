@@ -57,6 +57,7 @@ Content _$ContentFromJson(Map<String, dynamic> json) => Content(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -86,76 +87,84 @@ Content _$ContentFromJson(Map<String, dynamic> json) => Content(
           .toList(),
     );
 
-Map<String, dynamic> _$ContentToJson(Content instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('contentTypeId', instance.contentTypeId);
-  writeNotNull('ownerContentId', instance.ownerContentId);
-  writeNotNull('decoratorContentId', instance.decoratorContentId);
-  writeNotNull('instanceOfContentId', instance.instanceOfContentId);
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('templateDataResourceId', instance.templateDataResourceId);
-  writeNotNull('dataSourceId', instance.dataSourceId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('privilegeEnumId', instance.privilegeEnumId);
-  writeNotNull('serviceName', instance.serviceName);
-  writeNotNull('customMethodId', instance.customMethodId);
-  writeNotNull('contentName', instance.contentName);
-  writeNotNull('description', instance.description);
-  writeNotNull('localeString', instance.localeString);
-  writeNotNull('mimeTypeId', instance.mimeTypeId);
-  writeNotNull('characterSetId', instance.characterSetId);
-  writeNotNull('childLeafCount', instance.childLeafCount);
-  writeNotNull('childBranchCount', instance.childBranchCount);
-  writeNotNull('createdDate', instance.createdDate?.toIso8601String());
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull(
-      'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
-  writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('defaultCharge', instance.defaultCharge);
-  writeNotNull('charges', instance.charges);
-  writeNotNull('contentBinId', instance.contentBinId);
-  writeNotNull('ncopies', instance.ncopies);
-  writeNotNull('accountId', instance.accountId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('origin', instance.origin);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull(
-      'contentSlot', instance.contentSlot?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'contentWallet', instance.contentWallet?.map((e) => e.toJson()).toList());
-  writeNotNull('fromContentAssoc',
-      instance.fromContentAssoc?.map((e) => e.toJson()).toList());
-  writeNotNull('contentAttribute',
-      instance.contentAttribute?.map((e) => e.toJson()).toList());
-  writeNotNull('toContentAssoc',
-      instance.toContentAssoc?.map((e) => e.toJson()).toList());
-  writeNotNull('contentReference',
-      instance.contentReference?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'contentRole', instance.contentRole?.map((e) => e.toJson()).toList());
-  writeNotNull('contentPurpose',
-      instance.contentPurpose?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$ContentToJson(Content instance) => <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.contentTypeId case final value?) 'contentTypeId': value,
+      if (instance.ownerContentId case final value?) 'ownerContentId': value,
+      if (instance.decoratorContentId case final value?)
+        'decoratorContentId': value,
+      if (instance.instanceOfContentId case final value?)
+        'instanceOfContentId': value,
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (instance.templateDataResourceId case final value?)
+        'templateDataResourceId': value,
+      if (instance.dataSourceId case final value?) 'dataSourceId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.privilegeEnumId case final value?) 'privilegeEnumId': value,
+      if (instance.serviceName case final value?) 'serviceName': value,
+      if (instance.customMethodId case final value?) 'customMethodId': value,
+      if (instance.contentName case final value?) 'contentName': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.localeString case final value?) 'localeString': value,
+      if (instance.mimeTypeId case final value?) 'mimeTypeId': value,
+      if (instance.characterSetId case final value?) 'characterSetId': value,
+      if (instance.childLeafCount case final value?) 'childLeafCount': value,
+      if (instance.childBranchCount case final value?)
+        'childBranchCount': value,
+      if (instance.createdDate?.toIso8601String() case final value?)
+        'createdDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.lastModifiedDate?.toIso8601String() case final value?)
+        'lastModifiedDate': value,
+      if (instance.lastModifiedByUserLogin case final value?)
+        'lastModifiedByUserLogin': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.defaultCharge case final value?) 'defaultCharge': value,
+      if (instance.charges case final value?) 'charges': value,
+      if (instance.contentBinId case final value?) 'contentBinId': value,
+      if (instance.ncopies case final value?) 'ncopies': value,
+      if (instance.accountId case final value?) 'accountId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.origin case final value?) 'origin': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.contentSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'contentSlot': value,
+      if (instance.contentWallet?.map((e) => e.toJson()).toList()
+          case final value?)
+        'contentWallet': value,
+      if (instance.fromContentAssoc?.map((e) => e.toJson()).toList()
+          case final value?)
+        'fromContentAssoc': value,
+      if (instance.contentAttribute?.map((e) => e.toJson()).toList()
+          case final value?)
+        'contentAttribute': value,
+      if (instance.toContentAssoc?.map((e) => e.toJson()).toList()
+          case final value?)
+        'toContentAssoc': value,
+      if (instance.contentReference?.map((e) => e.toJson()).toList()
+          case final value?)
+        'contentReference': value,
+      if (instance.contentRole?.map((e) => e.toJson()).toList()
+          case final value?)
+        'contentRole': value,
+      if (instance.contentPurpose?.map((e) => e.toJson()).toList()
+          case final value?)
+        'contentPurpose': value,
+    };
 
 ContentSlot _$ContentSlotFromJson(Map<String, dynamic> json) => ContentSlot(
       contentId: json['contentId'] as String?,
@@ -171,25 +180,18 @@ ContentSlot _$ContentSlotFromJson(Map<String, dynamic> json) => ContentSlot(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentSlotToJson(ContentSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentSlotToJson(ContentSlot instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ContentWallet _$ContentWalletFromJson(Map<String, dynamic> json) =>
     ContentWallet(
@@ -207,26 +209,19 @@ ContentWallet _$ContentWalletFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentWalletToJson(ContentWallet instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('paymentErc', instance.paymentErc);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentWalletToJson(ContentWallet instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.paymentErc case final value?) 'paymentErc': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ContentAssoc _$ContentAssocFromJson(Map<String, dynamic> json) => ContentAssoc(
       contentId: json['contentId'] as String?,
@@ -261,37 +256,37 @@ ContentAssoc _$ContentAssocFromJson(Map<String, dynamic> json) => ContentAssoc(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentAssocToJson(ContentAssoc instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('contentIdTo', instance.contentIdTo);
-  writeNotNull('contentAssocTypeId', instance.contentAssocTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('contentAssocPredicateId', instance.contentAssocPredicateId);
-  writeNotNull('dataSourceId', instance.dataSourceId);
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull('mapKey', instance.mapKey);
-  writeNotNull('upperCoordinate', instance.upperCoordinate);
-  writeNotNull('leftCoordinate', instance.leftCoordinate);
-  writeNotNull('createdDate', instance.createdDate?.toIso8601String());
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull(
-      'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
-  writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentAssocToJson(ContentAssoc instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.contentIdTo case final value?) 'contentIdTo': value,
+      if (instance.contentAssocTypeId case final value?)
+        'contentAssocTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.contentAssocPredicateId case final value?)
+        'contentAssocPredicateId': value,
+      if (instance.dataSourceId case final value?) 'dataSourceId': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.mapKey case final value?) 'mapKey': value,
+      if (instance.upperCoordinate case final value?) 'upperCoordinate': value,
+      if (instance.leftCoordinate case final value?) 'leftCoordinate': value,
+      if (instance.createdDate?.toIso8601String() case final value?)
+        'createdDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.lastModifiedDate?.toIso8601String() case final value?)
+        'lastModifiedDate': value,
+      if (instance.lastModifiedByUserLogin case final value?)
+        'lastModifiedByUserLogin': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ContentAttribute _$ContentAttributeFromJson(Map<String, dynamic> json) =>
     ContentAttribute(
@@ -308,25 +303,18 @@ ContentAttribute _$ContentAttributeFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentAttributeToJson(ContentAttribute instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('attrName', instance.attrName);
-  writeNotNull('attrValue', instance.attrValue);
-  writeNotNull('attrDescription', instance.attrDescription);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentAttributeToJson(ContentAttribute instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.attrName case final value?) 'attrName': value,
+      if (instance.attrValue case final value?) 'attrValue': value,
+      if (instance.attrDescription case final value?) 'attrDescription': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ContentReference _$ContentReferenceFromJson(Map<String, dynamic> json) =>
     ContentReference(
@@ -343,25 +331,18 @@ ContentReference _$ContentReferenceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentReferenceToJson(ContentReference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('refId', instance.refId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentReferenceToJson(ContentReference instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.refId case final value?) 'refId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ContentRole _$ContentRoleFromJson(Map<String, dynamic> json) => ContentRole(
       contentId: json['contentId'] as String?,
@@ -382,26 +363,21 @@ ContentRole _$ContentRoleFromJson(Map<String, dynamic> json) => ContentRole(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentRoleToJson(ContentRole instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentRoleToJson(ContentRole instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ContentPurpose _$ContentPurposeFromJson(Map<String, dynamic> json) =>
     ContentPurpose(
@@ -417,21 +393,15 @@ ContentPurpose _$ContentPurposeFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContentPurposeToJson(ContentPurpose instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('contentPurposeTypeId', instance.contentPurposeTypeId);
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContentPurposeToJson(ContentPurpose instance) =>
+    <String, dynamic>{
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.contentPurposeTypeId case final value?)
+        'contentPurposeTypeId': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

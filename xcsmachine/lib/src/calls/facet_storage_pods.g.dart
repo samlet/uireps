@@ -142,6 +142,8 @@ class FacetStorageProvider extends Provider<FacetStorageRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FacetStorageRef on ProviderRef<FacetStorageRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -298,6 +300,8 @@ class FacetStorageMultiGetProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FacetStorageMultiGetRef
     on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -464,6 +468,8 @@ class FacetStorageGetLastTsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FacetStorageGetLastTsRef on AutoDisposeFutureProviderRef<DateTime> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -618,6 +624,8 @@ class FacetStorageGetBiDraftProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FacetStorageGetBiDraftRef on AutoDisposeFutureProviderRef<BiFacetBi> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -777,6 +785,8 @@ class FacetStorageGetProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FacetStorageGetRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -932,6 +942,8 @@ class FacetStoragePodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FacetStoragePodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -946,4 +958,4 @@ class _FacetStoragePodProviderElement
   String get regionOrNs => (origin as FacetStoragePodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

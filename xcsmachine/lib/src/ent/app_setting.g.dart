@@ -34,31 +34,26 @@ AppSetting _$AppSettingFromJson(Map<String, dynamic> json) => AppSetting(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$AppSettingToJson(AppSetting instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('appSettingId', instance.appSettingId);
-  writeNotNull('appId', instance.appId);
-  writeNotNull('currentLoginId', instance.currentLoginId);
-  writeNotNull('allLoginIds', instance.allLoginIds);
-  writeNotNull('currentPartyId', instance.currentPartyId);
-  writeNotNull('currentWalletId', instance.currentWalletId);
-  writeNotNull('locale', instance.locale);
-  writeNotNull(
-      'currentLoginTime', instance.currentLoginTime?.toIso8601String());
-  writeNotNull('lastLoginTime', instance.lastLoginTime?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('appSettingTypeId', instance.appSettingTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$AppSettingToJson(AppSetting instance) =>
+    <String, dynamic>{
+      if (instance.appSettingId case final value?) 'appSettingId': value,
+      if (instance.appId case final value?) 'appId': value,
+      if (instance.currentLoginId case final value?) 'currentLoginId': value,
+      if (instance.allLoginIds case final value?) 'allLoginIds': value,
+      if (instance.currentPartyId case final value?) 'currentPartyId': value,
+      if (instance.currentWalletId case final value?) 'currentWalletId': value,
+      if (instance.locale case final value?) 'locale': value,
+      if (instance.currentLoginTime?.toIso8601String() case final value?)
+        'currentLoginTime': value,
+      if (instance.lastLoginTime?.toIso8601String() case final value?)
+        'lastLoginTime': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.appSettingTypeId case final value?)
+        'appSettingTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

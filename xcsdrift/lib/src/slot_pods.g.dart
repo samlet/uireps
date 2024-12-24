@@ -20,6 +20,8 @@ final slotRepositoryProvider = Provider<SlotRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SlotRepositoryRef = ProviderRef<SlotRepository>;
 String _$getSlotHash() => r'316994b460c67f06bf893482355a3f512c03bb1f';
 
@@ -156,6 +158,8 @@ class GetSlotProvider extends AutoDisposeFutureProvider<SlotData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetSlotRef on AutoDisposeFutureProviderRef<SlotData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -185,4 +189,4 @@ final slotBucketProvider =
 
 typedef _$SlotBucket = AutoDisposeStreamNotifier<List<SlotData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

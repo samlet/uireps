@@ -37,6 +37,7 @@ class Asset {
     this.tag2,
     this.tag3,
     this.moreTags,
+    this.labels,
     this.evict,
     this.acl,
     this.resourceId,
@@ -66,6 +67,7 @@ class Asset {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
+    Multimap<String, String>? labels,
     bool? evict,
     Multimap<String, String>? acl,
     String? resourceId,
@@ -94,6 +96,7 @@ class Asset {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
@@ -178,6 +181,10 @@ class Asset {
 
    
   List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   bool? evict;

@@ -27,6 +27,8 @@ class Billboard {
     this.tag1,
     this.tag2,
     this.tag3,
+    this.moreTags,
+    this.labels,
     this.billboardId,
     this.billboardTypeId,
     this.statusId,
@@ -53,6 +55,8 @@ class Billboard {
     String? tag1,
     String? tag2,
     String? tag3,
+    List<String?>? moreTags,
+    Multimap<String, String>? labels,
     String? billboardId,
     String? billboardTypeId,
     String? statusId,
@@ -78,6 +82,8 @@ class Billboard {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       billboardId: billboardId ?? this.billboardId,
       billboardTypeId: billboardTypeId ?? this.billboardTypeId,
       statusId: statusId ?? this.statusId,
@@ -138,6 +144,13 @@ class Billboard {
 
    
   String? tag3;
+
+   
+  List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   String? billboardId;

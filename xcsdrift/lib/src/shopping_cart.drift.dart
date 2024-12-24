@@ -30,6 +30,8 @@ typedef $ShoppingCartCreateCompanionBuilder = i1.ShoppingCartCompanion
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i3.Multimap<String, String>?> labels,
   i0.Value<String?> shoppingCartTypeId,
   i0.Value<String?> statusId,
   i0.Value<bool?> evict,
@@ -65,6 +67,8 @@ typedef $ShoppingCartUpdateCompanionBuilder = i1.ShoppingCartCompanion
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i3.Multimap<String, String>?> labels,
   i0.Value<String?> shoppingCartTypeId,
   i0.Value<String?> statusId,
   i0.Value<bool?> evict,
@@ -154,6 +158,17 @@ class $ShoppingCartFilterComposer
 
   i0.ColumnFilters<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnFilters<String> get shoppingCartTypeId => $composableBuilder(
       column: $table.shoppingCartTypeId,
@@ -286,6 +301,12 @@ class $ShoppingCartOrderingComposer
   i0.ColumnOrderings<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get shoppingCartTypeId => $composableBuilder(
       column: $table.shoppingCartTypeId,
       builder: (column) => i0.ColumnOrderings(column));
@@ -399,6 +420,13 @@ class $ShoppingCartAnnotationComposer
   i0.GeneratedColumn<String> get tag3 =>
       $composableBuilder(column: $table.tag3, builder: (column) => column);
 
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
   i0.GeneratedColumn<String> get shoppingCartTypeId => $composableBuilder(
       column: $table.shoppingCartTypeId, builder: (column) => column);
 
@@ -488,6 +516,9 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
@@ -528,6 +559,8 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             tag1: tag1,
             tag2: tag2,
             tag3: tag3,
+            moreTags: moreTags,
+            labels: labels,
             shoppingCartTypeId: shoppingCartTypeId,
             statusId: statusId,
             evict: evict,
@@ -562,6 +595,9 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
@@ -602,6 +638,8 @@ class $ShoppingCartTableManager extends i0.RootTableManager<
             tag1: tag1,
             tag2: tag2,
             tag3: tag3,
+            moreTags: moreTags,
+            labels: labels,
             shoppingCartTypeId: shoppingCartTypeId,
             statusId: statusId,
             evict: evict,
@@ -781,6 +819,24 @@ class ShoppingCart extends i0.Table
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _moreTagsMeta =
+      const i0.VerificationMeta('moreTags');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.ShoppingCart.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i3.Multimap<String, String>?>(
+              i1.ShoppingCart.$converterlabelsn);
   static const i0.VerificationMeta _shoppingCartTypeIdMeta =
       const i0.VerificationMeta('shoppingCartTypeId');
   late final i0.GeneratedColumn<String> shoppingCartTypeId =
@@ -907,6 +963,8 @@ class ShoppingCart extends i0.Table
         tag1,
         tag2,
         tag3,
+        moreTags,
+        labels,
         shoppingCartTypeId,
         statusId,
         evict,
@@ -1020,6 +1078,8 @@ class ShoppingCart extends i0.Table
       context.handle(
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     if (data.containsKey('shopping_cart_type_id')) {
       context.handle(
           _shoppingCartTypeIdMeta,
@@ -1111,6 +1171,12 @@ class ShoppingCart extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
       tag3: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
+      moreTags: i1.ShoppingCart.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.ShoppingCart.$converterlabelsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       shoppingCartTypeId: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string,
           data['${effectivePrefix}shopping_cart_type_id']),
@@ -1155,6 +1221,17 @@ class ShoppingCart extends i0.Table
       .JsonTypeConverter2<i2.ContactProfile?, String?, Map<String, dynamic>?>
       $convertercontactsn =
       i0.JsonTypeConverter2.asNullable($convertercontacts);
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i6.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i6.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
   static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
           Map<String, dynamic>> $convertermultiJointers =
       const i6.StringMultimapConverter();
@@ -1216,6 +1293,8 @@ class ShoppingCartData extends i0.DataClass
   final String? tag1;
   final String? tag2;
   final String? tag3;
+  final List<String>? moreTags;
+  final i3.Multimap<String, String>? labels;
   final String? shoppingCartTypeId;
   final String? statusId;
   final bool? evict;
@@ -1252,6 +1331,8 @@ class ShoppingCartData extends i0.DataClass
       this.tag1,
       this.tag2,
       this.tag3,
+      this.moreTags,
+      this.labels,
       this.shoppingCartTypeId,
       this.statusId,
       this.evict,
@@ -1322,6 +1403,14 @@ class ShoppingCartData extends i0.DataClass
     }
     if (!nullToAbsent || tag3 != null) {
       map['tag3'] = i0.Variable<String>(tag3);
+    }
+    if (!nullToAbsent || moreTags != null) {
+      map['more_tags'] = i0.Variable<String>(
+          i1.ShoppingCart.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.ShoppingCart.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || shoppingCartTypeId != null) {
       map['shopping_cart_type_id'] = i0.Variable<String>(shoppingCartTypeId);
@@ -1426,6 +1515,12 @@ class ShoppingCartData extends i0.DataClass
       tag3: tag3 == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(tag3),
+      moreTags: moreTags == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       shoppingCartTypeId: shoppingCartTypeId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(shoppingCartTypeId),
@@ -1490,6 +1585,10 @@ class ShoppingCartData extends i0.DataClass
       tag1: serializer.fromJson<String?>(json['tag1']),
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
+      moreTags: i1.ShoppingCart.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.ShoppingCart.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       shoppingCartTypeId:
           serializer.fromJson<String?>(json['shopping_cart_type_id']),
       statusId: serializer.fromJson<String?>(json['status_id']),
@@ -1539,6 +1638,10 @@ class ShoppingCartData extends i0.DataClass
       'tag1': serializer.toJson<String?>(tag1),
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.ShoppingCart.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.ShoppingCart.$converterlabelsn.toJson(labels)),
       'shopping_cart_type_id': serializer.toJson<String?>(shoppingCartTypeId),
       'status_id': serializer.toJson<String?>(statusId),
       'evict': serializer.toJson<bool?>(evict),
@@ -1581,6 +1684,9 @@ class ShoppingCartData extends i0.DataClass
           i0.Value<String?> tag1 = const i0.Value.absent(),
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i3.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<String?> shoppingCartTypeId = const i0.Value.absent(),
           i0.Value<String?> statusId = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
@@ -1624,6 +1730,8 @@ class ShoppingCartData extends i0.DataClass
         tag1: tag1.present ? tag1.value : this.tag1,
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
+        moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         shoppingCartTypeId: shoppingCartTypeId.present
             ? shoppingCartTypeId.value
             : this.shoppingCartTypeId,
@@ -1683,6 +1791,8 @@ class ShoppingCartData extends i0.DataClass
       tag1: data.tag1.present ? data.tag1.value : this.tag1,
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
+      moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       shoppingCartTypeId: data.shoppingCartTypeId.present
           ? data.shoppingCartTypeId.value
           : this.shoppingCartTypeId,
@@ -1737,6 +1847,8 @@ class ShoppingCartData extends i0.DataClass
           ..write('tag1: $tag1, ')
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('shoppingCartTypeId: $shoppingCartTypeId, ')
           ..write('statusId: $statusId, ')
           ..write('evict: $evict, ')
@@ -1774,6 +1886,8 @@ class ShoppingCartData extends i0.DataClass
         tag1,
         tag2,
         tag3,
+        moreTags,
+        labels,
         shoppingCartTypeId,
         statusId,
         evict,
@@ -1810,6 +1924,8 @@ class ShoppingCartData extends i0.DataClass
           other.tag1 == this.tag1 &&
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
+          other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.shoppingCartTypeId == this.shoppingCartTypeId &&
           other.statusId == this.statusId &&
           other.evict == this.evict &&
@@ -1844,6 +1960,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
   final i0.Value<String?> tag1;
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
+  final i0.Value<List<String>?> moreTags;
+  final i0.Value<i3.Multimap<String, String>?> labels;
   final i0.Value<String?> shoppingCartTypeId;
   final i0.Value<String?> statusId;
   final i0.Value<bool?> evict;
@@ -1877,6 +1995,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     this.tag1 = const i0.Value.absent(),
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.shoppingCartTypeId = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
@@ -1911,6 +2031,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     this.tag1 = const i0.Value.absent(),
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.shoppingCartTypeId = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
@@ -1945,6 +2067,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     i0.Expression<String>? tag1,
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
+    i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<String>? shoppingCartTypeId,
     i0.Expression<String>? statusId,
     i0.Expression<bool>? evict,
@@ -1980,6 +2104,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       if (tag1 != null) 'tag1': tag1,
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
+      if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (shoppingCartTypeId != null)
         'shopping_cart_type_id': shoppingCartTypeId,
       if (statusId != null) 'status_id': statusId,
@@ -2018,6 +2144,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       i0.Value<String?>? tag1,
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
+      i0.Value<List<String>?>? moreTags,
+      i0.Value<i3.Multimap<String, String>?>? labels,
       i0.Value<String?>? shoppingCartTypeId,
       i0.Value<String?>? statusId,
       i0.Value<bool?>? evict,
@@ -2051,6 +2179,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       shoppingCartTypeId: shoppingCartTypeId ?? this.shoppingCartTypeId,
       statusId: statusId ?? this.statusId,
       evict: evict ?? this.evict,
@@ -2129,6 +2259,14 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
     if (tag3.present) {
       map['tag3'] = i0.Variable<String>(tag3.value);
     }
+    if (moreTags.present) {
+      map['more_tags'] = i0.Variable<String>(
+          i1.ShoppingCart.$convertermoreTagsn.toSql(moreTags.value));
+    }
+    if (labels.present) {
+      map['labels'] = i0.Variable<String>(
+          i1.ShoppingCart.$converterlabelsn.toSql(labels.value));
+    }
     if (shoppingCartTypeId.present) {
       map['shopping_cart_type_id'] =
           i0.Variable<String>(shoppingCartTypeId.value);
@@ -2204,6 +2342,8 @@ class ShoppingCartCompanion extends i0.UpdateCompanion<i1.ShoppingCartData> {
           ..write('tag1: $tag1, ')
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('shoppingCartTypeId: $shoppingCartTypeId, ')
           ..write('statusId: $statusId, ')
           ..write('evict: $evict, ')

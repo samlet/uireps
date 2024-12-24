@@ -153,6 +153,8 @@ class BudgetPalProvider extends AutoDisposeProvider<BudgetPalRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BudgetPalRef on AutoDisposeProviderRef<BudgetPalRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -300,6 +302,8 @@ class BudgetPalGetDecimalsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BudgetPalGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -450,6 +454,8 @@ class BudgetPalGetPaymentsDetailProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BudgetPalGetPaymentsDetailRef
     on AutoDisposeFutureProviderRef<List<PayDetail>> {
   /// The parameter `regionOrNs` of this provider.
@@ -617,6 +623,8 @@ class BudgetPalPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BudgetPalPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -636,4 +644,4 @@ class _BudgetPalPodProviderElement
   String get id => (origin as BudgetPalPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

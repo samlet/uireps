@@ -27,6 +27,8 @@ class Headline {
     this.tag1,
     this.tag2,
     this.tag3,
+    this.moreTags,
+    this.labels,
     this.headlineId,
     this.headlineTypeId,
     this.statusId,
@@ -49,6 +51,8 @@ class Headline {
     String? tag1,
     String? tag2,
     String? tag3,
+    List<String?>? moreTags,
+    Multimap<String, String>? labels,
     String? headlineId,
     String? headlineTypeId,
     String? statusId,
@@ -70,6 +74,8 @@ class Headline {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       headlineId: headlineId ?? this.headlineId,
       headlineTypeId: headlineTypeId ?? this.headlineTypeId,
       statusId: statusId ?? this.statusId,
@@ -126,6 +132,13 @@ class Headline {
 
    
   String? tag3;
+
+   
+  List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   String? headlineId;

@@ -38,6 +38,7 @@ WebSite _$WebSiteFromJson(Map<String, dynamic> json) => WebSite(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -55,55 +56,55 @@ WebSite _$WebSiteFromJson(Map<String, dynamic> json) => WebSite(
           .toList(),
     );
 
-Map<String, dynamic> _$WebSiteToJson(WebSite instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('webSiteId', instance.webSiteId);
-  writeNotNull('siteName', instance.siteName);
-  writeNotNull('httpHost', instance.httpHost);
-  writeNotNull('httpPort', instance.httpPort);
-  writeNotNull('httpsHost', instance.httpsHost);
-  writeNotNull('httpsPort', instance.httpsPort);
-  writeNotNull('enableHttps', instance.enableHttps);
-  writeNotNull('webappPath', instance.webappPath);
-  writeNotNull('standardContentPrefix', instance.standardContentPrefix);
-  writeNotNull('secureContentPrefix', instance.secureContentPrefix);
-  writeNotNull('cookieDomain', instance.cookieDomain);
-  writeNotNull('visualThemeSetId', instance.visualThemeSetId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('allowProductStoreChange', instance.allowProductStoreChange);
-  writeNotNull('hostedPathAlias', instance.hostedPathAlias);
-  writeNotNull('isDefault', instance.isDefault);
-  writeNotNull('displayMaintenancePage', instance.displayMaintenancePage);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('webSiteContactList',
-      instance.webSiteContactList?.map((e) => e.toJson()).toList());
-  writeNotNull('webSiteContent',
-      instance.webSiteContent?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$WebSiteToJson(WebSite instance) => <String, dynamic>{
+      if (instance.webSiteId case final value?) 'webSiteId': value,
+      if (instance.siteName case final value?) 'siteName': value,
+      if (instance.httpHost case final value?) 'httpHost': value,
+      if (instance.httpPort case final value?) 'httpPort': value,
+      if (instance.httpsHost case final value?) 'httpsHost': value,
+      if (instance.httpsPort case final value?) 'httpsPort': value,
+      if (instance.enableHttps case final value?) 'enableHttps': value,
+      if (instance.webappPath case final value?) 'webappPath': value,
+      if (instance.standardContentPrefix case final value?)
+        'standardContentPrefix': value,
+      if (instance.secureContentPrefix case final value?)
+        'secureContentPrefix': value,
+      if (instance.cookieDomain case final value?) 'cookieDomain': value,
+      if (instance.visualThemeSetId case final value?)
+        'visualThemeSetId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.allowProductStoreChange case final value?)
+        'allowProductStoreChange': value,
+      if (instance.hostedPathAlias case final value?) 'hostedPathAlias': value,
+      if (instance.isDefault case final value?) 'isDefault': value,
+      if (instance.displayMaintenancePage case final value?)
+        'displayMaintenancePage': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.webSiteContactList?.map((e) => e.toJson()).toList()
+          case final value?)
+        'webSiteContactList': value,
+      if (instance.webSiteContent?.map((e) => e.toJson()).toList()
+          case final value?)
+        'webSiteContent': value,
+    };
 
 WebSiteContactList _$WebSiteContactListFromJson(Map<String, dynamic> json) =>
     WebSiteContactList(
@@ -124,25 +125,20 @@ WebSiteContactList _$WebSiteContactListFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WebSiteContactListToJson(WebSiteContactList instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('webSiteId', instance.webSiteId);
-  writeNotNull('contactListId', instance.contactListId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WebSiteContactListToJson(WebSiteContactList instance) =>
+    <String, dynamic>{
+      if (instance.webSiteId case final value?) 'webSiteId': value,
+      if (instance.contactListId case final value?) 'contactListId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WebSiteContent _$WebSiteContentFromJson(Map<String, dynamic> json) =>
     WebSiteContent(
@@ -164,23 +160,19 @@ WebSiteContent _$WebSiteContentFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WebSiteContentToJson(WebSiteContent instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('webSiteId', instance.webSiteId);
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('webSiteContentTypeId', instance.webSiteContentTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WebSiteContentToJson(WebSiteContent instance) =>
+    <String, dynamic>{
+      if (instance.webSiteId case final value?) 'webSiteId': value,
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.webSiteContentTypeId case final value?)
+        'webSiteContentTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

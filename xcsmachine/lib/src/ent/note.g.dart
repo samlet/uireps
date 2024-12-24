@@ -31,6 +31,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -39,39 +40,35 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
           .toList(),
     );
 
-Map<String, dynamic> _$NoteToJson(Note instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('noteId', instance.noteId);
-  writeNotNull('noteName', instance.noteName);
-  writeNotNull('noteInfo', instance.noteInfo);
-  writeNotNull('noteDateTime', instance.noteDateTime?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('noteParty', instance.noteParty);
-  writeNotNull('moreInfoUrl', instance.moreInfoUrl);
-  writeNotNull('moreInfoItemId', instance.moreInfoItemId);
-  writeNotNull('moreInfoItemName', instance.moreInfoItemName);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull(
-      'noteDataSlot', instance.noteDataSlot?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
+      if (instance.noteId case final value?) 'noteId': value,
+      if (instance.noteName case final value?) 'noteName': value,
+      if (instance.noteInfo case final value?) 'noteInfo': value,
+      if (instance.noteDateTime?.toIso8601String() case final value?)
+        'noteDateTime': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.noteParty case final value?) 'noteParty': value,
+      if (instance.moreInfoUrl case final value?) 'moreInfoUrl': value,
+      if (instance.moreInfoItemId case final value?) 'moreInfoItemId': value,
+      if (instance.moreInfoItemName case final value?)
+        'moreInfoItemName': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.noteDataSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'noteDataSlot': value,
+    };
 
 NoteDataSlot _$NoteDataSlotFromJson(Map<String, dynamic> json) => NoteDataSlot(
       noteId: json['noteId'] as String?,
@@ -87,22 +84,15 @@ NoteDataSlot _$NoteDataSlotFromJson(Map<String, dynamic> json) => NoteDataSlot(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$NoteDataSlotToJson(NoteDataSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('noteId', instance.noteId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$NoteDataSlotToJson(NoteDataSlot instance) =>
+    <String, dynamic>{
+      if (instance.noteId case final value?) 'noteId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

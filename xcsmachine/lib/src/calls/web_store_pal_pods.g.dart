@@ -154,6 +154,8 @@ class WebStorePalProvider extends AutoDisposeProvider<WebStorePalRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalRef on AutoDisposeProviderRef<WebStorePalRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -303,6 +305,8 @@ class WebStorePalGetProductIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalGetProductIdsRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -456,6 +460,8 @@ class WebStorePalGetProductJointersProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalGetProductJointersRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -620,6 +626,8 @@ class WebStorePalGetProductsByRoleProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalGetProductsByRoleRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -775,6 +783,8 @@ class WebStorePalWebSiteIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalWebSiteIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -936,6 +946,8 @@ class WebStorePalGetInventoriesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalGetInventoriesRef
     on AutoDisposeFutureProviderRef<List<Inventory>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1093,6 +1105,8 @@ class WebStorePalGetCatalogIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalGetCatalogIdsRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1243,6 +1257,8 @@ class WebStorePalGetDecimalsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1390,6 +1406,8 @@ class WebStorePalNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1536,6 +1554,8 @@ class WebStorePalFacilityProvider extends AutoDisposeFutureProvider<Facility> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalFacilityRef on AutoDisposeFutureProviderRef<Facility> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1703,6 +1723,8 @@ class WebStorePalPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebStorePalPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1722,4 +1744,4 @@ class _WebStorePalPodProviderElement
   String get id => (origin as WebStorePalPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

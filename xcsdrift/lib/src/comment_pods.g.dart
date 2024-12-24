@@ -20,6 +20,8 @@ final commentRepositoryProvider = Provider<CommentRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CommentRepositoryRef = ProviderRef<CommentRepository>;
 String _$getCommentHash() => r'437655888336ac5f3e28082fd52400845420e660';
 
@@ -157,6 +159,8 @@ class GetCommentProvider extends AutoDisposeFutureProvider<CommentData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetCommentRef on AutoDisposeFutureProviderRef<CommentData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -187,4 +191,4 @@ final commentBucketProvider = AutoDisposeStreamNotifierProvider<CommentBucket,
 
 typedef _$CommentBucket = AutoDisposeStreamNotifier<List<CommentData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

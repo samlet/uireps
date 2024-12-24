@@ -32,35 +32,29 @@ Section _$SectionFromJson(Map<String, dynamic> json) => Section(
           .toList(),
     );
 
-Map<String, dynamic> _$SectionToJson(Section instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('sectionName', instance.sectionName);
-  writeNotNull('classified', instance.classified);
-  writeNotNull('description', instance.description);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('chanId', instance.chanId);
-  writeNotNull('sectionId', instance.sectionId);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('sectionReference',
-      instance.sectionReference?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'sectionSlot', instance.sectionSlot?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.sectionName case final value?) 'sectionName': value,
+      if (instance.classified case final value?) 'classified': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.chanId case final value?) 'chanId': value,
+      if (instance.sectionId case final value?) 'sectionId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.sectionReference?.map((e) => e.toJson()).toList()
+          case final value?)
+        'sectionReference': value,
+      if (instance.sectionSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'sectionSlot': value,
+    };
 
 SectionReference _$SectionReferenceFromJson(Map<String, dynamic> json) =>
     SectionReference(
@@ -81,27 +75,21 @@ SectionReference _$SectionReferenceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$SectionReferenceToJson(SectionReference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sectionId', instance.sectionId);
-  writeNotNull('refId', instance.refId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('kind', instance.kind);
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$SectionReferenceToJson(SectionReference instance) =>
+    <String, dynamic>{
+      if (instance.sectionId case final value?) 'sectionId': value,
+      if (instance.refId case final value?) 'refId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.kind case final value?) 'kind': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 SectionSlot _$SectionSlotFromJson(Map<String, dynamic> json) => SectionSlot(
       sectionId: json['sectionId'] as String?,
@@ -117,22 +105,15 @@ SectionSlot _$SectionSlotFromJson(Map<String, dynamic> json) => SectionSlot(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$SectionSlotToJson(SectionSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sectionId', instance.sectionId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$SectionSlotToJson(SectionSlot instance) =>
+    <String, dynamic>{
+      if (instance.sectionId case final value?) 'sectionId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

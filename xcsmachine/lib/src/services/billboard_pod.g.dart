@@ -142,6 +142,8 @@ class LoadBillboardProvider extends AutoDisposeFutureProvider<Billboard> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadBillboardRef on AutoDisposeFutureProviderRef<Billboard> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -327,6 +329,8 @@ class LoadBillboardListProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadBillboardListRef on AutoDisposeFutureProviderRef<List<Billboard>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -531,6 +535,8 @@ class LoadBillboardPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadBillboardPageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Billboard>> {
   /// The parameter `pageSize` of this provider.
@@ -694,6 +700,8 @@ class FetchBillboardsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchBillboardsRef on AutoDisposeFutureProviderRef<List<Billboard>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -713,4 +721,4 @@ class _FetchBillboardsProviderElement
   String get regionId => (origin as FetchBillboardsProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

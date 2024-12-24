@@ -20,6 +20,8 @@ final storeRepositoryProvider = Provider<StoreRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef StoreRepositoryRef = ProviderRef<StoreRepository>;
 String _$getStoreHash() => r'805150f0fb5439f44a63725547c798fbb86f9bc3';
 
@@ -156,6 +158,8 @@ class GetStoreProvider extends AutoDisposeFutureProvider<ProductStoreData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetStoreRef on AutoDisposeFutureProviderRef<ProductStoreData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -186,4 +190,4 @@ final storeBucketProvider = AutoDisposeStreamNotifierProvider<StoreBucket,
 
 typedef _$StoreBucket = AutoDisposeStreamNotifier<List<ProductStoreData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

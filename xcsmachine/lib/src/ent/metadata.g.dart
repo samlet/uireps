@@ -35,6 +35,7 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) => Metadata(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       evict: json['evict'] as bool?,
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -46,42 +47,39 @@ Metadata _$MetadataFromJson(Map<String, dynamic> json) => Metadata(
           .toList(),
     );
 
-Map<String, dynamic> _$MetadataToJson(Metadata instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('metadataId', instance.metadataId);
-  val['value'] = stringMultimapToJson(instance.value);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('creator', instance.creator);
-  writeNotNull('comments', instance.comments);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('name', instance.name);
-  writeNotNull('image', instance.image);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('metadataTypeId', instance.metadataTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('metadataType', instance.metadataType?.toJson());
-  writeNotNull('metadataStatus',
-      instance.metadataStatus?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$MetadataToJson(Metadata instance) => <String, dynamic>{
+      if (instance.metadataId case final value?) 'metadataId': value,
+      'value': stringMultimapToJson(instance.value),
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.creator case final value?) 'creator': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.metadataTypeId case final value?) 'metadataTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.metadataType?.toJson() case final value?)
+        'metadataType': value,
+      if (instance.metadataStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'metadataStatus': value,
+    };
 
 MetadataStatus _$MetadataStatusFromJson(Map<String, dynamic> json) =>
     MetadataStatus(
@@ -103,26 +101,22 @@ MetadataStatus _$MetadataStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$MetadataStatusToJson(MetadataStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('metadataId', instance.metadataId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$MetadataStatusToJson(MetadataStatus instance) =>
+    <String, dynamic>{
+      if (instance.metadataId case final value?) 'metadataId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 MetadataType _$MetadataTypeFromJson(Map<String, dynamic> json) => MetadataType(
       metadataTypeId: json['metadataTypeId'] as String?,
@@ -137,21 +131,14 @@ MetadataType _$MetadataTypeFromJson(Map<String, dynamic> json) => MetadataType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$MetadataTypeToJson(MetadataType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('metadataTypeId', instance.metadataTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$MetadataTypeToJson(MetadataType instance) =>
+    <String, dynamic>{
+      if (instance.metadataTypeId case final value?) 'metadataTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

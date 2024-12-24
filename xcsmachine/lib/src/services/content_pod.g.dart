@@ -142,6 +142,8 @@ class LoadContentProvider extends AutoDisposeFutureProvider<Content> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadContentRef on AutoDisposeFutureProviderRef<Content> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -326,6 +328,8 @@ class LoadContentListProvider extends AutoDisposeFutureProvider<List<Content>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadContentListRef on AutoDisposeFutureProviderRef<List<Content>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -528,6 +532,8 @@ class LoadContentPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadContentPageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Content>> {
   /// The parameter `pageSize` of this provider.
@@ -690,6 +696,8 @@ class FetchContentsProvider extends AutoDisposeFutureProvider<List<Content>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchContentsRef on AutoDisposeFutureProviderRef<List<Content>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -880,6 +888,8 @@ class SearchContentProvider extends AutoDisposeFutureProvider<List<Content>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SearchContentRef on AutoDisposeFutureProviderRef<List<Content>> {
   /// The parameter `expr` of this provider.
   String get expr;
@@ -1114,6 +1124,8 @@ class PublicSearchContentProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PublicSearchContentRef on AutoDisposeFutureProviderRef<List<Content>> {
   /// The parameter `expr` of this provider.
   String get expr;
@@ -1164,4 +1176,4 @@ class _PublicSearchContentProviderElement
   bool get cancellable => (origin as PublicSearchContentProvider).cancellable;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

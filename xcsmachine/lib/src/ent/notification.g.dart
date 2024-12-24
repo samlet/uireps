@@ -23,6 +23,10 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
       tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       evict: json['evict'] as bool?,
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -38,38 +42,37 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
           .toList(),
     );
 
-Map<String, dynamic> _$NotificationToJson(Notification instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('notificationId', instance.notificationId);
-  writeNotNull('content', instance.content);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('comment', instance.comment);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('notificationTypeId', instance.notificationTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('notificationType', instance.notificationType?.toJson());
-  writeNotNull('notificationSlot',
-      instance.notificationSlot?.map((e) => e.toJson()).toList());
-  writeNotNull('notificationStatus',
-      instance.notificationStatus?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$NotificationToJson(Notification instance) =>
+    <String, dynamic>{
+      if (instance.notificationId case final value?) 'notificationId': value,
+      if (instance.content case final value?) 'content': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.comment case final value?) 'comment': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.notificationTypeId case final value?)
+        'notificationTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.notificationType?.toJson() case final value?)
+        'notificationType': value,
+      if (instance.notificationSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'notificationSlot': value,
+      if (instance.notificationStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'notificationStatus': value,
+    };
 
 NotificationType _$NotificationTypeFromJson(Map<String, dynamic> json) =>
     NotificationType(
@@ -85,24 +88,18 @@ NotificationType _$NotificationTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$NotificationTypeToJson(NotificationType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('notificationTypeId', instance.notificationTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$NotificationTypeToJson(NotificationType instance) =>
+    <String, dynamic>{
+      if (instance.notificationTypeId case final value?)
+        'notificationTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 NotificationSlot _$NotificationSlotFromJson(Map<String, dynamic> json) =>
     NotificationSlot(
@@ -119,25 +116,18 @@ NotificationSlot _$NotificationSlotFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$NotificationSlotToJson(NotificationSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('notificationId', instance.notificationId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$NotificationSlotToJson(NotificationSlot instance) =>
+    <String, dynamic>{
+      if (instance.notificationId case final value?) 'notificationId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 NotificationStatus _$NotificationStatusFromJson(Map<String, dynamic> json) =>
     NotificationStatus(
@@ -159,23 +149,19 @@ NotificationStatus _$NotificationStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$NotificationStatusToJson(NotificationStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('notificationId', instance.notificationId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$NotificationStatusToJson(NotificationStatus instance) =>
+    <String, dynamic>{
+      if (instance.notificationId case final value?) 'notificationId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

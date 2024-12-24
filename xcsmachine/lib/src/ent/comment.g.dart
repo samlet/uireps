@@ -48,46 +48,42 @@ Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
           .toList(),
     );
 
-Map<String, dynamic> _$CommentToJson(Comment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('commentId', instance.commentId);
-  writeNotNull('postedDateTime', instance.postedDateTime?.toIso8601String());
-  writeNotNull('rating', instance.rating);
-  writeNotNull('subject', instance.subject);
-  writeNotNull('review', instance.review);
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('replyTo', instance.replyTo);
-  writeNotNull('replyToCommentId', instance.replyToCommentId);
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('anchor', instance.anchor);
-  writeNotNull('paragraph', instance.paragraph);
-  val['mediaLinks'] = stringMultimapToJson(instance.mediaLinks);
-  val['sharedLinks'] = stringMultimapToJson(instance.sharedLinks);
-  writeNotNull('claimPayment', instance.claimPayment);
-  writeNotNull('paymentErc', instance.paymentErc);
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('commentTypeId', instance.commentTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('commentType', instance.commentType?.toJson());
-  writeNotNull(
-      'commentStatus', instance.commentStatus?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$CommentToJson(Comment instance) => <String, dynamic>{
+      if (instance.commentId case final value?) 'commentId': value,
+      if (instance.postedDateTime?.toIso8601String() case final value?)
+        'postedDateTime': value,
+      if (instance.rating case final value?) 'rating': value,
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.review case final value?) 'review': value,
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.replyTo case final value?) 'replyTo': value,
+      if (instance.replyToCommentId case final value?)
+        'replyToCommentId': value,
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.anchor case final value?) 'anchor': value,
+      if (instance.paragraph case final value?) 'paragraph': value,
+      'mediaLinks': stringMultimapToJson(instance.mediaLinks),
+      'sharedLinks': stringMultimapToJson(instance.sharedLinks),
+      if (instance.claimPayment case final value?) 'claimPayment': value,
+      if (instance.paymentErc case final value?) 'paymentErc': value,
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.commentTypeId case final value?) 'commentTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.commentType?.toJson() case final value?)
+        'commentType': value,
+      if (instance.commentStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'commentStatus': value,
+    };
 
 CommentType _$CommentTypeFromJson(Map<String, dynamic> json) => CommentType(
       commentTypeId: json['commentTypeId'] as String?,
@@ -102,24 +98,17 @@ CommentType _$CommentTypeFromJson(Map<String, dynamic> json) => CommentType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$CommentTypeToJson(CommentType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('commentTypeId', instance.commentTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$CommentTypeToJson(CommentType instance) =>
+    <String, dynamic>{
+      if (instance.commentTypeId case final value?) 'commentTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 CommentStatus _$CommentStatusFromJson(Map<String, dynamic> json) =>
     CommentStatus(
@@ -141,23 +130,19 @@ CommentStatus _$CommentStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$CommentStatusToJson(CommentStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('commentId', instance.commentId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$CommentStatusToJson(CommentStatus instance) =>
+    <String, dynamic>{
+      if (instance.commentId case final value?) 'commentId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

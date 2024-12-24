@@ -153,6 +153,8 @@ class ProductCoProvider extends AutoDisposeProvider<ProductCoRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProductCoRef on AutoDisposeProviderRef<ProductCoRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -301,6 +303,8 @@ class ProdGetSelectableFeaturesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetSelectableFeaturesRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -449,6 +453,8 @@ class ProdGetPricesProvider extends AutoDisposeFutureProvider<CurrencyMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetPricesRef on AutoDisposeFutureProviderRef<CurrencyMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -595,6 +601,8 @@ class ProdGetKeywordsProvider extends AutoDisposeFutureProvider<List<String>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetKeywordsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -741,6 +749,8 @@ class ProdGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -887,6 +897,8 @@ class ProdGetInfoProvider extends AutoDisposeFutureProvider<ThingWithPrice> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetInfoRef on AutoDisposeFutureProviderRef<ThingWithPrice> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1046,6 +1058,8 @@ class ProdGetComponentIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetComponentIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1198,6 +1212,8 @@ class ProdGetDefaultPriceProvider extends AutoDisposeFutureProvider<double> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetDefaultPriceRef on AutoDisposeFutureProviderRef<double> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1345,6 +1361,8 @@ class ProdGetPricesNumProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetPricesNumRef on AutoDisposeFutureProviderRef<Map<String, double>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1493,6 +1511,8 @@ class ProdGetFixedAssetMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetFixedAssetMapRef on AutoDisposeFutureProviderRef<StringMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1639,6 +1659,8 @@ class ProdIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdIsFeaturedRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1784,6 +1806,8 @@ class ProdGetVariantsProvider extends AutoDisposeFutureProvider<List<String>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetVariantsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1931,6 +1955,8 @@ class ProdGetPriceMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetPriceMapRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2079,6 +2105,8 @@ class ProdGetCategoryIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetCategoryIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2225,6 +2253,8 @@ class ProdGetListPriceProvider extends AutoDisposeFutureProvider<double> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdGetListPriceRef on AutoDisposeFutureProviderRef<double> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2380,6 +2410,8 @@ class ProdPriceProvider extends AutoDisposeFutureProvider<double> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProdPriceRef on AutoDisposeFutureProviderRef<double> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2401,6 +2433,176 @@ class _ProdPriceProviderElement extends AutoDisposeFutureProviderElement<double>
   String get id => (origin as ProdPriceProvider).id;
   @override
   String get priceType => (origin as ProdPriceProvider).priceType;
+}
+
+String _$prodGetPricesByPurposeHash() =>
+    r'820c3b44d392bbb6081591a29ed30b8d49b5a327';
+
+/// See also [prodGetPricesByPurpose].
+@ProviderFor(prodGetPricesByPurpose)
+const prodGetPricesByPurposeProvider = ProdGetPricesByPurposeFamily();
+
+/// See also [prodGetPricesByPurpose].
+class ProdGetPricesByPurposeFamily
+    extends Family<AsyncValue<Map<String, double>>> {
+  /// See also [prodGetPricesByPurpose].
+  const ProdGetPricesByPurposeFamily();
+
+  /// See also [prodGetPricesByPurpose].
+  ProdGetPricesByPurposeProvider call({
+    String regionOrNs = 'default',
+    required String id,
+    required String purposeId,
+  }) {
+    return ProdGetPricesByPurposeProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+      purposeId: purposeId,
+    );
+  }
+
+  @override
+  ProdGetPricesByPurposeProvider getProviderOverride(
+    covariant ProdGetPricesByPurposeProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+      purposeId: provider.purposeId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'prodGetPricesByPurposeProvider';
+}
+
+/// See also [prodGetPricesByPurpose].
+class ProdGetPricesByPurposeProvider
+    extends AutoDisposeFutureProvider<Map<String, double>> {
+  /// See also [prodGetPricesByPurpose].
+  ProdGetPricesByPurposeProvider({
+    String regionOrNs = 'default',
+    required String id,
+    required String purposeId,
+  }) : this._internal(
+          (ref) => prodGetPricesByPurpose(
+            ref as ProdGetPricesByPurposeRef,
+            regionOrNs: regionOrNs,
+            id: id,
+            purposeId: purposeId,
+          ),
+          from: prodGetPricesByPurposeProvider,
+          name: r'prodGetPricesByPurposeProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$prodGetPricesByPurposeHash,
+          dependencies: ProdGetPricesByPurposeFamily._dependencies,
+          allTransitiveDependencies:
+              ProdGetPricesByPurposeFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+          purposeId: purposeId,
+        );
+
+  ProdGetPricesByPurposeProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+    required this.purposeId,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+  final String purposeId;
+
+  @override
+  Override overrideWith(
+    FutureOr<Map<String, double>> Function(ProdGetPricesByPurposeRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ProdGetPricesByPurposeProvider._internal(
+        (ref) => create(ref as ProdGetPricesByPurposeRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+        purposeId: purposeId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Map<String, double>> createElement() {
+    return _ProdGetPricesByPurposeProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ProdGetPricesByPurposeProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id &&
+        other.purposeId == purposeId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, purposeId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin ProdGetPricesByPurposeRef
+    on AutoDisposeFutureProviderRef<Map<String, double>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+
+  /// The parameter `purposeId` of this provider.
+  String get purposeId;
+}
+
+class _ProdGetPricesByPurposeProviderElement
+    extends AutoDisposeFutureProviderElement<Map<String, double>>
+    with ProdGetPricesByPurposeRef {
+  _ProdGetPricesByPurposeProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as ProdGetPricesByPurposeProvider).regionOrNs;
+  @override
+  String get id => (origin as ProdGetPricesByPurposeProvider).id;
+  @override
+  String get purposeId => (origin as ProdGetPricesByPurposeProvider).purposeId;
 }
 
 String _$productCoPodHash() => r'887c0f2e26cab334101d7961d12b50b7fa8e26a3';
@@ -2549,6 +2751,8 @@ class ProductCoPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ProductCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2568,4 +2772,4 @@ class _ProductCoPodProviderElement
   String get id => (origin as ProductCoPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

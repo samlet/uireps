@@ -70,6 +70,7 @@ Shipment _$ShipmentFromJson(Map<String, dynamic> json) => Shipment(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -114,95 +115,115 @@ Shipment _$ShipmentFromJson(Map<String, dynamic> json) => Shipment(
           .toList(),
     );
 
-Map<String, dynamic> _$ShipmentToJson(Shipment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentTypeId', instance.shipmentTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('primaryOrderId', instance.primaryOrderId);
-  writeNotNull('primaryReturnId', instance.primaryReturnId);
-  writeNotNull('primaryShipGroupSeqId', instance.primaryShipGroupSeqId);
-  writeNotNull('picklistBinId', instance.picklistBinId);
-  writeNotNull(
-      'estimatedReadyDate', instance.estimatedReadyDate?.toIso8601String());
-  writeNotNull(
-      'estimatedShipDate', instance.estimatedShipDate?.toIso8601String());
-  writeNotNull('estimatedShipWorkEffId', instance.estimatedShipWorkEffId);
-  writeNotNull(
-      'estimatedArrivalDate', instance.estimatedArrivalDate?.toIso8601String());
-  writeNotNull('estimatedArrivalWorkEffId', instance.estimatedArrivalWorkEffId);
-  writeNotNull(
-      'latestCancelDate', instance.latestCancelDate?.toIso8601String());
-  writeNotNull('estimatedShipCost', instance.estimatedShipCost);
-  writeNotNull('currencyUomId', instance.currencyUomId);
-  writeNotNull('handlingInstructions', instance.handlingInstructions);
-  writeNotNull('originFacilityId', instance.originFacilityId);
-  writeNotNull('destinationFacilityId', instance.destinationFacilityId);
-  writeNotNull('originContactMechId', instance.originContactMechId);
-  writeNotNull('originTelecomNumberId', instance.originTelecomNumberId);
-  writeNotNull('destinationContactMechId', instance.destinationContactMechId);
-  writeNotNull(
-      'destinationTelecomNumberId', instance.destinationTelecomNumberId);
-  writeNotNull('partyIdTo', instance.partyIdTo);
-  writeNotNull('partyIdFrom', instance.partyIdFrom);
-  writeNotNull('additionalShippingCharge', instance.additionalShippingCharge);
-  writeNotNull('addtlShippingChargeDesc', instance.addtlShippingChargeDesc);
-  writeNotNull('createdDate', instance.createdDate?.toIso8601String());
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull(
-      'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
-  writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('shipBinId', instance.shipBinId);
-  writeNotNull('ncopies', instance.ncopies);
-  writeNotNull('accountId', instance.accountId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('origin', instance.origin);
-  writeNotNull('shipmentErcId', instance.shipmentErcId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('shipmentItemBilling',
-      instance.shipmentItemBilling?.map((e) => e.toJson()).toList());
-  writeNotNull('shippingDocument',
-      instance.shippingDocument?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentItemFeature',
-      instance.shipmentItemFeature?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentPackageRouteSeg',
-      instance.shipmentPackageRouteSeg?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentRouteSegment',
-      instance.shipmentRouteSegment?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentStatus',
-      instance.shipmentStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentPackage',
-      instance.shipmentPackage?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentReceipt',
-      instance.shipmentReceipt?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentMultisig',
-      instance.shipmentMultisig?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentPackageContent',
-      instance.shipmentPackageContent?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'shipmentItem', instance.shipmentItem?.map((e) => e.toJson()).toList());
-  writeNotNull('shipmentGeoForce',
-      instance.shipmentGeoForce?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$ShipmentToJson(Shipment instance) => <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentTypeId case final value?) 'shipmentTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.primaryOrderId case final value?) 'primaryOrderId': value,
+      if (instance.primaryReturnId case final value?) 'primaryReturnId': value,
+      if (instance.primaryShipGroupSeqId case final value?)
+        'primaryShipGroupSeqId': value,
+      if (instance.picklistBinId case final value?) 'picklistBinId': value,
+      if (instance.estimatedReadyDate?.toIso8601String() case final value?)
+        'estimatedReadyDate': value,
+      if (instance.estimatedShipDate?.toIso8601String() case final value?)
+        'estimatedShipDate': value,
+      if (instance.estimatedShipWorkEffId case final value?)
+        'estimatedShipWorkEffId': value,
+      if (instance.estimatedArrivalDate?.toIso8601String() case final value?)
+        'estimatedArrivalDate': value,
+      if (instance.estimatedArrivalWorkEffId case final value?)
+        'estimatedArrivalWorkEffId': value,
+      if (instance.latestCancelDate?.toIso8601String() case final value?)
+        'latestCancelDate': value,
+      if (instance.estimatedShipCost case final value?)
+        'estimatedShipCost': value,
+      if (instance.currencyUomId case final value?) 'currencyUomId': value,
+      if (instance.handlingInstructions case final value?)
+        'handlingInstructions': value,
+      if (instance.originFacilityId case final value?)
+        'originFacilityId': value,
+      if (instance.destinationFacilityId case final value?)
+        'destinationFacilityId': value,
+      if (instance.originContactMechId case final value?)
+        'originContactMechId': value,
+      if (instance.originTelecomNumberId case final value?)
+        'originTelecomNumberId': value,
+      if (instance.destinationContactMechId case final value?)
+        'destinationContactMechId': value,
+      if (instance.destinationTelecomNumberId case final value?)
+        'destinationTelecomNumberId': value,
+      if (instance.partyIdTo case final value?) 'partyIdTo': value,
+      if (instance.partyIdFrom case final value?) 'partyIdFrom': value,
+      if (instance.additionalShippingCharge case final value?)
+        'additionalShippingCharge': value,
+      if (instance.addtlShippingChargeDesc case final value?)
+        'addtlShippingChargeDesc': value,
+      if (instance.createdDate?.toIso8601String() case final value?)
+        'createdDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.lastModifiedDate?.toIso8601String() case final value?)
+        'lastModifiedDate': value,
+      if (instance.lastModifiedByUserLogin case final value?)
+        'lastModifiedByUserLogin': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.shipBinId case final value?) 'shipBinId': value,
+      if (instance.ncopies case final value?) 'ncopies': value,
+      if (instance.accountId case final value?) 'accountId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.origin case final value?) 'origin': value,
+      if (instance.shipmentErcId case final value?) 'shipmentErcId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.shipmentItemBilling?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentItemBilling': value,
+      if (instance.shippingDocument?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shippingDocument': value,
+      if (instance.shipmentItemFeature?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentItemFeature': value,
+      if (instance.shipmentPackageRouteSeg?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentPackageRouteSeg': value,
+      if (instance.shipmentRouteSegment?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentRouteSegment': value,
+      if (instance.shipmentStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentStatus': value,
+      if (instance.shipmentPackage?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentPackage': value,
+      if (instance.shipmentReceipt?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentReceipt': value,
+      if (instance.shipmentMultisig?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentMultisig': value,
+      if (instance.shipmentPackageContent?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentPackageContent': value,
+      if (instance.shipmentItem?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentItem': value,
+      if (instance.shipmentGeoForce?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shipmentGeoForce': value,
+    };
 
 ShipmentPackageRouteSeg _$ShipmentPackageRouteSegFromJson(
         Map<String, dynamic> json) =>
@@ -236,40 +257,40 @@ ShipmentPackageRouteSeg _$ShipmentPackageRouteSegFromJson(
     );
 
 Map<String, dynamic> _$ShipmentPackageRouteSegToJson(
-    ShipmentPackageRouteSeg instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentPackageSeqId', instance.shipmentPackageSeqId);
-  writeNotNull('shipmentRouteSegmentId', instance.shipmentRouteSegmentId);
-  writeNotNull('trackingCode', instance.trackingCode);
-  writeNotNull('boxNumber', instance.boxNumber);
-  writeNotNull(
-      'labelImage', const BytesConverter().toJson(instance.labelImage));
-  writeNotNull('labelIntlSignImage',
-      const BytesConverter().toJson(instance.labelIntlSignImage));
-  writeNotNull('labelHtml', instance.labelHtml);
-  writeNotNull('labelPrinted', instance.labelPrinted);
-  writeNotNull('internationalInvoice',
-      const BytesConverter().toJson(instance.internationalInvoice));
-  writeNotNull('packageTransportCost', instance.packageTransportCost);
-  writeNotNull('packageServiceCost', instance.packageServiceCost);
-  writeNotNull('packageOtherCost', instance.packageOtherCost);
-  writeNotNull('codAmount', instance.codAmount);
-  writeNotNull('insuredAmount', instance.insuredAmount);
-  writeNotNull('currencyUomId', instance.currencyUomId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ShipmentPackageRouteSeg instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentPackageSeqId case final value?)
+        'shipmentPackageSeqId': value,
+      if (instance.shipmentRouteSegmentId case final value?)
+        'shipmentRouteSegmentId': value,
+      if (instance.trackingCode case final value?) 'trackingCode': value,
+      if (instance.boxNumber case final value?) 'boxNumber': value,
+      if (const BytesConverter().toJson(instance.labelImage) case final value?)
+        'labelImage': value,
+      if (const BytesConverter().toJson(instance.labelIntlSignImage)
+          case final value?)
+        'labelIntlSignImage': value,
+      if (instance.labelHtml case final value?) 'labelHtml': value,
+      if (instance.labelPrinted case final value?) 'labelPrinted': value,
+      if (const BytesConverter().toJson(instance.internationalInvoice)
+          case final value?)
+        'internationalInvoice': value,
+      if (instance.packageTransportCost case final value?)
+        'packageTransportCost': value,
+      if (instance.packageServiceCost case final value?)
+        'packageServiceCost': value,
+      if (instance.packageOtherCost case final value?)
+        'packageOtherCost': value,
+      if (instance.codAmount case final value?) 'codAmount': value,
+      if (instance.insuredAmount case final value?) 'insuredAmount': value,
+      if (instance.currencyUomId case final value?) 'currencyUomId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentRouteSegment _$ShipmentRouteSegmentFromJson(
         Map<String, dynamic> json) =>
@@ -333,62 +354,78 @@ ShipmentRouteSegment _$ShipmentRouteSegmentFromJson(
     );
 
 Map<String, dynamic> _$ShipmentRouteSegmentToJson(
-    ShipmentRouteSegment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentRouteSegmentId', instance.shipmentRouteSegmentId);
-  writeNotNull('deliveryId', instance.deliveryId);
-  writeNotNull('originFacilityId', instance.originFacilityId);
-  writeNotNull('destFacilityId', instance.destFacilityId);
-  writeNotNull('originContactMechId', instance.originContactMechId);
-  writeNotNull('originTelecomNumberId', instance.originTelecomNumberId);
-  writeNotNull('destContactMechId', instance.destContactMechId);
-  writeNotNull('destTelecomNumberId', instance.destTelecomNumberId);
-  writeNotNull('carrierPartyId', instance.carrierPartyId);
-  writeNotNull('shipmentMethodTypeId', instance.shipmentMethodTypeId);
-  writeNotNull('carrierServiceStatusId', instance.carrierServiceStatusId);
-  writeNotNull('carrierDeliveryZone', instance.carrierDeliveryZone);
-  writeNotNull('carrierRestrictionCodes', instance.carrierRestrictionCodes);
-  writeNotNull('carrierRestrictionDesc', instance.carrierRestrictionDesc);
-  writeNotNull('billingWeight', instance.billingWeight);
-  writeNotNull('billingWeightUomId', instance.billingWeightUomId);
-  writeNotNull('actualTransportCost', instance.actualTransportCost);
-  writeNotNull('actualServiceCost', instance.actualServiceCost);
-  writeNotNull('actualOtherCost', instance.actualOtherCost);
-  writeNotNull('actualCost', instance.actualCost);
-  writeNotNull('currencyUomId', instance.currencyUomId);
-  writeNotNull('actualStartDate', instance.actualStartDate?.toIso8601String());
-  writeNotNull(
-      'actualArrivalDate', instance.actualArrivalDate?.toIso8601String());
-  writeNotNull(
-      'estimatedStartDate', instance.estimatedStartDate?.toIso8601String());
-  writeNotNull(
-      'estimatedArrivalDate', instance.estimatedArrivalDate?.toIso8601String());
-  writeNotNull('trackingIdNumber', instance.trackingIdNumber);
-  writeNotNull('trackingDigest', instance.trackingDigest);
-  writeNotNull('updatedByUserLoginId', instance.updatedByUserLoginId);
-  writeNotNull('lastUpdatedDate', instance.lastUpdatedDate?.toIso8601String());
-  writeNotNull('homeDeliveryType', instance.homeDeliveryType);
-  writeNotNull(
-      'homeDeliveryDate', instance.homeDeliveryDate?.toIso8601String());
-  writeNotNull('thirdPartyAccountNumber', instance.thirdPartyAccountNumber);
-  writeNotNull('thirdPartyPostalCode', instance.thirdPartyPostalCode);
-  writeNotNull('thirdPartyCountryGeoCode', instance.thirdPartyCountryGeoCode);
-  writeNotNull('upsHighValueReport',
-      const BytesConverter().toJson(instance.upsHighValueReport));
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ShipmentRouteSegment instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentRouteSegmentId case final value?)
+        'shipmentRouteSegmentId': value,
+      if (instance.deliveryId case final value?) 'deliveryId': value,
+      if (instance.originFacilityId case final value?)
+        'originFacilityId': value,
+      if (instance.destFacilityId case final value?) 'destFacilityId': value,
+      if (instance.originContactMechId case final value?)
+        'originContactMechId': value,
+      if (instance.originTelecomNumberId case final value?)
+        'originTelecomNumberId': value,
+      if (instance.destContactMechId case final value?)
+        'destContactMechId': value,
+      if (instance.destTelecomNumberId case final value?)
+        'destTelecomNumberId': value,
+      if (instance.carrierPartyId case final value?) 'carrierPartyId': value,
+      if (instance.shipmentMethodTypeId case final value?)
+        'shipmentMethodTypeId': value,
+      if (instance.carrierServiceStatusId case final value?)
+        'carrierServiceStatusId': value,
+      if (instance.carrierDeliveryZone case final value?)
+        'carrierDeliveryZone': value,
+      if (instance.carrierRestrictionCodes case final value?)
+        'carrierRestrictionCodes': value,
+      if (instance.carrierRestrictionDesc case final value?)
+        'carrierRestrictionDesc': value,
+      if (instance.billingWeight case final value?) 'billingWeight': value,
+      if (instance.billingWeightUomId case final value?)
+        'billingWeightUomId': value,
+      if (instance.actualTransportCost case final value?)
+        'actualTransportCost': value,
+      if (instance.actualServiceCost case final value?)
+        'actualServiceCost': value,
+      if (instance.actualOtherCost case final value?) 'actualOtherCost': value,
+      if (instance.actualCost case final value?) 'actualCost': value,
+      if (instance.currencyUomId case final value?) 'currencyUomId': value,
+      if (instance.actualStartDate?.toIso8601String() case final value?)
+        'actualStartDate': value,
+      if (instance.actualArrivalDate?.toIso8601String() case final value?)
+        'actualArrivalDate': value,
+      if (instance.estimatedStartDate?.toIso8601String() case final value?)
+        'estimatedStartDate': value,
+      if (instance.estimatedArrivalDate?.toIso8601String() case final value?)
+        'estimatedArrivalDate': value,
+      if (instance.trackingIdNumber case final value?)
+        'trackingIdNumber': value,
+      if (instance.trackingDigest case final value?) 'trackingDigest': value,
+      if (instance.updatedByUserLoginId case final value?)
+        'updatedByUserLoginId': value,
+      if (instance.lastUpdatedDate?.toIso8601String() case final value?)
+        'lastUpdatedDate': value,
+      if (instance.homeDeliveryType case final value?)
+        'homeDeliveryType': value,
+      if (instance.homeDeliveryDate?.toIso8601String() case final value?)
+        'homeDeliveryDate': value,
+      if (instance.thirdPartyAccountNumber case final value?)
+        'thirdPartyAccountNumber': value,
+      if (instance.thirdPartyPostalCode case final value?)
+        'thirdPartyPostalCode': value,
+      if (instance.thirdPartyCountryGeoCode case final value?)
+        'thirdPartyCountryGeoCode': value,
+      if (const BytesConverter().toJson(instance.upsHighValueReport)
+          case final value?)
+        'upsHighValueReport': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShippingDocument _$ShippingDocumentFromJson(Map<String, dynamic> json) =>
     ShippingDocument(
@@ -406,26 +443,21 @@ ShippingDocument _$ShippingDocumentFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ShippingDocumentToJson(ShippingDocument instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('documentId', instance.documentId);
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentItemSeqId', instance.shipmentItemSeqId);
-  writeNotNull('shipmentPackageSeqId', instance.shipmentPackageSeqId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ShippingDocumentToJson(ShippingDocument instance) =>
+    <String, dynamic>{
+      if (instance.documentId case final value?) 'documentId': value,
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentItemSeqId case final value?)
+        'shipmentItemSeqId': value,
+      if (instance.shipmentPackageSeqId case final value?)
+        'shipmentPackageSeqId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ShipmentStatus _$ShipmentStatusFromJson(Map<String, dynamic> json) =>
     ShipmentStatus(
@@ -444,25 +476,20 @@ ShipmentStatus _$ShipmentStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentStatusToJson(ShipmentStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShipmentStatusToJson(ShipmentStatus instance) =>
+    <String, dynamic>{
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentPackage _$ShipmentPackageFromJson(Map<String, dynamic> json) =>
     ShipmentPackage(
@@ -488,32 +515,28 @@ ShipmentPackage _$ShipmentPackageFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentPackageToJson(ShipmentPackage instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentPackageSeqId', instance.shipmentPackageSeqId);
-  writeNotNull('shipmentBoxTypeId', instance.shipmentBoxTypeId);
-  writeNotNull('dateCreated', instance.dateCreated?.toIso8601String());
-  writeNotNull('boxLength', instance.boxLength);
-  writeNotNull('boxHeight', instance.boxHeight);
-  writeNotNull('boxWidth', instance.boxWidth);
-  writeNotNull('dimensionUomId', instance.dimensionUomId);
-  writeNotNull('weight', instance.weight);
-  writeNotNull('weightUomId', instance.weightUomId);
-  writeNotNull('insuredValue', instance.insuredValue);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShipmentPackageToJson(ShipmentPackage instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentPackageSeqId case final value?)
+        'shipmentPackageSeqId': value,
+      if (instance.shipmentBoxTypeId case final value?)
+        'shipmentBoxTypeId': value,
+      if (instance.dateCreated?.toIso8601String() case final value?)
+        'dateCreated': value,
+      if (instance.boxLength case final value?) 'boxLength': value,
+      if (instance.boxHeight case final value?) 'boxHeight': value,
+      if (instance.boxWidth case final value?) 'boxWidth': value,
+      if (instance.dimensionUomId case final value?) 'dimensionUomId': value,
+      if (instance.weight case final value?) 'weight': value,
+      if (instance.weightUomId case final value?) 'weightUomId': value,
+      if (instance.insuredValue case final value?) 'insuredValue': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentReceipt _$ShipmentReceiptFromJson(Map<String, dynamic> json) =>
     ShipmentReceipt(
@@ -544,38 +567,36 @@ ShipmentReceipt _$ShipmentReceiptFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentReceiptToJson(ShipmentReceipt instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('receiptId', instance.receiptId);
-  writeNotNull('inventoryItemId', instance.inventoryItemId);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentItemSeqId', instance.shipmentItemSeqId);
-  writeNotNull('shipmentPackageSeqId', instance.shipmentPackageSeqId);
-  writeNotNull('orderId', instance.orderId);
-  writeNotNull('orderItemSeqId', instance.orderItemSeqId);
-  writeNotNull('returnId', instance.returnId);
-  writeNotNull('returnItemSeqId', instance.returnItemSeqId);
-  writeNotNull('rejectionId', instance.rejectionId);
-  writeNotNull('receivedByUserLoginId', instance.receivedByUserLoginId);
-  writeNotNull(
-      'datetimeReceived', instance.datetimeReceived?.toIso8601String());
-  writeNotNull('itemDescription', instance.itemDescription);
-  writeNotNull('quantityAccepted', instance.quantityAccepted);
-  writeNotNull('quantityRejected', instance.quantityRejected);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ShipmentReceiptToJson(ShipmentReceipt instance) =>
+    <String, dynamic>{
+      if (instance.receiptId case final value?) 'receiptId': value,
+      if (instance.inventoryItemId case final value?) 'inventoryItemId': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentItemSeqId case final value?)
+        'shipmentItemSeqId': value,
+      if (instance.shipmentPackageSeqId case final value?)
+        'shipmentPackageSeqId': value,
+      if (instance.orderId case final value?) 'orderId': value,
+      if (instance.orderItemSeqId case final value?) 'orderItemSeqId': value,
+      if (instance.returnId case final value?) 'returnId': value,
+      if (instance.returnItemSeqId case final value?) 'returnItemSeqId': value,
+      if (instance.rejectionId case final value?) 'rejectionId': value,
+      if (instance.receivedByUserLoginId case final value?)
+        'receivedByUserLoginId': value,
+      if (instance.datetimeReceived?.toIso8601String() case final value?)
+        'datetimeReceived': value,
+      if (instance.itemDescription case final value?) 'itemDescription': value,
+      if (instance.quantityAccepted case final value?)
+        'quantityAccepted': value,
+      if (instance.quantityRejected case final value?)
+        'quantityRejected': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ShipmentMultisig _$ShipmentMultisigFromJson(Map<String, dynamic> json) =>
     ShipmentMultisig(
@@ -592,25 +613,18 @@ ShipmentMultisig _$ShipmentMultisigFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentMultisigToJson(ShipmentMultisig instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('multisigId', instance.multisigId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShipmentMultisigToJson(ShipmentMultisig instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.multisigId case final value?) 'multisigId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentItemFeature _$ShipmentItemFeatureFromJson(Map<String, dynamic> json) =>
     ShipmentItemFeature(
@@ -626,24 +640,20 @@ ShipmentItemFeature _$ShipmentItemFeatureFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentItemFeatureToJson(ShipmentItemFeature instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentItemSeqId', instance.shipmentItemSeqId);
-  writeNotNull('productFeatureId', instance.productFeatureId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShipmentItemFeatureToJson(
+        ShipmentItemFeature instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentItemSeqId case final value?)
+        'shipmentItemSeqId': value,
+      if (instance.productFeatureId case final value?)
+        'productFeatureId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentPackageContent _$ShipmentPackageContentFromJson(
         Map<String, dynamic> json) =>
@@ -664,27 +674,23 @@ ShipmentPackageContent _$ShipmentPackageContentFromJson(
     );
 
 Map<String, dynamic> _$ShipmentPackageContentToJson(
-    ShipmentPackageContent instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentPackageSeqId', instance.shipmentPackageSeqId);
-  writeNotNull('shipmentItemSeqId', instance.shipmentItemSeqId);
-  writeNotNull('quantity', instance.quantity);
-  writeNotNull('subProductId', instance.subProductId);
-  writeNotNull('subProductQuantity', instance.subProductQuantity);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ShipmentPackageContent instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentPackageSeqId case final value?)
+        'shipmentPackageSeqId': value,
+      if (instance.shipmentItemSeqId case final value?)
+        'shipmentItemSeqId': value,
+      if (instance.quantity case final value?) 'quantity': value,
+      if (instance.subProductId case final value?) 'subProductId': value,
+      if (instance.subProductQuantity case final value?)
+        'subProductQuantity': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentItemBilling _$ShipmentItemBillingFromJson(Map<String, dynamic> json) =>
     ShipmentItemBilling(
@@ -701,25 +707,21 @@ ShipmentItemBilling _$ShipmentItemBillingFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentItemBillingToJson(ShipmentItemBilling instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentItemSeqId', instance.shipmentItemSeqId);
-  writeNotNull('invoiceId', instance.invoiceId);
-  writeNotNull('invoiceItemSeqId', instance.invoiceItemSeqId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShipmentItemBillingToJson(
+        ShipmentItemBilling instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentItemSeqId case final value?)
+        'shipmentItemSeqId': value,
+      if (instance.invoiceId case final value?) 'invoiceId': value,
+      if (instance.invoiceItemSeqId case final value?)
+        'invoiceItemSeqId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShipmentItem _$ShipmentItemFromJson(Map<String, dynamic> json) => ShipmentItem(
       shipmentId: json['shipmentId'] as String?,
@@ -739,30 +741,24 @@ ShipmentItem _$ShipmentItemFromJson(Map<String, dynamic> json) => ShipmentItem(
       origin: json['origin'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentItemToJson(ShipmentItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('shipmentItemSeqId', instance.shipmentItemSeqId);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('quantity', instance.quantity);
-  writeNotNull(
-      'shipmentContentDescription', instance.shipmentContentDescription);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('accountId', instance.accountId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('origin', instance.origin);
-  return val;
-}
+Map<String, dynamic> _$ShipmentItemToJson(ShipmentItem instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.shipmentItemSeqId case final value?)
+        'shipmentItemSeqId': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.quantity case final value?) 'quantity': value,
+      if (instance.shipmentContentDescription case final value?)
+        'shipmentContentDescription': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+      if (instance.accountId case final value?) 'accountId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.origin case final value?) 'origin': value,
+    };
 
 ShipmentGeoForce _$ShipmentGeoForceFromJson(Map<String, dynamic> json) =>
     ShipmentGeoForce(
@@ -780,23 +776,16 @@ ShipmentGeoForce _$ShipmentGeoForceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShipmentGeoForceToJson(ShipmentGeoForce instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentId', instance.shipmentId);
-  writeNotNull('geoForceId', instance.geoForceId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('marker', instance.marker);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShipmentGeoForceToJson(ShipmentGeoForce instance) =>
+    <String, dynamic>{
+      if (instance.shipmentId case final value?) 'shipmentId': value,
+      if (instance.geoForceId case final value?) 'geoForceId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.marker case final value?) 'marker': value,
+      if (instance.id case final value?) 'id': value,
+    };

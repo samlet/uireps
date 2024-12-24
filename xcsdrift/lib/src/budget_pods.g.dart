@@ -20,6 +20,8 @@ final budgetRepositoryProvider = Provider<BudgetRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef BudgetRepositoryRef = ProviderRef<BudgetRepository>;
 String _$getBudgetHash() => r'ca0aee8ebfd8193f1d18509d710d766433fb97da';
 
@@ -156,6 +158,8 @@ class GetBudgetProvider extends AutoDisposeFutureProvider<BudgetData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetBudgetRef on AutoDisposeFutureProviderRef<BudgetData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -185,4 +189,4 @@ final budgetBucketProvider =
 
 typedef _$BudgetBucket = AutoDisposeStreamNotifier<List<BudgetData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

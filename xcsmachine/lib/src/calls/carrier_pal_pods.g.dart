@@ -154,6 +154,8 @@ class CarrierPalProvider extends AutoDisposeProvider<CarrierPalRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPalRef on AutoDisposeProviderRef<CarrierPalRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -302,6 +304,8 @@ class CarrierPalGetOrdersProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPalGetOrdersRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -452,6 +456,8 @@ class CarrierPalGetCurrentPositionProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPalGetCurrentPositionRef
     on AutoDisposeFutureProviderRef<Position> {
   /// The parameter `regionOrNs` of this provider.
@@ -602,6 +608,8 @@ class CarrierPalGetDecimalsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPalGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -767,6 +775,8 @@ class CarrierPalPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPalPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -786,4 +796,4 @@ class _CarrierPalPodProviderElement
   String get id => (origin as CarrierPalPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -22,6 +22,8 @@ final shoppingCartRepositoryProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ShoppingCartRepositoryRef = ProviderRef<ShoppingCartRepository>;
 String _$getShoppingCartHash() => r'262076a2eb4599c05b6f7f6ff844dfbf3b681116';
 
@@ -160,6 +162,8 @@ class GetShoppingCartProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetShoppingCartRef on AutoDisposeFutureProviderRef<ShoppingCartData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -193,4 +197,4 @@ final shoppingCartBucketProvider = AutoDisposeStreamNotifierProvider<
 typedef _$ShoppingCartBucket
     = AutoDisposeStreamNotifier<List<ShoppingCartData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

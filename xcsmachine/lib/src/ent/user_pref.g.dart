@@ -23,25 +23,18 @@ UserPref _$UserPrefFromJson(Map<String, dynamic> json) => UserPref(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$UserPrefToJson(UserPref instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userPrefId', instance.userPrefId);
-  writeNotNull('loginId', instance.loginId);
-  writeNotNull('prefKey', instance.prefKey);
-  writeNotNull('prefValue', const BytesConverter().toJson(instance.prefValue));
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('userPrefTypeId', instance.userPrefTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$UserPrefToJson(UserPref instance) => <String, dynamic>{
+      if (instance.userPrefId case final value?) 'userPrefId': value,
+      if (instance.loginId case final value?) 'loginId': value,
+      if (instance.prefKey case final value?) 'prefKey': value,
+      if (const BytesConverter().toJson(instance.prefValue) case final value?)
+        'prefValue': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.userPrefTypeId case final value?) 'userPrefTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

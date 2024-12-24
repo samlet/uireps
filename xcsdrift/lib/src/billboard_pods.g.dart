@@ -21,6 +21,8 @@ final billboardRepositoryProvider = Provider<BillboardRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef BillboardRepositoryRef = ProviderRef<BillboardRepository>;
 String _$getBillboardHash() => r'deca35a4f6d2dad72342af9f1b31d959eef9863a';
 
@@ -158,6 +160,8 @@ class GetBillboardProvider extends AutoDisposeFutureProvider<BillboardData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetBillboardRef on AutoDisposeFutureProviderRef<BillboardData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -189,4 +193,4 @@ final billboardBucketProvider = AutoDisposeStreamNotifierProvider<
 
 typedef _$BillboardBucket = AutoDisposeStreamNotifier<List<BillboardData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

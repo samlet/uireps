@@ -142,6 +142,8 @@ class PortalManagerProvider extends Provider<PortalManagerRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalManagerRef on ProviderRef<PortalManagerRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -308,6 +310,8 @@ class PortalManagerLoadAsBiFacetsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalManagerLoadAsBiFacetsRef
     on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
   /// The parameter `regionOrNs` of this provider.
@@ -493,6 +497,8 @@ class PortalManagerLoadAsBiFacetProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalManagerLoadAsBiFacetRef on AutoDisposeFutureProviderRef<BiFacetBi> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -681,6 +687,8 @@ class PortalManagerLoadAsBiFacetsByTenantProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalManagerLoadAsBiFacetsByTenantRef
     on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
   /// The parameter `regionOrNs` of this provider.
@@ -715,7 +723,7 @@ class _PortalManagerLoadAsBiFacetsByTenantProviderElement
       (origin as PortalManagerLoadAsBiFacetsByTenantProvider).tenantId;
 }
 
-String _$portalManagerPodHash() => r'd40da85768e1648e341431870b4fc8f582657acc';
+String _$portalManagerPodHash() => r'daa3f98c589118fb182ac85302658d2497974ad8';
 
 abstract class _$PortalManagerPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {
@@ -845,6 +853,8 @@ class PortalManagerPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalManagerPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -859,4 +869,4 @@ class _PortalManagerPodProviderElement
   String get regionOrNs => (origin as PortalManagerPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

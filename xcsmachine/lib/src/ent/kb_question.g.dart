@@ -44,6 +44,7 @@ KbQuestion _$KbQuestionFromJson(Map<String, dynamic> json) => KbQuestion(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
       kbQuestionType: json['kbQuestionType'] == null
@@ -52,49 +53,48 @@ KbQuestion _$KbQuestionFromJson(Map<String, dynamic> json) => KbQuestion(
               json['kbQuestionType'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$KbQuestionToJson(KbQuestion instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('questionId', instance.questionId);
-  writeNotNull('viewCount', instance.viewCount);
-  writeNotNull('score', instance.score);
-  writeNotNull('bountyAmount', instance.bountyAmount);
-  writeNotNull('acceptedAnswerId', instance.acceptedAnswerId);
-  writeNotNull('answerCount', instance.answerCount);
-  writeNotNull('favoriteCount', instance.favoriteCount);
-  writeNotNull('downVoteCount', instance.downVoteCount);
-  writeNotNull('upVoteCount', instance.upVoteCount);
-  writeNotNull('ownerId', instance.ownerId);
-  writeNotNull('title', instance.title);
-  writeNotNull('body', instance.body);
-  writeNotNull('link', instance.link);
-  writeNotNull(
-      'lastActivityDate', instance.lastActivityDate?.toIso8601String());
-  writeNotNull('creationDate', instance.creationDate?.toIso8601String());
-  writeNotNull('contentLicense', instance.contentLicense);
-  writeNotNull('answerToQuestionId', instance.answerToQuestionId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('kbQuestionTypeId', instance.kbQuestionTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('kbQuestionType', instance.kbQuestionType?.toJson());
-  return val;
-}
+Map<String, dynamic> _$KbQuestionToJson(KbQuestion instance) =>
+    <String, dynamic>{
+      if (instance.questionId case final value?) 'questionId': value,
+      if (instance.viewCount case final value?) 'viewCount': value,
+      if (instance.score case final value?) 'score': value,
+      if (instance.bountyAmount case final value?) 'bountyAmount': value,
+      if (instance.acceptedAnswerId case final value?)
+        'acceptedAnswerId': value,
+      if (instance.answerCount case final value?) 'answerCount': value,
+      if (instance.favoriteCount case final value?) 'favoriteCount': value,
+      if (instance.downVoteCount case final value?) 'downVoteCount': value,
+      if (instance.upVoteCount case final value?) 'upVoteCount': value,
+      if (instance.ownerId case final value?) 'ownerId': value,
+      if (instance.title case final value?) 'title': value,
+      if (instance.body case final value?) 'body': value,
+      if (instance.link case final value?) 'link': value,
+      if (instance.lastActivityDate?.toIso8601String() case final value?)
+        'lastActivityDate': value,
+      if (instance.creationDate?.toIso8601String() case final value?)
+        'creationDate': value,
+      if (instance.contentLicense case final value?) 'contentLicense': value,
+      if (instance.answerToQuestionId case final value?)
+        'answerToQuestionId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.kbQuestionTypeId case final value?)
+        'kbQuestionTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.kbQuestionType?.toJson() case final value?)
+        'kbQuestionType': value,
+    };
 
 KbQuestionType _$KbQuestionTypeFromJson(Map<String, dynamic> json) =>
     KbQuestionType(
@@ -110,21 +110,15 @@ KbQuestionType _$KbQuestionTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$KbQuestionTypeToJson(KbQuestionType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('kbQuestionTypeId', instance.kbQuestionTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$KbQuestionTypeToJson(KbQuestionType instance) =>
+    <String, dynamic>{
+      if (instance.kbQuestionTypeId case final value?)
+        'kbQuestionTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

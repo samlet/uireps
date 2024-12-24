@@ -154,6 +154,8 @@ class CommentAutoProvider extends AutoDisposeProvider<CommentAutoRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentAutoRef on AutoDisposeProviderRef<CommentAutoRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -302,6 +304,8 @@ class CommentAutoGetDecimalsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentAutoGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -470,6 +474,8 @@ class CommentAutoPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentAutoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -489,4 +495,4 @@ class _CommentAutoPodProviderElement
   String get id => (origin as CommentAutoPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

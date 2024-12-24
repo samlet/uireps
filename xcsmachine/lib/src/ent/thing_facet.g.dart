@@ -24,25 +24,18 @@ ThingFacet _$ThingFacetFromJson(Map<String, dynamic> json) => ThingFacet(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$ThingFacetToJson(ThingFacet instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('thingId', instance.thingId);
-  writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$ThingFacetToJson(ThingFacet instance) =>
+    <String, dynamic>{
+      if (instance.thingId case final value?) 'thingId': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

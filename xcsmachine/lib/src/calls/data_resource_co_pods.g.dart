@@ -155,6 +155,8 @@ class DataResourceCoProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DataResourceCoRef on AutoDisposeProviderRef<DataResourceCoRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -302,6 +304,8 @@ class DataResourceCoNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DataResourceCoNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -450,6 +454,8 @@ class DataResourceCoGetDecimalsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DataResourceCoGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -618,6 +624,8 @@ class DataResourceCoPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DataResourceCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -637,4 +645,4 @@ class _DataResourceCoPodProviderElement
   String get id => (origin as DataResourceCoPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

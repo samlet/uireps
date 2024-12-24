@@ -142,6 +142,8 @@ class PortalsOnChainProvider extends Provider<PortalsOnChainRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsOnChainRef on ProviderRef<PortalsOnChainRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -286,6 +288,8 @@ class PortalsGetPublicElementIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsGetPublicElementIdsRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -437,6 +441,8 @@ class PortalsGetStarterElementProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsGetStarterElementRef on AutoDisposeFutureProviderRef<BiFacetBi> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -578,6 +584,8 @@ class PortalsGetAllPublicElementsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsGetAllPublicElementsRef
     on AutoDisposeFutureProviderRef<List<Linkage>> {
   /// The parameter `regionOrNs` of this provider.
@@ -748,6 +756,8 @@ class PortalsListResourcesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsListResourcesRef
     on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -777,140 +787,6 @@ class _PortalsListResourcesProviderElement
   @override
   String get resourceType =>
       (origin as PortalsListResourcesProvider).resourceType;
-}
-
-String _$portalsGetPublicNotesHash() =>
-    r'8d489d10bdc1f931c4e3f8a4cbe670579ce92d8f';
-
-/// See also [portalsGetPublicNotes].
-@ProviderFor(portalsGetPublicNotes)
-const portalsGetPublicNotesProvider = PortalsGetPublicNotesFamily();
-
-/// See also [portalsGetPublicNotes].
-class PortalsGetPublicNotesFamily extends Family<AsyncValue<List<BiFacetBi>>> {
-  /// See also [portalsGetPublicNotes].
-  const PortalsGetPublicNotesFamily();
-
-  /// See also [portalsGetPublicNotes].
-  PortalsGetPublicNotesProvider call({
-    String regionOrNs = 'default',
-  }) {
-    return PortalsGetPublicNotesProvider(
-      regionOrNs: regionOrNs,
-    );
-  }
-
-  @override
-  PortalsGetPublicNotesProvider getProviderOverride(
-    covariant PortalsGetPublicNotesProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'portalsGetPublicNotesProvider';
-}
-
-/// See also [portalsGetPublicNotes].
-class PortalsGetPublicNotesProvider
-    extends AutoDisposeFutureProvider<List<BiFacetBi>> {
-  /// See also [portalsGetPublicNotes].
-  PortalsGetPublicNotesProvider({
-    String regionOrNs = 'default',
-  }) : this._internal(
-          (ref) => portalsGetPublicNotes(
-            ref as PortalsGetPublicNotesRef,
-            regionOrNs: regionOrNs,
-          ),
-          from: portalsGetPublicNotesProvider,
-          name: r'portalsGetPublicNotesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$portalsGetPublicNotesHash,
-          dependencies: PortalsGetPublicNotesFamily._dependencies,
-          allTransitiveDependencies:
-              PortalsGetPublicNotesFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-        );
-
-  PortalsGetPublicNotesProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-  }) : super.internal();
-
-  final String regionOrNs;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<BiFacetBi>> Function(PortalsGetPublicNotesRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: PortalsGetPublicNotesProvider._internal(
-        (ref) => create(ref as PortalsGetPublicNotesRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<BiFacetBi>> createElement() {
-    return _PortalsGetPublicNotesProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is PortalsGetPublicNotesProvider &&
-        other.regionOrNs == regionOrNs;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin PortalsGetPublicNotesRef
-    on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-}
-
-class _PortalsGetPublicNotesProviderElement
-    extends AutoDisposeFutureProviderElement<List<BiFacetBi>>
-    with PortalsGetPublicNotesRef {
-  _PortalsGetPublicNotesProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as PortalsGetPublicNotesProvider).regionOrNs;
 }
 
 String _$portalsGetPublicElementsHash() =>
@@ -1055,6 +931,8 @@ class PortalsGetPublicElementsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsGetPublicElementsRef
     on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1083,42 +961,33 @@ class _PortalsGetPublicElementsProviderElement
       (origin as PortalsGetPublicElementsProvider).bundleName;
 }
 
-String _$portalsListMultiDsHash() =>
-    r'433de87d331a066ad9a146d000b45b3807e58108';
+String _$portalsGetPublicNotesHash() =>
+    r'8d489d10bdc1f931c4e3f8a4cbe670579ce92d8f';
 
-/// See also [portalsListMultiDs].
-@ProviderFor(portalsListMultiDs)
-const portalsListMultiDsProvider = PortalsListMultiDsFamily();
+/// See also [portalsGetPublicNotes].
+@ProviderFor(portalsGetPublicNotes)
+const portalsGetPublicNotesProvider = PortalsGetPublicNotesFamily();
 
-/// See also [portalsListMultiDs].
-class PortalsListMultiDsFamily extends Family<AsyncValue<MultiDs>> {
-  /// See also [portalsListMultiDs].
-  const PortalsListMultiDsFamily();
+/// See also [portalsGetPublicNotes].
+class PortalsGetPublicNotesFamily extends Family<AsyncValue<List<BiFacetBi>>> {
+  /// See also [portalsGetPublicNotes].
+  const PortalsGetPublicNotesFamily();
 
-  /// See also [portalsListMultiDs].
-  PortalsListMultiDsProvider call({
+  /// See also [portalsGetPublicNotes].
+  PortalsGetPublicNotesProvider call({
     String regionOrNs = 'default',
-    required String bundleName,
-    required List<String> resourceIds,
-    required String resourceType,
   }) {
-    return PortalsListMultiDsProvider(
+    return PortalsGetPublicNotesProvider(
       regionOrNs: regionOrNs,
-      bundleName: bundleName,
-      resourceIds: resourceIds,
-      resourceType: resourceType,
     );
   }
 
   @override
-  PortalsListMultiDsProvider getProviderOverride(
-    covariant PortalsListMultiDsProvider provider,
+  PortalsGetPublicNotesProvider getProviderOverride(
+    covariant PortalsGetPublicNotesProvider provider,
   ) {
     return call(
       regionOrNs: provider.regionOrNs,
-      bundleName: provider.bundleName,
-      resourceIds: provider.resourceIds,
-      resourceType: provider.resourceType,
     );
   }
 
@@ -1134,41 +1003,33 @@ class PortalsListMultiDsFamily extends Family<AsyncValue<MultiDs>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'portalsListMultiDsProvider';
+  String? get name => r'portalsGetPublicNotesProvider';
 }
 
-/// See also [portalsListMultiDs].
-class PortalsListMultiDsProvider extends AutoDisposeFutureProvider<MultiDs> {
-  /// See also [portalsListMultiDs].
-  PortalsListMultiDsProvider({
+/// See also [portalsGetPublicNotes].
+class PortalsGetPublicNotesProvider
+    extends AutoDisposeFutureProvider<List<BiFacetBi>> {
+  /// See also [portalsGetPublicNotes].
+  PortalsGetPublicNotesProvider({
     String regionOrNs = 'default',
-    required String bundleName,
-    required List<String> resourceIds,
-    required String resourceType,
   }) : this._internal(
-          (ref) => portalsListMultiDs(
-            ref as PortalsListMultiDsRef,
+          (ref) => portalsGetPublicNotes(
+            ref as PortalsGetPublicNotesRef,
             regionOrNs: regionOrNs,
-            bundleName: bundleName,
-            resourceIds: resourceIds,
-            resourceType: resourceType,
           ),
-          from: portalsListMultiDsProvider,
-          name: r'portalsListMultiDsProvider',
+          from: portalsGetPublicNotesProvider,
+          name: r'portalsGetPublicNotesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$portalsListMultiDsHash,
-          dependencies: PortalsListMultiDsFamily._dependencies,
+                  : _$portalsGetPublicNotesHash,
+          dependencies: PortalsGetPublicNotesFamily._dependencies,
           allTransitiveDependencies:
-              PortalsListMultiDsFamily._allTransitiveDependencies,
+              PortalsGetPublicNotesFamily._allTransitiveDependencies,
           regionOrNs: regionOrNs,
-          bundleName: bundleName,
-          resourceIds: resourceIds,
-          resourceType: resourceType,
         );
 
-  PortalsListMultiDsProvider._internal(
+  PortalsGetPublicNotesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -1176,92 +1037,64 @@ class PortalsListMultiDsProvider extends AutoDisposeFutureProvider<MultiDs> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.regionOrNs,
-    required this.bundleName,
-    required this.resourceIds,
-    required this.resourceType,
   }) : super.internal();
 
   final String regionOrNs;
-  final String bundleName;
-  final List<String> resourceIds;
-  final String resourceType;
 
   @override
   Override overrideWith(
-    FutureOr<MultiDs> Function(PortalsListMultiDsRef provider) create,
+    FutureOr<List<BiFacetBi>> Function(PortalsGetPublicNotesRef provider)
+        create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PortalsListMultiDsProvider._internal(
-        (ref) => create(ref as PortalsListMultiDsRef),
+      override: PortalsGetPublicNotesProvider._internal(
+        (ref) => create(ref as PortalsGetPublicNotesRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         regionOrNs: regionOrNs,
-        bundleName: bundleName,
-        resourceIds: resourceIds,
-        resourceType: resourceType,
       ),
     );
   }
 
   @override
-  AutoDisposeFutureProviderElement<MultiDs> createElement() {
-    return _PortalsListMultiDsProviderElement(this);
+  AutoDisposeFutureProviderElement<List<BiFacetBi>> createElement() {
+    return _PortalsGetPublicNotesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PortalsListMultiDsProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.bundleName == bundleName &&
-        other.resourceIds == resourceIds &&
-        other.resourceType == resourceType;
+    return other is PortalsGetPublicNotesProvider &&
+        other.regionOrNs == regionOrNs;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, bundleName.hashCode);
-    hash = _SystemHash.combine(hash, resourceIds.hashCode);
-    hash = _SystemHash.combine(hash, resourceType.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin PortalsListMultiDsRef on AutoDisposeFutureProviderRef<MultiDs> {
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PortalsGetPublicNotesRef
+    on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
-
-  /// The parameter `bundleName` of this provider.
-  String get bundleName;
-
-  /// The parameter `resourceIds` of this provider.
-  List<String> get resourceIds;
-
-  /// The parameter `resourceType` of this provider.
-  String get resourceType;
 }
 
-class _PortalsListMultiDsProviderElement
-    extends AutoDisposeFutureProviderElement<MultiDs>
-    with PortalsListMultiDsRef {
-  _PortalsListMultiDsProviderElement(super.provider);
+class _PortalsGetPublicNotesProviderElement
+    extends AutoDisposeFutureProviderElement<List<BiFacetBi>>
+    with PortalsGetPublicNotesRef {
+  _PortalsGetPublicNotesProviderElement(super.provider);
 
   @override
-  String get regionOrNs => (origin as PortalsListMultiDsProvider).regionOrNs;
-  @override
-  String get bundleName => (origin as PortalsListMultiDsProvider).bundleName;
-  @override
-  List<String> get resourceIds =>
-      (origin as PortalsListMultiDsProvider).resourceIds;
-  @override
-  String get resourceType =>
-      (origin as PortalsListMultiDsProvider).resourceType;
+  String get regionOrNs => (origin as PortalsGetPublicNotesProvider).regionOrNs;
 }
 
 String _$portalsListMasterDetailHash() =>
@@ -1416,6 +1249,8 @@ class PortalsListMasterDetailProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsListMasterDetailRef
     on AutoDisposeFutureProviderRef<MasterDetailDs> {
   /// The parameter `regionOrNs` of this provider.
@@ -1448,6 +1283,189 @@ class _PortalsListMasterDetailProviderElement
   @override
   List<String> get binders =>
       (origin as PortalsListMasterDetailProvider).binders;
+}
+
+String _$portalsListMultiDsHash() =>
+    r'433de87d331a066ad9a146d000b45b3807e58108';
+
+/// See also [portalsListMultiDs].
+@ProviderFor(portalsListMultiDs)
+const portalsListMultiDsProvider = PortalsListMultiDsFamily();
+
+/// See also [portalsListMultiDs].
+class PortalsListMultiDsFamily extends Family<AsyncValue<MultiDs>> {
+  /// See also [portalsListMultiDs].
+  const PortalsListMultiDsFamily();
+
+  /// See also [portalsListMultiDs].
+  PortalsListMultiDsProvider call({
+    String regionOrNs = 'default',
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType,
+  }) {
+    return PortalsListMultiDsProvider(
+      regionOrNs: regionOrNs,
+      bundleName: bundleName,
+      resourceIds: resourceIds,
+      resourceType: resourceType,
+    );
+  }
+
+  @override
+  PortalsListMultiDsProvider getProviderOverride(
+    covariant PortalsListMultiDsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      bundleName: provider.bundleName,
+      resourceIds: provider.resourceIds,
+      resourceType: provider.resourceType,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'portalsListMultiDsProvider';
+}
+
+/// See also [portalsListMultiDs].
+class PortalsListMultiDsProvider extends AutoDisposeFutureProvider<MultiDs> {
+  /// See also [portalsListMultiDs].
+  PortalsListMultiDsProvider({
+    String regionOrNs = 'default',
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType,
+  }) : this._internal(
+          (ref) => portalsListMultiDs(
+            ref as PortalsListMultiDsRef,
+            regionOrNs: regionOrNs,
+            bundleName: bundleName,
+            resourceIds: resourceIds,
+            resourceType: resourceType,
+          ),
+          from: portalsListMultiDsProvider,
+          name: r'portalsListMultiDsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$portalsListMultiDsHash,
+          dependencies: PortalsListMultiDsFamily._dependencies,
+          allTransitiveDependencies:
+              PortalsListMultiDsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          bundleName: bundleName,
+          resourceIds: resourceIds,
+          resourceType: resourceType,
+        );
+
+  PortalsListMultiDsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.bundleName,
+    required this.resourceIds,
+    required this.resourceType,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String bundleName;
+  final List<String> resourceIds;
+  final String resourceType;
+
+  @override
+  Override overrideWith(
+    FutureOr<MultiDs> Function(PortalsListMultiDsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PortalsListMultiDsProvider._internal(
+        (ref) => create(ref as PortalsListMultiDsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        bundleName: bundleName,
+        resourceIds: resourceIds,
+        resourceType: resourceType,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<MultiDs> createElement() {
+    return _PortalsListMultiDsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PortalsListMultiDsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.bundleName == bundleName &&
+        other.resourceIds == resourceIds &&
+        other.resourceType == resourceType;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
+    hash = _SystemHash.combine(hash, resourceIds.hashCode);
+    hash = _SystemHash.combine(hash, resourceType.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PortalsListMultiDsRef on AutoDisposeFutureProviderRef<MultiDs> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
+
+  /// The parameter `resourceIds` of this provider.
+  List<String> get resourceIds;
+
+  /// The parameter `resourceType` of this provider.
+  String get resourceType;
+}
+
+class _PortalsListMultiDsProviderElement
+    extends AutoDisposeFutureProviderElement<MultiDs>
+    with PortalsListMultiDsRef {
+  _PortalsListMultiDsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as PortalsListMultiDsProvider).regionOrNs;
+  @override
+  String get bundleName => (origin as PortalsListMultiDsProvider).bundleName;
+  @override
+  List<String> get resourceIds =>
+      (origin as PortalsListMultiDsProvider).resourceIds;
+  @override
+  String get resourceType =>
+      (origin as PortalsListMultiDsProvider).resourceType;
 }
 
 String _$portalsChildrenAsBundlesHash() =>
@@ -1603,6 +1621,8 @@ class PortalsChildrenAsBundlesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsChildrenAsBundlesRef
     on AutoDisposeFutureProviderRef<List<BiFacetBi>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1754,6 +1774,8 @@ class PortalsAllLoginIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsAllLoginIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1766,6 +1788,145 @@ class _PortalsAllLoginIdsProviderElement
 
   @override
   String get regionOrNs => (origin as PortalsAllLoginIdsProvider).regionOrNs;
+}
+
+String _$portalsGetAllStarterElementsHash() =>
+    r'09958f2533dc154446aee311aaab925dc719da66';
+
+/// See also [portalsGetAllStarterElements].
+@ProviderFor(portalsGetAllStarterElements)
+const portalsGetAllStarterElementsProvider =
+    PortalsGetAllStarterElementsFamily();
+
+/// See also [portalsGetAllStarterElements].
+class PortalsGetAllStarterElementsFamily
+    extends Family<AsyncValue<List<Linkage>>> {
+  /// See also [portalsGetAllStarterElements].
+  const PortalsGetAllStarterElementsFamily();
+
+  /// See also [portalsGetAllStarterElements].
+  PortalsGetAllStarterElementsProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return PortalsGetAllStarterElementsProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  PortalsGetAllStarterElementsProvider getProviderOverride(
+    covariant PortalsGetAllStarterElementsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'portalsGetAllStarterElementsProvider';
+}
+
+/// See also [portalsGetAllStarterElements].
+class PortalsGetAllStarterElementsProvider
+    extends AutoDisposeFutureProvider<List<Linkage>> {
+  /// See also [portalsGetAllStarterElements].
+  PortalsGetAllStarterElementsProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => portalsGetAllStarterElements(
+            ref as PortalsGetAllStarterElementsRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: portalsGetAllStarterElementsProvider,
+          name: r'portalsGetAllStarterElementsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$portalsGetAllStarterElementsHash,
+          dependencies: PortalsGetAllStarterElementsFamily._dependencies,
+          allTransitiveDependencies:
+              PortalsGetAllStarterElementsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  PortalsGetAllStarterElementsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<Linkage>> Function(PortalsGetAllStarterElementsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PortalsGetAllStarterElementsProvider._internal(
+        (ref) => create(ref as PortalsGetAllStarterElementsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<Linkage>> createElement() {
+    return _PortalsGetAllStarterElementsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PortalsGetAllStarterElementsProvider &&
+        other.regionOrNs == regionOrNs;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PortalsGetAllStarterElementsRef
+    on AutoDisposeFutureProviderRef<List<Linkage>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+}
+
+class _PortalsGetAllStarterElementsProviderElement
+    extends AutoDisposeFutureProviderElement<List<Linkage>>
+    with PortalsGetAllStarterElementsRef {
+  _PortalsGetAllStarterElementsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as PortalsGetAllStarterElementsProvider).regionOrNs;
 }
 
 String _$portalsAllBundleIdsHash() =>
@@ -1897,6 +2058,8 @@ class PortalsAllBundleIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsAllBundleIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1914,143 +2077,6 @@ class _PortalsAllBundleIdsProviderElement
   String get regionOrNs => (origin as PortalsAllBundleIdsProvider).regionOrNs;
   @override
   String get bundleName => (origin as PortalsAllBundleIdsProvider).bundleName;
-}
-
-String _$portalsGetAllStarterElementsHash() =>
-    r'09958f2533dc154446aee311aaab925dc719da66';
-
-/// See also [portalsGetAllStarterElements].
-@ProviderFor(portalsGetAllStarterElements)
-const portalsGetAllStarterElementsProvider =
-    PortalsGetAllStarterElementsFamily();
-
-/// See also [portalsGetAllStarterElements].
-class PortalsGetAllStarterElementsFamily
-    extends Family<AsyncValue<List<Linkage>>> {
-  /// See also [portalsGetAllStarterElements].
-  const PortalsGetAllStarterElementsFamily();
-
-  /// See also [portalsGetAllStarterElements].
-  PortalsGetAllStarterElementsProvider call({
-    String regionOrNs = 'default',
-  }) {
-    return PortalsGetAllStarterElementsProvider(
-      regionOrNs: regionOrNs,
-    );
-  }
-
-  @override
-  PortalsGetAllStarterElementsProvider getProviderOverride(
-    covariant PortalsGetAllStarterElementsProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'portalsGetAllStarterElementsProvider';
-}
-
-/// See also [portalsGetAllStarterElements].
-class PortalsGetAllStarterElementsProvider
-    extends AutoDisposeFutureProvider<List<Linkage>> {
-  /// See also [portalsGetAllStarterElements].
-  PortalsGetAllStarterElementsProvider({
-    String regionOrNs = 'default',
-  }) : this._internal(
-          (ref) => portalsGetAllStarterElements(
-            ref as PortalsGetAllStarterElementsRef,
-            regionOrNs: regionOrNs,
-          ),
-          from: portalsGetAllStarterElementsProvider,
-          name: r'portalsGetAllStarterElementsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$portalsGetAllStarterElementsHash,
-          dependencies: PortalsGetAllStarterElementsFamily._dependencies,
-          allTransitiveDependencies:
-              PortalsGetAllStarterElementsFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-        );
-
-  PortalsGetAllStarterElementsProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-  }) : super.internal();
-
-  final String regionOrNs;
-
-  @override
-  Override overrideWith(
-    FutureOr<List<Linkage>> Function(PortalsGetAllStarterElementsRef provider)
-        create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: PortalsGetAllStarterElementsProvider._internal(
-        (ref) => create(ref as PortalsGetAllStarterElementsRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<List<Linkage>> createElement() {
-    return _PortalsGetAllStarterElementsProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is PortalsGetAllStarterElementsProvider &&
-        other.regionOrNs == regionOrNs;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin PortalsGetAllStarterElementsRef
-    on AutoDisposeFutureProviderRef<List<Linkage>> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-}
-
-class _PortalsGetAllStarterElementsProviderElement
-    extends AutoDisposeFutureProviderElement<List<Linkage>>
-    with PortalsGetAllStarterElementsRef {
-  _PortalsGetAllStarterElementsProviderElement(super.provider);
-
-  @override
-  String get regionOrNs =>
-      (origin as PortalsGetAllStarterElementsProvider).regionOrNs;
 }
 
 String _$portalsGetPublicNoteIdsHash() =>
@@ -2171,6 +2197,8 @@ class PortalsGetPublicNoteIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsGetPublicNoteIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2186,7 +2214,7 @@ class _PortalsGetPublicNoteIdsProviderElement
       (origin as PortalsGetPublicNoteIdsProvider).regionOrNs;
 }
 
-String _$portalsOnChainPodHash() => r'0302a513ce55e1adb43a5dded2890442f6db5d61';
+String _$portalsOnChainPodHash() => r'c8d93b76c9dd3dd449b65fa94333afa0fdbc8f4a';
 
 abstract class _$PortalsOnChainPod
     extends BuildlessAutoDisposeAsyncNotifier<void> {
@@ -2316,6 +2344,8 @@ class PortalsOnChainPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PortalsOnChainPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2330,4 +2360,4 @@ class _PortalsOnChainPodProviderElement
   String get regionOrNs => (origin as PortalsOnChainPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

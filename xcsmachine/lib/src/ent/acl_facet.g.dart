@@ -20,22 +20,14 @@ AclFacet _$AclFacetFromJson(Map<String, dynamic> json) => AclFacet(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$AclFacetToJson(AclFacet instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('aclId', instance.aclId);
-  writeNotNull('owner', instance.owner);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$AclFacetToJson(AclFacet instance) => <String, dynamic>{
+      if (instance.aclId case final value?) 'aclId': value,
+      if (instance.owner case final value?) 'owner': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

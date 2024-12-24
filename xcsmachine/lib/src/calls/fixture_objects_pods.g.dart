@@ -142,6 +142,8 @@ class FixtureObjectsProvider extends Provider<FixtureObjectsRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixtureObjectsRef on ProviderRef<FixtureObjectsRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -272,6 +274,8 @@ class FixturesGetFreeNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesGetFreeNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -414,6 +418,8 @@ class FixturesGetNoteProtoProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesGetNoteProtoRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -548,6 +554,8 @@ class FixturesPickNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesPickNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -690,6 +698,8 @@ class FixturesEchoIntMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesEchoIntMapRef on AutoDisposeFutureProviderRef<Map<String, int>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -841,6 +851,8 @@ class FixturesEchoStringMultiMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesEchoStringMultiMapRef
     on AutoDisposeFutureProviderRef<Map<String, List<String>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1035,6 +1047,8 @@ class FixturesProtoInputProvider extends AutoDisposeFutureProvider<IntMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesProtoInputRef on AutoDisposeFutureProviderRef<IntMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1205,6 +1219,8 @@ class FixturesPartyBundleProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesPartyBundleRef on AutoDisposeFutureProviderRef<PartyBundle> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1353,6 +1369,8 @@ class FixturesPublicNotesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesPublicNotesRef on AutoDisposeFutureProviderRef<List<Note>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1502,6 +1520,8 @@ class FixturesEchoBoolMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesEchoBoolMapRef
     on AutoDisposeFutureProviderRef<Map<String, bool>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1650,6 +1670,8 @@ class FixturesPrintProtoProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesPrintProtoRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1797,6 +1819,8 @@ class FixturesEchoProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesEchoRef on AutoDisposeFutureProviderRef<Map<String, Object?>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1945,6 +1969,8 @@ class FixturesStoreBundleProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesStoreBundleRef on AutoDisposeFutureProviderRef<StoreBundle> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2093,6 +2119,8 @@ class FixturesMakeSomeRecsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesMakeSomeRecsRef on AutoDisposeFutureProviderRef<List<TestRec>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2273,6 +2301,8 @@ class FixturesMakeTestRecProvider extends AutoDisposeFutureProvider<TestRec> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesMakeTestRecRef on AutoDisposeFutureProviderRef<TestRec> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2425,6 +2455,8 @@ class FixturesGetNickNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesGetNickNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2566,6 +2598,8 @@ class FixturesPingProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesPingRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2701,6 +2735,8 @@ class FixturesGetSentenceProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesGetSentenceRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2846,6 +2882,8 @@ class FixturesEchoDecimalMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesEchoDecimalMapRef
     on AutoDisposeFutureProviderRef<Map<String, double>> {
   /// The parameter `regionOrNs` of this provider.
@@ -2997,6 +3035,8 @@ class FixturesGetNoteSlotDataProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixturesGetNoteSlotDataRef on AutoDisposeFutureProviderRef<List<int>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -3147,6 +3187,8 @@ class FixtureObjectsPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FixtureObjectsPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -3161,4 +3203,4 @@ class _FixtureObjectsPodProviderElement
   String get regionOrNs => (origin as FixtureObjectsPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

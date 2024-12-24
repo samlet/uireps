@@ -142,6 +142,8 @@ class BundlesMetaDealerProvider extends Provider<BundlesMetaDealerRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesMetaDealerRef on ProviderRef<BundlesMetaDealerRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -287,6 +289,8 @@ class BundlesMetaGetBundleProfileProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesMetaGetBundleProfileRef
     on AutoDisposeFutureProviderRef<BundleProfile> {
   /// The parameter `regionOrNs` of this provider.
@@ -440,6 +444,8 @@ class BundlesMetaDealerPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesMetaDealerPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -454,4 +460,4 @@ class _BundlesMetaDealerPodProviderElement
   String get regionOrNs => (origin as BundlesMetaDealerPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

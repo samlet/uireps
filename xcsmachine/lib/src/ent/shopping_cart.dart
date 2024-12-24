@@ -35,6 +35,8 @@ class ShoppingCart {
     this.tag1,
     this.tag2,
     this.tag3,
+    this.moreTags,
+    this.labels,
     this.shoppingCartId,
     this.shoppingCartTypeId,
     this.statusId,
@@ -68,6 +70,8 @@ class ShoppingCart {
     String? tag1,
     String? tag2,
     String? tag3,
+    List<String?>? moreTags,
+    Multimap<String, String>? labels,
     String? shoppingCartId,
     String? shoppingCartTypeId,
     String? statusId,
@@ -100,6 +104,8 @@ class ShoppingCart {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       shoppingCartId: shoppingCartId ?? this.shoppingCartId,
       shoppingCartTypeId: shoppingCartTypeId ?? this.shoppingCartTypeId,
       statusId: statusId ?? this.statusId,
@@ -183,6 +189,13 @@ class ShoppingCart {
 
    
   String? tag3;
+
+   
+  List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   String? shoppingCartId;
@@ -314,6 +327,7 @@ class ShoppingCart {
   void updateShoppingCartItem(String id, {
     String? itemId_,
     String? tokenId_,
+    OptSels? optSels_,
     String? itemType_,
     String? statusId_,
     double? quantity_,
@@ -331,6 +345,8 @@ class ShoppingCart {
     String? tag1_,
     String? tag2_,
     String? tag3_,
+    List<String?>? moreTags_,
+    Multimap<String, String>? labels_,
     String? shoppingCartId_,
   }) {
     shoppingCartItem = [
@@ -340,6 +356,7 @@ class ShoppingCart {
             shoppingCartItemId: id,
             itemId: itemId_??el.itemId,
             tokenId: tokenId_??el.tokenId,
+            optSels: optSels_??el.optSels,
             itemType: itemType_??el.itemType,
             statusId: statusId_??el.statusId,
             quantity: quantity_??el.quantity,
@@ -357,6 +374,8 @@ class ShoppingCart {
             tag1: tag1_??el.tag1,
             tag2: tag2_??el.tag2,
             tag3: tag3_??el.tag3,
+            moreTags: moreTags_??el.moreTags,
+            labels: labels_??el.labels,
             shoppingCartId: shoppingCartId_??el.shoppingCartId,
           )
         else
@@ -581,6 +600,7 @@ class ShoppingCartItem {
   ShoppingCartItem({
     this.itemId,
     this.tokenId,
+    this.optSels,
     this.itemType,
     this.statusId,
     this.quantity,
@@ -598,6 +618,8 @@ class ShoppingCartItem {
     this.tag1,
     this.tag2,
     this.tag3,
+    this.moreTags,
+    this.labels,
     this.shoppingCartItemId,
     this.shoppingCartId,
   });
@@ -605,6 +627,7 @@ class ShoppingCartItem {
   ShoppingCartItem copyWith({
     String? itemId,
     String? tokenId,
+    OptSels? optSels,
     String? itemType,
     String? statusId,
     double? quantity,
@@ -622,12 +645,15 @@ class ShoppingCartItem {
     String? tag1,
     String? tag2,
     String? tag3,
+    List<String?>? moreTags,
+    Multimap<String, String>? labels,
     String? shoppingCartItemId,
     String? shoppingCartId,
   }) {
     return ShoppingCartItem(
       itemId: itemId ?? this.itemId,
       tokenId: tokenId ?? this.tokenId,
+      optSels: optSels ?? this.optSels,
       itemType: itemType ?? this.itemType,
       statusId: statusId ?? this.statusId,
       quantity: quantity ?? this.quantity,
@@ -645,6 +671,8 @@ class ShoppingCartItem {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       shoppingCartItemId: shoppingCartItemId ?? this.shoppingCartItemId,
       shoppingCartId: shoppingCartId ?? this.shoppingCartId,
     );
@@ -664,6 +692,9 @@ class ShoppingCartItem {
 
    
   String? tokenId;
+
+   
+  OptSels? optSels;
 
    
   String? itemType;
@@ -715,6 +746,13 @@ class ShoppingCartItem {
 
    
   String? tag3;
+
+   
+  List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   String? shoppingCartItemId;

@@ -33,6 +33,10 @@ ShoppingCart _$ShoppingCartFromJson(Map<String, dynamic> json) => ShoppingCart(
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
       tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       shoppingCartId: json['shoppingCartId'] as String?,
       shoppingCartTypeId: json['shoppingCartTypeId'] as String?,
       statusId: json['statusId'] as String?,
@@ -57,51 +61,53 @@ ShoppingCart _$ShoppingCartFromJson(Map<String, dynamic> json) => ShoppingCart(
           .toList(),
     );
 
-Map<String, dynamic> _$ShoppingCartToJson(ShoppingCart instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('storeId', instance.storeId);
-  writeNotNull('contacts', instance.contacts?.toJson());
-  writeNotNull('createDate', instance.createDate?.toIso8601String());
-  writeNotNull('name', instance.name);
-  writeNotNull('info', instance.info);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('userLoginId', instance.userLoginId);
-  writeNotNull('orderId', instance.orderId);
-  writeNotNull('shipMethType', instance.shipMethType);
-  writeNotNull('shipMethProvider', instance.shipMethProvider);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('shoppingCartId', instance.shoppingCartId);
-  writeNotNull('shoppingCartTypeId', instance.shoppingCartTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  val['multiJointers'] = stringMultimapToJson(instance.multiJointers);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('shoppingCartType', instance.shoppingCartType?.toJson());
-  writeNotNull('shoppingCartSlot',
-      instance.shoppingCartSlot?.map((e) => e.toJson()).toList());
-  writeNotNull('shoppingCartStatus',
-      instance.shoppingCartStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('shoppingCartItem',
-      instance.shoppingCartItem?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$ShoppingCartToJson(ShoppingCart instance) =>
+    <String, dynamic>{
+      if (instance.storeId case final value?) 'storeId': value,
+      if (instance.contacts?.toJson() case final value?) 'contacts': value,
+      if (instance.createDate?.toIso8601String() case final value?)
+        'createDate': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.info case final value?) 'info': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.userLoginId case final value?) 'userLoginId': value,
+      if (instance.orderId case final value?) 'orderId': value,
+      if (instance.shipMethType case final value?) 'shipMethType': value,
+      if (instance.shipMethProvider case final value?)
+        'shipMethProvider': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.shoppingCartId case final value?) 'shoppingCartId': value,
+      if (instance.shoppingCartTypeId case final value?)
+        'shoppingCartTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'multiJointers': stringMultimapToJson(instance.multiJointers),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.shoppingCartType?.toJson() case final value?)
+        'shoppingCartType': value,
+      if (instance.shoppingCartSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shoppingCartSlot': value,
+      if (instance.shoppingCartStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shoppingCartStatus': value,
+      if (instance.shoppingCartItem?.map((e) => e.toJson()).toList()
+          case final value?)
+        'shoppingCartItem': value,
+    };
 
 ShoppingCartSlot _$ShoppingCartSlotFromJson(Map<String, dynamic> json) =>
     ShoppingCartSlot(
@@ -119,26 +125,19 @@ ShoppingCartSlot _$ShoppingCartSlotFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShoppingCartSlotToJson(ShoppingCartSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shoppingCartId', instance.shoppingCartId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('group', instance.group);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShoppingCartSlotToJson(ShoppingCartSlot instance) =>
+    <String, dynamic>{
+      if (instance.shoppingCartId case final value?) 'shoppingCartId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.group case final value?) 'group': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShoppingCartType _$ShoppingCartTypeFromJson(Map<String, dynamic> json) =>
     ShoppingCartType(
@@ -154,24 +153,18 @@ ShoppingCartType _$ShoppingCartTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ShoppingCartTypeToJson(ShoppingCartType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shoppingCartTypeId', instance.shoppingCartTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ShoppingCartTypeToJson(ShoppingCartType instance) =>
+    <String, dynamic>{
+      if (instance.shoppingCartTypeId case final value?)
+        'shoppingCartTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ShoppingCartStatus _$ShoppingCartStatusFromJson(Map<String, dynamic> json) =>
     ShoppingCartStatus(
@@ -193,31 +186,30 @@ ShoppingCartStatus _$ShoppingCartStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ShoppingCartStatusToJson(ShoppingCartStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shoppingCartId', instance.shoppingCartId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ShoppingCartStatusToJson(ShoppingCartStatus instance) =>
+    <String, dynamic>{
+      if (instance.shoppingCartId case final value?) 'shoppingCartId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ShoppingCartItem _$ShoppingCartItemFromJson(Map<String, dynamic> json) =>
     ShoppingCartItem(
       itemId: json['itemId'] as String?,
       tokenId: json['tokenId'] as String?,
+      optSels: json['optSels'] == null
+          ? null
+          : OptSels.fromJson(json['optSels'] as Map<String, dynamic>),
       itemType: json['itemType'] as String?,
       statusId: json['statusId'] as String?,
       quantity: (json['quantity'] as num?)?.toDouble(),
@@ -243,40 +235,43 @@ ShoppingCartItem _$ShoppingCartItemFromJson(Map<String, dynamic> json) =>
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
       tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       shoppingCartItemId: json['shoppingCartItemId'] as String?,
       shoppingCartId: json['shoppingCartId'] as String?,
     );
 
-Map<String, dynamic> _$ShoppingCartItemToJson(ShoppingCartItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('itemId', instance.itemId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('itemType', instance.itemType);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('quantity', instance.quantity);
-  writeNotNull('unitPrice', instance.unitPrice);
-  writeNotNull('totalPrice', instance.totalPrice);
-  writeNotNull('dateAdded', instance.dateAdded?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('comment', instance.comment);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('shoppingCartItemId', instance.shoppingCartItemId);
-  writeNotNull('shoppingCartId', instance.shoppingCartId);
-  return val;
-}
+Map<String, dynamic> _$ShoppingCartItemToJson(ShoppingCartItem instance) =>
+    <String, dynamic>{
+      if (instance.itemId case final value?) 'itemId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.optSels?.toJson() case final value?) 'optSels': value,
+      if (instance.itemType case final value?) 'itemType': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.quantity case final value?) 'quantity': value,
+      if (instance.unitPrice case final value?) 'unitPrice': value,
+      if (instance.totalPrice case final value?) 'totalPrice': value,
+      if (instance.dateAdded?.toIso8601String() case final value?)
+        'dateAdded': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.comment case final value?) 'comment': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.shoppingCartItemId case final value?)
+        'shoppingCartItemId': value,
+      if (instance.shoppingCartId case final value?) 'shoppingCartId': value,
+    };

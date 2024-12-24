@@ -146,6 +146,8 @@ class BundlesQueryDealerProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryDealerRef on ProviderRef<BundlesQueryDealerRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -302,6 +304,8 @@ class BundlesQueryLoadBundleProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryLoadBundleRef
     on AutoDisposeFutureProviderRef<Map<String, Object?>> {
   /// The parameter `regionOrNs` of this provider.
@@ -471,6 +475,8 @@ class BundlesQueryQueryTermsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryQueryTermsRef
     on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -640,6 +646,8 @@ class BundlesQueryQueryMapProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryQueryMapRef
     on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -808,6 +816,8 @@ class BundlesQueryLoadBundlesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryLoadBundlesRef
     on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1011,6 +1021,8 @@ class BundlesQueryQueryBundlePageByTagProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryQueryBundlePageByTagRef
     on AutoDisposeFutureProviderRef<PaginatedResponse> {
   /// The parameter `regionOrNs` of this provider.
@@ -1232,6 +1244,8 @@ class BundlesQueryQueryBundlePageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryQueryBundlePageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse> {
   /// The parameter `regionOrNs` of this provider.
@@ -1421,6 +1435,8 @@ class BundlesQueryQueryExprProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryQueryExprRef
     on AutoDisposeFutureProviderRef<List<Map<String, dynamic>>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1578,6 +1594,8 @@ class BundlesQueryDealerPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BundlesQueryDealerPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1592,4 +1610,4 @@ class _BundlesQueryDealerPodProviderElement
   String get regionOrNs => (origin as BundlesQueryDealerPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

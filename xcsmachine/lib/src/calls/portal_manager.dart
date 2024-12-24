@@ -153,6 +153,31 @@ class PortalManagerRepository {
     
     return convList(resp, BiFacetBi.fromJson);
   }
+   
+  // Mutation
+  Future<Response> removeEnt({
+    
+    required String entName,
+    String? regionId='default',
+    required String bundleId,
+    required String itemId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "removeEnt",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "entName": entName,
+      if(regionId!=null) "regionId": regionId,
+      "bundleId": bundleId,
+      "itemId": itemId, 
+    });
+    
+    return Response()..mergeFromProto3Json(resp);
+  }
   
 }
 

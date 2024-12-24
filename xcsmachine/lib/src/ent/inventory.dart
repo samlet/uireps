@@ -54,6 +54,7 @@ class Inventory {
     this.tag2,
     this.tag3,
     this.moreTags,
+    this.labels,
     this.inventoryItemType,
     this.inventoryTransfer,
     this.inventoryItemSlot,
@@ -100,6 +101,7 @@ class Inventory {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
+    Multimap<String, String>? labels,
     InventoryItemType? inventoryItemType,
     List<InventoryTransfer>? inventoryTransfer,
     List<InventoryItemSlot>? inventoryItemSlot,
@@ -145,6 +147,7 @@ class Inventory {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       inventoryItemType: inventoryItemType ?? this.inventoryItemType,
       inventoryTransfer: inventoryTransfer ?? this.inventoryTransfer,
       inventoryItemSlot: inventoryItemSlot ?? this.inventoryItemSlot,
@@ -279,6 +282,10 @@ class Inventory {
 
    
   List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
 
   // rel: one (no public-types)

@@ -23,6 +23,8 @@ CREATE TABLE shopping_cart (
     "tag1" VARCHAR(100),
     "tag2" VARCHAR(100),
     "tag3" VARCHAR(100),
+    "more_tags" TEXT MAPPED BY `const StringListConverter()`,
+    "labels" TEXT MAPPED BY `const StringMultimapConverter()`,
     "shopping_cart_type_id" VARCHAR(22),
     "status_id" VARCHAR(22),
     "evict" BOOLEAN,

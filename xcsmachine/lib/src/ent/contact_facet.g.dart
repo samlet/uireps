@@ -23,25 +23,18 @@ ContactFacet _$ContactFacetFromJson(Map<String, dynamic> json) => ContactFacet(
       resourceType: json['resourceType'] as String?,
     );
 
-Map<String, dynamic> _$ContactFacetToJson(ContactFacet instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contactId', instance.contactId);
-  writeNotNull('telephone', instance.telephone);
-  writeNotNull('email', instance.email);
-  writeNotNull('placeId', instance.placeId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('evict', instance.evict);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  return val;
-}
+Map<String, dynamic> _$ContactFacetToJson(ContactFacet instance) =>
+    <String, dynamic>{
+      if (instance.contactId case final value?) 'contactId': value,
+      if (instance.telephone case final value?) 'telephone': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.placeId case final value?) 'placeId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+    };

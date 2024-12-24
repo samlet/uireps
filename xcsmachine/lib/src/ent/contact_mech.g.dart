@@ -38,33 +38,31 @@ ContactMech _$ContactMechFromJson(Map<String, dynamic> json) => ContactMech(
           .toList(),
     );
 
-Map<String, dynamic> _$ContactMechToJson(ContactMech instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('contactMechTypeId', instance.contactMechTypeId);
-  writeNotNull('infoString', instance.infoString);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('postalAddress', instance.postalAddress?.toJson());
-  writeNotNull('contactMechType', instance.contactMechType?.toJson());
-  writeNotNull('telecomNumber', instance.telecomNumber?.toJson());
-  writeNotNull('fromContactMechLink',
-      instance.fromContactMechLink?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$ContactMechToJson(ContactMech instance) =>
+    <String, dynamic>{
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.contactMechTypeId case final value?)
+        'contactMechTypeId': value,
+      if (instance.infoString case final value?) 'infoString': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.postalAddress?.toJson() case final value?)
+        'postalAddress': value,
+      if (instance.contactMechType?.toJson() case final value?)
+        'contactMechType': value,
+      if (instance.telecomNumber?.toJson() case final value?)
+        'telecomNumber': value,
+      if (instance.fromContactMechLink?.map((e) => e.toJson()).toList()
+          case final value?)
+        'fromContactMechLink': value,
+    };
 
 PostalAddress _$PostalAddressFromJson(Map<String, dynamic> json) =>
     PostalAddress(
@@ -95,39 +93,34 @@ PostalAddress _$PostalAddressFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$PostalAddressToJson(PostalAddress instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('toName', instance.toName);
-  writeNotNull('attnName', instance.attnName);
-  writeNotNull('address1', instance.address1);
-  writeNotNull('address2', instance.address2);
-  writeNotNull('houseNumber', instance.houseNumber);
-  writeNotNull('houseNumberExt', instance.houseNumberExt);
-  writeNotNull('directions', instance.directions);
-  writeNotNull('city', instance.city);
-  writeNotNull('cityGeoId', instance.cityGeoId);
-  writeNotNull('postalCode', instance.postalCode);
-  writeNotNull('postalCodeExt', instance.postalCodeExt);
-  writeNotNull('countryGeoId', instance.countryGeoId);
-  writeNotNull('stateProvinceGeoId', instance.stateProvinceGeoId);
-  writeNotNull('countyGeoId', instance.countyGeoId);
-  writeNotNull('municipalityGeoId', instance.municipalityGeoId);
-  writeNotNull('postalCodeGeoId', instance.postalCodeGeoId);
-  writeNotNull('geoPointId', instance.geoPointId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$PostalAddressToJson(PostalAddress instance) =>
+    <String, dynamic>{
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.toName case final value?) 'toName': value,
+      if (instance.attnName case final value?) 'attnName': value,
+      if (instance.address1 case final value?) 'address1': value,
+      if (instance.address2 case final value?) 'address2': value,
+      if (instance.houseNumber case final value?) 'houseNumber': value,
+      if (instance.houseNumberExt case final value?) 'houseNumberExt': value,
+      if (instance.directions case final value?) 'directions': value,
+      if (instance.city case final value?) 'city': value,
+      if (instance.cityGeoId case final value?) 'cityGeoId': value,
+      if (instance.postalCode case final value?) 'postalCode': value,
+      if (instance.postalCodeExt case final value?) 'postalCodeExt': value,
+      if (instance.countryGeoId case final value?) 'countryGeoId': value,
+      if (instance.stateProvinceGeoId case final value?)
+        'stateProvinceGeoId': value,
+      if (instance.countyGeoId case final value?) 'countyGeoId': value,
+      if (instance.municipalityGeoId case final value?)
+        'municipalityGeoId': value,
+      if (instance.postalCodeGeoId case final value?) 'postalCodeGeoId': value,
+      if (instance.geoPointId case final value?) 'geoPointId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ContactMechType _$ContactMechTypeFromJson(Map<String, dynamic> json) =>
     ContactMechType(
@@ -144,25 +137,19 @@ ContactMechType _$ContactMechTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ContactMechTypeToJson(ContactMechType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contactMechTypeId', instance.contactMechTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', instance.hasTable);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ContactMechTypeToJson(ContactMechType instance) =>
+    <String, dynamic>{
+      if (instance.contactMechTypeId case final value?)
+        'contactMechTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.hasTable case final value?) 'hasTable': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ContactMechLink _$ContactMechLinkFromJson(Map<String, dynamic> json) =>
     ContactMechLink(
@@ -177,23 +164,17 @@ ContactMechLink _$ContactMechLinkFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ContactMechLinkToJson(ContactMechLink instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contactMechIdFrom', instance.contactMechIdFrom);
-  writeNotNull('contactMechIdTo', instance.contactMechIdTo);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ContactMechLinkToJson(ContactMechLink instance) =>
+    <String, dynamic>{
+      if (instance.contactMechIdFrom case final value?)
+        'contactMechIdFrom': value,
+      if (instance.contactMechIdTo case final value?) 'contactMechIdTo': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 TelecomNumber _$TelecomNumberFromJson(Map<String, dynamic> json) =>
     TelecomNumber(
@@ -211,23 +192,16 @@ TelecomNumber _$TelecomNumberFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$TelecomNumberToJson(TelecomNumber instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('countryCode', instance.countryCode);
-  writeNotNull('areaCode', instance.areaCode);
-  writeNotNull('contactNumber', instance.contactNumber);
-  writeNotNull('askForName', instance.askForName);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$TelecomNumberToJson(TelecomNumber instance) =>
+    <String, dynamic>{
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.countryCode case final value?) 'countryCode': value,
+      if (instance.areaCode case final value?) 'areaCode': value,
+      if (instance.contactNumber case final value?) 'contactNumber': value,
+      if (instance.askForName case final value?) 'askForName': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

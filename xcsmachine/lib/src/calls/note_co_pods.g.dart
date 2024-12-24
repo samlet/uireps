@@ -153,6 +153,8 @@ class NoteCoProvider extends AutoDisposeProvider<NoteCoRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteCoRef on AutoDisposeProviderRef<NoteCoRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -309,6 +311,8 @@ class NoteGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteGetSlotValueRef on AutoDisposeFutureProviderRef<ValueData> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -471,6 +475,8 @@ class NoteHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteHasSlotValueRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -621,6 +627,8 @@ class NoteViewContentProvider extends AutoDisposeFutureProvider<NoteContent> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteViewContentRef on AutoDisposeFutureProviderRef<NoteContent> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -767,6 +775,8 @@ class NoteGetContentProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteGetContentRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -911,6 +921,8 @@ class NoteSizeProvider extends AutoDisposeFutureProvider<int> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteSizeRef on AutoDisposeFutureProviderRef<int> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1056,6 +1068,8 @@ class NoteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1201,6 +1215,8 @@ class NoteNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1219,7 +1235,7 @@ class _NoteNameProviderElement extends AutoDisposeFutureProviderElement<String>
   String get id => (origin as NoteNameProvider).id;
 }
 
-String _$noteCoPodHash() => r'03d090022c1354b8aac2a124ff0b63fde491c8af';
+String _$noteCoPodHash() => r'29b9a343826c8071a91585437790476eab3af1f0';
 
 abstract class _$NoteCoPod extends BuildlessAutoDisposeAsyncNotifier<void> {
   late final String regionOrNs;
@@ -1364,6 +1380,8 @@ class NoteCoPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1383,4 +1401,4 @@ class _NoteCoPodProviderElement
   String get id => (origin as NoteCoPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

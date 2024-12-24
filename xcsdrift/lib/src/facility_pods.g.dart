@@ -21,6 +21,8 @@ final facilityRepositoryProvider = Provider<FacilityRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef FacilityRepositoryRef = ProviderRef<FacilityRepository>;
 String _$getFacilityHash() => r'a8ef588274b4efa18058a3f7a40601b9331c3208';
 
@@ -158,6 +160,8 @@ class GetFacilityProvider extends AutoDisposeFutureProvider<FacilityData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetFacilityRef on AutoDisposeFutureProviderRef<FacilityData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -189,4 +193,4 @@ final facilityBucketProvider = AutoDisposeStreamNotifierProvider<FacilityBucket,
 
 typedef _$FacilityBucket = AutoDisposeStreamNotifier<List<FacilityData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

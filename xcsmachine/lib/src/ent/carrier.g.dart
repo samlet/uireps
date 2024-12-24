@@ -40,51 +40,47 @@ Carrier _$CarrierFromJson(Map<String, dynamic> json) => Carrier(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       carrierMultisig: (json['carrierMultisig'] as List<dynamic>?)
           ?.map((e) => CarrierMultisig.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$CarrierToJson(Carrier instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('carrierStatus', instance.carrierStatus);
-  writeNotNull('availableDate', instance.availableDate?.toIso8601String());
-  writeNotNull('lastPosLat', instance.lastPosLat);
-  writeNotNull('lastPosLon', instance.lastPosLon);
-  writeNotNull('lastPosZ', instance.lastPosZ);
-  writeNotNull('currentPosLat', instance.currentPosLat);
-  writeNotNull('currentPosLon', instance.currentPosLon);
-  writeNotNull('currentPosZ', instance.currentPosZ);
-  writeNotNull('ships', instance.ships);
-  val['orders'] = stringMultimapToJson(instance.orders);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('rangeOfActivity', instance.rangeOfActivity);
-  writeNotNull('collider', instance.collider);
-  writeNotNull('carrierId', instance.carrierId);
-  writeNotNull('autoOrganId', instance.autoOrganId);
-  writeNotNull('nftErc', instance.nftErc);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('carrierMultisig',
-      instance.carrierMultisig?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$CarrierToJson(Carrier instance) => <String, dynamic>{
+      if (instance.carrierStatus case final value?) 'carrierStatus': value,
+      if (instance.availableDate?.toIso8601String() case final value?)
+        'availableDate': value,
+      if (instance.lastPosLat case final value?) 'lastPosLat': value,
+      if (instance.lastPosLon case final value?) 'lastPosLon': value,
+      if (instance.lastPosZ case final value?) 'lastPosZ': value,
+      if (instance.currentPosLat case final value?) 'currentPosLat': value,
+      if (instance.currentPosLon case final value?) 'currentPosLon': value,
+      if (instance.currentPosZ case final value?) 'currentPosZ': value,
+      if (instance.ships case final value?) 'ships': value,
+      'orders': stringMultimapToJson(instance.orders),
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.rangeOfActivity case final value?) 'rangeOfActivity': value,
+      if (instance.collider case final value?) 'collider': value,
+      if (instance.carrierId case final value?) 'carrierId': value,
+      if (instance.autoOrganId case final value?) 'autoOrganId': value,
+      if (instance.nftErc case final value?) 'nftErc': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.carrierMultisig?.map((e) => e.toJson()).toList()
+          case final value?)
+        'carrierMultisig': value,
+    };
 
 CarrierMultisig _$CarrierMultisigFromJson(Map<String, dynamic> json) =>
     CarrierMultisig(
@@ -101,22 +97,15 @@ CarrierMultisig _$CarrierMultisigFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$CarrierMultisigToJson(CarrierMultisig instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('carrierId', instance.carrierId);
-  writeNotNull('multisigId', instance.multisigId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$CarrierMultisigToJson(CarrierMultisig instance) =>
+    <String, dynamic>{
+      if (instance.carrierId case final value?) 'carrierId': value,
+      if (instance.multisigId case final value?) 'multisigId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

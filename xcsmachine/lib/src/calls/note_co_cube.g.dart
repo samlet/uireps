@@ -6,7 +6,7 @@ part of 'note_co_cube.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$noteCoCubeHash() => r'75560f0f9e35d52c50bb0f0c6dacd11bfd5ae745';
+String _$noteCoCubeHash() => r'3deb17dab5d0705e783e268b513c1bb13362747b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -173,6 +173,8 @@ class NoteCoCubeProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteCoCubeRef on AutoDisposeAsyncNotifierProviderRef<Note> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -192,4 +194,4 @@ class _NoteCoCubeProviderElement
   String get id => (origin as NoteCoCubeProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

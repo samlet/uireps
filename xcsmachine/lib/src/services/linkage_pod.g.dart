@@ -142,6 +142,8 @@ class LoadLinkageProvider extends AutoDisposeFutureProvider<Linkage> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadLinkageRef on AutoDisposeFutureProviderRef<Linkage> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -326,6 +328,8 @@ class LoadLinkageListProvider extends AutoDisposeFutureProvider<List<Linkage>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadLinkageListRef on AutoDisposeFutureProviderRef<List<Linkage>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -528,6 +532,8 @@ class LoadLinkagePageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadLinkagePageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Linkage>> {
   /// The parameter `pageSize` of this provider.
@@ -690,6 +696,8 @@ class FetchLinkagesProvider extends AutoDisposeFutureProvider<List<Linkage>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchLinkagesRef on AutoDisposeFutureProviderRef<List<Linkage>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -709,4 +717,4 @@ class _FetchLinkagesProviderElement
   String get regionId => (origin as FetchLinkagesProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

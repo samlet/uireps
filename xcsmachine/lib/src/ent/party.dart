@@ -38,6 +38,7 @@ class Party {
     this.tag2,
     this.tag3,
     this.moreTags,
+    this.labels,
     this.acl,
     this.telephone,
     this.email,
@@ -112,6 +113,7 @@ class Party {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
+    Multimap<String, String>? labels,
     Multimap<String, String>? acl,
     String? telephone,
     String? email,
@@ -185,6 +187,7 @@ class Party {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       acl: acl ?? this.acl,
       telephone: telephone ?? this.telephone,
       email: email ?? this.email,
@@ -315,6 +318,10 @@ class Party {
 
    
   List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
   
   @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 

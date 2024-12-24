@@ -2,16 +2,19 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsent/ent/shopping_cart_item_ent.drift.dart' as i1;
-import 'package:xcsproto/src/generated/routines.pb.dart' as i2;
-import 'dart:typed_data' as i3;
-import 'package:xcsent/proto_fldconv.dart' as i4;
-import 'package:drift/internal/modular.dart' as i5;
+import 'package:xcsmachine/src/calls/calls.dart' as i2;
+import 'package:xcsproto/src/generated/routines.pb.dart' as i3;
+import 'dart:typed_data' as i4;
+import 'package:xcsdrift/src/morph/opt_sels_morph.dart' as i5;
+import 'package:xcsent/proto_fldconv.dart' as i6;
+import 'package:drift/internal/modular.dart' as i7;
 
 typedef $ShoppingCartItemEntCreateCompanionBuilder
     = i1.ShoppingCartItemEntCompanion Function({
   required String shoppingCartItemId,
   i0.Value<String?> itemId,
   i0.Value<String?> tokenId,
+  i0.Value<i2.OptSels?> optSels,
   i0.Value<String?> itemType,
   i0.Value<String?> statusId,
   i0.Value<double?> quantity,
@@ -29,8 +32,8 @@ typedef $ShoppingCartItemEntCreateCompanionBuilder
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
-  i0.Value<i2.Strings?> moreTags,
-  i0.Value<i2.StringMultimap?> labels,
+  i0.Value<i3.Strings?> moreTags,
+  i0.Value<i3.StringMultimap?> labels,
   i0.Value<String?> shoppingCartId,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
@@ -40,6 +43,7 @@ typedef $ShoppingCartItemEntUpdateCompanionBuilder
   i0.Value<String> shoppingCartItemId,
   i0.Value<String?> itemId,
   i0.Value<String?> tokenId,
+  i0.Value<i2.OptSels?> optSels,
   i0.Value<String?> itemType,
   i0.Value<String?> statusId,
   i0.Value<double?> quantity,
@@ -57,8 +61,8 @@ typedef $ShoppingCartItemEntUpdateCompanionBuilder
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
-  i0.Value<i2.Strings?> moreTags,
-  i0.Value<i2.StringMultimap?> labels,
+  i0.Value<i3.Strings?> moreTags,
+  i0.Value<i3.StringMultimap?> labels,
   i0.Value<String?> shoppingCartId,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
@@ -82,6 +86,11 @@ class $ShoppingCartItemEntFilterComposer
 
   i0.ColumnFilters<String> get tokenId => $composableBuilder(
       column: $table.tokenId, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.OptSels?, i2.OptSels, String>
+      get optSels => $composableBuilder(
+          column: $table.optSels,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnFilters<String> get itemType => $composableBuilder(
       column: $table.itemType, builder: (column) => i0.ColumnFilters(column));
@@ -138,13 +147,13 @@ class $ShoppingCartItemEntFilterComposer
   i0.ColumnFilters<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
 
-  i0.ColumnWithTypeConverterFilters<i2.Strings?, i2.Strings, i3.Uint8List>
+  i0.ColumnWithTypeConverterFilters<i3.Strings?, i3.Strings, i4.Uint8List>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
-  i0.ColumnWithTypeConverterFilters<i2.StringMultimap?, i2.StringMultimap,
-          i3.Uint8List>
+  i0.ColumnWithTypeConverterFilters<i3.StringMultimap?, i3.StringMultimap,
+          i4.Uint8List>
       get labels => $composableBuilder(
           column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
@@ -176,6 +185,9 @@ class $ShoppingCartItemEntOrderingComposer
 
   i0.ColumnOrderings<String> get tokenId => $composableBuilder(
       column: $table.tokenId, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get optSels => $composableBuilder(
+      column: $table.optSels, builder: (column) => i0.ColumnOrderings(column));
 
   i0.ColumnOrderings<String> get itemType => $composableBuilder(
       column: $table.itemType, builder: (column) => i0.ColumnOrderings(column));
@@ -236,10 +248,10 @@ class $ShoppingCartItemEntOrderingComposer
   i0.ColumnOrderings<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
 
-  i0.ColumnOrderings<i3.Uint8List> get moreTags => $composableBuilder(
+  i0.ColumnOrderings<i4.Uint8List> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
-  i0.ColumnOrderings<i3.Uint8List> get labels => $composableBuilder(
+  i0.ColumnOrderings<i4.Uint8List> get labels => $composableBuilder(
       column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
 
   i0.ColumnOrderings<String> get shoppingCartId => $composableBuilder(
@@ -268,6 +280,9 @@ class $ShoppingCartItemEntAnnotationComposer
 
   i0.GeneratedColumn<String> get tokenId =>
       $composableBuilder(column: $table.tokenId, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.OptSels?, String> get optSels =>
+      $composableBuilder(column: $table.optSels, builder: (column) => column);
 
   i0.GeneratedColumn<String> get itemType =>
       $composableBuilder(column: $table.itemType, builder: (column) => column);
@@ -320,10 +335,10 @@ class $ShoppingCartItemEntAnnotationComposer
   i0.GeneratedColumn<String> get tag3 =>
       $composableBuilder(column: $table.tag3, builder: (column) => column);
 
-  i0.GeneratedColumnWithTypeConverter<i2.Strings?, i3.Uint8List> get moreTags =>
+  i0.GeneratedColumnWithTypeConverter<i3.Strings?, i4.Uint8List> get moreTags =>
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
-  i0.GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List>
+  i0.GeneratedColumnWithTypeConverter<i3.StringMultimap?, i4.Uint8List>
       get labels => $composableBuilder(
           column: $table.labels, builder: (column) => column);
 
@@ -365,6 +380,7 @@ class $ShoppingCartItemEntTableManager extends i0.RootTableManager<
             i0.Value<String> shoppingCartItemId = const i0.Value.absent(),
             i0.Value<String?> itemId = const i0.Value.absent(),
             i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<i2.OptSels?> optSels = const i0.Value.absent(),
             i0.Value<String?> itemType = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<double?> quantity = const i0.Value.absent(),
@@ -382,8 +398,8 @@ class $ShoppingCartItemEntTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
+            i0.Value<i3.Strings?> moreTags = const i0.Value.absent(),
+            i0.Value<i3.StringMultimap?> labels = const i0.Value.absent(),
             i0.Value<String?> shoppingCartId = const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -392,6 +408,7 @@ class $ShoppingCartItemEntTableManager extends i0.RootTableManager<
             shoppingCartItemId: shoppingCartItemId,
             itemId: itemId,
             tokenId: tokenId,
+            optSels: optSels,
             itemType: itemType,
             statusId: statusId,
             quantity: quantity,
@@ -419,6 +436,7 @@ class $ShoppingCartItemEntTableManager extends i0.RootTableManager<
             required String shoppingCartItemId,
             i0.Value<String?> itemId = const i0.Value.absent(),
             i0.Value<String?> tokenId = const i0.Value.absent(),
+            i0.Value<i2.OptSels?> optSels = const i0.Value.absent(),
             i0.Value<String?> itemType = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<double?> quantity = const i0.Value.absent(),
@@ -436,8 +454,8 @@ class $ShoppingCartItemEntTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
-            i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
-            i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
+            i0.Value<i3.Strings?> moreTags = const i0.Value.absent(),
+            i0.Value<i3.StringMultimap?> labels = const i0.Value.absent(),
             i0.Value<String?> shoppingCartId = const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -446,6 +464,7 @@ class $ShoppingCartItemEntTableManager extends i0.RootTableManager<
             shoppingCartItemId: shoppingCartItemId,
             itemId: itemId,
             tokenId: tokenId,
+            optSels: optSels,
             itemType: itemType,
             statusId: statusId,
             quantity: quantity,
@@ -520,6 +539,15 @@ class ShoppingCartItemEnt extends i0.Table
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _optSelsMeta =
+      const i0.VerificationMeta('optSels');
+  late final i0.GeneratedColumnWithTypeConverter<i2.OptSels?, String> optSels =
+      i0.GeneratedColumn<String>('opt_sels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.OptSels?>(
+              i1.ShoppingCartItemEnt.$converteroptSelsn);
   static const i0.VerificationMeta _itemTypeMeta =
       const i0.VerificationMeta('itemType');
   late final i0.GeneratedColumn<String> itemType = i0.GeneratedColumn<String>(
@@ -641,23 +669,23 @@ class ShoppingCartItemEnt extends i0.Table
       $customConstraints: '');
   static const i0.VerificationMeta _moreTagsMeta =
       const i0.VerificationMeta('moreTags');
-  late final i0.GeneratedColumnWithTypeConverter<i2.Strings?, i3.Uint8List>
-      moreTags = i0.GeneratedColumn<i3.Uint8List>(
+  late final i0.GeneratedColumnWithTypeConverter<i3.Strings?, i4.Uint8List>
+      moreTags = i0.GeneratedColumn<i4.Uint8List>(
               'more_tags', aliasedName, true,
               type: i0.DriftSqlType.blob,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i2.Strings?>(
+          .withConverter<i3.Strings?>(
               i1.ShoppingCartItemEnt.$convertermoreTagsn);
   static const i0.VerificationMeta _labelsMeta =
       const i0.VerificationMeta('labels');
   late final i0
-      .GeneratedColumnWithTypeConverter<i2.StringMultimap?, i3.Uint8List>
-      labels = i0.GeneratedColumn<i3.Uint8List>('labels', aliasedName, true,
+      .GeneratedColumnWithTypeConverter<i3.StringMultimap?, i4.Uint8List>
+      labels = i0.GeneratedColumn<i4.Uint8List>('labels', aliasedName, true,
               type: i0.DriftSqlType.blob,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i2.StringMultimap?>(
+          .withConverter<i3.StringMultimap?>(
               i1.ShoppingCartItemEnt.$converterlabelsn);
   static const i0.VerificationMeta _shoppingCartIdMeta =
       const i0.VerificationMeta('shoppingCartId');
@@ -678,6 +706,7 @@ class ShoppingCartItemEnt extends i0.Table
         shoppingCartItemId,
         itemId,
         tokenId,
+        optSels,
         itemType,
         statusId,
         quantity,
@@ -727,6 +756,7 @@ class ShoppingCartItemEnt extends i0.Table
       context.handle(_tokenIdMeta,
           tokenId.isAcceptableOrUnknown(data['token_id']!, _tokenIdMeta));
     }
+    context.handle(_optSelsMeta, const i0.VerificationResult.success());
     if (data.containsKey('item_type')) {
       context.handle(_itemTypeMeta,
           itemType.isAcceptableOrUnknown(data['item_type']!, _itemTypeMeta));
@@ -836,6 +866,9 @@ class ShoppingCartItemEnt extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}item_id']),
       tokenId: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}token_id']),
+      optSels: i1.ShoppingCartItemEnt.$converteroptSelsn.fromSql(
+          attachedDatabase.typeMapping.read(
+              i0.DriftSqlType.string, data['${effectivePrefix}opt_sels'])),
       itemType: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}item_type']),
       statusId: attachedDatabase.typeMapping
@@ -889,13 +922,17 @@ class ShoppingCartItemEnt extends i0.Table
     return ShoppingCartItemEnt(attachedDatabase, alias);
   }
 
-  static i0.TypeConverter<i2.Strings, i3.Uint8List> $convertermoreTags =
-      const i4.StringsConverter();
-  static i0.TypeConverter<i2.Strings?, i3.Uint8List?> $convertermoreTagsn =
+  static i0.JsonTypeConverter2<i2.OptSels, String, Map<String, dynamic>>
+      $converteroptSels = const i5.OptSelsConverter();
+  static i0.JsonTypeConverter2<i2.OptSels?, String?, Map<String, dynamic>?>
+      $converteroptSelsn = i0.JsonTypeConverter2.asNullable($converteroptSels);
+  static i0.TypeConverter<i3.Strings, i4.Uint8List> $convertermoreTags =
+      const i6.StringsConverter();
+  static i0.TypeConverter<i3.Strings?, i4.Uint8List?> $convertermoreTagsn =
       i0.NullAwareTypeConverter.wrap($convertermoreTags);
-  static i0.TypeConverter<i2.StringMultimap, i3.Uint8List> $converterlabels =
-      const i4.StringMultimapConverter();
-  static i0.TypeConverter<i2.StringMultimap?, i3.Uint8List?> $converterlabelsn =
+  static i0.TypeConverter<i3.StringMultimap, i4.Uint8List> $converterlabels =
+      const i6.StringMultimapConverter();
+  static i0.TypeConverter<i3.StringMultimap?, i4.Uint8List?> $converterlabelsn =
       i0.NullAwareTypeConverter.wrap($converterlabels);
   @override
   bool get dontWriteConstraints => true;
@@ -906,6 +943,7 @@ class ShoppingCartItemEntData extends i0.DataClass
   final String shoppingCartItemId;
   final String? itemId;
   final String? tokenId;
+  final i2.OptSels? optSels;
   final String? itemType;
   final String? statusId;
   final double? quantity;
@@ -923,14 +961,15 @@ class ShoppingCartItemEntData extends i0.DataClass
   final String? tag1;
   final String? tag2;
   final String? tag3;
-  final i2.Strings? moreTags;
-  final i2.StringMultimap? labels;
+  final i3.Strings? moreTags;
+  final i3.StringMultimap? labels;
   final String? shoppingCartId;
   final int? reservedFlag;
   const ShoppingCartItemEntData(
       {required this.shoppingCartItemId,
       this.itemId,
       this.tokenId,
+      this.optSels,
       this.itemType,
       this.statusId,
       this.quantity,
@@ -961,6 +1000,10 @@ class ShoppingCartItemEntData extends i0.DataClass
     }
     if (!nullToAbsent || tokenId != null) {
       map['token_id'] = i0.Variable<String>(tokenId);
+    }
+    if (!nullToAbsent || optSels != null) {
+      map['opt_sels'] = i0.Variable<String>(
+          i1.ShoppingCartItemEnt.$converteroptSelsn.toSql(optSels));
     }
     if (!nullToAbsent || itemType != null) {
       map['item_type'] = i0.Variable<String>(itemType);
@@ -1014,11 +1057,11 @@ class ShoppingCartItemEntData extends i0.DataClass
       map['tag3'] = i0.Variable<String>(tag3);
     }
     if (!nullToAbsent || moreTags != null) {
-      map['more_tags'] = i0.Variable<i3.Uint8List>(
+      map['more_tags'] = i0.Variable<i4.Uint8List>(
           i1.ShoppingCartItemEnt.$convertermoreTagsn.toSql(moreTags));
     }
     if (!nullToAbsent || labels != null) {
-      map['labels'] = i0.Variable<i3.Uint8List>(
+      map['labels'] = i0.Variable<i4.Uint8List>(
           i1.ShoppingCartItemEnt.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || shoppingCartId != null) {
@@ -1039,6 +1082,9 @@ class ShoppingCartItemEntData extends i0.DataClass
       tokenId: tokenId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(tokenId),
+      optSels: optSels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(optSels),
       itemType: itemType == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(itemType),
@@ -1113,6 +1159,8 @@ class ShoppingCartItemEntData extends i0.DataClass
           serializer.fromJson<String>(json['shopping_cart_item_id']),
       itemId: serializer.fromJson<String?>(json['item_id']),
       tokenId: serializer.fromJson<String?>(json['token_id']),
+      optSels: i1.ShoppingCartItemEnt.$converteroptSelsn.fromJson(
+          serializer.fromJson<Map<String, dynamic>?>(json['opt_sels'])),
       itemType: serializer.fromJson<String?>(json['item_type']),
       statusId: serializer.fromJson<String?>(json['status_id']),
       quantity: serializer.fromJson<double?>(json['quantity']),
@@ -1131,8 +1179,8 @@ class ShoppingCartItemEntData extends i0.DataClass
       tag1: serializer.fromJson<String?>(json['tag1']),
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
-      moreTags: serializer.fromJson<i2.Strings?>(json['more_tags']),
-      labels: serializer.fromJson<i2.StringMultimap?>(json['labels']),
+      moreTags: serializer.fromJson<i3.Strings?>(json['more_tags']),
+      labels: serializer.fromJson<i3.StringMultimap?>(json['labels']),
       shoppingCartId: serializer.fromJson<String?>(json['shopping_cart_id']),
       reservedFlag: serializer.fromJson<int?>(json['reserved_flag']),
     );
@@ -1144,6 +1192,8 @@ class ShoppingCartItemEntData extends i0.DataClass
       'shopping_cart_item_id': serializer.toJson<String>(shoppingCartItemId),
       'item_id': serializer.toJson<String?>(itemId),
       'token_id': serializer.toJson<String?>(tokenId),
+      'opt_sels': serializer.toJson<Map<String, dynamic>?>(
+          i1.ShoppingCartItemEnt.$converteroptSelsn.toJson(optSels)),
       'item_type': serializer.toJson<String?>(itemType),
       'status_id': serializer.toJson<String?>(statusId),
       'quantity': serializer.toJson<double?>(quantity),
@@ -1161,8 +1211,8 @@ class ShoppingCartItemEntData extends i0.DataClass
       'tag1': serializer.toJson<String?>(tag1),
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
-      'more_tags': serializer.toJson<i2.Strings?>(moreTags),
-      'labels': serializer.toJson<i2.StringMultimap?>(labels),
+      'more_tags': serializer.toJson<i3.Strings?>(moreTags),
+      'labels': serializer.toJson<i3.StringMultimap?>(labels),
       'shopping_cart_id': serializer.toJson<String?>(shoppingCartId),
       'reserved_flag': serializer.toJson<int?>(reservedFlag),
     };
@@ -1172,6 +1222,7 @@ class ShoppingCartItemEntData extends i0.DataClass
           {String? shoppingCartItemId,
           i0.Value<String?> itemId = const i0.Value.absent(),
           i0.Value<String?> tokenId = const i0.Value.absent(),
+          i0.Value<i2.OptSels?> optSels = const i0.Value.absent(),
           i0.Value<String?> itemType = const i0.Value.absent(),
           i0.Value<String?> statusId = const i0.Value.absent(),
           i0.Value<double?> quantity = const i0.Value.absent(),
@@ -1189,14 +1240,15 @@ class ShoppingCartItemEntData extends i0.DataClass
           i0.Value<String?> tag1 = const i0.Value.absent(),
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
-          i0.Value<i2.Strings?> moreTags = const i0.Value.absent(),
-          i0.Value<i2.StringMultimap?> labels = const i0.Value.absent(),
+          i0.Value<i3.Strings?> moreTags = const i0.Value.absent(),
+          i0.Value<i3.StringMultimap?> labels = const i0.Value.absent(),
           i0.Value<String?> shoppingCartId = const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.ShoppingCartItemEntData(
         shoppingCartItemId: shoppingCartItemId ?? this.shoppingCartItemId,
         itemId: itemId.present ? itemId.value : this.itemId,
         tokenId: tokenId.present ? tokenId.value : this.tokenId,
+        optSels: optSels.present ? optSels.value : this.optSels,
         itemType: itemType.present ? itemType.value : this.itemType,
         statusId: statusId.present ? statusId.value : this.statusId,
         quantity: quantity.present ? quantity.value : this.quantity,
@@ -1233,6 +1285,7 @@ class ShoppingCartItemEntData extends i0.DataClass
           : this.shoppingCartItemId,
       itemId: data.itemId.present ? data.itemId.value : this.itemId,
       tokenId: data.tokenId.present ? data.tokenId.value : this.tokenId,
+      optSels: data.optSels.present ? data.optSels.value : this.optSels,
       itemType: data.itemType.present ? data.itemType.value : this.itemType,
       statusId: data.statusId.present ? data.statusId.value : this.statusId,
       quantity: data.quantity.present ? data.quantity.value : this.quantity,
@@ -1275,6 +1328,7 @@ class ShoppingCartItemEntData extends i0.DataClass
           ..write('shoppingCartItemId: $shoppingCartItemId, ')
           ..write('itemId: $itemId, ')
           ..write('tokenId: $tokenId, ')
+          ..write('optSels: $optSels, ')
           ..write('itemType: $itemType, ')
           ..write('statusId: $statusId, ')
           ..write('quantity: $quantity, ')
@@ -1305,6 +1359,7 @@ class ShoppingCartItemEntData extends i0.DataClass
         shoppingCartItemId,
         itemId,
         tokenId,
+        optSels,
         itemType,
         statusId,
         quantity,
@@ -1334,6 +1389,7 @@ class ShoppingCartItemEntData extends i0.DataClass
           other.shoppingCartItemId == this.shoppingCartItemId &&
           other.itemId == this.itemId &&
           other.tokenId == this.tokenId &&
+          other.optSels == this.optSels &&
           other.itemType == this.itemType &&
           other.statusId == this.statusId &&
           other.quantity == this.quantity &&
@@ -1362,6 +1418,7 @@ class ShoppingCartItemEntCompanion
   final i0.Value<String> shoppingCartItemId;
   final i0.Value<String?> itemId;
   final i0.Value<String?> tokenId;
+  final i0.Value<i2.OptSels?> optSels;
   final i0.Value<String?> itemType;
   final i0.Value<String?> statusId;
   final i0.Value<double?> quantity;
@@ -1379,8 +1436,8 @@ class ShoppingCartItemEntCompanion
   final i0.Value<String?> tag1;
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
-  final i0.Value<i2.Strings?> moreTags;
-  final i0.Value<i2.StringMultimap?> labels;
+  final i0.Value<i3.Strings?> moreTags;
+  final i0.Value<i3.StringMultimap?> labels;
   final i0.Value<String?> shoppingCartId;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
@@ -1388,6 +1445,7 @@ class ShoppingCartItemEntCompanion
     this.shoppingCartItemId = const i0.Value.absent(),
     this.itemId = const i0.Value.absent(),
     this.tokenId = const i0.Value.absent(),
+    this.optSels = const i0.Value.absent(),
     this.itemType = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.quantity = const i0.Value.absent(),
@@ -1415,6 +1473,7 @@ class ShoppingCartItemEntCompanion
     required String shoppingCartItemId,
     this.itemId = const i0.Value.absent(),
     this.tokenId = const i0.Value.absent(),
+    this.optSels = const i0.Value.absent(),
     this.itemType = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.quantity = const i0.Value.absent(),
@@ -1442,6 +1501,7 @@ class ShoppingCartItemEntCompanion
     i0.Expression<String>? shoppingCartItemId,
     i0.Expression<String>? itemId,
     i0.Expression<String>? tokenId,
+    i0.Expression<String>? optSels,
     i0.Expression<String>? itemType,
     i0.Expression<String>? statusId,
     i0.Expression<double>? quantity,
@@ -1459,8 +1519,8 @@ class ShoppingCartItemEntCompanion
     i0.Expression<String>? tag1,
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
-    i0.Expression<i3.Uint8List>? moreTags,
-    i0.Expression<i3.Uint8List>? labels,
+    i0.Expression<i4.Uint8List>? moreTags,
+    i0.Expression<i4.Uint8List>? labels,
     i0.Expression<String>? shoppingCartId,
     i0.Expression<int>? reservedFlag,
     i0.Expression<int>? rowid,
@@ -1470,6 +1530,7 @@ class ShoppingCartItemEntCompanion
         'shopping_cart_item_id': shoppingCartItemId,
       if (itemId != null) 'item_id': itemId,
       if (tokenId != null) 'token_id': tokenId,
+      if (optSels != null) 'opt_sels': optSels,
       if (itemType != null) 'item_type': itemType,
       if (statusId != null) 'status_id': statusId,
       if (quantity != null) 'quantity': quantity,
@@ -1500,6 +1561,7 @@ class ShoppingCartItemEntCompanion
       {i0.Value<String>? shoppingCartItemId,
       i0.Value<String?>? itemId,
       i0.Value<String?>? tokenId,
+      i0.Value<i2.OptSels?>? optSels,
       i0.Value<String?>? itemType,
       i0.Value<String?>? statusId,
       i0.Value<double?>? quantity,
@@ -1517,8 +1579,8 @@ class ShoppingCartItemEntCompanion
       i0.Value<String?>? tag1,
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
-      i0.Value<i2.Strings?>? moreTags,
-      i0.Value<i2.StringMultimap?>? labels,
+      i0.Value<i3.Strings?>? moreTags,
+      i0.Value<i3.StringMultimap?>? labels,
       i0.Value<String?>? shoppingCartId,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
@@ -1526,6 +1588,7 @@ class ShoppingCartItemEntCompanion
       shoppingCartItemId: shoppingCartItemId ?? this.shoppingCartItemId,
       itemId: itemId ?? this.itemId,
       tokenId: tokenId ?? this.tokenId,
+      optSels: optSels ?? this.optSels,
       itemType: itemType ?? this.itemType,
       statusId: statusId ?? this.statusId,
       quantity: quantity ?? this.quantity,
@@ -1563,6 +1626,10 @@ class ShoppingCartItemEntCompanion
     }
     if (tokenId.present) {
       map['token_id'] = i0.Variable<String>(tokenId.value);
+    }
+    if (optSels.present) {
+      map['opt_sels'] = i0.Variable<String>(
+          i1.ShoppingCartItemEnt.$converteroptSelsn.toSql(optSels.value));
     }
     if (itemType.present) {
       map['item_type'] = i0.Variable<String>(itemType.value);
@@ -1617,11 +1684,11 @@ class ShoppingCartItemEntCompanion
       map['tag3'] = i0.Variable<String>(tag3.value);
     }
     if (moreTags.present) {
-      map['more_tags'] = i0.Variable<i3.Uint8List>(
+      map['more_tags'] = i0.Variable<i4.Uint8List>(
           i1.ShoppingCartItemEnt.$convertermoreTagsn.toSql(moreTags.value));
     }
     if (labels.present) {
-      map['labels'] = i0.Variable<i3.Uint8List>(
+      map['labels'] = i0.Variable<i4.Uint8List>(
           i1.ShoppingCartItemEnt.$converterlabelsn.toSql(labels.value));
     }
     if (shoppingCartId.present) {
@@ -1642,6 +1709,7 @@ class ShoppingCartItemEntCompanion
           ..write('shoppingCartItemId: $shoppingCartItemId, ')
           ..write('itemId: $itemId, ')
           ..write('tokenId: $tokenId, ')
+          ..write('optSels: $optSels, ')
           ..write('itemType: $itemType, ')
           ..write('statusId: $statusId, ')
           ..write('quantity: $quantity, ')
@@ -1669,7 +1737,7 @@ class ShoppingCartItemEntCompanion
   }
 }
 
-class ShoppingCartItemEntDrift extends i5.ModularAccessor {
+class ShoppingCartItemEntDrift extends i7.ModularAccessor {
   ShoppingCartItemEntDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.ShoppingCartItemEntData> allShoppingCartItems() {
     return customSelect('SELECT * FROM shopping_cart_item_ent',
@@ -1722,6 +1790,6 @@ class ShoppingCartItemEntDrift extends i5.ModularAccessor {
   }
 
   i1.ShoppingCartItemEnt get shoppingCartItemEnt =>
-      i5.ReadDatabaseContainer(attachedDatabase)
+      i7.ReadDatabaseContainer(attachedDatabase)
           .resultSet<i1.ShoppingCartItemEnt>('shopping_cart_item_ent');
 }

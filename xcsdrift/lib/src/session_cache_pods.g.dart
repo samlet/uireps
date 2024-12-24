@@ -22,6 +22,8 @@ final sessionCacheRepositoryProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SessionCacheRepositoryRef = ProviderRef<SessionCacheRepository>;
 String _$getSessionCacheHash() => r'af32d1c8608db161eb7afaf9d9f4524abc6ceed5';
 
@@ -160,6 +162,8 @@ class GetSessionCacheProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetSessionCacheRef on AutoDisposeFutureProviderRef<SessionCacheData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -193,4 +197,4 @@ final sessionCacheBucketProvider = AutoDisposeStreamNotifierProvider<
 typedef _$SessionCacheBucket
     = AutoDisposeStreamNotifier<List<SessionCacheData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -29,26 +29,24 @@ SessionResource _$SessionResourceFromJson(Map<String, dynamic> json) =>
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$SessionResourceToJson(SessionResource instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sessionResourceId', instance.sessionResourceId);
-  writeNotNull('resourceName', instance.resourceName);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('data', const BytesConverter().toJson(instance.data));
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('sessionResourceTypeId', instance.sessionResourceTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$SessionResourceToJson(SessionResource instance) =>
+    <String, dynamic>{
+      if (instance.sessionResourceId case final value?)
+        'sessionResourceId': value,
+      if (instance.resourceName case final value?) 'resourceName': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.sessionResourceTypeId case final value?)
+        'sessionResourceTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

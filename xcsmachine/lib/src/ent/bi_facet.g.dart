@@ -32,36 +32,29 @@ BiFacet _$BiFacetFromJson(Map<String, dynamic> json) => BiFacet(
           .toList(),
     );
 
-Map<String, dynamic> _$BiFacetToJson(BiFacet instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('biId', instance.biId);
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('regionId', instance.regionId);
-  writeNotNull('ownerId', instance.ownerId);
-  writeNotNull('group', instance.group);
-  writeNotNull('data', instance.data);
-  writeNotNull('tags', instance.tags);
-  writeNotNull('modified', instance.modified);
-  writeNotNull('applyTarget', instance.applyTarget);
-  writeNotNull('applyRecordType', instance.applyRecordType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('biFacetTypeId', instance.biFacetTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull(
-      'biFacetStatus', instance.biFacetStatus?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$BiFacetToJson(BiFacet instance) => <String, dynamic>{
+      if (instance.biId case final value?) 'biId': value,
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.ownerId case final value?) 'ownerId': value,
+      if (instance.group case final value?) 'group': value,
+      if (instance.data case final value?) 'data': value,
+      if (instance.tags case final value?) 'tags': value,
+      if (instance.modified case final value?) 'modified': value,
+      if (instance.applyTarget case final value?) 'applyTarget': value,
+      if (instance.applyRecordType case final value?) 'applyRecordType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.biFacetTypeId case final value?) 'biFacetTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.biFacetStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'biFacetStatus': value,
+    };
 
 BiFacetStatus _$BiFacetStatusFromJson(Map<String, dynamic> json) =>
     BiFacetStatus(
@@ -83,23 +76,19 @@ BiFacetStatus _$BiFacetStatusFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BiFacetStatusToJson(BiFacetStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('biFacetId', instance.biFacetId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BiFacetStatusToJson(BiFacetStatus instance) =>
+    <String, dynamic>{
+      if (instance.biFacetId case final value?) 'biFacetId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

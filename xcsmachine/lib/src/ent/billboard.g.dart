@@ -23,6 +23,10 @@ Billboard _$BillboardFromJson(Map<String, dynamic> json) => Billboard(
       tag1: json['tag1'] as String?,
       tag2: json['tag2'] as String?,
       tag3: json['tag3'] as String?,
+      moreTags: (json['moreTags'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       billboardId: json['billboardId'] as String?,
       billboardTypeId: json['billboardTypeId'] as String?,
       statusId: json['statusId'] as String?,
@@ -57,48 +61,52 @@ Billboard _$BillboardFromJson(Map<String, dynamic> json) => Billboard(
               .toList(),
     );
 
-Map<String, dynamic> _$BillboardToJson(Billboard instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('escrowId', instance.escrowId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('name', instance.name);
-  writeNotNull('announcement', instance.announcement);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('billboardTypeId', instance.billboardTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('marketplaceId', instance.marketplaceId);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('billboardProdCatalog',
-      instance.billboardProdCatalog?.map((e) => e.toJson()).toList());
-  writeNotNull('billboardAccount',
-      instance.billboardAccount?.map((e) => e.toJson()).toList());
-  writeNotNull('billboardProduct',
-      instance.billboardProduct?.map((e) => e.toJson()).toList());
-  writeNotNull('billboardShipmentCostEstimate',
-      instance.billboardShipmentCostEstimate?.map((e) => e.toJson()).toList());
-  writeNotNull('billboardContent',
-      instance.billboardContent?.map((e) => e.toJson()).toList());
-  writeNotNull('billboardProductPromo',
-      instance.billboardProductPromo?.map((e) => e.toJson()).toList());
-  writeNotNull('billboardProductPriceRule',
-      instance.billboardProductPriceRule?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$BillboardToJson(Billboard instance) => <String, dynamic>{
+      if (instance.escrowId case final value?) 'escrowId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.announcement case final value?) 'announcement': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.billboardTypeId case final value?) 'billboardTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.marketplaceId case final value?) 'marketplaceId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.billboardProdCatalog?.map((e) => e.toJson()).toList()
+          case final value?)
+        'billboardProdCatalog': value,
+      if (instance.billboardAccount?.map((e) => e.toJson()).toList()
+          case final value?)
+        'billboardAccount': value,
+      if (instance.billboardProduct?.map((e) => e.toJson()).toList()
+          case final value?)
+        'billboardProduct': value,
+      if (instance.billboardShipmentCostEstimate
+              ?.map((e) => e.toJson())
+              .toList()
+          case final value?)
+        'billboardShipmentCostEstimate': value,
+      if (instance.billboardContent?.map((e) => e.toJson()).toList()
+          case final value?)
+        'billboardContent': value,
+      if (instance.billboardProductPromo?.map((e) => e.toJson()).toList()
+          case final value?)
+        'billboardProductPromo': value,
+      if (instance.billboardProductPriceRule?.map((e) => e.toJson()).toList()
+          case final value?)
+        'billboardProductPriceRule': value,
+    };
 
 BillboardProdCatalog _$BillboardProdCatalogFromJson(
         Map<String, dynamic> json) =>
@@ -117,25 +125,18 @@ BillboardProdCatalog _$BillboardProdCatalogFromJson(
     );
 
 Map<String, dynamic> _$BillboardProdCatalogToJson(
-    BillboardProdCatalog instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('prodCatalogId', instance.prodCatalogId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        BillboardProdCatalog instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.prodCatalogId case final value?) 'prodCatalogId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BillboardAccount _$BillboardAccountFromJson(Map<String, dynamic> json) =>
     BillboardAccount(
@@ -159,28 +160,23 @@ BillboardAccount _$BillboardAccountFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BillboardAccountToJson(BillboardAccount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('accountId', instance.accountId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BillboardAccountToJson(BillboardAccount instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.accountId case final value?) 'accountId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BillboardProduct _$BillboardProductFromJson(Map<String, dynamic> json) =>
     BillboardProduct(
@@ -231,50 +227,50 @@ BillboardProduct _$BillboardProductFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BillboardProductToJson(BillboardProduct instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('folderId', instance.folderId);
-  writeNotNull('quantityReserved', instance.quantityReserved);
-  writeNotNull('reservedDate', instance.reservedDate?.toIso8601String());
-  writeNotNull(
-      'promisedDatetime', instance.promisedDatetime?.toIso8601String());
-  writeNotNull('scheduled', instance.scheduled);
-  writeNotNull('sold', instance.sold);
-  writeNotNull('unSold', instance.unSold);
-  writeNotNull('avgSellingPrice', instance.avgSellingPrice);
-  writeNotNull('successRatio', instance.successRatio);
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('price', instance.price);
-  writeNotNull('quantity', instance.quantity);
-  writeNotNull('expired', instance.expired);
-  writeNotNull('expiredReason', instance.expiredReason);
-  writeNotNull('evaluationMethodType', instance.evaluationMethodType);
-  writeNotNull(
-      'availablePeriodStart', timeToJson(instance.availablePeriodStart));
-  writeNotNull('availablePeriodEnd', timeToJson(instance.availablePeriodEnd));
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('availableWeekdays', instance.availableWeekdays);
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BillboardProductToJson(BillboardProduct instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.folderId case final value?) 'folderId': value,
+      if (instance.quantityReserved case final value?)
+        'quantityReserved': value,
+      if (instance.reservedDate?.toIso8601String() case final value?)
+        'reservedDate': value,
+      if (instance.promisedDatetime?.toIso8601String() case final value?)
+        'promisedDatetime': value,
+      if (instance.scheduled case final value?) 'scheduled': value,
+      if (instance.sold case final value?) 'sold': value,
+      if (instance.unSold case final value?) 'unSold': value,
+      if (instance.avgSellingPrice case final value?) 'avgSellingPrice': value,
+      if (instance.successRatio case final value?) 'successRatio': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.price case final value?) 'price': value,
+      if (instance.quantity case final value?) 'quantity': value,
+      if (instance.expired case final value?) 'expired': value,
+      if (instance.expiredReason case final value?) 'expiredReason': value,
+      if (instance.evaluationMethodType case final value?)
+        'evaluationMethodType': value,
+      if (timeToJson(instance.availablePeriodStart) case final value?)
+        'availablePeriodStart': value,
+      if (timeToJson(instance.availablePeriodEnd) case final value?)
+        'availablePeriodEnd': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.availableWeekdays case final value?)
+        'availableWeekdays': value,
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BillboardShipmentCostEstimate _$BillboardShipmentCostEstimateFromJson(
         Map<String, dynamic> json) =>
@@ -298,30 +294,24 @@ BillboardShipmentCostEstimate _$BillboardShipmentCostEstimateFromJson(
     );
 
 Map<String, dynamic> _$BillboardShipmentCostEstimateToJson(
-    BillboardShipmentCostEstimate instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('shipmentCostEstimateId', instance.shipmentCostEstimateId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('title', instance.title);
-  writeNotNull('price', instance.price);
-  writeNotNull('quantity', instance.quantity);
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('id', instance.id);
-  return val;
-}
+        BillboardShipmentCostEstimate instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.shipmentCostEstimateId case final value?)
+        'shipmentCostEstimateId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.title case final value?) 'title': value,
+      if (instance.price case final value?) 'price': value,
+      if (instance.quantity case final value?) 'quantity': value,
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BillboardContent _$BillboardContentFromJson(Map<String, dynamic> json) =>
     BillboardContent(
@@ -343,30 +333,24 @@ BillboardContent _$BillboardContentFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BillboardContentToJson(BillboardContent instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('availableToTrade', instance.availableToTrade);
-  writeNotNull('price', instance.price);
-  writeNotNull('quantity', instance.quantity);
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BillboardContentToJson(BillboardContent instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.availableToTrade case final value?)
+        'availableToTrade': value,
+      if (instance.price case final value?) 'price': value,
+      if (instance.quantity case final value?) 'quantity': value,
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BillboardProductPromo _$BillboardProductPromoFromJson(
         Map<String, dynamic> json) =>
@@ -391,27 +375,22 @@ BillboardProductPromo _$BillboardProductPromoFromJson(
     );
 
 Map<String, dynamic> _$BillboardProductPromoToJson(
-    BillboardProductPromo instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('productPromoId', instance.productPromoId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        BillboardProductPromo instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.productPromoId case final value?) 'productPromoId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BillboardProductPriceRule _$BillboardProductPriceRuleFromJson(
         Map<String, dynamic> json) =>
@@ -430,22 +409,16 @@ BillboardProductPriceRule _$BillboardProductPriceRuleFromJson(
     );
 
 Map<String, dynamic> _$BillboardProductPriceRuleToJson(
-    BillboardProductPriceRule instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('billboardId', instance.billboardId);
-  writeNotNull('productPriceRuleId', instance.productPriceRuleId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        BillboardProductPriceRule instance) =>
+    <String, dynamic>{
+      if (instance.billboardId case final value?) 'billboardId': value,
+      if (instance.productPriceRuleId case final value?)
+        'productPriceRuleId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

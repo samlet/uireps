@@ -26,28 +26,21 @@ Slot _$SlotFromJson(Map<String, dynamic> json) => Slot(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$SlotToJson(Slot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('slotName', instance.slotName);
-  writeNotNull('slotType', instance.slotType);
-  writeNotNull('defaultValue', instance.defaultValue);
-  writeNotNull('required', instance.required);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('slotData', const BytesConverter().toJson(instance.slotData));
-  writeNotNull('groupName', instance.groupName);
-  writeNotNull('slotSeq', instance.slotSeq);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$SlotToJson(Slot instance) => <String, dynamic>{
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.slotName case final value?) 'slotName': value,
+      if (instance.slotType case final value?) 'slotType': value,
+      if (instance.defaultValue case final value?) 'defaultValue': value,
+      if (instance.required case final value?) 'required': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (const BytesConverter().toJson(instance.slotData) case final value?)
+        'slotData': value,
+      if (instance.groupName case final value?) 'groupName': value,
+      if (instance.slotSeq case final value?) 'slotSeq': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

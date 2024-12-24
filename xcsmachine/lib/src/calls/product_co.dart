@@ -315,21 +315,6 @@ class ProductCoRepository {
   }
    
   // Query
-  Future<double> getListPrice() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getListPrice",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asDouble(resp);
-  }
-   
-  // Query
   Future<double> price({
     
     required String priceType, 
@@ -347,6 +332,41 @@ class ProductCoRepository {
     });
     
     return ResultConv.asDouble(resp);
+  }
+   
+  // Query
+  Future<double> getListPrice() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getListPrice",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asDouble(resp);
+  }
+   
+  // Query
+  Future<Map<String, double>> getPricesByPurpose({
+    
+    required String purposeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPricesByPurpose",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "purposeId": purposeId, 
+    });
+    
+    return asTypedMap<double>(resp);
   }
    
   // Mutation

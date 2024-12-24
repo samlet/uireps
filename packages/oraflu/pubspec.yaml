@@ -16,7 +16,7 @@ dependencies:
   isar_flutter_libs: 3.0.5
   json_annotation: ^4.8.0
   slugid: ^1.1.0
-  get_it: ^7.2.0
+  get_it: ^8.0.3
   ora:
     path: ../ora
 

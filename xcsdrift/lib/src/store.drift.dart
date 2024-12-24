@@ -95,6 +95,7 @@ typedef $ProductStoreCreateCompanionBuilder = i1.ProductStoreCompanion
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<Map<String, String>?> jointers,
   i0.Value<i2.Multimap<String, String>?> multiJointers,
   i0.Value<i2.Multimap<String, String>?> acl,
@@ -206,6 +207,7 @@ typedef $ProductStoreUpdateCompanionBuilder = i1.ProductStoreCompanion
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<Map<String, String>?> jointers,
   i0.Value<i2.Multimap<String, String>?> multiJointers,
   i0.Value<i2.Multimap<String, String>?> acl,
@@ -574,6 +576,12 @@ class $ProductStoreFilterComposer
   i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnWithTypeConverterFilters<Map<String, String>?, Map<String, String>,
@@ -1029,6 +1037,9 @@ class $ProductStoreOrderingComposer
   i0.ColumnOrderings<String> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get jointers => $composableBuilder(
       column: $table.jointers, builder: (column) => i0.ColumnOrderings(column));
 
@@ -1383,6 +1394,10 @@ class $ProductStoreAnnotationComposer
   i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
   i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
       get jointers => $composableBuilder(
           column: $table.jointers, builder: (column) => column);
@@ -1584,6 +1599,8 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> multiJointers =
                 const i0.Value.absent(),
@@ -1705,6 +1722,7 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             jointers: jointers,
             multiJointers: multiJointers,
             acl: acl,
@@ -1824,6 +1842,8 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
             i0.Value<i2.Multimap<String, String>?> multiJointers =
                 const i0.Value.absent(),
@@ -1945,6 +1965,7 @@ class $ProductStoreTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             jointers: jointers,
             multiJointers: multiJointers,
             acl: acl,
@@ -2621,6 +2642,16 @@ class ProductStore extends i0.Table
               requiredDuringInsert: false,
               $customConstraints: '')
           .withConverter<List<String>?>(i1.ProductStore.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.Multimap<String, String>?>(
+              i1.ProductStore.$converterlabelsn);
   static const i0.VerificationMeta _jointersMeta =
       const i0.VerificationMeta('jointers');
   late final i0.GeneratedColumnWithTypeConverter<Map<String, String>?, String>
@@ -2899,6 +2930,7 @@ class ProductStore extends i0.Table
         tag2,
         tag3,
         moreTags,
+        labels,
         jointers,
         multiJointers,
         acl,
@@ -3449,6 +3481,7 @@ class ProductStore extends i0.Table
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     context.handle(_jointersMeta, const i0.VerificationResult.success());
     context.handle(_multiJointersMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
@@ -3737,6 +3770,9 @@ class ProductStore extends i0.Table
       moreTags: i1.ProductStore.$convertermoreTagsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.ProductStore.$converterlabelsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       jointers: i1.ProductStore.$converterjointersn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}jointers'])),
@@ -3807,6 +3843,12 @@ class ProductStore extends i0.Table
   static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
       $convertermoreTagsn =
       i0.JsonTypeConverter2.asNullable($convertermoreTags);
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i4.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
   static i0
       .JsonTypeConverter2<Map<String, String>, String, Map<String, dynamic>>
       $converterjointers = const i4.StringMapConverter();
@@ -3975,6 +4017,7 @@ class ProductStoreData extends i0.DataClass
   final String? tag2;
   final String? tag3;
   final List<String>? moreTags;
+  final i2.Multimap<String, String>? labels;
   final Map<String, String>? jointers;
   final i2.Multimap<String, String>? multiJointers;
   final i2.Multimap<String, String>? acl;
@@ -4086,6 +4129,7 @@ class ProductStoreData extends i0.DataClass
       this.tag2,
       this.tag3,
       this.moreTags,
+      this.labels,
       this.jointers,
       this.multiJointers,
       this.acl,
@@ -4392,6 +4436,10 @@ class ProductStoreData extends i0.DataClass
     if (!nullToAbsent || moreTags != null) {
       map['more_tags'] = i0.Variable<String>(
           i1.ProductStore.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.ProductStore.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || jointers != null) {
       map['jointers'] = i0.Variable<String>(
@@ -4743,6 +4791,9 @@ class ProductStoreData extends i0.DataClass
       moreTags: moreTags == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       jointers: jointers == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(jointers),
@@ -4957,6 +5008,8 @@ class ProductStoreData extends i0.DataClass
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: i1.ProductStore.$convertermoreTagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.ProductStore.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       jointers: i1.ProductStore.$converterjointersn.fromJson(
           serializer.fromJson<Map<String, dynamic>?>(json['jointers'])),
       multiJointers: i1.ProductStore.$convertermultiJointersn.fromJson(
@@ -5126,6 +5179,8 @@ class ProductStoreData extends i0.DataClass
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<List<dynamic>?>(
           i1.ProductStore.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.ProductStore.$converterlabelsn.toJson(labels)),
       'jointers': serializer.toJson<Map<String, dynamic>?>(
           i1.ProductStore.$converterjointersn.toJson(jointers)),
       'multi_jointers': serializer.toJson<Map<String, dynamic>?>(
@@ -5263,6 +5318,8 @@ class ProductStoreData extends i0.DataClass
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i2.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<Map<String, String>?> jointers = const i0.Value.absent(),
           i0.Value<i2.Multimap<String, String>?> multiJointers =
               const i0.Value.absent(),
@@ -5518,6 +5575,7 @@ class ProductStoreData extends i0.DataClass
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         jointers: jointers.present ? jointers.value : this.jointers,
         multiJointers:
             multiJointers.present ? multiJointers.value : this.multiJointers,
@@ -5800,6 +5858,7 @@ class ProductStoreData extends i0.DataClass
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       jointers: data.jointers.present ? data.jointers.value : this.jointers,
       multiJointers: data.multiJointers.present
           ? data.multiJointers.value
@@ -5935,6 +5994,7 @@ class ProductStoreData extends i0.DataClass
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('jointers: $jointers, ')
           ..write('multiJointers: $multiJointers, ')
           ..write('acl: $acl, ')
@@ -6048,6 +6108,7 @@ class ProductStoreData extends i0.DataClass
         tag2,
         tag3,
         moreTags,
+        labels,
         jointers,
         multiJointers,
         acl,
@@ -6160,6 +6221,7 @@ class ProductStoreData extends i0.DataClass
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.jointers == this.jointers &&
           other.multiJointers == this.multiJointers &&
           other.acl == this.acl &&
@@ -6270,6 +6332,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
+  final i0.Value<i2.Multimap<String, String>?> labels;
   final i0.Value<Map<String, String>?> jointers;
   final i0.Value<i2.Multimap<String, String>?> multiJointers;
   final i0.Value<i2.Multimap<String, String>?> acl;
@@ -6380,6 +6443,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.jointers = const i0.Value.absent(),
     this.multiJointers = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
@@ -6490,6 +6554,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.jointers = const i0.Value.absent(),
     this.multiJointers = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
@@ -6600,6 +6665,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<String>? jointers,
     i0.Expression<String>? multiJointers,
     i0.Expression<String>? acl,
@@ -6757,6 +6823,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (jointers != null) 'jointers': jointers,
       if (multiJointers != null) 'multi_jointers': multiJointers,
       if (acl != null) 'acl': acl,
@@ -6876,6 +6943,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
+      i0.Value<i2.Multimap<String, String>?>? labels,
       i0.Value<Map<String, String>?>? jointers,
       i0.Value<i2.Multimap<String, String>?>? multiJointers,
       i0.Value<i2.Multimap<String, String>?>? acl,
@@ -7009,6 +7077,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       jointers: jointers ?? this.jointers,
       multiJointers: multiJointers ?? this.multiJointers,
       acl: acl ?? this.acl,
@@ -7350,6 +7419,10 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
       map['more_tags'] = i0.Variable<String>(
           i1.ProductStore.$convertermoreTagsn.toSql(moreTags.value));
     }
+    if (labels.present) {
+      map['labels'] = i0.Variable<String>(
+          i1.ProductStore.$converterlabelsn.toSql(labels.value));
+    }
     if (jointers.present) {
       map['jointers'] = i0.Variable<String>(
           i1.ProductStore.$converterjointersn.toSql(jointers.value));
@@ -7530,6 +7603,7 @@ class ProductStoreCompanion extends i0.UpdateCompanion<i1.ProductStoreData> {
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('jointers: $jointers, ')
           ..write('multiJointers: $multiJointers, ')
           ..write('acl: $acl, ')

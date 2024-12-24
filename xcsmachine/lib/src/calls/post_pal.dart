@@ -265,20 +265,6 @@ class PostPalRepository {
     return ResultConv.asString(resp);
   }
    
-  // Mutation
-  Future<void> unlike() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "unlike",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
   // Query
   Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
@@ -292,6 +278,20 @@ class PostPalRepository {
     });
     
     return PostBundle.fromJson(resp);
+  }
+   
+  // Mutation
+  Future<void> unlike() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "unlike",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
   }
    
   // Query

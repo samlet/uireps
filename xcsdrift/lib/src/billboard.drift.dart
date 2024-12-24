@@ -19,6 +19,8 @@ typedef $BillboardCreateCompanionBuilder = i1.BillboardCompanion Function({
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<String?> billboardTypeId,
   i0.Value<String?> statusId,
   i0.Value<String?> marketplaceId,
@@ -47,6 +49,8 @@ typedef $BillboardUpdateCompanionBuilder = i1.BillboardCompanion Function({
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<String?> billboardTypeId,
   i0.Value<String?> statusId,
   i0.Value<String?> marketplaceId,
@@ -109,6 +113,17 @@ class $BillboardFilterComposer
 
   i0.ColumnFilters<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnFilters<String> get billboardTypeId => $composableBuilder(
       column: $table.billboardTypeId,
@@ -223,6 +238,12 @@ class $BillboardOrderingComposer
   i0.ColumnOrderings<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get billboardTypeId => $composableBuilder(
       column: $table.billboardTypeId,
       builder: (column) => i0.ColumnOrderings(column));
@@ -317,6 +338,13 @@ class $BillboardAnnotationComposer
   i0.GeneratedColumn<String> get tag3 =>
       $composableBuilder(column: $table.tag3, builder: (column) => column);
 
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
   i0.GeneratedColumn<String> get billboardTypeId => $composableBuilder(
       column: $table.billboardTypeId, builder: (column) => column);
 
@@ -406,6 +434,9 @@ class $BillboardTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<String?> billboardTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<String?> marketplaceId = const i0.Value.absent(),
@@ -441,6 +472,8 @@ class $BillboardTableManager extends i0.RootTableManager<
             tag1: tag1,
             tag2: tag2,
             tag3: tag3,
+            moreTags: moreTags,
+            labels: labels,
             billboardTypeId: billboardTypeId,
             statusId: statusId,
             marketplaceId: marketplaceId,
@@ -468,6 +501,9 @@ class $BillboardTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<String?> billboardTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<String?> marketplaceId = const i0.Value.absent(),
@@ -503,6 +539,8 @@ class $BillboardTableManager extends i0.RootTableManager<
             tag1: tag1,
             tag2: tag2,
             tag3: tag3,
+            moreTags: moreTags,
+            labels: labels,
             billboardTypeId: billboardTypeId,
             statusId: statusId,
             marketplaceId: marketplaceId,
@@ -624,6 +662,24 @@ class Billboard extends i0.Table
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _moreTagsMeta =
+      const i0.VerificationMeta('moreTags');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Billboard.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.Multimap<String, String>?>(
+              i1.Billboard.$converterlabelsn);
   static const i0.VerificationMeta _billboardTypeIdMeta =
       const i0.VerificationMeta('billboardTypeId');
   late final i0.GeneratedColumn<String> billboardTypeId =
@@ -756,6 +812,8 @@ class Billboard extends i0.Table
         tag1,
         tag2,
         tag3,
+        moreTags,
+        labels,
         billboardTypeId,
         statusId,
         marketplaceId,
@@ -835,6 +893,8 @@ class Billboard extends i0.Table
       context.handle(
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     if (data.containsKey('billboard_type_id')) {
       context.handle(
           _billboardTypeIdMeta,
@@ -908,6 +968,12 @@ class Billboard extends i0.Table
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
       tag3: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
+      moreTags: i1.Billboard.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.Billboard.$converterlabelsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       billboardTypeId: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}billboard_type_id']),
       statusId: attachedDatabase.typeMapping
@@ -951,6 +1017,17 @@ class Billboard extends i0.Table
     return Billboard(attachedDatabase, alias);
   }
 
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i4.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i4.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
   static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i4.StringMultimapConverter();
   static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
@@ -1016,6 +1093,8 @@ class BillboardData extends i0.DataClass
   final String? tag1;
   final String? tag2;
   final String? tag3;
+  final List<String>? moreTags;
+  final i2.Multimap<String, String>? labels;
   final String? billboardTypeId;
   final String? statusId;
   final String? marketplaceId;
@@ -1044,6 +1123,8 @@ class BillboardData extends i0.DataClass
       this.tag1,
       this.tag2,
       this.tag3,
+      this.moreTags,
+      this.labels,
       this.billboardTypeId,
       this.statusId,
       this.marketplaceId,
@@ -1090,6 +1171,14 @@ class BillboardData extends i0.DataClass
     }
     if (!nullToAbsent || tag3 != null) {
       map['tag3'] = i0.Variable<String>(tag3);
+    }
+    if (!nullToAbsent || moreTags != null) {
+      map['more_tags'] =
+          i0.Variable<String>(i1.Billboard.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.Billboard.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || billboardTypeId != null) {
       map['billboard_type_id'] = i0.Variable<String>(billboardTypeId);
@@ -1177,6 +1266,12 @@ class BillboardData extends i0.DataClass
       tag3: tag3 == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(tag3),
+      moreTags: moreTags == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       billboardTypeId: billboardTypeId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(billboardTypeId),
@@ -1236,6 +1331,10 @@ class BillboardData extends i0.DataClass
       tag1: serializer.fromJson<String?>(json['tag1']),
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
+      moreTags: i1.Billboard.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.Billboard.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       billboardTypeId: serializer.fromJson<String?>(json['billboard_type_id']),
       statusId: serializer.fromJson<String?>(json['status_id']),
       marketplaceId: serializer.fromJson<String?>(json['marketplace_id']),
@@ -1283,6 +1382,10 @@ class BillboardData extends i0.DataClass
       'tag1': serializer.toJson<String?>(tag1),
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.Billboard.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.Billboard.$converterlabelsn.toJson(labels)),
       'billboard_type_id': serializer.toJson<String?>(billboardTypeId),
       'status_id': serializer.toJson<String?>(statusId),
       'marketplace_id': serializer.toJson<String?>(marketplaceId),
@@ -1325,6 +1428,9 @@ class BillboardData extends i0.DataClass
           i0.Value<String?> tag1 = const i0.Value.absent(),
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i2.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<String?> billboardTypeId = const i0.Value.absent(),
           i0.Value<String?> statusId = const i0.Value.absent(),
           i0.Value<String?> marketplaceId = const i0.Value.absent(),
@@ -1361,6 +1467,8 @@ class BillboardData extends i0.DataClass
         tag1: tag1.present ? tag1.value : this.tag1,
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
+        moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         billboardTypeId: billboardTypeId.present
             ? billboardTypeId.value
             : this.billboardTypeId,
@@ -1413,6 +1521,8 @@ class BillboardData extends i0.DataClass
       tag1: data.tag1.present ? data.tag1.value : this.tag1,
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
+      moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       billboardTypeId: data.billboardTypeId.present
           ? data.billboardTypeId.value
           : this.billboardTypeId,
@@ -1463,6 +1573,8 @@ class BillboardData extends i0.DataClass
           ..write('tag1: $tag1, ')
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('billboardTypeId: $billboardTypeId, ')
           ..write('statusId: $statusId, ')
           ..write('marketplaceId: $marketplaceId, ')
@@ -1494,6 +1606,8 @@ class BillboardData extends i0.DataClass
         tag1,
         tag2,
         tag3,
+        moreTags,
+        labels,
         billboardTypeId,
         statusId,
         marketplaceId,
@@ -1523,6 +1637,8 @@ class BillboardData extends i0.DataClass
           other.tag1 == this.tag1 &&
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
+          other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.billboardTypeId == this.billboardTypeId &&
           other.statusId == this.statusId &&
           other.marketplaceId == this.marketplaceId &&
@@ -1551,6 +1667,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
   final i0.Value<String?> tag1;
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
+  final i0.Value<List<String>?> moreTags;
+  final i0.Value<i2.Multimap<String, String>?> labels;
   final i0.Value<String?> billboardTypeId;
   final i0.Value<String?> statusId;
   final i0.Value<String?> marketplaceId;
@@ -1578,6 +1696,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
     this.tag1 = const i0.Value.absent(),
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.billboardTypeId = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.marketplaceId = const i0.Value.absent(),
@@ -1605,6 +1725,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
     this.tag1 = const i0.Value.absent(),
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.billboardTypeId = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.marketplaceId = const i0.Value.absent(),
@@ -1632,6 +1754,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
     i0.Expression<String>? tag1,
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
+    i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<String>? billboardTypeId,
     i0.Expression<String>? statusId,
     i0.Expression<String>? marketplaceId,
@@ -1660,6 +1784,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
       if (tag1 != null) 'tag1': tag1,
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
+      if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (billboardTypeId != null) 'billboard_type_id': billboardTypeId,
       if (statusId != null) 'status_id': statusId,
       if (marketplaceId != null) 'marketplace_id': marketplaceId,
@@ -1693,6 +1819,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
       i0.Value<String?>? tag1,
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
+      i0.Value<List<String>?>? moreTags,
+      i0.Value<i2.Multimap<String, String>?>? labels,
       i0.Value<String?>? billboardTypeId,
       i0.Value<String?>? statusId,
       i0.Value<String?>? marketplaceId,
@@ -1720,6 +1848,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       billboardTypeId: billboardTypeId ?? this.billboardTypeId,
       statusId: statusId ?? this.statusId,
       marketplaceId: marketplaceId ?? this.marketplaceId,
@@ -1776,6 +1906,14 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
     }
     if (tag3.present) {
       map['tag3'] = i0.Variable<String>(tag3.value);
+    }
+    if (moreTags.present) {
+      map['more_tags'] = i0.Variable<String>(
+          i1.Billboard.$convertermoreTagsn.toSql(moreTags.value));
+    }
+    if (labels.present) {
+      map['labels'] = i0.Variable<String>(
+          i1.Billboard.$converterlabelsn.toSql(labels.value));
     }
     if (billboardTypeId.present) {
       map['billboard_type_id'] = i0.Variable<String>(billboardTypeId.value);
@@ -1851,6 +1989,8 @@ class BillboardCompanion extends i0.UpdateCompanion<i1.BillboardData> {
           ..write('tag1: $tag1, ')
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('billboardTypeId: $billboardTypeId, ')
           ..write('statusId: $statusId, ')
           ..write('marketplaceId: $marketplaceId, ')

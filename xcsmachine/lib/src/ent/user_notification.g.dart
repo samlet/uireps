@@ -25,26 +25,21 @@ UserNotification _$UserNotificationFromJson(Map<String, dynamic> json) =>
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$UserNotificationToJson(UserNotification instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userNotificationId', instance.userNotificationId);
-  writeNotNull('sourceName', instance.sourceName);
-  writeNotNull('sourceLoginId', instance.sourceLoginId);
-  writeNotNull('targetLoginId', instance.targetLoginId);
-  writeNotNull('content', instance.content);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('userNotificationTypeId', instance.userNotificationTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$UserNotificationToJson(UserNotification instance) =>
+    <String, dynamic>{
+      if (instance.userNotificationId case final value?)
+        'userNotificationId': value,
+      if (instance.sourceName case final value?) 'sourceName': value,
+      if (instance.sourceLoginId case final value?) 'sourceLoginId': value,
+      if (instance.targetLoginId case final value?) 'targetLoginId': value,
+      if (instance.content case final value?) 'content': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.userNotificationTypeId case final value?)
+        'userNotificationTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

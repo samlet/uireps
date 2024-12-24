@@ -28,32 +28,27 @@ Marketplace _$MarketplaceFromJson(Map<String, dynamic> json) => Marketplace(
           .toList(),
     );
 
-Map<String, dynamic> _$MarketplaceToJson(Marketplace instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('adminId', instance.adminId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('name', instance.name);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('realmId', instance.realmId);
-  writeNotNull('marketplaceId', instance.marketplaceId);
-  writeNotNull('amount', instance.amount);
-  writeNotNull('marketplaceErcId', instance.marketplaceErcId);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('marketplaceMultisig',
-      instance.marketplaceMultisig?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$MarketplaceToJson(Marketplace instance) =>
+    <String, dynamic>{
+      if (instance.adminId case final value?) 'adminId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.realmId case final value?) 'realmId': value,
+      if (instance.marketplaceId case final value?) 'marketplaceId': value,
+      if (instance.amount case final value?) 'amount': value,
+      if (instance.marketplaceErcId case final value?)
+        'marketplaceErcId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.marketplaceMultisig?.map((e) => e.toJson()).toList()
+          case final value?)
+        'marketplaceMultisig': value,
+    };
 
 MarketplaceMultisig _$MarketplaceMultisigFromJson(Map<String, dynamic> json) =>
     MarketplaceMultisig(
@@ -70,22 +65,16 @@ MarketplaceMultisig _$MarketplaceMultisigFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$MarketplaceMultisigToJson(MarketplaceMultisig instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('marketplaceId', instance.marketplaceId);
-  writeNotNull('multisigId', instance.multisigId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$MarketplaceMultisigToJson(
+        MarketplaceMultisig instance) =>
+    <String, dynamic>{
+      if (instance.marketplaceId case final value?) 'marketplaceId': value,
+      if (instance.multisigId case final value?) 'multisigId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

@@ -21,6 +21,8 @@ final inventoryRepositoryProvider = Provider<InventoryRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef InventoryRepositoryRef = ProviderRef<InventoryRepository>;
 String _$getInventoryHash() => r'e868e0eaf48ccf133311b22e5443d533ebcbf166';
 
@@ -159,6 +161,8 @@ class GetInventoryProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetInventoryRef on AutoDisposeFutureProviderRef<InventoryItemData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -190,4 +194,4 @@ final inventoryBucketProvider = AutoDisposeStreamNotifierProvider<
 
 typedef _$InventoryBucket = AutoDisposeStreamNotifier<List<InventoryItemData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

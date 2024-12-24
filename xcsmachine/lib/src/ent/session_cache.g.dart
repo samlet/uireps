@@ -34,30 +34,26 @@ SessionCache _$SessionCacheFromJson(Map<String, dynamic> json) => SessionCache(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$SessionCacheToJson(SessionCache instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sessionCacheId', instance.sessionCacheId);
-  writeNotNull('fetchTime', instance.fetchTime?.toIso8601String());
-  writeNotNull('thruTime', instance.thruTime?.toIso8601String());
-  writeNotNull('elements', instance.elements);
-  writeNotNull('subject', instance.subject);
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('tenantKey', instance.tenantKey);
-  writeNotNull('regKey', instance.regKey);
-  writeNotNull('bundleId', instance.bundleId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('sessionCacheTypeId', instance.sessionCacheTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$SessionCacheToJson(SessionCache instance) =>
+    <String, dynamic>{
+      if (instance.sessionCacheId case final value?) 'sessionCacheId': value,
+      if (instance.fetchTime?.toIso8601String() case final value?)
+        'fetchTime': value,
+      if (instance.thruTime?.toIso8601String() case final value?)
+        'thruTime': value,
+      if (instance.elements case final value?) 'elements': value,
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.tenantKey case final value?) 'tenantKey': value,
+      if (instance.regKey case final value?) 'regKey': value,
+      if (instance.bundleId case final value?) 'bundleId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.sessionCacheTypeId case final value?)
+        'sessionCacheTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

@@ -15,10 +15,5 @@ const anonymousToken=
 //     "Aeh4CYkpeZQCK3NZw73iOT82uAKCB5w2EWOYYDKFS7M";
 
 const samletToken =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvd25lciI6InBlcnNvbl8yIiwiem"
-    "9uZSI6ImRlZmF1bHQiLCJpc3MiOiJibHVlY2MiLCJAdG9rZW5UeXBlIjoidXNlclRva"
-    "2VuIiwiZXhwIjoxNzM0NzMzNDUxLCJyZWdpb24iOiJkZWZhdWx0IiwibG9naW4iOi"
-    "JzYW1sZXQiLCJAY29udGV4dCI6Imh0dHBzOi8vYmx1ZWNjLmNvbS8iLCJpYXQiOjE3Mz"
-    "IxNDE0NTEsImp0aSI6ImFSNzZlT0tvYU5UeFprbmIza0hNRlEifQ.Y5QZMw_3xWJS_0V4C"
-    "dFahzfZO75cGBrFKM4W_WqpqHo";
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvd25lciI6InNhbWxldCIsInpvbmUiOiJkZWZhdWx0IiwiaXNzIjoiYmx1ZWNjIiwiQHRva2VuVHlwZSI6InVzZXJUb2tlbiIsImV4cCI6MTczNzY0MTQzMSwicmVnaW9uIjoiZGVmYXVsdCIsImxvZ2luIjoic2FtbGV0IiwiQGNvbnRleHQiOiJodHRwczovL2JsdWVjYy5jb20vIiwiaWF0IjoxNzM1MDQ5NDMxLCJqdGkiOiJheDc4SUExYkNuc3FZYmVOTXMyenhRIn0.AcjsxKyvHsu_oSXhCINA-bqhcv0jWkYT0ztB_w_FWeo";
 

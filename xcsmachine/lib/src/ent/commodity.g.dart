@@ -31,33 +31,26 @@ Commodity _$CommodityFromJson(Map<String, dynamic> json) => Commodity(
               json['commodityType'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$CommodityToJson(Commodity instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('commodityId', instance.commodityId);
-  writeNotNull('createBy', instance.createBy);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('dimension', instance.dimension);
-  writeNotNull('color', instance.color);
-  writeNotNull('slogan', instance.slogan);
-  writeNotNull('logo', instance.logo);
-  writeNotNull('brand', instance.brand);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('commodityTypeId', instance.commodityTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('commodityType', instance.commodityType?.toJson());
-  return val;
-}
+Map<String, dynamic> _$CommodityToJson(Commodity instance) => <String, dynamic>{
+      if (instance.commodityId case final value?) 'commodityId': value,
+      if (instance.createBy case final value?) 'createBy': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.dimension case final value?) 'dimension': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.slogan case final value?) 'slogan': value,
+      if (instance.logo case final value?) 'logo': value,
+      if (instance.brand case final value?) 'brand': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.commodityTypeId case final value?) 'commodityTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.commodityType?.toJson() case final value?)
+        'commodityType': value,
+    };
 
 CommodityType _$CommodityTypeFromJson(Map<String, dynamic> json) =>
     CommodityType(
@@ -73,21 +66,14 @@ CommodityType _$CommodityTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$CommodityTypeToJson(CommodityType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('commodityTypeId', instance.commodityTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$CommodityTypeToJson(CommodityType instance) =>
+    <String, dynamic>{
+      if (instance.commodityTypeId case final value?) 'commodityTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

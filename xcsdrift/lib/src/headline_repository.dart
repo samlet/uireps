@@ -343,6 +343,31 @@ class HeadlineRepository extends RepositoryBase {
     yield* multiWatch(queryIds);
   }
 
+  
+  // ---- tags ----
+  Future<List<ent.Headline>> fetchByTags(List<String> tags, {bool smartMode=false}) async {
+    var result = await tagsRepo.queryByTags(r: QueryByTags(bundleName: 'Headline', tags: tags));
+    _logger.info("query headline result ${result.length}");
+    // var rs=result.map((el)=>ent.Headline.fromJson(el)).toList();
+    var rs=storeDs(result, smartMode: smartMode);
+    return rs;
+  }
+
+  Stream<List<HeadlineData>> fetchAndWatchByTags(List<String> tags) async*{
+    var rs=await fetchByTags(tags, smartMode: true);
+    var queryIds=rs.map((el)=> el.headlineId!).toList();
+    yield* multiWatch(queryIds);
+  }
+
+  Future<HeadlinePagedDs> fetchPagedTag(String tag,
+      {bool smartMode = false, PageLimit? pageLimit}) async {
+    var ds = await queryDealer.queryBundlePageByTag(
+        bundleName: _bundleName, tag: tag, pageLimit: pageLimit);
+    var elements = ds.results ?? [];
+    var rs = await storeDs(elements, smartMode: smartMode);
+    return HeadlinePagedDs(ds, rs);
+  }
+
      
 
   

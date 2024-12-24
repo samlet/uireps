@@ -142,6 +142,8 @@ class DefaultGenMetaProvider extends Provider<DefaultGenMetaRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DefaultGenMetaRef on ProviderRef<DefaultGenMetaRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -287,6 +289,8 @@ class DefaultGenMetaGetEntityProfileProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DefaultGenMetaGetEntityProfileRef
     on AutoDisposeFutureProviderRef<EntityProfile> {
   /// The parameter `regionOrNs` of this provider.
@@ -430,6 +434,8 @@ class DefaultGenMetaGetBundleNamesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DefaultGenMetaGetBundleNamesRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -576,6 +582,8 @@ class DefaultGenMetaPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin DefaultGenMetaPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -590,4 +598,4 @@ class _DefaultGenMetaPodProviderElement
   String get regionOrNs => (origin as DefaultGenMetaPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

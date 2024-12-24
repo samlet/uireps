@@ -21,6 +21,8 @@ final buyerPrefRepositoryProvider = Provider<BuyerPrefRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef BuyerPrefRepositoryRef = ProviderRef<BuyerPrefRepository>;
 String _$getBuyerPrefHash() => r'a28e4e326d642a883fdaf06b726fb56babbfdd4d';
 
@@ -158,6 +160,8 @@ class GetBuyerPrefProvider extends AutoDisposeFutureProvider<BuyerPrefData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetBuyerPrefRef on AutoDisposeFutureProviderRef<BuyerPrefData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -189,4 +193,4 @@ final buyerPrefBucketProvider = AutoDisposeStreamNotifierProvider<
 
 typedef _$BuyerPrefBucket = AutoDisposeStreamNotifier<List<BuyerPrefData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

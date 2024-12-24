@@ -153,6 +153,8 @@ class UserPalProvider extends AutoDisposeProvider<UserPalRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalRef on AutoDisposeProviderRef<UserPalRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -310,6 +312,8 @@ class UserPalGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetSlotValueRef on AutoDisposeFutureProviderRef<ValueData> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -473,6 +477,8 @@ class UserPalHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalHasSlotValueRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -625,6 +631,8 @@ class UserPalGetDefaultLoginIdProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetDefaultLoginIdRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -773,6 +781,8 @@ class UserPalGetAllTelsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAllTelsRef on AutoDisposeFutureProviderRef<TelecomNumberList> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -925,6 +935,8 @@ class UserPalGetUnreadNotificationsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetUnreadNotificationsRef
     on AutoDisposeFutureProviderRef<List<Notification>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1075,6 +1087,8 @@ class UserPalGetAllAddrsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAllAddrsRef on AutoDisposeFutureProviderRef<PostalAddressList> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1224,6 +1238,8 @@ class UserPalGetShipsAsOriginProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetShipsAsOriginRef
     on AutoDisposeFutureProviderRef<List<Shipment>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1383,6 +1399,8 @@ class UserPalIsTypeProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalIsTypeRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1534,6 +1552,8 @@ class UserPalGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1685,6 +1705,8 @@ class UserPalGetShipsAsDestinationProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetShipsAsDestinationRef
     on AutoDisposeFutureProviderRef<List<Shipment>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1836,6 +1858,8 @@ class UserPalGetOrdersAsCarrierProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetOrdersAsCarrierRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1987,6 +2011,8 @@ class UserPalGetTelDataProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetTelDataRef
     on AutoDisposeFutureProviderRef<TelecomNumberFlatData> {
   /// The parameter `regionOrNs` of this provider.
@@ -2134,6 +2160,8 @@ class UserPalWalletProvider extends AutoDisposeFutureProvider<Wallet> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalWalletRef on AutoDisposeFutureProviderRef<Wallet> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2283,6 +2311,8 @@ class UserPalGetAddressDataProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAddressDataRef
     on AutoDisposeFutureProviderRef<PostalAddressFlatData> {
   /// The parameter `regionOrNs` of this provider.
@@ -2430,6 +2460,8 @@ class UserPalNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2575,6 +2607,8 @@ class UserPalGetEmailProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetEmailRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2720,6 +2754,8 @@ class UserPalFetchProvider extends AutoDisposeFutureProvider<UserObj> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalFetchRef on AutoDisposeFutureProviderRef<UserObj> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2866,6 +2902,8 @@ class UserPalGetNicknameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetNicknameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2883,151 +2921,6 @@ class _UserPalGetNicknameProviderElement
   String get regionOrNs => (origin as UserPalGetNicknameProvider).regionOrNs;
   @override
   String get id => (origin as UserPalGetNicknameProvider).id;
-}
-
-String _$userPalFirstNameHash() => r'd6cf294cb7532e938dd59a9d6b2c0e83c1838cb1';
-
-/// See also [userPalFirstName].
-@ProviderFor(userPalFirstName)
-const userPalFirstNameProvider = UserPalFirstNameFamily();
-
-/// See also [userPalFirstName].
-class UserPalFirstNameFamily extends Family<AsyncValue<String>> {
-  /// See also [userPalFirstName].
-  const UserPalFirstNameFamily();
-
-  /// See also [userPalFirstName].
-  UserPalFirstNameProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return UserPalFirstNameProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  UserPalFirstNameProvider getProviderOverride(
-    covariant UserPalFirstNameProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'userPalFirstNameProvider';
-}
-
-/// See also [userPalFirstName].
-class UserPalFirstNameProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [userPalFirstName].
-  UserPalFirstNameProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => userPalFirstName(
-            ref as UserPalFirstNameRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: userPalFirstNameProvider,
-          name: r'userPalFirstNameProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$userPalFirstNameHash,
-          dependencies: UserPalFirstNameFamily._dependencies,
-          allTransitiveDependencies:
-              UserPalFirstNameFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  UserPalFirstNameProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<String> Function(UserPalFirstNameRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: UserPalFirstNameProvider._internal(
-        (ref) => create(ref as UserPalFirstNameRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<String> createElement() {
-    return _UserPalFirstNameProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is UserPalFirstNameProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin UserPalFirstNameRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _UserPalFirstNameProviderElement
-    extends AutoDisposeFutureProviderElement<String> with UserPalFirstNameRef {
-  _UserPalFirstNameProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as UserPalFirstNameProvider).regionOrNs;
-  @override
-  String get id => (origin as UserPalFirstNameProvider).id;
 }
 
 String _$userPalGetPaymentMethodsHash() =>
@@ -3160,6 +3053,8 @@ class UserPalGetPaymentMethodsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetPaymentMethodsRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -3179,6 +3074,153 @@ class _UserPalGetPaymentMethodsProviderElement
       (origin as UserPalGetPaymentMethodsProvider).regionOrNs;
   @override
   String get id => (origin as UserPalGetPaymentMethodsProvider).id;
+}
+
+String _$userPalFirstNameHash() => r'd6cf294cb7532e938dd59a9d6b2c0e83c1838cb1';
+
+/// See also [userPalFirstName].
+@ProviderFor(userPalFirstName)
+const userPalFirstNameProvider = UserPalFirstNameFamily();
+
+/// See also [userPalFirstName].
+class UserPalFirstNameFamily extends Family<AsyncValue<String>> {
+  /// See also [userPalFirstName].
+  const UserPalFirstNameFamily();
+
+  /// See also [userPalFirstName].
+  UserPalFirstNameProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return UserPalFirstNameProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  UserPalFirstNameProvider getProviderOverride(
+    covariant UserPalFirstNameProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'userPalFirstNameProvider';
+}
+
+/// See also [userPalFirstName].
+class UserPalFirstNameProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [userPalFirstName].
+  UserPalFirstNameProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => userPalFirstName(
+            ref as UserPalFirstNameRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: userPalFirstNameProvider,
+          name: r'userPalFirstNameProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$userPalFirstNameHash,
+          dependencies: UserPalFirstNameFamily._dependencies,
+          allTransitiveDependencies:
+              UserPalFirstNameFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  UserPalFirstNameProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(UserPalFirstNameRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UserPalFirstNameProvider._internal(
+        (ref) => create(ref as UserPalFirstNameRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _UserPalFirstNameProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UserPalFirstNameProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin UserPalFirstNameRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _UserPalFirstNameProviderElement
+    extends AutoDisposeFutureProviderElement<String> with UserPalFirstNameRef {
+  _UserPalFirstNameProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as UserPalFirstNameProvider).regionOrNs;
+  @override
+  String get id => (origin as UserPalFirstNameProvider).id;
 }
 
 String _$userPalGetOrdersAsCustomerHash() =>
@@ -3312,6 +3354,8 @@ class UserPalGetOrdersAsCustomerProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetOrdersAsCustomerRef
     on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
@@ -3461,6 +3505,8 @@ class UserPalGetAccountIdProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAccountIdRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -3607,6 +3653,8 @@ class UserPalIsPersonProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalIsPersonRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -3752,6 +3800,8 @@ class UserPalNoteIdsProvider extends AutoDisposeFutureProvider<List<String>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalNoteIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -3900,6 +3950,8 @@ class UserPalGetUserLoginIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetUserLoginIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -4049,6 +4101,8 @@ class UserPalGetAgentIdsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAgentIdsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -4197,6 +4251,8 @@ class UserPalGetAllEmailsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAllEmailsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -4343,6 +4399,8 @@ class UserPalLastNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalLastNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -4489,6 +4547,8 @@ class UserPalGetLocationProvider extends AutoDisposeFutureProvider<Location> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetLocationRef on AutoDisposeFutureProviderRef<Location> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -4637,6 +4697,8 @@ class UserPalGetAllNotesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetAllNotesRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -4787,6 +4849,8 @@ class UserPalGetNotificationsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetNotificationsRef
     on AutoDisposeFutureProviderRef<List<Notification>> {
   /// The parameter `regionOrNs` of this provider.
@@ -4948,6 +5012,8 @@ class UserPalGetOrdersAsRoleProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetOrdersAsRoleRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -5102,6 +5168,8 @@ class UserPalGetPhoneNumberProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetPhoneNumberRef on AutoDisposeFutureProviderRef<PhoneNumber> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -5261,6 +5329,8 @@ class UserPalGetDefaultPayMethProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetDefaultPayMethRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -5416,6 +5486,8 @@ class UserPalGetPrimaryContactProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetPrimaryContactRef
     on AutoDisposeFutureProviderRef<ContactProto> {
   /// The parameter `regionOrNs` of this provider.
@@ -5564,6 +5636,8 @@ class UserPalGetNotesProvider extends AutoDisposeFutureProvider<List<Note>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalGetNotesRef on AutoDisposeFutureProviderRef<List<Note>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -5729,6 +5803,8 @@ class UserPalPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPalPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -5748,4 +5824,4 @@ class _UserPalPodProviderElement
   String get id => (origin as UserPalPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -99,6 +99,7 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       jointers: (json['jointers'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
@@ -151,133 +152,193 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
           .toList(),
     );
 
-Map<String, dynamic> _$StoreToJson(Store instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('primaryStoreGroupId', instance.primaryStoreGroupId);
-  writeNotNull('storeName', instance.storeName);
-  writeNotNull('companyName', instance.companyName);
-  writeNotNull('title', instance.title);
-  writeNotNull('subtitle', instance.subtitle);
-  writeNotNull('payToPartyId', instance.payToPartyId);
-  writeNotNull('daysToCancelNonPay', instance.daysToCancelNonPay);
-  writeNotNull('manualAuthIsCapture', instance.manualAuthIsCapture);
-  writeNotNull('prorateShipping', instance.prorateShipping);
-  writeNotNull('prorateTaxes', instance.prorateTaxes);
-  writeNotNull('viewCartOnAdd', instance.viewCartOnAdd);
-  writeNotNull('autoSaveCart', instance.autoSaveCart);
-  writeNotNull('autoApproveReviews', instance.autoApproveReviews);
-  writeNotNull('isDemoStore', instance.isDemoStore);
-  writeNotNull('isImmediatelyFulfilled', instance.isImmediatelyFulfilled);
-  writeNotNull('inventoryFacilityId', instance.inventoryFacilityId);
-  writeNotNull('oneInventoryFacility', instance.oneInventoryFacility);
-  writeNotNull('checkInventory', instance.checkInventory);
-  writeNotNull('reserveInventory', instance.reserveInventory);
-  writeNotNull('reserveOrderEnumId', instance.reserveOrderEnumId);
-  writeNotNull('requireInventory', instance.requireInventory);
-  writeNotNull('balanceResOnOrderCreation', instance.balanceResOnOrderCreation);
-  writeNotNull('requirementMethodEnumId', instance.requirementMethodEnumId);
-  writeNotNull('orderNumberPrefix', instance.orderNumberPrefix);
-  writeNotNull('defaultLocaleString', instance.defaultLocaleString);
-  writeNotNull('defaultCurrencyUomId', instance.defaultCurrencyUomId);
-  writeNotNull('defaultTimeZoneString', instance.defaultTimeZoneString);
-  writeNotNull('defaultSalesChannelEnumId', instance.defaultSalesChannelEnumId);
-  writeNotNull('allowPassword', instance.allowPassword);
-  writeNotNull('defaultPassword', instance.defaultPassword);
-  writeNotNull('explodeOrderItems', instance.explodeOrderItems);
-  writeNotNull('checkGcBalance', instance.checkGcBalance);
-  writeNotNull('retryFailedAuths', instance.retryFailedAuths);
-  writeNotNull('headerApprovedStatus', instance.headerApprovedStatus);
-  writeNotNull('itemApprovedStatus', instance.itemApprovedStatus);
-  writeNotNull('digitalItemApprovedStatus', instance.digitalItemApprovedStatus);
-  writeNotNull('headerDeclinedStatus', instance.headerDeclinedStatus);
-  writeNotNull('itemDeclinedStatus', instance.itemDeclinedStatus);
-  writeNotNull('headerCancelStatus', instance.headerCancelStatus);
-  writeNotNull('itemCancelStatus', instance.itemCancelStatus);
-  writeNotNull('authDeclinedMessage', instance.authDeclinedMessage);
-  writeNotNull('authFraudMessage', instance.authFraudMessage);
-  writeNotNull('authErrorMessage', instance.authErrorMessage);
-  writeNotNull('visualThemeId', instance.visualThemeId);
-  writeNotNull('storeCreditAccountEnumId', instance.storeCreditAccountEnumId);
-  writeNotNull('usePrimaryEmailUsername', instance.usePrimaryEmailUsername);
-  writeNotNull('requireCustomerRole', instance.requireCustomerRole);
-  writeNotNull('autoInvoiceDigitalItems', instance.autoInvoiceDigitalItems);
-  writeNotNull('reqShipAddrForDigItems', instance.reqShipAddrForDigItems);
-  writeNotNull('showCheckoutGiftOptions', instance.showCheckoutGiftOptions);
-  writeNotNull('selectPaymentTypePerItem', instance.selectPaymentTypePerItem);
-  writeNotNull('showPricesWithVatTax', instance.showPricesWithVatTax);
-  writeNotNull('showTaxIsExempt', instance.showTaxIsExempt);
-  writeNotNull('vatTaxAuthGeoId', instance.vatTaxAuthGeoId);
-  writeNotNull('vatTaxAuthPartyId', instance.vatTaxAuthPartyId);
-  writeNotNull('enableAutoSuggestionList', instance.enableAutoSuggestionList);
-  writeNotNull('enableDigProdUpload', instance.enableDigProdUpload);
-  writeNotNull('prodSearchExcludeVariants', instance.prodSearchExcludeVariants);
-  writeNotNull('digProdUploadCategoryId', instance.digProdUploadCategoryId);
-  writeNotNull('autoOrderCcTryExp', instance.autoOrderCcTryExp);
-  writeNotNull('autoOrderCcTryOtherCards', instance.autoOrderCcTryOtherCards);
-  writeNotNull('autoOrderCcTryLaterNsf', instance.autoOrderCcTryLaterNsf);
-  writeNotNull('autoOrderCcTryLaterMax', instance.autoOrderCcTryLaterMax);
-  writeNotNull('storeCreditValidDays', instance.storeCreditValidDays);
-  writeNotNull('autoApproveInvoice', instance.autoApproveInvoice);
-  writeNotNull('autoApproveOrder', instance.autoApproveOrder);
-  writeNotNull('shipIfCaptureFails', instance.shipIfCaptureFails);
-  writeNotNull('setOwnerUponIssuance', instance.setOwnerUponIssuance);
-  writeNotNull('reqReturnInventoryReceive', instance.reqReturnInventoryReceive);
-  writeNotNull('addToCartRemoveIncompat', instance.addToCartRemoveIncompat);
-  writeNotNull('addToCartReplaceUpsell', instance.addToCartReplaceUpsell);
-  writeNotNull('splitPayPrefPerShpGrp', instance.splitPayPrefPerShpGrp);
-  writeNotNull('managedByLot', instance.managedByLot);
-  writeNotNull('showOutOfStockProducts', instance.showOutOfStockProducts);
-  writeNotNull('orderDecimalQuantity', instance.orderDecimalQuantity);
-  writeNotNull('allowComment', instance.allowComment);
-  writeNotNull('allocateInventory', instance.allocateInventory);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('jointers', instance.jointers);
-  val['multiJointers'] = stringMultimapToJson(instance.multiJointers);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('telephone', instance.telephone);
-  writeNotNull('email', instance.email);
-  writeNotNull('placeId', instance.placeId);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('productStorePromoAppl',
-      instance.productStorePromoAppl?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreEmailSetting',
-      instance.productStoreEmailSetting?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreFacility',
-      instance.productStoreFacility?.map((e) => e.toJson()).toList());
-  writeNotNull('productStorePaymentSetting',
-      instance.productStorePaymentSetting?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreKeywordOvrd',
-      instance.productStoreKeywordOvrd?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreSurveyAppl',
-      instance.productStoreSurveyAppl?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreCatalog',
-      instance.productStoreCatalog?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreBunch',
-      instance.productStoreBunch?.map((e) => e.toJson()).toList());
-  writeNotNull('productStoreRole',
-      instance.productStoreRole?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.primaryStoreGroupId case final value?)
+        'primaryStoreGroupId': value,
+      if (instance.storeName case final value?) 'storeName': value,
+      if (instance.companyName case final value?) 'companyName': value,
+      if (instance.title case final value?) 'title': value,
+      if (instance.subtitle case final value?) 'subtitle': value,
+      if (instance.payToPartyId case final value?) 'payToPartyId': value,
+      if (instance.daysToCancelNonPay case final value?)
+        'daysToCancelNonPay': value,
+      if (instance.manualAuthIsCapture case final value?)
+        'manualAuthIsCapture': value,
+      if (instance.prorateShipping case final value?) 'prorateShipping': value,
+      if (instance.prorateTaxes case final value?) 'prorateTaxes': value,
+      if (instance.viewCartOnAdd case final value?) 'viewCartOnAdd': value,
+      if (instance.autoSaveCart case final value?) 'autoSaveCart': value,
+      if (instance.autoApproveReviews case final value?)
+        'autoApproveReviews': value,
+      if (instance.isDemoStore case final value?) 'isDemoStore': value,
+      if (instance.isImmediatelyFulfilled case final value?)
+        'isImmediatelyFulfilled': value,
+      if (instance.inventoryFacilityId case final value?)
+        'inventoryFacilityId': value,
+      if (instance.oneInventoryFacility case final value?)
+        'oneInventoryFacility': value,
+      if (instance.checkInventory case final value?) 'checkInventory': value,
+      if (instance.reserveInventory case final value?)
+        'reserveInventory': value,
+      if (instance.reserveOrderEnumId case final value?)
+        'reserveOrderEnumId': value,
+      if (instance.requireInventory case final value?)
+        'requireInventory': value,
+      if (instance.balanceResOnOrderCreation case final value?)
+        'balanceResOnOrderCreation': value,
+      if (instance.requirementMethodEnumId case final value?)
+        'requirementMethodEnumId': value,
+      if (instance.orderNumberPrefix case final value?)
+        'orderNumberPrefix': value,
+      if (instance.defaultLocaleString case final value?)
+        'defaultLocaleString': value,
+      if (instance.defaultCurrencyUomId case final value?)
+        'defaultCurrencyUomId': value,
+      if (instance.defaultTimeZoneString case final value?)
+        'defaultTimeZoneString': value,
+      if (instance.defaultSalesChannelEnumId case final value?)
+        'defaultSalesChannelEnumId': value,
+      if (instance.allowPassword case final value?) 'allowPassword': value,
+      if (instance.defaultPassword case final value?) 'defaultPassword': value,
+      if (instance.explodeOrderItems case final value?)
+        'explodeOrderItems': value,
+      if (instance.checkGcBalance case final value?) 'checkGcBalance': value,
+      if (instance.retryFailedAuths case final value?)
+        'retryFailedAuths': value,
+      if (instance.headerApprovedStatus case final value?)
+        'headerApprovedStatus': value,
+      if (instance.itemApprovedStatus case final value?)
+        'itemApprovedStatus': value,
+      if (instance.digitalItemApprovedStatus case final value?)
+        'digitalItemApprovedStatus': value,
+      if (instance.headerDeclinedStatus case final value?)
+        'headerDeclinedStatus': value,
+      if (instance.itemDeclinedStatus case final value?)
+        'itemDeclinedStatus': value,
+      if (instance.headerCancelStatus case final value?)
+        'headerCancelStatus': value,
+      if (instance.itemCancelStatus case final value?)
+        'itemCancelStatus': value,
+      if (instance.authDeclinedMessage case final value?)
+        'authDeclinedMessage': value,
+      if (instance.authFraudMessage case final value?)
+        'authFraudMessage': value,
+      if (instance.authErrorMessage case final value?)
+        'authErrorMessage': value,
+      if (instance.visualThemeId case final value?) 'visualThemeId': value,
+      if (instance.storeCreditAccountEnumId case final value?)
+        'storeCreditAccountEnumId': value,
+      if (instance.usePrimaryEmailUsername case final value?)
+        'usePrimaryEmailUsername': value,
+      if (instance.requireCustomerRole case final value?)
+        'requireCustomerRole': value,
+      if (instance.autoInvoiceDigitalItems case final value?)
+        'autoInvoiceDigitalItems': value,
+      if (instance.reqShipAddrForDigItems case final value?)
+        'reqShipAddrForDigItems': value,
+      if (instance.showCheckoutGiftOptions case final value?)
+        'showCheckoutGiftOptions': value,
+      if (instance.selectPaymentTypePerItem case final value?)
+        'selectPaymentTypePerItem': value,
+      if (instance.showPricesWithVatTax case final value?)
+        'showPricesWithVatTax': value,
+      if (instance.showTaxIsExempt case final value?) 'showTaxIsExempt': value,
+      if (instance.vatTaxAuthGeoId case final value?) 'vatTaxAuthGeoId': value,
+      if (instance.vatTaxAuthPartyId case final value?)
+        'vatTaxAuthPartyId': value,
+      if (instance.enableAutoSuggestionList case final value?)
+        'enableAutoSuggestionList': value,
+      if (instance.enableDigProdUpload case final value?)
+        'enableDigProdUpload': value,
+      if (instance.prodSearchExcludeVariants case final value?)
+        'prodSearchExcludeVariants': value,
+      if (instance.digProdUploadCategoryId case final value?)
+        'digProdUploadCategoryId': value,
+      if (instance.autoOrderCcTryExp case final value?)
+        'autoOrderCcTryExp': value,
+      if (instance.autoOrderCcTryOtherCards case final value?)
+        'autoOrderCcTryOtherCards': value,
+      if (instance.autoOrderCcTryLaterNsf case final value?)
+        'autoOrderCcTryLaterNsf': value,
+      if (instance.autoOrderCcTryLaterMax case final value?)
+        'autoOrderCcTryLaterMax': value,
+      if (instance.storeCreditValidDays case final value?)
+        'storeCreditValidDays': value,
+      if (instance.autoApproveInvoice case final value?)
+        'autoApproveInvoice': value,
+      if (instance.autoApproveOrder case final value?)
+        'autoApproveOrder': value,
+      if (instance.shipIfCaptureFails case final value?)
+        'shipIfCaptureFails': value,
+      if (instance.setOwnerUponIssuance case final value?)
+        'setOwnerUponIssuance': value,
+      if (instance.reqReturnInventoryReceive case final value?)
+        'reqReturnInventoryReceive': value,
+      if (instance.addToCartRemoveIncompat case final value?)
+        'addToCartRemoveIncompat': value,
+      if (instance.addToCartReplaceUpsell case final value?)
+        'addToCartReplaceUpsell': value,
+      if (instance.splitPayPrefPerShpGrp case final value?)
+        'splitPayPrefPerShpGrp': value,
+      if (instance.managedByLot case final value?) 'managedByLot': value,
+      if (instance.showOutOfStockProducts case final value?)
+        'showOutOfStockProducts': value,
+      if (instance.orderDecimalQuantity case final value?)
+        'orderDecimalQuantity': value,
+      if (instance.allowComment case final value?) 'allowComment': value,
+      if (instance.allocateInventory case final value?)
+        'allocateInventory': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.jointers case final value?) 'jointers': value,
+      'multiJointers': stringMultimapToJson(instance.multiJointers),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.telephone case final value?) 'telephone': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.placeId case final value?) 'placeId': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.productStorePromoAppl?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStorePromoAppl': value,
+      if (instance.productStoreEmailSetting?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreEmailSetting': value,
+      if (instance.productStoreFacility?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreFacility': value,
+      if (instance.productStorePaymentSetting?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStorePaymentSetting': value,
+      if (instance.productStoreKeywordOvrd?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreKeywordOvrd': value,
+      if (instance.productStoreSurveyAppl?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreSurveyAppl': value,
+      if (instance.productStoreCatalog?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreCatalog': value,
+      if (instance.productStoreBunch?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreBunch': value,
+      if (instance.productStoreRole?.map((e) => e.toJson()).toList()
+          case final value?)
+        'productStoreRole': value,
+    };
 
 ProductStorePromoAppl _$ProductStorePromoApplFromJson(
         Map<String, dynamic> json) =>
@@ -302,27 +363,22 @@ ProductStorePromoAppl _$ProductStorePromoApplFromJson(
     );
 
 Map<String, dynamic> _$ProductStorePromoApplToJson(
-    ProductStorePromoAppl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('productPromoId', instance.productPromoId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull('manualOnly', instance.manualOnly);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ProductStorePromoAppl instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.productPromoId case final value?) 'productPromoId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.manualOnly case final value?) 'manualOnly': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ProductStoreEmailSetting _$ProductStoreEmailSettingFromJson(
         Map<String, dynamic> json) =>
@@ -346,30 +402,25 @@ ProductStoreEmailSetting _$ProductStoreEmailSettingFromJson(
     );
 
 Map<String, dynamic> _$ProductStoreEmailSettingToJson(
-    ProductStoreEmailSetting instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('emailType', instance.emailType);
-  writeNotNull('bodyScreenLocation', instance.bodyScreenLocation);
-  writeNotNull('xslfoAttachScreenLocation', instance.xslfoAttachScreenLocation);
-  writeNotNull('fromAddress', instance.fromAddress);
-  writeNotNull('ccAddress', instance.ccAddress);
-  writeNotNull('bccAddress', instance.bccAddress);
-  writeNotNull('subject', instance.subject);
-  writeNotNull('contentType', instance.contentType);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ProductStoreEmailSetting instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.emailType case final value?) 'emailType': value,
+      if (instance.bodyScreenLocation case final value?)
+        'bodyScreenLocation': value,
+      if (instance.xslfoAttachScreenLocation case final value?)
+        'xslfoAttachScreenLocation': value,
+      if (instance.fromAddress case final value?) 'fromAddress': value,
+      if (instance.ccAddress case final value?) 'ccAddress': value,
+      if (instance.bccAddress case final value?) 'bccAddress': value,
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.contentType case final value?) 'contentType': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ProductStoreFacility _$ProductStoreFacilityFromJson(
         Map<String, dynamic> json) =>
@@ -394,27 +445,22 @@ ProductStoreFacility _$ProductStoreFacilityFromJson(
     );
 
 Map<String, dynamic> _$ProductStoreFacilityToJson(
-    ProductStoreFacility instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+        ProductStoreFacility instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ProductStorePaymentSetting _$ProductStorePaymentSettingFromJson(
         Map<String, dynamic> json) =>
@@ -437,29 +483,28 @@ ProductStorePaymentSetting _$ProductStorePaymentSettingFromJson(
     );
 
 Map<String, dynamic> _$ProductStorePaymentSettingToJson(
-    ProductStorePaymentSetting instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('paymentMethodTypeId', instance.paymentMethodTypeId);
-  writeNotNull('paymentServiceTypeEnumId', instance.paymentServiceTypeEnumId);
-  writeNotNull('paymentService', instance.paymentService);
-  writeNotNull('paymentCustomMethodId', instance.paymentCustomMethodId);
-  writeNotNull('paymentGatewayConfigId', instance.paymentGatewayConfigId);
-  writeNotNull('paymentPropertiesPath', instance.paymentPropertiesPath);
-  writeNotNull('applyToAllProducts', instance.applyToAllProducts);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ProductStorePaymentSetting instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.paymentMethodTypeId case final value?)
+        'paymentMethodTypeId': value,
+      if (instance.paymentServiceTypeEnumId case final value?)
+        'paymentServiceTypeEnumId': value,
+      if (instance.paymentService case final value?) 'paymentService': value,
+      if (instance.paymentCustomMethodId case final value?)
+        'paymentCustomMethodId': value,
+      if (instance.paymentGatewayConfigId case final value?)
+        'paymentGatewayConfigId': value,
+      if (instance.paymentPropertiesPath case final value?)
+        'paymentPropertiesPath': value,
+      if (instance.applyToAllProducts case final value?)
+        'applyToAllProducts': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ProductStoreKeywordOvrd _$ProductStoreKeywordOvrdFromJson(
         Map<String, dynamic> json) =>
@@ -484,27 +529,23 @@ ProductStoreKeywordOvrd _$ProductStoreKeywordOvrdFromJson(
     );
 
 Map<String, dynamic> _$ProductStoreKeywordOvrdToJson(
-    ProductStoreKeywordOvrd instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('keyword', instance.keyword);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('target', instance.target);
-  writeNotNull('targetTypeEnumId', instance.targetTypeEnumId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        ProductStoreKeywordOvrd instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.keyword case final value?) 'keyword': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.target case final value?) 'target': value,
+      if (instance.targetTypeEnumId case final value?)
+        'targetTypeEnumId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ProductStoreSurveyAppl _$ProductStoreSurveyApplFromJson(
         Map<String, dynamic> json) =>
@@ -535,33 +576,31 @@ ProductStoreSurveyAppl _$ProductStoreSurveyApplFromJson(
     );
 
 Map<String, dynamic> _$ProductStoreSurveyApplToJson(
-    ProductStoreSurveyAppl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreSurveyId', instance.productStoreSurveyId);
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('surveyApplTypeId', instance.surveyApplTypeId);
-  writeNotNull('groupName', instance.groupName);
-  writeNotNull('surveyId', instance.surveyId);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('productCategoryId', instance.productCategoryId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('surveyTemplate', instance.surveyTemplate);
-  writeNotNull('resultTemplate', instance.resultTemplate);
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+        ProductStoreSurveyAppl instance) =>
+    <String, dynamic>{
+      if (instance.productStoreSurveyId case final value?)
+        'productStoreSurveyId': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.surveyApplTypeId case final value?)
+        'surveyApplTypeId': value,
+      if (instance.groupName case final value?) 'groupName': value,
+      if (instance.surveyId case final value?) 'surveyId': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.productCategoryId case final value?)
+        'productCategoryId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.surveyTemplate case final value?) 'surveyTemplate': value,
+      if (instance.resultTemplate case final value?) 'resultTemplate': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ProductStoreCatalog _$ProductStoreCatalogFromJson(Map<String, dynamic> json) =>
     ProductStoreCatalog(
@@ -584,27 +623,23 @@ ProductStoreCatalog _$ProductStoreCatalogFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ProductStoreCatalogToJson(ProductStoreCatalog instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('prodCatalogId', instance.prodCatalogId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ProductStoreCatalogToJson(
+        ProductStoreCatalog instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.prodCatalogId case final value?) 'prodCatalogId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ProductStoreBunch _$ProductStoreBunchFromJson(Map<String, dynamic> json) =>
     ProductStoreBunch(
@@ -622,26 +657,19 @@ ProductStoreBunch _$ProductStoreBunchFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ProductStoreBunchToJson(ProductStoreBunch instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('bunchId', instance.bunchId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('kind', instance.kind);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ProductStoreBunchToJson(ProductStoreBunch instance) =>
+    <String, dynamic>{
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.bunchId case final value?) 'bunchId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.kind case final value?) 'kind': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 ProductStoreRole _$ProductStoreRoleFromJson(Map<String, dynamic> json) =>
     ProductStoreRole(
@@ -664,24 +692,19 @@ ProductStoreRole _$ProductStoreRoleFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$ProductStoreRoleToJson(ProductStoreRole instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('sequenceNum', instance.sequenceNum);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$ProductStoreRoleToJson(ProductStoreRole instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.sequenceNum case final value?) 'sequenceNum': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

@@ -103,6 +103,7 @@ class Store {
     this.tag2,
     this.tag3,
     this.moreTags,
+    this.labels,
     this.jointers,
     this.multiJointers,
     this.acl,
@@ -212,6 +213,7 @@ class Store {
     String? tag2,
     String? tag3,
     List<String?>? moreTags,
+    Multimap<String, String>? labels,
     Map<String, String>? jointers,
     Multimap<String, String>? multiJointers,
     Multimap<String, String>? acl,
@@ -320,6 +322,7 @@ class Store {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       jointers: jointers ?? this.jointers,
       multiJointers: multiJointers ?? this.multiJointers,
       acl: acl ?? this.acl,
@@ -615,6 +618,10 @@ class Store {
 
    
   List<String?>? moreTags;
+
+  
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson) 
+  Multimap<String, String>? labels;
 
    
   Map<String, String>? jointers;

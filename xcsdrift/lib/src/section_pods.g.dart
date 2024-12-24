@@ -20,6 +20,8 @@ final sectionRepositoryProvider = Provider<SectionRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SectionRepositoryRef = ProviderRef<SectionRepository>;
 String _$getSectionHash() => r'02d3a9df52ddbf246624c3955dad7f013d759b63';
 
@@ -157,6 +159,8 @@ class GetSectionProvider extends AutoDisposeFutureProvider<SectionData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetSectionRef on AutoDisposeFutureProviderRef<SectionData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -187,4 +191,4 @@ final sectionBucketProvider = AutoDisposeStreamNotifierProvider<SectionBucket,
 
 typedef _$SectionBucket = AutoDisposeStreamNotifier<List<SectionData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -21,6 +21,8 @@ final userPrefRepositoryProvider = Provider<UserPrefRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef UserPrefRepositoryRef = ProviderRef<UserPrefRepository>;
 String _$getUserPrefHash() => r'1a9b3d1b4755d8a92c2c1a8d6b4edefa98cffad9';
 
@@ -158,6 +160,8 @@ class GetUserPrefProvider extends AutoDisposeFutureProvider<UserPrefData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetUserPrefRef on AutoDisposeFutureProviderRef<UserPrefData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -189,4 +193,4 @@ final userPrefBucketProvider = AutoDisposeStreamNotifierProvider<UserPrefBucket,
 
 typedef _$UserPrefBucket = AutoDisposeStreamNotifier<List<UserPrefData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

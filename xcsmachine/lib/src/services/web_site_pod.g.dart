@@ -142,6 +142,8 @@ class LoadWebSiteProvider extends AutoDisposeFutureProvider<WebSite> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadWebSiteRef on AutoDisposeFutureProviderRef<WebSite> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -326,6 +328,8 @@ class LoadWebSiteListProvider extends AutoDisposeFutureProvider<List<WebSite>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadWebSiteListRef on AutoDisposeFutureProviderRef<List<WebSite>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -528,6 +532,8 @@ class LoadWebSitePageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadWebSitePageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<WebSite>> {
   /// The parameter `pageSize` of this provider.
@@ -690,6 +696,8 @@ class FetchWebSitesProvider extends AutoDisposeFutureProvider<List<WebSite>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchWebSitesRef on AutoDisposeFutureProviderRef<List<WebSite>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -709,4 +717,4 @@ class _FetchWebSitesProviderElement
   String get regionId => (origin as FetchWebSitesProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -142,6 +142,8 @@ class FoldDelegatorProvider extends Provider<FoldDelegatorRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FoldDelegatorRef on ProviderRef<FoldDelegatorRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -319,6 +321,8 @@ class FoldDelegatorQueryPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FoldDelegatorQueryPageRef
     on AutoDisposeFutureProviderRef<PaginatedEntBytes> {
   /// The parameter `regionOrNs` of this provider.
@@ -521,6 +525,8 @@ class FoldDelegatorQueryProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FoldDelegatorQueryRef
     on AutoDisposeFutureProviderRef<ResultBytesWithMeta> {
   /// The parameter `regionOrNs` of this provider.
@@ -688,6 +694,8 @@ class FoldDelegatorPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FoldDelegatorPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -702,4 +710,4 @@ class _FoldDelegatorPodProviderElement
   String get regionOrNs => (origin as FoldDelegatorPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

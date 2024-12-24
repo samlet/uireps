@@ -45,6 +45,7 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
@@ -90,74 +91,85 @@ Facility _$FacilityFromJson(Map<String, dynamic> json) => Facility(
           .toList(),
     );
 
-Map<String, dynamic> _$FacilityToJson(Facility instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('facilityTypeId', instance.facilityTypeId);
-  writeNotNull('parentFacilityId', instance.parentFacilityId);
-  writeNotNull('ownerPartyId', instance.ownerPartyId);
-  writeNotNull(
-      'defaultInventoryItemTypeId', instance.defaultInventoryItemTypeId);
-  writeNotNull('facilityName', instance.facilityName);
-  writeNotNull('primaryFacilityGroupId', instance.primaryFacilityGroupId);
-  writeNotNull('facilitySize', instance.facilitySize);
-  writeNotNull('facilitySizeUomId', instance.facilitySizeUomId);
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('defaultDaysToShip', instance.defaultDaysToShip);
-  writeNotNull('openedDate', instance.openedDate?.toIso8601String());
-  writeNotNull('closedDate', instance.closedDate?.toIso8601String());
-  writeNotNull('description', instance.description);
-  writeNotNull('defaultDimensionUomId', instance.defaultDimensionUomId);
-  writeNotNull('defaultWeightUomId', instance.defaultWeightUomId);
-  writeNotNull('geoPointId', instance.geoPointId);
-  writeNotNull('facilityLevel', instance.facilityLevel);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('facilityErcId', instance.facilityErcId);
-  writeNotNull('nftErc', instance.nftErc);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('facilityType', instance.facilityType?.toJson());
-  writeNotNull('facilityCalendar',
-      instance.facilityCalendar?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityMultisig',
-      instance.facilityMultisig?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityGeoForce',
-      instance.facilityGeoForce?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityAttribute',
-      instance.facilityAttribute?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityContactMechPurpose',
-      instance.facilityContactMechPurpose?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityLocation',
-      instance.facilityLocation?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityLocationGeoPoint',
-      instance.facilityLocationGeoPoint?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityContent',
-      instance.facilityContent?.map((e) => e.toJson()).toList());
-  writeNotNull('facilityContactMech',
-      instance.facilityContactMech?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$FacilityToJson(Facility instance) => <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.facilityTypeId case final value?) 'facilityTypeId': value,
+      if (instance.parentFacilityId case final value?)
+        'parentFacilityId': value,
+      if (instance.ownerPartyId case final value?) 'ownerPartyId': value,
+      if (instance.defaultInventoryItemTypeId case final value?)
+        'defaultInventoryItemTypeId': value,
+      if (instance.facilityName case final value?) 'facilityName': value,
+      if (instance.primaryFacilityGroupId case final value?)
+        'primaryFacilityGroupId': value,
+      if (instance.facilitySize case final value?) 'facilitySize': value,
+      if (instance.facilitySizeUomId case final value?)
+        'facilitySizeUomId': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.defaultDaysToShip case final value?)
+        'defaultDaysToShip': value,
+      if (instance.openedDate?.toIso8601String() case final value?)
+        'openedDate': value,
+      if (instance.closedDate?.toIso8601String() case final value?)
+        'closedDate': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.defaultDimensionUomId case final value?)
+        'defaultDimensionUomId': value,
+      if (instance.defaultWeightUomId case final value?)
+        'defaultWeightUomId': value,
+      if (instance.geoPointId case final value?) 'geoPointId': value,
+      if (instance.facilityLevel case final value?) 'facilityLevel': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.facilityErcId case final value?) 'facilityErcId': value,
+      if (instance.nftErc case final value?) 'nftErc': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.facilityType?.toJson() case final value?)
+        'facilityType': value,
+      if (instance.facilityCalendar?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityCalendar': value,
+      if (instance.facilityMultisig?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityMultisig': value,
+      if (instance.facilityGeoForce?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityGeoForce': value,
+      if (instance.facilityAttribute?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityAttribute': value,
+      if (instance.facilityContactMechPurpose?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityContactMechPurpose': value,
+      if (instance.facilityLocation?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityLocation': value,
+      if (instance.facilityLocationGeoPoint?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityLocationGeoPoint': value,
+      if (instance.facilityContent?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityContent': value,
+      if (instance.facilityContactMech?.map((e) => e.toJson()).toList()
+          case final value?)
+        'facilityContactMech': value,
+    };
 
 FacilityCalendar _$FacilityCalendarFromJson(Map<String, dynamic> json) =>
     FacilityCalendar(
@@ -179,26 +191,22 @@ FacilityCalendar _$FacilityCalendarFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityCalendarToJson(FacilityCalendar instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('calendarId', instance.calendarId);
-  writeNotNull('facilityCalendarTypeId', instance.facilityCalendarTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityCalendarToJson(FacilityCalendar instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.calendarId case final value?) 'calendarId': value,
+      if (instance.facilityCalendarTypeId case final value?)
+        'facilityCalendarTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityMultisig _$FacilityMultisigFromJson(Map<String, dynamic> json) =>
     FacilityMultisig(
@@ -215,25 +223,18 @@ FacilityMultisig _$FacilityMultisigFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityMultisigToJson(FacilityMultisig instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('multisigId', instance.multisigId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityMultisigToJson(FacilityMultisig instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.multisigId case final value?) 'multisigId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityGeoForce _$FacilityGeoForceFromJson(Map<String, dynamic> json) =>
     FacilityGeoForce(
@@ -251,26 +252,19 @@ FacilityGeoForce _$FacilityGeoForceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityGeoForceToJson(FacilityGeoForce instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('geoForceId', instance.geoForceId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('marker', instance.marker);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityGeoForceToJson(FacilityGeoForce instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.geoForceId case final value?) 'geoForceId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.marker case final value?) 'marker': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityAttribute _$FacilityAttributeFromJson(Map<String, dynamic> json) =>
     FacilityAttribute(
@@ -287,25 +281,18 @@ FacilityAttribute _$FacilityAttributeFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityAttributeToJson(FacilityAttribute instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('attrName', instance.attrName);
-  writeNotNull('attrValue', instance.attrValue);
-  writeNotNull('attrDescription', instance.attrDescription);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityAttributeToJson(FacilityAttribute instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.attrName case final value?) 'attrName': value,
+      if (instance.attrValue case final value?) 'attrValue': value,
+      if (instance.attrDescription case final value?) 'attrDescription': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityContactMechPurpose _$FacilityContactMechPurposeFromJson(
         Map<String, dynamic> json) =>
@@ -329,26 +316,22 @@ FacilityContactMechPurpose _$FacilityContactMechPurposeFromJson(
     );
 
 Map<String, dynamic> _$FacilityContactMechPurposeToJson(
-    FacilityContactMechPurpose instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('contactMechPurposeTypeId', instance.contactMechPurposeTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        FacilityContactMechPurpose instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.contactMechPurposeTypeId case final value?)
+        'contactMechPurposeTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityLocation _$FacilityLocationFromJson(Map<String, dynamic> json) =>
     FacilityLocation(
@@ -370,30 +353,24 @@ FacilityLocation _$FacilityLocationFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityLocationToJson(FacilityLocation instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('locationSeqId', instance.locationSeqId);
-  writeNotNull('locationTypeEnumId', instance.locationTypeEnumId);
-  writeNotNull('areaId', instance.areaId);
-  writeNotNull('aisleId', instance.aisleId);
-  writeNotNull('sectionId', instance.sectionId);
-  writeNotNull('levelId', instance.levelId);
-  writeNotNull('positionId', instance.positionId);
-  writeNotNull('geoPointId', instance.geoPointId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityLocationToJson(FacilityLocation instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.locationSeqId case final value?) 'locationSeqId': value,
+      if (instance.locationTypeEnumId case final value?)
+        'locationTypeEnumId': value,
+      if (instance.areaId case final value?) 'areaId': value,
+      if (instance.aisleId case final value?) 'aisleId': value,
+      if (instance.sectionId case final value?) 'sectionId': value,
+      if (instance.levelId case final value?) 'levelId': value,
+      if (instance.positionId case final value?) 'positionId': value,
+      if (instance.geoPointId case final value?) 'geoPointId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityLocationGeoPoint _$FacilityLocationGeoPointFromJson(
         Map<String, dynamic> json) =>
@@ -417,26 +394,21 @@ FacilityLocationGeoPoint _$FacilityLocationGeoPointFromJson(
     );
 
 Map<String, dynamic> _$FacilityLocationGeoPointToJson(
-    FacilityLocationGeoPoint instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('locationSeqId', instance.locationSeqId);
-  writeNotNull('geoPointId', instance.geoPointId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        FacilityLocationGeoPoint instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.locationSeqId case final value?) 'locationSeqId': value,
+      if (instance.geoPointId case final value?) 'geoPointId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityContent _$FacilityContentFromJson(Map<String, dynamic> json) =>
     FacilityContent(
@@ -457,25 +429,20 @@ FacilityContent _$FacilityContentFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityContentToJson(FacilityContent instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityContentToJson(FacilityContent instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityContactMech _$FacilityContactMechFromJson(Map<String, dynamic> json) =>
     FacilityContactMech(
@@ -498,27 +465,23 @@ FacilityContactMech _$FacilityContactMechFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$FacilityContactMechToJson(FacilityContactMech instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityId', instance.facilityId);
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('extension', instance.extension);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$FacilityContactMechToJson(
+        FacilityContactMech instance) =>
+    <String, dynamic>{
+      if (instance.facilityId case final value?) 'facilityId': value,
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.extension case final value?) 'extension': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 FacilityType _$FacilityTypeFromJson(Map<String, dynamic> json) => FacilityType(
       facilityTypeId: json['facilityTypeId'] as String?,
@@ -534,22 +497,15 @@ FacilityType _$FacilityTypeFromJson(Map<String, dynamic> json) => FacilityType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$FacilityTypeToJson(FacilityType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('facilityTypeId', instance.facilityTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', instance.hasTable);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$FacilityTypeToJson(FacilityType instance) =>
+    <String, dynamic>{
+      if (instance.facilityTypeId case final value?) 'facilityTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.hasTable case final value?) 'hasTable': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

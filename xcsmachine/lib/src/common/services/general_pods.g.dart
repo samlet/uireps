@@ -60,6 +60,8 @@ final httpConnectorProvider = Provider<HttpConnector>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef HttpConnectorRef = ProviderRef<HttpConnector>;
 String _$userAuthHash() => r'85d88b518ee92ea878417bd533dec864cb047a1c';
 
@@ -74,6 +76,8 @@ final userAuthProvider = AutoDisposeProvider<UserAuth>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef UserAuthRef = AutoDisposeProviderRef<UserAuth>;
 String _$tokenStringHash() => r'22a36f1eb662f6c3540a6e1cd1820f217235f10d';
 
@@ -88,6 +92,8 @@ final tokenStringProvider = Provider<String>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef TokenStringRef = ProviderRef<String>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

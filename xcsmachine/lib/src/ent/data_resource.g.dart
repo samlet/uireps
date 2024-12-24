@@ -66,52 +66,58 @@ DataResource _$DataResourceFromJson(Map<String, dynamic> json) => DataResource(
           .toList(),
     );
 
-Map<String, dynamic> _$DataResourceToJson(DataResource instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('dataResourceTypeId', instance.dataResourceTypeId);
-  writeNotNull('dataTemplateTypeId', instance.dataTemplateTypeId);
-  writeNotNull('dataCategoryId', instance.dataCategoryId);
-  writeNotNull('dataSourceId', instance.dataSourceId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('dataResourceName', instance.dataResourceName);
-  writeNotNull('localeString', instance.localeString);
-  writeNotNull('mimeTypeId', instance.mimeTypeId);
-  writeNotNull('characterSetId', instance.characterSetId);
-  writeNotNull('objectInfo', instance.objectInfo);
-  writeNotNull('surveyId', instance.surveyId);
-  writeNotNull('surveyResponseId', instance.surveyResponseId);
-  writeNotNull('relatedDetailId', instance.relatedDetailId);
-  writeNotNull('isPublic', instance.isPublic);
-  writeNotNull('createdDate', instance.createdDate?.toIso8601String());
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull(
-      'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
-  writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('electronicText', instance.electronicText?.toJson());
-  writeNotNull('audioDataResource', instance.audioDataResource?.toJson());
-  writeNotNull('dataResourceType', instance.dataResourceType?.toJson());
-  writeNotNull('imageDataResource', instance.imageDataResource?.toJson());
-  writeNotNull('videoDataResource', instance.videoDataResource?.toJson());
-  writeNotNull('dataResourceSlot',
-      instance.dataResourceSlot?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$DataResourceToJson(DataResource instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (instance.dataResourceTypeId case final value?)
+        'dataResourceTypeId': value,
+      if (instance.dataTemplateTypeId case final value?)
+        'dataTemplateTypeId': value,
+      if (instance.dataCategoryId case final value?) 'dataCategoryId': value,
+      if (instance.dataSourceId case final value?) 'dataSourceId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.dataResourceName case final value?)
+        'dataResourceName': value,
+      if (instance.localeString case final value?) 'localeString': value,
+      if (instance.mimeTypeId case final value?) 'mimeTypeId': value,
+      if (instance.characterSetId case final value?) 'characterSetId': value,
+      if (instance.objectInfo case final value?) 'objectInfo': value,
+      if (instance.surveyId case final value?) 'surveyId': value,
+      if (instance.surveyResponseId case final value?)
+        'surveyResponseId': value,
+      if (instance.relatedDetailId case final value?) 'relatedDetailId': value,
+      if (instance.isPublic case final value?) 'isPublic': value,
+      if (instance.createdDate?.toIso8601String() case final value?)
+        'createdDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.lastModifiedDate?.toIso8601String() case final value?)
+        'lastModifiedDate': value,
+      if (instance.lastModifiedByUserLogin case final value?)
+        'lastModifiedByUserLogin': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.electronicText?.toJson() case final value?)
+        'electronicText': value,
+      if (instance.audioDataResource?.toJson() case final value?)
+        'audioDataResource': value,
+      if (instance.dataResourceType?.toJson() case final value?)
+        'dataResourceType': value,
+      if (instance.imageDataResource?.toJson() case final value?)
+        'imageDataResource': value,
+      if (instance.videoDataResource?.toJson() case final value?)
+        'videoDataResource': value,
+      if (instance.dataResourceSlot?.map((e) => e.toJson()).toList()
+          case final value?)
+        'dataResourceSlot': value,
+    };
 
 ElectronicText _$ElectronicTextFromJson(Map<String, dynamic> json) =>
     ElectronicText(
@@ -126,23 +132,16 @@ ElectronicText _$ElectronicTextFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ElectronicTextToJson(ElectronicText instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('textData', instance.textData);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ElectronicTextToJson(ElectronicText instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (instance.textData case final value?) 'textData': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 AudioDataResource _$AudioDataResourceFromJson(Map<String, dynamic> json) =>
     AudioDataResource(
@@ -157,23 +156,17 @@ AudioDataResource _$AudioDataResourceFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$AudioDataResourceToJson(AudioDataResource instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('audioData', const BytesConverter().toJson(instance.audioData));
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$AudioDataResourceToJson(AudioDataResource instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (const BytesConverter().toJson(instance.audioData) case final value?)
+        'audioData': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 DataResourceType _$DataResourceTypeFromJson(Map<String, dynamic> json) =>
     DataResourceType(
@@ -190,25 +183,19 @@ DataResourceType _$DataResourceTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$DataResourceTypeToJson(DataResourceType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceTypeId', instance.dataResourceTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', instance.hasTable);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$DataResourceTypeToJson(DataResourceType instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceTypeId case final value?)
+        'dataResourceTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.hasTable case final value?) 'hasTable': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 ImageDataResource _$ImageDataResourceFromJson(Map<String, dynamic> json) =>
     ImageDataResource(
@@ -223,23 +210,17 @@ ImageDataResource _$ImageDataResourceFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$ImageDataResourceToJson(ImageDataResource instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('imageData', const BytesConverter().toJson(instance.imageData));
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$ImageDataResourceToJson(ImageDataResource instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (const BytesConverter().toJson(instance.imageData) case final value?)
+        'imageData': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 DataResourceSlot _$DataResourceSlotFromJson(Map<String, dynamic> json) =>
     DataResourceSlot(
@@ -256,25 +237,18 @@ DataResourceSlot _$DataResourceSlotFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$DataResourceSlotToJson(DataResourceSlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$DataResourceSlotToJson(DataResourceSlot instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 VideoDataResource _$VideoDataResourceFromJson(Map<String, dynamic> json) =>
     VideoDataResource(
@@ -289,20 +263,14 @@ VideoDataResource _$VideoDataResourceFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$VideoDataResourceToJson(VideoDataResource instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('dataResourceId', instance.dataResourceId);
-  writeNotNull('videoData', const BytesConverter().toJson(instance.videoData));
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$VideoDataResourceToJson(VideoDataResource instance) =>
+    <String, dynamic>{
+      if (instance.dataResourceId case final value?) 'dataResourceId': value,
+      if (const BytesConverter().toJson(instance.videoData) case final value?)
+        'videoData': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

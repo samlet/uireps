@@ -35,6 +35,7 @@ Asset _$AssetFromJson(Map<String, dynamic> json) => Asset(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       evict: json['evict'] as bool?,
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
@@ -47,45 +48,40 @@ Asset _$AssetFromJson(Map<String, dynamic> json) => Asset(
           .toList(),
     );
 
-Map<String, dynamic> _$AssetToJson(Asset instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('assetId', instance.assetId);
-  writeNotNull('creator', instance.creator);
-  writeNotNull('uri', instance.uri);
-  writeNotNull('data', const BytesConverter().toJson(instance.data));
-  writeNotNull('group', instance.group);
-  writeNotNull('parentAssetId', instance.parentAssetId);
-  writeNotNull('seqId', instance.seqId);
-  writeNotNull('erc', instance.erc);
-  writeNotNull('ercType', instance.ercType);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('accessors', instance.accessors);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('assetTypeId', instance.assetTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('evict', instance.evict);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('assetType', instance.assetType?.toJson());
-  writeNotNull(
-      'assetStatus', instance.assetStatus?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$AssetToJson(Asset instance) => <String, dynamic>{
+      if (instance.assetId case final value?) 'assetId': value,
+      if (instance.creator case final value?) 'creator': value,
+      if (instance.uri case final value?) 'uri': value,
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
+      if (instance.group case final value?) 'group': value,
+      if (instance.parentAssetId case final value?) 'parentAssetId': value,
+      if (instance.seqId case final value?) 'seqId': value,
+      if (instance.erc case final value?) 'erc': value,
+      if (instance.ercType case final value?) 'ercType': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.accessors case final value?) 'accessors': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.assetTypeId case final value?) 'assetTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.evict case final value?) 'evict': value,
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.assetType?.toJson() case final value?) 'assetType': value,
+      if (instance.assetStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'assetStatus': value,
+    };
 
 AssetType _$AssetTypeFromJson(Map<String, dynamic> json) => AssetType(
       assetTypeId: json['assetTypeId'] as String?,
@@ -100,24 +96,16 @@ AssetType _$AssetTypeFromJson(Map<String, dynamic> json) => AssetType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$AssetTypeToJson(AssetType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('assetTypeId', instance.assetTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$AssetTypeToJson(AssetType instance) => <String, dynamic>{
+      if (instance.assetTypeId case final value?) 'assetTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 AssetStatus _$AssetStatusFromJson(Map<String, dynamic> json) => AssetStatus(
       assetId: json['assetId'] as String?,
@@ -138,23 +126,19 @@ AssetStatus _$AssetStatusFromJson(Map<String, dynamic> json) => AssetStatus(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$AssetStatusToJson(AssetStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('assetId', instance.assetId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$AssetStatusToJson(AssetStatus instance) =>
+    <String, dynamic>{
+      if (instance.assetId case final value?) 'assetId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

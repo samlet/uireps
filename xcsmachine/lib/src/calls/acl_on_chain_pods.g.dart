@@ -142,6 +142,8 @@ class AclOnChainProvider extends Provider<AclOnChainRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AclOnChainRef on ProviderRef<AclOnChainRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -293,6 +295,8 @@ class AocHasRoleProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AocHasRoleRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -445,6 +449,8 @@ class AocGetPublicMethodsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AocGetPublicMethodsRef on AutoDisposeFutureProviderRef<List<String>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -613,6 +619,8 @@ class AocIsOwnerProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AocIsOwnerRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -769,6 +777,8 @@ class AclOnChainPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AclOnChainPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -783,4 +793,4 @@ class _AclOnChainPodProviderElement
   String get regionOrNs => (origin as AclOnChainPodProvider).regionOrNs;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

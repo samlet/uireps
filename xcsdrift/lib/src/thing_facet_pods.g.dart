@@ -21,6 +21,8 @@ final thingFacetRepositoryProvider = Provider<ThingFacetRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ThingFacetRepositoryRef = ProviderRef<ThingFacetRepository>;
 String _$getThingFacetHash() => r'ce9320f8ac2c076cd1be7545959a983cb1b0f6f5';
 
@@ -158,6 +160,8 @@ class GetThingFacetProvider extends AutoDisposeFutureProvider<ThingFacetData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetThingFacetRef on AutoDisposeFutureProviderRef<ThingFacetData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -189,4 +193,4 @@ final thingFacetBucketProvider = AutoDisposeStreamNotifierProvider<
 
 typedef _$ThingFacetBucket = AutoDisposeStreamNotifier<List<ThingFacetData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

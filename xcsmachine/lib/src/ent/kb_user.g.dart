@@ -28,6 +28,7 @@ KbUser _$KbUserFromJson(Map<String, dynamic> json) => KbUser(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       resourceId: json['resourceId'] as String?,
       resourceType: json['resourceType'] as String?,
       kbUserType: json['kbUserType'] == null
@@ -38,37 +39,30 @@ KbUser _$KbUserFromJson(Map<String, dynamic> json) => KbUser(
           : KbBadgeCount.fromJson(json['badgeCount'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$KbUserToJson(KbUser instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('userId', instance.userId);
-  writeNotNull('reputation', instance.reputation);
-  writeNotNull('displayName', instance.displayName);
-  writeNotNull('profileImage', instance.profileImage);
-  writeNotNull('link', instance.link);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('kbUserTypeId', instance.kbUserTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('kbUserType', instance.kbUserType?.toJson());
-  writeNotNull('badgeCount', instance.badgeCount?.toJson());
-  return val;
-}
+Map<String, dynamic> _$KbUserToJson(KbUser instance) => <String, dynamic>{
+      if (instance.userId case final value?) 'userId': value,
+      if (instance.reputation case final value?) 'reputation': value,
+      if (instance.displayName case final value?) 'displayName': value,
+      if (instance.profileImage case final value?) 'profileImage': value,
+      if (instance.link case final value?) 'link': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.kbUserTypeId case final value?) 'kbUserTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.kbUserType?.toJson() case final value?) 'kbUserType': value,
+      if (instance.badgeCount?.toJson() case final value?) 'badgeCount': value,
+    };
 
 KbUserType _$KbUserTypeFromJson(Map<String, dynamic> json) => KbUserType(
       kbUserTypeId: json['kbUserTypeId'] as String?,
@@ -83,24 +77,17 @@ KbUserType _$KbUserTypeFromJson(Map<String, dynamic> json) => KbUserType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$KbUserTypeToJson(KbUserType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('kbUserTypeId', instance.kbUserTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$KbUserTypeToJson(KbUserType instance) =>
+    <String, dynamic>{
+      if (instance.kbUserTypeId case final value?) 'kbUserTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 KbBadgeCount _$KbBadgeCountFromJson(Map<String, dynamic> json) => KbBadgeCount(
       kbBadgeCountId: json['kbBadgeCountId'] as String?,
@@ -119,25 +106,19 @@ KbBadgeCount _$KbBadgeCountFromJson(Map<String, dynamic> json) => KbBadgeCount(
       statusId: json['statusId'] as String?,
     );
 
-Map<String, dynamic> _$KbBadgeCountToJson(KbBadgeCount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('kbBadgeCountId', instance.kbBadgeCountId);
-  writeNotNull('bronze', instance.bronze);
-  writeNotNull('silver', instance.silver);
-  writeNotNull('gold', instance.gold);
-  writeNotNull('userId', instance.userId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('kbBadgeCountTypeId', instance.kbBadgeCountTypeId);
-  writeNotNull('statusId', instance.statusId);
-  return val;
-}
+Map<String, dynamic> _$KbBadgeCountToJson(KbBadgeCount instance) =>
+    <String, dynamic>{
+      if (instance.kbBadgeCountId case final value?) 'kbBadgeCountId': value,
+      if (instance.bronze case final value?) 'bronze': value,
+      if (instance.silver case final value?) 'silver': value,
+      if (instance.gold case final value?) 'gold': value,
+      if (instance.userId case final value?) 'userId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.kbBadgeCountTypeId case final value?)
+        'kbBadgeCountTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+    };

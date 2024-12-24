@@ -142,6 +142,8 @@ class LoadHeadlineProvider extends AutoDisposeFutureProvider<Headline> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadHeadlineRef on AutoDisposeFutureProviderRef<Headline> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -327,6 +329,8 @@ class LoadHeadlineListProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadHeadlineListRef on AutoDisposeFutureProviderRef<List<Headline>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -530,6 +534,8 @@ class LoadHeadlinePageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadHeadlinePageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Headline>> {
   /// The parameter `pageSize` of this provider.
@@ -692,6 +698,8 @@ class FetchHeadlinesProvider extends AutoDisposeFutureProvider<List<Headline>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchHeadlinesRef on AutoDisposeFutureProviderRef<List<Headline>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -711,4 +719,4 @@ class _FetchHeadlinesProviderElement
   String get regionId => (origin as FetchHeadlinesProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

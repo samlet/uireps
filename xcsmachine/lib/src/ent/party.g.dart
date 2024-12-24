@@ -38,6 +38,7 @@ Party _$PartyFromJson(Map<String, dynamic> json) => Party(
       moreTags: (json['moreTags'] as List<dynamic>?)
           ?.map((e) => e as String?)
           .toList(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
       acl: stringMultimapFromJson(json['acl'] as Map<String, dynamic>?),
       telephone: json['telephone'] as String?,
       email: json['email'] as String?,
@@ -183,130 +184,159 @@ Party _$PartyFromJson(Map<String, dynamic> json) => Party(
           .toList(),
     );
 
-Map<String, dynamic> _$PartyToJson(Party instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('partyTypeId', instance.partyTypeId);
-  writeNotNull('externalId', instance.externalId);
-  writeNotNull('preferredCurrencyUomId', instance.preferredCurrencyUomId);
-  writeNotNull('description', instance.description);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('createdDate', instance.createdDate?.toIso8601String());
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull(
-      'lastModifiedDate', instance.lastModifiedDate?.toIso8601String());
-  writeNotNull('lastModifiedByUserLogin', instance.lastModifiedByUserLogin);
-  writeNotNull('dataSourceId', instance.dataSourceId);
-  writeNotNull('isUnread', instance.isUnread);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('defaultLoginId', instance.defaultLoginId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('moreTags', instance.moreTags);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('telephone', instance.telephone);
-  writeNotNull('email', instance.email);
-  writeNotNull('placeId', instance.placeId);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('partyGroup', instance.partyGroup?.toJson());
-  writeNotNull('partyType', instance.partyType?.toJson());
-  writeNotNull('partyAcctgPreference', instance.partyAcctgPreference?.toJson());
-  writeNotNull('person', instance.person?.toJson());
-  writeNotNull(
-      'agreementRole', instance.agreementRole?.map((e) => e.toJson()).toList());
-  writeNotNull('partyClassification',
-      instance.partyClassification?.map((e) => e.toJson()).toList());
-  writeNotNull('approverEmplLeave',
-      instance.approverEmplLeave?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyNeed', instance.partyNeed?.map((e) => e.toJson()).toList());
-  writeNotNull('carrierShipmentBoxType',
-      instance.carrierShipmentBoxType?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'rateAmount', instance.rateAmount?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'organizationTaxAuthorityGlAccount',
-      instance.organizationTaxAuthorityGlAccount
-          ?.map((e) => e.toJson())
-          .toList());
-  writeNotNull(
-      'partyStatus', instance.partyStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('supplierProduct',
-      instance.supplierProduct?.map((e) => e.toJson()).toList());
-  writeNotNull('partyNotification',
-      instance.partyNotification?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partySkill', instance.partySkill?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyContent', instance.partyContent?.map((e) => e.toJson()).toList());
-  writeNotNull('toPartyBenefit',
-      instance.toPartyBenefit?.map((e) => e.toJson()).toList());
-  writeNotNull('partyContactMechPurpose',
-      instance.partyContactMechPurpose?.map((e) => e.toJson()).toList());
-  writeNotNull('taxAuthTaxAuthority',
-      instance.taxAuthTaxAuthority?.map((e) => e.toJson()).toList());
-  writeNotNull('supplierProductFeature',
-      instance.supplierProductFeature?.map((e) => e.toJson()).toList());
-  writeNotNull('partyAttribute',
-      instance.partyAttribute?.map((e) => e.toJson()).toList());
-  writeNotNull('partyPreference',
-      instance.partyPreference?.map((e) => e.toJson()).toList());
-  writeNotNull('partyProfileDefault',
-      instance.partyProfileDefault?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partySlot', instance.partySlot?.map((e) => e.toJson()).toList());
-  writeNotNull('fromPartyRelationship',
-      instance.fromPartyRelationship?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyAccount', instance.partyAccount?.map((e) => e.toJson()).toList());
-  writeNotNull('payrollPreference',
-      instance.payrollPreference?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyRole', instance.partyRole?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyGeoPoint', instance.partyGeoPoint?.map((e) => e.toJson()).toList());
-  writeNotNull('partyTaxAuthInfo',
-      instance.partyTaxAuthInfo?.map((e) => e.toJson()).toList());
-  writeNotNull('carrierShipmentMethod',
-      instance.carrierShipmentMethod?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyNote', instance.partyNote?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'emplLeave', instance.emplLeave?.map((e) => e.toJson()).toList());
-  writeNotNull('fromEmployment',
-      instance.fromEmployment?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'toEmployment', instance.toEmployment?.map((e) => e.toJson()).toList());
-  writeNotNull('partyIdentification',
-      instance.partyIdentification?.map((e) => e.toJson()).toList());
-  writeNotNull('toPartyRelationship',
-      instance.toPartyRelationship?.map((e) => e.toJson()).toList());
-  writeNotNull('fromPartyBenefit',
-      instance.fromPartyBenefit?.map((e) => e.toJson()).toList());
-  writeNotNull('partyFixedAssetAssignment',
-      instance.partyFixedAssetAssignment?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'partyGeoForce', instance.partyGeoForce?.map((e) => e.toJson()).toList());
-  writeNotNull('partyContactMech',
-      instance.partyContactMech?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$PartyToJson(Party instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.partyTypeId case final value?) 'partyTypeId': value,
+      if (instance.externalId case final value?) 'externalId': value,
+      if (instance.preferredCurrencyUomId case final value?)
+        'preferredCurrencyUomId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.createdDate?.toIso8601String() case final value?)
+        'createdDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.lastModifiedDate?.toIso8601String() case final value?)
+        'lastModifiedDate': value,
+      if (instance.lastModifiedByUserLogin case final value?)
+        'lastModifiedByUserLogin': value,
+      if (instance.dataSourceId case final value?) 'dataSourceId': value,
+      if (instance.isUnread case final value?) 'isUnread': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.defaultLoginId case final value?) 'defaultLoginId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.moreTags case final value?) 'moreTags': value,
+      'labels': stringMultimapToJson(instance.labels),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.telephone case final value?) 'telephone': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.placeId case final value?) 'placeId': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.partyGroup?.toJson() case final value?) 'partyGroup': value,
+      if (instance.partyType?.toJson() case final value?) 'partyType': value,
+      if (instance.partyAcctgPreference?.toJson() case final value?)
+        'partyAcctgPreference': value,
+      if (instance.person?.toJson() case final value?) 'person': value,
+      if (instance.agreementRole?.map((e) => e.toJson()).toList()
+          case final value?)
+        'agreementRole': value,
+      if (instance.partyClassification?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyClassification': value,
+      if (instance.approverEmplLeave?.map((e) => e.toJson()).toList()
+          case final value?)
+        'approverEmplLeave': value,
+      if (instance.partyNeed?.map((e) => e.toJson()).toList() case final value?)
+        'partyNeed': value,
+      if (instance.carrierShipmentBoxType?.map((e) => e.toJson()).toList()
+          case final value?)
+        'carrierShipmentBoxType': value,
+      if (instance.rateAmount?.map((e) => e.toJson()).toList()
+          case final value?)
+        'rateAmount': value,
+      if (instance.organizationTaxAuthorityGlAccount
+              ?.map((e) => e.toJson())
+              .toList()
+          case final value?)
+        'organizationTaxAuthorityGlAccount': value,
+      if (instance.partyStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyStatus': value,
+      if (instance.supplierProduct?.map((e) => e.toJson()).toList()
+          case final value?)
+        'supplierProduct': value,
+      if (instance.partyNotification?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyNotification': value,
+      if (instance.partySkill?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partySkill': value,
+      if (instance.partyContent?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyContent': value,
+      if (instance.toPartyBenefit?.map((e) => e.toJson()).toList()
+          case final value?)
+        'toPartyBenefit': value,
+      if (instance.partyContactMechPurpose?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyContactMechPurpose': value,
+      if (instance.taxAuthTaxAuthority?.map((e) => e.toJson()).toList()
+          case final value?)
+        'taxAuthTaxAuthority': value,
+      if (instance.supplierProductFeature?.map((e) => e.toJson()).toList()
+          case final value?)
+        'supplierProductFeature': value,
+      if (instance.partyAttribute?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyAttribute': value,
+      if (instance.partyPreference?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyPreference': value,
+      if (instance.partyProfileDefault?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyProfileDefault': value,
+      if (instance.partySlot?.map((e) => e.toJson()).toList() case final value?)
+        'partySlot': value,
+      if (instance.fromPartyRelationship?.map((e) => e.toJson()).toList()
+          case final value?)
+        'fromPartyRelationship': value,
+      if (instance.partyAccount?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyAccount': value,
+      if (instance.payrollPreference?.map((e) => e.toJson()).toList()
+          case final value?)
+        'payrollPreference': value,
+      if (instance.partyRole?.map((e) => e.toJson()).toList() case final value?)
+        'partyRole': value,
+      if (instance.partyGeoPoint?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyGeoPoint': value,
+      if (instance.partyTaxAuthInfo?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyTaxAuthInfo': value,
+      if (instance.carrierShipmentMethod?.map((e) => e.toJson()).toList()
+          case final value?)
+        'carrierShipmentMethod': value,
+      if (instance.partyNote?.map((e) => e.toJson()).toList() case final value?)
+        'partyNote': value,
+      if (instance.emplLeave?.map((e) => e.toJson()).toList() case final value?)
+        'emplLeave': value,
+      if (instance.fromEmployment?.map((e) => e.toJson()).toList()
+          case final value?)
+        'fromEmployment': value,
+      if (instance.toEmployment?.map((e) => e.toJson()).toList()
+          case final value?)
+        'toEmployment': value,
+      if (instance.partyIdentification?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyIdentification': value,
+      if (instance.toPartyRelationship?.map((e) => e.toJson()).toList()
+          case final value?)
+        'toPartyRelationship': value,
+      if (instance.fromPartyBenefit?.map((e) => e.toJson()).toList()
+          case final value?)
+        'fromPartyBenefit': value,
+      if (instance.partyFixedAssetAssignment?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyFixedAssetAssignment': value,
+      if (instance.partyGeoForce?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyGeoForce': value,
+      if (instance.partyContactMech?.map((e) => e.toJson()).toList()
+          case final value?)
+        'partyContactMech': value,
+    };
 
 AgreementRole _$AgreementRoleFromJson(Map<String, dynamic> json) =>
     AgreementRole(
@@ -322,24 +352,17 @@ AgreementRole _$AgreementRoleFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$AgreementRoleToJson(AgreementRole instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('agreementId', instance.agreementId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$AgreementRoleToJson(AgreementRole instance) =>
+    <String, dynamic>{
+      if (instance.agreementId case final value?) 'agreementId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyClassification _$PartyClassificationFromJson(Map<String, dynamic> json) =>
     PartyClassification(
@@ -360,26 +383,22 @@ PartyClassification _$PartyClassificationFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyClassificationToJson(PartyClassification instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull(
-      'partyClassificationGroupId', instance.partyClassificationGroupId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyClassificationToJson(
+        PartyClassification instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.partyClassificationGroupId case final value?)
+        'partyClassificationGroupId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyNeed _$PartyNeedFromJson(Map<String, dynamic> json) => PartyNeed(
       partyNeedId: json['partyNeedId'] as String?,
@@ -404,33 +423,27 @@ PartyNeed _$PartyNeedFromJson(Map<String, dynamic> json) => PartyNeed(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyNeedToJson(PartyNeed instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyNeedId', instance.partyNeedId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('partyTypeId', instance.partyTypeId);
-  writeNotNull('needTypeId', instance.needTypeId);
-  writeNotNull('communicationEventId', instance.communicationEventId);
-  writeNotNull('productId', instance.productId);
-  writeNotNull('productCategoryId', instance.productCategoryId);
-  writeNotNull('visitId', instance.visitId);
-  writeNotNull(
-      'datetimeRecorded', instance.datetimeRecorded?.toIso8601String());
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyNeedToJson(PartyNeed instance) => <String, dynamic>{
+      if (instance.partyNeedId case final value?) 'partyNeedId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.partyTypeId case final value?) 'partyTypeId': value,
+      if (instance.needTypeId case final value?) 'needTypeId': value,
+      if (instance.communicationEventId case final value?)
+        'communicationEventId': value,
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.productCategoryId case final value?)
+        'productCategoryId': value,
+      if (instance.visitId case final value?) 'visitId': value,
+      if (instance.datetimeRecorded?.toIso8601String() case final value?)
+        'datetimeRecorded': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 CarrierShipmentBoxType _$CarrierShipmentBoxTypeFromJson(
         Map<String, dynamic> json) =>
@@ -449,25 +462,20 @@ CarrierShipmentBoxType _$CarrierShipmentBoxTypeFromJson(
     );
 
 Map<String, dynamic> _$CarrierShipmentBoxTypeToJson(
-    CarrierShipmentBoxType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentBoxTypeId', instance.shipmentBoxTypeId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('packagingTypeCode', instance.packagingTypeCode);
-  writeNotNull('oversizeCode', instance.oversizeCode);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        CarrierShipmentBoxType instance) =>
+    <String, dynamic>{
+      if (instance.shipmentBoxTypeId case final value?)
+        'shipmentBoxTypeId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.packagingTypeCode case final value?)
+        'packagingTypeCode': value,
+      if (instance.oversizeCode case final value?) 'oversizeCode': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 RateAmount _$RateAmountFromJson(Map<String, dynamic> json) => RateAmount(
       rateTypeId: json['rateTypeId'] as String?,
@@ -492,30 +500,27 @@ RateAmount _$RateAmountFromJson(Map<String, dynamic> json) => RateAmount(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$RateAmountToJson(RateAmount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('rateTypeId', instance.rateTypeId);
-  writeNotNull('rateCurrencyUomId', instance.rateCurrencyUomId);
-  writeNotNull('periodTypeId', instance.periodTypeId);
-  writeNotNull('workEffortId', instance.workEffortId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('emplPositionTypeId', instance.emplPositionTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('rateAmount', instance.rateAmount);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$RateAmountToJson(RateAmount instance) =>
+    <String, dynamic>{
+      if (instance.rateTypeId case final value?) 'rateTypeId': value,
+      if (instance.rateCurrencyUomId case final value?)
+        'rateCurrencyUomId': value,
+      if (instance.periodTypeId case final value?) 'periodTypeId': value,
+      if (instance.workEffortId case final value?) 'workEffortId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.emplPositionTypeId case final value?)
+        'emplPositionTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.rateAmount case final value?) 'rateAmount': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyStatus _$PartyStatusFromJson(Map<String, dynamic> json) => PartyStatus(
       statusId: json['statusId'] as String?,
@@ -533,25 +538,20 @@ PartyStatus _$PartyStatusFromJson(Map<String, dynamic> json) => PartyStatus(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyStatusToJson(PartyStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyStatusToJson(PartyStatus instance) =>
+    <String, dynamic>{
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyGroup _$PartyGroupFromJson(Map<String, dynamic> json) => PartyGroup(
       partyId: json['partyId'] as String?,
@@ -572,30 +572,23 @@ PartyGroup _$PartyGroupFromJson(Map<String, dynamic> json) => PartyGroup(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$PartyGroupToJson(PartyGroup instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('groupName', instance.groupName);
-  writeNotNull('groupNameLocal', instance.groupNameLocal);
-  writeNotNull('officeSiteName', instance.officeSiteName);
-  writeNotNull('annualRevenue', instance.annualRevenue);
-  writeNotNull('numEmployees', instance.numEmployees);
-  writeNotNull('tickerSymbol', instance.tickerSymbol);
-  writeNotNull('comments', instance.comments);
-  writeNotNull('logoImageUrl', instance.logoImageUrl);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$PartyGroupToJson(PartyGroup instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.groupName case final value?) 'groupName': value,
+      if (instance.groupNameLocal case final value?) 'groupNameLocal': value,
+      if (instance.officeSiteName case final value?) 'officeSiteName': value,
+      if (instance.annualRevenue case final value?) 'annualRevenue': value,
+      if (instance.numEmployees case final value?) 'numEmployees': value,
+      if (instance.tickerSymbol case final value?) 'tickerSymbol': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.logoImageUrl case final value?) 'logoImageUrl': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 SupplierProduct _$SupplierProductFromJson(Map<String, dynamic> json) =>
     SupplierProduct(
@@ -632,43 +625,44 @@ SupplierProduct _$SupplierProductFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$SupplierProductToJson(SupplierProduct instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('productId', instance.productId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull(
-      'availableFromDate', instance.availableFromDate?.toIso8601String());
-  writeNotNull(
-      'availableThruDate', instance.availableThruDate?.toIso8601String());
-  writeNotNull('supplierPrefOrderId', instance.supplierPrefOrderId);
-  writeNotNull('supplierRatingTypeId', instance.supplierRatingTypeId);
-  writeNotNull('standardLeadTimeDays', instance.standardLeadTimeDays);
-  writeNotNull('minimumOrderQuantity', instance.minimumOrderQuantity);
-  writeNotNull('orderQtyIncrements', instance.orderQtyIncrements);
-  writeNotNull('unitsIncluded', instance.unitsIncluded);
-  writeNotNull('quantityUomId', instance.quantityUomId);
-  writeNotNull('agreementId', instance.agreementId);
-  writeNotNull('agreementItemSeqId', instance.agreementItemSeqId);
-  writeNotNull('lastPrice', instance.lastPrice);
-  writeNotNull('shippingPrice', instance.shippingPrice);
-  writeNotNull('currencyUomId', instance.currencyUomId);
-  writeNotNull('supplierProductName', instance.supplierProductName);
-  writeNotNull('supplierProductId', instance.supplierProductId);
-  writeNotNull('canDropShip', instance.canDropShip);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$SupplierProductToJson(SupplierProduct instance) =>
+    <String, dynamic>{
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.availableFromDate?.toIso8601String() case final value?)
+        'availableFromDate': value,
+      if (instance.availableThruDate?.toIso8601String() case final value?)
+        'availableThruDate': value,
+      if (instance.supplierPrefOrderId case final value?)
+        'supplierPrefOrderId': value,
+      if (instance.supplierRatingTypeId case final value?)
+        'supplierRatingTypeId': value,
+      if (instance.standardLeadTimeDays case final value?)
+        'standardLeadTimeDays': value,
+      if (instance.minimumOrderQuantity case final value?)
+        'minimumOrderQuantity': value,
+      if (instance.orderQtyIncrements case final value?)
+        'orderQtyIncrements': value,
+      if (instance.unitsIncluded case final value?) 'unitsIncluded': value,
+      if (instance.quantityUomId case final value?) 'quantityUomId': value,
+      if (instance.agreementId case final value?) 'agreementId': value,
+      if (instance.agreementItemSeqId case final value?)
+        'agreementItemSeqId': value,
+      if (instance.lastPrice case final value?) 'lastPrice': value,
+      if (instance.shippingPrice case final value?) 'shippingPrice': value,
+      if (instance.currencyUomId case final value?) 'currencyUomId': value,
+      if (instance.supplierProductName case final value?)
+        'supplierProductName': value,
+      if (instance.supplierProductId case final value?)
+        'supplierProductId': value,
+      if (instance.canDropShip case final value?) 'canDropShip': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyNotification _$PartyNotificationFromJson(Map<String, dynamic> json) =>
     PartyNotification(
@@ -686,26 +680,19 @@ PartyNotification _$PartyNotificationFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyNotificationToJson(PartyNotification instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('notificationId', instance.notificationId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('group', instance.group);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyNotificationToJson(PartyNotification instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.notificationId case final value?) 'notificationId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.group case final value?) 'group': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartySkill _$PartySkillFromJson(Map<String, dynamic> json) => PartySkill(
       partyId: json['partyId'] as String?,
@@ -725,28 +712,21 @@ PartySkill _$PartySkillFromJson(Map<String, dynamic> json) => PartySkill(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartySkillToJson(PartySkill instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('skillTypeId', instance.skillTypeId);
-  writeNotNull('yearsExperience', instance.yearsExperience);
-  writeNotNull('rating', instance.rating);
-  writeNotNull('skillLevel', instance.skillLevel);
-  writeNotNull(
-      'startedUsingDate', instance.startedUsingDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartySkillToJson(PartySkill instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.skillTypeId case final value?) 'skillTypeId': value,
+      if (instance.yearsExperience case final value?) 'yearsExperience': value,
+      if (instance.rating case final value?) 'rating': value,
+      if (instance.skillLevel case final value?) 'skillLevel': value,
+      if (instance.startedUsingDate?.toIso8601String() case final value?)
+        'startedUsingDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyContent _$PartyContentFromJson(Map<String, dynamic> json) => PartyContent(
       partyId: json['partyId'] as String?,
@@ -767,26 +747,22 @@ PartyContent _$PartyContentFromJson(Map<String, dynamic> json) => PartyContent(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyContentToJson(PartyContent instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('contentId', instance.contentId);
-  writeNotNull('partyContentTypeId', instance.partyContentTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyContentToJson(PartyContent instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.contentId case final value?) 'contentId': value,
+      if (instance.partyContentTypeId case final value?)
+        'partyContentTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyContactMechPurpose _$PartyContactMechPurposeFromJson(
         Map<String, dynamic> json) =>
@@ -810,26 +786,22 @@ PartyContactMechPurpose _$PartyContactMechPurposeFromJson(
     );
 
 Map<String, dynamic> _$PartyContactMechPurposeToJson(
-    PartyContactMechPurpose instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('contactMechPurposeTypeId', instance.contactMechPurposeTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        PartyContactMechPurpose instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.contactMechPurposeTypeId case final value?)
+        'contactMechPurposeTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 Employment _$EmploymentFromJson(Map<String, dynamic> json) => Employment(
       roleTypeIdFrom: json['roleTypeIdFrom'] as String?,
@@ -853,29 +825,26 @@ Employment _$EmploymentFromJson(Map<String, dynamic> json) => Employment(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$EmploymentToJson(Employment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('roleTypeIdFrom', instance.roleTypeIdFrom);
-  writeNotNull('roleTypeIdTo', instance.roleTypeIdTo);
-  writeNotNull('partyIdFrom', instance.partyIdFrom);
-  writeNotNull('partyIdTo', instance.partyIdTo);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('terminationReasonId', instance.terminationReasonId);
-  writeNotNull('terminationTypeId', instance.terminationTypeId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$EmploymentToJson(Employment instance) =>
+    <String, dynamic>{
+      if (instance.roleTypeIdFrom case final value?) 'roleTypeIdFrom': value,
+      if (instance.roleTypeIdTo case final value?) 'roleTypeIdTo': value,
+      if (instance.partyIdFrom case final value?) 'partyIdFrom': value,
+      if (instance.partyIdTo case final value?) 'partyIdTo': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.terminationReasonId case final value?)
+        'terminationReasonId': value,
+      if (instance.terminationTypeId case final value?)
+        'terminationTypeId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 SupplierProductFeature _$SupplierProductFeatureFromJson(
         Map<String, dynamic> json) =>
@@ -895,26 +864,20 @@ SupplierProductFeature _$SupplierProductFeatureFromJson(
     );
 
 Map<String, dynamic> _$SupplierProductFeatureToJson(
-    SupplierProductFeature instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('productFeatureId', instance.productFeatureId);
-  writeNotNull('description', instance.description);
-  writeNotNull('uomId', instance.uomId);
-  writeNotNull('idCode', instance.idCode);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        SupplierProductFeature instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.productFeatureId case final value?)
+        'productFeatureId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.uomId case final value?) 'uomId': value,
+      if (instance.idCode case final value?) 'idCode': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyAttribute _$PartyAttributeFromJson(Map<String, dynamic> json) =>
     PartyAttribute(
@@ -931,25 +894,18 @@ PartyAttribute _$PartyAttributeFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyAttributeToJson(PartyAttribute instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('attrName', instance.attrName);
-  writeNotNull('attrValue', instance.attrValue);
-  writeNotNull('attrDescription', instance.attrDescription);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyAttributeToJson(PartyAttribute instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.attrName case final value?) 'attrName': value,
+      if (instance.attrValue case final value?) 'attrValue': value,
+      if (instance.attrDescription case final value?) 'attrDescription': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyPreference _$PartyPreferenceFromJson(Map<String, dynamic> json) =>
     PartyPreference(
@@ -966,25 +922,18 @@ PartyPreference _$PartyPreferenceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyPreferenceToJson(PartyPreference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('preferenceId', instance.preferenceId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyPreferenceToJson(PartyPreference instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.preferenceId case final value?) 'preferenceId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyProfileDefault _$PartyProfileDefaultFromJson(Map<String, dynamic> json) =>
     PartyProfileDefault(
@@ -1003,27 +952,21 @@ PartyProfileDefault _$PartyProfileDefaultFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyProfileDefaultToJson(PartyProfileDefault instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('productStoreId', instance.productStoreId);
-  writeNotNull('defaultShipAddr', instance.defaultShipAddr);
-  writeNotNull('defaultBillAddr', instance.defaultBillAddr);
-  writeNotNull('defaultPayMeth', instance.defaultPayMeth);
-  writeNotNull('defaultShipMeth', instance.defaultShipMeth);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyProfileDefaultToJson(
+        PartyProfileDefault instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.productStoreId case final value?) 'productStoreId': value,
+      if (instance.defaultShipAddr case final value?) 'defaultShipAddr': value,
+      if (instance.defaultBillAddr case final value?) 'defaultBillAddr': value,
+      if (instance.defaultPayMeth case final value?) 'defaultPayMeth': value,
+      if (instance.defaultShipMeth case final value?) 'defaultShipMeth': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartySlot _$PartySlotFromJson(Map<String, dynamic> json) => PartySlot(
       partyId: json['partyId'] as String?,
@@ -1039,25 +982,17 @@ PartySlot _$PartySlotFromJson(Map<String, dynamic> json) => PartySlot(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartySlotToJson(PartySlot instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('slotId', instance.slotId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartySlotToJson(PartySlot instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.slotId case final value?) 'slotId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyAccount _$PartyAccountFromJson(Map<String, dynamic> json) => PartyAccount(
       partyId: json['partyId'] as String?,
@@ -1076,27 +1011,20 @@ PartyAccount _$PartyAccountFromJson(Map<String, dynamic> json) => PartyAccount(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyAccountToJson(PartyAccount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('accountId', instance.accountId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull(
-      'disabledDateTime', instance.disabledDateTime?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyAccountToJson(PartyAccount instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.accountId case final value?) 'accountId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.disabledDateTime?.toIso8601String() case final value?)
+        'disabledDateTime': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyType _$PartyTypeFromJson(Map<String, dynamic> json) => PartyType(
       partyTypeId: json['partyTypeId'] as String?,
@@ -1112,25 +1040,17 @@ PartyType _$PartyTypeFromJson(Map<String, dynamic> json) => PartyType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$PartyTypeToJson(PartyType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyTypeId', instance.partyTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', instance.hasTable);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$PartyTypeToJson(PartyType instance) => <String, dynamic>{
+      if (instance.partyTypeId case final value?) 'partyTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.hasTable case final value?) 'hasTable': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 PayrollPreference _$PayrollPreferenceFromJson(Map<String, dynamic> json) =>
     PayrollPreference(
@@ -1160,34 +1080,31 @@ PayrollPreference _$PayrollPreferenceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PayrollPreferenceToJson(PayrollPreference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('payrollPreferenceSeqId', instance.payrollPreferenceSeqId);
-  writeNotNull('deductionTypeId', instance.deductionTypeId);
-  writeNotNull('paymentMethodTypeId', instance.paymentMethodTypeId);
-  writeNotNull('periodTypeId', instance.periodTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('percentage', instance.percentage);
-  writeNotNull('flatAmount', instance.flatAmount);
-  writeNotNull('routingNumber', instance.routingNumber);
-  writeNotNull('accountNumber', instance.accountNumber);
-  writeNotNull('bankName', instance.bankName);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PayrollPreferenceToJson(PayrollPreference instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.payrollPreferenceSeqId case final value?)
+        'payrollPreferenceSeqId': value,
+      if (instance.deductionTypeId case final value?) 'deductionTypeId': value,
+      if (instance.paymentMethodTypeId case final value?)
+        'paymentMethodTypeId': value,
+      if (instance.periodTypeId case final value?) 'periodTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.percentage case final value?) 'percentage': value,
+      if (instance.flatAmount case final value?) 'flatAmount': value,
+      if (instance.routingNumber case final value?) 'routingNumber': value,
+      if (instance.accountNumber case final value?) 'accountNumber': value,
+      if (instance.bankName case final value?) 'bankName': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyRole _$PartyRoleFromJson(Map<String, dynamic> json) => PartyRole(
       partyId: json['partyId'] as String?,
@@ -1201,23 +1118,15 @@ PartyRole _$PartyRoleFromJson(Map<String, dynamic> json) => PartyRole(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyRoleToJson(PartyRole instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyRoleToJson(PartyRole instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyGeoPoint _$PartyGeoPointFromJson(Map<String, dynamic> json) =>
     PartyGeoPoint(
@@ -1238,25 +1147,20 @@ PartyGeoPoint _$PartyGeoPointFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyGeoPointToJson(PartyGeoPoint instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('geoPointId', instance.geoPointId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyGeoPointToJson(PartyGeoPoint instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.geoPointId case final value?) 'geoPointId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyTaxAuthInfo _$PartyTaxAuthInfoFromJson(Map<String, dynamic> json) =>
     PartyTaxAuthInfo(
@@ -1281,29 +1185,24 @@ PartyTaxAuthInfo _$PartyTaxAuthInfoFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyTaxAuthInfoToJson(PartyTaxAuthInfo instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('taxAuthGeoId', instance.taxAuthGeoId);
-  writeNotNull('taxAuthPartyId', instance.taxAuthPartyId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('partyTaxId', instance.partyTaxId);
-  writeNotNull('isExempt', instance.isExempt);
-  writeNotNull('isNexus', instance.isNexus);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyTaxAuthInfoToJson(PartyTaxAuthInfo instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.taxAuthGeoId case final value?) 'taxAuthGeoId': value,
+      if (instance.taxAuthPartyId case final value?) 'taxAuthPartyId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.partyTaxId case final value?) 'partyTaxId': value,
+      if (instance.isExempt case final value?) 'isExempt': value,
+      if (instance.isNexus case final value?) 'isNexus': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 CarrierShipmentMethod _$CarrierShipmentMethodFromJson(
         Map<String, dynamic> json) =>
@@ -1323,26 +1222,21 @@ CarrierShipmentMethod _$CarrierShipmentMethodFromJson(
     );
 
 Map<String, dynamic> _$CarrierShipmentMethodToJson(
-    CarrierShipmentMethod instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('shipmentMethodTypeId', instance.shipmentMethodTypeId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('sequenceNumber', instance.sequenceNumber);
-  writeNotNull('carrierServiceCode', instance.carrierServiceCode);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        CarrierShipmentMethod instance) =>
+    <String, dynamic>{
+      if (instance.shipmentMethodTypeId case final value?)
+        'shipmentMethodTypeId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.sequenceNumber case final value?) 'sequenceNumber': value,
+      if (instance.carrierServiceCode case final value?)
+        'carrierServiceCode': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyNote _$PartyNoteFromJson(Map<String, dynamic> json) => PartyNote(
       partyId: json['partyId'] as String?,
@@ -1356,23 +1250,15 @@ PartyNote _$PartyNoteFromJson(Map<String, dynamic> json) => PartyNote(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyNoteToJson(PartyNote instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('noteId', instance.noteId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyNoteToJson(PartyNote instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.noteId case final value?) 'noteId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 EmplLeave _$EmplLeaveFromJson(Map<String, dynamic> json) => EmplLeave(
       partyId: json['partyId'] as String?,
@@ -1396,29 +1282,24 @@ EmplLeave _$EmplLeaveFromJson(Map<String, dynamic> json) => EmplLeave(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$EmplLeaveToJson(EmplLeave instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('leaveTypeId', instance.leaveTypeId);
-  writeNotNull('emplLeaveReasonTypeId', instance.emplLeaveReasonTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('approverPartyId', instance.approverPartyId);
-  writeNotNull('leaveStatus', instance.leaveStatus);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$EmplLeaveToJson(EmplLeave instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.leaveTypeId case final value?) 'leaveTypeId': value,
+      if (instance.emplLeaveReasonTypeId case final value?)
+        'emplLeaveReasonTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.approverPartyId case final value?) 'approverPartyId': value,
+      if (instance.leaveStatus case final value?) 'leaveStatus': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyIdentification _$PartyIdentificationFromJson(Map<String, dynamic> json) =>
     PartyIdentification(
@@ -1434,24 +1315,19 @@ PartyIdentification _$PartyIdentificationFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyIdentificationToJson(PartyIdentification instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('partyIdentificationTypeId', instance.partyIdentificationTypeId);
-  writeNotNull('idValue', instance.idValue);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyIdentificationToJson(
+        PartyIdentification instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.partyIdentificationTypeId case final value?)
+        'partyIdentificationTypeId': value,
+      if (instance.idValue case final value?) 'idValue': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyRelationship _$PartyRelationshipFromJson(Map<String, dynamic> json) =>
     PartyRelationship(
@@ -1483,36 +1359,34 @@ PartyRelationship _$PartyRelationshipFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$PartyRelationshipToJson(PartyRelationship instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyIdFrom', instance.partyIdFrom);
-  writeNotNull('partyIdTo', instance.partyIdTo);
-  writeNotNull('roleTypeIdFrom', instance.roleTypeIdFrom);
-  writeNotNull('roleTypeIdTo', instance.roleTypeIdTo);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('relationshipName', instance.relationshipName);
-  writeNotNull('securityGroupId', instance.securityGroupId);
-  writeNotNull('priorityTypeId', instance.priorityTypeId);
-  writeNotNull('partyRelationshipTypeId', instance.partyRelationshipTypeId);
-  writeNotNull('permissionsEnumId', instance.permissionsEnumId);
-  writeNotNull('positionTitle', instance.positionTitle);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$PartyRelationshipToJson(PartyRelationship instance) =>
+    <String, dynamic>{
+      if (instance.partyIdFrom case final value?) 'partyIdFrom': value,
+      if (instance.partyIdTo case final value?) 'partyIdTo': value,
+      if (instance.roleTypeIdFrom case final value?) 'roleTypeIdFrom': value,
+      if (instance.roleTypeIdTo case final value?) 'roleTypeIdTo': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.relationshipName case final value?)
+        'relationshipName': value,
+      if (instance.securityGroupId case final value?) 'securityGroupId': value,
+      if (instance.priorityTypeId case final value?) 'priorityTypeId': value,
+      if (instance.partyRelationshipTypeId case final value?)
+        'partyRelationshipTypeId': value,
+      if (instance.permissionsEnumId case final value?)
+        'permissionsEnumId': value,
+      if (instance.positionTitle case final value?) 'positionTitle': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 PartyAcctgPreference _$PartyAcctgPreferenceFromJson(
         Map<String, dynamic> json) =>
@@ -1549,42 +1423,46 @@ PartyAcctgPreference _$PartyAcctgPreferenceFromJson(
     );
 
 Map<String, dynamic> _$PartyAcctgPreferenceToJson(
-    PartyAcctgPreference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('fiscalYearStartMonth', instance.fiscalYearStartMonth);
-  writeNotNull('fiscalYearStartDay', instance.fiscalYearStartDay);
-  writeNotNull('taxFormId', instance.taxFormId);
-  writeNotNull('cogsMethodId', instance.cogsMethodId);
-  writeNotNull('baseCurrencyUomId', instance.baseCurrencyUomId);
-  writeNotNull('invoiceSeqCustMethId', instance.invoiceSeqCustMethId);
-  writeNotNull('invoiceIdPrefix', instance.invoiceIdPrefix);
-  writeNotNull('lastInvoiceNumber', instance.lastInvoiceNumber);
-  writeNotNull('lastInvoiceRestartDate',
-      instance.lastInvoiceRestartDate?.toIso8601String());
-  writeNotNull('useInvoiceIdForReturns', instance.useInvoiceIdForReturns);
-  writeNotNull('quoteSeqCustMethId', instance.quoteSeqCustMethId);
-  writeNotNull('quoteIdPrefix', instance.quoteIdPrefix);
-  writeNotNull('lastQuoteNumber', instance.lastQuoteNumber);
-  writeNotNull('orderSeqCustMethId', instance.orderSeqCustMethId);
-  writeNotNull('orderIdPrefix', instance.orderIdPrefix);
-  writeNotNull('lastOrderNumber', instance.lastOrderNumber);
-  writeNotNull('refundPaymentMethodId', instance.refundPaymentMethodId);
-  writeNotNull('errorGlJournalId', instance.errorGlJournalId);
-  writeNotNull('enableAccounting', instance.enableAccounting);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+        PartyAcctgPreference instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.fiscalYearStartMonth case final value?)
+        'fiscalYearStartMonth': value,
+      if (instance.fiscalYearStartDay case final value?)
+        'fiscalYearStartDay': value,
+      if (instance.taxFormId case final value?) 'taxFormId': value,
+      if (instance.cogsMethodId case final value?) 'cogsMethodId': value,
+      if (instance.baseCurrencyUomId case final value?)
+        'baseCurrencyUomId': value,
+      if (instance.invoiceSeqCustMethId case final value?)
+        'invoiceSeqCustMethId': value,
+      if (instance.invoiceIdPrefix case final value?) 'invoiceIdPrefix': value,
+      if (instance.lastInvoiceNumber case final value?)
+        'lastInvoiceNumber': value,
+      if (instance.lastInvoiceRestartDate?.toIso8601String() case final value?)
+        'lastInvoiceRestartDate': value,
+      if (instance.useInvoiceIdForReturns case final value?)
+        'useInvoiceIdForReturns': value,
+      if (instance.quoteSeqCustMethId case final value?)
+        'quoteSeqCustMethId': value,
+      if (instance.quoteIdPrefix case final value?) 'quoteIdPrefix': value,
+      if (instance.lastQuoteNumber case final value?) 'lastQuoteNumber': value,
+      if (instance.orderSeqCustMethId case final value?)
+        'orderSeqCustMethId': value,
+      if (instance.orderIdPrefix case final value?) 'orderIdPrefix': value,
+      if (instance.lastOrderNumber case final value?) 'lastOrderNumber': value,
+      if (instance.refundPaymentMethodId case final value?)
+        'refundPaymentMethodId': value,
+      if (instance.errorGlJournalId case final value?)
+        'errorGlJournalId': value,
+      if (instance.enableAccounting case final value?)
+        'enableAccounting': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 PartyBenefit _$PartyBenefitFromJson(Map<String, dynamic> json) => PartyBenefit(
       roleTypeIdFrom: json['roleTypeIdFrom'] as String?,
@@ -1612,32 +1490,28 @@ PartyBenefit _$PartyBenefitFromJson(Map<String, dynamic> json) => PartyBenefit(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyBenefitToJson(PartyBenefit instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('roleTypeIdFrom', instance.roleTypeIdFrom);
-  writeNotNull('roleTypeIdTo', instance.roleTypeIdTo);
-  writeNotNull('partyIdFrom', instance.partyIdFrom);
-  writeNotNull('partyIdTo', instance.partyIdTo);
-  writeNotNull('benefitTypeId', instance.benefitTypeId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('periodTypeId', instance.periodTypeId);
-  writeNotNull('cost', instance.cost);
-  writeNotNull('actualEmployerPaidPercent', instance.actualEmployerPaidPercent);
-  writeNotNull('availableTime', instance.availableTime);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyBenefitToJson(PartyBenefit instance) =>
+    <String, dynamic>{
+      if (instance.roleTypeIdFrom case final value?) 'roleTypeIdFrom': value,
+      if (instance.roleTypeIdTo case final value?) 'roleTypeIdTo': value,
+      if (instance.partyIdFrom case final value?) 'partyIdFrom': value,
+      if (instance.partyIdTo case final value?) 'partyIdTo': value,
+      if (instance.benefitTypeId case final value?) 'benefitTypeId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.periodTypeId case final value?) 'periodTypeId': value,
+      if (instance.cost case final value?) 'cost': value,
+      if (instance.actualEmployerPaidPercent case final value?)
+        'actualEmployerPaidPercent': value,
+      if (instance.availableTime case final value?) 'availableTime': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 TaxAuthorityGlAccount _$TaxAuthorityGlAccountFromJson(
         Map<String, dynamic> json) =>
@@ -1656,25 +1530,19 @@ TaxAuthorityGlAccount _$TaxAuthorityGlAccountFromJson(
     );
 
 Map<String, dynamic> _$TaxAuthorityGlAccountToJson(
-    TaxAuthorityGlAccount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('taxAuthGeoId', instance.taxAuthGeoId);
-  writeNotNull('taxAuthPartyId', instance.taxAuthPartyId);
-  writeNotNull('organizationPartyId', instance.organizationPartyId);
-  writeNotNull('glAccountId', instance.glAccountId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        TaxAuthorityGlAccount instance) =>
+    <String, dynamic>{
+      if (instance.taxAuthGeoId case final value?) 'taxAuthGeoId': value,
+      if (instance.taxAuthPartyId case final value?) 'taxAuthPartyId': value,
+      if (instance.organizationPartyId case final value?)
+        'organizationPartyId': value,
+      if (instance.glAccountId case final value?) 'glAccountId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyFixedAssetAssignment _$PartyFixedAssetAssignmentFromJson(
         Map<String, dynamic> json) =>
@@ -1703,29 +1571,25 @@ PartyFixedAssetAssignment _$PartyFixedAssetAssignmentFromJson(
     );
 
 Map<String, dynamic> _$PartyFixedAssetAssignmentToJson(
-    PartyFixedAssetAssignment instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('fixedAssetId', instance.fixedAssetId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('allocatedDate', instance.allocatedDate?.toIso8601String());
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+        PartyFixedAssetAssignment instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.fixedAssetId case final value?) 'fixedAssetId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.allocatedDate?.toIso8601String() case final value?)
+        'allocatedDate': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 PartyGeoForce _$PartyGeoForceFromJson(Map<String, dynamic> json) =>
     PartyGeoForce(
@@ -1743,26 +1607,19 @@ PartyGeoForce _$PartyGeoForceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyGeoForceToJson(PartyGeoForce instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('geoForceId', instance.geoForceId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('marker', instance.marker);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyGeoForceToJson(PartyGeoForce instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.geoForceId case final value?) 'geoForceId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.marker case final value?) 'marker': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 TaxAuthority _$TaxAuthorityFromJson(Map<String, dynamic> json) => TaxAuthority(
       taxAuthGeoId: json['taxAuthGeoId'] as String?,
@@ -1779,26 +1636,22 @@ TaxAuthority _$TaxAuthorityFromJson(Map<String, dynamic> json) => TaxAuthority(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$TaxAuthorityToJson(TaxAuthority instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('taxAuthGeoId', instance.taxAuthGeoId);
-  writeNotNull('taxAuthPartyId', instance.taxAuthPartyId);
-  writeNotNull('requireTaxIdForExemption', instance.requireTaxIdForExemption);
-  writeNotNull('taxIdFormatPattern', instance.taxIdFormatPattern);
-  writeNotNull('includeTaxInPrice', instance.includeTaxInPrice);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$TaxAuthorityToJson(TaxAuthority instance) =>
+    <String, dynamic>{
+      if (instance.taxAuthGeoId case final value?) 'taxAuthGeoId': value,
+      if (instance.taxAuthPartyId case final value?) 'taxAuthPartyId': value,
+      if (instance.requireTaxIdForExemption case final value?)
+        'requireTaxIdForExemption': value,
+      if (instance.taxIdFormatPattern case final value?)
+        'taxIdFormatPattern': value,
+      if (instance.includeTaxInPrice case final value?)
+        'includeTaxInPrice': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 Person _$PersonFromJson(Map<String, dynamic> json) => Person(
       partyId: json['partyId'] as String?,
@@ -1849,54 +1702,57 @@ Person _$PersonFromJson(Map<String, dynamic> json) => Person(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$PersonToJson(Person instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('salutation', instance.salutation);
-  writeNotNull('firstName', instance.firstName);
-  writeNotNull('middleName', instance.middleName);
-  writeNotNull('lastName', instance.lastName);
-  writeNotNull('personalTitle', instance.personalTitle);
-  writeNotNull('suffix', instance.suffix);
-  writeNotNull('nickname', instance.nickname);
-  writeNotNull('firstNameLocal', instance.firstNameLocal);
-  writeNotNull('middleNameLocal', instance.middleNameLocal);
-  writeNotNull('lastNameLocal', instance.lastNameLocal);
-  writeNotNull('otherLocal', instance.otherLocal);
-  writeNotNull('memberId', instance.memberId);
-  writeNotNull('gender', instance.gender);
-  writeNotNull('birthDate', instance.birthDate?.toIso8601String());
-  writeNotNull('deceasedDate', instance.deceasedDate?.toIso8601String());
-  writeNotNull('height', instance.height);
-  writeNotNull('weight', instance.weight);
-  writeNotNull('mothersMaidenName', instance.mothersMaidenName);
-  writeNotNull('maritalStatusEnumId', instance.maritalStatusEnumId);
-  writeNotNull('socialSecurityNumber', instance.socialSecurityNumber);
-  writeNotNull('passportNumber', instance.passportNumber);
-  writeNotNull(
-      'passportExpireDate', instance.passportExpireDate?.toIso8601String());
-  writeNotNull('totalYearsWorkExperience', instance.totalYearsWorkExperience);
-  writeNotNull('comments', instance.comments);
-  writeNotNull('employmentStatusEnumId', instance.employmentStatusEnumId);
-  writeNotNull('residenceStatusEnumId', instance.residenceStatusEnumId);
-  writeNotNull('occupation', instance.occupation);
-  writeNotNull('yearsWithEmployer', instance.yearsWithEmployer);
-  writeNotNull('monthsWithEmployer', instance.monthsWithEmployer);
-  writeNotNull('existingCustomer', instance.existingCustomer);
-  writeNotNull('cardId', instance.cardId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.salutation case final value?) 'salutation': value,
+      if (instance.firstName case final value?) 'firstName': value,
+      if (instance.middleName case final value?) 'middleName': value,
+      if (instance.lastName case final value?) 'lastName': value,
+      if (instance.personalTitle case final value?) 'personalTitle': value,
+      if (instance.suffix case final value?) 'suffix': value,
+      if (instance.nickname case final value?) 'nickname': value,
+      if (instance.firstNameLocal case final value?) 'firstNameLocal': value,
+      if (instance.middleNameLocal case final value?) 'middleNameLocal': value,
+      if (instance.lastNameLocal case final value?) 'lastNameLocal': value,
+      if (instance.otherLocal case final value?) 'otherLocal': value,
+      if (instance.memberId case final value?) 'memberId': value,
+      if (instance.gender case final value?) 'gender': value,
+      if (instance.birthDate?.toIso8601String() case final value?)
+        'birthDate': value,
+      if (instance.deceasedDate?.toIso8601String() case final value?)
+        'deceasedDate': value,
+      if (instance.height case final value?) 'height': value,
+      if (instance.weight case final value?) 'weight': value,
+      if (instance.mothersMaidenName case final value?)
+        'mothersMaidenName': value,
+      if (instance.maritalStatusEnumId case final value?)
+        'maritalStatusEnumId': value,
+      if (instance.socialSecurityNumber case final value?)
+        'socialSecurityNumber': value,
+      if (instance.passportNumber case final value?) 'passportNumber': value,
+      if (instance.passportExpireDate?.toIso8601String() case final value?)
+        'passportExpireDate': value,
+      if (instance.totalYearsWorkExperience case final value?)
+        'totalYearsWorkExperience': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.employmentStatusEnumId case final value?)
+        'employmentStatusEnumId': value,
+      if (instance.residenceStatusEnumId case final value?)
+        'residenceStatusEnumId': value,
+      if (instance.occupation case final value?) 'occupation': value,
+      if (instance.yearsWithEmployer case final value?)
+        'yearsWithEmployer': value,
+      if (instance.monthsWithEmployer case final value?)
+        'monthsWithEmployer': value,
+      if (instance.existingCustomer case final value?)
+        'existingCustomer': value,
+      if (instance.cardId case final value?) 'cardId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 PartyContactMech _$PartyContactMechFromJson(Map<String, dynamic> json) =>
     PartyContactMech(
@@ -1924,29 +1780,27 @@ PartyContactMech _$PartyContactMechFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$PartyContactMechToJson(PartyContactMech instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('contactMechId', instance.contactMechId);
-  writeNotNull('fromDate', instance.fromDate?.toIso8601String());
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull('allowSolicitation', instance.allowSolicitation);
-  writeNotNull('extension', instance.extension);
-  writeNotNull('verified', instance.verified);
-  writeNotNull('comments', instance.comments);
-  writeNotNull('yearsWithContactMech', instance.yearsWithContactMech);
-  writeNotNull('monthsWithContactMech', instance.monthsWithContactMech);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$PartyContactMechToJson(PartyContactMech instance) =>
+    <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.contactMechId case final value?) 'contactMechId': value,
+      if (instance.fromDate?.toIso8601String() case final value?)
+        'fromDate': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.allowSolicitation case final value?)
+        'allowSolicitation': value,
+      if (instance.extension case final value?) 'extension': value,
+      if (instance.verified case final value?) 'verified': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.yearsWithContactMech case final value?)
+        'yearsWithContactMech': value,
+      if (instance.monthsWithContactMech case final value?)
+        'monthsWithContactMech': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };

@@ -53,6 +53,7 @@ typedef $ExampleCreateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i4.Multimap<String, String>?> labels,
   i0.Value<i4.Multimap<String, String>?> acl,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
@@ -112,6 +113,7 @@ typedef $ExampleUpdateCompanionBuilder = i1.ExampleCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i4.Multimap<String, String>?> labels,
   i0.Value<i4.Multimap<String, String>?> acl,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
@@ -321,6 +323,12 @@ class $ExampleFilterComposer
   i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i4.Multimap<String, String>?,
+          i4.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnWithTypeConverterFilters<i4.Multimap<String, String>?,
@@ -545,6 +553,9 @@ class $ExampleOrderingComposer
   i0.ColumnOrderings<String> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<String> get acl => $composableBuilder(
       column: $table.acl, builder: (column) => i0.ColumnOrderings(column));
 
@@ -743,6 +754,10 @@ class $ExampleAnnotationComposer
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
   i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?, String>
       get acl =>
           $composableBuilder(column: $table.acl, builder: (column) => column);
 
@@ -858,6 +873,8 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i4.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<i4.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
@@ -921,6 +938,7 @@ class $ExampleTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             acl: acl,
             resourceId: resourceId,
             resourceType: resourceType,
@@ -982,6 +1000,8 @@ class $ExampleTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i4.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<i4.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
@@ -1045,6 +1065,7 @@ class $ExampleTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             acl: acl,
             resourceId: resourceId,
             resourceType: resourceType,
@@ -1416,6 +1437,16 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
               requiredDuringInsert: false,
               $customConstraints: '')
           .withConverter<List<String>?>(i1.Example.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?, String>
+      labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i4.Multimap<String, String>?>(
+              i1.Example.$converterlabelsn);
   static const i0.VerificationMeta _aclMeta = const i0.VerificationMeta('acl');
   late final i0.GeneratedColumnWithTypeConverter<i4.Multimap<String, String>?,
       String> acl = i0.GeneratedColumn<String>('acl', aliasedName, true,
@@ -1565,6 +1596,7 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
         tag2,
         tag3,
         moreTags,
+        labels,
         acl,
         resourceId,
         resourceType,
@@ -1736,6 +1768,7 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     context.handle(_aclMeta, const i0.VerificationResult.success());
     if (data.containsKey('resource_id')) {
       context.handle(
@@ -1889,6 +1922,8 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
       moreTags: i1.Example.$convertermoreTagsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.Example.$converterlabelsn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       acl: i1.Example.$converteracln.fromSql(attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}acl'])),
       resourceId: attachedDatabase.typeMapping
@@ -2028,6 +2063,12 @@ class Example extends i0.Table with i0.TableInfo<Example, i1.ExampleData> {
       $convertermoreTagsn =
       i0.JsonTypeConverter2.asNullable($convertermoreTags);
   static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i6.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
+  static i0.JsonTypeConverter2<i4.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i6.StringMultimapConverter();
   static i0.JsonTypeConverter2<i4.Multimap<String, String>?, String?,
           Map<String, dynamic>?> $converteracln =
@@ -2108,6 +2149,7 @@ class ExampleData extends i0.DataClass
   final String? tag2;
   final String? tag3;
   final List<String>? moreTags;
+  final i4.Multimap<String, String>? labels;
   final i4.Multimap<String, String>? acl;
   final String? resourceId;
   final String? resourceType;
@@ -2169,6 +2211,7 @@ class ExampleData extends i0.DataClass
       this.tag2,
       this.tag3,
       this.moreTags,
+      this.labels,
       this.acl,
       this.resourceId,
       this.resourceType,
@@ -2328,6 +2371,10 @@ class ExampleData extends i0.DataClass
     if (!nullToAbsent || moreTags != null) {
       map['more_tags'] =
           i0.Variable<String>(i1.Example.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.Example.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || acl != null) {
       map['acl'] = i0.Variable<String>(i1.Example.$converteracln.toSql(acl));
@@ -2505,6 +2552,9 @@ class ExampleData extends i0.DataClass
       moreTags: moreTags == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       acl:
           acl == null && nullToAbsent ? const i0.Value.absent() : i0.Value(acl),
       resourceId: resourceId == null && nullToAbsent
@@ -2612,6 +2662,8 @@ class ExampleData extends i0.DataClass
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: i1.Example.$convertermoreTagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.Example.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       acl: i1.Example.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
       resourceId: serializer.fromJson<String?>(json['resource_id']),
@@ -2699,6 +2751,8 @@ class ExampleData extends i0.DataClass
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<List<dynamic>?>(
           i1.Example.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.Example.$converterlabelsn.toJson(labels)),
       'acl': serializer
           .toJson<Map<String, dynamic>?>(i1.Example.$converteracln.toJson(acl)),
       'resource_id': serializer.toJson<String?>(resourceId),
@@ -2766,6 +2820,8 @@ class ExampleData extends i0.DataClass
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i4.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<i4.Multimap<String, String>?> acl = const i0.Value.absent(),
           i0.Value<String?> resourceId = const i0.Value.absent(),
           i0.Value<String?> resourceType = const i0.Value.absent(),
@@ -2839,6 +2895,7 @@ class ExampleData extends i0.DataClass
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         acl: acl.present ? acl.value : this.acl,
         resourceId: resourceId.present ? resourceId.value : this.resourceId,
         resourceType:
@@ -2932,6 +2989,7 @@ class ExampleData extends i0.DataClass
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       acl: data.acl.present ? data.acl.value : this.acl,
       resourceId:
           data.resourceId.present ? data.resourceId.value : this.resourceId,
@@ -3005,6 +3063,7 @@ class ExampleData extends i0.DataClass
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
           ..write('resourceType: $resourceType, ')
@@ -3067,6 +3126,7 @@ class ExampleData extends i0.DataClass
         tag2,
         tag3,
         moreTags,
+        labels,
         acl,
         resourceId,
         resourceType,
@@ -3128,6 +3188,7 @@ class ExampleData extends i0.DataClass
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.acl == this.acl &&
           other.resourceId == this.resourceId &&
           other.resourceType == this.resourceType &&
@@ -3187,6 +3248,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
+  final i0.Value<i4.Multimap<String, String>?> labels;
   final i0.Value<i4.Multimap<String, String>?> acl;
   final i0.Value<String?> resourceId;
   final i0.Value<String?> resourceType;
@@ -3245,6 +3307,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
     this.resourceType = const i0.Value.absent(),
@@ -3304,6 +3367,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
     this.resourceType = const i0.Value.absent(),
@@ -3363,6 +3427,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<String>? acl,
     i0.Expression<String>? resourceId,
     i0.Expression<String>? resourceType,
@@ -3424,6 +3489,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (acl != null) 'acl': acl,
       if (resourceId != null) 'resource_id': resourceId,
       if (resourceType != null) 'resource_type': resourceType,
@@ -3486,6 +3552,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
+      i0.Value<i4.Multimap<String, String>?>? labels,
       i0.Value<i4.Multimap<String, String>?>? acl,
       i0.Value<String?>? resourceId,
       i0.Value<String?>? resourceType,
@@ -3544,6 +3611,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
       resourceType: resourceType ?? this.resourceType,
@@ -3713,6 +3781,10 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
       map['more_tags'] = i0.Variable<String>(
           i1.Example.$convertermoreTagsn.toSql(moreTags.value));
     }
+    if (labels.present) {
+      map['labels'] =
+          i0.Variable<String>(i1.Example.$converterlabelsn.toSql(labels.value));
+    }
     if (acl.present) {
       map['acl'] =
           i0.Variable<String>(i1.Example.$converteracln.toSql(acl.value));
@@ -3811,6 +3883,7 @@ class ExampleCompanion extends i0.UpdateCompanion<i1.ExampleData> {
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
           ..write('resourceType: $resourceType, ')

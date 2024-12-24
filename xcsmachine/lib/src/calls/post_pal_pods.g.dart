@@ -153,6 +153,8 @@ class PostPalProvider extends AutoDisposeProvider<PostPalRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostPalRef on AutoDisposeProviderRef<PostPalRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -309,6 +311,8 @@ class PostGetSlotValueProvider extends AutoDisposeFutureProvider<ValueData> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostGetSlotValueRef on AutoDisposeFutureProviderRef<ValueData> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -471,6 +475,8 @@ class PostHasSlotValueProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostHasSlotValueRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -623,6 +629,8 @@ class PostPersistSlotValuesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostPersistSlotValuesRef on AutoDisposeFutureProviderRef<BuffersMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -769,6 +777,8 @@ class PostIsLikedProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostIsLikedRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -914,6 +924,8 @@ class PostGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1061,6 +1073,8 @@ class PostGetStatsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostGetStatsRef on AutoDisposeFutureProviderRef<Map<String, double>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1206,6 +1220,8 @@ class PostLikesProvider extends AutoDisposeFutureProvider<double> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostLikesRef on AutoDisposeFutureProviderRef<double> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1351,6 +1367,8 @@ class PostIsFeaturedProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostIsFeaturedRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1500,6 +1518,8 @@ class PostPersistSlotsExistentProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostPersistSlotsExistentRef
     on AutoDisposeFutureProviderRef<Map<String, bool>> {
   /// The parameter `regionOrNs` of this provider.
@@ -1647,6 +1667,8 @@ class PostTextProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostTextRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1663,150 +1685,6 @@ class _PostTextProviderElement extends AutoDisposeFutureProviderElement<String>
   String get regionOrNs => (origin as PostTextProvider).regionOrNs;
   @override
   String get id => (origin as PostTextProvider).id;
-}
-
-String _$postFetchHash() => r'6c5388e33fc9b980cb4f4cef729082ca9ff26738';
-
-/// See also [postFetch].
-@ProviderFor(postFetch)
-const postFetchProvider = PostFetchFamily();
-
-/// See also [postFetch].
-class PostFetchFamily extends Family<AsyncValue<PostBundle>> {
-  /// See also [postFetch].
-  const PostFetchFamily();
-
-  /// See also [postFetch].
-  PostFetchProvider call({
-    String regionOrNs = 'default',
-    required String id,
-  }) {
-    return PostFetchProvider(
-      regionOrNs: regionOrNs,
-      id: id,
-    );
-  }
-
-  @override
-  PostFetchProvider getProviderOverride(
-    covariant PostFetchProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-      id: provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'postFetchProvider';
-}
-
-/// See also [postFetch].
-class PostFetchProvider extends AutoDisposeFutureProvider<PostBundle> {
-  /// See also [postFetch].
-  PostFetchProvider({
-    String regionOrNs = 'default',
-    required String id,
-  }) : this._internal(
-          (ref) => postFetch(
-            ref as PostFetchRef,
-            regionOrNs: regionOrNs,
-            id: id,
-          ),
-          from: postFetchProvider,
-          name: r'postFetchProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$postFetchHash,
-          dependencies: PostFetchFamily._dependencies,
-          allTransitiveDependencies: PostFetchFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-          id: id,
-        );
-
-  PostFetchProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-    required this.id,
-  }) : super.internal();
-
-  final String regionOrNs;
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<PostBundle> Function(PostFetchRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: PostFetchProvider._internal(
-        (ref) => create(ref as PostFetchRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<PostBundle> createElement() {
-    return _PostFetchProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is PostFetchProvider &&
-        other.regionOrNs == regionOrNs &&
-        other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin PostFetchRef on AutoDisposeFutureProviderRef<PostBundle> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _PostFetchProviderElement
-    extends AutoDisposeFutureProviderElement<PostBundle> with PostFetchRef {
-  _PostFetchProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as PostFetchProvider).regionOrNs;
-  @override
-  String get id => (origin as PostFetchProvider).id;
 }
 
 String _$postGetCommentSyncsHash() =>
@@ -1938,6 +1816,8 @@ class PostGetCommentSyncsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostGetCommentSyncsRef on AutoDisposeFutureProviderRef<List<Comment>> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1955,6 +1835,152 @@ class _PostGetCommentSyncsProviderElement
   String get regionOrNs => (origin as PostGetCommentSyncsProvider).regionOrNs;
   @override
   String get id => (origin as PostGetCommentSyncsProvider).id;
+}
+
+String _$postFetchHash() => r'6c5388e33fc9b980cb4f4cef729082ca9ff26738';
+
+/// See also [postFetch].
+@ProviderFor(postFetch)
+const postFetchProvider = PostFetchFamily();
+
+/// See also [postFetch].
+class PostFetchFamily extends Family<AsyncValue<PostBundle>> {
+  /// See also [postFetch].
+  const PostFetchFamily();
+
+  /// See also [postFetch].
+  PostFetchProvider call({
+    String regionOrNs = 'default',
+    required String id,
+  }) {
+    return PostFetchProvider(
+      regionOrNs: regionOrNs,
+      id: id,
+    );
+  }
+
+  @override
+  PostFetchProvider getProviderOverride(
+    covariant PostFetchProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'postFetchProvider';
+}
+
+/// See also [postFetch].
+class PostFetchProvider extends AutoDisposeFutureProvider<PostBundle> {
+  /// See also [postFetch].
+  PostFetchProvider({
+    String regionOrNs = 'default',
+    required String id,
+  }) : this._internal(
+          (ref) => postFetch(
+            ref as PostFetchRef,
+            regionOrNs: regionOrNs,
+            id: id,
+          ),
+          from: postFetchProvider,
+          name: r'postFetchProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$postFetchHash,
+          dependencies: PostFetchFamily._dependencies,
+          allTransitiveDependencies: PostFetchFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          id: id,
+        );
+
+  PostFetchProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.id,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<PostBundle> Function(PostFetchRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PostFetchProvider._internal(
+        (ref) => create(ref as PostFetchRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<PostBundle> createElement() {
+    return _PostFetchProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PostFetchProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PostFetchRef on AutoDisposeFutureProviderRef<PostBundle> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _PostFetchProviderElement
+    extends AutoDisposeFutureProviderElement<PostBundle> with PostFetchRef {
+  _PostFetchProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as PostFetchProvider).regionOrNs;
+  @override
+  String get id => (origin as PostFetchProvider).id;
 }
 
 String _$postGetContentSlotHash() =>
@@ -2086,6 +2112,8 @@ class PostGetContentSlotProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostGetContentSlotRef on AutoDisposeFutureProviderRef<BuffersData> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2251,6 +2279,8 @@ class PostPalPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PostPalPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -2270,4 +2300,4 @@ class _PostPalPodProviderElement
   String get id => (origin as PostPalPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

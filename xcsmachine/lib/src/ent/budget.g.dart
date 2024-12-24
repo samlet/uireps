@@ -58,53 +58,53 @@ Budget _$BudgetFromJson(Map<String, dynamic> json) => Budget(
           .toList(),
     );
 
-Map<String, dynamic> _$BudgetToJson(Budget instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('budgetTypeId', instance.budgetTypeId);
-  writeNotNull('customTimePeriodId', instance.customTimePeriodId);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('budgetBinId', instance.budgetBinId);
-  writeNotNull('budgetErcId', instance.budgetErcId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description);
-  writeNotNull('budgetType', instance.budgetType?.toJson());
-  writeNotNull(
-      'budgetStatus', instance.budgetStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('budgetRevision',
-      instance.budgetRevision?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'budgetItem', instance.budgetItem?.map((e) => e.toJson()).toList());
-  writeNotNull('budgetAttribute',
-      instance.budgetAttribute?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'budgetReview', instance.budgetReview?.map((e) => e.toJson()).toList());
-  writeNotNull('budgetMultisig',
-      instance.budgetMultisig?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'budgetRole', instance.budgetRole?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$BudgetToJson(Budget instance) => <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.budgetTypeId case final value?) 'budgetTypeId': value,
+      if (instance.customTimePeriodId case final value?)
+        'customTimePeriodId': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.budgetBinId case final value?) 'budgetBinId': value,
+      if (instance.budgetErcId case final value?) 'budgetErcId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.budgetType?.toJson() case final value?) 'budgetType': value,
+      if (instance.budgetStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetStatus': value,
+      if (instance.budgetRevision?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetRevision': value,
+      if (instance.budgetItem?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetItem': value,
+      if (instance.budgetAttribute?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetAttribute': value,
+      if (instance.budgetReview?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetReview': value,
+      if (instance.budgetMultisig?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetMultisig': value,
+      if (instance.budgetRole?.map((e) => e.toJson()).toList()
+          case final value?)
+        'budgetRole': value,
+    };
 
 BudgetStatus _$BudgetStatusFromJson(Map<String, dynamic> json) => BudgetStatus(
       budgetId: json['budgetId'] as String?,
@@ -123,26 +123,21 @@ BudgetStatus _$BudgetStatusFromJson(Map<String, dynamic> json) => BudgetStatus(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BudgetStatusToJson(BudgetStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('comments', instance.comments);
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BudgetStatusToJson(BudgetStatus instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BudgetRevision _$BudgetRevisionFromJson(Map<String, dynamic> json) =>
     BudgetRevision(
@@ -160,24 +155,18 @@ BudgetRevision _$BudgetRevisionFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BudgetRevisionToJson(BudgetRevision instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('revisionSeqId', instance.revisionSeqId);
-  writeNotNull('dateRevised', instance.dateRevised?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BudgetRevisionToJson(BudgetRevision instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.revisionSeqId case final value?) 'revisionSeqId': value,
+      if (instance.dateRevised?.toIso8601String() case final value?)
+        'dateRevised': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BudgetItem _$BudgetItemFromJson(Map<String, dynamic> json) => BudgetItem(
       budgetId: json['budgetId'] as String?,
@@ -204,35 +193,29 @@ BudgetItem _$BudgetItemFromJson(Map<String, dynamic> json) => BudgetItem(
       color: (json['color'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$BudgetItemToJson(BudgetItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('budgetItemSeqId', instance.budgetItemSeqId);
-  writeNotNull('budgetItemTypeId', instance.budgetItemTypeId);
-  writeNotNull('amount', instance.amount);
-  writeNotNull('purpose', instance.purpose);
-  writeNotNull('justification', instance.justification);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('accountId', instance.accountId);
-  writeNotNull('tokenId', instance.tokenId);
-  writeNotNull('origin', instance.origin);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  return val;
-}
+Map<String, dynamic> _$BudgetItemToJson(BudgetItem instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.budgetItemSeqId case final value?) 'budgetItemSeqId': value,
+      if (instance.budgetItemTypeId case final value?)
+        'budgetItemTypeId': value,
+      if (instance.amount case final value?) 'amount': value,
+      if (instance.purpose case final value?) 'purpose': value,
+      if (instance.justification case final value?) 'justification': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+      if (instance.accountId case final value?) 'accountId': value,
+      if (instance.tokenId case final value?) 'tokenId': value,
+      if (instance.origin case final value?) 'origin': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+    };
 
 BudgetAttribute _$BudgetAttributeFromJson(Map<String, dynamic> json) =>
     BudgetAttribute(
@@ -249,25 +232,18 @@ BudgetAttribute _$BudgetAttributeFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BudgetAttributeToJson(BudgetAttribute instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('attrName', instance.attrName);
-  writeNotNull('attrValue', instance.attrValue);
-  writeNotNull('attrDescription', instance.attrDescription);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BudgetAttributeToJson(BudgetAttribute instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.attrName case final value?) 'attrName': value,
+      if (instance.attrValue case final value?) 'attrValue': value,
+      if (instance.attrDescription case final value?) 'attrDescription': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BudgetReview _$BudgetReviewFromJson(Map<String, dynamic> json) => BudgetReview(
       budgetId: json['budgetId'] as String?,
@@ -286,26 +262,21 @@ BudgetReview _$BudgetReviewFromJson(Map<String, dynamic> json) => BudgetReview(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BudgetReviewToJson(BudgetReview instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('budgetReviewId', instance.budgetReviewId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('budgetReviewResultTypeId', instance.budgetReviewResultTypeId);
-  writeNotNull('reviewDate', instance.reviewDate?.toIso8601String());
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BudgetReviewToJson(BudgetReview instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.budgetReviewId case final value?) 'budgetReviewId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.budgetReviewResultTypeId case final value?)
+        'budgetReviewResultTypeId': value,
+      if (instance.reviewDate?.toIso8601String() case final value?)
+        'reviewDate': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BudgetMultisig _$BudgetMultisigFromJson(Map<String, dynamic> json) =>
     BudgetMultisig(
@@ -322,25 +293,18 @@ BudgetMultisig _$BudgetMultisigFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BudgetMultisigToJson(BudgetMultisig instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('multisigId', instance.multisigId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BudgetMultisigToJson(BudgetMultisig instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.multisigId case final value?) 'multisigId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BudgetRole _$BudgetRoleFromJson(Map<String, dynamic> json) => BudgetRole(
       budgetId: json['budgetId'] as String?,
@@ -355,24 +319,17 @@ BudgetRole _$BudgetRoleFromJson(Map<String, dynamic> json) => BudgetRole(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BudgetRoleToJson(BudgetRole instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('roleTypeId', instance.roleTypeId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BudgetRoleToJson(BudgetRole instance) =>
+    <String, dynamic>{
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.roleTypeId case final value?) 'roleTypeId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BudgetType _$BudgetTypeFromJson(Map<String, dynamic> json) => BudgetType(
       budgetTypeId: json['budgetTypeId'] as String?,
@@ -388,22 +345,15 @@ BudgetType _$BudgetTypeFromJson(Map<String, dynamic> json) => BudgetType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$BudgetTypeToJson(BudgetType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('budgetTypeId', instance.budgetTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('hasTable', instance.hasTable);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$BudgetTypeToJson(BudgetType instance) =>
+    <String, dynamic>{
+      if (instance.budgetTypeId case final value?) 'budgetTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.hasTable case final value?) 'hasTable': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

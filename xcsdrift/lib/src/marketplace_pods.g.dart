@@ -21,6 +21,8 @@ final marketplaceRepositoryProvider = Provider<MarketplaceRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef MarketplaceRepositoryRef = ProviderRef<MarketplaceRepository>;
 String _$getMarketplaceHash() => r'0ca83781056494794feb065fc0763c2b0cf5f0a8';
 
@@ -159,6 +161,8 @@ class GetMarketplaceProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetMarketplaceRef on AutoDisposeFutureProviderRef<MarketplaceData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -190,4 +194,4 @@ final marketplaceBucketProvider = AutoDisposeStreamNotifierProvider<
 
 typedef _$MarketplaceBucket = AutoDisposeStreamNotifier<List<MarketplaceData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

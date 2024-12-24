@@ -1,9 +1,11 @@
 // ignore_for_file: type=lint
 import 'package:drift/drift.dart' as i0;
 import 'package:xcsdrift/src/headline.drift.dart' as i1;
-import 'package:xcsmachine/src/ent/headline.dart' as i2;
-import 'package:xcsdrift/src/headline_conv.dart' as i3;
-import 'package:drift/internal/modular.dart' as i4;
+import 'package:quiver/src/collection/multimap.dart' as i2;
+import 'package:xcsmachine/src/ent/headline.dart' as i3;
+import 'package:xcsdrift/fldconv.dart' as i4;
+import 'package:xcsdrift/src/headline_conv.dart' as i5;
+import 'package:drift/internal/modular.dart' as i6;
 
 typedef $HeadlineCreateCompanionBuilder = i1.HeadlineCompanion Function({
   required String headlineId,
@@ -17,14 +19,16 @@ typedef $HeadlineCreateCompanionBuilder = i1.HeadlineCompanion Function({
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<String?> headlineTypeId,
   i0.Value<String?> statusId,
   i0.Value<String?> sectionId,
   i0.Value<bool?> evict,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
-  i0.Value<i2.HeadlineType?> headlineType,
-  i0.Value<List<i2.HeadlineSlot>?> headlineSlot,
+  i0.Value<i3.HeadlineType?> headlineType,
+  i0.Value<List<i3.HeadlineSlot>?> headlineSlot,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -40,14 +44,16 @@ typedef $HeadlineUpdateCompanionBuilder = i1.HeadlineCompanion Function({
   i0.Value<String?> tag1,
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
+  i0.Value<List<String>?> moreTags,
+  i0.Value<i2.Multimap<String, String>?> labels,
   i0.Value<String?> headlineTypeId,
   i0.Value<String?> statusId,
   i0.Value<String?> sectionId,
   i0.Value<bool?> evict,
   i0.Value<String?> resourceId,
   i0.Value<String?> resourceType,
-  i0.Value<i2.HeadlineType?> headlineType,
-  i0.Value<List<i2.HeadlineSlot>?> headlineSlot,
+  i0.Value<i3.HeadlineType?> headlineType,
+  i0.Value<List<i3.HeadlineSlot>?> headlineSlot,
   i0.Value<int?> reservedFlag,
   i0.Value<int> rowid,
 });
@@ -96,6 +102,17 @@ class $HeadlineFilterComposer
   i0.ColumnFilters<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnFilters(column));
 
+  i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
+      get moreTags => $composableBuilder(
+          column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i2.Multimap<String, String>?,
+          i2.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
   i0.ColumnFilters<String> get headlineTypeId => $composableBuilder(
       column: $table.headlineTypeId,
       builder: (column) => i0.ColumnFilters(column));
@@ -116,13 +133,13 @@ class $HeadlineFilterComposer
       column: $table.resourceType,
       builder: (column) => i0.ColumnFilters(column));
 
-  i0.ColumnWithTypeConverterFilters<i2.HeadlineType?, i2.HeadlineType, String>
+  i0.ColumnWithTypeConverterFilters<i3.HeadlineType?, i3.HeadlineType, String>
       get headlineType => $composableBuilder(
           column: $table.headlineType,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
-  i0.ColumnWithTypeConverterFilters<List<i2.HeadlineSlot>?,
-          List<i2.HeadlineSlot>, String>
+  i0.ColumnWithTypeConverterFilters<List<i3.HeadlineSlot>?,
+          List<i3.HeadlineSlot>, String>
       get headlineSlot => $composableBuilder(
           column: $table.headlineSlot,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
@@ -176,6 +193,12 @@ class $HeadlineOrderingComposer
 
   i0.ColumnOrderings<String> get tag3 => $composableBuilder(
       column: $table.tag3, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get moreTags => $composableBuilder(
+      column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
+
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
 
   i0.ColumnOrderings<String> get headlineTypeId => $composableBuilder(
       column: $table.headlineTypeId,
@@ -254,6 +277,13 @@ class $HeadlineAnnotationComposer
   i0.GeneratedColumn<String> get tag3 =>
       $composableBuilder(column: $table.tag3, builder: (column) => column);
 
+  i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
+      $composableBuilder(column: $table.moreTags, builder: (column) => column);
+
+  i0.GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
   i0.GeneratedColumn<String> get headlineTypeId => $composableBuilder(
       column: $table.headlineTypeId, builder: (column) => column);
 
@@ -272,11 +302,11 @@ class $HeadlineAnnotationComposer
   i0.GeneratedColumn<String> get resourceType => $composableBuilder(
       column: $table.resourceType, builder: (column) => column);
 
-  i0.GeneratedColumnWithTypeConverter<i2.HeadlineType?, String>
+  i0.GeneratedColumnWithTypeConverter<i3.HeadlineType?, String>
       get headlineType => $composableBuilder(
           column: $table.headlineType, builder: (column) => column);
 
-  i0.GeneratedColumnWithTypeConverter<List<i2.HeadlineSlot>?, String>
+  i0.GeneratedColumnWithTypeConverter<List<i3.HeadlineSlot>?, String>
       get headlineSlot => $composableBuilder(
           column: $table.headlineSlot, builder: (column) => column);
 
@@ -321,14 +351,17 @@ class $HeadlineTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<String?> headlineTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<String?> sectionId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
             i0.Value<String?> resourceType = const i0.Value.absent(),
-            i0.Value<i2.HeadlineType?> headlineType = const i0.Value.absent(),
-            i0.Value<List<i2.HeadlineSlot>?> headlineSlot =
+            i0.Value<i3.HeadlineType?> headlineType = const i0.Value.absent(),
+            i0.Value<List<i3.HeadlineSlot>?> headlineSlot =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -345,6 +378,8 @@ class $HeadlineTableManager extends i0.RootTableManager<
             tag1: tag1,
             tag2: tag2,
             tag3: tag3,
+            moreTags: moreTags,
+            labels: labels,
             headlineTypeId: headlineTypeId,
             statusId: statusId,
             sectionId: sectionId,
@@ -368,14 +403,17 @@ class $HeadlineTableManager extends i0.RootTableManager<
             i0.Value<String?> tag1 = const i0.Value.absent(),
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
+            i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i2.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<String?> headlineTypeId = const i0.Value.absent(),
             i0.Value<String?> statusId = const i0.Value.absent(),
             i0.Value<String?> sectionId = const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<String?> resourceId = const i0.Value.absent(),
             i0.Value<String?> resourceType = const i0.Value.absent(),
-            i0.Value<i2.HeadlineType?> headlineType = const i0.Value.absent(),
-            i0.Value<List<i2.HeadlineSlot>?> headlineSlot =
+            i0.Value<i3.HeadlineType?> headlineType = const i0.Value.absent(),
+            i0.Value<List<i3.HeadlineSlot>?> headlineSlot =
                 const i0.Value.absent(),
             i0.Value<int?> reservedFlag = const i0.Value.absent(),
             i0.Value<int> rowid = const i0.Value.absent(),
@@ -392,6 +430,8 @@ class $HeadlineTableManager extends i0.RootTableManager<
             tag1: tag1,
             tag2: tag2,
             tag3: tag3,
+            moreTags: moreTags,
+            labels: labels,
             headlineTypeId: headlineTypeId,
             statusId: statusId,
             sectionId: sectionId,
@@ -508,6 +548,24 @@ class Headline extends i0.Table with i0.TableInfo<Headline, i1.HeadlineData> {
       type: i0.DriftSqlType.string,
       requiredDuringInsert: false,
       $customConstraints: '');
+  static const i0.VerificationMeta _moreTagsMeta =
+      const i0.VerificationMeta('moreTags');
+  late final i0.GeneratedColumnWithTypeConverter<List<String>?, String>
+      moreTags = i0.GeneratedColumn<String>('more_tags', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<List<String>?>(i1.Headline.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0
+      .GeneratedColumnWithTypeConverter<i2.Multimap<String, String>?, String>
+      labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+              type: i0.DriftSqlType.string,
+              requiredDuringInsert: false,
+              $customConstraints: '')
+          .withConverter<i2.Multimap<String, String>?>(
+              i1.Headline.$converterlabelsn);
   static const i0.VerificationMeta _headlineTypeIdMeta =
       const i0.VerificationMeta('headlineTypeId');
   late final i0.GeneratedColumn<String> headlineTypeId =
@@ -552,22 +610,22 @@ class Headline extends i0.Table with i0.TableInfo<Headline, i1.HeadlineData> {
           $customConstraints: '');
   static const i0.VerificationMeta _headlineTypeMeta =
       const i0.VerificationMeta('headlineType');
-  late final i0.GeneratedColumnWithTypeConverter<i2.HeadlineType?, String>
+  late final i0.GeneratedColumnWithTypeConverter<i3.HeadlineType?, String>
       headlineType = i0.GeneratedColumn<String>(
               'headline_type', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<i2.HeadlineType?>(i1.Headline.$converterheadlineTypen);
+          .withConverter<i3.HeadlineType?>(i1.Headline.$converterheadlineTypen);
   static const i0.VerificationMeta _headlineSlotMeta =
       const i0.VerificationMeta('headlineSlot');
-  late final i0.GeneratedColumnWithTypeConverter<List<i2.HeadlineSlot>?, String>
+  late final i0.GeneratedColumnWithTypeConverter<List<i3.HeadlineSlot>?, String>
       headlineSlot = i0.GeneratedColumn<String>(
               'headline_slot', aliasedName, true,
               type: i0.DriftSqlType.string,
               requiredDuringInsert: false,
               $customConstraints: '')
-          .withConverter<List<i2.HeadlineSlot>?>(
+          .withConverter<List<i3.HeadlineSlot>?>(
               i1.Headline.$converterheadlineSlotn);
   static const i0.VerificationMeta _reservedFlagMeta =
       const i0.VerificationMeta('reservedFlag');
@@ -589,6 +647,8 @@ class Headline extends i0.Table with i0.TableInfo<Headline, i1.HeadlineData> {
         tag1,
         tag2,
         tag3,
+        moreTags,
+        labels,
         headlineTypeId,
         statusId,
         sectionId,
@@ -662,6 +722,8 @@ class Headline extends i0.Table with i0.TableInfo<Headline, i1.HeadlineData> {
       context.handle(
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
+    context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     if (data.containsKey('headline_type_id')) {
       context.handle(
           _headlineTypeIdMeta,
@@ -732,6 +794,11 @@ class Headline extends i0.Table with i0.TableInfo<Headline, i1.HeadlineData> {
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag2']),
       tag3: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}tag3']),
+      moreTags: i1.Headline.$convertermoreTagsn.fromSql(attachedDatabase
+          .typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.Headline.$converterlabelsn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       headlineTypeId: attachedDatabase.typeMapping.read(
           i0.DriftSqlType.string, data['${effectivePrefix}headline_type_id']),
       statusId: attachedDatabase.typeMapping
@@ -760,15 +827,26 @@ class Headline extends i0.Table with i0.TableInfo<Headline, i1.HeadlineData> {
     return Headline(attachedDatabase, alias);
   }
 
-  static i0.JsonTypeConverter2<i2.HeadlineType, String, Map<String, dynamic>>
-      $converterheadlineType = const i3.HeadlineTypeConverter();
-  static i0.JsonTypeConverter2<i2.HeadlineType?, String?, Map<String, dynamic>?>
+  static i0.JsonTypeConverter2<List<String>, String, List<dynamic>>
+      $convertermoreTags = const i4.StringListConverter();
+  static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
+      $convertermoreTagsn =
+      i0.JsonTypeConverter2.asNullable($convertermoreTags);
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i4.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i2.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
+  static i0.JsonTypeConverter2<i3.HeadlineType, String, Map<String, dynamic>>
+      $converterheadlineType = const i5.HeadlineTypeConverter();
+  static i0.JsonTypeConverter2<i3.HeadlineType?, String?, Map<String, dynamic>?>
       $converterheadlineTypen =
       i0.JsonTypeConverter2.asNullable($converterheadlineType);
-  static i0.JsonTypeConverter2<List<i2.HeadlineSlot>, String,
+  static i0.JsonTypeConverter2<List<i3.HeadlineSlot>, String,
           List<Map<String, dynamic>>> $converterheadlineSlot =
-      const i3.HeadlineSlotListConverter();
-  static i0.JsonTypeConverter2<List<i2.HeadlineSlot>?, String?,
+      const i5.HeadlineSlotListConverter();
+  static i0.JsonTypeConverter2<List<i3.HeadlineSlot>?, String?,
           List<Map<String, dynamic>>?> $converterheadlineSlotn =
       i0.JsonTypeConverter2.asNullable($converterheadlineSlot);
   @override
@@ -788,6 +866,8 @@ class HeadlineData extends i0.DataClass
   final String? tag1;
   final String? tag2;
   final String? tag3;
+  final List<String>? moreTags;
+  final i2.Multimap<String, String>? labels;
   final String? headlineTypeId;
   final String? statusId;
   final String? sectionId;
@@ -796,10 +876,10 @@ class HeadlineData extends i0.DataClass
   final String? resourceType;
 
   /// rel: one (no public-types)
-  final i2.HeadlineType? headlineType;
+  final i3.HeadlineType? headlineType;
 
   /// rel: many
-  final List<i2.HeadlineSlot>? headlineSlot;
+  final List<i3.HeadlineSlot>? headlineSlot;
   final int? reservedFlag;
   const HeadlineData(
       {required this.headlineId,
@@ -813,6 +893,8 @@ class HeadlineData extends i0.DataClass
       this.tag1,
       this.tag2,
       this.tag3,
+      this.moreTags,
+      this.labels,
       this.headlineTypeId,
       this.statusId,
       this.sectionId,
@@ -855,6 +937,14 @@ class HeadlineData extends i0.DataClass
     }
     if (!nullToAbsent || tag3 != null) {
       map['tag3'] = i0.Variable<String>(tag3);
+    }
+    if (!nullToAbsent || moreTags != null) {
+      map['more_tags'] =
+          i0.Variable<String>(i1.Headline.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.Headline.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || headlineTypeId != null) {
       map['headline_type_id'] = i0.Variable<String>(headlineTypeId);
@@ -921,6 +1011,12 @@ class HeadlineData extends i0.DataClass
       tag3: tag3 == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(tag3),
+      moreTags: moreTags == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       headlineTypeId: headlineTypeId == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(headlineTypeId),
@@ -967,6 +1063,10 @@ class HeadlineData extends i0.DataClass
       tag1: serializer.fromJson<String?>(json['tag1']),
       tag2: serializer.fromJson<String?>(json['tag2']),
       tag3: serializer.fromJson<String?>(json['tag3']),
+      moreTags: i1.Headline.$convertermoreTagsn
+          .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.Headline.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       headlineTypeId: serializer.fromJson<String?>(json['headline_type_id']),
       statusId: serializer.fromJson<String?>(json['status_id']),
       sectionId: serializer.fromJson<String?>(json['section_id']),
@@ -995,6 +1095,10 @@ class HeadlineData extends i0.DataClass
       'tag1': serializer.toJson<String?>(tag1),
       'tag2': serializer.toJson<String?>(tag2),
       'tag3': serializer.toJson<String?>(tag3),
+      'more_tags': serializer.toJson<List<dynamic>?>(
+          i1.Headline.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.Headline.$converterlabelsn.toJson(labels)),
       'headline_type_id': serializer.toJson<String?>(headlineTypeId),
       'status_id': serializer.toJson<String?>(statusId),
       'section_id': serializer.toJson<String?>(sectionId),
@@ -1021,14 +1125,17 @@ class HeadlineData extends i0.DataClass
           i0.Value<String?> tag1 = const i0.Value.absent(),
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
+          i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i2.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<String?> headlineTypeId = const i0.Value.absent(),
           i0.Value<String?> statusId = const i0.Value.absent(),
           i0.Value<String?> sectionId = const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
           i0.Value<String?> resourceId = const i0.Value.absent(),
           i0.Value<String?> resourceType = const i0.Value.absent(),
-          i0.Value<i2.HeadlineType?> headlineType = const i0.Value.absent(),
-          i0.Value<List<i2.HeadlineSlot>?> headlineSlot =
+          i0.Value<i3.HeadlineType?> headlineType = const i0.Value.absent(),
+          i0.Value<List<i3.HeadlineSlot>?> headlineSlot =
               const i0.Value.absent(),
           i0.Value<int?> reservedFlag = const i0.Value.absent()}) =>
       i1.HeadlineData(
@@ -1046,6 +1153,8 @@ class HeadlineData extends i0.DataClass
         tag1: tag1.present ? tag1.value : this.tag1,
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
+        moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         headlineTypeId:
             headlineTypeId.present ? headlineTypeId.value : this.headlineTypeId,
         statusId: statusId.present ? statusId.value : this.statusId,
@@ -1079,6 +1188,8 @@ class HeadlineData extends i0.DataClass
       tag1: data.tag1.present ? data.tag1.value : this.tag1,
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
+      moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       headlineTypeId: data.headlineTypeId.present
           ? data.headlineTypeId.value
           : this.headlineTypeId,
@@ -1116,6 +1227,8 @@ class HeadlineData extends i0.DataClass
           ..write('tag1: $tag1, ')
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('headlineTypeId: $headlineTypeId, ')
           ..write('statusId: $statusId, ')
           ..write('sectionId: $sectionId, ')
@@ -1130,27 +1243,30 @@ class HeadlineData extends i0.DataClass
   }
 
   @override
-  int get hashCode => Object.hash(
-      headlineId,
-      refXid,
-      summary,
-      tenantId,
-      lastUpdatedTxStamp,
-      createdTxStamp,
-      sender,
-      statsId,
-      tag1,
-      tag2,
-      tag3,
-      headlineTypeId,
-      statusId,
-      sectionId,
-      evict,
-      resourceId,
-      resourceType,
-      headlineType,
-      headlineSlot,
-      reservedFlag);
+  int get hashCode => Object.hashAll([
+        headlineId,
+        refXid,
+        summary,
+        tenantId,
+        lastUpdatedTxStamp,
+        createdTxStamp,
+        sender,
+        statsId,
+        tag1,
+        tag2,
+        tag3,
+        moreTags,
+        labels,
+        headlineTypeId,
+        statusId,
+        sectionId,
+        evict,
+        resourceId,
+        resourceType,
+        headlineType,
+        headlineSlot,
+        reservedFlag
+      ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -1166,6 +1282,8 @@ class HeadlineData extends i0.DataClass
           other.tag1 == this.tag1 &&
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
+          other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.headlineTypeId == this.headlineTypeId &&
           other.statusId == this.statusId &&
           other.sectionId == this.sectionId &&
@@ -1189,14 +1307,16 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
   final i0.Value<String?> tag1;
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
+  final i0.Value<List<String>?> moreTags;
+  final i0.Value<i2.Multimap<String, String>?> labels;
   final i0.Value<String?> headlineTypeId;
   final i0.Value<String?> statusId;
   final i0.Value<String?> sectionId;
   final i0.Value<bool?> evict;
   final i0.Value<String?> resourceId;
   final i0.Value<String?> resourceType;
-  final i0.Value<i2.HeadlineType?> headlineType;
-  final i0.Value<List<i2.HeadlineSlot>?> headlineSlot;
+  final i0.Value<i3.HeadlineType?> headlineType;
+  final i0.Value<List<i3.HeadlineSlot>?> headlineSlot;
   final i0.Value<int?> reservedFlag;
   final i0.Value<int> rowid;
   const HeadlineCompanion({
@@ -1211,6 +1331,8 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
     this.tag1 = const i0.Value.absent(),
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.headlineTypeId = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.sectionId = const i0.Value.absent(),
@@ -1234,6 +1356,8 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
     this.tag1 = const i0.Value.absent(),
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
+    this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.headlineTypeId = const i0.Value.absent(),
     this.statusId = const i0.Value.absent(),
     this.sectionId = const i0.Value.absent(),
@@ -1257,6 +1381,8 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
     i0.Expression<String>? tag1,
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
+    i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<String>? headlineTypeId,
     i0.Expression<String>? statusId,
     i0.Expression<String>? sectionId,
@@ -1281,6 +1407,8 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
       if (tag1 != null) 'tag1': tag1,
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
+      if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (headlineTypeId != null) 'headline_type_id': headlineTypeId,
       if (statusId != null) 'status_id': statusId,
       if (sectionId != null) 'section_id': sectionId,
@@ -1306,14 +1434,16 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
       i0.Value<String?>? tag1,
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
+      i0.Value<List<String>?>? moreTags,
+      i0.Value<i2.Multimap<String, String>?>? labels,
       i0.Value<String?>? headlineTypeId,
       i0.Value<String?>? statusId,
       i0.Value<String?>? sectionId,
       i0.Value<bool?>? evict,
       i0.Value<String?>? resourceId,
       i0.Value<String?>? resourceType,
-      i0.Value<i2.HeadlineType?>? headlineType,
-      i0.Value<List<i2.HeadlineSlot>?>? headlineSlot,
+      i0.Value<i3.HeadlineType?>? headlineType,
+      i0.Value<List<i3.HeadlineSlot>?>? headlineSlot,
       i0.Value<int?>? reservedFlag,
       i0.Value<int>? rowid}) {
     return i1.HeadlineCompanion(
@@ -1328,6 +1458,8 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
       tag1: tag1 ?? this.tag1,
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
+      moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       headlineTypeId: headlineTypeId ?? this.headlineTypeId,
       statusId: statusId ?? this.statusId,
       sectionId: sectionId ?? this.sectionId,
@@ -1378,6 +1510,14 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
     if (tag3.present) {
       map['tag3'] = i0.Variable<String>(tag3.value);
     }
+    if (moreTags.present) {
+      map['more_tags'] = i0.Variable<String>(
+          i1.Headline.$convertermoreTagsn.toSql(moreTags.value));
+    }
+    if (labels.present) {
+      map['labels'] = i0.Variable<String>(
+          i1.Headline.$converterlabelsn.toSql(labels.value));
+    }
     if (headlineTypeId.present) {
       map['headline_type_id'] = i0.Variable<String>(headlineTypeId.value);
     }
@@ -1427,6 +1567,8 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
           ..write('tag1: $tag1, ')
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
+          ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('headlineTypeId: $headlineTypeId, ')
           ..write('statusId: $statusId, ')
           ..write('sectionId: $sectionId, ')
@@ -1442,7 +1584,7 @@ class HeadlineCompanion extends i0.UpdateCompanion<i1.HeadlineData> {
   }
 }
 
-class HeadlineDrift extends i4.ModularAccessor {
+class HeadlineDrift extends i6.ModularAccessor {
   HeadlineDrift(i0.GeneratedDatabase db) : super(db);
   i0.Selectable<i1.HeadlineData> allHeadlines() {
     return customSelect('SELECT * FROM headline', variables: [], readsFrom: {
@@ -1503,6 +1645,6 @@ class HeadlineDrift extends i4.ModularAccessor {
         }).asyncMap(headline.mapFromRow);
   }
 
-  i1.Headline get headline => i4.ReadDatabaseContainer(attachedDatabase)
+  i1.Headline get headline => i6.ReadDatabaseContainer(attachedDatabase)
       .resultSet<i1.Headline>('headline');
 }

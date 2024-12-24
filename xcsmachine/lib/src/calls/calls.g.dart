@@ -12,20 +12,12 @@ NoteContent _$NoteContentFromJson(Map<String, dynamic> json) => NoteContent(
       body: json['body'] as String?,
     );
 
-Map<String, dynamic> _$NoteContentToJson(NoteContent instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('title', instance.title);
-  writeNotNull('body', instance.body);
-  return val;
-}
+Map<String, dynamic> _$NoteContentToJson(NoteContent instance) =>
+    <String, dynamic>{
+      if (instance.key case final value?) 'key': value,
+      if (instance.title case final value?) 'title': value,
+      if (instance.body case final value?) 'body': value,
+    };
 
 PostBundle _$PostBundleFromJson(Map<String, dynamic> json) => PostBundle(
       id: json['id'] as String?,
@@ -46,25 +38,19 @@ PostBundle _$PostBundleFromJson(Map<String, dynamic> json) => PostBundle(
       featured: json['featured'] as bool?,
     );
 
-Map<String, dynamic> _$PostBundleToJson(PostBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description);
-  writeNotNull('content', instance.content?.toJson());
-  writeNotNull('dataResource', instance.dataResource?.toJson());
-  writeNotNull('comments', instance.comments?.map((e) => e.toJson()).toList());
-  writeNotNull('stats', instance.stats);
-  writeNotNull('featured', instance.featured);
-  return val;
-}
+Map<String, dynamic> _$PostBundleToJson(PostBundle instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.content?.toJson() case final value?) 'content': value,
+      if (instance.dataResource?.toJson() case final value?)
+        'dataResource': value,
+      if (instance.comments?.map((e) => e.toJson()).toList() case final value?)
+        'comments': value,
+      if (instance.stats case final value?) 'stats': value,
+      if (instance.featured case final value?) 'featured': value,
+    };
 
 WebSiteCubeData _$WebSiteCubeDataFromJson(Map<String, dynamic> json) =>
     WebSiteCubeData(
@@ -75,20 +61,12 @@ WebSiteCubeData _$WebSiteCubeDataFromJson(Map<String, dynamic> json) =>
       httpsUrl: json['httpsUrl'] as String?,
     );
 
-Map<String, dynamic> _$WebSiteCubeDataToJson(WebSiteCubeData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('site', instance.site?.toJson());
-  writeNotNull('httpUrl', instance.httpUrl);
-  writeNotNull('httpsUrl', instance.httpsUrl);
-  return val;
-}
+Map<String, dynamic> _$WebSiteCubeDataToJson(WebSiteCubeData instance) =>
+    <String, dynamic>{
+      if (instance.site?.toJson() case final value?) 'site': value,
+      if (instance.httpUrl case final value?) 'httpUrl': value,
+      if (instance.httpsUrl case final value?) 'httpsUrl': value,
+    };
 
 PhoneNumber _$PhoneNumberFromJson(Map<String, dynamic> json) => PhoneNumber(
       key: json['key'] as String?,
@@ -96,20 +74,12 @@ PhoneNumber _$PhoneNumberFromJson(Map<String, dynamic> json) => PhoneNumber(
       tel: json['tel'] as String?,
     );
 
-Map<String, dynamic> _$PhoneNumberToJson(PhoneNumber instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('areaCode', instance.areaCode);
-  writeNotNull('tel', instance.tel);
-  return val;
-}
+Map<String, dynamic> _$PhoneNumberToJson(PhoneNumber instance) =>
+    <String, dynamic>{
+      if (instance.key case final value?) 'key': value,
+      if (instance.areaCode case final value?) 'areaCode': value,
+      if (instance.tel case final value?) 'tel': value,
+    };
 
 Location _$LocationFromJson(Map<String, dynamic> json) => Location(
       locationId: json['locationId'] as String?,
@@ -123,26 +93,18 @@ Location _$LocationFromJson(Map<String, dynamic> json) => Location(
       geoPointId: json['geoPointId'] as String?,
     );
 
-Map<String, dynamic> _$LocationToJson(Location instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('locationId', instance.locationId);
-  writeNotNull('address1', instance.address1);
-  writeNotNull('address2', instance.address2);
-  writeNotNull('city', instance.city);
-  writeNotNull('stateProvinceGeoId', instance.stateProvinceGeoId);
-  writeNotNull('countryGeoId', instance.countryGeoId);
-  writeNotNull('postalCode', instance.postalCode);
-  writeNotNull('toName', instance.toName);
-  writeNotNull('geoPointId', instance.geoPointId);
-  return val;
-}
+Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
+      if (instance.locationId case final value?) 'locationId': value,
+      if (instance.address1 case final value?) 'address1': value,
+      if (instance.address2 case final value?) 'address2': value,
+      if (instance.city case final value?) 'city': value,
+      if (instance.stateProvinceGeoId case final value?)
+        'stateProvinceGeoId': value,
+      if (instance.countryGeoId case final value?) 'countryGeoId': value,
+      if (instance.postalCode case final value?) 'postalCode': value,
+      if (instance.toName case final value?) 'toName': value,
+      if (instance.geoPointId case final value?) 'geoPointId': value,
+    };
 
 UserObj _$UserObjFromJson(Map<String, dynamic> json) => UserObj(
       partyId: json['partyId'] as String?,
@@ -159,31 +121,23 @@ UserObj _$UserObjFromJson(Map<String, dynamic> json) => UserObj(
       color: (json['color'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$UserObjToJson(UserObj instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('lastName', instance.lastName);
-  writeNotNull('firstName', instance.firstName);
-  writeNotNull('name', instance.name);
-  writeNotNull('nickname', instance.nickname);
-  writeNotNull('gender', instance.gender);
-  writeNotNull(
-      'birthDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.birthDate, const OffsetDateTimeConverter().toJson));
-  writeNotNull('createdByUserLogin', instance.createdByUserLogin);
-  writeNotNull('email', instance.email);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  return val;
-}
+Map<String, dynamic> _$UserObjToJson(UserObj instance) => <String, dynamic>{
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.lastName case final value?) 'lastName': value,
+      if (instance.firstName case final value?) 'firstName': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.nickname case final value?) 'nickname': value,
+      if (instance.gender case final value?) 'gender': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.birthDate, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'birthDate': value,
+      if (instance.createdByUserLogin case final value?)
+        'createdByUserLogin': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+    };
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
@@ -203,20 +157,11 @@ Position _$PositionFromJson(Map<String, dynamic> json) => Position(
       z: (json['z'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$PositionToJson(Position instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('lat', instance.lat);
-  writeNotNull('lon', instance.lon);
-  writeNotNull('z', instance.z);
-  return val;
-}
+Map<String, dynamic> _$PositionToJson(Position instance) => <String, dynamic>{
+      if (instance.lat case final value?) 'lat': value,
+      if (instance.lon case final value?) 'lon': value,
+      if (instance.z case final value?) 'z': value,
+    };
 
 PayDetail _$PayDetailFromJson(Map<String, dynamic> json) => PayDetail(
       paymentId: json['paymentId'] as String?,
@@ -228,24 +173,16 @@ PayDetail _$PayDetailFromJson(Map<String, dynamic> json) => PayDetail(
       finTransId: json['finTransId'] as String?,
     );
 
-Map<String, dynamic> _$PayDetailToJson(PayDetail instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('paymentId', instance.paymentId);
-  writeNotNull('budgetId', instance.budgetId);
-  writeNotNull('budgetItemSeqId', instance.budgetItemSeqId);
-  writeNotNull('budgetItemAmount', instance.budgetItemAmount);
-  writeNotNull('budgetPurpose', instance.budgetPurpose);
-  writeNotNull('payAmount', instance.payAmount);
-  writeNotNull('finTransId', instance.finTransId);
-  return val;
-}
+Map<String, dynamic> _$PayDetailToJson(PayDetail instance) => <String, dynamic>{
+      if (instance.paymentId case final value?) 'paymentId': value,
+      if (instance.budgetId case final value?) 'budgetId': value,
+      if (instance.budgetItemSeqId case final value?) 'budgetItemSeqId': value,
+      if (instance.budgetItemAmount case final value?)
+        'budgetItemAmount': value,
+      if (instance.budgetPurpose case final value?) 'budgetPurpose': value,
+      if (instance.payAmount case final value?) 'payAmount': value,
+      if (instance.finTransId case final value?) 'finTransId': value,
+    };
 
 TestRec _$TestRecFromJson(Map<String, dynamic> json) => TestRec(
       stringFld: json['stringFld'] as String?,
@@ -260,23 +197,14 @@ TestRec _$TestRecFromJson(Map<String, dynamic> json) => TestRec(
           .toList(),
     );
 
-Map<String, dynamic> _$TestRecToJson(TestRec instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('stringFld', instance.stringFld);
-  writeNotNull('numFld', instance.numFld);
-  writeNotNull('boolFld', instance.boolFld);
-  writeNotNull('tag', instance.tag);
-  writeNotNull('numMap', instance.numMap);
-  writeNotNull('nums', instance.nums);
-  return val;
-}
+Map<String, dynamic> _$TestRecToJson(TestRec instance) => <String, dynamic>{
+      if (instance.stringFld case final value?) 'stringFld': value,
+      if (instance.numFld case final value?) 'numFld': value,
+      if (instance.boolFld case final value?) 'boolFld': value,
+      if (instance.tag case final value?) 'tag': value,
+      if (instance.numMap case final value?) 'numMap': value,
+      if (instance.nums case final value?) 'nums': value,
+    };
 
 StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
       store: json['store'] == null
@@ -293,22 +221,16 @@ StoreBundle _$StoreBundleFromJson(Map<String, dynamic> json) => StoreBundle(
           .toList(),
     );
 
-Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('store', instance.store?.toJson());
-  writeNotNull('facility', instance.facility?.toJson());
-  writeNotNull('products', instance.products?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'inventories', instance.inventories?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$StoreBundleToJson(StoreBundle instance) =>
+    <String, dynamic>{
+      if (instance.store?.toJson() case final value?) 'store': value,
+      if (instance.facility?.toJson() case final value?) 'facility': value,
+      if (instance.products?.map((e) => e.toJson()).toList() case final value?)
+        'products': value,
+      if (instance.inventories?.map((e) => e.toJson()).toList()
+          case final value?)
+        'inventories': value,
+    };
 
 PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
       party: json['party'] == null
@@ -319,19 +241,12 @@ PartyBundle _$PartyBundleFromJson(Map<String, dynamic> json) => PartyBundle(
           .toList(),
     );
 
-Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('party', instance.party?.toJson());
-  writeNotNull('contacts', instance.contacts?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$PartyBundleToJson(PartyBundle instance) =>
+    <String, dynamic>{
+      if (instance.party?.toJson() case final value?) 'party': value,
+      if (instance.contacts?.map((e) => e.toJson()).toList() case final value?)
+        'contacts': value,
+    };
 
 ComplicatedRec _$ComplicatedRecFromJson(Map<String, dynamic> json) =>
     ComplicatedRec(
@@ -341,19 +256,11 @@ ComplicatedRec _$ComplicatedRecFromJson(Map<String, dynamic> json) =>
           : TestRec.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ComplicatedRecToJson(ComplicatedRec instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('poster', instance.poster);
-  writeNotNull('data', instance.data?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ComplicatedRecToJson(ComplicatedRec instance) =>
+    <String, dynamic>{
+      if (instance.poster case final value?) 'poster': value,
+      if (instance.data?.toJson() case final value?) 'data': value,
+    };
 
 BundleModifiedResult _$BundleModifiedResultFromJson(
         Map<String, dynamic> json) =>
@@ -369,20 +276,13 @@ BundleModifiedResult _$BundleModifiedResultFromJson(
     );
 
 Map<String, dynamic> _$BundleModifiedResultToJson(
-    BundleModifiedResult instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('assetName', instance.assetName);
-  writeNotNull('bundleIds', instance.bundleIds);
-  writeNotNull('replenishAmounts', instance.replenishAmounts);
-  return val;
-}
+        BundleModifiedResult instance) =>
+    <String, dynamic>{
+      if (instance.assetName case final value?) 'assetName': value,
+      if (instance.bundleIds case final value?) 'bundleIds': value,
+      if (instance.replenishAmounts case final value?)
+        'replenishAmounts': value,
+    };
 
 BiFacetStatusAtt _$BiFacetStatusAttFromJson(Map<String, dynamic> json) =>
     BiFacetStatusAtt(
@@ -400,37 +300,30 @@ BiFacetStatusAtt _$BiFacetStatusAttFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$BiFacetStatusAttToJson(BiFacetStatusAtt instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('biFacetId', instance.biFacetId);
-  writeNotNull(
-      'statusDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.statusDate, const OffsetDateTimeConverter().toJson));
-  writeNotNull(
-      'statusEndDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.statusEndDate, const OffsetDateTimeConverter().toJson));
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.lastUpdatedTxStamp, const OffsetDateTimeConverter().toJson));
-  writeNotNull(
-      'createdTxStamp',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$BiFacetStatusAttToJson(BiFacetStatusAtt instance) =>
+    <String, dynamic>{
+      if (instance.biFacetId case final value?) 'biFacetId': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.statusDate, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'statusDate': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.statusEndDate, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (_$JsonConverterToJson<String, DateTime>(instance.lastUpdatedTxStamp,
+              const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'lastUpdatedTxStamp': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.createdTxStamp, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
       biId: json['biId'] as String?,
@@ -457,61 +350,45 @@ BiFacetBi _$BiFacetBiFromJson(Map<String, dynamic> json) => BiFacetBi(
       type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$BiFacetBiToJson(BiFacetBi instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('biId', instance.biId);
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('regionId', instance.regionId);
-  writeNotNull('ownerId', instance.ownerId);
-  writeNotNull('group', instance.group);
-  writeNotNull('data', instance.data);
-  writeNotNull('tags', instance.tags);
-  writeNotNull('modified', instance.modified);
-  writeNotNull('applyTarget', instance.applyTarget);
-  writeNotNull('applyRecordType', instance.applyRecordType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.lastUpdatedTxStamp, const OffsetDateTimeConverter().toJson));
-  writeNotNull(
-      'createdTxStamp',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
-  writeNotNull('biFacetTypeId', instance.biFacetTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull(
-      'biFacetStatus', instance.biFacetStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('type', instance.type);
-  return val;
-}
+Map<String, dynamic> _$BiFacetBiToJson(BiFacetBi instance) => <String, dynamic>{
+      if (instance.biId case final value?) 'biId': value,
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.ownerId case final value?) 'ownerId': value,
+      if (instance.group case final value?) 'group': value,
+      if (instance.data case final value?) 'data': value,
+      if (instance.tags case final value?) 'tags': value,
+      if (instance.modified case final value?) 'modified': value,
+      if (instance.applyTarget case final value?) 'applyTarget': value,
+      if (instance.applyRecordType case final value?) 'applyRecordType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (_$JsonConverterToJson<String, DateTime>(instance.lastUpdatedTxStamp,
+              const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'lastUpdatedTxStamp': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.createdTxStamp, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'createdTxStamp': value,
+      if (instance.biFacetTypeId case final value?) 'biFacetTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.biFacetStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'biFacetStatus': value,
+      if (instance.type case final value?) 'type': value,
+    };
 
 ResultSort _$ResultSortFromJson(Map<String, dynamic> json) => ResultSort(
       fld: json['fld'] as String?,
       orderBy: json['orderBy'] as String?,
     );
 
-Map<String, dynamic> _$ResultSortToJson(ResultSort instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('fld', instance.fld);
-  writeNotNull('orderBy', instance.orderBy);
-  return val;
-}
+Map<String, dynamic> _$ResultSortToJson(ResultSort instance) =>
+    <String, dynamic>{
+      if (instance.fld case final value?) 'fld': value,
+      if (instance.orderBy case final value?) 'orderBy': value,
+    };
 
 NumberRange _$NumberRangeFromJson(Map<String, dynamic> json) => NumberRange(
       field: json['field'] as String?,
@@ -519,39 +396,23 @@ NumberRange _$NumberRangeFromJson(Map<String, dynamic> json) => NumberRange(
       to: (json['to'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$NumberRangeToJson(NumberRange instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('field', instance.field);
-  writeNotNull('from', instance.from);
-  writeNotNull('to', instance.to);
-  return val;
-}
+Map<String, dynamic> _$NumberRangeToJson(NumberRange instance) =>
+    <String, dynamic>{
+      if (instance.field case final value?) 'field': value,
+      if (instance.from case final value?) 'from': value,
+      if (instance.to case final value?) 'to': value,
+    };
 
 FoldRegion _$FoldRegionFromJson(Map<String, dynamic> json) => FoldRegion(
       regionId: json['regionId'] as String?,
       ent: json['ent'] as String?,
     );
 
-Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('regionId', instance.regionId);
-  writeNotNull('ent', instance.ent);
-  return val;
-}
+Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) =>
+    <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.ent case final value?) 'ent': value,
+    };
 
 PaginatedEntBytes _$PaginatedEntBytesFromJson(Map<String, dynamic> json) =>
     PaginatedEntBytes(
@@ -564,22 +425,14 @@ PaginatedEntBytes _$PaginatedEntBytesFromJson(Map<String, dynamic> json) =>
       totalResults: (json['totalResults'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$PaginatedEntBytesToJson(PaginatedEntBytes instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ent', instance.ent);
-  writeNotNull('page', instance.page);
-  writeNotNull('rsb', instance.rsb);
-  writeNotNull('totalPages', instance.totalPages);
-  writeNotNull('totalResults', instance.totalResults);
-  return val;
-}
+Map<String, dynamic> _$PaginatedEntBytesToJson(PaginatedEntBytes instance) =>
+    <String, dynamic>{
+      if (instance.ent case final value?) 'ent': value,
+      if (instance.page case final value?) 'page': value,
+      if (instance.rsb case final value?) 'rsb': value,
+      if (instance.totalPages case final value?) 'totalPages': value,
+      if (instance.totalResults case final value?) 'totalResults': value,
+    };
 
 MatchTerm _$MatchTermFromJson(Map<String, dynamic> json) => MatchTerm(
       field: json['field'] as String?,
@@ -587,39 +440,22 @@ MatchTerm _$MatchTermFromJson(Map<String, dynamic> json) => MatchTerm(
       value: json['value'],
     );
 
-Map<String, dynamic> _$MatchTermToJson(MatchTerm instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('field', instance.field);
-  writeNotNull('op', instance.op);
-  writeNotNull('value', instance.value);
-  return val;
-}
+Map<String, dynamic> _$MatchTermToJson(MatchTerm instance) => <String, dynamic>{
+      if (instance.field case final value?) 'field': value,
+      if (instance.op case final value?) 'op': value,
+      if (instance.value case final value?) 'value': value,
+    };
 
 ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
       startIndex: (json['startIndex'] as num?)?.toInt(),
       limit: (json['limit'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$ResultLimitToJson(ResultLimit instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('startIndex', instance.startIndex);
-  writeNotNull('limit', instance.limit);
-  return val;
-}
+Map<String, dynamic> _$ResultLimitToJson(ResultLimit instance) =>
+    <String, dynamic>{
+      if (instance.startIndex case final value?) 'startIndex': value,
+      if (instance.limit case final value?) 'limit': value,
+    };
 
 DateTimeRange _$DateTimeRangeFromJson(Map<String, dynamic> json) =>
     DateTimeRange(
@@ -630,45 +466,45 @@ DateTimeRange _$DateTimeRangeFromJson(Map<String, dynamic> json) =>
           json['to'], const OffsetDateTimeConverter().fromJson),
     );
 
-Map<String, dynamic> _$DateTimeRangeToJson(DateTimeRange instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('field', instance.field);
-  writeNotNull(
-      'from',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.from, const OffsetDateTimeConverter().toJson));
-  writeNotNull(
-      'to',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.to, const OffsetDateTimeConverter().toJson));
-  return val;
-}
+Map<String, dynamic> _$DateTimeRangeToJson(DateTimeRange instance) =>
+    <String, dynamic>{
+      if (instance.field case final value?) 'field': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.from, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'from': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.to, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'to': value,
+    };
 
 PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
       page: (json['page'] as num?)?.toInt(),
       pageSize: (json['pageSize'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$PageLimitToJson(PageLimit instance) {
-  final val = <String, dynamic>{};
+Map<String, dynamic> _$PageLimitToJson(PageLimit instance) => <String, dynamic>{
+      if (instance.page case final value?) 'page': value,
+      if (instance.pageSize case final value?) 'pageSize': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+ResultBytesWithMeta _$ResultBytesWithMetaFromJson(Map<String, dynamic> json) =>
+    ResultBytesWithMeta(
+      rsb: (json['rsb'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
+      start: (json['start'] as num?)?.toInt(),
+      total: (json['total'] as num?)?.toInt(),
+    );
 
-  writeNotNull('page', instance.page);
-  writeNotNull('pageSize', instance.pageSize);
-  return val;
-}
+Map<String, dynamic> _$ResultBytesWithMetaToJson(
+        ResultBytesWithMeta instance) =>
+    <String, dynamic>{
+      if (instance.rsb case final value?) 'rsb': value,
+      if (instance.start case final value?) 'start': value,
+      if (instance.total case final value?) 'total': value,
+    };
 
 Match _$MatchFromJson(Map<String, dynamic> json) => Match(
       terms: (json['terms'] as List<dynamic>?)
@@ -682,45 +518,15 @@ Match _$MatchFromJson(Map<String, dynamic> json) => Match(
           .toList(),
     );
 
-Map<String, dynamic> _$MatchToJson(Match instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('terms', instance.terms?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'numberRanges', instance.numberRanges?.map((e) => e.toJson()).toList());
-  writeNotNull('periods', instance.periods?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-ResultBytesWithMeta _$ResultBytesWithMetaFromJson(Map<String, dynamic> json) =>
-    ResultBytesWithMeta(
-      rsb: (json['rsb'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
-      start: (json['start'] as num?)?.toInt(),
-      total: (json['total'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$ResultBytesWithMetaToJson(ResultBytesWithMeta instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('rsb', instance.rsb);
-  writeNotNull('start', instance.start);
-  writeNotNull('total', instance.total);
-  return val;
-}
+Map<String, dynamic> _$MatchToJson(Match instance) => <String, dynamic>{
+      if (instance.terms?.map((e) => e.toJson()).toList() case final value?)
+        'terms': value,
+      if (instance.numberRanges?.map((e) => e.toJson()).toList()
+          case final value?)
+        'numberRanges': value,
+      if (instance.periods?.map((e) => e.toJson()).toList() case final value?)
+        'periods': value,
+    };
 
 PredicateTerm _$PredicateTermFromJson(Map<String, dynamic> json) =>
     PredicateTerm(
@@ -729,20 +535,12 @@ PredicateTerm _$PredicateTermFromJson(Map<String, dynamic> json) =>
       value: json['value'],
     );
 
-Map<String, dynamic> _$PredicateTermToJson(PredicateTerm instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('fld', instance.fld);
-  writeNotNull('op', instance.op);
-  writeNotNull('value', instance.value);
-  return val;
-}
+Map<String, dynamic> _$PredicateTermToJson(PredicateTerm instance) =>
+    <String, dynamic>{
+      if (instance.fld case final value?) 'fld': value,
+      if (instance.op case final value?) 'op': value,
+      if (instance.value case final value?) 'value': value,
+    };
 
 PaginatedResponse _$PaginatedResponseFromJson(Map<String, dynamic> json) =>
     PaginatedResponse(
@@ -754,21 +552,13 @@ PaginatedResponse _$PaginatedResponseFromJson(Map<String, dynamic> json) =>
       totalResults: (json['totalResults'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$PaginatedResponseToJson(PaginatedResponse instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('page', instance.page);
-  writeNotNull('results', instance.results);
-  writeNotNull('totalPages', instance.totalPages);
-  writeNotNull('totalResults', instance.totalResults);
-  return val;
-}
+Map<String, dynamic> _$PaginatedResponseToJson(PaginatedResponse instance) =>
+    <String, dynamic>{
+      if (instance.page case final value?) 'page': value,
+      if (instance.results case final value?) 'results': value,
+      if (instance.totalPages case final value?) 'totalPages': value,
+      if (instance.totalResults case final value?) 'totalResults': value,
+    };
 
 QueryMap _$QueryMapFromJson(Map<String, dynamic> json) => QueryMap(
       bundleName: json['bundleName'] as String?,
@@ -782,22 +572,14 @@ QueryMap _$QueryMapFromJson(Map<String, dynamic> json) => QueryMap(
           .toList(),
     );
 
-Map<String, dynamic> _$QueryMapToJson(QueryMap instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('queryMap', instance.queryMap);
-  writeNotNull('matchType', instance.matchType);
-  writeNotNull('limit', instance.limit?.toJson());
-  writeNotNull('orderBy', instance.orderBy?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$QueryMapToJson(QueryMap instance) => <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.queryMap case final value?) 'queryMap': value,
+      if (instance.matchType case final value?) 'matchType': value,
+      if (instance.limit?.toJson() case final value?) 'limit': value,
+      if (instance.orderBy?.map((e) => e.toJson()).toList() case final value?)
+        'orderBy': value,
+    };
 
 QueryTerms _$QueryTermsFromJson(Map<String, dynamic> json) => QueryTerms(
       bundleName: json['bundleName'] as String?,
@@ -809,20 +591,13 @@ QueryTerms _$QueryTermsFromJson(Map<String, dynamic> json) => QueryTerms(
           : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryTermsToJson(QueryTerms instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('terms', instance.terms?.map((e) => e.toJson()).toList());
-  writeNotNull('limit', instance.limit?.toJson());
-  return val;
-}
+Map<String, dynamic> _$QueryTermsToJson(QueryTerms instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.terms?.map((e) => e.toJson()).toList() case final value?)
+        'terms': value,
+      if (instance.limit?.toJson() case final value?) 'limit': value,
+    };
 
 QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
       bundleName: json['bundleName'] as String?,
@@ -832,58 +607,33 @@ QueryExpr _$QueryExprFromJson(Map<String, dynamic> json) => QueryExpr(
           : ResultLimit.fromJson(json['limit'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('expr', instance.expr);
-  writeNotNull('limit', instance.limit?.toJson());
-  return val;
-}
+Map<String, dynamic> _$QueryExprToJson(QueryExpr instance) => <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.expr case final value?) 'expr': value,
+      if (instance.limit?.toJson() case final value?) 'limit': value,
+    };
 
 LoadBundle _$LoadBundleFromJson(Map<String, dynamic> json) => LoadBundle(
       bundleName: json['bundleName'] as String?,
       bundleId: json['bundleId'] as String?,
     );
 
-Map<String, dynamic> _$LoadBundleToJson(LoadBundle instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('bundleId', instance.bundleId);
-  return val;
-}
+Map<String, dynamic> _$LoadBundleToJson(LoadBundle instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.bundleId case final value?) 'bundleId': value,
+    };
 
 RequestIds _$RequestIdsFromJson(Map<String, dynamic> json) => RequestIds(
       bundleName: json['bundleName'] as String?,
       ids: (json['ids'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$RequestIdsToJson(RequestIds instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('ids', instance.ids);
-  return val;
-}
+Map<String, dynamic> _$RequestIdsToJson(RequestIds instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.ids case final value?) 'ids': value,
+    };
 
 QueryNavByTags _$QueryNavByTagsFromJson(Map<String, dynamic> json) =>
     QueryNavByTags(
@@ -893,19 +643,11 @@ QueryNavByTags _$QueryNavByTagsFromJson(Map<String, dynamic> json) =>
           : NavReqTags.fromJson(json['req'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$QueryNavByTagsToJson(QueryNavByTags instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('req', instance.req?.toJson());
-  return val;
-}
+Map<String, dynamic> _$QueryNavByTagsToJson(QueryNavByTags instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.req?.toJson() case final value?) 'req': value,
+    };
 
 ModifyTags _$ModifyTagsFromJson(Map<String, dynamic> json) => ModifyTags(
       regionId: json['regionId'] as String?,
@@ -916,21 +658,13 @@ ModifyTags _$ModifyTagsFromJson(Map<String, dynamic> json) => ModifyTags(
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$ModifyTagsToJson(ModifyTags instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('regionId', instance.regionId);
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('bundleIds', instance.bundleIds);
-  writeNotNull('tags', instance.tags);
-  return val;
-}
+Map<String, dynamic> _$ModifyTagsToJson(ModifyTags instance) =>
+    <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.bundleIds case final value?) 'bundleIds': value,
+      if (instance.tags case final value?) 'tags': value,
+    };
 
 NavReqTags _$NavReqTagsFromJson(Map<String, dynamic> json) => NavReqTags(
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -938,39 +672,37 @@ NavReqTags _$NavReqTagsFromJson(Map<String, dynamic> json) => NavReqTags(
       maxRows: (json['maxRows'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$NavReqTagsToJson(NavReqTags instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('tags', instance.tags);
-  writeNotNull('pageToken', instance.pageToken);
-  writeNotNull('maxRows', instance.maxRows);
-  return val;
-}
+Map<String, dynamic> _$NavReqTagsToJson(NavReqTags instance) =>
+    <String, dynamic>{
+      if (instance.tags case final value?) 'tags': value,
+      if (instance.pageToken case final value?) 'pageToken': value,
+      if (instance.maxRows case final value?) 'maxRows': value,
+    };
 
 QueryByBunch _$QueryByBunchFromJson(Map<String, dynamic> json) => QueryByBunch(
       bundleName: json['bundleName'] as String?,
       bunchId: json['bunchId'] as String?,
     );
 
-Map<String, dynamic> _$QueryByBunchToJson(QueryByBunch instance) {
-  final val = <String, dynamic>{};
+Map<String, dynamic> _$QueryByBunchToJson(QueryByBunch instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.bunchId case final value?) 'bunchId': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
+      bundleName: json['bundleName'] as String?,
+      rows: (json['rows'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+      pageToken: json['pageToken'] as String?,
+    );
 
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('bunchId', instance.bunchId);
-  return val;
-}
+Map<String, dynamic> _$NavRsToJson(NavRs instance) => <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.rows case final value?) 'rows': value,
+      if (instance.pageToken case final value?) 'pageToken': value,
+    };
 
 QueryByTags _$QueryByTagsFromJson(Map<String, dynamic> json) => QueryByTags(
       bundleName: json['bundleName'] as String?,
@@ -983,44 +715,14 @@ QueryByTags _$QueryByTagsFromJson(Map<String, dynamic> json) => QueryByTags(
           .toList(),
     );
 
-Map<String, dynamic> _$QueryByTagsToJson(QueryByTags instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('tags', instance.tags);
-  writeNotNull('limit', instance.limit?.toJson());
-  writeNotNull('orderBy', instance.orderBy?.map((e) => e.toJson()).toList());
-  return val;
-}
-
-NavRs _$NavRsFromJson(Map<String, dynamic> json) => NavRs(
-      bundleName: json['bundleName'] as String?,
-      rows: (json['rows'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>)
-          .toList(),
-      pageToken: json['pageToken'] as String?,
-    );
-
-Map<String, dynamic> _$NavRsToJson(NavRs instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  writeNotNull('rows', instance.rows);
-  writeNotNull('pageToken', instance.pageToken);
-  return val;
-}
+Map<String, dynamic> _$QueryByTagsToJson(QueryByTags instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.tags case final value?) 'tags': value,
+      if (instance.limit?.toJson() case final value?) 'limit': value,
+      if (instance.orderBy?.map((e) => e.toJson()).toList() case final value?)
+        'orderBy': value,
+    };
 
 FieldProfile _$FieldProfileFromJson(Map<String, dynamic> json) => FieldProfile(
       name: json['name'] as String?,
@@ -1028,38 +730,22 @@ FieldProfile _$FieldProfileFromJson(Map<String, dynamic> json) => FieldProfile(
       groupType: json['groupType'] as String?,
     );
 
-Map<String, dynamic> _$FieldProfileToJson(FieldProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('type', instance.type);
-  writeNotNull('groupType', instance.groupType);
-  return val;
-}
+Map<String, dynamic> _$FieldProfileToJson(FieldProfile instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.type case final value?) 'type': value,
+      if (instance.groupType case final value?) 'groupType': value,
+    };
 
 BundleMetaReq _$BundleMetaReqFromJson(Map<String, dynamic> json) =>
     BundleMetaReq(
       bundleName: json['bundleName'] as String?,
     );
 
-Map<String, dynamic> _$BundleMetaReqToJson(BundleMetaReq instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('bundleName', instance.bundleName);
-  return val;
-}
+Map<String, dynamic> _$BundleMetaReqToJson(BundleMetaReq instance) =>
+    <String, dynamic>{
+      if (instance.bundleName case final value?) 'bundleName': value,
+    };
 
 EntityProfile _$EntityProfileFromJson(Map<String, dynamic> json) =>
     EntityProfile(
@@ -1074,23 +760,16 @@ EntityProfile _$EntityProfileFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$EntityProfileToJson(EntityProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('pk', instance.pk);
-  writeNotNull('pks', instance.pks);
-  writeNotNull('fields', instance.fields?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'relations', instance.relations?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$EntityProfileToJson(EntityProfile instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.pk case final value?) 'pk': value,
+      if (instance.pks case final value?) 'pks': value,
+      if (instance.fields?.map((e) => e.toJson()).toList() case final value?)
+        'fields': value,
+      if (instance.relations?.map((e) => e.toJson()).toList() case final value?)
+        'relations': value,
+    };
 
 BundleAttProfile _$BundleAttProfileFromJson(Map<String, dynamic> json) =>
     BundleAttProfile(
@@ -1100,19 +779,11 @@ BundleAttProfile _$BundleAttProfileFromJson(Map<String, dynamic> json) =>
           : EntityProfile.fromJson(json['att'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$BundleAttProfileToJson(BundleAttProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('relType', instance.relType);
-  writeNotNull('att', instance.att?.toJson());
-  return val;
-}
+Map<String, dynamic> _$BundleAttProfileToJson(BundleAttProfile instance) =>
+    <String, dynamic>{
+      if (instance.relType case final value?) 'relType': value,
+      if (instance.att?.toJson() case final value?) 'att': value,
+    };
 
 BundleProfile _$BundleProfileFromJson(Map<String, dynamic> json) =>
     BundleProfile(
@@ -1125,20 +796,13 @@ BundleProfile _$BundleProfileFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$BundleProfileToJson(BundleProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('main', instance.main?.toJson());
-  writeNotNull('atts', instance.atts?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$BundleProfileToJson(BundleProfile instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.main?.toJson() case final value?) 'main': value,
+      if (instance.atts?.map((e) => e.toJson()).toList() case final value?)
+        'atts': value,
+    };
 
 RelationProfile _$RelationProfileFromJson(Map<String, dynamic> json) =>
     RelationProfile(
@@ -1147,20 +811,12 @@ RelationProfile _$RelationProfileFromJson(Map<String, dynamic> json) =>
       relEnt: json['relEnt'] as String?,
     );
 
-Map<String, dynamic> _$RelationProfileToJson(RelationProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('type', instance.type);
-  writeNotNull('relEnt', instance.relEnt);
-  return val;
-}
+Map<String, dynamic> _$RelationProfileToJson(RelationProfile instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.type case final value?) 'type': value,
+      if (instance.relEnt case final value?) 'relEnt': value,
+    };
 
 MultiDs _$MultiDsFromJson(Map<String, dynamic> json) => MultiDs(
       data: (json['data'] as List<dynamic>?)
@@ -1168,37 +824,20 @@ MultiDs _$MultiDsFromJson(Map<String, dynamic> json) => MultiDs(
           .toList(),
     );
 
-Map<String, dynamic> _$MultiDsToJson(MultiDs instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('data', instance.data?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$MultiDsToJson(MultiDs instance) => <String, dynamic>{
+      if (instance.data?.map((e) => e.toJson()).toList() case final value?)
+        'data': value,
+    };
 
 BundleRow _$BundleRowFromJson(Map<String, dynamic> json) => BundleRow(
       key: json['key'] as String?,
       data: json['data'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$BundleRowToJson(BundleRow instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('data', instance.data);
-  return val;
-}
+Map<String, dynamic> _$BundleRowToJson(BundleRow instance) => <String, dynamic>{
+      if (instance.key case final value?) 'key': value,
+      if (instance.data case final value?) 'data': value,
+    };
 
 MasterDetailDs _$MasterDetailDsFromJson(Map<String, dynamic> json) =>
     MasterDetailDs(
@@ -1210,19 +849,11 @@ MasterDetailDs _$MasterDetailDsFromJson(Map<String, dynamic> json) =>
           : MultiDs.fromJson(json['detail'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$MasterDetailDsToJson(MasterDetailDs instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('master', instance.master?.toJson());
-  writeNotNull('detail', instance.detail?.toJson());
-  return val;
-}
+Map<String, dynamic> _$MasterDetailDsToJson(MasterDetailDs instance) =>
+    <String, dynamic>{
+      if (instance.master?.toJson() case final value?) 'master': value,
+      if (instance.detail?.toJson() case final value?) 'detail': value,
+    };
 
 BundleSeries _$BundleSeriesFromJson(Map<String, dynamic> json) => BundleSeries(
       key: json['key'] as String?,
@@ -1232,20 +863,13 @@ BundleSeries _$BundleSeriesFromJson(Map<String, dynamic> json) => BundleSeries(
           .toList(),
     );
 
-Map<String, dynamic> _$BundleSeriesToJson(BundleSeries instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('type', instance.type);
-  writeNotNull('rows', instance.rows?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$BundleSeriesToJson(BundleSeries instance) =>
+    <String, dynamic>{
+      if (instance.key case final value?) 'key': value,
+      if (instance.type case final value?) 'type': value,
+      if (instance.rows?.map((e) => e.toJson()).toList() case final value?)
+        'rows': value,
+    };
 
 TemplateErrorRec _$TemplateErrorRecFromJson(Map<String, dynamic> json) =>
     TemplateErrorRec(
@@ -1259,25 +883,17 @@ TemplateErrorRec _$TemplateErrorRecFromJson(Map<String, dynamic> json) =>
       errorMsg: json['errorMsg'] as String?,
     );
 
-Map<String, dynamic> _$TemplateErrorRecToJson(TemplateErrorRec instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('severity', instance.severity);
-  writeNotNull('reason', instance.reason);
-  writeNotNull('item', instance.item);
-  writeNotNull('message', instance.message);
-  writeNotNull('fieldName', instance.fieldName);
-  writeNotNull('lineno', instance.lineno);
-  writeNotNull('startPosition', instance.startPosition);
-  writeNotNull('errorMsg', instance.errorMsg);
-  return val;
-}
+Map<String, dynamic> _$TemplateErrorRecToJson(TemplateErrorRec instance) =>
+    <String, dynamic>{
+      if (instance.severity case final value?) 'severity': value,
+      if (instance.reason case final value?) 'reason': value,
+      if (instance.item case final value?) 'item': value,
+      if (instance.message case final value?) 'message': value,
+      if (instance.fieldName case final value?) 'fieldName': value,
+      if (instance.lineno case final value?) 'lineno': value,
+      if (instance.startPosition case final value?) 'startPosition': value,
+      if (instance.errorMsg case final value?) 'errorMsg': value,
+    };
 
 TemplateExecResult _$TemplateExecResultFromJson(Map<String, dynamic> json) =>
     TemplateExecResult(
@@ -1287,19 +903,12 @@ TemplateExecResult _$TemplateExecResultFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$TemplateExecResultToJson(TemplateExecResult instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('output', instance.output);
-  writeNotNull('errors', instance.errors?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$TemplateExecResultToJson(TemplateExecResult instance) =>
+    <String, dynamic>{
+      if (instance.output case final value?) 'output': value,
+      if (instance.errors?.map((e) => e.toJson()).toList() case final value?)
+        'errors': value,
+    };
 
 BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(
       id: json['id'] as String?,
@@ -1324,45 +933,53 @@ BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$BundleJointToJson(BundleJoint instance) {
-  final val = <String, dynamic>{};
+Map<String, dynamic> _$BundleJointToJson(BundleJoint instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.from case final value?) 'from': value,
+      if (instance.to case final value?) 'to': value,
+      if (instance.fromRole case final value?) 'fromRole': value,
+      if (instance.toRole case final value?) 'toRole': value,
+      if (instance.fromType case final value?) 'fromType': value,
+      if (instance.toType case final value?) 'toType': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.fromDate, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'fromDate': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.thruDate, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'thruDate': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.relationshipName case final value?)
+        'relationshipName': value,
+      if (instance.comments case final value?) 'comments': value,
+      if (_$JsonConverterToJson<String, DateTime>(instance.lastUpdatedTxStamp,
+              const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'lastUpdatedTxStamp': value,
+      if (_$JsonConverterToJson<String, DateTime>(
+              instance.createdTxStamp, const OffsetDateTimeConverter().toJson)
+          case final value?)
+        'createdTxStamp': value,
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+OptSel _$OptSelFromJson(Map<String, dynamic> json) => OptSel(
+      assemblerId: json['assemblerId'] as String?,
+      optIds:
+          (json['optIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      variantProds: (json['variantProds'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String?),
+      ),
+    );
 
-  writeNotNull('id', instance.id);
-  writeNotNull('from', instance.from);
-  writeNotNull('to', instance.to);
-  writeNotNull('fromRole', instance.fromRole);
-  writeNotNull('toRole', instance.toRole);
-  writeNotNull('fromType', instance.fromType);
-  writeNotNull('toType', instance.toType);
-  writeNotNull(
-      'fromDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.fromDate, const OffsetDateTimeConverter().toJson));
-  writeNotNull(
-      'thruDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.thruDate, const OffsetDateTimeConverter().toJson));
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('relationshipName', instance.relationshipName);
-  writeNotNull('comments', instance.comments);
-  writeNotNull(
-      'lastUpdatedTxStamp',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.lastUpdatedTxStamp, const OffsetDateTimeConverter().toJson));
-  writeNotNull(
-      'createdTxStamp',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createdTxStamp, const OffsetDateTimeConverter().toJson));
-  writeNotNull('regionId', instance.regionId);
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
+      if (instance.assemblerId case final value?) 'assemblerId': value,
+      if (instance.optIds case final value?) 'optIds': value,
+      if (instance.variantProds case final value?) 'variantProds': value,
+    };
 
 ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
     ContactProfile(
@@ -1373,19 +990,24 @@ ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
       note: json['note'] as String?,
     );
 
-Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) {
-  final val = <String, dynamic>{};
+Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
+    <String, dynamic>{
+      if (instance.telephone case final value?) 'telephone': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.placeId case final value?) 'placeId': value,
+      if (instance.placeType case final value?) 'placeType': value,
+      if (instance.note case final value?) 'note': value,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+OptSels _$OptSelsFromJson(Map<String, dynamic> json) => OptSels(
+      productId: json['productId'] as String?,
+      sels: (json['sels'] as List<dynamic>?)
+          ?.map((e) => OptSel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
-  writeNotNull('telephone', instance.telephone);
-  writeNotNull('email', instance.email);
-  writeNotNull('placeId', instance.placeId);
-  writeNotNull('placeType', instance.placeType);
-  writeNotNull('note', instance.note);
-  return val;
-}
+Map<String, dynamic> _$OptSelsToJson(OptSels instance) => <String, dynamic>{
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.sels?.map((e) => e.toJson()).toList() case final value?)
+        'sels': value,
+    };

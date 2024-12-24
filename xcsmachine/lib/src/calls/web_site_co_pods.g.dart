@@ -153,6 +153,8 @@ class WebSiteCoProvider extends AutoDisposeProvider<WebSiteCoRepository> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebSiteCoRef on AutoDisposeProviderRef<WebSiteCoRepository> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -297,6 +299,8 @@ class SiteFetchProvider extends AutoDisposeFutureProvider<WebSiteCubeData> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SiteFetchRef on AutoDisposeFutureProviderRef<WebSiteCubeData> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -443,6 +447,8 @@ class SiteGetHttpsUrlProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SiteGetHttpsUrlRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -588,6 +594,8 @@ class SiteGetDecimalsProvider extends AutoDisposeFutureProvider<DecimalMap> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SiteGetDecimalsRef on AutoDisposeFutureProviderRef<DecimalMap> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -734,6 +742,8 @@ class SiteGetHttpUrlProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SiteGetHttpUrlRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -879,6 +889,8 @@ class SiteGetSiteUrlProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SiteGetSiteUrlRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1023,6 +1035,8 @@ class SiteNameProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SiteNameRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1187,6 +1201,8 @@ class WebSiteCoPodProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin WebSiteCoPodRef on AutoDisposeAsyncNotifierProviderRef<void> {
   /// The parameter `regionOrNs` of this provider.
   String get regionOrNs;
@@ -1206,4 +1222,4 @@ class _WebSiteCoPodProviderElement
   String get id => (origin as WebSiteCoPodProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

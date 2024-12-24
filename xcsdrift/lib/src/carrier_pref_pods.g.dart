@@ -21,6 +21,8 @@ final carrierPrefRepositoryProvider = Provider<CarrierPrefRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CarrierPrefRepositoryRef = ProviderRef<CarrierPrefRepository>;
 String _$getCarrierPrefHash() => r'27ac14a8c0c258205f9829c640c4f0d2b71831ec';
 
@@ -159,6 +161,8 @@ class GetCarrierPrefProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetCarrierPrefRef on AutoDisposeFutureProviderRef<CarrierPrefData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -190,4 +194,4 @@ final carrierPrefBucketProvider = AutoDisposeStreamNotifierProvider<
 
 typedef _$CarrierPrefBucket = AutoDisposeStreamNotifier<List<CarrierPrefData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -479,20 +479,6 @@ class FixtureObjectsRepository {
   }
    
   // Query
-  Future<String> getNickName() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getNickName",
-      "bundleName" : "FixtureObjects",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
   Future<String> ping({
     
     required String req, 
@@ -506,6 +492,20 @@ class FixtureObjectsRepository {
       "regionId": regionOrNs,
     }, {
       "req": req, 
+    });
+    
+    return ResultConv.asString(resp);
+  }
+   
+  // Query
+  Future<String> getNickName() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getNickName",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
     });
     
     return ResultConv.asString(resp);

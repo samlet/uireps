@@ -20,6 +20,8 @@ final noteRepositoryProvider = Provider<NoteRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef NoteRepositoryRef = ProviderRef<NoteRepository>;
 String _$getNoteHash() => r'af522d062f9649f4011504d849117ea94e234d8f';
 
@@ -156,6 +158,8 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetNoteRef on AutoDisposeFutureProviderRef<NoteDataData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -185,4 +189,4 @@ final noteBucketProvider =
 
 typedef _$NoteBucket = AutoDisposeStreamNotifier<List<NoteDataData>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

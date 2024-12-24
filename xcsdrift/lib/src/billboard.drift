@@ -15,6 +15,8 @@ CREATE TABLE billboard (
     "tag1" VARCHAR(100),
     "tag2" VARCHAR(100),
     "tag3" VARCHAR(100),
+    "more_tags" TEXT MAPPED BY `const StringListConverter()`,
+    "labels" TEXT MAPPED BY `const StringMultimapConverter()`,
     "billboard_type_id" VARCHAR(22),
     "status_id" VARCHAR(22),
     "marketplace_id" VARCHAR(22),

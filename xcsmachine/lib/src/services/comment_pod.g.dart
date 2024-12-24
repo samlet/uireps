@@ -142,6 +142,8 @@ class LoadCommentProvider extends AutoDisposeFutureProvider<Comment> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadCommentRef on AutoDisposeFutureProviderRef<Comment> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -326,6 +328,8 @@ class LoadCommentListProvider extends AutoDisposeFutureProvider<List<Comment>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadCommentListRef on AutoDisposeFutureProviderRef<List<Comment>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -528,6 +532,8 @@ class LoadCommentPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadCommentPageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Comment>> {
   /// The parameter `pageSize` of this provider.
@@ -690,6 +696,8 @@ class FetchCommentsProvider extends AutoDisposeFutureProvider<List<Comment>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCommentsRef on AutoDisposeFutureProviderRef<List<Comment>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -709,4 +717,4 @@ class _FetchCommentsProviderElement
   String get regionId => (origin as FetchCommentsProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

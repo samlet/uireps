@@ -142,6 +142,8 @@ class LoadCarrierProvider extends AutoDisposeFutureProvider<Carrier> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadCarrierRef on AutoDisposeFutureProviderRef<Carrier> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -326,6 +328,8 @@ class LoadCarrierListProvider extends AutoDisposeFutureProvider<List<Carrier>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadCarrierListRef on AutoDisposeFutureProviderRef<List<Carrier>> {
   /// The parameter `pageSize` of this provider.
   int get pageSize;
@@ -528,6 +532,8 @@ class LoadCarrierPageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadCarrierPageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Carrier>> {
   /// The parameter `pageSize` of this provider.
@@ -690,6 +696,8 @@ class FetchCarriersProvider extends AutoDisposeFutureProvider<List<Carrier>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCarriersRef on AutoDisposeFutureProviderRef<List<Carrier>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -709,4 +717,4 @@ class _FetchCarriersProviderElement
   String get regionId => (origin as FetchCarriersProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

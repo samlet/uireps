@@ -27,25 +27,19 @@ SellerPref _$SellerPrefFromJson(Map<String, dynamic> json) => SellerPref(
       evict: json['evict'] as bool?,
     );
 
-Map<String, dynamic> _$SellerPrefToJson(SellerPref instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sellerPrefId', instance.sellerPrefId);
-  writeNotNull('loginId', instance.loginId);
-  writeNotNull('ownedShops', instance.ownedShops);
-  writeNotNull('contacts', instance.contacts?.toJson());
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('sellerPrefTypeId', instance.sellerPrefTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  return val;
-}
+Map<String, dynamic> _$SellerPrefToJson(SellerPref instance) =>
+    <String, dynamic>{
+      if (instance.sellerPrefId case final value?) 'sellerPrefId': value,
+      if (instance.loginId case final value?) 'loginId': value,
+      if (instance.ownedShops case final value?) 'ownedShops': value,
+      if (instance.contacts?.toJson() case final value?) 'contacts': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.sellerPrefTypeId case final value?)
+        'sellerPrefTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+    };

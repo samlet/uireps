@@ -142,6 +142,8 @@ class LoadMarketplaceProvider extends AutoDisposeFutureProvider<Marketplace> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadMarketplaceRef on AutoDisposeFutureProviderRef<Marketplace> {
   /// The parameter `bundleId` of this provider.
   String get bundleId;
@@ -330,6 +332,8 @@ class LoadMarketplaceListProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadMarketplaceListRef
     on AutoDisposeFutureProviderRef<List<Marketplace>> {
   /// The parameter `pageSize` of this provider.
@@ -537,6 +541,8 @@ class LoadMarketplacePageProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin LoadMarketplacePageRef
     on AutoDisposeFutureProviderRef<PaginatedResponse<Marketplace>> {
   /// The parameter `pageSize` of this provider.
@@ -700,6 +706,8 @@ class FetchMarketplacesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchMarketplacesRef on AutoDisposeFutureProviderRef<List<Marketplace>> {
   /// The parameter `ids` of this provider.
   List<String> get ids;
@@ -719,4 +727,4 @@ class _FetchMarketplacesProviderElement
   String get regionId => (origin as FetchMarketplacesProvider).regionId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

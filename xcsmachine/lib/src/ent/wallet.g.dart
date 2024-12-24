@@ -73,62 +73,64 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
           .toList(),
     );
 
-Map<String, dynamic> _$WalletToJson(Wallet instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('money', instance.money);
-  writeNotNull('cloak', instance.cloak);
-  writeNotNull('partyId', instance.partyId);
-  writeNotNull('defaultLoginId', instance.defaultLoginId);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('walletTypeId', instance.walletTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('jointers', instance.jointers);
-  val['multiJointers'] = stringMultimapToJson(instance.multiJointers);
-  val['acl'] = stringMultimapToJson(instance.acl);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('url', instance.url);
-  writeNotNull('image', instance.image);
-  writeNotNull('sameAs', instance.sameAs);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('color', instance.color);
-  writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description);
-  writeNotNull('walletType', instance.walletType?.toJson());
-  writeNotNull('walletContainer',
-      instance.walletContainer?.map((e) => e.toJson()).toList());
-  writeNotNull('walletReference',
-      instance.walletReference?.map((e) => e.toJson()).toList());
-  writeNotNull('walletFinAccount',
-      instance.walletFinAccount?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'walletStatus', instance.walletStatus?.map((e) => e.toJson()).toList());
-  writeNotNull('walletOrderBin',
-      instance.walletOrderBin?.map((e) => e.toJson()).toList());
-  writeNotNull('walletPicklist',
-      instance.walletPicklist?.map((e) => e.toJson()).toList());
-  writeNotNull('walletComposable',
-      instance.walletComposable?.map((e) => e.toJson()).toList());
-  writeNotNull('walletBillingAccount',
-      instance.walletBillingAccount?.map((e) => e.toJson()).toList());
-  writeNotNull('walletRuntimeData',
-      instance.walletRuntimeData?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'walletShipBin', instance.walletShipBin?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$WalletToJson(Wallet instance) => <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.money case final value?) 'money': value,
+      if (instance.cloak case final value?) 'cloak': value,
+      if (instance.partyId case final value?) 'partyId': value,
+      if (instance.defaultLoginId case final value?) 'defaultLoginId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.walletTypeId case final value?) 'walletTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.jointers case final value?) 'jointers': value,
+      'multiJointers': stringMultimapToJson(instance.multiJointers),
+      'acl': stringMultimapToJson(instance.acl),
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.url case final value?) 'url': value,
+      if (instance.image case final value?) 'image': value,
+      if (instance.sameAs case final value?) 'sameAs': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.color case final value?) 'color': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.walletType?.toJson() case final value?) 'walletType': value,
+      if (instance.walletContainer?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletContainer': value,
+      if (instance.walletReference?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletReference': value,
+      if (instance.walletFinAccount?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletFinAccount': value,
+      if (instance.walletStatus?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletStatus': value,
+      if (instance.walletOrderBin?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletOrderBin': value,
+      if (instance.walletPicklist?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletPicklist': value,
+      if (instance.walletComposable?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletComposable': value,
+      if (instance.walletBillingAccount?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletBillingAccount': value,
+      if (instance.walletRuntimeData?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletRuntimeData': value,
+      if (instance.walletShipBin?.map((e) => e.toJson()).toList()
+          case final value?)
+        'walletShipBin': value,
+    };
 
 WalletContainer _$WalletContainerFromJson(Map<String, dynamic> json) =>
     WalletContainer(
@@ -146,26 +148,19 @@ WalletContainer _$WalletContainerFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletContainerToJson(WalletContainer instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('containerId', instance.containerId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('purpose', instance.purpose);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletContainerToJson(WalletContainer instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.containerId case final value?) 'containerId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.purpose case final value?) 'purpose': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletReference _$WalletReferenceFromJson(Map<String, dynamic> json) =>
     WalletReference(
@@ -186,27 +181,21 @@ WalletReference _$WalletReferenceFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletReferenceToJson(WalletReference instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('refId', instance.refId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('kind', instance.kind);
-  writeNotNull('thruDate', instance.thruDate?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletReferenceToJson(WalletReference instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.refId case final value?) 'refId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.kind case final value?) 'kind': value,
+      if (instance.thruDate?.toIso8601String() case final value?)
+        'thruDate': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletFinAccount _$WalletFinAccountFromJson(Map<String, dynamic> json) =>
     WalletFinAccount(
@@ -224,26 +213,19 @@ WalletFinAccount _$WalletFinAccountFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletFinAccountToJson(WalletFinAccount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('finAccountId', instance.finAccountId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('purpose', instance.purpose);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletFinAccountToJson(WalletFinAccount instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.finAccountId case final value?) 'finAccountId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.purpose case final value?) 'purpose': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletType _$WalletTypeFromJson(Map<String, dynamic> json) => WalletType(
       walletTypeId: json['walletTypeId'] as String?,
@@ -258,24 +240,17 @@ WalletType _$WalletTypeFromJson(Map<String, dynamic> json) => WalletType(
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$WalletTypeToJson(WalletType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletTypeId', instance.walletTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$WalletTypeToJson(WalletType instance) =>
+    <String, dynamic>{
+      if (instance.walletTypeId case final value?) 'walletTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };
 
 WalletStatus _$WalletStatusFromJson(Map<String, dynamic> json) => WalletStatus(
       walletId: json['walletId'] as String?,
@@ -296,26 +271,22 @@ WalletStatus _$WalletStatusFromJson(Map<String, dynamic> json) => WalletStatus(
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletStatusToJson(WalletStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('statusDate', instance.statusDate?.toIso8601String());
-  writeNotNull('statusEndDate', instance.statusEndDate?.toIso8601String());
-  writeNotNull('changeByUserLoginId', instance.changeByUserLoginId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletStatusToJson(WalletStatus instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.statusDate?.toIso8601String() case final value?)
+        'statusDate': value,
+      if (instance.statusEndDate?.toIso8601String() case final value?)
+        'statusEndDate': value,
+      if (instance.changeByUserLoginId case final value?)
+        'changeByUserLoginId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletOrderBin _$WalletOrderBinFromJson(Map<String, dynamic> json) =>
     WalletOrderBin(
@@ -333,26 +304,19 @@ WalletOrderBin _$WalletOrderBinFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletOrderBinToJson(WalletOrderBin instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('orderBinId', instance.orderBinId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('category', instance.category);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletOrderBinToJson(WalletOrderBin instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.orderBinId case final value?) 'orderBinId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.category case final value?) 'category': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletPicklist _$WalletPicklistFromJson(Map<String, dynamic> json) =>
     WalletPicklist(
@@ -373,29 +337,22 @@ WalletPicklist _$WalletPicklistFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletPicklistToJson(WalletPicklist instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('picklistId', instance.picklistId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('description', instance.description);
-  writeNotNull('tag1', instance.tag1);
-  writeNotNull('tag2', instance.tag2);
-  writeNotNull('tag3', instance.tag3);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletPicklistToJson(WalletPicklist instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.picklistId case final value?) 'picklistId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.tag1 case final value?) 'tag1': value,
+      if (instance.tag2 case final value?) 'tag2': value,
+      if (instance.tag3 case final value?) 'tag3': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletComposable _$WalletComposableFromJson(Map<String, dynamic> json) =>
     WalletComposable(
@@ -414,27 +371,20 @@ WalletComposable _$WalletComposableFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletComposableToJson(WalletComposable instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('composableId', instance.composableId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('purpose', instance.purpose);
-  writeNotNull('description', instance.description);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletComposableToJson(WalletComposable instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.composableId case final value?) 'composableId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.purpose case final value?) 'purpose': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletBillingAccount _$WalletBillingAccountFromJson(
         Map<String, dynamic> json) =>
@@ -454,26 +404,20 @@ WalletBillingAccount _$WalletBillingAccountFromJson(
     );
 
 Map<String, dynamic> _$WalletBillingAccountToJson(
-    WalletBillingAccount instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('billingAccountId', instance.billingAccountId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('purpose', instance.purpose);
-  writeNotNull('id', instance.id);
-  return val;
-}
+        WalletBillingAccount instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.billingAccountId case final value?)
+        'billingAccountId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.purpose case final value?) 'purpose': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletRuntimeData _$WalletRuntimeDataFromJson(Map<String, dynamic> json) =>
     WalletRuntimeData(
@@ -495,30 +439,24 @@ WalletRuntimeData _$WalletRuntimeDataFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletRuntimeDataToJson(WalletRuntimeData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('runtimeDataId', instance.runtimeDataId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('trackId', instance.trackId);
-  writeNotNull('ercType', instance.ercType);
-  writeNotNull('ercId', instance.ercId);
-  writeNotNull('metadata', const BytesConverter().toJson(instance.metadata));
-  writeNotNull('description', instance.description);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletRuntimeDataToJson(WalletRuntimeData instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.runtimeDataId case final value?) 'runtimeDataId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.trackId case final value?) 'trackId': value,
+      if (instance.ercType case final value?) 'ercType': value,
+      if (instance.ercId case final value?) 'ercId': value,
+      if (const BytesConverter().toJson(instance.metadata) case final value?)
+        'metadata': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.id case final value?) 'id': value,
+    };
 
 WalletShipBin _$WalletShipBinFromJson(Map<String, dynamic> json) =>
     WalletShipBin(
@@ -536,23 +474,16 @@ WalletShipBin _$WalletShipBinFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$WalletShipBinToJson(WalletShipBin instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('walletId', instance.walletId);
-  writeNotNull('shipBinId', instance.shipBinId);
-  writeNotNull('bindType', instance.bindType);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('category', instance.category);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$WalletShipBinToJson(WalletShipBin instance) =>
+    <String, dynamic>{
+      if (instance.walletId case final value?) 'walletId': value,
+      if (instance.shipBinId case final value?) 'shipBinId': value,
+      if (instance.bindType case final value?) 'bindType': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.category case final value?) 'category': value,
+      if (instance.id case final value?) 'id': value,
+    };

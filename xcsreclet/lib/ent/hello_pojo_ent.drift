@@ -1,0 +1,25 @@
+import '../fldconv.dart';
+-- gentool: DriftEntGenTool
+
+CREATE TABLE hello_pojo_ent (
+    "name" VARCHAR(255) NOT NULL PRIMARY KEY,
+    "gender" VARCHAR(60),
+    "age" INTEGER,
+    "birthday" DATETIME(3),
+    "note" VARCHAR(255),
+    "employed" BOOLEAN,
+    "rate" DOUBLE,
+
+    "reserved_flag" INTEGER
+);
+
+allHelloPojos: SELECT * FROM hello_pojo_ent;
+clearHelloPojos: DELETE FROM hello_pojo_ent;
+addHelloPojo: INSERT INTO hello_pojo_ent $el;
+getHelloPojo: SELECT * FROM hello_pojo_ent WHERE name = ?;
+deleteHelloPojo: DELETE FROM hello_pojo_ent WHERE name = :id;
+
+
+
+
+

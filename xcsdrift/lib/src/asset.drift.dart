@@ -29,6 +29,7 @@ typedef $AssetCreateCompanionBuilder = i1.AssetCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i3.Multimap<String, String>?> labels,
   i0.Value<bool?> evict,
   i0.Value<i3.Multimap<String, String>?> acl,
   i0.Value<String?> resourceId,
@@ -59,6 +60,7 @@ typedef $AssetUpdateCompanionBuilder = i1.AssetCompanion Function({
   i0.Value<String?> tag2,
   i0.Value<String?> tag3,
   i0.Value<List<String>?> moreTags,
+  i0.Value<i3.Multimap<String, String>?> labels,
   i0.Value<bool?> evict,
   i0.Value<i3.Multimap<String, String>?> acl,
   i0.Value<String?> resourceId,
@@ -145,6 +147,12 @@ class $AssetFilterComposer extends i0.Composer<i0.GeneratedDatabase, i1.Asset> {
   i0.ColumnWithTypeConverterFilters<List<String>?, List<String>, String>
       get moreTags => $composableBuilder(
           column: $table.moreTags,
+          builder: (column) => i0.ColumnWithTypeConverterFilters(column));
+
+  i0.ColumnWithTypeConverterFilters<i3.Multimap<String, String>?,
+          i3.Multimap<String, String>, String>
+      get labels => $composableBuilder(
+          column: $table.labels,
           builder: (column) => i0.ColumnWithTypeConverterFilters(column));
 
   i0.ColumnFilters<bool> get evict => $composableBuilder(
@@ -253,6 +261,9 @@ class $AssetOrderingComposer
   i0.ColumnOrderings<String> get moreTags => $composableBuilder(
       column: $table.moreTags, builder: (column) => i0.ColumnOrderings(column));
 
+  i0.ColumnOrderings<String> get labels => $composableBuilder(
+      column: $table.labels, builder: (column) => i0.ColumnOrderings(column));
+
   i0.ColumnOrderings<bool> get evict => $composableBuilder(
       column: $table.evict, builder: (column) => i0.ColumnOrderings(column));
 
@@ -350,6 +361,10 @@ class $AssetAnnotationComposer
   i0.GeneratedColumnWithTypeConverter<List<String>?, String> get moreTags =>
       $composableBuilder(column: $table.moreTags, builder: (column) => column);
 
+  i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?, String>
+      get labels => $composableBuilder(
+          column: $table.labels, builder: (column) => column);
+
   i0.GeneratedColumn<bool> get evict =>
       $composableBuilder(column: $table.evict, builder: (column) => column);
 
@@ -420,6 +435,8 @@ class $AssetTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i3.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
@@ -452,6 +469,7 @@ class $AssetTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             evict: evict,
             acl: acl,
             resourceId: resourceId,
@@ -482,6 +500,8 @@ class $AssetTableManager extends i0.RootTableManager<
             i0.Value<String?> tag2 = const i0.Value.absent(),
             i0.Value<String?> tag3 = const i0.Value.absent(),
             i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+            i0.Value<i3.Multimap<String, String>?> labels =
+                const i0.Value.absent(),
             i0.Value<bool?> evict = const i0.Value.absent(),
             i0.Value<i3.Multimap<String, String>?> acl =
                 const i0.Value.absent(),
@@ -514,6 +534,7 @@ class $AssetTableManager extends i0.RootTableManager<
             tag2: tag2,
             tag3: tag3,
             moreTags: moreTags,
+            labels: labels,
             evict: evict,
             acl: acl,
             resourceId: resourceId,
@@ -692,6 +713,14 @@ class Asset extends i0.Table with i0.TableInfo<Asset, i1.AssetData> {
               requiredDuringInsert: false,
               $customConstraints: '')
           .withConverter<List<String>?>(i1.Asset.$convertermoreTagsn);
+  static const i0.VerificationMeta _labelsMeta =
+      const i0.VerificationMeta('labels');
+  late final i0.GeneratedColumnWithTypeConverter<i3.Multimap<String, String>?,
+      String> labels = i0.GeneratedColumn<String>('labels', aliasedName, true,
+          type: i0.DriftSqlType.string,
+          requiredDuringInsert: false,
+          $customConstraints: '')
+      .withConverter<i3.Multimap<String, String>?>(i1.Asset.$converterlabelsn);
   static const i0.VerificationMeta _evictMeta =
       const i0.VerificationMeta('evict');
   late final i0.GeneratedColumn<bool> evict = i0.GeneratedColumn<bool>(
@@ -768,6 +797,7 @@ class Asset extends i0.Table with i0.TableInfo<Asset, i1.AssetData> {
         tag2,
         tag3,
         moreTags,
+        labels,
         evict,
         acl,
         resourceId,
@@ -867,6 +897,7 @@ class Asset extends i0.Table with i0.TableInfo<Asset, i1.AssetData> {
           _tag3Meta, tag3.isAcceptableOrUnknown(data['tag3']!, _tag3Meta));
     }
     context.handle(_moreTagsMeta, const i0.VerificationResult.success());
+    context.handle(_labelsMeta, const i0.VerificationResult.success());
     if (data.containsKey('evict')) {
       context.handle(
           _evictMeta, evict.isAcceptableOrUnknown(data['evict']!, _evictMeta));
@@ -944,6 +975,8 @@ class Asset extends i0.Table with i0.TableInfo<Asset, i1.AssetData> {
       moreTags: i1.Asset.$convertermoreTagsn.fromSql(attachedDatabase
           .typeMapping
           .read(i0.DriftSqlType.string, data['${effectivePrefix}more_tags'])),
+      labels: i1.Asset.$converterlabelsn.fromSql(attachedDatabase.typeMapping
+          .read(i0.DriftSqlType.string, data['${effectivePrefix}labels'])),
       evict: attachedDatabase.typeMapping
           .read(i0.DriftSqlType.bool, data['${effectivePrefix}evict']),
       acl: i1.Asset.$converteracln.fromSql(attachedDatabase.typeMapping
@@ -983,6 +1016,12 @@ class Asset extends i0.Table with i0.TableInfo<Asset, i1.AssetData> {
   static i0.JsonTypeConverter2<List<String>?, String?, List<dynamic>?>
       $convertermoreTagsn =
       i0.JsonTypeConverter2.asNullable($convertermoreTags);
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
+          Map<String, dynamic>> $converterlabels =
+      const i5.StringMultimapConverter();
+  static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
+          Map<String, dynamic>?> $converterlabelsn =
+      i0.JsonTypeConverter2.asNullable($converterlabels);
   static i0.JsonTypeConverter2<i3.Multimap<String, String>, String,
       Map<String, dynamic>> $converteracl = const i5.StringMultimapConverter();
   static i0.JsonTypeConverter2<i3.Multimap<String, String>?, String?,
@@ -1024,6 +1063,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
   final String? tag2;
   final String? tag3;
   final List<String>? moreTags;
+  final i3.Multimap<String, String>? labels;
   final bool? evict;
   final i3.Multimap<String, String>? acl;
   final String? resourceId;
@@ -1056,6 +1096,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
       this.tag2,
       this.tag3,
       this.moreTags,
+      this.labels,
       this.evict,
       this.acl,
       this.resourceId,
@@ -1126,6 +1167,10 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
     if (!nullToAbsent || moreTags != null) {
       map['more_tags'] =
           i0.Variable<String>(i1.Asset.$convertermoreTagsn.toSql(moreTags));
+    }
+    if (!nullToAbsent || labels != null) {
+      map['labels'] =
+          i0.Variable<String>(i1.Asset.$converterlabelsn.toSql(labels));
     }
     if (!nullToAbsent || evict != null) {
       map['evict'] = i0.Variable<bool>(evict);
@@ -1211,6 +1256,9 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
       moreTags: moreTags == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(moreTags),
+      labels: labels == null && nullToAbsent
+          ? const i0.Value.absent()
+          : i0.Value(labels),
       evict: evict == null && nullToAbsent
           ? const i0.Value.absent()
           : i0.Value(evict),
@@ -1262,6 +1310,8 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
       tag3: serializer.fromJson<String?>(json['tag3']),
       moreTags: i1.Asset.$convertermoreTagsn
           .fromJson(serializer.fromJson<List<dynamic>?>(json['more_tags'])),
+      labels: i1.Asset.$converterlabelsn
+          .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['labels'])),
       evict: serializer.fromJson<bool?>(json['evict']),
       acl: i1.Asset.$converteracln
           .fromJson(serializer.fromJson<Map<String, dynamic>?>(json['acl'])),
@@ -1300,6 +1350,8 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
       'tag3': serializer.toJson<String?>(tag3),
       'more_tags': serializer.toJson<List<dynamic>?>(
           i1.Asset.$convertermoreTagsn.toJson(moreTags)),
+      'labels': serializer.toJson<Map<String, dynamic>?>(
+          i1.Asset.$converterlabelsn.toJson(labels)),
       'evict': serializer.toJson<bool?>(evict),
       'acl': serializer
           .toJson<Map<String, dynamic>?>(i1.Asset.$converteracln.toJson(acl)),
@@ -1334,6 +1386,8 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
           i0.Value<String?> tag2 = const i0.Value.absent(),
           i0.Value<String?> tag3 = const i0.Value.absent(),
           i0.Value<List<String>?> moreTags = const i0.Value.absent(),
+          i0.Value<i3.Multimap<String, String>?> labels =
+              const i0.Value.absent(),
           i0.Value<bool?> evict = const i0.Value.absent(),
           i0.Value<i3.Multimap<String, String>?> acl = const i0.Value.absent(),
           i0.Value<String?> resourceId = const i0.Value.absent(),
@@ -1366,6 +1420,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
         tag2: tag2.present ? tag2.value : this.tag2,
         tag3: tag3.present ? tag3.value : this.tag3,
         moreTags: moreTags.present ? moreTags.value : this.moreTags,
+        labels: labels.present ? labels.value : this.labels,
         evict: evict.present ? evict.value : this.evict,
         acl: acl.present ? acl.value : this.acl,
         resourceId: resourceId.present ? resourceId.value : this.resourceId,
@@ -1405,6 +1460,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
       tag2: data.tag2.present ? data.tag2.value : this.tag2,
       tag3: data.tag3.present ? data.tag3.value : this.tag3,
       moreTags: data.moreTags.present ? data.moreTags.value : this.moreTags,
+      labels: data.labels.present ? data.labels.value : this.labels,
       evict: data.evict.present ? data.evict.value : this.evict,
       acl: data.acl.present ? data.acl.value : this.acl,
       resourceId:
@@ -1444,6 +1500,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('evict: $evict, ')
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')
@@ -1477,6 +1534,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
         tag2,
         tag3,
         moreTags,
+        labels,
         evict,
         acl,
         resourceId,
@@ -1509,6 +1567,7 @@ class AssetData extends i0.DataClass implements i0.Insertable<i1.AssetData> {
           other.tag2 == this.tag2 &&
           other.tag3 == this.tag3 &&
           other.moreTags == this.moreTags &&
+          other.labels == this.labels &&
           other.evict == this.evict &&
           other.acl == this.acl &&
           other.resourceId == this.resourceId &&
@@ -1539,6 +1598,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
   final i0.Value<String?> tag2;
   final i0.Value<String?> tag3;
   final i0.Value<List<String>?> moreTags;
+  final i0.Value<i3.Multimap<String, String>?> labels;
   final i0.Value<bool?> evict;
   final i0.Value<i3.Multimap<String, String>?> acl;
   final i0.Value<String?> resourceId;
@@ -1568,6 +1628,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
@@ -1598,6 +1659,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
     this.tag2 = const i0.Value.absent(),
     this.tag3 = const i0.Value.absent(),
     this.moreTags = const i0.Value.absent(),
+    this.labels = const i0.Value.absent(),
     this.evict = const i0.Value.absent(),
     this.acl = const i0.Value.absent(),
     this.resourceId = const i0.Value.absent(),
@@ -1628,6 +1690,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
     i0.Expression<String>? tag2,
     i0.Expression<String>? tag3,
     i0.Expression<String>? moreTags,
+    i0.Expression<String>? labels,
     i0.Expression<bool>? evict,
     i0.Expression<String>? acl,
     i0.Expression<String>? resourceId,
@@ -1659,6 +1722,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
       if (tag2 != null) 'tag2': tag2,
       if (tag3 != null) 'tag3': tag3,
       if (moreTags != null) 'more_tags': moreTags,
+      if (labels != null) 'labels': labels,
       if (evict != null) 'evict': evict,
       if (acl != null) 'acl': acl,
       if (resourceId != null) 'resource_id': resourceId,
@@ -1691,6 +1755,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
       i0.Value<String?>? tag2,
       i0.Value<String?>? tag3,
       i0.Value<List<String>?>? moreTags,
+      i0.Value<i3.Multimap<String, String>?>? labels,
       i0.Value<bool?>? evict,
       i0.Value<i3.Multimap<String, String>?>? acl,
       i0.Value<String?>? resourceId,
@@ -1720,6 +1785,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
       tag2: tag2 ?? this.tag2,
       tag3: tag3 ?? this.tag3,
       moreTags: moreTags ?? this.moreTags,
+      labels: labels ?? this.labels,
       evict: evict ?? this.evict,
       acl: acl ?? this.acl,
       resourceId: resourceId ?? this.resourceId,
@@ -1798,6 +1864,10 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
       map['more_tags'] = i0.Variable<String>(
           i1.Asset.$convertermoreTagsn.toSql(moreTags.value));
     }
+    if (labels.present) {
+      map['labels'] =
+          i0.Variable<String>(i1.Asset.$converterlabelsn.toSql(labels.value));
+    }
     if (evict.present) {
       map['evict'] = i0.Variable<bool>(evict.value);
     }
@@ -1851,6 +1921,7 @@ class AssetCompanion extends i0.UpdateCompanion<i1.AssetData> {
           ..write('tag2: $tag2, ')
           ..write('tag3: $tag3, ')
           ..write('moreTags: $moreTags, ')
+          ..write('labels: $labels, ')
           ..write('evict: $evict, ')
           ..write('acl: $acl, ')
           ..write('resourceId: $resourceId, ')

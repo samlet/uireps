@@ -4,7 +4,7 @@ version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
 environment:
-  sdk: ^3.0.5
+  sdk: ^3.6.0
 
 # Add regular dependencies here.
 dependencies:
@@ -22,5 +22,5 @@ dependencies:
   intl: ^0.19.0
 
 dev_dependencies:
-  lints: ^2.0.0
+  lints:
   test:

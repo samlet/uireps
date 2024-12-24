@@ -79,6 +79,25 @@ class PortalManagerPod extends _$PortalManagerPod {
             ));
     return state.hasError == false;
   }
+  
+  Future<bool> removeEnt({
+    
+    required String entName,
+    String? regionId='default',
+    required String bundleId,
+    required String itemId, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalManagerProvider(regionOrNs: regionOrNs)).removeEnt(
+              entName: entName,
+              regionId: regionId,
+              bundleId: bundleId,
+              itemId: itemId,
+            ));
+    return state.hasError == false;
+  }
     
 }
 

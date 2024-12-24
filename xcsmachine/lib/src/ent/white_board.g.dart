@@ -30,30 +30,25 @@ WhiteBoard _$WhiteBoardFromJson(Map<String, dynamic> json) => WhiteBoard(
               json['whiteBoardType'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$WhiteBoardToJson(WhiteBoard instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('whiteBoardId', instance.whiteBoardId);
-  writeNotNull('createBy', instance.createBy);
-  writeNotNull('content', instance.content);
-  writeNotNull('tenantId', instance.tenantId);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('whiteBoardTypeId', instance.whiteBoardTypeId);
-  writeNotNull('statusId', instance.statusId);
-  writeNotNull('evict', instance.evict);
-  writeNotNull('resourceId', instance.resourceId);
-  writeNotNull('resourceType', instance.resourceType);
-  writeNotNull('whiteBoardType', instance.whiteBoardType?.toJson());
-  return val;
-}
+Map<String, dynamic> _$WhiteBoardToJson(WhiteBoard instance) =>
+    <String, dynamic>{
+      if (instance.whiteBoardId case final value?) 'whiteBoardId': value,
+      if (instance.createBy case final value?) 'createBy': value,
+      if (instance.content case final value?) 'content': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.whiteBoardTypeId case final value?)
+        'whiteBoardTypeId': value,
+      if (instance.statusId case final value?) 'statusId': value,
+      if (instance.evict case final value?) 'evict': value,
+      if (instance.resourceId case final value?) 'resourceId': value,
+      if (instance.resourceType case final value?) 'resourceType': value,
+      if (instance.whiteBoardType?.toJson() case final value?)
+        'whiteBoardType': value,
+    };
 
 WhiteBoardType _$WhiteBoardTypeFromJson(Map<String, dynamic> json) =>
     WhiteBoardType(
@@ -69,21 +64,15 @@ WhiteBoardType _$WhiteBoardTypeFromJson(Map<String, dynamic> json) =>
       tenantId: json['tenantId'] as String?,
     );
 
-Map<String, dynamic> _$WhiteBoardTypeToJson(WhiteBoardType instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('whiteBoardTypeId', instance.whiteBoardTypeId);
-  writeNotNull('parentTypeId', instance.parentTypeId);
-  writeNotNull('description', instance.description);
-  writeNotNull(
-      'lastUpdatedTxStamp', instance.lastUpdatedTxStamp?.toIso8601String());
-  writeNotNull('createdTxStamp', instance.createdTxStamp?.toIso8601String());
-  writeNotNull('tenantId', instance.tenantId);
-  return val;
-}
+Map<String, dynamic> _$WhiteBoardTypeToJson(WhiteBoardType instance) =>
+    <String, dynamic>{
+      if (instance.whiteBoardTypeId case final value?)
+        'whiteBoardTypeId': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.lastUpdatedTxStamp?.toIso8601String() case final value?)
+        'lastUpdatedTxStamp': value,
+      if (instance.createdTxStamp?.toIso8601String() case final value?)
+        'createdTxStamp': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
+    };

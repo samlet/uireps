@@ -32,6 +32,7 @@ CREATE TABLE facility (
     "tag2" VARCHAR(100),
     "tag3" VARCHAR(100),
     "more_tags" TEXT MAPPED BY `const StringListConverter()`,
+    "labels" TEXT MAPPED BY `const StringMultimapConverter()`,
     "acl" TEXT MAPPED BY `const StringMultimapConverter()`,
     "resource_id" VARCHAR(250),
     "resource_type" VARCHAR(60),
