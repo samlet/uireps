@@ -6,11 +6,13 @@ import 'package:xcsproto/xcsproto.dart';
 
 class SlabRepository {
   SlabRepository(this.dio, {
-    this.regionOrNs='default'
+    this.regionOrNs='default',
+    this.callOpt=CallOpt.defaultOpt
   });
 
   final d.Dio dio;
   final String regionOrNs;
+  final CallOpt callOpt;
 
    
   // Mutation: PortalManager:storeEnt
@@ -31,7 +33,7 @@ class SlabRepository {
       "entName": entName,
       if(regionId!=null) "regionId": regionId,
       "data": data, 
-    });
+    }, callOpt: callOpt);
     
     return Response()..mergeFromProto3Json(resp);
   }
@@ -50,7 +52,7 @@ class SlabRepository {
       "regionId": regionOrNs,
     }, {
       "qr": qr, 
-    });
+    }, callOpt: callOpt);
     
     return convList(resp, ProtoEnt.fromJson);
   }
@@ -75,7 +77,7 @@ class SlabRepository {
       if(regionId!=null) "regionId": regionId,
       "bundleId": bundleId,
       "itemId": itemId, 
-    });
+    }, callOpt: callOpt);
     
     return Response()..mergeFromProto3Json(resp);
   }
@@ -94,7 +96,7 @@ class SlabRepository {
       "regionId": regionOrNs,
     }, {
       "tk": tk, 
-    });
+    }, callOpt: callOpt);
     
     return convList(resp, ProtoEnt.fromJson);
   }
@@ -113,7 +115,7 @@ class SlabRepository {
       "regionId": regionOrNs,
     }, {
       "fullId": fullId, 
-    });
+    }, callOpt: callOpt);
     
     return convScalars(resp, (e)=> e.toString());
   }
@@ -127,23 +129,9 @@ class SlabRepository {
       "call-type": "slab",
       "regionId": regionOrNs,
     }, { 
-    });
+    }, callOpt: callOpt);
     
     return convList(resp, (el)=>el);
-  }
-   
-  // Query: EcommSln:partyRootTypes
-  Future<List<String>> partyRootTypes() async { 
-    var resp = await performCall(dio, {
-      "module": 'ecommSln',
-      "action": "partyRootTypes",
-      "bundleName" : "EcommSln",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
   }
    
   // Query: EcommSln:productRootTypes
@@ -155,7 +143,21 @@ class SlabRepository {
       "call-type": "slab",
       "regionId": regionOrNs,
     }, { 
-    });
+    }, callOpt: callOpt);
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query: EcommSln:partyRootTypes
+  Future<List<String>> partyRootTypes() async { 
+    var resp = await performCall(dio, {
+      "module": 'ecommSln',
+      "action": "partyRootTypes",
+      "bundleName" : "EcommSln",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    }, callOpt: callOpt);
     
     return convScalars(resp, (e)=> e.toString());
   }
@@ -169,7 +171,7 @@ class SlabRepository {
       "call-type": "slab",
       "regionId": regionOrNs,
     }, { 
-    });
+    }, callOpt: callOpt);
     
     return convList(resp, (el)=>el);
   }
@@ -184,7 +186,7 @@ class SlabRepository {
       "regionId": regionOrNs,
       "id": id,
     }, { 
-    });
+    }, callOpt: callOpt);
     
     return NoteContent.fromJson(resp);
   }
@@ -207,7 +209,7 @@ class SlabRepository {
     }, {
       "title": title,
       "cnt": cnt, 
-    });
+    }, callOpt: callOpt);
     
   }
    
@@ -233,7 +235,7 @@ class SlabRepository {
       "review": review,
       "rating": rating,
       "reward": reward, 
-    });
+    }, callOpt: callOpt);
     
     return ResultConv.asString(resp);
   }
@@ -248,7 +250,7 @@ class SlabRepository {
       "regionId": regionOrNs,
       "id": id,
     }, { 
-    });
+    }, callOpt: callOpt);
     
     return UserObj.fromJson(resp);
   }

@@ -26,11 +26,39 @@ Future<void> main(List<String> arguments) async {
   // await testDb(db);
   // await procWithDb(db);
 
-  var allFormKeys=recletsMap.keys;
+  var allFormKeys = recletsMap.keys;
   print('all forms: $allFormKeys');
 
   // printAllFlds();
-  var fldPath=r'$.noteContent.flds.title';
+  // query form fld
+  queryFormFld();
+
+  // query tile fld
+  var metasMap = enttilesMap;
+  // var fldPath=r'$.person.flds.title';
+  var fldPath = r'$.person.flds.subtitle';
+  queryTile(fldPath, metasMap);
+
+  queryTile(r'$.person.flds.date', enttilesMap);
+  queryTile(r'$.person.flds.icon', enttilesMap);
+
+  print(entTileFldMeta(r'$.person.flds.title')?.toJson());
+  print(recTileFldMeta(r'$.userObj.flds.icon')?.toJson());
+}
+
+void queryTile(String fldPath, Map<String, Map<String, Object>> metasMap) {
+  var fldMap = JsonPath(fldPath).readValues(metasMap).firstOrNull;
+
+  if (fldMap != null) {
+    var fldTile = FieldTileMeta.fromJson(fldMap as Map<String, dynamic>);
+    print(fldTile.toJson());
+  } else {
+    print('no fld: $fldPath');
+  }
+}
+
+void queryFormFld() {
+  var fldPath = r'$.noteContent.flds.title';
   FieldUiMeta fld = recFldMeta(fldPath);
   print('fld ${fld.fldName}: ${fld.caption}');
 }
@@ -45,8 +73,8 @@ void printAllFlds() {
 Future<void> procWithDb(Database db) async {
   var store = stringMapStoreFactory.store("forms");
 
-  var form=noteContentForm;
-  var formName=form['alias'] as String;
+  var form = noteContentForm;
+  var formName = form['alias'] as String;
   await store.record(formName).add(db, form);
 
   var record = await store.record(formName).getSnapshot(db);
@@ -66,7 +94,7 @@ Future<void> testDb(Database db) async {
   await queryAgain(db);
 }
 
-Future<void> queryAgain(Database db) async{
+Future<void> queryAgain(Database db) async {
   var store = stringMapStoreFactory.store("forms");
   var record = await store.record('test').getSnapshot(db);
   var value = record!['path.sub'];
@@ -77,7 +105,7 @@ void procWithWrapper() {
   var form = FormMeta.fromJson(noteContentForm);
   print(form.toJson());
   for (var e in form.flds!.entries) {
-    var value=e.value;
+    var value = e.value;
     print('${value.fldName}: ${value.caption}');
   }
 

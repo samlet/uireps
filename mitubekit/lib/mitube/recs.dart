@@ -1,12 +1,109 @@
 import 'package:xcsmachine/util.dart';
 
-final reclets = [userObjForm, noteContentForm, fullIdForm, protoEntForm]; 
+final reclets = [noteContentForm, protoEntForm, userObjForm, fullIdForm]; 
 
-final rectiles = [userObjTile, noteContentTile, fullIdTile, protoEntTile];
+final rectiles = [noteContentTile, protoEntTile, userObjTile, fullIdTile];
 
 final recletsMap= reclets.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
 final rectilesMap= rectiles.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
 
+
+final noteContentForm = {
+  "formKey" : "NoteContent",
+  "formName" : "NoteContent",
+  "alias" : "noteContent",
+  "caption" : "便笺内容",
+  "locale" : "zh",
+  "flds" : {
+    "title" : {
+      "fldName" : "title",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "标题",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "body" : {
+      "fldName" : "body",
+      "fldType" : "value",
+      "fldTpl" : "commentProp",
+      "domainType" : "stringField",
+      "caption" : "内容",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    }
+  }
+};
+
+final protoEntForm = {
+  "formKey" : "ProtoEnt",
+  "formName" : "ProtoEnt",
+  "alias" : "protoEnt",
+  "caption" : "Proto Ent",
+  "locale" : "zh",
+  "flds" : {
+    "entType" : {
+      "fldName" : "entType",
+      "fldType" : "tag",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Ent Type",
+      "defaultValue" : null,
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "data" : {
+      "fldName" : "data",
+      "fldType" : "byte-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "bytesField",
+      "caption" : "Data",
+      "defaultValue" : null,
+      "morph" : "",
+      "dartType" : "Uint8List",
+      "javaType" : "byte[]"
+    },
+    "regionId" : {
+      "fldName" : "regionId",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Region Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    }
+  }
+};
 
 final userObjForm = {
   "formKey" : "UserObj",
@@ -139,49 +236,6 @@ final userObjForm = {
   }
 };
 
-final noteContentForm = {
-  "formKey" : "NoteContent",
-  "formName" : "NoteContent",
-  "alias" : "noteContent",
-  "caption" : "便笺内容",
-  "locale" : "zh",
-  "flds" : {
-    "title" : {
-      "fldName" : "title",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "标题",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "body" : {
-      "fldName" : "body",
-      "fldType" : "value",
-      "fldTpl" : "commentProp",
-      "domainType" : "stringField",
-      "caption" : "内容",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "key" : {
-      "fldName" : "key",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Key",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    }
-  }
-};
-
 final fullIdForm = {
   "formKey" : "FullId",
   "formName" : "FullId",
@@ -214,58 +268,20 @@ final fullIdForm = {
   }
 };
 
-final protoEntForm = {
-  "formKey" : "ProtoEnt",
-  "formName" : "ProtoEnt",
+final noteContentTile = {
+  "tileName" : "NoteContent",
+  "alias" : "noteContent",
+  "available" : false,
+  "flds" : { },
+  "locs" : { }
+};
+
+final protoEntTile = {
+  "tileName" : "ProtoEnt",
   "alias" : "protoEnt",
-  "caption" : "Proto Ent",
-  "locale" : "zh",
-  "flds" : {
-    "entType" : {
-      "fldName" : "entType",
-      "fldType" : "tag",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "idenField",
-      "caption" : "Ent Type",
-      "defaultValue" : null,
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "data" : {
-      "fldName" : "data",
-      "fldType" : "byte-array",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "bytesField",
-      "caption" : "Data",
-      "defaultValue" : null,
-      "morph" : "",
-      "dartType" : "Uint8List",
-      "javaType" : "byte[]"
-    },
-    "regionId" : {
-      "fldName" : "regionId",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Region Id",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "key" : {
-      "fldName" : "key",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Key",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    }
-  }
+  "available" : false,
+  "flds" : { },
+  "locs" : { }
 };
 
 final userObjTile = {
@@ -273,6 +289,20 @@ final userObjTile = {
   "alias" : "userObj",
   "available" : true,
   "flds" : {
+    "date" : {
+      "loc" : "date",
+      "fld" : {
+        "fldName" : "birthDate",
+        "fldType" : "date",
+        "fldTpl" : "propWithSpec",
+        "domainType" : "dateField",
+        "caption" : "出生日期",
+        "defaultValue" : "DateTime.now()",
+        "morph" : "",
+        "dartType" : "DateTime",
+        "javaType" : "java.time.LocalDate"
+      }
+    },
     "color" : {
       "loc" : "color",
       "fld" : {
@@ -287,7 +317,7 @@ final userObjTile = {
         "javaType" : "Long"
       }
     },
-    "nickname" : {
+    "subtitle" : {
       "loc" : "subtitle",
       "fld" : {
         "fldName" : "nickname",
@@ -315,7 +345,7 @@ final userObjTile = {
         "javaType" : "Long"
       }
     },
-    "name" : {
+    "title" : {
       "loc" : "title",
       "fld" : {
         "fldName" : "name",
@@ -329,21 +359,7 @@ final userObjTile = {
         "javaType" : "String"
       }
     },
-    "birthDate" : {
-      "loc" : "date",
-      "fld" : {
-        "fldName" : "birthDate",
-        "fldType" : "date",
-        "fldTpl" : "propWithSpec",
-        "domainType" : "dateField",
-        "caption" : "出生日期",
-        "defaultValue" : "DateTime.now()",
-        "morph" : "",
-        "dartType" : "DateTime",
-        "javaType" : "java.time.LocalDate"
-      }
-    },
-    "createdByUserLogin" : {
+    "user" : {
       "loc" : "user",
       "fld" : {
         "fldName" : "createdByUserLogin",
@@ -368,25 +384,9 @@ final userObjTile = {
   }
 };
 
-final noteContentTile = {
-  "tileName" : "NoteContent",
-  "alias" : "noteContent",
-  "available" : false,
-  "flds" : { },
-  "locs" : { }
-};
-
 final fullIdTile = {
   "tileName" : "FullId",
   "alias" : "fullId",
-  "available" : false,
-  "flds" : { },
-  "locs" : { }
-};
-
-final protoEntTile = {
-  "tileName" : "ProtoEnt",
-  "alias" : "protoEnt",
   "available" : false,
   "flds" : { },
   "locs" : { }

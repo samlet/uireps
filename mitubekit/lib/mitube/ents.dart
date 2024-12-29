@@ -1,8 +1,8 @@
 import 'package:xcsmachine/util.dart';
 
-final entlets = [personForm, noteDataForm]; 
+final entlets = [personForm, noteDataForm, partyTypeForm]; 
 
-final enttiles = [personTile, noteDataTile];
+final enttiles = [personTile, noteDataTile, partyTypeTile];
 
 final entletsMap= entlets.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
 final enttilesMap= enttiles.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
@@ -29,7 +29,7 @@ final personForm = {
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameSpec",
+      "fldTpl" : "lastNameEdit",
       "domainType" : "stringField",
       "caption" : "姓",
       "defaultValue" : "''",
@@ -293,7 +293,7 @@ final personForm = {
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameSpec",
+      "fldTpl" : "firstNameEdit",
       "domainType" : "stringField",
       "caption" : "名",
       "defaultValue" : "''",
@@ -633,26 +633,113 @@ final noteDataForm = {
   }
 };
 
+final partyTypeForm = {
+  "formKey" : "PartyType",
+  "formName" : "PartyType",
+  "alias" : "partyType",
+  "caption" : "Party Type",
+  "locale" : "zh",
+  "flds" : {
+    "partyTypeId" : {
+      "fldName" : "partyTypeId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Party Type Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "parentTypeId" : {
+      "fldName" : "parentTypeId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Parent Type Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "hasTable" : {
+      "fldName" : "hasTable",
+      "fldType" : "indicator",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "indicatorField",
+      "caption" : "Has Table",
+      "defaultValue" : null,
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "Character"
+    },
+    "createdTxStamp" : {
+      "fldName" : "createdTxStamp",
+      "fldType" : "date-time",
+      "fldTpl" : "dateFld",
+      "domainType" : "dateTimeField",
+      "caption" : "创建时间",
+      "defaultValue" : "DateTime.now()",
+      "morph" : null,
+      "dartType" : "DateTime",
+      "javaType" : "java.time.OffsetDateTime"
+    },
+    "tenantId" : {
+      "fldName" : "tenantId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Tenant Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "description" : {
+      "fldName" : "description",
+      "fldType" : "description",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "描述",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "lastUpdatedTxStamp" : {
+      "fldName" : "lastUpdatedTxStamp",
+      "fldType" : "date-time",
+      "fldTpl" : "dateFld",
+      "domainType" : "dateTimeField",
+      "caption" : "最后修改时间",
+      "defaultValue" : "DateTime.now()",
+      "morph" : null,
+      "dartType" : "DateTime",
+      "javaType" : "java.time.OffsetDateTime"
+    }
+  }
+};
+
 final personTile = {
   "tileName" : "Person",
   "alias" : "person",
   "available" : true,
   "flds" : {
-    "lastName" : {
-      "loc" : "title",
+    "date" : {
+      "loc" : "date",
       "fld" : {
-        "fldName" : "lastName",
-        "fldType" : "name",
-        "fldTpl" : "lastNameSpec",
-        "domainType" : "stringField",
-        "caption" : "姓",
-        "defaultValue" : "''",
+        "fldName" : "birthDate",
+        "fldType" : "date",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "dateField",
+        "caption" : "出生日期",
+        "defaultValue" : "DateTime.now()",
         "morph" : null,
-        "dartType" : "String",
-        "javaType" : "String"
+        "dartType" : "DateTime",
+        "javaType" : "java.time.LocalDate"
       }
     },
-    "comments" : {
+    "subtitle" : {
       "loc" : "subtitle",
       "fld" : {
         "fldName" : "comments",
@@ -666,18 +753,18 @@ final personTile = {
         "javaType" : "String"
       }
     },
-    "birthDate" : {
-      "loc" : "date",
+    "title" : {
+      "loc" : "title",
       "fld" : {
-        "fldName" : "birthDate",
-        "fldType" : "date",
-        "fldTpl" : "fldWithSpec",
-        "domainType" : "dateField",
-        "caption" : "出生日期",
-        "defaultValue" : "DateTime.now()",
+        "fldName" : "lastName",
+        "fldType" : "name",
+        "fldTpl" : "lastNameEdit",
+        "domainType" : "stringField",
+        "caption" : "姓",
+        "defaultValue" : "''",
         "morph" : null,
-        "dartType" : "DateTime",
-        "javaType" : "java.time.LocalDate"
+        "dartType" : "String",
+        "javaType" : "String"
       }
     }
   },
@@ -693,7 +780,21 @@ final noteDataTile = {
   "alias" : "noteData",
   "available" : true,
   "flds" : {
-    "createdTxStamp" : {
+    "date" : {
+      "loc" : "date",
+      "fld" : {
+        "fldName" : "lastUpdatedTxStamp",
+        "fldType" : "date-time",
+        "fldTpl" : "dateFld",
+        "domainType" : "dateTimeField",
+        "caption" : "最后修改时间",
+        "defaultValue" : "DateTime.now()",
+        "morph" : null,
+        "dartType" : "DateTime",
+        "javaType" : "java.time.OffsetDateTime"
+      }
+    },
+    "subtitle" : {
       "loc" : "subtitle",
       "fld" : {
         "fldName" : "createdTxStamp",
@@ -707,7 +808,7 @@ final noteDataTile = {
         "javaType" : "java.time.OffsetDateTime"
       }
     },
-    "noteName" : {
+    "title" : {
       "loc" : "title",
       "fld" : {
         "fldName" : "noteName",
@@ -720,8 +821,21 @@ final noteDataTile = {
         "dartType" : "String",
         "javaType" : "String"
       }
-    },
-    "lastUpdatedTxStamp" : {
+    }
+  },
+  "locs" : {
+    "date" : "lastUpdatedTxStamp",
+    "subtitle" : "createdTxStamp",
+    "title" : "noteName"
+  }
+};
+
+final partyTypeTile = {
+  "tileName" : "PartyType",
+  "alias" : "partyType",
+  "available" : true,
+  "flds" : {
+    "date" : {
       "loc" : "date",
       "fld" : {
         "fldName" : "lastUpdatedTxStamp",
@@ -734,11 +848,39 @@ final noteDataTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime"
       }
+    },
+    "subtitle" : {
+      "loc" : "subtitle",
+      "fld" : {
+        "fldName" : "description",
+        "fldType" : "description",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "stringField",
+        "caption" : "描述",
+        "defaultValue" : "''",
+        "morph" : null,
+        "dartType" : "String",
+        "javaType" : "String"
+      }
+    },
+    "title" : {
+      "loc" : "title",
+      "fld" : {
+        "fldName" : "partyTypeId",
+        "fldType" : "id",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "idenField",
+        "caption" : "Party Type Id",
+        "defaultValue" : "''",
+        "morph" : null,
+        "dartType" : "String",
+        "javaType" : "String"
+      }
     }
   },
   "locs" : {
     "date" : "lastUpdatedTxStamp",
-    "subtitle" : "createdTxStamp",
-    "title" : "noteName"
+    "subtitle" : "description",
+    "title" : "partyTypeId"
   }
 };

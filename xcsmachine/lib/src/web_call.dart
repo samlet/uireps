@@ -4,9 +4,15 @@ import 'package:xcsmachine/src/common/services/srv_base.dart';
 import 'common/exceptions/http_exception.dart';
 
 Future<Response<dynamic>> webCall(String url, Map<String, Object?> payload,
-    {Dio? authDio, String? token, Options? options}) async {
+    {Dio? authDio, String? token, Options? options, CallOpt? callOpt}) async {
   var dio = authDio ?? createAuthDioWithToken(token!);
-  var resp = await dio.post(url, data: payload, options: options);
+  var opt=callOpt??CallOpt.defaultOpt;
+  Response resp;
+  if(opt.callMode==CallMode.get){
+    resp = await dio.get(url, queryParameters: payload, options: options);
+  }else {
+    resp = await dio.post(url, data: payload, options: options);
+  }
   catchErr(resp);
   return resp;
 }
@@ -46,13 +52,20 @@ Future<Response<dynamic>> palletDisp(Map<String, Object?> payload,
 //   return resp.data;
 // }
 
+enum CallMode{post, get}
+class CallOpt{
+  final CallMode callMode;
+  const CallOpt({this.callMode=CallMode.post});
+  static const CallOpt defaultOpt=CallOpt();
+}
+
 Future<dynamic> performCall(
     Dio dio, Map<String, Object?> ctx, Map<String, Object> inputParams,
-    {Options? options}) async {
+    {Options? options, CallOpt? callOpt}) async {
   var adapterResult=dispatchAdapter(ctx, inputParams);
   final payload = adapterResult.request;
   Response<dynamic> resp =
-  await webCall(adapterResult.url, payload, authDio: dio, options: options);
+  await webCall(adapterResult.url, payload, authDio: dio, options: options, callOpt: callOpt);
   return resp.data;
 }
 
