@@ -22,6 +22,8 @@ final sectionRepositoryProvider = Provider<SectionRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SectionRepositoryRef = ProviderRef<SectionRepository>;
 String _$getSectionHash() => r'02d3a9df52ddbf246624c3955dad7f013d759b63';
 
@@ -171,6 +173,8 @@ class GetSectionProvider extends AutoDisposeFutureProvider<SectionData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetSectionRef on AutoDisposeFutureProviderRef<SectionData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -311,6 +315,8 @@ class FetchSectionProvider extends AutoDisposeFutureProvider<ent.Section?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchSectionRef on AutoDisposeFutureProviderRef<ent.Section?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -455,6 +461,8 @@ class FetchSectionsFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchSectionsFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.Section>> {
   /// The parameter `regNode` of this provider.
@@ -611,6 +619,8 @@ class QuerySectionByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QuerySectionByCondRef on AutoDisposeFutureProviderRef<PaginatedSections> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
@@ -789,6 +799,8 @@ class SectionElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SectionElRef on AutoDisposeStreamNotifierProviderRef<SectionData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -933,6 +945,8 @@ class SectionRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SectionRegRef on AutoDisposeStreamNotifierProviderRef<List<SectionData>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
@@ -1077,6 +1091,8 @@ class SectionTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SectionTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<SectionData>> {
   /// The parameter `tenantId` of this provider.
@@ -1255,6 +1271,8 @@ class SectionByResourceBinderProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SectionByResourceBinderRef
     on AutoDisposeStreamNotifierProviderRef<List<SectionData>> {
   /// The parameter `resourceId` of this provider.
@@ -1277,4 +1295,4 @@ class _SectionByResourceBinderProviderElement
       (origin as SectionByResourceBinderProvider).resourceType;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

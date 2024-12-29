@@ -387,21 +387,6 @@ class UserPalRepository {
   }
    
   // Query
-  Future<String> firstName() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "firstName",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return ResultConv.asString(resp);
-  }
-   
-  // Query
   Future<List<String>> getPaymentMethods() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -414,6 +399,21 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query
+  Future<String> firstName() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "firstName",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return ResultConv.asString(resp);
   }
    
   // Query
@@ -666,26 +666,6 @@ class UserPalRepository {
     return Response()..mergeFromProto3Json(resp);
   }
    
-  // Mutation
-  Future<Wallet> createWallet({
-    
-    required double totalAmount, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "createWallet",
-      "bundleName" : "Party",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "totalAmount": totalAmount, 
-    });
-    
-    return Wallet.fromJson(resp);
-  }
-   
   // Query
   Future<List<String>> getOrdersAsRole({
     
@@ -704,6 +684,26 @@ class UserPalRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Mutation
+  Future<Wallet> createWallet({
+    
+    required double totalAmount, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "createWallet",
+      "bundleName" : "Party",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "totalAmount": totalAmount, 
+    });
+    
+    return Wallet.fromJson(resp);
   }
    
   // Query

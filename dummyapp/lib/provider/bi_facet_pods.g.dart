@@ -22,6 +22,8 @@ final biFacetRepositoryProvider = Provider<BiFacetRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef BiFacetRepositoryRef = ProviderRef<BiFacetRepository>;
 String _$getBiFacetHash() => r'316352c18a9c4c36a7102de5a72b09af09f5fbf3';
 
@@ -171,6 +173,8 @@ class GetBiFacetProvider extends AutoDisposeFutureProvider<BiFacetData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetBiFacetRef on AutoDisposeFutureProviderRef<BiFacetData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -343,6 +347,8 @@ class BiFacetElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin BiFacetElRef on AutoDisposeStreamNotifierProviderRef<BiFacetData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -357,4 +363,4 @@ class _BiFacetElProviderElement
   String get id => (origin as BiFacetElProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

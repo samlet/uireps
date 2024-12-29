@@ -2140,6 +2140,138 @@ class _FixturesMakeSomeRecsProviderElement
   int? get total => (origin as FixturesMakeSomeRecsProvider).total;
 }
 
+String _$fixturesNoteEntsHash() => r'beb49b6c5b7daab333d9c9a08166663b8166a75a';
+
+/// See also [fixturesNoteEnts].
+@ProviderFor(fixturesNoteEnts)
+const fixturesNoteEntsProvider = FixturesNoteEntsFamily();
+
+/// See also [fixturesNoteEnts].
+class FixturesNoteEntsFamily extends Family<AsyncValue<List<ProtoEnt>>> {
+  /// See also [fixturesNoteEnts].
+  const FixturesNoteEntsFamily();
+
+  /// See also [fixturesNoteEnts].
+  FixturesNoteEntsProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return FixturesNoteEntsProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  FixturesNoteEntsProvider getProviderOverride(
+    covariant FixturesNoteEntsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesNoteEntsProvider';
+}
+
+/// See also [fixturesNoteEnts].
+class FixturesNoteEntsProvider
+    extends AutoDisposeFutureProvider<List<ProtoEnt>> {
+  /// See also [fixturesNoteEnts].
+  FixturesNoteEntsProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => fixturesNoteEnts(
+            ref as FixturesNoteEntsRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: fixturesNoteEntsProvider,
+          name: r'fixturesNoteEntsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesNoteEntsHash,
+          dependencies: FixturesNoteEntsFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesNoteEntsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  FixturesNoteEntsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ProtoEnt>> Function(FixturesNoteEntsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesNoteEntsProvider._internal(
+        (ref) => create(ref as FixturesNoteEntsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ProtoEnt>> createElement() {
+    return _FixturesNoteEntsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesNoteEntsProvider && other.regionOrNs == regionOrNs;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin FixturesNoteEntsRef on AutoDisposeFutureProviderRef<List<ProtoEnt>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+}
+
+class _FixturesNoteEntsProviderElement
+    extends AutoDisposeFutureProviderElement<List<ProtoEnt>>
+    with FixturesNoteEntsRef {
+  _FixturesNoteEntsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesNoteEntsProvider).regionOrNs;
+}
+
 String _$fixturesMakeTestRecHash() =>
     r'30cd92b1e5e7da014ba282baa32d6bf1124d211f';
 
@@ -2338,139 +2470,6 @@ class _FixturesMakeTestRecProviderElement
   List<double>? get nums => (origin as FixturesMakeTestRecProvider).nums;
 }
 
-String _$fixturesGetNickNameHash() =>
-    r'e41df19f2e97a89265c8aca37c963cac86815d25';
-
-/// See also [fixturesGetNickName].
-@ProviderFor(fixturesGetNickName)
-const fixturesGetNickNameProvider = FixturesGetNickNameFamily();
-
-/// See also [fixturesGetNickName].
-class FixturesGetNickNameFamily extends Family<AsyncValue<String>> {
-  /// See also [fixturesGetNickName].
-  const FixturesGetNickNameFamily();
-
-  /// See also [fixturesGetNickName].
-  FixturesGetNickNameProvider call({
-    String regionOrNs = 'default',
-  }) {
-    return FixturesGetNickNameProvider(
-      regionOrNs: regionOrNs,
-    );
-  }
-
-  @override
-  FixturesGetNickNameProvider getProviderOverride(
-    covariant FixturesGetNickNameProvider provider,
-  ) {
-    return call(
-      regionOrNs: provider.regionOrNs,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'fixturesGetNickNameProvider';
-}
-
-/// See also [fixturesGetNickName].
-class FixturesGetNickNameProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [fixturesGetNickName].
-  FixturesGetNickNameProvider({
-    String regionOrNs = 'default',
-  }) : this._internal(
-          (ref) => fixturesGetNickName(
-            ref as FixturesGetNickNameRef,
-            regionOrNs: regionOrNs,
-          ),
-          from: fixturesGetNickNameProvider,
-          name: r'fixturesGetNickNameProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$fixturesGetNickNameHash,
-          dependencies: FixturesGetNickNameFamily._dependencies,
-          allTransitiveDependencies:
-              FixturesGetNickNameFamily._allTransitiveDependencies,
-          regionOrNs: regionOrNs,
-        );
-
-  FixturesGetNickNameProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.regionOrNs,
-  }) : super.internal();
-
-  final String regionOrNs;
-
-  @override
-  Override overrideWith(
-    FutureOr<String> Function(FixturesGetNickNameRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: FixturesGetNickNameProvider._internal(
-        (ref) => create(ref as FixturesGetNickNameRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        regionOrNs: regionOrNs,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<String> createElement() {
-    return _FixturesGetNickNameProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is FixturesGetNickNameProvider &&
-        other.regionOrNs == regionOrNs;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin FixturesGetNickNameRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `regionOrNs` of this provider.
-  String get regionOrNs;
-}
-
-class _FixturesGetNickNameProviderElement
-    extends AutoDisposeFutureProviderElement<String>
-    with FixturesGetNickNameRef {
-  _FixturesGetNickNameProviderElement(super.provider);
-
-  @override
-  String get regionOrNs => (origin as FixturesGetNickNameProvider).regionOrNs;
-}
-
 String _$fixturesPingHash() => r'37aa07767b9dcc4e158e44b0f35c36fdc49fab94';
 
 /// See also [fixturesPing].
@@ -2616,6 +2615,139 @@ class _FixturesPingProviderElement
   String get regionOrNs => (origin as FixturesPingProvider).regionOrNs;
   @override
   String get req => (origin as FixturesPingProvider).req;
+}
+
+String _$fixturesGetNickNameHash() =>
+    r'e41df19f2e97a89265c8aca37c963cac86815d25';
+
+/// See also [fixturesGetNickName].
+@ProviderFor(fixturesGetNickName)
+const fixturesGetNickNameProvider = FixturesGetNickNameFamily();
+
+/// See also [fixturesGetNickName].
+class FixturesGetNickNameFamily extends Family<AsyncValue<String>> {
+  /// See also [fixturesGetNickName].
+  const FixturesGetNickNameFamily();
+
+  /// See also [fixturesGetNickName].
+  FixturesGetNickNameProvider call({
+    String regionOrNs = 'default',
+  }) {
+    return FixturesGetNickNameProvider(
+      regionOrNs: regionOrNs,
+    );
+  }
+
+  @override
+  FixturesGetNickNameProvider getProviderOverride(
+    covariant FixturesGetNickNameProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fixturesGetNickNameProvider';
+}
+
+/// See also [fixturesGetNickName].
+class FixturesGetNickNameProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [fixturesGetNickName].
+  FixturesGetNickNameProvider({
+    String regionOrNs = 'default',
+  }) : this._internal(
+          (ref) => fixturesGetNickName(
+            ref as FixturesGetNickNameRef,
+            regionOrNs: regionOrNs,
+          ),
+          from: fixturesGetNickNameProvider,
+          name: r'fixturesGetNickNameProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fixturesGetNickNameHash,
+          dependencies: FixturesGetNickNameFamily._dependencies,
+          allTransitiveDependencies:
+              FixturesGetNickNameFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+        );
+
+  FixturesGetNickNameProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+  }) : super.internal();
+
+  final String regionOrNs;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(FixturesGetNickNameRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FixturesGetNickNameProvider._internal(
+        (ref) => create(ref as FixturesGetNickNameRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _FixturesGetNickNameProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FixturesGetNickNameProvider &&
+        other.regionOrNs == regionOrNs;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin FixturesGetNickNameRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+}
+
+class _FixturesGetNickNameProviderElement
+    extends AutoDisposeFutureProviderElement<String>
+    with FixturesGetNickNameRef {
+  _FixturesGetNickNameProviderElement(super.provider);
+
+  @override
+  String get regionOrNs => (origin as FixturesGetNickNameProvider).regionOrNs;
 }
 
 String _$fixturesGetSentenceHash() =>

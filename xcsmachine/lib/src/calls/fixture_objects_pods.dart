@@ -374,6 +374,15 @@ Future<List<TestRec>> fixturesMakeSomeRecs(FixturesMakeSomeRecsRef ref, {
 }
   
 @riverpod
+Future<List<ProtoEnt>> fixturesNoteEnts(FixturesNoteEntsRef ref, {
+  String regionOrNs='default',
+}) async {
+  var pod=ref.watch(fixtureObjectsProvider(regionOrNs: regionOrNs));
+  return await pod.noteEnts(
+  );
+}
+  
+@riverpod
 Future<TestRec> fixturesMakeTestRec(FixturesMakeTestRecRef ref, {
   String regionOrNs='default',
   

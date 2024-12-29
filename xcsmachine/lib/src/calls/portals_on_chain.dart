@@ -18,6 +18,25 @@ class PortalsOnChainRepository {
   final String moduleName;
 
    
+  // Query
+  Future<List<String>> getPublicElementIds({
+    
+    required String parentNode, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getPublicElementIds",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "parentNode": parentNode, 
+    });
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
   // Mutation
   Future<DateTime> touch({
     
@@ -37,25 +56,6 @@ class PortalsOnChainRepository {
     });
     
     return DateTime.parse(resp as String);
-  }
-   
-  // Query
-  Future<List<String>> getPublicElementIds({
-    
-    required String parentNode, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getPublicElementIds",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "parentNode": parentNode, 
-    });
-    
-    return convScalars(resp, (e)=> e.toString());
   }
    
   // Mutation
@@ -199,24 +199,6 @@ class PortalsOnChainRepository {
   }
    
   // Mutation
-  Future<void> addPublicNotes({
-    
-    required List<String> noteIds, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "addPublicNotes",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, {
-      "noteIds": noteIds, 
-    });
-    
-  }
-   
-  // Mutation
   Future<void> registerPublicElements({
     
     required String parentNode,
@@ -236,18 +218,22 @@ class PortalsOnChainRepository {
     
   }
    
-  // Query
-  Future<List<BiFacetBi>> getPublicNotes() async { 
+  // Mutation
+  Future<void> addPublicNotes({
+    
+    required List<String> noteIds, 
+
+  }) async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "getPublicNotes",
+      "action": "addPublicNotes",
       "bundleName" : "PortalsOnChain",
       "call-type": "chain",
       "regionId": regionOrNs,
-    }, { 
+    }, {
+      "noteIds": noteIds, 
     });
     
-    return convList(resp, BiFacetBi.fromJson);
   }
    
   // Query
@@ -272,26 +258,17 @@ class PortalsOnChainRepository {
   }
    
   // Query
-  Future<MultiDs> listMultiDs({
-    
-    required String bundleName,
-    required List<String> resourceIds,
-    required String resourceType, 
-
-  }) async { 
+  Future<List<BiFacetBi>> getPublicNotes() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
-      "action": "listMultiDs",
+      "action": "getPublicNotes",
       "bundleName" : "PortalsOnChain",
       "call-type": "chain",
       "regionId": regionOrNs,
-    }, {
-      "bundleName": bundleName,
-      "resourceIds": resourceIds,
-      "resourceType": resourceType, 
+    }, { 
     });
     
-    return MultiDs.fromJson(resp);
+    return convList(resp, BiFacetBi.fromJson);
   }
    
   // Query
@@ -315,6 +292,29 @@ class PortalsOnChainRepository {
     });
     
     return MasterDetailDs.fromJson(resp);
+  }
+   
+  // Query
+  Future<MultiDs> listMultiDs({
+    
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "listMultiDs",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      "resourceIds": resourceIds,
+      "resourceType": resourceType, 
+    });
+    
+    return MultiDs.fromJson(resp);
   }
    
   // Query
@@ -401,6 +401,20 @@ class PortalsOnChainRepository {
   }
    
   // Query
+  Future<List<Linkage>> getAllStarterElements() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getAllStarterElements",
+      "bundleName" : "PortalsOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return convList(resp, Linkage.fromJson);
+  }
+   
+  // Query
   Future<List<String>> allBundleIds({
     
     required String bundleName, 
@@ -417,20 +431,6 @@ class PortalsOnChainRepository {
     });
     
     return convScalars(resp, (e)=> e.toString());
-  }
-   
-  // Query
-  Future<List<Linkage>> getAllStarterElements() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getAllStarterElements",
-      "bundleName" : "PortalsOnChain",
-      "call-type": "chain",
-      "regionId": regionOrNs,
-    }, { 
-    });
-    
-    return convList(resp, Linkage.fromJson);
   }
    
   // Mutation

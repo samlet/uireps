@@ -22,6 +22,8 @@ final noteRepositoryProvider = Provider<NoteRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef NoteRepositoryRef = ProviderRef<NoteRepository>;
 String _$getNoteHash() => r'af522d062f9649f4011504d849117ea94e234d8f';
 
@@ -170,6 +172,8 @@ class GetNoteProvider extends AutoDisposeFutureProvider<NoteDataData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetNoteRef on AutoDisposeFutureProviderRef<NoteDataData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -309,6 +313,8 @@ class FetchNoteProvider extends AutoDisposeFutureProvider<ent.Note?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchNoteRef on AutoDisposeFutureProviderRef<ent.Note?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -450,6 +456,8 @@ class FetchNotesFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchNotesFromRegRef on AutoDisposeFutureProviderRef<List<ent.Note>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
@@ -604,6 +612,8 @@ class QueryNoteByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryNoteByCondRef on AutoDisposeFutureProviderRef<PaginatedNotes> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
@@ -781,6 +791,8 @@ class NoteElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteElRef on AutoDisposeStreamNotifierProviderRef<NoteDataData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -924,6 +936,8 @@ class NoteRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteRegRef on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
@@ -1067,6 +1081,8 @@ class NoteTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
   /// The parameter `tenantId` of this provider.
@@ -1212,6 +1228,8 @@ class NoteByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteByTagsRef
     on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
   /// The parameter `tags` of this provider.
@@ -1390,6 +1408,8 @@ class NoteByResourceBinderProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin NoteByResourceBinderRef
     on AutoDisposeStreamNotifierProviderRef<List<NoteDataData>> {
   /// The parameter `resourceId` of this provider.
@@ -1411,4 +1431,4 @@ class _NoteByResourceBinderProviderElement
       (origin as NoteByResourceBinderProvider).resourceType;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

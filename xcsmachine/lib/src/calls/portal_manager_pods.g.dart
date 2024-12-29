@@ -532,6 +532,159 @@ class _PortalManagerLoadAsBiFacetProviderElement
       (origin as PortalManagerLoadAsBiFacetProvider).bundleId;
 }
 
+String _$portalManagerListAsEntsHash() =>
+    r'19c9e2347f003edf46f4e88320ef20329024eca8';
+
+/// See also [portalManagerListAsEnts].
+@ProviderFor(portalManagerListAsEnts)
+const portalManagerListAsEntsProvider = PortalManagerListAsEntsFamily();
+
+/// See also [portalManagerListAsEnts].
+class PortalManagerListAsEntsFamily extends Family<AsyncValue<List<ProtoEnt>>> {
+  /// See also [portalManagerListAsEnts].
+  const PortalManagerListAsEntsFamily();
+
+  /// See also [portalManagerListAsEnts].
+  PortalManagerListAsEntsProvider call({
+    String regionOrNs = 'default',
+    required QueryRequest qr,
+  }) {
+    return PortalManagerListAsEntsProvider(
+      regionOrNs: regionOrNs,
+      qr: qr,
+    );
+  }
+
+  @override
+  PortalManagerListAsEntsProvider getProviderOverride(
+    covariant PortalManagerListAsEntsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      qr: provider.qr,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'portalManagerListAsEntsProvider';
+}
+
+/// See also [portalManagerListAsEnts].
+class PortalManagerListAsEntsProvider
+    extends AutoDisposeFutureProvider<List<ProtoEnt>> {
+  /// See also [portalManagerListAsEnts].
+  PortalManagerListAsEntsProvider({
+    String regionOrNs = 'default',
+    required QueryRequest qr,
+  }) : this._internal(
+          (ref) => portalManagerListAsEnts(
+            ref as PortalManagerListAsEntsRef,
+            regionOrNs: regionOrNs,
+            qr: qr,
+          ),
+          from: portalManagerListAsEntsProvider,
+          name: r'portalManagerListAsEntsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$portalManagerListAsEntsHash,
+          dependencies: PortalManagerListAsEntsFamily._dependencies,
+          allTransitiveDependencies:
+              PortalManagerListAsEntsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          qr: qr,
+        );
+
+  PortalManagerListAsEntsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.qr,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final QueryRequest qr;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ProtoEnt>> Function(PortalManagerListAsEntsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PortalManagerListAsEntsProvider._internal(
+        (ref) => create(ref as PortalManagerListAsEntsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        qr: qr,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ProtoEnt>> createElement() {
+    return _PortalManagerListAsEntsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PortalManagerListAsEntsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.qr == qr;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, qr.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PortalManagerListAsEntsRef
+    on AutoDisposeFutureProviderRef<List<ProtoEnt>> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `qr` of this provider.
+  QueryRequest get qr;
+}
+
+class _PortalManagerListAsEntsProviderElement
+    extends AutoDisposeFutureProviderElement<List<ProtoEnt>>
+    with PortalManagerListAsEntsRef {
+  _PortalManagerListAsEntsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as PortalManagerListAsEntsProvider).regionOrNs;
+  @override
+  QueryRequest get qr => (origin as PortalManagerListAsEntsProvider).qr;
+}
+
 String _$portalManagerLoadAsBiFacetsByTenantHash() =>
     r'1ccaf62563d82c382c2308ad9b4c99d6583be8ce';
 

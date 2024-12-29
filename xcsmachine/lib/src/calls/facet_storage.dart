@@ -83,6 +83,25 @@ class FacetStorageRepository {
   }
    
   // Query
+  Future<BiFacetBi> getBiDraft({
+    
+    required String key, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getBiDraft",
+      "bundleName" : "FacetStorage",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "key": key, 
+    });
+    
+    return BiFacetBi.fromJson(resp);
+  }
+   
+  // Query
   Future<DateTime> getLastTs({
     
     required String fullBundleName,
@@ -101,25 +120,6 @@ class FacetStorageRepository {
     });
     
     return DateTime.parse(resp as String);
-  }
-   
-  // Query
-  Future<BiFacetBi> getBiDraft({
-    
-    required String key, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getBiDraft",
-      "bundleName" : "FacetStorage",
-      "call-type": "slab",
-      "regionId": regionOrNs,
-    }, {
-      "key": key, 
-    });
-    
-    return BiFacetBi.fromJson(resp);
   }
    
   // Query

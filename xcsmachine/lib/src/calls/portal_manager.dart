@@ -132,6 +132,25 @@ class PortalManagerRepository {
   }
    
   // Query
+  Future<List<ProtoEnt>> listAsEnts({
+    
+    required QueryRequest qr, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "listAsEnts",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "qr": qr, 
+    });
+    
+    return convList(resp, ProtoEnt.fromJson);
+  }
+   
+  // Query
   Future<List<BiFacetBi>> loadAsBiFacetsByTenant({
     
     required String bundleName,

@@ -266,6 +266,21 @@ class PostPalRepository {
   }
    
   // Query
+  Future<List<Comment>> getCommentSyncs() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "getCommentSyncs",
+      "bundleName" : "Content",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
+    return convList(resp, Comment.fromJson);
+  }
+   
+  // Query
   Future<PostBundle> fetch() async { 
     var resp = await performCall(dio, {
       "module": moduleName,
@@ -292,21 +307,6 @@ class PostPalRepository {
     }, { 
     });
     
-  }
-   
-  // Query
-  Future<List<Comment>> getCommentSyncs() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "getCommentSyncs",
-      "bundleName" : "Content",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-    return convList(resp, Comment.fromJson);
   }
    
   // Mutation

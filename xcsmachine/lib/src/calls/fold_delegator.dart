@@ -44,6 +44,25 @@ class FoldDelegatorRepository {
   }
    
   // Query
+  Future<ResultProtosWithMeta> queryAsEnts({
+    
+    required QueryRequest qr, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "queryAsEnts",
+      "bundleName" : "FoldDelegator",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "qr": qr, 
+    });
+    
+    return ResultProtosWithMeta.fromJson(resp);
+  }
+   
+  // Query
   Future<ResultBytesWithMeta> query({
     
     required FoldRegion foldRegion,

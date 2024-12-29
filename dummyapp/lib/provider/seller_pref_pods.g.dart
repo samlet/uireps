@@ -23,6 +23,8 @@ final sellerPrefRepositoryProvider = Provider<SellerPrefRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SellerPrefRepositoryRef = ProviderRef<SellerPrefRepository>;
 String _$getSellerPrefHash() => r'09eb583b8ff00e711ac9c4a715c037bfb9f486c4';
 
@@ -172,6 +174,8 @@ class GetSellerPrefProvider extends AutoDisposeFutureProvider<SellerPrefData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetSellerPrefRef on AutoDisposeFutureProviderRef<SellerPrefData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -314,6 +318,8 @@ class FetchSellerPrefProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchSellerPrefRef on AutoDisposeFutureProviderRef<ent.SellerPref?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -459,6 +465,8 @@ class FetchSellerPrefsFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchSellerPrefsFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.SellerPref>> {
   /// The parameter `regNode` of this provider.
@@ -617,6 +625,8 @@ class QuerySellerPrefByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QuerySellerPrefByCondRef
     on AutoDisposeFutureProviderRef<PaginatedSellerPrefs> {
   /// The parameter `pageIndex` of this provider.
@@ -798,6 +808,8 @@ class SellerPrefElProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SellerPrefElRef on AutoDisposeStreamNotifierProviderRef<SellerPrefData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -942,6 +954,8 @@ class SellerPrefRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SellerPrefRegRef
     on AutoDisposeStreamNotifierProviderRef<List<SellerPrefData>> {
   /// The parameter `regNode` of this provider.
@@ -1087,6 +1101,8 @@ class SellerPrefTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SellerPrefTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<SellerPrefData>> {
   /// The parameter `tenantId` of this provider.
@@ -1102,4 +1118,4 @@ class _SellerPrefTenantProviderElement
   String get tenantId => (origin as SellerPrefTenantProvider).tenantId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

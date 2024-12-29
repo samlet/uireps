@@ -23,6 +23,8 @@ final carrierPrefRepositoryProvider = Provider<CarrierPrefRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CarrierPrefRepositoryRef = ProviderRef<CarrierPrefRepository>;
 String _$getCarrierPrefHash() => r'27ac14a8c0c258205f9829c640c4f0d2b71831ec';
 
@@ -173,6 +175,8 @@ class GetCarrierPrefProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetCarrierPrefRef on AutoDisposeFutureProviderRef<CarrierPrefData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -315,6 +319,8 @@ class FetchCarrierPrefProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCarrierPrefRef on AutoDisposeFutureProviderRef<ent.CarrierPref?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -462,6 +468,8 @@ class FetchCarrierPrefsFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCarrierPrefsFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.CarrierPref>> {
   /// The parameter `regNode` of this provider.
@@ -620,6 +628,8 @@ class QueryCarrierPrefByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryCarrierPrefByCondRef
     on AutoDisposeFutureProviderRef<PaginatedCarrierPrefs> {
   /// The parameter `pageIndex` of this provider.
@@ -801,6 +811,8 @@ class CarrierPrefElProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPrefElRef
     on AutoDisposeStreamNotifierProviderRef<CarrierPrefData> {
   /// The parameter `id` of this provider.
@@ -946,6 +958,8 @@ class CarrierPrefRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPrefRegRef
     on AutoDisposeStreamNotifierProviderRef<List<CarrierPrefData>> {
   /// The parameter `regNode` of this provider.
@@ -1092,6 +1106,8 @@ class CarrierPrefTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CarrierPrefTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<CarrierPrefData>> {
   /// The parameter `tenantId` of this provider.
@@ -1107,4 +1123,4 @@ class _CarrierPrefTenantProviderElement
   String get tenantId => (origin as CarrierPrefTenantProvider).tenantId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

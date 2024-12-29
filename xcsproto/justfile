@@ -4,6 +4,9 @@ b:
 w:
     dart run build_runner watch --delete-conflicting-outputs
 
+tool:
+    dart pub global activate protoc_plugin
+
 gen_proto file:
     protoc --dart_out=grpc:lib/src/generated \
                 -I{{env_var('PROTOBUF')}}/src \
@@ -28,6 +31,8 @@ fund:
 
 ents:
     just gen_proto "/opt/app/apiset/entity/src/main/proto/ents/*.proto"
+types:
+    just gen_proto "/opt/app/apiset/entity/src/main/proto/types/*.proto"
 
 domain:
     just gen_proto "/opt/app/apiset/domain/src/main/proto/*.proto"

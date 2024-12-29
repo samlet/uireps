@@ -117,6 +117,25 @@ class NoteCoRepository {
     
   }
    
+  // Mutation
+  Future<void> attachToWorkEffort({
+    
+    required String workEffId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "attachToWorkEffort",
+      "bundleName" : "Note",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, {
+      "workEffId": workEffId, 
+    });
+    
+  }
+   
   // Query
   Future<NoteContent> viewContent() async { 
     var resp = await performCall(dio, {
@@ -142,25 +161,6 @@ class NoteCoRepository {
       "regionId": regionOrNs,
       "id": id,
     }, { 
-    });
-    
-  }
-   
-  // Mutation
-  Future<void> attachToWorkEffort({
-    
-    required String workEffId, 
-
-  }) async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "attachToWorkEffort",
-      "bundleName" : "Note",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, {
-      "workEffId": workEffId, 
     });
     
   }

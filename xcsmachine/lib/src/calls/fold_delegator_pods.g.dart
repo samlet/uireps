@@ -362,6 +362,161 @@ class _FoldDelegatorQueryPageProviderElement
       (origin as FoldDelegatorQueryPageProvider).orderBy;
 }
 
+String _$foldDelegatorQueryAsEntsHash() =>
+    r'57a13f8a335c14c4a68b4d4e6a6e0a96c214c106';
+
+/// See also [foldDelegatorQueryAsEnts].
+@ProviderFor(foldDelegatorQueryAsEnts)
+const foldDelegatorQueryAsEntsProvider = FoldDelegatorQueryAsEntsFamily();
+
+/// See also [foldDelegatorQueryAsEnts].
+class FoldDelegatorQueryAsEntsFamily
+    extends Family<AsyncValue<ResultProtosWithMeta>> {
+  /// See also [foldDelegatorQueryAsEnts].
+  const FoldDelegatorQueryAsEntsFamily();
+
+  /// See also [foldDelegatorQueryAsEnts].
+  FoldDelegatorQueryAsEntsProvider call({
+    String regionOrNs = 'default',
+    required QueryRequest qr,
+  }) {
+    return FoldDelegatorQueryAsEntsProvider(
+      regionOrNs: regionOrNs,
+      qr: qr,
+    );
+  }
+
+  @override
+  FoldDelegatorQueryAsEntsProvider getProviderOverride(
+    covariant FoldDelegatorQueryAsEntsProvider provider,
+  ) {
+    return call(
+      regionOrNs: provider.regionOrNs,
+      qr: provider.qr,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'foldDelegatorQueryAsEntsProvider';
+}
+
+/// See also [foldDelegatorQueryAsEnts].
+class FoldDelegatorQueryAsEntsProvider
+    extends AutoDisposeFutureProvider<ResultProtosWithMeta> {
+  /// See also [foldDelegatorQueryAsEnts].
+  FoldDelegatorQueryAsEntsProvider({
+    String regionOrNs = 'default',
+    required QueryRequest qr,
+  }) : this._internal(
+          (ref) => foldDelegatorQueryAsEnts(
+            ref as FoldDelegatorQueryAsEntsRef,
+            regionOrNs: regionOrNs,
+            qr: qr,
+          ),
+          from: foldDelegatorQueryAsEntsProvider,
+          name: r'foldDelegatorQueryAsEntsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$foldDelegatorQueryAsEntsHash,
+          dependencies: FoldDelegatorQueryAsEntsFamily._dependencies,
+          allTransitiveDependencies:
+              FoldDelegatorQueryAsEntsFamily._allTransitiveDependencies,
+          regionOrNs: regionOrNs,
+          qr: qr,
+        );
+
+  FoldDelegatorQueryAsEntsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.regionOrNs,
+    required this.qr,
+  }) : super.internal();
+
+  final String regionOrNs;
+  final QueryRequest qr;
+
+  @override
+  Override overrideWith(
+    FutureOr<ResultProtosWithMeta> Function(
+            FoldDelegatorQueryAsEntsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FoldDelegatorQueryAsEntsProvider._internal(
+        (ref) => create(ref as FoldDelegatorQueryAsEntsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        regionOrNs: regionOrNs,
+        qr: qr,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<ResultProtosWithMeta> createElement() {
+    return _FoldDelegatorQueryAsEntsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FoldDelegatorQueryAsEntsProvider &&
+        other.regionOrNs == regionOrNs &&
+        other.qr == qr;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, regionOrNs.hashCode);
+    hash = _SystemHash.combine(hash, qr.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin FoldDelegatorQueryAsEntsRef
+    on AutoDisposeFutureProviderRef<ResultProtosWithMeta> {
+  /// The parameter `regionOrNs` of this provider.
+  String get regionOrNs;
+
+  /// The parameter `qr` of this provider.
+  QueryRequest get qr;
+}
+
+class _FoldDelegatorQueryAsEntsProviderElement
+    extends AutoDisposeFutureProviderElement<ResultProtosWithMeta>
+    with FoldDelegatorQueryAsEntsRef {
+  _FoldDelegatorQueryAsEntsProviderElement(super.provider);
+
+  @override
+  String get regionOrNs =>
+      (origin as FoldDelegatorQueryAsEntsProvider).regionOrNs;
+  @override
+  QueryRequest get qr => (origin as FoldDelegatorQueryAsEntsProvider).qr;
+}
+
 String _$foldDelegatorQueryHash() =>
     r'056c4a646d174c4e93b1c3edd5ef28a009b58e69';
 

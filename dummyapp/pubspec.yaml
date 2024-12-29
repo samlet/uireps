@@ -28,11 +28,12 @@ dependencies:
   freezed_annotation: ^2.1.0
   hooks_riverpod: ^2.3.4
   html: ^0.15.0
-  json_annotation: ^4.6.0
+  json_annotation: ^4.9.0
   pubspec_parse: ^1.2.1
   riverpod_annotation:
   shimmer: ^2.0.0
   animated_tree_view: ^2.3.0
+  hive: ^2.2.3
 
   drift: ^2.21.0
   xcsmachine:
@@ -48,15 +49,18 @@ dev_dependencies:
 
   build_runner: ^2.1.4
   build_web_compilers: ^4.0.3
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   # drift_dev: ^2.21.0
 
-  custom_lint:
+#  custom_lint:
   freezed: ^2.1.0
   json_serializable: ^6.3.0
   mockito: ^5.0.0
-  riverpod_generator:
-  riverpod_lint:
+#  riverpod_generator:
+#  riverpod_lint:
+  # for riverpod
+  riverpod_generator: ^2.6.3
+  riverpod_lint: ^2.6.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -68,34 +72,3 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package

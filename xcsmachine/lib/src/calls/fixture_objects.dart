@@ -420,6 +420,20 @@ class FixtureObjectsRepository {
     return convList(resp, TestRec.fromJson);
   }
    
+  // Query
+  Future<List<ProtoEnt>> noteEnts() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "noteEnts",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    });
+    
+    return convList(resp, ProtoEnt.fromJson);
+  }
+   
   // Mutation
   Future<String> createTestAsset({
     

@@ -22,6 +22,8 @@ final storeRepositoryProvider = Provider<StoreRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef StoreRepositoryRef = ProviderRef<StoreRepository>;
 String _$getStoreHash() => r'805150f0fb5439f44a63725547c798fbb86f9bc3';
 
@@ -170,6 +172,8 @@ class GetStoreProvider extends AutoDisposeFutureProvider<ProductStoreData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetStoreRef on AutoDisposeFutureProviderRef<ProductStoreData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -311,6 +315,8 @@ class FetchStoreProvider extends AutoDisposeFutureProvider<ent.Store?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchStoreRef on AutoDisposeFutureProviderRef<ent.Store?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -453,6 +459,8 @@ class FetchStoresFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchStoresFromRegRef on AutoDisposeFutureProviderRef<List<ent.Store>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
@@ -607,6 +615,8 @@ class QueryStoreByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryStoreByCondRef on AutoDisposeFutureProviderRef<PaginatedStores> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
@@ -784,6 +794,8 @@ class StoreElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin StoreElRef on AutoDisposeStreamNotifierProviderRef<ProductStoreData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -927,6 +939,8 @@ class StoreRegProvider extends AutoDisposeStreamNotifierProviderImpl<StoreReg,
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin StoreRegRef
     on AutoDisposeStreamNotifierProviderRef<List<ProductStoreData>> {
   /// The parameter `regNode` of this provider.
@@ -1071,6 +1085,8 @@ class StoreTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin StoreTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<ProductStoreData>> {
   /// The parameter `tenantId` of this provider.
@@ -1216,6 +1232,8 @@ class StoreByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin StoreByTagsRef
     on AutoDisposeStreamNotifierProviderRef<List<ProductStoreData>> {
   /// The parameter `tags` of this provider.
@@ -1231,4 +1249,4 @@ class _StoreByTagsProviderElement
   List<String> get tags => (origin as StoreByTagsProvider).tags;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

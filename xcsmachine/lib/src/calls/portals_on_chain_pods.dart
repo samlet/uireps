@@ -108,19 +108,6 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
     return state.hasError == false;
   }
   
-  Future<bool> addPublicNotes({
-    
-    required List<String> noteIds, 
-
-  }) async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(
-        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
-              noteIds: noteIds,
-            ));
-    return state.hasError == false;
-  }
-  
   Future<bool> registerPublicElements({
     
     required String parentNode,
@@ -132,6 +119,19 @@ class PortalsOnChainPod extends _$PortalsOnChainPod {
         () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).registerPublicElements(
               parentNode: parentNode,
               ids: ids,
+            ));
+    return state.hasError == false;
+  }
+  
+  Future<bool> addPublicNotes({
+    
+    required List<String> noteIds, 
+
+  }) async {
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(
+        () => ref.read(portalsOnChainProvider(regionOrNs: regionOrNs)).addPublicNotes(
+              noteIds: noteIds,
             ));
     return state.hasError == false;
   }
@@ -256,15 +256,6 @@ Future<List<Map<String, dynamic>>> portalsListResources(PortalsListResourcesRef 
 }
   
 @riverpod
-Future<List<BiFacetBi>> portalsGetPublicNotes(PortalsGetPublicNotesRef ref, {
-  String regionOrNs='default',
-}) async {
-  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getPublicNotes(
-  );
-}
-  
-@riverpod
 Future<List<BiFacetBi>> portalsGetPublicElements(PortalsGetPublicElementsRef ref, {
   String regionOrNs='default',
   
@@ -280,19 +271,11 @@ Future<List<BiFacetBi>> portalsGetPublicElements(PortalsGetPublicElementsRef ref
 }
   
 @riverpod
-Future<MultiDs> portalsListMultiDs(PortalsListMultiDsRef ref, {
+Future<List<BiFacetBi>> portalsGetPublicNotes(PortalsGetPublicNotesRef ref, {
   String regionOrNs='default',
-  
-    required String bundleName,
-    required List<String> resourceIds,
-    required String resourceType, 
-
 }) async {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.listMultiDs(
-      bundleName: bundleName,
-      resourceIds: resourceIds,
-      resourceType: resourceType,
+  return await pod.getPublicNotes(
   );
 }
   
@@ -310,6 +293,23 @@ Future<MasterDetailDs> portalsListMasterDetail(PortalsListMasterDetailRef ref, {
       bundleName: bundleName,
       resourceIds: resourceIds,
       binders: binders,
+  );
+}
+  
+@riverpod
+Future<MultiDs> portalsListMultiDs(PortalsListMultiDsRef ref, {
+  String regionOrNs='default',
+  
+    required String bundleName,
+    required List<String> resourceIds,
+    required String resourceType, 
+
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.listMultiDs(
+      bundleName: bundleName,
+      resourceIds: resourceIds,
+      resourceType: resourceType,
   );
 }
   
@@ -340,6 +340,15 @@ Future<List<String>> portalsAllLoginIds(PortalsAllLoginIdsRef ref, {
 }
   
 @riverpod
+Future<List<Linkage>> portalsGetAllStarterElements(PortalsGetAllStarterElementsRef ref, {
+  String regionOrNs='default',
+}) async {
+  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
+  return await pod.getAllStarterElements(
+  );
+}
+  
+@riverpod
 Future<List<String>> portalsAllBundleIds(PortalsAllBundleIdsRef ref, {
   String regionOrNs='default',
   
@@ -349,15 +358,6 @@ Future<List<String>> portalsAllBundleIds(PortalsAllBundleIdsRef ref, {
   var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
   return await pod.allBundleIds(
       bundleName: bundleName,
-  );
-}
-  
-@riverpod
-Future<List<Linkage>> portalsGetAllStarterElements(PortalsGetAllStarterElementsRef ref, {
-  String regionOrNs='default',
-}) async {
-  var pod=ref.watch(portalsOnChainProvider(regionOrNs: regionOrNs));
-  return await pod.getAllStarterElements(
   );
 }
   

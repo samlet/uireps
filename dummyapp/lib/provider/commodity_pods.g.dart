@@ -23,6 +23,8 @@ final commodityRepositoryProvider = Provider<CommodityRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CommodityRepositoryRef = ProviderRef<CommodityRepository>;
 String _$getCommodityHash() => r'f0d9380a17eb1042110e331dfb9bfcdefc66a679';
 
@@ -172,6 +174,8 @@ class GetCommodityProvider extends AutoDisposeFutureProvider<CommodityData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetCommodityRef on AutoDisposeFutureProviderRef<CommodityData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -313,6 +317,8 @@ class FetchCommodityProvider extends AutoDisposeFutureProvider<ent.Commodity?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCommodityRef on AutoDisposeFutureProviderRef<ent.Commodity?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -458,6 +464,8 @@ class FetchCommoditiesFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCommoditiesFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.Commodity>> {
   /// The parameter `regNode` of this provider.
@@ -616,6 +624,8 @@ class QueryCommodityByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryCommodityByCondRef
     on AutoDisposeFutureProviderRef<PaginatedCommodities> {
   /// The parameter `pageIndex` of this provider.
@@ -797,6 +807,8 @@ class CommodityElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommodityElRef on AutoDisposeStreamNotifierProviderRef<CommodityData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -941,6 +953,8 @@ class CommodityRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommodityRegRef
     on AutoDisposeStreamNotifierProviderRef<List<CommodityData>> {
   /// The parameter `regNode` of this provider.
@@ -1086,6 +1100,8 @@ class CommodityTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommodityTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<CommodityData>> {
   /// The parameter `tenantId` of this provider.
@@ -1101,4 +1117,4 @@ class _CommodityTenantProviderElement
   String get tenantId => (origin as CommodityTenantProvider).tenantId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

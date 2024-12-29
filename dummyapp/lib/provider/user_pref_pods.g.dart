@@ -23,6 +23,8 @@ final userPrefRepositoryProvider = Provider<UserPrefRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef UserPrefRepositoryRef = ProviderRef<UserPrefRepository>;
 String _$getUserPrefHash() => r'1a9b3d1b4755d8a92c2c1a8d6b4edefa98cffad9';
 
@@ -172,6 +174,8 @@ class GetUserPrefProvider extends AutoDisposeFutureProvider<UserPrefData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetUserPrefRef on AutoDisposeFutureProviderRef<UserPrefData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -313,6 +317,8 @@ class FetchUserPrefProvider extends AutoDisposeFutureProvider<ent.UserPref?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchUserPrefRef on AutoDisposeFutureProviderRef<ent.UserPref?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -458,6 +464,8 @@ class FetchUserPrefsFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchUserPrefsFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.UserPref>> {
   /// The parameter `regNode` of this provider.
@@ -615,6 +623,8 @@ class QueryUserPrefByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryUserPrefByCondRef
     on AutoDisposeFutureProviderRef<PaginatedUserPrefs> {
   /// The parameter `pageIndex` of this provider.
@@ -795,6 +805,8 @@ class UserPrefElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPrefElRef on AutoDisposeStreamNotifierProviderRef<UserPrefData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -939,6 +951,8 @@ class UserPrefRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPrefRegRef
     on AutoDisposeStreamNotifierProviderRef<List<UserPrefData>> {
   /// The parameter `regNode` of this provider.
@@ -1084,6 +1098,8 @@ class UserPrefTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin UserPrefTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<UserPrefData>> {
   /// The parameter `tenantId` of this provider.
@@ -1099,4 +1115,4 @@ class _UserPrefTenantProviderElement
   String get tenantId => (origin as UserPrefTenantProvider).tenantId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

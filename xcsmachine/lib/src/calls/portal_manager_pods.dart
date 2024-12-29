@@ -137,6 +137,19 @@ Future<BiFacetBi> portalManagerLoadAsBiFacet(PortalManagerLoadAsBiFacetRef ref, 
 }
   
 @riverpod
+Future<List<ProtoEnt>> portalManagerListAsEnts(PortalManagerListAsEntsRef ref, {
+  String regionOrNs='default',
+  
+    required QueryRequest qr, 
+
+}) async {
+  var pod=ref.watch(portalManagerProvider(regionOrNs: regionOrNs));
+  return await pod.listAsEnts(
+      qr: qr,
+  );
+}
+  
+@riverpod
 Future<List<BiFacetBi>> portalManagerLoadAsBiFacetsByTenant(PortalManagerLoadAsBiFacetsByTenantRef ref, {
   String regionOrNs='default',
   

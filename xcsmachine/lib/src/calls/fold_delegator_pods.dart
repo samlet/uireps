@@ -54,6 +54,19 @@ Future<PaginatedEntBytes> foldDelegatorQueryPage(FoldDelegatorQueryPageRef ref, 
 }
   
 @riverpod
+Future<ResultProtosWithMeta> foldDelegatorQueryAsEnts(FoldDelegatorQueryAsEntsRef ref, {
+  String regionOrNs='default',
+  
+    required QueryRequest qr, 
+
+}) async {
+  var pod=ref.watch(foldDelegatorProvider(regionOrNs: regionOrNs));
+  return await pod.queryAsEnts(
+      qr: qr,
+  );
+}
+  
+@riverpod
 Future<ResultBytesWithMeta> foldDelegatorQuery(FoldDelegatorQueryRef ref, {
   String regionOrNs='default',
   

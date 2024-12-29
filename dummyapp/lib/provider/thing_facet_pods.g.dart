@@ -23,6 +23,8 @@ final thingFacetRepositoryProvider = Provider<ThingFacetRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ThingFacetRepositoryRef = ProviderRef<ThingFacetRepository>;
 String _$getThingFacetHash() => r'ce9320f8ac2c076cd1be7545959a983cb1b0f6f5';
 
@@ -172,6 +174,8 @@ class GetThingFacetProvider extends AutoDisposeFutureProvider<ThingFacetData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetThingFacetRef on AutoDisposeFutureProviderRef<ThingFacetData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -314,6 +318,8 @@ class FetchThingFacetProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchThingFacetRef on AutoDisposeFutureProviderRef<ent.ThingFacet?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -459,6 +465,8 @@ class FetchThingFacetsFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchThingFacetsFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.ThingFacet>> {
   /// The parameter `regNode` of this provider.
@@ -617,6 +625,8 @@ class QueryThingFacetByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryThingFacetByCondRef
     on AutoDisposeFutureProviderRef<PaginatedThingFacets> {
   /// The parameter `pageIndex` of this provider.
@@ -798,6 +808,8 @@ class ThingFacetElProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ThingFacetElRef on AutoDisposeStreamNotifierProviderRef<ThingFacetData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -942,6 +954,8 @@ class ThingFacetRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ThingFacetRegRef
     on AutoDisposeStreamNotifierProviderRef<List<ThingFacetData>> {
   /// The parameter `regNode` of this provider.
@@ -1087,6 +1101,8 @@ class ThingFacetTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ThingFacetTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<ThingFacetData>> {
   /// The parameter `tenantId` of this provider.
@@ -1102,4 +1118,4 @@ class _ThingFacetTenantProviderElement
   String get tenantId => (origin as ThingFacetTenantProvider).tenantId;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

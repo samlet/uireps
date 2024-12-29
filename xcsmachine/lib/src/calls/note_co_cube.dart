@@ -58,13 +58,6 @@ class NoteCoCube extends _$NoteCoCube {
     ref.invalidateSelf();
   }
   
-  Future<void> revokeContent() async { 
-    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
-    );
-    ref.invalidate(loadNoteProvider(bundleId: id));
-    ref.invalidateSelf();
-  }
-  
   Future<void> attachToWorkEffort({
     
     required String workEffId, 
@@ -72,6 +65,13 @@ class NoteCoCube extends _$NoteCoCube {
   }) async { 
     await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).attachToWorkEffort(
       workEffId: workEffId,
+    );
+    ref.invalidate(loadNoteProvider(bundleId: id));
+    ref.invalidateSelf();
+  }
+  
+  Future<void> revokeContent() async { 
+    await ref.read(noteCoProvider(regionOrNs: regionOrNs, id: id)).revokeContent(
     );
     ref.invalidate(loadNoteProvider(bundleId: id));
     ref.invalidateSelf();

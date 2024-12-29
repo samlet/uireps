@@ -18,7 +18,7 @@ dependencies:
   validators: ^3.0.0
   power_extensions: ^0.2.2
   get_it: ^8.0.3
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
   freezed_annotation: ^2.0.0
   riverpod: ^2.3.6
   riverpod_annotation: ^2.1.1

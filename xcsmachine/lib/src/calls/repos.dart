@@ -17,6 +17,7 @@ export 'fold_delegator.dart';
 export 'bundles_query_dealer.dart';
 export 'tags_and_bunches.dart';
 export 'bundles_meta_dealer.dart';
+export 'ecomm_sln.dart';
 export 'acl_on_chain.dart';
 export 'portals_on_chain.dart';
 export 'default_gen_meta.dart';

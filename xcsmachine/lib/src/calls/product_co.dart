@@ -176,20 +176,6 @@ class ProductCoRepository {
     return convScalars(resp, (e)=> e.toString());
   }
    
-  // Mutation
-  Future<void> featured() async { 
-    var resp = await performCall(dio, {
-      "module": moduleName,
-      "action": "featured",
-      "bundleName" : "Product",
-      "call-type": "co",
-      "regionId": regionOrNs,
-      "id": id,
-    }, { 
-    });
-    
-  }
-   
   // Query
   Future<double> getDefaultPrice() async { 
     var resp = await performCall(dio, {
@@ -203,6 +189,20 @@ class ProductCoRepository {
     });
     
     return ResultConv.asDouble(resp);
+  }
+   
+  // Mutation
+  Future<void> featured() async { 
+    var resp = await performCall(dio, {
+      "module": moduleName,
+      "action": "featured",
+      "bundleName" : "Product",
+      "call-type": "co",
+      "regionId": regionOrNs,
+      "id": id,
+    }, { 
+    });
+    
   }
    
   // Query

@@ -22,6 +22,8 @@ final exampleRepositoryProvider = Provider<ExampleRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ExampleRepositoryRef = ProviderRef<ExampleRepository>;
 String _$getExampleHash() => r'1bc4ddb761f5821b4109665617dcc1c80ddd47fb';
 
@@ -171,6 +173,8 @@ class GetExampleProvider extends AutoDisposeFutureProvider<ExampleData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetExampleRef on AutoDisposeFutureProviderRef<ExampleData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -311,6 +315,8 @@ class FetchExampleProvider extends AutoDisposeFutureProvider<ent.Example?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchExampleRef on AutoDisposeFutureProviderRef<ent.Example?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -455,6 +461,8 @@ class FetchExamplesFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchExamplesFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.Example>> {
   /// The parameter `regNode` of this provider.
@@ -611,6 +619,8 @@ class QueryExampleByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryExampleByCondRef on AutoDisposeFutureProviderRef<PaginatedExamples> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
@@ -789,6 +799,8 @@ class ExampleElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ExampleElRef on AutoDisposeStreamNotifierProviderRef<ExampleData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -933,6 +945,8 @@ class ExampleRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ExampleRegRef on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
@@ -1077,6 +1091,8 @@ class ExampleTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ExampleTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
   /// The parameter `tenantId` of this provider.
@@ -1222,6 +1238,8 @@ class ExampleByTagsProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ExampleByTagsRef
     on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
   /// The parameter `tags` of this provider.
@@ -1400,6 +1418,8 @@ class ExampleByResourceBinderProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ExampleByResourceBinderRef
     on AutoDisposeStreamNotifierProviderRef<List<ExampleData>> {
   /// The parameter `resourceId` of this provider.
@@ -1422,4 +1442,4 @@ class _ExampleByResourceBinderProviderElement
       (origin as ExampleByResourceBinderProvider).resourceType;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

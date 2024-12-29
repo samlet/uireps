@@ -386,22 +386,22 @@ Future<String> userPalGetNickname(UserPalGetNicknameRef ref, {
 }
   
 @riverpod
-Future<String> userPalFirstName(UserPalFirstNameRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.firstName(
-  );
-}
-  
-@riverpod
 Future<List<String>> userPalGetPaymentMethods(UserPalGetPaymentMethodsRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getPaymentMethods(
+  );
+}
+  
+@riverpod
+Future<String> userPalFirstName(UserPalFirstNameRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(userPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.firstName(
   );
 }
   

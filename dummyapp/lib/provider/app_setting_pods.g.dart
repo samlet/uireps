@@ -23,6 +23,8 @@ final appSettingRepositoryProvider = Provider<AppSettingRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef AppSettingRepositoryRef = ProviderRef<AppSettingRepository>;
 String _$getAppSettingHash() => r'4f46ef14211798147ab32d91fec81c1d4349e8e3';
 
@@ -172,6 +174,8 @@ class GetAppSettingProvider extends AutoDisposeFutureProvider<AppSettingData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetAppSettingRef on AutoDisposeFutureProviderRef<AppSettingData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -346,6 +350,8 @@ class AppSettingElProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin AppSettingElRef on AutoDisposeStreamNotifierProviderRef<AppSettingData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -360,4 +366,4 @@ class _AppSettingElProviderElement
   String get id => (origin as AppSettingElProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

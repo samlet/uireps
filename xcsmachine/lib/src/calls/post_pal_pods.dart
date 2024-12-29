@@ -253,22 +253,22 @@ Future<String> postText(PostTextRef ref, {
 }
   
 @riverpod
-Future<PostBundle> postFetch(PostFetchRef ref, {
-  String regionOrNs='default',
-  required String id,
-}) async {
-  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
-  return await pod.fetch(
-  );
-}
-  
-@riverpod
 Future<List<Comment>> postGetCommentSyncs(PostGetCommentSyncsRef ref, {
   String regionOrNs='default',
   required String id,
 }) async {
   var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
   return await pod.getCommentSyncs(
+  );
+}
+  
+@riverpod
+Future<PostBundle> postFetch(PostFetchRef ref, {
+  String regionOrNs='default',
+  required String id,
+}) async {
+  var pod=ref.watch(postPalProvider(regionOrNs: regionOrNs, id: id));
+  return await pod.fetch(
   );
 }
   

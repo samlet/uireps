@@ -10,7 +10,7 @@ environment:
 dependencies:
   path: ^1.8.0
   isar: 3.0.5
-  json_annotation: ^4.8.0
+  json_annotation: ^4.9.0
   slugid: ^1.1.0
   get_it: ^8.0.3
 

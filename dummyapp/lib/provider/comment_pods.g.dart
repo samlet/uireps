@@ -22,6 +22,8 @@ final commentRepositoryProvider = Provider<CommentRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CommentRepositoryRef = ProviderRef<CommentRepository>;
 String _$getCommentHash() => r'437655888336ac5f3e28082fd52400845420e660';
 
@@ -171,6 +173,8 @@ class GetCommentProvider extends AutoDisposeFutureProvider<CommentData?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin GetCommentRef on AutoDisposeFutureProviderRef<CommentData?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -311,6 +315,8 @@ class FetchCommentProvider extends AutoDisposeFutureProvider<ent.Comment?> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCommentRef on AutoDisposeFutureProviderRef<ent.Comment?> {
   /// The parameter `id` of this provider.
   String get id;
@@ -455,6 +461,8 @@ class FetchCommentsFromRegProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchCommentsFromRegRef
     on AutoDisposeFutureProviderRef<List<ent.Comment>> {
   /// The parameter `regNode` of this provider.
@@ -611,6 +619,8 @@ class QueryCommentByCondProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin QueryCommentByCondRef on AutoDisposeFutureProviderRef<PaginatedComments> {
   /// The parameter `pageIndex` of this provider.
   int get pageIndex;
@@ -789,6 +799,8 @@ class CommentElProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentElRef on AutoDisposeStreamNotifierProviderRef<CommentData> {
   /// The parameter `id` of this provider.
   String get id;
@@ -933,6 +945,8 @@ class CommentRegProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentRegRef on AutoDisposeStreamNotifierProviderRef<List<CommentData>> {
   /// The parameter `regNode` of this provider.
   String get regNode;
@@ -1077,6 +1091,8 @@ class CommentTenantProvider extends AutoDisposeStreamNotifierProviderImpl<
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentTenantRef
     on AutoDisposeStreamNotifierProviderRef<List<CommentData>> {
   /// The parameter `tenantId` of this provider.
@@ -1255,6 +1271,8 @@ class CommentByResourceBinderProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CommentByResourceBinderRef
     on AutoDisposeStreamNotifierProviderRef<List<CommentData>> {
   /// The parameter `resourceId` of this provider.
@@ -1277,4 +1295,4 @@ class _CommentByResourceBinderProviderElement
       (origin as CommentByResourceBinderProvider).resourceType;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
