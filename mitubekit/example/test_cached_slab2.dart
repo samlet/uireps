@@ -1,18 +1,14 @@
 import 'dart:convert';
-import 'package:uuid/uuid.dart';
 
 import 'package:dio/dio.dart';
+import 'package:mitubekit/mitube/pkg.dart';
 
-// import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:stash/stash_api.dart';
 import 'package:stash_dio/stash_dio.dart';
 import 'package:stash_memory/stash_memory.dart';
-
-import 'package:mitubekit/mitube/pkg.dart';
 import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/xcsapi.dart';
 
-// var dio = createAuthDioWithToken(samletToken);
 // test stash_dio ok.
 Future<void> main(List<String> arguments) async {
   // var cachedSlabs=SlabRepository(dio);

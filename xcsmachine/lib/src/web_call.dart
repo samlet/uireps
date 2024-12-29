@@ -19,7 +19,8 @@ Future<Response<dynamic>> webCall(String url, Map<String, Object?> payload,
 
 void catchErr(Response<dynamic> response) {
   // if (response.data == null || response.statusCode != 200) {
-  if (response.statusCode != 200) {
+  // status(304) => Content is read from cache store
+  if (response.statusCode != 200 && response.statusCode !=304) {
     print('err: $response');
     throw HttpException(
       title: 'Http Error!',

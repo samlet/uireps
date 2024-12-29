@@ -8,7 +8,8 @@ import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/xcsapi.dart';
 
 // var dio = createAuthDioWithToken(samletToken);
-// test dio_cache_interceptor fail: 在cache之后依然会访问服务.
+// test dio_cache_interceptor fail with opt(request): 在cache之后依然会访问服务.
+// test ok with opt(forceCache)
 Future<void> main(List<String> arguments) async {
   // var cachedSlabs=SlabRepository(dio);
   var dio=cachedDio(samletToken);
@@ -23,8 +24,9 @@ Future<void> main(List<String> arguments) async {
     }
 
     // call again
+    print("---> call again.");
     partyTypes = await cachedSlabs.slabs.allPartyTypes();
-    print('call again done.');
+    print('<--- call again done.');
   } on DioException catch (ex, s) {
     errDioProc(ex, s);
   }
@@ -60,7 +62,8 @@ final cacheOptions = CacheOptions(
   // All subsequent fields are optional.
 
   // Default.
-  policy: CachePolicy.request,
+  // policy: CachePolicy.request,
+  policy: CachePolicy.forceCache,
   // Returns a cached response on error but for statuses 401 & 403.
   // Also allows to return a cached response on network errors (e.g. offline usage).
   // Defaults to [null].
