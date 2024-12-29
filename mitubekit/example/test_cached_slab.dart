@@ -10,9 +10,10 @@ import 'package:xcsmachine/xcsapi.dart';
 // var dio = createAuthDioWithToken(samletToken);
 // test dio_cache_interceptor fail with opt(request): 在cache之后依然会访问服务.
 // test ok with opt(forceCache)
+// test ok with opt(request) and server-response(max-age)
 Future<void> main(List<String> arguments) async {
   // var cachedSlabs=SlabRepository(dio);
-  var dio=cachedDio(samletToken);
+  var dio = cachedDio(samletToken);
   var cachedSlabs = CachedSlab(dio: dio);
   try {
     var partyTypes = await cachedSlabs.slabs.allPartyTypes();
@@ -50,7 +51,13 @@ Dio cachedDio(String token) {
       connectTimeout: const Duration(seconds: 5),
       receiveTimeout: const Duration(seconds: 3),
       headers: headers);
-  final dio = Dio(options)..interceptors.add(DioCacheInterceptor(options: cacheOptions));
+  // final dio = Dio(options)..interceptors.add(DioCacheInterceptor(options: cacheOptions));
+  final dio = Dio(options)
+    ..interceptors.addAll([
+      DioCacheInterceptor(options: cacheOptions),
+      LogInterceptor(
+          requestHeader: false, requestBody: false, responseHeader: true, responseBody: false)
+    ]);
   return dio;
 }
 
@@ -62,8 +69,8 @@ final cacheOptions = CacheOptions(
   // All subsequent fields are optional.
 
   // Default.
-  // policy: CachePolicy.request,
-  policy: CachePolicy.forceCache,
+  policy: CachePolicy.request,
+  // policy: CachePolicy.forceCache,
   // Returns a cached response on error but for statuses 401 & 403.
   // Also allows to return a cached response on network errors (e.g. offline usage).
   // Defaults to [null].
