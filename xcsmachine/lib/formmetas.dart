@@ -190,5 +190,54 @@ class TileMeta{
   Map<String, dynamic> toJson() => _$TileMetaToJson(this);
 }
 
+// -- EntInfo -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class EntInfo{   
+  String? name;   
+  EntProp? entProp;
+  EntInfo({
+    this.name,
+    this.entProp,
+  });
 
-// total classes: 8
+  factory EntInfo.fromJson(Map<String, dynamic> json) =>
+      _$EntInfoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EntInfoToJson(this);
+}
+
+// -- EntProp -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class EntProp{   
+  Map<String, FldProp>? flds;
+  EntProp({
+    this.flds,
+  });
+
+  factory EntProp.fromJson(Map<String, dynamic> json) =>
+      _$EntPropFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EntPropToJson(this);
+}
+
+// -- FldProp -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FldProp{   
+  String? sels;   
+  Map<String, String?>? params;
+  FldProp({
+    this.sels,
+    this.params,
+  });
+
+  factory FldProp.fromJson(Map<String, dynamic> json) =>
+      _$FldPropFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FldPropToJson(this);
+}
+
+
+// total classes: 11

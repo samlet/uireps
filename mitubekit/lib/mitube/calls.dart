@@ -316,6 +316,42 @@ class BundleJoint{
   Map<String, dynamic> toJson() => _$BundleJointToJson(this);
 }
 
+// -- OptSel -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class OptSel{   
+  String? assemblerId;   
+  List<String>? optIds;   
+  Map<String, String?>? variantProds;
+  OptSel({
+    this.assemblerId,
+    this.optIds,
+    this.variantProds,
+  });
+
+  factory OptSel.fromJson(Map<String, dynamic> json) =>
+      _$OptSelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelToJson(this);
+}
+
+// -- OptSels -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class OptSels{   
+  String? productId;   
+  List<OptSel>? sels;
+  OptSels({
+    this.productId,
+    this.sels,
+  });
+
+  factory OptSels.fromJson(Map<String, dynamic> json) =>
+      _$OptSelsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelsToJson(this);
+}
+
 // -- ContactProfile -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -337,42 +373,6 @@ class ContactProfile{
       _$ContactProfileFromJson(json);
 
   Map<String, dynamic> toJson() => _$ContactProfileToJson(this);
-}
-
-// -- OptSels -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class OptSels{   
-  String? productId;   
-  List<OptSel>? sels;
-  OptSels({
-    this.productId,
-    this.sels,
-  });
-
-  factory OptSels.fromJson(Map<String, dynamic> json) =>
-      _$OptSelsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelsToJson(this);
-}
-
-// -- OptSel -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class OptSel{   
-  String? assemblerId;   
-  List<String>? optIds;   
-  Map<String, String?>? variantProds;
-  OptSel({
-    this.assemblerId,
-    this.optIds,
-    this.variantProds,
-  });
-
-  factory OptSel.fromJson(Map<String, dynamic> json) =>
-      _$OptSelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelToJson(this);
 }
 
 

@@ -165,3 +165,39 @@ Map<String, dynamic> _$TileMetaToJson(TileMeta instance) => <String, dynamic>{
         'flds': value,
       if (instance.locs case final value?) 'locs': value,
     };
+
+EntInfo _$EntInfoFromJson(Map<String, dynamic> json) => EntInfo(
+      name: json['name'] as String?,
+      entProp: json['entProp'] == null
+          ? null
+          : EntProp.fromJson(json['entProp'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$EntInfoToJson(EntInfo instance) => <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.entProp?.toJson() case final value?) 'entProp': value,
+    };
+
+EntProp _$EntPropFromJson(Map<String, dynamic> json) => EntProp(
+      flds: (json['flds'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, FldProp.fromJson(e as Map<String, dynamic>)),
+      ),
+    );
+
+Map<String, dynamic> _$EntPropToJson(EntProp instance) => <String, dynamic>{
+      if (instance.flds?.map((k, e) => MapEntry(k, e.toJson()))
+          case final value?)
+        'flds': value,
+    };
+
+FldProp _$FldPropFromJson(Map<String, dynamic> json) => FldProp(
+      sels: json['sels'] as String?,
+      params: (json['params'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String?),
+      ),
+    );
+
+Map<String, dynamic> _$FldPropToJson(FldProp instance) => <String, dynamic>{
+      if (instance.sels case final value?) 'sels': value,
+      if (instance.params case final value?) 'params': value,
+    };

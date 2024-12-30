@@ -9,6 +9,7 @@ export 'ents.dart';
 export 'recs.dart';
 export 'acts.dart';
 export 'srvs.dart';
+export 'props.dart';
 
 // shared
 export 'package:xcsmachine/formmetas.dart';

@@ -2009,6 +2009,28 @@ const srvMetas = {
       "returnVoid" : false,
       "conv" : "ValueData()..mergeFromProto3Json(resp)"
     },
+    "CommonSln:getUomTypes" : {
+      "methodKey" : "CommonSln:getUomTypes",
+      "alias" : "getUomTypes",
+      "name" : "getUomTypes",
+      "ctx" : {
+        "moduleName" : "commonSln",
+        "name" : "getUomTypes",
+        "bundleName" : "CommonSln",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "uomTypeId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "uom_type_id"
+      } ],
+      "returnVoid" : false,
+      "conv" : "convList(resp, (el)=>el)"
+    },
     "fixtures:makeSomeRecs" : {
       "methodKey" : "fixtures:makeSomeRecs",
       "alias" : "makeSomeRecs",

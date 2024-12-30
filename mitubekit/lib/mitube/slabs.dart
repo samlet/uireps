@@ -82,6 +82,25 @@ class SlabRepository {
     return Response()..mergeFromProto3Json(resp);
   }
    
+  // Query: CommonSln:getUomTypes
+  Future<List<Map<String, dynamic>>> getUomTypes({
+    
+    required String uomTypeId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'commonSln',
+      "action": "getUomTypes",
+      "bundleName" : "CommonSln",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "uomTypeId": uomTypeId, 
+    }, callOpt: callOpt);
+    
+    return convList(resp, (el)=>el);
+  }
+   
   // Query: EcommSln:getSuppliers
   Future<List<ProtoEnt>> getSuppliers({
     
