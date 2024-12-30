@@ -7,7 +7,7 @@ import 'package:mitubekit/mitube/pkg.dart';
 import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/xcsapi.dart';
 
-// var dio = createAuthDioWithToken(samletToken);
+// (服务端控制cache时间.)
 // test dio_cache_interceptor fail with opt(request): 在cache之后依然会访问服务.
 // test ok with opt(forceCache)
 // test ok with opt(request) and server-response(max-age)

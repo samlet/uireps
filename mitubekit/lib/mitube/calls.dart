@@ -2,25 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:xcsmachine/util.dart';
 part 'calls.g.dart';
 
-// -- NumberRange -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class NumberRange{   
-  String? field;   
-  int? from;   
-  int? to;
-  NumberRange({
-    this.field,
-    this.from,
-    this.to,
-  });
-
-  factory NumberRange.fromJson(Map<String, dynamic> json) =>
-      _$NumberRangeFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NumberRangeToJson(this);
-}
-
 // -- ResultSort -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -63,23 +44,6 @@ class QueryRequest{
   Map<String, dynamic> toJson() => _$QueryRequestToJson(this);
 }
 
-// -- TenantKey -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class TenantKey{   
-  String? regionId;   
-  String? tenantId;
-  TenantKey({
-    this.regionId,
-    this.tenantId,
-  });
-
-  factory TenantKey.fromJson(Map<String, dynamic> json) =>
-      _$TenantKeyFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TenantKeyToJson(this);
-}
-
 // -- ProtoEnt -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -120,6 +84,103 @@ class NoteContent{
   Map<String, dynamic> toJson() => _$NoteContentToJson(this);
 }
 
+// -- ResultLimit -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class ResultLimit{   
+  int? startIndex;   
+  int? limit;
+  ResultLimit({
+    this.startIndex,
+    this.limit,
+  });
+
+  factory ResultLimit.fromJson(Map<String, dynamic> json) =>
+      _$ResultLimitFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ResultLimitToJson(this);
+}
+
+// -- Match -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class Match{   
+  List<MatchTerm>? terms;   
+  List<NumberRange>? numberRanges;   
+  List<DateTimeRange>? periods;
+  Match({
+    this.terms,
+    this.numberRanges,
+    this.periods,
+  });
+
+  factory Match.fromJson(Map<String, dynamic> json) =>
+      _$MatchFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MatchToJson(this);
+}
+
+// -- NumberRange -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class NumberRange{   
+  String? field;   
+  int? from;   
+  int? to;
+  NumberRange({
+    this.field,
+    this.from,
+    this.to,
+  });
+
+  factory NumberRange.fromJson(Map<String, dynamic> json) =>
+      _$NumberRangeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NumberRangeToJson(this);
+}
+
+// -- TestRec -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class TestRec{   
+  String? stringFld;   
+  double? numFld;   
+  bool? boolFld;   
+  String? tag;   
+  Map<String, double>? numMap;   
+  List<double>? nums;
+  TestRec({
+    this.stringFld,
+    this.numFld,
+    this.boolFld,
+    this.tag,
+    this.numMap,
+    this.nums,
+  });
+
+  factory TestRec.fromJson(Map<String, dynamic> json) =>
+      _$TestRecFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TestRecToJson(this);
+}
+
+// -- TenantKey -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class TenantKey{   
+  String? regionId;   
+  String? tenantId;
+  TenantKey({
+    this.regionId,
+    this.tenantId,
+  });
+
+  factory TenantKey.fromJson(Map<String, dynamic> json) =>
+      _$TenantKeyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TenantKeyToJson(this);
+}
+
 // -- MatchTerm -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -156,23 +217,6 @@ class DateTimeRange{
       _$DateTimeRangeFromJson(json);
 
   Map<String, dynamic> toJson() => _$DateTimeRangeToJson(this);
-}
-
-// -- ResultLimit -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class ResultLimit{   
-  int? startIndex;   
-  int? limit;
-  ResultLimit({
-    this.startIndex,
-    this.limit,
-  });
-
-  factory ResultLimit.fromJson(Map<String, dynamic> json) =>
-      _$ResultLimitFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ResultLimitToJson(this);
 }
 
 // -- FullId -- 
@@ -225,25 +269,6 @@ class UserObj{
       _$UserObjFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserObjToJson(this);
-}
-
-// -- Match -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class Match{   
-  List<MatchTerm>? terms;   
-  List<NumberRange>? numberRanges;   
-  List<DateTimeRange>? periods;
-  Match({
-    this.terms,
-    this.numberRanges,
-    this.periods,
-  });
-
-  factory Match.fromJson(Map<String, dynamic> json) =>
-      _$MatchFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MatchToJson(this);
 }
 
 // -- BundleJoint -- 
@@ -351,4 +376,4 @@ class OptSel{
 }
 
 
-// total classes: 16
+// total classes: 17

@@ -9,6 +9,7 @@ import 'package:stash_memory/stash_memory.dart';
 import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/xcsapi.dart';
 
+// (客户端控制cache时间.)
 // test stash_dio ok.
 Future<void> main(List<String> arguments) async {
   // var cachedSlabs=SlabRepository(dio);

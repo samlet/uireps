@@ -1,55 +1,12 @@
 import 'package:xcsmachine/util.dart';
 
-final reclets = [noteContentForm, protoEntForm, userObjForm, fullIdForm]; 
+final reclets = [protoEntForm, noteContentForm, fullIdForm, testRecForm, userObjForm]; 
 
-final rectiles = [noteContentTile, protoEntTile, userObjTile, fullIdTile];
+final rectiles = [protoEntTile, noteContentTile, fullIdTile, testRecTile, userObjTile];
 
 final recletsMap= reclets.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
 final rectilesMap= rectiles.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
 
-
-final noteContentForm = {
-  "formKey" : "NoteContent",
-  "formName" : "NoteContent",
-  "alias" : "noteContent",
-  "caption" : "便笺内容",
-  "locale" : "zh",
-  "flds" : {
-    "title" : {
-      "fldName" : "title",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "标题",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "body" : {
-      "fldName" : "body",
-      "fldType" : "value",
-      "fldTpl" : "commentProp",
-      "domainType" : "stringField",
-      "caption" : "内容",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "key" : {
-      "fldName" : "key",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Key",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    }
-  }
-};
 
 final protoEntForm = {
   "formKey" : "ProtoEnt",
@@ -101,6 +58,157 @@ final protoEntForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String"
+    }
+  }
+};
+
+final noteContentForm = {
+  "formKey" : "NoteContent",
+  "formName" : "NoteContent",
+  "alias" : "noteContent",
+  "caption" : "便笺内容",
+  "locale" : "zh",
+  "flds" : {
+    "title" : {
+      "fldName" : "title",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "标题",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "body" : {
+      "fldName" : "body",
+      "fldType" : "value",
+      "fldTpl" : "commentProp",
+      "domainType" : "stringField",
+      "caption" : "内容",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    }
+  }
+};
+
+final fullIdForm = {
+  "formKey" : "FullId",
+  "formName" : "FullId",
+  "alias" : "fullId",
+  "caption" : "Full Id",
+  "locale" : "zh",
+  "flds" : {
+    "regionId" : {
+      "fldName" : "regionId",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Region Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "id" : {
+      "fldName" : "id",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    }
+  }
+};
+
+final testRecForm = {
+  "formKey" : "TestRec",
+  "formName" : "TestRec",
+  "alias" : "testRec",
+  "caption" : "Test Rec",
+  "locale" : "zh",
+  "flds" : {
+    "numFld" : {
+      "fldName" : "numFld",
+      "fldType" : "fixed-point",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "decimalField",
+      "caption" : "Num Fld",
+      "defaultValue" : "0.0",
+      "morph" : "",
+      "dartType" : "double",
+      "javaType" : "java.math.BigDecimal"
+    },
+    "stringFld" : {
+      "fldName" : "stringFld",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "String Fld",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "tag" : {
+      "fldName" : "tag",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Tag",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "boolFld" : {
+      "fldName" : "boolFld",
+      "fldType" : "boolean",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "boolField",
+      "caption" : "Bool Fld",
+      "defaultValue" : null,
+      "morph" : "",
+      "dartType" : "bool",
+      "javaType" : "Boolean"
+    },
+    "numMap" : {
+      "fldName" : "numMap",
+      "fldType" : "decimal-map",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "structField",
+      "caption" : "Num Map",
+      "defaultValue" : "{}",
+      "morph" : "",
+      "dartType" : "Map<String, double>",
+      "javaType" : "com.bluecc.hubs.stub.DecimalMap"
+    },
+    "nums" : {
+      "fldName" : "nums",
+      "fldType" : "decimals",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Nums",
+      "defaultValue" : "<double>[]",
+      "morph" : "",
+      "dartType" : "List<double?>",
+      "javaType" : "com.bluecc.hubs.stub.Decimals"
     }
   }
 };
@@ -236,36 +344,12 @@ final userObjForm = {
   }
 };
 
-final fullIdForm = {
-  "formKey" : "FullId",
-  "formName" : "FullId",
-  "alias" : "fullId",
-  "caption" : "Full Id",
-  "locale" : "zh",
-  "flds" : {
-    "regionId" : {
-      "fldName" : "regionId",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Region Id",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    },
-    "id" : {
-      "fldName" : "id",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Id",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String"
-    }
-  }
+final protoEntTile = {
+  "tileName" : "ProtoEnt",
+  "alias" : "protoEnt",
+  "available" : false,
+  "flds" : { },
+  "locs" : { }
 };
 
 final noteContentTile = {
@@ -276,9 +360,17 @@ final noteContentTile = {
   "locs" : { }
 };
 
-final protoEntTile = {
-  "tileName" : "ProtoEnt",
-  "alias" : "protoEnt",
+final fullIdTile = {
+  "tileName" : "FullId",
+  "alias" : "fullId",
+  "available" : false,
+  "flds" : { },
+  "locs" : { }
+};
+
+final testRecTile = {
+  "tileName" : "TestRec",
+  "alias" : "testRec",
   "available" : false,
   "flds" : { },
   "locs" : { }
@@ -382,12 +474,4 @@ final userObjTile = {
     "title" : "name",
     "user" : "createdByUserLogin"
   }
-};
-
-final fullIdTile = {
-  "tileName" : "FullId",
-  "alias" : "fullId",
-  "available" : false,
-  "flds" : { },
-  "locs" : { }
 };

@@ -176,6 +176,50 @@ class SlabRepository {
     return convList(resp, (el)=>el);
   }
    
+  // Query: fixtures:makeSomeRecs
+  Future<List<TestRec>> makeSomeRecs({
+    
+    int? total=5, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'fixtureObjects',
+      "action": "makeSomeRecs",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      if(total!=null) "total": total, 
+    }, callOpt: callOpt);
+    
+    return convList(resp, TestRec.fromJson);
+  }
+   
+  // Query: fixtures:makeTestRec
+  Future<TestRec> makeTestRec({
+    
+    required String stringFld,
+    required double numFld,
+    required Map<String, double> numMap,
+    List<double>? nums, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'fixtureObjects',
+      "action": "makeTestRec",
+      "bundleName" : "FixtureObjects",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "stringFld": stringFld,
+      "numFld": numFld,
+      "numMap": numMap,
+      if(nums!=null) "nums": nums, 
+    }, callOpt: callOpt);
+    
+    return TestRec.fromJson(resp);
+  }
+   
   // Query: note:viewContent
   Future<NoteContent> viewContent({required String id}) async { 
     var resp = await performCall(dio, {

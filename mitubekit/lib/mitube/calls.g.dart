@@ -6,19 +6,6 @@ part of 'calls.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NumberRange _$NumberRangeFromJson(Map<String, dynamic> json) => NumberRange(
-      field: json['field'] as String?,
-      from: (json['from'] as num?)?.toInt(),
-      to: (json['to'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$NumberRangeToJson(NumberRange instance) =>
-    <String, dynamic>{
-      if (instance.field case final value?) 'field': value,
-      if (instance.from case final value?) 'from': value,
-      if (instance.to case final value?) 'to': value,
-    };
-
 ResultSort _$ResultSortFromJson(Map<String, dynamic> json) => ResultSort(
       fld: json['fld'] as String?,
       orderBy: json['orderBy'] as String?,
@@ -56,16 +43,6 @@ Map<String, dynamic> _$QueryRequestToJson(QueryRequest instance) =>
         'orderBy': value,
     };
 
-TenantKey _$TenantKeyFromJson(Map<String, dynamic> json) => TenantKey(
-      regionId: json['regionId'] as String?,
-      tenantId: json['tenantId'] as String?,
-    );
-
-Map<String, dynamic> _$TenantKeyToJson(TenantKey instance) => <String, dynamic>{
-      if (instance.regionId case final value?) 'regionId': value,
-      if (instance.tenantId case final value?) 'tenantId': value,
-    };
-
 ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
       regionId: json['regionId'] as String?,
       entType: json['entType'] as String?,
@@ -93,6 +70,84 @@ Map<String, dynamic> _$NoteContentToJson(NoteContent instance) =>
       if (instance.key case final value?) 'key': value,
       if (instance.title case final value?) 'title': value,
       if (instance.body case final value?) 'body': value,
+    };
+
+ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
+      startIndex: (json['startIndex'] as num?)?.toInt(),
+      limit: (json['limit'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ResultLimitToJson(ResultLimit instance) =>
+    <String, dynamic>{
+      if (instance.startIndex case final value?) 'startIndex': value,
+      if (instance.limit case final value?) 'limit': value,
+    };
+
+Match _$MatchFromJson(Map<String, dynamic> json) => Match(
+      terms: (json['terms'] as List<dynamic>?)
+          ?.map((e) => MatchTerm.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      numberRanges: (json['numberRanges'] as List<dynamic>?)
+          ?.map((e) => NumberRange.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      periods: (json['periods'] as List<dynamic>?)
+          ?.map((e) => DateTimeRange.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$MatchToJson(Match instance) => <String, dynamic>{
+      if (instance.terms?.map((e) => e.toJson()).toList() case final value?)
+        'terms': value,
+      if (instance.numberRanges?.map((e) => e.toJson()).toList()
+          case final value?)
+        'numberRanges': value,
+      if (instance.periods?.map((e) => e.toJson()).toList() case final value?)
+        'periods': value,
+    };
+
+NumberRange _$NumberRangeFromJson(Map<String, dynamic> json) => NumberRange(
+      field: json['field'] as String?,
+      from: (json['from'] as num?)?.toInt(),
+      to: (json['to'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$NumberRangeToJson(NumberRange instance) =>
+    <String, dynamic>{
+      if (instance.field case final value?) 'field': value,
+      if (instance.from case final value?) 'from': value,
+      if (instance.to case final value?) 'to': value,
+    };
+
+TestRec _$TestRecFromJson(Map<String, dynamic> json) => TestRec(
+      stringFld: json['stringFld'] as String?,
+      numFld: (json['numFld'] as num?)?.toDouble(),
+      boolFld: json['boolFld'] as bool?,
+      tag: json['tag'] as String?,
+      numMap: (json['numMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num).toDouble()),
+      ),
+      nums: (json['nums'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
+    );
+
+Map<String, dynamic> _$TestRecToJson(TestRec instance) => <String, dynamic>{
+      if (instance.stringFld case final value?) 'stringFld': value,
+      if (instance.numFld case final value?) 'numFld': value,
+      if (instance.boolFld case final value?) 'boolFld': value,
+      if (instance.tag case final value?) 'tag': value,
+      if (instance.numMap case final value?) 'numMap': value,
+      if (instance.nums case final value?) 'nums': value,
+    };
+
+TenantKey _$TenantKeyFromJson(Map<String, dynamic> json) => TenantKey(
+      regionId: json['regionId'] as String?,
+      tenantId: json['tenantId'] as String?,
+    );
+
+Map<String, dynamic> _$TenantKeyToJson(TenantKey instance) => <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.tenantId case final value?) 'tenantId': value,
     };
 
 MatchTerm _$MatchTermFromJson(Map<String, dynamic> json) => MatchTerm(
@@ -141,17 +196,6 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
-ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
-      startIndex: (json['startIndex'] as num?)?.toInt(),
-      limit: (json['limit'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$ResultLimitToJson(ResultLimit instance) =>
-    <String, dynamic>{
-      if (instance.startIndex case final value?) 'startIndex': value,
-      if (instance.limit case final value?) 'limit': value,
-    };
-
 FullId _$FullIdFromJson(Map<String, dynamic> json) => FullId(
       regionId: json['regionId'] as String?,
       id: json['id'] as String?,
@@ -193,28 +237,6 @@ Map<String, dynamic> _$UserObjToJson(UserObj instance) => <String, dynamic>{
       if (instance.email case final value?) 'email': value,
       if (instance.icon case final value?) 'icon': value,
       if (instance.color case final value?) 'color': value,
-    };
-
-Match _$MatchFromJson(Map<String, dynamic> json) => Match(
-      terms: (json['terms'] as List<dynamic>?)
-          ?.map((e) => MatchTerm.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      numberRanges: (json['numberRanges'] as List<dynamic>?)
-          ?.map((e) => NumberRange.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      periods: (json['periods'] as List<dynamic>?)
-          ?.map((e) => DateTimeRange.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$MatchToJson(Match instance) => <String, dynamic>{
-      if (instance.terms?.map((e) => e.toJson()).toList() case final value?)
-        'terms': value,
-      if (instance.numberRanges?.map((e) => e.toJson()).toList()
-          case final value?)
-        'numberRanges': value,
-      if (instance.periods?.map((e) => e.toJson()).toList() case final value?)
-        'periods': value,
     };
 
 BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(
@@ -273,19 +295,17 @@ Map<String, dynamic> _$BundleJointToJson(BundleJoint instance) =>
       if (instance.tenantId case final value?) 'tenantId': value,
     };
 
-OptSel _$OptSelFromJson(Map<String, dynamic> json) => OptSel(
-      assemblerId: json['assemblerId'] as String?,
-      optIds:
-          (json['optIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      variantProds: (json['variantProds'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String?),
-      ),
+OptSels _$OptSelsFromJson(Map<String, dynamic> json) => OptSels(
+      productId: json['productId'] as String?,
+      sels: (json['sels'] as List<dynamic>?)
+          ?.map((e) => OptSel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
-Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
-      if (instance.assemblerId case final value?) 'assemblerId': value,
-      if (instance.optIds case final value?) 'optIds': value,
-      if (instance.variantProds case final value?) 'variantProds': value,
+Map<String, dynamic> _$OptSelsToJson(OptSels instance) => <String, dynamic>{
+      if (instance.productId case final value?) 'productId': value,
+      if (instance.sels?.map((e) => e.toJson()).toList() case final value?)
+        'sels': value,
     };
 
 ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
@@ -306,15 +326,17 @@ Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
       if (instance.note case final value?) 'note': value,
     };
 
-OptSels _$OptSelsFromJson(Map<String, dynamic> json) => OptSels(
-      productId: json['productId'] as String?,
-      sels: (json['sels'] as List<dynamic>?)
-          ?.map((e) => OptSel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+OptSel _$OptSelFromJson(Map<String, dynamic> json) => OptSel(
+      assemblerId: json['assemblerId'] as String?,
+      optIds:
+          (json['optIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      variantProds: (json['variantProds'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String?),
+      ),
     );
 
-Map<String, dynamic> _$OptSelsToJson(OptSels instance) => <String, dynamic>{
-      if (instance.productId case final value?) 'productId': value,
-      if (instance.sels?.map((e) => e.toJson()).toList() case final value?)
-        'sels': value,
+Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
+      if (instance.assemblerId case final value?) 'assemblerId': value,
+      if (instance.optIds case final value?) 'optIds': value,
+      if (instance.variantProds case final value?) 'variantProds': value,
     };

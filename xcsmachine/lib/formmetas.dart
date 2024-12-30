@@ -2,6 +2,98 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:xcsmachine/util.dart';
 part 'formmetas.g.dart';
 
+// -- SrvCtxMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SrvCtxMeta{   
+  String? moduleName;   
+  String? name;   
+  String? bundleName;   
+  String? callType;
+  SrvCtxMeta({
+    this.moduleName,
+    this.name,
+    this.bundleName,
+    this.callType,
+  });
+
+  factory SrvCtxMeta.fromJson(Map<String, dynamic> json) =>
+      _$SrvCtxMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SrvCtxMetaToJson(this);
+}
+
+// -- SrvParamMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SrvParamMeta{   
+  String? name;   
+  String? dartType;   
+  String? fldType;   
+  String? fldGroup;   
+  bool? optional;   
+  String? conv;   
+  String? protoName;
+  SrvParamMeta({
+    this.name,
+    this.dartType,
+    this.fldType,
+    this.fldGroup,
+    this.optional,
+    this.conv,
+    this.protoName,
+  });
+
+  factory SrvParamMeta.fromJson(Map<String, dynamic> json) =>
+      _$SrvParamMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SrvParamMetaToJson(this);
+}
+
+// -- SrvMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SrvMeta{   
+  String? methodKey;   
+  String? alias;   
+  String? name;   
+  SrvCtxMeta? ctx;   
+  List<SrvParamMeta>? parameters;   
+  bool? returnVoid;   
+  String? conv;
+  SrvMeta({
+    this.methodKey,
+    this.alias,
+    this.name,
+    this.ctx,
+    this.parameters,
+    this.returnVoid,
+    this.conv,
+  });
+
+  factory SrvMeta.fromJson(Map<String, dynamic> json) =>
+      _$SrvMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SrvMetaToJson(this);
+}
+
+// -- SrvMetas -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SrvMetas{   
+  String? modName;   
+  Map<String, SrvMeta>? srvs;
+  SrvMetas({
+    this.modName,
+    this.srvs,
+  });
+
+  factory SrvMetas.fromJson(Map<String, dynamic> json) =>
+      _$SrvMetasFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SrvMetasToJson(this);
+}
+
 // -- FieldUiMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -99,4 +191,4 @@ class TileMeta{
 }
 
 
-// total classes: 4
+// total classes: 8

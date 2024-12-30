@@ -29,7 +29,7 @@ final personForm = {
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameEdit",
+      "fldTpl" : "lastNameSpec",
       "domainType" : "stringField",
       "caption" : "姓",
       "defaultValue" : "''",
@@ -293,7 +293,7 @@ final personForm = {
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameEdit",
+      "fldTpl" : "firstNameSpec",
       "domainType" : "stringField",
       "caption" : "名",
       "defaultValue" : "''",
@@ -758,7 +758,7 @@ final personTile = {
       "fld" : {
         "fldName" : "lastName",
         "fldType" : "name",
-        "fldTpl" : "lastNameEdit",
+        "fldTpl" : "lastNameSpec",
         "domainType" : "stringField",
         "caption" : "姓",
         "defaultValue" : "''",
