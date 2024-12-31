@@ -1,12 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
 part 'calls.g.dart';
 
 // -- ResultSort -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultSort{   
-  String? fld;   
+class ResultSort{
+  String? fld;
   String? orderBy;
   ResultSort({
     this.fld,
@@ -22,12 +23,12 @@ class ResultSort{
 // -- QueryRequest -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class QueryRequest{   
-  String? bundleName;   
-  String? entName;   
-  String? regionId;   
-  Match? match;   
-  ResultLimit? limit;   
+class QueryRequest{
+  String? bundleName;
+  String? entName;
+  String? regionId;
+  Match? match;
+  ResultLimit? limit;
   List<ResultSort>? orderBy;
   QueryRequest({
     this.bundleName,
@@ -47,15 +48,18 @@ class QueryRequest{
 // -- ProtoEnt -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ProtoEnt{   
-  String? regionId;   
-  String? entType;   
-  String? key;   
-  List<int>? data;
+class ProtoEnt{
+  String? regionId;
+  String? entType;
+  String? key;
+  int? lastTs;
+  @BytesConverter()
+  Uint8List? data;
   ProtoEnt({
     this.regionId,
     this.entType,
     this.key,
+    this.lastTs,
     this.data,
   });
 
@@ -68,9 +72,9 @@ class ProtoEnt{
 // -- NoteContent -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NoteContent{   
-  String? key;   
-  String? title;   
+class NoteContent{
+  String? key;
+  String? title;
   String? body;
   NoteContent({
     this.key,
@@ -84,11 +88,47 @@ class NoteContent{
   Map<String, dynamic> toJson() => _$NoteContentToJson(this);
 }
 
+// -- FoldRegion -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FoldRegion{
+  String? regionId;
+  String? ent;
+  FoldRegion({
+    this.regionId,
+    this.ent,
+  });
+
+  factory FoldRegion.fromJson(Map<String, dynamic> json) =>
+      _$FoldRegionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FoldRegionToJson(this);
+}
+
+// -- ResultProtosWithMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class ResultProtosWithMeta{
+  List<ProtoEnt>? ents;
+  int? start;
+  int? total;
+  ResultProtosWithMeta({
+    this.ents,
+    this.start,
+    this.total,
+  });
+
+  factory ResultProtosWithMeta.fromJson(Map<String, dynamic> json) =>
+      _$ResultProtosWithMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ResultProtosWithMetaToJson(this);
+}
+
 // -- ResultLimit -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultLimit{   
-  int? startIndex;   
+class ResultLimit{
+  int? startIndex;
   int? limit;
   ResultLimit({
     this.startIndex,
@@ -104,9 +144,9 @@ class ResultLimit{
 // -- Match -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class Match{   
-  List<MatchTerm>? terms;   
-  List<NumberRange>? numberRanges;   
+class Match{
+  List<MatchTerm>? terms;
+  List<NumberRange>? numberRanges;
   List<DateTimeRange>? periods;
   Match({
     this.terms,
@@ -123,9 +163,9 @@ class Match{
 // -- NumberRange -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NumberRange{   
-  String? field;   
-  int? from;   
+class NumberRange{
+  String? field;
+  int? from;
   int? to;
   NumberRange({
     this.field,
@@ -142,12 +182,12 @@ class NumberRange{
 // -- TestRec -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class TestRec{   
-  String? stringFld;   
-  double? numFld;   
-  bool? boolFld;   
-  String? tag;   
-  Map<String, double>? numMap;   
+class TestRec{
+  String? stringFld;
+  double? numFld;
+  bool? boolFld;
+  String? tag;
+  Map<String, double>? numMap;
   List<double>? nums;
   TestRec({
     this.stringFld,
@@ -167,8 +207,8 @@ class TestRec{
 // -- TenantKey -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class TenantKey{   
-  String? regionId;   
+class TenantKey{
+  String? regionId;
   String? tenantId;
   TenantKey({
     this.regionId,
@@ -181,12 +221,36 @@ class TenantKey{
   Map<String, dynamic> toJson() => _$TenantKeyToJson(this);
 }
 
+// -- PaginatedEntBytes -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class PaginatedEntBytes{
+  String? ent;
+  int? page;
+  @BytesConverter()
+  Uint8List? rsb;
+  int? totalPages;
+  int? totalResults;
+  PaginatedEntBytes({
+    this.ent,
+    this.page,
+    this.rsb,
+    this.totalPages,
+    this.totalResults,
+  });
+
+  factory PaginatedEntBytes.fromJson(Map<String, dynamic> json) =>
+      _$PaginatedEntBytesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedEntBytesToJson(this);
+}
+
 // -- MatchTerm -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class MatchTerm{   
-  String? field;   
-  String? op;   
+class MatchTerm{
+  String? field;
+  String? op;
   Object? value;
   MatchTerm({
     this.field,
@@ -203,9 +267,9 @@ class MatchTerm{
 // -- DateTimeRange -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class DateTimeRange{   
-  String? field;   
-  DateTime? from;   
+class DateTimeRange{
+  String? field;
+  DateTime? from;
   DateTime? to;
   DateTimeRange({
     this.field,
@@ -222,8 +286,8 @@ class DateTimeRange{
 // -- FullId -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FullId{   
-  String? regionId;   
+class FullId{
+  String? regionId;
   String? id;
   FullId({
     this.regionId,
@@ -236,20 +300,37 @@ class FullId{
   Map<String, dynamic> toJson() => _$FullIdToJson(this);
 }
 
+// -- PageLimit -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class PageLimit{
+  int? page;
+  int? pageSize;
+  PageLimit({
+    this.page,
+    this.pageSize,
+  });
+
+  factory PageLimit.fromJson(Map<String, dynamic> json) =>
+      _$PageLimitFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
+}
+
 // -- UserObj -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class UserObj{   
-  String? partyId;   
-  String? lastName;   
-  String? firstName;   
-  String? name;   
-  String? nickname;   
-  String? gender;   
-  DateTime? birthDate;   
-  String? createdByUserLogin;   
-  String? email;   
-  int? icon;   
+class UserObj{
+  String? partyId;
+  String? lastName;
+  String? firstName;
+  String? name;
+  String? nickname;
+  String? gender;
+  DateTime? birthDate;
+  String? createdByUserLogin;
+  String? email;
+  int? icon;
   int? color;
   UserObj({
     this.partyId,
@@ -271,25 +352,42 @@ class UserObj{
   Map<String, dynamic> toJson() => _$UserObjToJson(this);
 }
 
+// -- NamedDataset -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class NamedDataset{
+  String? name;
+  List<Map<String, dynamic>>? rows;
+  NamedDataset({
+    this.name,
+    this.rows,
+  });
+
+  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
+      _$NamedDatasetFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
+}
+
 // -- BundleJoint -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class BundleJoint{   
-  String? id;   
-  String? from;   
-  String? to;   
-  String? fromRole;   
-  String? toRole;   
-  String? fromType;   
-  String? toType;   
-  DateTime? fromDate;   
-  DateTime? thruDate;   
-  String? statusId;   
-  String? relationshipName;   
-  String? comments;   
-  DateTime? lastUpdatedTxStamp;   
-  DateTime? createdTxStamp;   
-  String? regionId;   
+class BundleJoint{
+  String? id;
+  String? from;
+  String? to;
+  String? fromRole;
+  String? toRole;
+  String? fromType;
+  String? toType;
+  DateTime? fromDate;
+  DateTime? thruDate;
+  String? statusId;
+  String? relationshipName;
+  String? comments;
+  DateTime? lastUpdatedTxStamp;
+  DateTime? createdTxStamp;
+  String? regionId;
   String? tenantId;
   BundleJoint({
     this.id,
@@ -316,30 +414,11 @@ class BundleJoint{
   Map<String, dynamic> toJson() => _$BundleJointToJson(this);
 }
 
-// -- OptSel -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class OptSel{   
-  String? assemblerId;   
-  List<String>? optIds;   
-  Map<String, String?>? variantProds;
-  OptSel({
-    this.assemblerId,
-    this.optIds,
-    this.variantProds,
-  });
-
-  factory OptSel.fromJson(Map<String, dynamic> json) =>
-      _$OptSelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelToJson(this);
-}
-
 // -- OptSels -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class OptSels{   
-  String? productId;   
+class OptSels{
+  String? productId;
   List<OptSel>? sels;
   OptSels({
     this.productId,
@@ -355,11 +434,11 @@ class OptSels{
 // -- ContactProfile -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ContactProfile{   
-  String? telephone;   
-  String? email;   
-  String? placeId;   
-  String? placeType;   
+class ContactProfile{
+  String? telephone;
+  String? email;
+  String? placeId;
+  String? placeType;
   String? note;
   ContactProfile({
     this.telephone,
@@ -375,5 +454,24 @@ class ContactProfile{
   Map<String, dynamic> toJson() => _$ContactProfileToJson(this);
 }
 
+// -- OptSel -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class OptSel{
+  String? assemblerId;
+  List<String>? optIds;
+  Map<String, String?>? variantProds;
+  OptSel({
+    this.assemblerId,
+    this.optIds,
+    this.variantProds,
+  });
 
-// total classes: 17
+  factory OptSel.fromJson(Map<String, dynamic> json) =>
+      _$OptSelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelToJson(this);
+}
+
+
+// total classes: 22

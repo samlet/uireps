@@ -25,11 +25,21 @@ Future<void> main(List<String> arguments) async {
     var tubeDisp = TubeDisp(dio, callMetas: srvMods);
     rec = await tubeDisp.invoke('fixtures:makeTestRec', inputParams);
     print('result: $rec');
+
+    await invokeSelection(tubeDisp);
   } on DioException catch (ex, s) {
     errDioProc(ex, s);
   }
 
   await testFail(srvMods);
+}
+
+Future<void> invokeSelection(TubeDisp tubeDisp) async {
+  print('invoke a selection');
+  var recs =
+      await tubeDisp.invoke('CommonSln:getUomTypes', {'uomTypeId': 'LENGTH_MEASURE'}) as List;
+  print('total result: ${recs.length}');
+  print('- first el: ${recs.first}');
 }
 
 testFail(SrvMetas srvMods) async {
@@ -42,8 +52,8 @@ testFail(SrvMetas srvMods) async {
     var tubeDisp = TubeDisp(dio, callMetas: srvMods);
     var rec = await tubeDisp.invoke('fixtures:makeTestRec', inputParams);
     print('result: $rec');
-  } on ArgumentError catch(ex, s){
-    print('ok, catched: $ex');
+  } on ArgumentError catch (ex, s) {
+    print('test ok, catched: $ex');
   }
 }
 

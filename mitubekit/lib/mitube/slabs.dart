@@ -1,4 +1,5 @@
 import 'calls.dart';
+import 'dart:typed_data';
 import 'package:dio/dio.dart' as d;
 import 'package:xcsmachine/xcsapi.dart';
 import 'package:xcsproto/xcsproto.dart';
@@ -20,7 +21,7 @@ class SlabRepository {
     
     required String entName,
     String? regionId='default',
-    required List<int> data, 
+    required Uint8List data, 
 
   }) async { 
     var resp = await performCall(dio, {
@@ -80,6 +81,83 @@ class SlabRepository {
     }, callOpt: callOpt);
     
     return Response()..mergeFromProto3Json(resp);
+  }
+   
+  // Query: FoldDelegator:queryPage
+  Future<PaginatedEntBytes> queryPage({
+    
+    required FoldRegion foldRegion,
+    required Match match,
+    required PageLimit pageLimit,
+    required List<ResultSort> orderBy, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'foldDelegator',
+      "action": "queryPage",
+      "bundleName" : "FoldDelegator",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "foldRegion": foldRegion,
+      "match": match,
+      "pageLimit": pageLimit,
+      "orderBy": orderBy, 
+    }, callOpt: callOpt);
+    
+    return PaginatedEntBytes.fromJson(resp);
+  }
+   
+  // Query: FoldDelegator:queryAsEnts
+  Future<ResultProtosWithMeta> queryAsEnts({
+    
+    required QueryRequest qr, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'foldDelegator',
+      "action": "queryAsEnts",
+      "bundleName" : "FoldDelegator",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "qr": qr, 
+    }, callOpt: callOpt);
+    
+    return ResultProtosWithMeta.fromJson(resp);
+  }
+   
+  // Query: FoldDelegator:pullEnt
+  Future<List<ProtoEnt>> pullEnt({
+    
+    required FoldRegion foldRegion, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'foldDelegator',
+      "action": "pullEnt",
+      "bundleName" : "FoldDelegator",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "foldRegion": foldRegion, 
+    }, callOpt: callOpt);
+    
+    return convList(resp, ProtoEnt.fromJson);
+  }
+   
+  // Query: CommonSln:pullAllAssets
+  Future<List<NamedDataset>> pullAllAssets() async { 
+    var resp = await performCall(dio, {
+      "module": 'commonSln',
+      "action": "pullAllAssets",
+      "bundleName" : "CommonSln",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    }, callOpt: callOpt);
+    
+    return convList(resp, NamedDataset.fromJson);
   }
    
   // Query: CommonSln:getUomTypes
@@ -153,11 +231,11 @@ class SlabRepository {
     return convList(resp, (el)=>el);
   }
    
-  // Query: EcommSln:productRootTypes
-  Future<List<String>> productRootTypes() async { 
+  // Query: EcommSln:partyRootTypes
+  Future<List<String>> partyRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "productRootTypes",
+      "action": "partyRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -167,11 +245,11 @@ class SlabRepository {
     return convScalars(resp, (e)=> e.toString());
   }
    
-  // Query: EcommSln:partyRootTypes
-  Future<List<String>> partyRootTypes() async { 
+  // Query: EcommSln:productRootTypes
+  Future<List<String>> productRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "partyRootTypes",
+      "action": "productRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,

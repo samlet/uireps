@@ -39,7 +39,7 @@ Future<Response<dynamic>> palletDisp(Map<String, Object?> payload,
 }
 
 // Future<dynamic> performCall(
-//     Dio dio, Map<String, Object?> ctx, Map<String, Object> inputParams) async {
+//     Dio dio, Map<String, Object?> ctx, Map<String, Object?> inputParams) async {
 //   final payload = {
 //     "bundleName": ctx['bundleName'], // new param
 //     "bundleId": ctx['id'],
@@ -61,7 +61,7 @@ class CallOpt{
 }
 
 Future<dynamic> performCall(
-    Dio dio, Map<String, Object?> ctx, Map<String, Object> inputParams,
+    Dio dio, Map<String, Object?> ctx, Map<String, Object?> inputParams,
     {Options? options, CallOpt? callOpt}) async {
   var adapterResult=dispatchAdapter(ctx, inputParams);
   final payload = adapterResult.request;
@@ -71,7 +71,7 @@ Future<dynamic> performCall(
 }
 
 Future<dynamic> requestBytes(
-Dio dio, Map<String, Object?> ctx, Map<String, Object> inputParams) async {
+Dio dio, Map<String, Object?> ctx, Map<String, Object?> inputParams) async {
   return performCall(dio, ctx, inputParams, options: Options(responseType: ResponseType.bytes));
 }
 
@@ -90,7 +90,7 @@ class AdapterResult {
 }
 
 AdapterResult dispatchAdapter(
-    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+    Map<String, Object?> ctx, Map<String, Object?> inputParams) {
   String callType = ctx['call-type']! as String;
   var convMapping = {
     'co': palletAdapter,
@@ -107,7 +107,7 @@ AdapterResult dispatchAdapter(
 }
 
 AdapterResult machineAdapter(
-    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+    Map<String, Object?> ctx, Map<String, Object?> inputParams) {
   var region = ctx['regionId'] as String;
   var parts = region.split(':');
   String pkg = 'default';
@@ -129,7 +129,7 @@ AdapterResult machineAdapter(
 }
 
 AdapterResult palletAdapter(
-    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+    Map<String, Object?> ctx, Map<String, Object?> inputParams) {
   return AdapterResult("/palletDisp", {
     "bundleName": ctx['bundleName'], // new param
     "bundleId": ctx['id'],
@@ -142,7 +142,7 @@ AdapterResult palletAdapter(
 }
 
 AdapterResult chainAdapter(
-    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+    Map<String, Object?> ctx, Map<String, Object?> inputParams) {
   return AdapterResult("/chainDisp", {
     "chainName": ctx['module'],
     "methodName": ctx['action'],
@@ -153,7 +153,7 @@ AdapterResult chainAdapter(
 }
 
 AdapterResult kitAdapter(
-    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+    Map<String, Object?> ctx, Map<String, Object?> inputParams) {
   return AdapterResult("/kitDisp", {
     "plugName": ctx['module'],
     "methodName": ctx['action'],
@@ -164,7 +164,7 @@ AdapterResult kitAdapter(
 }
 
 AdapterResult slabAdapter(
-    Map<String, Object?> ctx, Map<String, Object> inputParams) {
+    Map<String, Object?> ctx, Map<String, Object?> inputParams) {
   return AdapterResult("/slabDisp", {
     "slabName": ctx['module'],
     "methodName": ctx['action'],

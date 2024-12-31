@@ -1,8 +1,10 @@
 import 'package:xcsmachine/util.dart';
 
-final actlets = [makeTestRecForm, setTitleAndContentForm, makeSomeRecsForm, postCommentForm, fetchUserForm]; 
+final actlets = [makeTestRecForm, setTitleAndContentForm, makeSomeRecsForm, postCommentForm]; 
 
+/// map of <FormMeta>
 final actletsMap= actlets.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
+
 
 final makeTestRecForm = {
   "formKey" : "fixtures:makeTestRec",
@@ -163,13 +165,4 @@ final postCommentForm = {
       "javaType" : "java.math.BigDecimal"
     }
   }
-};
-
-final fetchUserForm = {
-  "formKey" : "user:fetch",
-  "formName" : "fetch",
-  "alias" : "fetchUser",
-  "caption" : "Fetch",
-  "locale" : "zh",
-  "flds" : { }
 };

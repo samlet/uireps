@@ -5,6 +5,7 @@ const srvMetas = {
       "methodKey" : "post:updateText",
       "alias" : "updateText",
       "name" : "updateText",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "updateText",
@@ -20,13 +21,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "text"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:likes" : {
       "methodKey" : "post:likes",
       "alias" : "likes",
       "name" : "likes",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "likes",
@@ -34,13 +41,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asDouble(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asDouble(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:createAgent" : {
       "methodKey" : "user:createAgent",
       "alias" : "createAgent",
       "name" : "createAgent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "createAgent",
@@ -56,13 +69,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "agent"
       } ],
-      "returnVoid" : false,
-      "conv" : "Response()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Response()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:echoIntMap" : {
       "methodKey" : "fixtures:echoIntMap",
       "alias" : "echoIntMap",
       "name" : "echoIntMap",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "echoIntMap",
@@ -78,13 +97,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "input"
       } ],
-      "returnVoid" : false,
-      "conv" : "asTypedMap<int>(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asTypedMap<int>(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:wallet" : {
       "methodKey" : "user:wallet",
       "alias" : "wallet",
       "name" : "wallet",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "wallet",
@@ -92,13 +117,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "Wallet.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Wallet.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAgentIds" : {
       "methodKey" : "user:getAgentIds",
       "alias" : "getAgentIds",
       "name" : "getAgentIds",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAgentIds",
@@ -106,13 +137,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getUnreadNotifications" : {
       "methodKey" : "user:getUnreadNotifications",
       "alias" : "getUnreadNotifications",
       "name" : "getUnreadNotifications",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getUnreadNotifications",
@@ -120,13 +157,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Notification.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Notification.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:name" : {
       "methodKey" : "note:name",
       "alias" : "name",
       "name" : "name",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "name",
@@ -134,13 +177,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:attachToWorkEffort" : {
       "methodKey" : "note:attachToWorkEffort",
       "alias" : "attachToWorkEffort",
       "name" : "attachToWorkEffort",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "attachToWorkEffort",
@@ -156,13 +205,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "work_eff_id"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:lastName" : {
       "methodKey" : "user:lastName",
       "alias" : "lastName",
       "name" : "lastName",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "lastName",
@@ -170,13 +225,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:oneNoteWithData" : {
       "methodKey" : "fixtures:oneNoteWithData",
       "alias" : "oneNoteWithData",
       "name" : "oneNoteWithData",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "oneNoteWithData",
@@ -185,20 +246,26 @@ const srvMetas = {
       },
       "parameters" : [ {
         "name" : "data",
-        "dartType" : "List<int>",
+        "dartType" : "Uint8List",
         "fldType" : "byte-array",
         "fldGroup" : "storage",
         "optional" : false,
         "conv" : "",
         "protoName" : "data"
       } ],
-      "returnVoid" : false,
-      "conv" : "Note.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Note.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:storeBundle" : {
       "methodKey" : "fixtures:storeBundle",
       "alias" : "storeBundle",
       "name" : "storeBundle",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "storeBundle",
@@ -214,13 +281,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "store_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "StoreBundle.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "StoreBundle.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:printProto" : {
       "methodKey" : "fixtures:printProto",
       "alias" : "printProto",
       "name" : "printProto",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "printProto",
@@ -236,13 +309,19 @@ const srvMetas = {
         "conv" : ".toProto3Json()!",
         "protoName" : "num_map"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:createWallet" : {
       "methodKey" : "user:createWallet",
       "alias" : "createWallet",
       "name" : "createWallet",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "createWallet",
@@ -258,13 +337,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total_amount"
       } ],
-      "returnVoid" : false,
-      "conv" : "Wallet.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Wallet.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:getNoteSlotData" : {
       "methodKey" : "fixtures:getNoteSlotData",
       "alias" : "getNoteSlotData",
       "name" : "getNoteSlotData",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "getNoteSlotData",
@@ -280,13 +365,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "note_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "resp"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "resp",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:markRead" : {
       "methodKey" : "user:markRead",
       "alias" : "markRead",
       "name" : "markRead",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "markRead",
@@ -302,13 +393,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "noti_id"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:getDecimals" : {
       "methodKey" : "post:getDecimals",
       "alias" : "getDecimals",
       "name" : "getDecimals",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "getDecimals",
@@ -316,13 +413,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "DecimalMap()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "DecimalMap()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getPaymentMethods" : {
       "methodKey" : "user:getPaymentMethods",
       "alias" : "getPaymentMethods",
       "name" : "getPaymentMethods",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getPaymentMethods",
@@ -330,13 +433,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:noteEnts" : {
       "methodKey" : "fixtures:noteEnts",
       "alias" : "noteEnts",
       "name" : "noteEnts",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "noteEnts",
@@ -344,13 +453,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, ProtoEnt.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, ProtoEnt.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "EcommSln:allProductTypes" : {
       "methodKey" : "EcommSln:allProductTypes",
       "alias" : "allProductTypes",
       "name" : "allProductTypes",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "ecommSln",
         "name" : "allProductTypes",
@@ -358,13 +473,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, (el)=>el)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, (el)=>el)",
+        "elType" : "default",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getNotes" : {
       "methodKey" : "user:getNotes",
       "alias" : "getNotes",
       "name" : "getNotes",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getNotes",
@@ -372,13 +493,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Note.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Note.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:applyContent" : {
       "methodKey" : "note:applyContent",
       "alias" : "applyContent",
       "name" : "applyContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "applyContent",
@@ -394,13 +521,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "cnt"
       } ],
-      "returnVoid" : false,
-      "conv" : "Note.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Note.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAllTels" : {
       "methodKey" : "user:getAllTels",
       "alias" : "getAllTels",
       "name" : "getAllTels",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAllTels",
@@ -408,13 +541,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "TelecomNumberList()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "TelecomNumberList()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:makeTestRec" : {
       "methodKey" : "fixtures:makeTestRec",
       "alias" : "makeTestRec",
       "name" : "makeTestRec",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "makeTestRec",
@@ -454,13 +593,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "nums"
       } ],
-      "returnVoid" : false,
-      "conv" : "TestRec.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "TestRec.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:doneSlot" : {
       "methodKey" : "post:doneSlot",
       "alias" : "doneSlot",
       "name" : "doneSlot",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "doneSlot",
@@ -476,13 +621,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:isFeatured" : {
       "methodKey" : "post:isFeatured",
       "alias" : "isFeatured",
       "name" : "isFeatured",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "isFeatured",
@@ -490,13 +641,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:addToContentBin" : {
       "methodKey" : "post:addToContentBin",
       "alias" : "addToContentBin",
       "name" : "addToContentBin",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "addToContentBin",
@@ -512,13 +669,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "bin_id"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getOrdersAsCarrier" : {
       "methodKey" : "user:getOrdersAsCarrier",
       "alias" : "getOrdersAsCarrier",
       "name" : "getOrdersAsCarrier",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getOrdersAsCarrier",
@@ -526,13 +689,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getTelData" : {
       "methodKey" : "user:getTelData",
       "alias" : "getTelData",
       "name" : "getTelData",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getTelData",
@@ -540,13 +709,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "TelecomNumberFlatData()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "TelecomNumberFlatData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getShipsAsDestination" : {
       "methodKey" : "user:getShipsAsDestination",
       "alias" : "getShipsAsDestination",
       "name" : "getShipsAsDestination",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getShipsAsDestination",
@@ -554,13 +729,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Shipment.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Shipment.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:someTodos" : {
       "methodKey" : "fixtures:someTodos",
       "alias" : "someTodos",
       "name" : "someTodos",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "someTodos",
@@ -576,13 +757,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "Strings()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:oneProduct" : {
       "methodKey" : "fixtures:oneProduct",
       "alias" : "oneProduct",
       "name" : "oneProduct",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "oneProduct",
@@ -590,13 +777,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "Product.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Product.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:hasSlotValue" : {
       "methodKey" : "user:hasSlotValue",
       "alias" : "hasSlotValue",
       "name" : "hasSlotValue",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "hasSlotValue",
@@ -612,13 +805,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "EcommSln:productRootTypes" : {
       "methodKey" : "EcommSln:productRootTypes",
       "alias" : "productRootTypes",
       "name" : "productRootTypes",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "ecommSln",
         "name" : "productRootTypes",
@@ -626,13 +825,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "default",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:partyBundle" : {
       "methodKey" : "fixtures:partyBundle",
       "alias" : "partyBundle",
       "name" : "partyBundle",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "partyBundle",
@@ -648,13 +853,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "party_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "PartyBundle.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PartyBundle.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:getSentence" : {
       "methodKey" : "fixtures:getSentence",
       "alias" : "getSentence",
       "name" : "getSentence",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "getSentence",
@@ -662,13 +873,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:someNotes" : {
       "methodKey" : "fixtures:someNotes",
       "alias" : "someNotes",
       "name" : "someNotes",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "someNotes",
@@ -684,13 +901,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "Strings()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:fetch" : {
       "methodKey" : "user:fetch",
       "alias" : "fetchUser",
       "name" : "fetch",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "fetch",
@@ -698,13 +921,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "UserObj.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "UserObj.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:isLiked" : {
       "methodKey" : "post:isLiked",
       "alias" : "isLiked",
       "name" : "isLiked",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "isLiked",
@@ -712,13 +941,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:doneSlot" : {
       "methodKey" : "user:doneSlot",
       "alias" : "doneSlot",
       "name" : "doneSlot",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "doneSlot",
@@ -734,13 +969,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getUserLoginIds" : {
       "methodKey" : "user:getUserLoginIds",
       "alias" : "getUserLoginIds",
       "name" : "getUserLoginIds",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getUserLoginIds",
@@ -748,13 +989,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:createNote" : {
       "methodKey" : "user:createNote",
       "alias" : "createNote",
       "name" : "createNote",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "createNote",
@@ -778,13 +1025,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "content"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:pickName" : {
       "methodKey" : "fixtures:pickName",
       "alias" : "pickName",
       "name" : "pickName",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "pickName",
@@ -792,13 +1045,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:featured" : {
       "methodKey" : "post:featured",
       "alias" : "featured",
       "name" : "featured",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "featured",
@@ -806,13 +1065,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:getFreeName" : {
       "methodKey" : "fixtures:getFreeName",
       "alias" : "getFreeName",
       "name" : "getFreeName",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "getFreeName",
@@ -820,13 +1085,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:createLogin" : {
       "methodKey" : "user:createLogin",
       "alias" : "createLogin",
       "name" : "createLogin",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "createLogin",
@@ -850,13 +1121,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "password"
       } ],
-      "returnVoid" : false,
-      "conv" : "UserLogin.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "UserLogin.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:getCommentSyncs" : {
       "methodKey" : "post:getCommentSyncs",
       "alias" : "getCommentSyncs",
       "name" : "getCommentSyncs",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "getCommentSyncs",
@@ -864,13 +1141,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Comment.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Comment.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "EcommSln:getSupplyProducts" : {
       "methodKey" : "EcommSln:getSupplyProducts",
       "alias" : "getSupplyProducts",
       "name" : "getSupplyProducts",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "ecommSln",
         "name" : "getSupplyProducts",
@@ -886,13 +1169,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "full_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "default",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:protoInput" : {
       "methodKey" : "fixtures:protoInput",
       "alias" : "protoInput",
       "name" : "protoInput",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "protoInput",
@@ -940,13 +1229,19 @@ const srvMetas = {
         "conv" : ".toProto3Json()!",
         "protoName" : "decimal_map"
       } ],
-      "returnVoid" : false,
-      "conv" : "IntMap()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "IntMap()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:persistSlotValues" : {
       "methodKey" : "post:persistSlotValues",
       "alias" : "persistSlotValues",
       "name" : "persistSlotValues",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "persistSlotValues",
@@ -954,13 +1249,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "BuffersMap()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "BuffersMap()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:oneStore" : {
       "methodKey" : "fixtures:oneStore",
       "alias" : "oneStore",
       "name" : "oneStore",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "oneStore",
@@ -968,13 +1269,71 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "Store.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Store.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "FoldDelegator:queryPage" : {
+      "methodKey" : "FoldDelegator:queryPage",
+      "alias" : "queryPage",
+      "name" : "queryPage",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "foldDelegator",
+        "name" : "queryPage",
+        "bundleName" : "FoldDelegator",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "foldRegion",
+        "dartType" : "FoldRegion",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "fold_region"
+      }, {
+        "name" : "match",
+        "dartType" : "Match",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "match"
+      }, {
+        "name" : "pageLimit",
+        "dartType" : "PageLimit",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "page_limit"
+      }, {
+        "name" : "orderBy",
+        "dartType" : "List<ResultSort>",
+        "fldType" : "json-array",
+        "fldGroup" : "array",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "order_by"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PaginatedEntBytes.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:setCharge" : {
       "methodKey" : "post:setCharge",
       "alias" : "setCharge",
       "name" : "setCharge",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "setCharge",
@@ -990,13 +1349,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "fee"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "EcommSln:allPartyTypes" : {
       "methodKey" : "EcommSln:allPartyTypes",
       "alias" : "allPartyTypes",
       "name" : "allPartyTypes",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "ecommSln",
         "name" : "allPartyTypes",
@@ -1004,13 +1369,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, (el)=>el)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, (el)=>el)",
+        "elType" : "default",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:getSlotValue" : {
       "methodKey" : "note:getSlotValue",
       "alias" : "getSlotValue",
       "name" : "getSlotValue",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "getSlotValue",
@@ -1026,13 +1397,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ValueData()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ValueData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:setContentComp" : {
       "methodKey" : "note:setContentComp",
       "alias" : "setContentComp",
       "name" : "setContentComp",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "setContentComp",
@@ -1048,13 +1425,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "cnt"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:someFacilities" : {
       "methodKey" : "fixtures:someFacilities",
       "alias" : "someFacilities",
       "name" : "someFacilities",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "someFacilities",
@@ -1070,13 +1453,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "Strings()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:removeEnt" : {
       "methodKey" : "PortalManager:removeEnt",
       "alias" : "removeEnt",
       "name" : "removeEnt",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "removeEnt",
@@ -1116,13 +1505,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "item_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "Response()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Response()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getPhoneNumber" : {
       "methodKey" : "user:getPhoneNumber",
       "alias" : "getPhoneNumber",
       "name" : "getPhoneNumber",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getPhoneNumber",
@@ -1130,13 +1525,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "PhoneNumber.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PhoneNumber.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:like" : {
       "methodKey" : "post:like",
       "alias" : "like",
       "name" : "like",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "like",
@@ -1144,13 +1545,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAllEmails" : {
       "methodKey" : "user:getAllEmails",
       "alias" : "getAllEmails",
       "name" : "getAllEmails",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAllEmails",
@@ -1158,13 +1565,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAllAddrs" : {
       "methodKey" : "user:getAllAddrs",
       "alias" : "getAllAddrs",
       "name" : "getAllAddrs",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAllAddrs",
@@ -1172,13 +1585,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "PostalAddressList()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PostalAddressList()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getDecimals" : {
       "methodKey" : "user:getDecimals",
       "alias" : "getDecimals",
       "name" : "getDecimals",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getDecimals",
@@ -1186,13 +1605,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "DecimalMap()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "DecimalMap()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:mutate" : {
       "methodKey" : "PortalManager:mutate",
       "alias" : "mutate",
       "name" : "mutate",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "mutate",
@@ -1209,20 +1634,26 @@ const srvMetas = {
         "protoName" : "bundle_name"
       }, {
         "name" : "mutParams",
-        "dartType" : "List<int>",
+        "dartType" : "Uint8List",
         "fldType" : "byte-array",
         "fldGroup" : "storage",
         "optional" : false,
         "conv" : "",
         "protoName" : "mut_params"
       } ],
-      "returnVoid" : false,
-      "conv" : "Response()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Response()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:echoStringMultiMap" : {
       "methodKey" : "fixtures:echoStringMultiMap",
       "alias" : "echoStringMultiMap",
       "name" : "echoStringMultiMap",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "echoStringMultiMap",
@@ -1238,13 +1669,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "input"
       } ],
-      "returnVoid" : false,
-      "conv" : "asMultimap<String>(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asMultimap<String>(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:fetch" : {
       "methodKey" : "post:fetch",
       "alias" : "fetch",
       "name" : "fetch",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "fetch",
@@ -1252,13 +1689,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "PostBundle.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PostBundle.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:someProducts" : {
       "methodKey" : "fixtures:someProducts",
       "alias" : "someProducts",
       "name" : "someProducts",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "someProducts",
@@ -1274,13 +1717,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "Strings()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:createPostWithComments" : {
       "methodKey" : "fixtures:createPostWithComments",
       "alias" : "createPostWithComments",
       "name" : "createPostWithComments",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "createPostWithComments",
@@ -1288,13 +1737,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:getNoteProto" : {
       "methodKey" : "note:getNoteProto",
       "alias" : "getNoteProto",
       "name" : "getNoteProto",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "getNoteProto",
@@ -1302,13 +1757,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "NoteProto()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "NoteProto()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAccountId" : {
       "methodKey" : "user:getAccountId",
       "alias" : "getAccountId",
       "name" : "getAccountId",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAccountId",
@@ -1316,13 +1777,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:getContentSlot" : {
       "methodKey" : "post:getContentSlot",
       "alias" : "getContentSlot",
       "name" : "getContentSlot",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "getContentSlot",
@@ -1330,13 +1797,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "BuffersData()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "BuffersData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:unlike" : {
       "methodKey" : "post:unlike",
       "alias" : "unlike",
       "name" : "unlike",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "unlike",
@@ -1344,13 +1817,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:persistSlotsExistent" : {
       "methodKey" : "post:persistSlotsExistent",
       "alias" : "persistSlotsExistent",
       "name" : "persistSlotsExistent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "persistSlotsExistent",
@@ -1358,13 +1837,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "asTypedMap<bool>(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asTypedMap<bool>(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:postComment" : {
       "methodKey" : "post:postComment",
       "alias" : "postComment",
       "name" : "postComment",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "postComment",
@@ -1404,13 +1889,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "reward"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getNotifications" : {
       "methodKey" : "user:getNotifications",
       "alias" : "getNotifications",
       "name" : "getNotifications",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getNotifications",
@@ -1418,13 +1909,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Notification.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Notification.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getLocation" : {
       "methodKey" : "user:getLocation",
       "alias" : "getLocation",
       "name" : "getLocation",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getLocation",
@@ -1432,13 +1929,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "Location.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Location.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "EcommSln:partyRootTypes" : {
       "methodKey" : "EcommSln:partyRootTypes",
       "alias" : "partyRootTypes",
       "name" : "partyRootTypes",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "ecommSln",
         "name" : "partyRootTypes",
@@ -1446,13 +1949,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "id",
+        "elName" : "PartyType",
+        "elIdFld" : ""
+      }
     },
     "post:getStats" : {
       "methodKey" : "post:getStats",
       "alias" : "getStats",
       "name" : "getStats",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "getStats",
@@ -1460,13 +1969,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "asTypedMap<double>(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asTypedMap<double>(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:getContent" : {
       "methodKey" : "post:getContent",
       "alias" : "getContent",
       "name" : "getContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "getContent",
@@ -1474,13 +1989,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ContentProto()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ContentProto()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:addNotification" : {
       "methodKey" : "user:addNotification",
       "alias" : "addNotification",
       "name" : "addNotification",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "addNotification",
@@ -1504,13 +2025,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "content"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:publicNotes" : {
       "methodKey" : "fixtures:publicNotes",
       "alias" : "publicNotes",
       "name" : "publicNotes",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "publicNotes",
@@ -1526,13 +2053,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "author"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Note.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Note.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:storeBundleSpec" : {
       "methodKey" : "PortalManager:storeBundleSpec",
       "alias" : "storeBundleSpec",
       "name" : "storeBundleSpec",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "storeBundleSpec",
@@ -1564,13 +2097,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "spec"
       } ],
-      "returnVoid" : false,
-      "conv" : "BundleModifiedResult.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "BundleModifiedResult.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:echoDecimalMap" : {
       "methodKey" : "fixtures:echoDecimalMap",
       "alias" : "echoDecimalMap",
       "name" : "echoDecimalMap",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "echoDecimalMap",
@@ -1586,13 +2125,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "input"
       } ],
-      "returnVoid" : false,
-      "conv" : "asTypedMap<double>(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asTypedMap<double>(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAllNotes" : {
       "methodKey" : "user:getAllNotes",
       "alias" : "getAllNotes",
       "name" : "getAllNotes",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAllNotes",
@@ -1600,13 +2145,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:doneSlot" : {
       "methodKey" : "note:doneSlot",
       "alias" : "doneSlot",
       "name" : "doneSlot",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "doneSlot",
@@ -1622,13 +2173,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "EcommSln:getSuppliers" : {
       "methodKey" : "EcommSln:getSuppliers",
       "alias" : "getSuppliers",
       "name" : "getSuppliers",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "ecommSln",
         "name" : "getSuppliers",
@@ -1644,13 +2201,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "tk"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, ProtoEnt.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, ProtoEnt.fromJson)",
+        "elType" : "default",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getOrdersAsRole" : {
       "methodKey" : "user:getOrdersAsRole",
       "alias" : "getOrdersAsRole",
       "name" : "getOrdersAsRole",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getOrdersAsRole",
@@ -1666,13 +2229,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "role_type"
       } ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:isType" : {
       "methodKey" : "user:isType",
       "alias" : "isType",
       "name" : "isType",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "isType",
@@ -1688,13 +2257,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "type_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:touch" : {
       "methodKey" : "fixtures:touch",
       "alias" : "touch",
       "name" : "touch",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "touch",
@@ -1718,13 +2293,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "bundle_id"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:createTestAsset" : {
       "methodKey" : "fixtures:createTestAsset",
       "alias" : "createTestAsset",
       "name" : "createTestAsset",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "createTestAsset",
@@ -1740,13 +2321,47 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "rec"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "FoldDelegator:pullEnt" : {
+      "methodKey" : "FoldDelegator:pullEnt",
+      "alias" : "pullEnt",
+      "name" : "pullEnt",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "foldDelegator",
+        "name" : "pullEnt",
+        "bundleName" : "FoldDelegator",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "foldRegion",
+        "dartType" : "FoldRegion",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "fold_region"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, ProtoEnt.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:setContent" : {
       "methodKey" : "note:setContent",
       "alias" : "setContent",
       "name" : "setContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "setContent",
@@ -1762,13 +2377,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "cnt"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:size" : {
       "methodKey" : "note:size",
       "alias" : "size",
       "name" : "size",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "size",
@@ -1776,13 +2397,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asInt(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asInt(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:loadAsBiFacets" : {
       "methodKey" : "PortalManager:loadAsBiFacets",
       "alias" : "loadAsBiFacets",
       "name" : "loadAsBiFacets",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "loadAsBiFacets",
@@ -1814,13 +2441,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "bundle_ids"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, BiFacetBi.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, BiFacetBi.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:echo" : {
       "methodKey" : "fixtures:echo",
       "alias" : "echo",
       "name" : "echo",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "echo",
@@ -1836,13 +2469,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "input"
       } ],
-      "returnVoid" : false,
-      "conv" : "asTypedMap(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asTypedMap(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:setContentSlot" : {
       "methodKey" : "post:setContentSlot",
       "alias" : "setContentSlot",
       "name" : "setContentSlot",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "setContentSlot",
@@ -1858,13 +2497,19 @@ const srvMetas = {
         "conv" : ".toProto3Json()!",
         "protoName" : "data"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:text" : {
       "methodKey" : "post:text",
       "alias" : "text",
       "name" : "text",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "text",
@@ -1872,13 +2517,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:getNickName" : {
       "methodKey" : "fixtures:getNickName",
       "alias" : "getNickName",
       "name" : "getNickName",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "getNickName",
@@ -1886,13 +2537,19 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:loadAsBiFacetsByTenant" : {
       "methodKey" : "PortalManager:loadAsBiFacetsByTenant",
       "alias" : "loadAsBiFacetsByTenant",
       "name" : "loadAsBiFacetsByTenant",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "loadAsBiFacetsByTenant",
@@ -1924,13 +2581,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "tenant_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, BiFacetBi.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, BiFacetBi.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:hasSlotValue" : {
       "methodKey" : "note:hasSlotValue",
       "alias" : "hasSlotValue",
       "name" : "hasSlotValue",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "hasSlotValue",
@@ -1946,13 +2609,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:storeEnt" : {
       "methodKey" : "PortalManager:storeEnt",
       "alias" : "storeEnt",
       "name" : "storeEnt",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "storeEnt",
@@ -1977,20 +2646,26 @@ const srvMetas = {
         "protoName" : "region_id"
       }, {
         "name" : "data",
-        "dartType" : "List<int>",
+        "dartType" : "Uint8List",
         "fldType" : "byte-array",
         "fldGroup" : "storage",
         "optional" : false,
         "conv" : "",
         "protoName" : "data"
       } ],
-      "returnVoid" : false,
-      "conv" : "Response()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Response()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getSlotValue" : {
       "methodKey" : "user:getSlotValue",
       "alias" : "getSlotValue",
       "name" : "getSlotValue",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getSlotValue",
@@ -2006,13 +2681,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ValueData()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ValueData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "CommonSln:getUomTypes" : {
       "methodKey" : "CommonSln:getUomTypes",
       "alias" : "getUomTypes",
       "name" : "getUomTypes",
+      "selection" : true,
       "ctx" : {
         "moduleName" : "commonSln",
         "name" : "getUomTypes",
@@ -2028,13 +2709,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "uom_type_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, (el)=>el)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, (el)=>el)",
+        "elType" : "ent",
+        "elName" : "Uom",
+        "elIdFld" : "uomId"
+      }
     },
     "fixtures:makeSomeRecs" : {
       "methodKey" : "fixtures:makeSomeRecs",
       "alias" : "makeSomeRecs",
       "name" : "makeSomeRecs",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "makeSomeRecs",
@@ -2050,13 +2737,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, TestRec.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, TestRec.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:addCreditCard" : {
       "methodKey" : "user:addCreditCard",
       "alias" : "addCreditCard",
       "name" : "addCreditCard",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "addCreditCard",
@@ -2088,13 +2781,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "refund"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getPrimaryContact" : {
       "methodKey" : "user:getPrimaryContact",
       "alias" : "getPrimaryContact",
       "name" : "getPrimaryContact",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getPrimaryContact",
@@ -2102,13 +2801,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ContactProto()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ContactProto()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:isPerson" : {
       "methodKey" : "user:isPerson",
       "alias" : "isPerson",
       "name" : "isPerson",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "isPerson",
@@ -2116,13 +2821,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:setTitleAndContent" : {
       "methodKey" : "note:setTitleAndContent",
       "alias" : "setTitleAndContent",
       "name" : "setTitleAndContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "setTitleAndContent",
@@ -2146,13 +2857,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "cnt"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:attachToParty" : {
       "methodKey" : "note:attachToParty",
       "alias" : "attachToParty",
       "name" : "attachToParty",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "attachToParty",
@@ -2168,13 +2885,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "party_id"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getEmail" : {
       "methodKey" : "user:getEmail",
       "alias" : "getEmail",
       "name" : "getEmail",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getEmail",
@@ -2182,13 +2905,39 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "CommonSln:pullAllAssets" : {
+      "methodKey" : "CommonSln:pullAllAssets",
+      "alias" : "pullAllAssets",
+      "name" : "pullAllAssets",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "commonSln",
+        "name" : "pullAllAssets",
+        "bundleName" : "CommonSln",
+        "callType" : "slab"
+      },
+      "parameters" : [ ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, NamedDataset.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:hasSlotValue" : {
       "methodKey" : "post:hasSlotValue",
       "alias" : "hasSlotValue",
       "name" : "hasSlotValue",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "hasSlotValue",
@@ -2204,13 +2953,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asBool(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asBool(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:setDefaultPayMeth" : {
       "methodKey" : "user:setDefaultPayMeth",
       "alias" : "setDefaultPayMeth",
       "name" : "setDefaultPayMeth",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "setDefaultPayMeth",
@@ -2234,13 +2989,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "default_pay_meth"
       } ],
-      "returnVoid" : false,
-      "conv" : "Response()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Response()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:listAsEnts" : {
       "methodKey" : "PortalManager:listAsEnts",
       "alias" : "listAsEnts",
       "name" : "listAsEnts",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "listAsEnts",
@@ -2256,13 +3017,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "qr"
       } ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, ProtoEnt.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, ProtoEnt.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getNickname" : {
       "methodKey" : "user:getNickname",
       "alias" : "getNickname",
       "name" : "getNickname",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getNickname",
@@ -2270,13 +3037,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:someStores" : {
       "methodKey" : "fixtures:someStores",
       "alias" : "someStores",
       "name" : "someStores",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "someStores",
@@ -2292,13 +3065,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "Strings()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getShipsAsOrigin" : {
       "methodKey" : "user:getShipsAsOrigin",
       "alias" : "getShipsAsOrigin",
       "name" : "getShipsAsOrigin",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getShipsAsOrigin",
@@ -2306,13 +3085,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convList(resp, Shipment.fromJson)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, Shipment.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:createEvent" : {
       "methodKey" : "fixtures:createEvent",
       "alias" : "createEvent",
       "name" : "createEvent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "createEvent",
@@ -2352,13 +3137,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "actual_end_dt"
       } ],
-      "returnVoid" : false,
-      "conv" : "WorkEffort.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "WorkEffort.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:getNoteProto" : {
       "methodKey" : "fixtures:getNoteProto",
       "alias" : "getNoteProto",
       "name" : "getNoteProto",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "getNoteProto",
@@ -2374,13 +3165,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "note_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:revokeContent" : {
       "methodKey" : "note:revokeContent",
       "alias" : "revokeContent",
       "name" : "revokeContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "revokeContent",
@@ -2388,13 +3185,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:firstName" : {
       "methodKey" : "user:firstName",
       "alias" : "firstName",
       "name" : "firstName",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "firstName",
@@ -2402,13 +3205,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getAddressData" : {
       "methodKey" : "user:getAddressData",
       "alias" : "getAddressData",
       "name" : "getAddressData",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getAddressData",
@@ -2416,13 +3225,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "PostalAddressFlatData()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PostalAddressFlatData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getOrdersAsCustomer" : {
       "methodKey" : "user:getOrdersAsCustomer",
       "alias" : "getOrdersAsCustomer",
       "name" : "getOrdersAsCustomer",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getOrdersAsCustomer",
@@ -2430,13 +3245,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "post:getSlotValue" : {
       "methodKey" : "post:getSlotValue",
       "alias" : "getSlotValue",
       "name" : "getSlotValue",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "postPal",
         "name" : "getSlotValue",
@@ -2452,13 +3273,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "slot_name"
       } ],
-      "returnVoid" : false,
-      "conv" : "ValueData()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ValueData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:getDecimals" : {
       "methodKey" : "note:getDecimals",
       "alias" : "getDecimals",
       "name" : "getDecimals",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "getDecimals",
@@ -2466,13 +3293,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "DecimalMap()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "DecimalMap()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getDefaultLoginId" : {
       "methodKey" : "user:getDefaultLoginId",
       "alias" : "getDefaultLoginId",
       "name" : "getDefaultLoginId",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getDefaultLoginId",
@@ -2480,13 +3313,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:echoBoolMap" : {
       "methodKey" : "fixtures:echoBoolMap",
       "alias" : "echoBoolMap",
       "name" : "echoBoolMap",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "echoBoolMap",
@@ -2502,13 +3341,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "input"
       } ],
-      "returnVoid" : false,
-      "conv" : "asTypedMap<bool>(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "asTypedMap<bool>(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:addRole" : {
       "methodKey" : "user:addRole",
       "alias" : "addRole",
       "name" : "addRole",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "addRole",
@@ -2524,13 +3369,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "role_type_id"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:viewContent" : {
       "methodKey" : "note:viewContent",
       "alias" : "viewContent",
       "name" : "viewContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "viewContent",
@@ -2538,13 +3389,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "NoteContent.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "NoteContent.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:name" : {
       "methodKey" : "user:name",
       "alias" : "name",
       "name" : "name",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "name",
@@ -2552,13 +3409,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:getDefaultPayMeth" : {
       "methodKey" : "user:getDefaultPayMeth",
       "alias" : "getDefaultPayMeth",
       "name" : "getDefaultPayMeth",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "getDefaultPayMeth",
@@ -2574,13 +3437,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "store_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:setName" : {
       "methodKey" : "user:setName",
       "alias" : "setName",
       "name" : "setName",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "setName",
@@ -2604,13 +3473,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "first_name"
       } ],
-      "returnVoid" : true,
-      "conv" : ""
+      "result" : {
+        "returnVoid" : true,
+        "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:someShipments" : {
       "methodKey" : "fixtures:someShipments",
       "alias" : "someShipments",
       "name" : "someShipments",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "someShipments",
@@ -2626,13 +3501,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "total"
       } ],
-      "returnVoid" : false,
-      "conv" : "Strings()..mergeFromProto3Json(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:ping" : {
       "methodKey" : "fixtures:ping",
       "alias" : "ping",
       "name" : "ping",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "ping",
@@ -2648,13 +3529,47 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "req"
       } ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "FoldDelegator:queryAsEnts" : {
+      "methodKey" : "FoldDelegator:queryAsEnts",
+      "alias" : "queryAsEnts",
+      "name" : "queryAsEnts",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "foldDelegator",
+        "name" : "queryAsEnts",
+        "bundleName" : "FoldDelegator",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "qr",
+        "dartType" : "QueryRequest",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "qr"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultProtosWithMeta.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "note:getContent" : {
       "methodKey" : "note:getContent",
       "alias" : "getContent",
       "name" : "getContent",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "noteCo",
         "name" : "getContent",
@@ -2662,13 +3577,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "ResultConv.asString(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultConv.asString(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "user:noteIds" : {
       "methodKey" : "user:noteIds",
       "alias" : "noteIds",
       "name" : "noteIds",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "userPal",
         "name" : "noteIds",
@@ -2676,13 +3597,19 @@ const srvMetas = {
         "callType" : "co"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "convScalars(resp, (e)=> e.toString())"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "PortalManager:loadAsBiFacet" : {
       "methodKey" : "PortalManager:loadAsBiFacet",
       "alias" : "loadAsBiFacet",
       "name" : "loadAsBiFacet",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "portalManager",
         "name" : "loadAsBiFacet",
@@ -2714,13 +3641,19 @@ const srvMetas = {
         "conv" : "",
         "protoName" : "bundle_id"
       } ],
-      "returnVoid" : false,
-      "conv" : "BiFacetBi.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "BiFacetBi.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     },
     "fixtures:oneNote" : {
       "methodKey" : "fixtures:oneNote",
       "alias" : "oneNote",
       "name" : "oneNote",
+      "selection" : false,
       "ctx" : {
         "moduleName" : "fixtureObjects",
         "name" : "oneNote",
@@ -2728,8 +3661,65 @@ const srvMetas = {
         "callType" : "slab"
       },
       "parameters" : [ ],
-      "returnVoid" : false,
-      "conv" : "Note.fromJson(resp)"
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "Note.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "FoldDelegator:query" : {
+      "methodKey" : "FoldDelegator:query",
+      "alias" : "query",
+      "name" : "query",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "foldDelegator",
+        "name" : "query",
+        "bundleName" : "FoldDelegator",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "foldRegion",
+        "dartType" : "FoldRegion",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "fold_region"
+      }, {
+        "name" : "match",
+        "dartType" : "Match",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "match"
+      }, {
+        "name" : "limit",
+        "dartType" : "ResultLimit",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "limit"
+      }, {
+        "name" : "orderBy",
+        "dartType" : "List<ResultSort>",
+        "fldType" : "json-array",
+        "fldGroup" : "array",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "order_by"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ResultBytesWithMeta.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
     }
   }
 };

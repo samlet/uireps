@@ -57,18 +57,18 @@ class SrvMeta{
   String? methodKey;   
   String? alias;   
   String? name;   
+  bool? selection;   
   SrvCtxMeta? ctx;   
   List<SrvParamMeta>? parameters;   
-  bool? returnVoid;   
-  String? conv;
+  SrvResultMeta? result;
   SrvMeta({
     this.methodKey,
     this.alias,
     this.name,
+    this.selection,
     this.ctx,
     this.parameters,
-    this.returnVoid,
-    this.conv,
+    this.result,
   });
 
   factory SrvMeta.fromJson(Map<String, dynamic> json) =>
@@ -92,6 +92,29 @@ class SrvMetas{
       _$SrvMetasFromJson(json);
 
   Map<String, dynamic> toJson() => _$SrvMetasToJson(this);
+}
+
+// -- SrvResultMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SrvResultMeta{   
+  bool? returnVoid;   
+  String? conv;   
+  String? elType;   
+  String? elName;   
+  String? elIdFld;
+  SrvResultMeta({
+    this.returnVoid,
+    this.conv,
+    this.elType,
+    this.elName,
+    this.elIdFld,
+  });
+
+  factory SrvResultMeta.fromJson(Map<String, dynamic> json) =>
+      _$SrvResultMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SrvResultMetaToJson(this);
 }
 
 // -- FieldUiMeta -- 
@@ -226,9 +249,11 @@ class EntProp{
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 class FldProp{   
+  String? alias;   
   String? sels;   
   Map<String, String?>? params;
   FldProp({
+    this.alias,
     this.sels,
     this.params,
   });
@@ -240,4 +265,4 @@ class FldProp{
 }
 
 
-// total classes: 11
+// total classes: 12

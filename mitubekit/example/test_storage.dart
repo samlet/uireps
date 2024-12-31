@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:sembast/sembast.dart';
 import 'package:path/path.dart';
 import 'package:sembast/sembast_io.dart';
+import 'package:xcsmachine/tubeapi.dart';
 
 Future<void> main(List<String> arguments) async {
   Database db = await openDb();
@@ -40,6 +41,9 @@ Future<void> main(List<String> arguments) async {
 
   // map dot
   await useMapDot(db);
+
+  // tubeDb
+  await testTubeDb();
 }
 
 Future<Database> openDb() async {
@@ -51,9 +55,12 @@ Future<Database> openDb() async {
   return db;
 }
 
-Future<void> useMapDot(Database db) async{
+Future<void> useMapDot(Database db) async {
   var store = intMapStoreFactory.store();
-  var key = await store.add(db, {'path': {'sub': 'my_value'}, 'with.dots': 'my_other_value'});
+  var key = await store.add(db, {
+    'path': {'sub': 'my_value'},
+    'with.dots': 'my_other_value'
+  });
 
   var record = await store.record(key).getSnapshot(db);
   var value = record?['path.sub'];
@@ -63,7 +70,7 @@ Future<void> useMapDot(Database db) async{
   print('v1: $value, v2: $value2');
 }
 
-Future<void> useTyped(Database db) async{
+Future<void> useTyped(Database db) async {
 // Use the main store for storing key values as String
   var store = StoreRef<String, String>.main();
 
@@ -77,7 +84,7 @@ Future<void> useTyped(Database db) async{
   print('url: $url, user: $username');
 }
 
-Future<void> useTxn(Database db) async{
+Future<void> useTxn(Database db) async {
   // Use the animals store using Map records with int keys
   var store = intMapStoreFactory.store('animals');
 
@@ -94,22 +101,41 @@ Future<void> useTxn(Database db) async{
 Future<void> queryProc(Database db) async {
   // Use the animals store using Map records with int keys
   var store = intMapStoreFactory.store('animals');
+  await store.delete(db);
 
   // Store some objects
   await db.transaction((txn) async {
     await store.add(txn, {'name': 'fish'});
     await store.add(txn, {'name': 'cat'});
     await store.add(txn, {'name': 'dog'});
+    await store.add(txn, {'kind': 'cat', 'brand': 'bmw'});
   });
 
-  // Look for any animal "greater than" (alphabetically) 'cat'
-  // ordered by name
-  var finder = Finder(filter: Filter.greaterThan('name', 'cat'), sortOrders: [SortOrder('name')]);
-  var records = await store.find(db, finder: finder);
-
-  print(records[0]);
-
-  // expect(records.length, 2);
-  // expect(records[0]['name'], 'dog');
-  // expect(records[1]['name'], 'fish');
+  {
+    // Look for any animal "greater than" (alphabetically) 'cat'
+    // ordered by name
+    var finder = Finder(filter: Filter.greaterThan('name', 'cat'), sortOrders: [SortOrder('name')]);
+    var records = await store.find(db, finder: finder);
+    print('find recs(${records.length}): ${records[0]}');
+    // expect(records.length, 2);
+    // expect(records[0]['name'], 'dog');
+    // expect(records[1]['name'], 'fish');
+  }
+  {
+    var finder = Finder(filter: Filter.equals('brand', 'bmw'), sortOrders: [SortOrder('name')]);
+    var records = await store.find(db, finder: finder);
+    print('find recs(${records.length}): ${records[0].value}');
+  }
 }
+
+Future<void> testTubeDb() async{
+  final path = Directory.systemTemp.path+'_ent';
+  var tubeDb=TubeDb(dbDir: path, name: 'ents');
+  await tubeDb.init();
+
+  await tubeDb.put(StoreType.recs, {'kind': 'cat', 'brand': 'bmw'});
+  var finder = Finder(filter: Filter.equals('brand', 'bmw'), sortOrders: [SortOrder('name')]);
+  var records=await tubeDb.find(StoreType.recs, finder);
+  print('find recs(${records.length}): ${records[0].value}');
+}
+

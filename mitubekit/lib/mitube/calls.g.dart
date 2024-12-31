@@ -47,16 +47,17 @@ ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
       regionId: json['regionId'] as String?,
       entType: json['entType'] as String?,
       key: json['key'] as String?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
+      lastTs: (json['lastTs'] as num?)?.toInt(),
+      data: const BytesConverter().fromJson(json['data'] as String?),
     );
 
 Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
       if (instance.regionId case final value?) 'regionId': value,
       if (instance.entType case final value?) 'entType': value,
       if (instance.key case final value?) 'key': value,
-      if (instance.data case final value?) 'data': value,
+      if (instance.lastTs case final value?) 'lastTs': value,
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
     };
 
 NoteContent _$NoteContentFromJson(Map<String, dynamic> json) => NoteContent(
@@ -70,6 +71,36 @@ Map<String, dynamic> _$NoteContentToJson(NoteContent instance) =>
       if (instance.key case final value?) 'key': value,
       if (instance.title case final value?) 'title': value,
       if (instance.body case final value?) 'body': value,
+    };
+
+FoldRegion _$FoldRegionFromJson(Map<String, dynamic> json) => FoldRegion(
+      regionId: json['regionId'] as String?,
+      ent: json['ent'] as String?,
+    );
+
+Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) =>
+    <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.ent case final value?) 'ent': value,
+    };
+
+ResultProtosWithMeta _$ResultProtosWithMetaFromJson(
+        Map<String, dynamic> json) =>
+    ResultProtosWithMeta(
+      ents: (json['ents'] as List<dynamic>?)
+          ?.map((e) => ProtoEnt.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      start: (json['start'] as num?)?.toInt(),
+      total: (json['total'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$ResultProtosWithMetaToJson(
+        ResultProtosWithMeta instance) =>
+    <String, dynamic>{
+      if (instance.ents?.map((e) => e.toJson()).toList() case final value?)
+        'ents': value,
+      if (instance.start case final value?) 'start': value,
+      if (instance.total case final value?) 'total': value,
     };
 
 ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
@@ -150,6 +181,25 @@ Map<String, dynamic> _$TenantKeyToJson(TenantKey instance) => <String, dynamic>{
       if (instance.tenantId case final value?) 'tenantId': value,
     };
 
+PaginatedEntBytes _$PaginatedEntBytesFromJson(Map<String, dynamic> json) =>
+    PaginatedEntBytes(
+      ent: json['ent'] as String?,
+      page: (json['page'] as num?)?.toInt(),
+      rsb: const BytesConverter().fromJson(json['rsb'] as String?),
+      totalPages: (json['totalPages'] as num?)?.toInt(),
+      totalResults: (json['totalResults'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PaginatedEntBytesToJson(PaginatedEntBytes instance) =>
+    <String, dynamic>{
+      if (instance.ent case final value?) 'ent': value,
+      if (instance.page case final value?) 'page': value,
+      if (const BytesConverter().toJson(instance.rsb) case final value?)
+        'rsb': value,
+      if (instance.totalPages case final value?) 'totalPages': value,
+      if (instance.totalResults case final value?) 'totalResults': value,
+    };
+
 MatchTerm _$MatchTermFromJson(Map<String, dynamic> json) => MatchTerm(
       field: json['field'] as String?,
       op: json['op'] as String?,
@@ -206,6 +256,16 @@ Map<String, dynamic> _$FullIdToJson(FullId instance) => <String, dynamic>{
       if (instance.id case final value?) 'id': value,
     };
 
+PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
+      page: (json['page'] as num?)?.toInt(),
+      pageSize: (json['pageSize'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PageLimitToJson(PageLimit instance) => <String, dynamic>{
+      if (instance.page case final value?) 'page': value,
+      if (instance.pageSize case final value?) 'pageSize': value,
+    };
+
 UserObj _$UserObjFromJson(Map<String, dynamic> json) => UserObj(
       partyId: json['partyId'] as String?,
       lastName: json['lastName'] as String?,
@@ -237,6 +297,19 @@ Map<String, dynamic> _$UserObjToJson(UserObj instance) => <String, dynamic>{
       if (instance.email case final value?) 'email': value,
       if (instance.icon case final value?) 'icon': value,
       if (instance.color case final value?) 'color': value,
+    };
+
+NamedDataset _$NamedDatasetFromJson(Map<String, dynamic> json) => NamedDataset(
+      name: json['name'] as String?,
+      rows: (json['rows'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+    );
+
+Map<String, dynamic> _$NamedDatasetToJson(NamedDataset instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.rows case final value?) 'rows': value,
     };
 
 BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(

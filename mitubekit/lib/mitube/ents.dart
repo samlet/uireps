@@ -4,7 +4,9 @@ final entlets = [productForm, personForm, noteDataForm, partyTypeForm];
 
 final enttiles = [productTile, personTile, noteDataTile, partyTypeTile];
 
+/// map of <FormMeta>
 final entletsMap= entlets.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
+/// map of <TileMeta>
 final enttilesMap= enttiles.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
 
 
@@ -1018,7 +1020,7 @@ final personForm = {
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameSpec",
+      "fldTpl" : "lastNameEdit",
       "domainType" : "stringField",
       "caption" : "姓",
       "defaultValue" : "''",
@@ -1282,7 +1284,7 @@ final personForm = {
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameSpec",
+      "fldTpl" : "firstNameEdit",
       "domainType" : "stringField",
       "caption" : "名",
       "defaultValue" : "''",
@@ -1862,7 +1864,7 @@ final personTile = {
       "fld" : {
         "fldName" : "lastName",
         "fldType" : "name",
-        "fldTpl" : "lastNameSpec",
+        "fldTpl" : "lastNameEdit",
         "domainType" : "stringField",
         "caption" : "姓",
         "defaultValue" : "''",

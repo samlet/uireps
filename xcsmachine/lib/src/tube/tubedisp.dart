@@ -15,12 +15,14 @@ class TubeDisp {
   TubeDisp(this.dio,
       {required this.callMetas, this.regionOrNs = 'default', this.callOpt = CallOpt.defaultOpt});
 
-  Future<Object> invoke(String methodKey, Map<String, Object> inputParams) async {
+  Future<Object> invoke(String methodKey, Map<String, Object?> inputParams) async {
     var (mat, flds) = checkSrvPars(callMetas, methodKey, inputParams);
     if (!mat) {
       throw ArgumentError('No required parameters for $methodKey: ($flds)');
     }
-    var ctx = callMetas.srvs![methodKey]!.ctx!;
+
+    SrvMeta model=callMetas.srvs![methodKey]!;
+    var ctx = model.ctx!;
     var callMeta = {
       "module": ctx.moduleName,
       "action": ctx.name,
@@ -29,13 +31,14 @@ class TubeDisp {
       "regionId": regionOrNs,
     };
     _logger.info('call-meta: $callMeta');
+    _logger.info('service result: ${model.result?.toJson()}');
     var resp = await performCall(dio, callMeta, inputParams, callOpt: callOpt);
     return resp;
   }
 }
 
 (bool, Set<String>) checkSrvPars(
-    SrvMetas callMetas, String methodKey, Map<String, Object> inputParams) {
+    SrvMetas callMetas, String methodKey, Map<String, Object?> inputParams) {
   var srv = callMetas.srvs![methodKey]!;
   var parNames = srv.parameters!.where((el) => !el.optional!).map((el) => el.name!).toSet();
   _logger.info('required pars: $parNames');
@@ -49,3 +52,4 @@ class TubeDisp {
   }
   return (matched, {});
 }
+

@@ -44,6 +44,19 @@ Future<void> main(List<String> arguments) async {
 
   print(entTileFldMeta(r'$.person.flds.title')?.toJson());
   print(recTileFldMeta(r'$.userObj.flds.icon')?.toJson());
+
+  querySels();
+}
+
+void querySels() {
+  print('query selection ---');
+  Map<String, Object?> props =
+      entProps.map((el) => MapEntry(el['name'] as String, el['entProp'])).toMap();
+  var path = r'$.Party.flds.partyTypeId';
+  var fldMap = JsonPath(path).readValues(props).firstOrNull;
+  print(fldMap);
+  var fldProp = FldProp.fromJson(fldMap as Map<String, dynamic>);
+  print('as type: ${fldProp.toJson()}');
 }
 
 void queryTile(String fldPath, Map<String, Map<String, Object>> metasMap) {
@@ -109,13 +122,13 @@ void procWithWrapper() {
     print('${value.fldName}: ${value.caption}');
   }
 
-  var formMap = reclets
+  Map<String, FormDescr> recFormMap = reclets
       .map((el) => FormMeta.fromJson(el))
-      .map((el) => MapEntry(el.alias, FormDescr(el)))
+      .map((el) => MapEntry(el.alias!, FormDescr(el)))
       .toMap();
-  print('all forms: ${formMap.keys}');
-  print('all flds: ${formMap['noteContent']!.flds.keys}');
-  print(formMap['noteContent']?.flds['title']?.toJson());
+  print('all forms: ${recFormMap.keys}');
+  print('all flds: ${recFormMap['noteContent']!.flds.keys}');
+  print(recFormMap['noteContent']?.flds['title']?.toJson());
 }
 
 class FormDescr {

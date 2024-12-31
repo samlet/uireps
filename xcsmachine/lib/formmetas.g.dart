@@ -46,26 +46,28 @@ SrvMeta _$SrvMetaFromJson(Map<String, dynamic> json) => SrvMeta(
       methodKey: json['methodKey'] as String?,
       alias: json['alias'] as String?,
       name: json['name'] as String?,
+      selection: json['selection'] as bool?,
       ctx: json['ctx'] == null
           ? null
           : SrvCtxMeta.fromJson(json['ctx'] as Map<String, dynamic>),
       parameters: (json['parameters'] as List<dynamic>?)
           ?.map((e) => SrvParamMeta.fromJson(e as Map<String, dynamic>))
           .toList(),
-      returnVoid: json['returnVoid'] as bool?,
-      conv: json['conv'] as String?,
+      result: json['result'] == null
+          ? null
+          : SrvResultMeta.fromJson(json['result'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SrvMetaToJson(SrvMeta instance) => <String, dynamic>{
       if (instance.methodKey case final value?) 'methodKey': value,
       if (instance.alias case final value?) 'alias': value,
       if (instance.name case final value?) 'name': value,
+      if (instance.selection case final value?) 'selection': value,
       if (instance.ctx?.toJson() case final value?) 'ctx': value,
       if (instance.parameters?.map((e) => e.toJson()).toList()
           case final value?)
         'parameters': value,
-      if (instance.returnVoid case final value?) 'returnVoid': value,
-      if (instance.conv case final value?) 'conv': value,
+      if (instance.result?.toJson() case final value?) 'result': value,
     };
 
 SrvMetas _$SrvMetasFromJson(Map<String, dynamic> json) => SrvMetas(
@@ -80,6 +82,24 @@ Map<String, dynamic> _$SrvMetasToJson(SrvMetas instance) => <String, dynamic>{
       if (instance.srvs?.map((k, e) => MapEntry(k, e.toJson()))
           case final value?)
         'srvs': value,
+    };
+
+SrvResultMeta _$SrvResultMetaFromJson(Map<String, dynamic> json) =>
+    SrvResultMeta(
+      returnVoid: json['returnVoid'] as bool?,
+      conv: json['conv'] as String?,
+      elType: json['elType'] as String?,
+      elName: json['elName'] as String?,
+      elIdFld: json['elIdFld'] as String?,
+    );
+
+Map<String, dynamic> _$SrvResultMetaToJson(SrvResultMeta instance) =>
+    <String, dynamic>{
+      if (instance.returnVoid case final value?) 'returnVoid': value,
+      if (instance.conv case final value?) 'conv': value,
+      if (instance.elType case final value?) 'elType': value,
+      if (instance.elName case final value?) 'elName': value,
+      if (instance.elIdFld case final value?) 'elIdFld': value,
     };
 
 FieldUiMeta _$FieldUiMetaFromJson(Map<String, dynamic> json) => FieldUiMeta(
@@ -191,6 +211,7 @@ Map<String, dynamic> _$EntPropToJson(EntProp instance) => <String, dynamic>{
     };
 
 FldProp _$FldPropFromJson(Map<String, dynamic> json) => FldProp(
+      alias: json['alias'] as String?,
       sels: json['sels'] as String?,
       params: (json['params'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String?),
@@ -198,6 +219,7 @@ FldProp _$FldPropFromJson(Map<String, dynamic> json) => FldProp(
     );
 
 Map<String, dynamic> _$FldPropToJson(FldProp instance) => <String, dynamic>{
+      if (instance.alias case final value?) 'alias': value,
       if (instance.sels case final value?) 'sels': value,
       if (instance.params case final value?) 'params': value,
     };
