@@ -813,6 +813,42 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "PortalManager:pullAllOras" : {
+      "methodKey" : "PortalManager:pullAllOras",
+      "alias" : "pullAllOras",
+      "name" : "pullAllOras",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "portalManager",
+        "name" : "pullAllOras",
+        "bundleName" : "PortalManager",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "bundleName",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "bundle_name"
+      }, {
+        "name" : "regionId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "region_id"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, (el)=>el)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "EcommSln:productRootTypes" : {
       "methodKey" : "EcommSln:productRootTypes",
       "alias" : "productRootTypes",

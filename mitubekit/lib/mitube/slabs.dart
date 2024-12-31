@@ -16,6 +16,27 @@ class SlabRepository {
   final CallOpt callOpt;
 
    
+  // Query: PortalManager:pullAllOras
+  Future<List<Map<String, dynamic>>> pullAllOras({
+    
+    required String bundleName,
+    String? regionId='default', 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'portalManager',
+      "action": "pullAllOras",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId, 
+    }, callOpt: callOpt);
+    
+    return convList(resp, (el)=>el);
+  }
+   
   // Mutation: PortalManager:storeEnt
   Future<Response> storeEnt({
     

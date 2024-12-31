@@ -5,7 +5,8 @@ import 'package:sembast/sembast_io.dart';
 enum StoreType {
   ents, // protoEnt
   types, // (map with rawBytes)
-  recs // record
+  recs, // record
+  oras, // bundle oras
 }
 
 class TubeStore {

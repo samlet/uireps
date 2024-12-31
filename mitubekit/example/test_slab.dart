@@ -23,7 +23,8 @@ Future<void> main(List<String> arguments) async {
   try {
     // await testPullEnt(slab, tubeDb);
     // await testStuffs(slab);
-    await testPullAssets(slab, tubeDb);
+    // await testPullAssets(slab, tubeDb);
+    await testPullOras(slab, tubeDb);
   } on DioException catch (ex, s) {
     errDioProc(ex, s);
   }
@@ -91,3 +92,27 @@ Future<void> testPullAssets(tube.SlabRepository slab, TubeDb tubeDb) async {
     print('- ${rec.key} -> ${rec.value}');
   }
 }
+
+Future<void> testPullOras(tube.SlabRepository slab, TubeDb tubeDb) async {
+  List<Map<String, dynamic>> ds = await slab.pullAllOras(bundleName: 'Party');
+  for (var value in ds.take(2)) {
+    print('- ${value['partyId']}');
+    prettyPrint(value);
+  }
+
+  // query
+  await tubeDb.putAll(StoreType.oras, ds);
+
+  var cond = [
+    Filter.equals('partyTypeId', 'PERSON'),
+    Filter.equals('statusId', 'PARTY_ENABLED')
+  ];
+  var finder =
+  Finder(filter: Filter.and(cond), sortOrders: [SortOrder('lastUpdatedTxStamp', false)]);
+  var records = await tubeDb.find(StoreType.oras, finder);
+  print('(*) find recs(${records.length}): key-${records[0].key}/${records[0].value}');
+  for (var rec in records) {
+    print('- #️⃣ ${rec.key} -> ${rec.value}');
+  }
+}
+
