@@ -2,7 +2,7 @@
 // dispatchers
 export 'calls.dart';
 export 'slabs.dart';
-export 'helper.dart';
+export 'comps.dart';
 
 // metas
 export 'ents.dart';

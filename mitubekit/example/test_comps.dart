@@ -6,8 +6,8 @@ import 'package:xcsmachine/util.dart';
 // Dio dio = createAuthDioWithToken(samletToken);
 
 Future<void> main(List<String> arguments) async {
-  initLogger();
-  await tube.setupComps();
+  // initLogger();
+  await tube.setupApp();
   // TubeDelegator tubeDel = createDelegator();
   var tubeDel = locator<TubeDelegator>();
 
@@ -95,4 +95,7 @@ void queryFormFld(TubeDelegator tubeDel) {
   var fldPath = r'$.noteContent.flds.title';
   FieldUiMeta fld = tubeDel.recFldMeta(fldPath);
   print('fld ${fld.fldName}: ${fld.caption}');
+
+  print('ent-fld =>');
+  print(tubeDel.entFldMeta(r'$.person.flds.lastName').toJson());
 }

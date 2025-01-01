@@ -5,115 +5,8 @@ import 'package:mitubekit/mitube/pkg.dart' as tube;
 import 'package:sembast/sembast.dart';
 import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/util.dart';
-import 'package:logging/logging.dart';
 
-final _logger = Logger('TubeStoreDelegator');
-var dio = createAuthDioWithToken(samletToken);
-
-class PrefetchConf {
-  final List<tube.FoldRegion> ents;
-  final List<tube.FullName> bis;
-
-  const PrefetchConf({this.ents = const [], this.bis = const []});
-}
-
-class AppProfile {
-  final String dataDir;
-  final String accessToken;
-  final PrefetchConf prefetchConf;
-
-  AppProfile(
-      {required this.dataDir, required this.accessToken, this.prefetchConf = const PrefetchConf()});
-}
-
-void registerAppProfile() {
-  locator.registerLazySingleton(() {
-    final path = '${Directory.systemTemp.path}_xcs';
-    return AppProfile(
-        dataDir: path,
-        accessToken: samletToken,
-        prefetchConf: PrefetchConf(ents: [
-          tube.FoldRegion(regionId: 'default', ent: 'Person')
-        ], bis: [
-          tube.FullName(pkg: 'default', name: 'Product'),
-          tube.FullName(pkg: 'default', name: 'Party')
-        ]));
-  });
-}
-
-void registerDb() {
-  locator.registerSingletonAsync(() async {
-    var profile = locator<AppProfile>();
-    var path = profile.dataDir;
-    var tubeDb = TubeDb(dbDir: path, name: 'tubes');
-    await tubeDb.init();
-    await tubeDb.clearAllStores(); // clear all data
-    return tubeDb;
-  });
-}
-
-void registerStoreDelegator() {
-  locator.registerSingletonWithDependencies(() {
-    var storeDel = TubeStoreDelegator(
-        tubeDb: locator<TubeDb>(),
-        slab: locator<tube.SlabRepository>(),
-        appProfile: locator<AppProfile>());
-    return storeDel;
-  }, dependsOn: [TubeDb]);
-}
-
-class TubeStoreDelegator {
-  final TubeDb tubeDb;
-  final tube.SlabRepository slab;
-  final AppProfile appProfile;
-
-  TubeStoreDelegator({required this.tubeDb, required this.slab, required this.appProfile});
-
-  Future<void> preload() async{
-      var prefetch=appProfile.prefetchConf;
-      await pullAssets();
-      await pullEnts(prefetch.ents);
-      await pullOras(prefetch.bis);
-  }
-
-  Future<void> pullEnts(List<tube.FoldRegion> fetchEnts) async {
-    for (var ent in fetchEnts) {
-      _logger.info('pull ent ${ent.ent} ...');
-      List<tube.ProtoEnt> rs = await slab.pullEnt(foldRegion: ent);
-      var ds = rs.map((el) => el.toJson()).toList();
-      await tubeDb.putAll(StoreType.ents, ds);
-    }
-  }
-
-  Future<void> pullAssets() async {
-    _logger.info('pull all assets ...');
-    List<tube.NamedDataset> ds = await slab.pullAllAssets();
-    for (var nds in ds) {
-      _logger.fine('store asset ${nds.name} ...');
-      // tube.NamedDataset nds = ds.first;
-      var assets = nds.rows!.map((el) => {...el, 'schema': nds.name}).toList();
-      await tubeDb.putAll(StoreType.types, assets);
-    }
-  }
-
-  Future<void> pullOras(List<tube.FullName> bis) async {
-    for (var bi in bis) {
-      _logger.info('pull bi ${bi.name} ...');
-      List<Map<String, dynamic>> ds =
-          await slab.pullAllOras(regionId: bi.pkg, bundleName: bi.name!);
-      await tubeDb.putAll(StoreType.oras, ds);
-    }
-  }
-
-  Future<List<RecordSnapshot<int, Map<String, Object?>>>> availablePersons() async {
-    var cond = [Filter.equals('partyTypeId', 'PERSON'), Filter.equals('statusId', 'PARTY_ENABLED')];
-    var finder =
-        Finder(filter: Filter.and(cond), sortOrders: [SortOrder('lastUpdatedTxStamp', false)]);
-    var records = await tubeDb.find(StoreType.oras, finder);
-    return records;
-  }
-}
-
+// var dio = createAuthDioWithToken(samletToken);
 Future<void> main(List<String> arguments) async {
   // test db
   // TubeDb tubeDb = await createDb(); // clear all data
@@ -122,20 +15,17 @@ Future<void> main(List<String> arguments) async {
   // await testWithRecs(tubeDb);
 
   // test srv
-  initLogger();
+  // initLogger();
 
-  tube.registerDio();
-  tube.registerSlabs();
-
-  registerAppProfile();
-  registerDb();
-  registerStoreDelegator();
-  await locator.allReady();
+  // tube.registerDio();
+  // tube.registerSlabs();
+  // await locator.allReady();
+  await tube.setupApp();
 
   // await testSuites();
-  var storeDel=locator<TubeStoreDelegator>();
+  var storeDel = locator<TubeStoreDelegator>();
   await storeDel.preload();
-  var rs=await storeDel.availablePersons();
+  var rs = await storeDel.availablePersons();
   print('total persons: ${rs.length}');
   print('.. first: ${rs.first.key} => ${rs.first.value}');
 }
@@ -179,8 +69,8 @@ Future<void> testStuffs(tube.SlabRepository slab) async {
 }
 
 Future<void> testPullEnt(tube.SlabRepository slab, TubeDb tubeDb) async {
-  List<tube.ProtoEnt> rs =
-      await slab.pullEnt(foldRegion: tube.FoldRegion(regionId: 'default', ent: 'Person'));
+  List<ProtoEnt> rs =
+      await slab.pullEnt(foldRegion: FoldRegion(regionId: 'default', ent: 'Person'));
   for (var value in rs) {
     print('${value.key} -> ${value.toJson()}');
   }
@@ -203,12 +93,12 @@ Future<void> testPullEnt(tube.SlabRepository slab, TubeDb tubeDb) async {
 // dbs(3): ents, types(map with rawBytes), recs
 
 Future<void> testPullAssets(tube.SlabRepository slab, TubeDb tubeDb) async {
-  List<tube.NamedDataset> ds = await slab.pullAllAssets();
+  List<NamedDataset> ds = await slab.pullAllAssets();
   for (var value in ds.take(2)) {
     print('- ${value.name}, ${value.rows?.length}, first: ${value.rows?.first}');
   }
 
-  tube.NamedDataset nds = ds.first;
+  NamedDataset nds = ds.first;
   var assets = nds.rows!.map((el) => {...el, 'schema': nds.name}).toList();
   await tubeDb.putAll(StoreType.types, assets);
 

@@ -2,6 +2,9 @@ import 'package:sembast/sembast.dart';
 import 'package:path/path.dart';
 import 'package:sembast/sembast_io.dart';
 
+import 'tubedi.dart';
+import 'tubeprofile.dart';
+
 enum StoreType {
   ents, // protoEnt
   types, // (map with rawBytes)
@@ -62,4 +65,16 @@ class TubeDb {
       StoreType storeType, Finder? finder) async {
     return await store(storeType).find(db, finder: finder);
   }
+}
+
+
+void registerDb() {
+  locator.registerSingletonAsync(() async {
+    var profile = locator<AppProfile>();
+    var path = profile.dataDir;
+    var tubeDb = TubeDb(dbDir: path, name: 'tubes');
+    await tubeDb.init();
+    await tubeDb.clearAllStores(); // clear all data
+    return tubeDb;
+  });
 }

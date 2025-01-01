@@ -1,17 +1,38 @@
+import 'dart:io';
+import 'package:logging/logging.dart';
+
 import 'package:dio/dio.dart';
 import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/xcsapi.dart';
 import 'pkg.dart' as tube;
 
+final _logger = Logger('TubeApp');
+
+void registerAppProfile() {
+  locator.registerLazySingleton(() {
+    final path = '${Directory.systemTemp.path}_xcs';
+    return AppProfile(
+        appName: 'MiTubeApp',
+        dataDir: path,
+        accessToken: samletToken,
+        prefetchConf: PrefetchConf(ents: [
+          FoldRegion(regionId: 'default', ent: 'Person')
+        ], bis: [
+          FullName(pkg: 'default', name: 'Product'),
+          FullName(pkg: 'default', name: 'Party')
+        ]));
+  });
+}
+
 FieldUiMeta recFldMeta(String fldPath) {
   return getFormFldMeta(fldPath, tube.recletsMap);
 }
 
-FieldTileMeta? recTileFldMeta(String fldPath){
+FieldTileMeta? recTileFldMeta(String fldPath) {
   return getTileFldMeta(fldPath, tube.rectilesMap);
 }
 
-FieldTileMeta? entTileFldMeta(String fldPath){
+FieldTileMeta? entTileFldMeta(String fldPath) {
   return getTileFldMeta(fldPath, tube.enttilesMap);
 }
 
@@ -24,18 +45,18 @@ class CachedSlab {
   }
 }
 
-void registerCachedSlabs(){
+void registerCachedSlabs() {
   // cachedSlab dio only used in CachedSlab.
-  locator.registerLazySingleton<Dio>((){
+  locator.registerLazySingleton<Dio>(() {
     return cachedDio(samletToken);
   }, instanceName: 'cachedSlab');
-  locator.registerLazySingleton((){
+  locator.registerLazySingleton(() {
     Dio dio = locator<Dio>(instanceName: 'cachedSlab');
     return CachedSlab(dio: dio);
   });
 }
 
-void registerDio(){
+void registerDio() {
   locator.registerLazySingleton<Dio>(() {
     return createAuthDioWithToken(samletToken);
   }, instanceName: 'slab');
@@ -64,19 +85,54 @@ void registerDelegator() {
   });
 }
 
-void registerSlabs(){
-  locator.registerLazySingleton((){
-    var dio=locator<Dio>(instanceName: 'slab');
+void registerSlabs() {
+  locator.registerLazySingleton(() {
+    var dio = locator<Dio>(instanceName: 'slab');
     return tube.SlabRepository(dio);
   });
 }
 
+void registerStoreDelegator() {
+  locator.registerSingletonWithDependencies(() {
+    var storeDel = TubeStoreDelegator(
+        tubeDb: locator<TubeDb>(),
+        slab: locator<tube.SlabRepository>(),
+        appProfile: locator<AppProfile>());
+    return storeDel;
+  }, dependsOn: [TubeDb]);
+}
+
+/// Register components.
 Future<void> setupComps() async {
   registerDio();
   registerCachedSlabs();
   registerSlabs();
   registerDelegator();
   registerCache();
+
+  registerAppProfile();
+  registerDb();
+  registerStoreDelegator();
+
   await locator.allReady();
+}
+
+/// Start app with logger.
+Future<void> setupApp() async {
+  initLogger();
+  await setupComps();
+}
+
+/// Start app and preload dataset.
+Future<void> startApp() async {
+  await tube.setupApp();
+
+  var storeDel = locator<TubeStoreDelegator>();
+  await storeDel.preload();
+  var rs = await storeDel.availablePersons();
+  _logger.info('total users: ${rs.length}');
+
+  var appName=locator<AppProfile>().appName;
+  _logger.info('tube-app [$appName] started.');
 }
 

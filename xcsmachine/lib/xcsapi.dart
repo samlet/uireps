@@ -2,6 +2,7 @@ library xcsapi;
 
 // export 'package:dio/dio.dart';
 export 'util.dart';
+// export 'pubrecs.dart';
 export 'src/xcsapi_base.dart';
 
 // export 'src/routines.dart';

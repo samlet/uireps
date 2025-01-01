@@ -1,14 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
+import 'package:xcsmachine/pubrecs.dart';
 part 'formmetas.g.dart';
 
 // -- SrvCtxMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvCtxMeta{   
-  String? moduleName;   
-  String? name;   
-  String? bundleName;   
+class SrvCtxMeta{
+  String? moduleName;
+  String? name;
+  String? bundleName;
   String? callType;
   SrvCtxMeta({
     this.moduleName,
@@ -26,13 +28,13 @@ class SrvCtxMeta{
 // -- SrvParamMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvParamMeta{   
-  String? name;   
-  String? dartType;   
-  String? fldType;   
-  String? fldGroup;   
-  bool? optional;   
-  String? conv;   
+class SrvParamMeta{
+  String? name;
+  String? dartType;
+  String? fldType;
+  String? fldGroup;
+  bool? optional;
+  String? conv;
   String? protoName;
   SrvParamMeta({
     this.name,
@@ -53,13 +55,13 @@ class SrvParamMeta{
 // -- SrvMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvMeta{   
-  String? methodKey;   
-  String? alias;   
-  String? name;   
-  bool? selection;   
-  SrvCtxMeta? ctx;   
-  List<SrvParamMeta>? parameters;   
+class SrvMeta{
+  String? methodKey;
+  String? alias;
+  String? name;
+  bool? selection;
+  SrvCtxMeta? ctx;
+  List<SrvParamMeta>? parameters;
   SrvResultMeta? result;
   SrvMeta({
     this.methodKey,
@@ -80,8 +82,8 @@ class SrvMeta{
 // -- SrvMetas -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvMetas{   
-  String? modName;   
+class SrvMetas{
+  String? modName;
   Map<String, SrvMeta>? srvs;
   SrvMetas({
     this.modName,
@@ -97,11 +99,11 @@ class SrvMetas{
 // -- SrvResultMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvResultMeta{   
-  bool? returnVoid;   
-  String? conv;   
-  String? elType;   
-  String? elName;   
+class SrvResultMeta{
+  bool? returnVoid;
+  String? conv;
+  String? elType;
+  String? elName;
   String? elIdFld;
   SrvResultMeta({
     this.returnVoid,
@@ -120,15 +122,15 @@ class SrvResultMeta{
 // -- FieldUiMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FieldUiMeta{   
-  String? fldName;   
-  String? fldType;   
-  String? fldTpl;   
-  String? domainType;   
-  String? caption;   
-  String? defaultValue;   
-  String? morph;   
-  String? dartType;   
+class FieldUiMeta{
+  String? fldName;
+  String? fldType;
+  String? fldTpl;
+  String? domainType;
+  String? caption;
+  String? defaultValue;
+  String? morph;
+  String? dartType;
   String? javaType;
   FieldUiMeta({
     this.fldName,
@@ -151,8 +153,8 @@ class FieldUiMeta{
 // -- FieldTileMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FieldTileMeta{   
-  String? loc;   
+class FieldTileMeta{
+  String? loc;
   FieldUiMeta? fld;
   FieldTileMeta({
     this.loc,
@@ -168,12 +170,12 @@ class FieldTileMeta{
 // -- FormMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FormMeta{   
-  String? formKey;   
-  String? formName;   
-  String? alias;   
-  String? caption;   
-  String? locale;   
+class FormMeta{
+  String? formKey;
+  String? formName;
+  String? alias;
+  String? caption;
+  String? locale;
   Map<String, FieldUiMeta>? flds;
   FormMeta({
     this.formKey,
@@ -193,11 +195,11 @@ class FormMeta{
 // -- TileMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class TileMeta{   
-  String? tileName;   
-  String? alias;   
-  bool? available;   
-  Map<String, FieldTileMeta>? flds;   
+class TileMeta{
+  String? tileName;
+  String? alias;
+  bool? available;
+  Map<String, FieldTileMeta>? flds;
   Map<String, String?>? locs;
   TileMeta({
     this.tileName,
@@ -216,8 +218,8 @@ class TileMeta{
 // -- EntInfo -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class EntInfo{   
-  String? name;   
+class EntInfo{
+  String? name;
   EntProp? entProp;
   EntInfo({
     this.name,
@@ -233,7 +235,7 @@ class EntInfo{
 // -- EntProp -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class EntProp{   
+class EntProp{
   Map<String, FldProp>? flds;
   EntProp({
     this.flds,
@@ -248,9 +250,9 @@ class EntProp{
 // -- FldProp -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FldProp{   
-  String? alias;   
-  String? sels;   
+class FldProp{
+  String? alias;
+  String? sels;
   Map<String, String?>? params;
   FldProp({
     this.alias,

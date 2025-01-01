@@ -1,3 +1,4 @@
+export 'pubrecs.dart';
 export 'formmetas.dart';
 export 'formutil.dart';
 
@@ -9,5 +10,8 @@ export 'src/tube/tubecache.dart';
 export 'src/tube/tubedb.dart';
 export 'src/tube/tubedi.dart';
 export 'src/tube/tubedelegator.dart';
+export 'src/tube/tubeprofile.dart';
+export 'src/tube/tubepubs.dart';
+export 'src/tube/tubestore.dart';
 
 export 'devtokens.dart';

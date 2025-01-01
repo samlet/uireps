@@ -2,10 +2,11 @@ import 'calls.dart';
 import 'dart:typed_data';
 import 'package:dio/dio.dart' as d;
 import 'package:xcsmachine/xcsapi.dart';
+import 'package:xcsmachine/tubepubs.dart';
 import 'package:xcsproto/xcsproto.dart';
 
 
-class SlabRepository {
+class SlabRepository implements SlabsBase {
   SlabRepository(this.dio, {
     this.regionOrNs='default',
     this.callOpt=CallOpt.defaultOpt
@@ -252,11 +253,11 @@ class SlabRepository {
     return convList(resp, (el)=>el);
   }
    
-  // Query: EcommSln:partyRootTypes
-  Future<List<String>> partyRootTypes() async { 
+  // Query: EcommSln:productRootTypes
+  Future<List<String>> productRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "partyRootTypes",
+      "action": "productRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -266,11 +267,11 @@ class SlabRepository {
     return convScalars(resp, (e)=> e.toString());
   }
    
-  // Query: EcommSln:productRootTypes
-  Future<List<String>> productRootTypes() async { 
+  // Query: EcommSln:partyRootTypes
+  Future<List<String>> partyRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "productRootTypes",
+      "action": "partyRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
