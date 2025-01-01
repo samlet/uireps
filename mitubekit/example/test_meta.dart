@@ -36,14 +36,14 @@ Future<void> main(List<String> arguments) async {
   // query tile fld
   var metasMap = enttilesMap;
   // var fldPath=r'$.person.flds.title';
-  var fldPath = r'$.person.flds.subtitle';
+  var fldPath = r'$.Person.flds.subtitle';
   queryTile(fldPath, metasMap);
 
-  queryTile(r'$.person.flds.date', enttilesMap);
-  queryTile(r'$.person.flds.icon', enttilesMap);
+  queryTile(r'$.Person.flds.date', enttilesMap);
+  queryTile(r'$.Person.flds.icon', enttilesMap);
 
-  print(entTileFldMeta(r'$.person.flds.title')?.toJson());
-  print(recTileFldMeta(r'$.userObj.flds.icon')?.toJson());
+  print(entTileFldMeta(r'$.Person.flds.title')?.toJson());
+  print(recTileFldMeta(r'$.UserObj.flds.icon')?.toJson());
 
   querySels();
 }
@@ -71,7 +71,7 @@ void queryTile(String fldPath, Map<String, Map<String, Object>> metasMap) {
 }
 
 void queryFormFld() {
-  var fldPath = r'$.noteContent.flds.title';
+  var fldPath = r'$.NoteContent.flds.title';
   FieldUiMeta fld = recFldMeta(fldPath);
   print('fld ${fld.fldName}: ${fld.caption}');
 }
@@ -124,11 +124,11 @@ void procWithWrapper() {
 
   Map<String, FormDescr> recFormMap = reclets
       .map((el) => FormMeta.fromJson(el))
-      .map((el) => MapEntry(el.alias!, FormDescr(el)))
+      .map((el) => MapEntry(el.formName!, FormDescr(el)))
       .toMap();
   print('all forms: ${recFormMap.keys}');
-  print('all flds: ${recFormMap['noteContent']!.flds.keys}');
-  print(recFormMap['noteContent']?.flds['title']?.toJson());
+  print('all flds: ${recFormMap['NoteContent']!.flds.keys}');
+  print(recFormMap['NoteContent']?.flds['title']?.toJson());
 }
 
 class FormDescr {

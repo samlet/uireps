@@ -10,24 +10,28 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.8
+
   json_annotation: ^4.9.0
   dio: ^5.7.0
+  path_provider: ^2.1.5
+  path: ^1.9.0
+
   xcsmachine:
     path: ../xcsmachine
   xcsproto:
     path: ../xcsproto
+
   stash: ^5.2.0
   stash_memory: ^5.2.0
   stash_file: ^5.2.0
   stash_dio: ^5.2.0
+
   get_it: ^8.0.3
   sembast: ^3.8.0+1
   json_path: ^0.7.4
   dio_cache_interceptor: ^3.5.1
-  path_provider: ^2.1.5
-  path: ^1.9.0
+
 
 dev_dependencies:
   flutter_test:

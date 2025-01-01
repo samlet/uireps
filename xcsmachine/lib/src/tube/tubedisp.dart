@@ -6,6 +6,7 @@ import '../../xcsapi.dart';
 
 final _logger = Logger('TubeDisp');
 
+/// Service dispatcher with service-meta.
 class TubeDisp {
   final Dio dio;
   final SrvMetas callMetas;

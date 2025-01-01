@@ -18,6 +18,7 @@ class TubeDelegator {
   late Map<String, TileDescr> recTileMap;
 
   /// From ents
+  /// Key is alias, varName format.
   final Map<String, Map<String, Object>> entletsMap;
   final Map<String, Map<String, Object>> enttilesMap;
   late Map<String, FormDescr> entFormMap;
@@ -37,6 +38,7 @@ class TubeDelegator {
 
   /// From props
   late Map<String, FldSels> allSels;
+  // Key is ent-name, capName format.
   late Map<String, Object?> props;
   final List<Map<String, Object>> entProps;
 
@@ -90,7 +92,7 @@ class TubeDelegator {
   }
 
   Future<List> invokeSelection(String alias) async {
-    var fldSels = allSels[alias];
+    FldSels? fldSels = allSels[alias];
     if (fldSels != null) {
       _logger.info('invoke selection $alias: ${fldSels.fld.sels}, params: ${fldSels.fld.params}');
       var recs = await invoke(fldSels.fld.sels!, fldSels.fld.params) as List;
@@ -98,6 +100,10 @@ class TubeDelegator {
       return recs;
     }
     return [];
+  }
+
+  FldSels? fldSels(String selAlias){
+    return allSels[selAlias];
   }
 
   FldProp? fldProp(String propPath) {

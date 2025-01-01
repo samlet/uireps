@@ -1,13 +1,13 @@
 import 'package:xcsmachine/util.dart';
 
-final entlets = [productForm, personForm, noteDataForm, partyTypeForm]; 
+final entlets = [productForm, personForm, noteDataForm, partyForm, partyTypeForm]; 
 
-final enttiles = [productTile, personTile, noteDataTile, partyTypeTile];
+final enttiles = [productTile, personTile, noteDataTile, partyTile, partyTypeTile];
 
 /// map of <FormMeta>
-final entletsMap= entlets.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
+final entletsMap= entlets.map((el)=>MapEntry(el['formName'] as String, el)).toMap();
 /// map of <TileMeta>
-final enttilesMap= enttiles.map((el)=>MapEntry(el['alias'] as String, el)).toMap();
+final enttilesMap= enttiles.map((el)=>MapEntry(el['tileName'] as String, el)).toMap();
 
 
 final productForm = {
@@ -1020,7 +1020,7 @@ final personForm = {
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameSpec",
+      "fldTpl" : "lastNameEdit",
       "domainType" : "stringField",
       "caption" : "姓",
       "defaultValue" : "''",
@@ -1284,7 +1284,7 @@ final personForm = {
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameSpec",
+      "fldTpl" : "firstNameEdit",
       "domainType" : "stringField",
       "caption" : "名",
       "defaultValue" : "''",
@@ -1624,6 +1624,357 @@ final noteDataForm = {
   }
 };
 
+final partyForm = {
+  "formKey" : "Party",
+  "formName" : "Party",
+  "alias" : "party",
+  "caption" : "Party",
+  "locale" : "zh",
+  "flds" : {
+    "color" : {
+      "fldName" : "color",
+      "fldType" : "numeric",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "integerField",
+      "caption" : "Color",
+      "defaultValue" : "Colors.grey",
+      "morph" : null,
+      "dartType" : "Color",
+      "javaType" : "Long"
+    },
+    "placeId" : {
+      "fldName" : "placeId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Place Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "icon" : {
+      "fldName" : "icon",
+      "fldType" : "numeric",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "integerField",
+      "caption" : "Icon",
+      "defaultValue" : "Icons.account_circle",
+      "morph" : null,
+      "dartType" : "IconData",
+      "javaType" : "Long"
+    },
+    "description" : {
+      "fldName" : "description",
+      "fldType" : "very-long",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "描述",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "acl" : {
+      "fldName" : "acl",
+      "fldType" : "string-multimap",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringMultimapField",
+      "caption" : "Acl",
+      "defaultValue" : null,
+      "morph" : null,
+      "dartType" : "Multimap<String, String>",
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+    },
+    "evict" : {
+      "fldName" : "evict",
+      "fldType" : "boolean",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "boolField",
+      "caption" : "Evict",
+      "defaultValue" : null,
+      "morph" : null,
+      "dartType" : "bool",
+      "javaType" : "Boolean"
+    },
+    "partyTypeId" : {
+      "fldName" : "partyTypeId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Party Type Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "lastModifiedByUserLogin" : {
+      "fldName" : "lastModifiedByUserLogin",
+      "fldType" : "id-vlong",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Last Modified By User Login",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "dataSourceId" : {
+      "fldName" : "dataSourceId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Data Source Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "preferredCurrencyUomId" : {
+      "fldName" : "preferredCurrencyUomId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Preferred Currency Uom Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "partyId" : {
+      "fldName" : "partyId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Party ID",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "createdByUserLogin" : {
+      "fldName" : "createdByUserLogin",
+      "fldType" : "id-vlong",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Created By User Login",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "email" : {
+      "fldName" : "email",
+      "fldType" : "email",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Email",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "tag1" : {
+      "fldName" : "tag1",
+      "fldType" : "name",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Tag1",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "image" : {
+      "fldName" : "image",
+      "fldType" : "strings",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringsField",
+      "caption" : "Image",
+      "defaultValue" : "<String>[]",
+      "morph" : null,
+      "dartType" : "List<String?>",
+      "javaType" : "com.bluecc.hubs.stub.Strings"
+    },
+    "lastModifiedDate" : {
+      "fldName" : "lastModifiedDate",
+      "fldType" : "date-time",
+      "fldTpl" : "dateFld",
+      "domainType" : "dateTimeField",
+      "caption" : "Last Modified Date",
+      "defaultValue" : "DateTime.now()",
+      "morph" : null,
+      "dartType" : "DateTime",
+      "javaType" : "java.time.OffsetDateTime"
+    },
+    "createdTxStamp" : {
+      "fldName" : "createdTxStamp",
+      "fldType" : "date-time",
+      "fldTpl" : "dateFld",
+      "domainType" : "dateTimeField",
+      "caption" : "创建时间",
+      "defaultValue" : "DateTime.now()",
+      "morph" : null,
+      "dartType" : "DateTime",
+      "javaType" : "java.time.OffsetDateTime"
+    },
+    "externalId" : {
+      "fldName" : "externalId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "External Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "lastUpdatedTxStamp" : {
+      "fldName" : "lastUpdatedTxStamp",
+      "fldType" : "date-time",
+      "fldTpl" : "dateFld",
+      "domainType" : "dateTimeField",
+      "caption" : "最后修改时间",
+      "defaultValue" : "DateTime.now()",
+      "morph" : null,
+      "dartType" : "DateTime",
+      "javaType" : "java.time.OffsetDateTime"
+    },
+    "telephone" : {
+      "fldName" : "telephone",
+      "fldType" : "tel-number",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Telephone",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "isUnread" : {
+      "fldName" : "isUnread",
+      "fldType" : "indicator",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "indicatorField",
+      "caption" : "Is Unread",
+      "defaultValue" : null,
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "Character"
+    },
+    "tag2" : {
+      "fldName" : "tag2",
+      "fldType" : "name",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Tag2",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "url" : {
+      "fldName" : "url",
+      "fldType" : "url",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Url",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "tag3" : {
+      "fldName" : "tag3",
+      "fldType" : "name",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Tag3",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "labels" : {
+      "fldName" : "labels",
+      "fldType" : "string-multimap",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringMultimapField",
+      "caption" : "Labels",
+      "defaultValue" : null,
+      "morph" : null,
+      "dartType" : "Multimap<String, String>",
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+    },
+    "createdDate" : {
+      "fldName" : "createdDate",
+      "fldType" : "date-time",
+      "fldTpl" : "dateFld",
+      "domainType" : "dateTimeField",
+      "caption" : "Created Date",
+      "defaultValue" : "DateTime.now()",
+      "morph" : null,
+      "dartType" : "DateTime",
+      "javaType" : "java.time.OffsetDateTime"
+    },
+    "statusId" : {
+      "fldName" : "statusId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Status Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "tenantId" : {
+      "fldName" : "tenantId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Tenant Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "moreTags" : {
+      "fldName" : "moreTags",
+      "fldType" : "strings",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringsField",
+      "caption" : "More Tags",
+      "defaultValue" : "<String>[]",
+      "morph" : null,
+      "dartType" : "List<String?>",
+      "javaType" : "com.bluecc.hubs.stub.Strings"
+    },
+    "defaultLoginId" : {
+      "fldName" : "defaultLoginId",
+      "fldType" : "id",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "idenField",
+      "caption" : "Default Login Id",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    },
+    "sameAs" : {
+      "fldName" : "sameAs",
+      "fldType" : "url",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Same As",
+      "defaultValue" : "''",
+      "morph" : null,
+      "dartType" : "String",
+      "javaType" : "String"
+    }
+  }
+};
+
 final partyTypeForm = {
   "formKey" : "PartyType",
   "formName" : "PartyType",
@@ -1864,7 +2215,7 @@ final personTile = {
       "fld" : {
         "fldName" : "lastName",
         "fldType" : "name",
-        "fldTpl" : "lastNameSpec",
+        "fldTpl" : "lastNameEdit",
         "domainType" : "stringField",
         "caption" : "姓",
         "defaultValue" : "''",
@@ -1933,6 +2284,136 @@ final noteDataTile = {
     "date" : "lastUpdatedTxStamp",
     "subtitle" : "createdTxStamp",
     "title" : "noteName"
+  }
+};
+
+final partyTile = {
+  "tileName" : "Party",
+  "alias" : "party",
+  "available" : true,
+  "flds" : {
+    "date" : {
+      "loc" : "date",
+      "fld" : {
+        "fldName" : "lastUpdatedTxStamp",
+        "fldType" : "date-time",
+        "fldTpl" : "dateFld",
+        "domainType" : "dateTimeField",
+        "caption" : "最后修改时间",
+        "defaultValue" : "DateTime.now()",
+        "morph" : null,
+        "dartType" : "DateTime",
+        "javaType" : "java.time.OffsetDateTime"
+      }
+    },
+    "image" : {
+      "loc" : "image",
+      "fld" : {
+        "fldName" : "image",
+        "fldType" : "strings",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "stringsField",
+        "caption" : "Image",
+        "defaultValue" : "<String>[]",
+        "morph" : null,
+        "dartType" : "List<String?>",
+        "javaType" : "com.bluecc.hubs.stub.Strings"
+      }
+    },
+    "color" : {
+      "loc" : "color",
+      "fld" : {
+        "fldName" : "color",
+        "fldType" : "numeric",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "integerField",
+        "caption" : "Color",
+        "defaultValue" : "Colors.grey",
+        "morph" : null,
+        "dartType" : "Color",
+        "javaType" : "Long"
+      }
+    },
+    "subtitle" : {
+      "loc" : "subtitle",
+      "fld" : {
+        "fldName" : "description",
+        "fldType" : "very-long",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "stringField",
+        "caption" : "描述",
+        "defaultValue" : "''",
+        "morph" : null,
+        "dartType" : "String",
+        "javaType" : "String"
+      }
+    },
+    "icon" : {
+      "loc" : "icon",
+      "fld" : {
+        "fldName" : "icon",
+        "fldType" : "numeric",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "integerField",
+        "caption" : "Icon",
+        "defaultValue" : "Icons.account_circle",
+        "morph" : null,
+        "dartType" : "IconData",
+        "javaType" : "Long"
+      }
+    },
+    "title" : {
+      "loc" : "title",
+      "fld" : {
+        "fldName" : "tag1",
+        "fldType" : "name",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "stringField",
+        "caption" : "Tag1",
+        "defaultValue" : "''",
+        "morph" : null,
+        "dartType" : "String",
+        "javaType" : "String"
+      }
+    },
+    "url" : {
+      "loc" : "url",
+      "fld" : {
+        "fldName" : "url",
+        "fldType" : "url",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "stringField",
+        "caption" : "Url",
+        "defaultValue" : "''",
+        "morph" : null,
+        "dartType" : "String",
+        "javaType" : "String"
+      }
+    },
+    "status" : {
+      "loc" : "status",
+      "fld" : {
+        "fldName" : "statusId",
+        "fldType" : "id",
+        "fldTpl" : "fldWithSpec",
+        "domainType" : "idenField",
+        "caption" : "Status Id",
+        "defaultValue" : "''",
+        "morph" : null,
+        "dartType" : "String",
+        "javaType" : "String"
+      }
+    }
+  },
+  "locs" : {
+    "date" : "lastUpdatedTxStamp",
+    "image" : "image",
+    "color" : "color",
+    "subtitle" : "description",
+    "icon" : "icon",
+    "title" : "tag1",
+    "url" : "url",
+    "status" : "statusId"
   }
 };
 

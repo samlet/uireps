@@ -12,6 +12,7 @@ Map<String, FldSels> extractSelections(List<Map<String, Object>> entProps) {
   return allSels;
 }
 
+/// Contains fldProp and entName.
 class FldSels {
   final String alias;
   final FldProp fld;

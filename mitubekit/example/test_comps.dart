@@ -30,7 +30,7 @@ Future<void> main(List<String> arguments) async {
 
   // query prop
   var path = r'$.Party.flds.partyTypeId';
-  var fldProp = tubeDel.fldProp(path);
+  tube.FldProp? fldProp = tubeDel.fldProp(path);
   print('prop as type: ${fldProp?.toJson()}');
 
   // ent form
@@ -92,10 +92,10 @@ Future<void> testInvokeSels(TubeDelegator tubeDel) async {
 }
 
 void queryFormFld(TubeDelegator tubeDel) {
-  var fldPath = r'$.noteContent.flds.title';
+  var fldPath = r'$.NoteContent.flds.title';
   FieldUiMeta fld = tubeDel.recFldMeta(fldPath);
   print('fld ${fld.fldName}: ${fld.caption}');
 
   print('ent-fld =>');
-  print(tubeDel.entFldMeta(r'$.person.flds.lastName').toJson());
+  print(tubeDel.entFldMeta(r'$.Person.flds.lastName').toJson());
 }

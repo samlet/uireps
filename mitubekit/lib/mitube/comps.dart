@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'package:logging/logging.dart';
-
 import 'package:dio/dio.dart';
 import 'package:xcsmachine/tubeapi.dart';
 import 'package:xcsmachine/xcsapi.dart';
@@ -128,6 +126,11 @@ Future<void> setupApp({AppProfile? appProfile}) async {
 }
 
 /// Start app and preload dataset.
+/// All components:
+/// (AppProfile, Dio(slab),
+///   TubeCache, CachedSlab,
+///   SlabRepository, TubeDisp,
+///   TubeDb, TubeDelegator)
 Future<void> startApp({AppProfile? appProfile}) async {
   await tube.setupApp(appProfile: appProfile);
 

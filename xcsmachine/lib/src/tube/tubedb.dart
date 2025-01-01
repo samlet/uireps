@@ -69,7 +69,7 @@ class TubeDb {
 
 
 void registerDb() {
-  locator.registerSingletonAsync(() async {
+  locator.registerSingletonAsync<TubeDb>(() async {
     var profile = locator<AppProfile>();
     var path = profile.dataDir;
     var tubeDb = TubeDb(dbDir: path, name: 'tubes');
