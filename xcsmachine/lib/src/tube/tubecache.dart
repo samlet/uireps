@@ -1,6 +1,8 @@
 import 'package:stash/stash_api.dart';
 import 'package:stash_memory/stash_memory.dart';
 
+import 'tubedi.dart';
+
 class TubeCache{
   late MemoryCacheStore memoryStore;
   late Cache<Map<String, dynamic>> memCache;
@@ -33,5 +35,14 @@ class TubeCache{
       ..on<CacheEntryRemovedEvent<Map<String, dynamic>>>()
           .listen((event) => print('Key "${event.entry.key}" removed'));
   }
+}
+
+
+void registerCache(){
+  locator.registerSingletonAsync<TubeCache>(()async{
+    TubeCache tubeCache=TubeCache();
+    await tubeCache.init();
+    return tubeCache;
+  });
 }
 

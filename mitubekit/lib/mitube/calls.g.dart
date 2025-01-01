@@ -312,6 +312,16 @@ Map<String, dynamic> _$NamedDatasetToJson(NamedDataset instance) =>
       if (instance.rows case final value?) 'rows': value,
     };
 
+FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
+      pkg: json['pkg'] as String?,
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
+      if (instance.pkg case final value?) 'pkg': value,
+      if (instance.name case final value?) 'name': value,
+    };
+
 BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(
       id: json['id'] as String?,
       from: json['from'] as String?,

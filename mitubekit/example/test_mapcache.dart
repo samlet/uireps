@@ -20,8 +20,12 @@ Future<void> main(List<String> arguments) async {
   // await testStringCache();
   // await testMapCache();
 
-  TubeCache tubeCache=TubeCache();
-  await tubeCache.init();
+  // TubeCache tubeCache=TubeCache();
+  // await tubeCache.init();
+  registerCache();
+  await locator.allReady();
+  var tubeCache=locator<TubeCache>();
+
   await tubeCache.cacheAll(recletsMap);
   var form=await tubeCache.get('userObj');
   print('form: ${form?.keys}');

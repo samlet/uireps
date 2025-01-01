@@ -11,8 +11,10 @@ import 'package:xcsmachine/xcsapi.dart';
 // test ok with opt(request) and server-response(max-age)
 Future<void> main(List<String> arguments) async {
   // var cachedSlabs=SlabRepository(dio);
-  var dio = cachedDio(samletToken);
-  var cachedSlabs = CachedSlab(dio: dio);
+  // var dio = cachedDio(samletToken);
+  // var cachedSlabs = CachedSlab(dio: dio);
+  registerCachedSlabs();
+  var cachedSlabs=locator<CachedSlab>();
   try {
     var partyTypes = await cachedSlabs.slabs.allPartyTypes();
     for (var value in partyTypes) {

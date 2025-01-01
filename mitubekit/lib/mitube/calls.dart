@@ -369,6 +369,23 @@ class NamedDataset{
   Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
 }
 
+// -- FullName -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FullName{
+  String? pkg;
+  String? name;
+  FullName({
+    this.pkg,
+    this.name,
+  });
+
+  factory FullName.fromJson(Map<String, dynamic> json) =>
+      _$FullNameFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FullNameToJson(this);
+}
+
 // -- BundleJoint -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -414,25 +431,6 @@ class BundleJoint{
   Map<String, dynamic> toJson() => _$BundleJointToJson(this);
 }
 
-// -- OptSel -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class OptSel{
-  String? assemblerId;
-  List<String>? optIds;
-  Map<String, String?>? variantProds;
-  OptSel({
-    this.assemblerId,
-    this.optIds,
-    this.variantProds,
-  });
-
-  factory OptSel.fromJson(Map<String, dynamic> json) =>
-      _$OptSelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelToJson(this);
-}
-
 // -- OptSels -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -473,5 +471,24 @@ class ContactProfile{
   Map<String, dynamic> toJson() => _$ContactProfileToJson(this);
 }
 
+// -- OptSel -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class OptSel{
+  String? assemblerId;
+  List<String>? optIds;
+  Map<String, String?>? variantProds;
+  OptSel({
+    this.assemblerId,
+    this.optIds,
+    this.variantProds,
+  });
 
-// total classes: 22
+  factory OptSel.fromJson(Map<String, dynamic> json) =>
+      _$OptSelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelToJson(this);
+}
+
+
+// total classes: 23
