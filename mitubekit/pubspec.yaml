@@ -26,6 +26,8 @@ dependencies:
   sembast: ^3.8.0+1
   json_path: ^0.7.4
   dio_cache_interceptor: ^3.5.1
+  path_provider: ^2.1.5
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:

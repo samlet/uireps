@@ -13,6 +13,7 @@ export 'props.dart';
 
 // shared
 export 'package:xcsmachine/formmetas.dart';
+export 'package:xcsmachine/tubeapi.dart';
 export 'package:xcsproto/pkg/postertube.dart';
 
 

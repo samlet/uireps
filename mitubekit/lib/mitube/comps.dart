@@ -110,7 +110,6 @@ Future<void> setupComps() async {
   registerDelegator();
   registerCache();
 
-  registerAppProfile();
   registerDb();
   registerStoreDelegator();
 
@@ -118,14 +117,19 @@ Future<void> setupComps() async {
 }
 
 /// Start app with logger.
-Future<void> setupApp() async {
+Future<void> setupApp({AppProfile? appProfile}) async {
   initLogger();
+  if(appProfile!=null){
+    locator.registerSingleton(appProfile);
+  }else{
+    registerAppProfile();
+  }
   await setupComps();
 }
 
 /// Start app and preload dataset.
-Future<void> startApp() async {
-  await tube.setupApp();
+Future<void> startApp({AppProfile? appProfile}) async {
+  await tube.setupApp(appProfile: appProfile);
 
   var storeDel = locator<TubeStoreDelegator>();
   await storeDel.preload();
