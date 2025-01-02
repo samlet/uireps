@@ -6,23 +6,6 @@ part of 'pubrecs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
-      regionId: json['regionId'] as String?,
-      entType: json['entType'] as String?,
-      key: json['key'] as String?,
-      lastTs: (json['lastTs'] as num?)?.toInt(),
-      data: const BytesConverter().fromJson(json['data'] as String?),
-    );
-
-Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
-      if (instance.regionId case final value?) 'regionId': value,
-      if (instance.entType case final value?) 'entType': value,
-      if (instance.key case final value?) 'key': value,
-      if (instance.lastTs case final value?) 'lastTs': value,
-      if (const BytesConverter().toJson(instance.data) case final value?)
-        'data': value,
-    };
-
 FoldRegion _$FoldRegionFromJson(Map<String, dynamic> json) => FoldRegion(
       regionId: json['regionId'] as String?,
       ent: json['ent'] as String?,
@@ -125,22 +108,21 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
-ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
-    ContactProfile(
-      telephone: json['telephone'] as String?,
-      email: json['email'] as String?,
-      placeId: json['placeId'] as String?,
-      placeType: json['placeType'] as String?,
-      note: json['note'] as String?,
+ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
+      regionId: json['regionId'] as String?,
+      entType: json['entType'] as String?,
+      key: json['key'] as String?,
+      lastTs: (json['lastTs'] as num?)?.toInt(),
+      data: const BytesConverter().fromJson(json['data'] as String?),
     );
 
-Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
-    <String, dynamic>{
-      if (instance.telephone case final value?) 'telephone': value,
-      if (instance.email case final value?) 'email': value,
-      if (instance.placeId case final value?) 'placeId': value,
-      if (instance.placeType case final value?) 'placeType': value,
-      if (instance.note case final value?) 'note': value,
+Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.entType case final value?) 'entType': value,
+      if (instance.key case final value?) 'key': value,
+      if (instance.lastTs case final value?) 'lastTs': value,
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
     };
 
 OptSels _$OptSelsFromJson(Map<String, dynamic> json) => OptSels(
@@ -169,4 +151,22 @@ Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
       if (instance.assemblerId case final value?) 'assemblerId': value,
       if (instance.optIds case final value?) 'optIds': value,
       if (instance.variantProds case final value?) 'variantProds': value,
+    };
+
+ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
+    ContactProfile(
+      telephone: json['telephone'] as String?,
+      email: json['email'] as String?,
+      placeId: json['placeId'] as String?,
+      placeType: json['placeType'] as String?,
+      note: json['note'] as String?,
+    );
+
+Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
+    <String, dynamic>{
+      if (instance.telephone case final value?) 'telephone': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.placeId case final value?) 'placeId': value,
+      if (instance.placeType case final value?) 'placeType': value,
+      if (instance.note case final value?) 'note': value,
     };

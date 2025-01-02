@@ -10,6 +10,7 @@ import 'tubedisp.dart';
 import 'tubeprops.dart';
 
 final _logger = Logger('TubeDelegator');
+
 class TubeDelegator {
   /// From recs
   final Map<String, Map<String, Object>> recletsMap;
@@ -38,19 +39,25 @@ class TubeDelegator {
 
   /// From props
   late Map<String, FldSels> allSels;
+
   // Key is ent-name, capName format.
   late Map<String, Object?> props;
   final List<Map<String, Object>> entProps;
 
+  /// From sels
+  final List<Map<String, Object>> selsRaw;
+  late Map<String, List<Map<String, dynamic>>> selsMap;
+
   TubeDelegator(
       {required this.srvMetas,
-        required this.recletsMap,
-        required this.rectilesMap,
-        required this.entletsMap,
-        required this.enttilesMap,
-        required this.dispatcher,
-        required this.entProps,
-        required this.actletsMap}) {
+      required this.recletsMap,
+      required this.rectilesMap,
+      required this.entletsMap,
+      required this.enttilesMap,
+      required this.dispatcher,
+      required this.entProps,
+      required this.actletsMap,
+      required this.selsRaw}) {
     callModel = SrvMetas.fromJson(srvMetas);
     serviceModels =
         callModel.srvs!.entries.map((el) => MapEntry(el.key, ServiceModel(el.value))).toMap();
@@ -64,6 +71,10 @@ class TubeDelegator {
     this.entTileMap = extractTile(enttilesMap);
 
     this.actFormMap = extractFormWithKey(actletsMap);
+    this.selsMap = selsRaw
+        .map((el) => SelsRec.fromJson(el))
+        .map((el) => MapEntry(el.selsAlias!, el.sels!))
+        .toMap();
   }
 
   static Map<String, FormDescr> extractForm(Map<String, Map<String, Object>> lets) {
@@ -102,8 +113,17 @@ class TubeDelegator {
     return [];
   }
 
-  FldSels? fldSels(String selAlias){
+  FldSels? fldSels(String selAlias) {
     return allSels[selAlias];
+  }
+
+  List<Map<String, dynamic>>? fldSelItemRecs(String selAlias){
+    return selsMap[selAlias];
+  }
+
+  List<SelItem>? fldSelItems(String selAlias){
+    var rs=fldSelItemRecs(selAlias);
+    return rs?.map((el)=>SelItem.fromJson(el)).toList();
   }
 
   FldProp? fldProp(String propPath) {
@@ -111,6 +131,15 @@ class TubeDelegator {
     if (fldMap != null) {
       var fldProp = FldProp.fromJson(fldMap as Map<String, dynamic>);
       return fldProp;
+    }
+    return null;
+  }
+
+  List<SelItem>? selItemsOfFld(FieldUiMeta fld){
+    var fldSela=fld.fldSpec?.sels;
+    if(fldSela!=null){
+      var items=fldSelItems(fldSela);
+      return items;
     }
     return null;
   }
@@ -190,6 +219,12 @@ class FormDescr {
   FormDescr(this.formMeta) {
     this.flds = formMeta.flds!;
   }
+
+  FieldUiMeta? fld(String name) {
+    return flds[name];
+  }
+
+  Set<String> get fldNames => flds.keys.toSet();
 }
 
 class TileDescr {
@@ -200,4 +235,3 @@ class TileDescr {
     this.flds = tileMeta.flds!;
   }
 }
-

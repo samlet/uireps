@@ -132,6 +132,7 @@ class FieldUiMeta{
   String? morph;
   String? dartType;
   String? javaType;
+  FldSpec? fldSpec;
   FieldUiMeta({
     this.fldName,
     this.fldType,
@@ -142,6 +143,7 @@ class FieldUiMeta{
     this.morph,
     this.dartType,
     this.javaType,
+    this.fldSpec,
   });
 
   factory FieldUiMeta.fromJson(Map<String, dynamic> json) =>
@@ -266,5 +268,60 @@ class FldProp{
   Map<String, dynamic> toJson() => _$FldPropToJson(this);
 }
 
+// -- FldSpec -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FldSpec{
+  String? name;
+  bool? mandatory;
+  String? sels;
+  FldSpec({
+    this.name,
+    this.mandatory,
+    this.sels,
+  });
 
-// total classes: 12
+  factory FldSpec.fromJson(Map<String, dynamic> json) =>
+      _$FldSpecFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FldSpecToJson(this);
+}
+
+// -- SelsRec -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SelsRec{
+  String? selsAlias;
+  List<Map<String, dynamic>>? sels;
+  SelsRec({
+    this.selsAlias,
+    this.sels,
+  });
+
+  factory SelsRec.fromJson(Map<String, dynamic> json) =>
+      _$SelsRecFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SelsRecToJson(this);
+}
+
+// -- SelItem -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class SelItem{
+  String? key;
+  String? description;
+  String? parentTypeId;
+  SelItem({
+    this.key,
+    this.description,
+    this.parentTypeId,
+  });
+
+  factory SelItem.fromJson(Map<String, dynamic> json) =>
+      _$SelItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SelItemToJson(this);
+}
+
+
+// total classes: 15

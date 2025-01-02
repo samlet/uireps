@@ -13,6 +13,7 @@ void registerAppProfile() {
         appName: 'MiTubeApp',
         dataDir: path,
         accessToken: samletToken,
+        cleanupDb: false,
         prefetchConf: PrefetchConf(ents: [
           FoldRegion(regionId: 'default', ent: 'Person')
         ], bis: [
@@ -78,6 +79,7 @@ void registerDelegator() {
         enttilesMap: tube.enttilesMap,
         entProps: tube.entProps,
         actletsMap: tube.actletsMap,
+        selsRaw: tube.sels,
         dispatcher: tubeDisp);
     return tubeDel;
   });
@@ -134,12 +136,15 @@ Future<void> setupApp({AppProfile? appProfile}) async {
 Future<void> startApp({AppProfile? appProfile}) async {
   await tube.setupApp(appProfile: appProfile);
 
-  var storeDel = locator<TubeStoreDelegator>();
-  await storeDel.preload();
-  var rs = await storeDel.availablePersons();
-  _logger.info('total users: ${rs.length}');
+  var profile=locator<AppProfile>();
+  if(!profile.offline) {
+    var storeDel = locator<TubeStoreDelegator>();
+    await storeDel.preload();
+    var rs = await storeDel.availablePersons();
+    _logger.info('total users: ${rs.length}');
+  }
 
-  var appName=locator<AppProfile>().appName;
+  var appName=profile.appName;
   _logger.info('tube-app [$appName] started.');
 }
 

@@ -26,7 +26,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "originGeoId" : {
       "fldName" : "originGeoId",
@@ -37,7 +38,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "detailScreen" : {
       "fldName" : "detailScreen",
@@ -48,7 +50,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "requireInventory" : {
       "fldName" : "requireInventory",
@@ -59,7 +62,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "quantityUomId" : {
       "fldName" : "quantityUomId",
@@ -70,7 +74,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "acl" : {
       "fldName" : "acl",
@@ -81,7 +86,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "Multimap<String, String>",
-      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "fldSpec" : null
     },
     "mediumImageUrl" : {
       "fldName" : "mediumImageUrl",
@@ -92,18 +98,24 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "productName" : {
       "fldName" : "productName",
       "fldType" : "name",
-      "fldTpl" : "fldWithSpec",
+      "fldTpl" : "nameControl",
       "domainType" : "stringField",
       "caption" : "Product Name",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "nameControl",
+        "mandatory" : false,
+        "sels" : null
+      }
     },
     "introductionDate" : {
       "fldName" : "introductionDate",
@@ -114,7 +126,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "shippingHeight" : {
       "fldName" : "shippingHeight",
@@ -125,7 +138,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "evict" : {
       "fldName" : "evict",
@@ -136,7 +150,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "bool",
-      "javaType" : "Boolean"
+      "javaType" : "Boolean",
+      "fldSpec" : null
     },
     "originalImageUrl" : {
       "fldName" : "originalImageUrl",
@@ -147,7 +162,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "inShippingBox" : {
       "fldName" : "inShippingBox",
@@ -158,7 +174,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "detailImageUrl" : {
       "fldName" : "detailImageUrl",
@@ -169,7 +186,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "supportDiscontinuationDate" : {
       "fldName" : "supportDiscontinuationDate",
@@ -180,7 +198,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "productWidth" : {
       "fldName" : "productWidth",
@@ -191,7 +210,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "includeInPromotions" : {
       "fldName" : "includeInPromotions",
@@ -202,7 +222,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "configId" : {
       "fldName" : "configId",
@@ -213,7 +234,20 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
+    },
+    "price" : {
+      "fldName" : "price",
+      "fldType" : "fixed-point",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "decimalField",
+      "caption" : "Price",
+      "defaultValue" : "0.0",
+      "morph" : "",
+      "dartType" : "double",
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "billOfMaterialLevel" : {
       "fldName" : "billOfMaterialLevel",
@@ -224,7 +258,8 @@ final productForm = {
       "defaultValue" : "0",
       "morph" : null,
       "dartType" : "int",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "lotIdFilledIn" : {
       "fldName" : "lotIdFilledIn",
@@ -235,7 +270,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "productRating" : {
       "fldName" : "productRating",
@@ -246,7 +282,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "createdByUserLogin" : {
       "fldName" : "createdByUserLogin",
@@ -257,7 +294,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "jointers" : {
       "fldName" : "jointers",
@@ -268,7 +306,8 @@ final productForm = {
       "defaultValue" : "{}",
       "morph" : null,
       "dartType" : "Map<String, String>",
-      "javaType" : "com.bluecc.hubs.proto.StringMap"
+      "javaType" : "com.bluecc.hubs.proto.StringMap",
+      "fldSpec" : null
     },
     "image" : {
       "fldName" : "image",
@@ -279,7 +318,8 @@ final productForm = {
       "defaultValue" : "<String>[]",
       "morph" : null,
       "dartType" : "List<String?>",
-      "javaType" : "com.bluecc.hubs.stub.Strings"
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
     },
     "brandName" : {
       "fldName" : "brandName",
@@ -290,7 +330,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "requireAmount" : {
       "fldName" : "requireAmount",
@@ -301,7 +342,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "productId" : {
       "fldName" : "productId",
@@ -312,7 +354,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "smallImageUrl" : {
       "fldName" : "smallImageUrl",
@@ -323,7 +366,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "taxable" : {
       "fldName" : "taxable",
@@ -334,7 +378,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "primaryProductCategoryId" : {
       "fldName" : "primaryProductCategoryId",
@@ -345,7 +390,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "salesDiscontinuationDate" : {
       "fldName" : "salesDiscontinuationDate",
@@ -356,7 +402,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -367,7 +414,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -378,7 +426,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "labels" : {
       "fldName" : "labels",
@@ -389,7 +438,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "Multimap<String, String>",
-      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "fldSpec" : null
     },
     "salesDiscWhenNotAvail" : {
       "fldName" : "salesDiscWhenNotAvail",
@@ -400,7 +450,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "returnable" : {
       "fldName" : "returnable",
@@ -411,18 +462,24 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "weightUomId" : {
       "fldName" : "weightUomId",
       "fldType" : "id",
-      "fldTpl" : "fldWithSpec",
+      "fldTpl" : "typeListControl",
       "domainType" : "idenField",
       "caption" : "Weight Uom Id",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "typeListControl",
+        "mandatory" : false,
+        "sels" : "weightTypes"
+      }
     },
     "isVirtual" : {
       "fldName" : "isVirtual",
@@ -433,7 +490,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "priceDetailText" : {
       "fldName" : "priceDetailText",
@@ -444,7 +502,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "reserv2ndPPPerc" : {
       "fldName" : "reserv2ndPPPerc",
@@ -455,18 +514,24 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "widthUomId" : {
       "fldName" : "widthUomId",
       "fldType" : "id",
-      "fldTpl" : "fldWithSpec",
+      "fldTpl" : "typeListControl",
       "domainType" : "idenField",
       "caption" : "Width Uom Id",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "typeListControl",
+        "mandatory" : false,
+        "sels" : "widthTypes"
+      }
     },
     "longDescription" : {
       "fldName" : "longDescription",
@@ -477,7 +542,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "diameterUomId" : {
       "fldName" : "diameterUomId",
@@ -488,7 +554,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "autoCreateKeywords" : {
       "fldName" : "autoCreateKeywords",
@@ -499,18 +566,20 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "color" : {
       "fldName" : "color",
       "fldType" : "numeric",
       "fldTpl" : "fldWithSpec",
       "domainType" : "integerField",
-      "caption" : "Color",
+      "caption" : "颜色",
       "defaultValue" : "Colors.grey",
       "morph" : null,
       "dartType" : "Color",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "amountUomTypeId" : {
       "fldName" : "amountUomTypeId",
@@ -521,7 +590,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "productDiameter" : {
       "fldName" : "productDiameter",
@@ -532,7 +602,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "ratingTypeEnum" : {
       "fldName" : "ratingTypeEnum",
@@ -543,29 +614,36 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "icon" : {
       "fldName" : "icon",
       "fldType" : "numeric",
       "fldTpl" : "fldWithSpec",
       "domainType" : "integerField",
-      "caption" : "Icon",
+      "caption" : "图标",
       "defaultValue" : "Icons.account_circle",
       "morph" : null,
       "dartType" : "IconData",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "description" : {
       "fldName" : "description",
       "fldType" : "description",
-      "fldTpl" : "fldWithSpec",
+      "fldTpl" : "descriptionControl",
       "domainType" : "stringField",
       "caption" : "描述",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "descriptionControl",
+        "mandatory" : false,
+        "sels" : null
+      }
     },
     "chargeShipping" : {
       "fldName" : "chargeShipping",
@@ -576,7 +654,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "reservNthPPPerc" : {
       "fldName" : "reservNthPPPerc",
@@ -587,7 +666,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "quantityIncluded" : {
       "fldName" : "quantityIncluded",
@@ -598,7 +678,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "heightUomId" : {
       "fldName" : "heightUomId",
@@ -609,7 +690,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "internalName" : {
       "fldName" : "internalName",
@@ -620,7 +702,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "lastModifiedByUserLogin" : {
       "fldName" : "lastModifiedByUserLogin",
@@ -631,7 +714,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "virtualVariantMethodEnum" : {
       "fldName" : "virtualVariantMethodEnum",
@@ -642,7 +726,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "shippingWeight" : {
       "fldName" : "shippingWeight",
@@ -653,7 +738,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "shippingWidth" : {
       "fldName" : "shippingWidth",
@@ -664,7 +750,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "shippingDepth" : {
       "fldName" : "shippingDepth",
@@ -675,7 +762,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "reservMaxPersons" : {
       "fldName" : "reservMaxPersons",
@@ -686,7 +774,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "fixedAmount" : {
       "fldName" : "fixedAmount",
@@ -697,7 +786,20 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
+    },
+    "prices" : {
+      "fldName" : "prices",
+      "fldType" : "decimal-map",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "decimalMapField",
+      "caption" : "Prices",
+      "defaultValue" : "{}",
+      "morph" : "",
+      "dartType" : "Map<String, double>",
+      "javaType" : "com.bluecc.hubs.stub.DecimalMap",
+      "fldSpec" : null
     },
     "inventoryItemTypeId" : {
       "fldName" : "inventoryItemTypeId",
@@ -708,7 +810,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "piecesIncluded" : {
       "fldName" : "piecesIncluded",
@@ -719,7 +822,8 @@ final productForm = {
       "defaultValue" : "0",
       "morph" : null,
       "dartType" : "int",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "productDepth" : {
       "fldName" : "productDepth",
@@ -730,7 +834,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "tag1" : {
       "fldName" : "tag1",
@@ -741,7 +846,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "facilityId" : {
       "fldName" : "facilityId",
@@ -752,7 +858,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "comments" : {
       "fldName" : "comments",
@@ -763,7 +870,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "releaseDate" : {
       "fldName" : "releaseDate",
@@ -774,7 +882,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "productHeight" : {
       "fldName" : "productHeight",
@@ -785,7 +894,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "lastModifiedDate" : {
       "fldName" : "lastModifiedDate",
@@ -796,7 +906,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "defaultShipmentBoxTypeId" : {
       "fldName" : "defaultShipmentBoxTypeId",
@@ -807,7 +918,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "orderDecimalQuantity" : {
       "fldName" : "orderDecimalQuantity",
@@ -818,7 +930,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "inventoryMessage" : {
       "fldName" : "inventoryMessage",
@@ -829,7 +942,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "productWeight" : {
       "fldName" : "productWeight",
@@ -840,7 +954,8 @@ final productForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "depthUomId" : {
       "fldName" : "depthUomId",
@@ -851,18 +966,24 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "productTypeId" : {
       "fldName" : "productTypeId",
       "fldType" : "id",
-      "fldTpl" : "fldWithSpec",
+      "fldTpl" : "typeListControl",
       "domainType" : "idenField",
       "caption" : "Product Type Id",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "typeListControl",
+        "mandatory" : false,
+        "sels" : "productTypes"
+      }
     },
     "tag2" : {
       "fldName" : "tag2",
@@ -873,7 +994,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "url" : {
       "fldName" : "url",
@@ -884,7 +1006,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tag3" : {
       "fldName" : "tag3",
@@ -895,7 +1018,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "createdDate" : {
       "fldName" : "createdDate",
@@ -906,7 +1030,8 @@ final productForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "cats" : {
       "fldName" : "cats",
@@ -917,7 +1042,8 @@ final productForm = {
       "defaultValue" : "<String>[]",
       "morph" : null,
       "dartType" : "List<String?>",
-      "javaType" : "com.bluecc.hubs.stub.Strings"
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
     },
     "isVariant" : {
       "fldName" : "isVariant",
@@ -928,7 +1054,8 @@ final productForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "largeImageUrl" : {
       "fldName" : "largeImageUrl",
@@ -939,7 +1066,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -950,7 +1078,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "requirementMethodEnumId" : {
       "fldName" : "requirementMethodEnumId",
@@ -961,7 +1090,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "moreTags" : {
       "fldName" : "moreTags",
@@ -972,7 +1102,20 @@ final productForm = {
       "defaultValue" : "<String>[]",
       "morph" : null,
       "dartType" : "List<String?>",
-      "javaType" : "com.bluecc.hubs.stub.Strings"
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
+    },
+    "listPrice" : {
+      "fldName" : "listPrice",
+      "fldType" : "fixed-point",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "decimalField",
+      "caption" : "List Price",
+      "defaultValue" : "0.0",
+      "morph" : "",
+      "dartType" : "double",
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "resourceType" : {
       "fldName" : "resourceType",
@@ -983,7 +1126,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "sameAs" : {
       "fldName" : "sameAs",
@@ -994,7 +1138,8 @@ final productForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     }
   }
 };
@@ -1015,7 +1160,8 @@ final personForm = {
       "defaultValue" : "0",
       "morph" : null,
       "dartType" : "int",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "lastName" : {
       "fldName" : "lastName",
@@ -1026,7 +1172,12 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "lastNameEdit",
+        "mandatory" : false,
+        "sels" : null
+      }
     },
     "occupation" : {
       "fldName" : "occupation",
@@ -1037,7 +1188,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "gender" : {
       "fldName" : "gender",
@@ -1048,7 +1200,8 @@ final personForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "employmentStatusEnumId" : {
       "fldName" : "employmentStatusEnumId",
@@ -1059,7 +1212,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "socialSecurityNumber" : {
       "fldName" : "socialSecurityNumber",
@@ -1070,7 +1224,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "suffix" : {
       "fldName" : "suffix",
@@ -1081,7 +1236,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "mothersMaidenName" : {
       "fldName" : "mothersMaidenName",
@@ -1092,7 +1248,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "middleNameLocal" : {
       "fldName" : "middleNameLocal",
@@ -1103,7 +1260,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "existingCustomer" : {
       "fldName" : "existingCustomer",
@@ -1114,7 +1272,8 @@ final personForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "residenceStatusEnumId" : {
       "fldName" : "residenceStatusEnumId",
@@ -1125,7 +1284,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "maritalStatusEnumId" : {
       "fldName" : "maritalStatusEnumId",
@@ -1136,7 +1296,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "nickname" : {
       "fldName" : "nickname",
@@ -1147,7 +1308,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "partyId" : {
       "fldName" : "partyId",
@@ -1158,7 +1320,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "memberId" : {
       "fldName" : "memberId",
@@ -1169,7 +1332,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "height" : {
       "fldName" : "height",
@@ -1180,7 +1344,8 @@ final personForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "Double"
+      "javaType" : "Double",
+      "fldSpec" : null
     },
     "passportNumber" : {
       "fldName" : "passportNumber",
@@ -1191,7 +1356,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "lastNameLocal" : {
       "fldName" : "lastNameLocal",
@@ -1202,7 +1368,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "comments" : {
       "fldName" : "comments",
@@ -1213,7 +1380,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "monthsWithEmployer" : {
       "fldName" : "monthsWithEmployer",
@@ -1224,7 +1392,8 @@ final personForm = {
       "defaultValue" : "0",
       "morph" : null,
       "dartType" : "int",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -1235,7 +1404,8 @@ final personForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "weight" : {
       "fldName" : "weight",
@@ -1246,7 +1416,8 @@ final personForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "Double"
+      "javaType" : "Double",
+      "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -1257,7 +1428,8 @@ final personForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "birthDate" : {
       "fldName" : "birthDate",
@@ -1268,7 +1440,8 @@ final personForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.LocalDate"
+      "javaType" : "java.time.LocalDate",
+      "fldSpec" : null
     },
     "otherLocal" : {
       "fldName" : "otherLocal",
@@ -1279,7 +1452,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "firstName" : {
       "fldName" : "firstName",
@@ -1290,7 +1464,12 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "firstNameEdit",
+        "mandatory" : false,
+        "sels" : null
+      }
     },
     "cardId" : {
       "fldName" : "cardId",
@@ -1301,7 +1480,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -1312,7 +1492,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "middleName" : {
       "fldName" : "middleName",
@@ -1323,7 +1504,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "firstNameLocal" : {
       "fldName" : "firstNameLocal",
@@ -1334,7 +1516,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "passportExpireDate" : {
       "fldName" : "passportExpireDate",
@@ -1345,7 +1528,8 @@ final personForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.LocalDate"
+      "javaType" : "java.time.LocalDate",
+      "fldSpec" : null
     },
     "salutation" : {
       "fldName" : "salutation",
@@ -1356,7 +1540,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "personalTitle" : {
       "fldName" : "personalTitle",
@@ -1367,7 +1552,8 @@ final personForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "deceasedDate" : {
       "fldName" : "deceasedDate",
@@ -1378,7 +1564,8 @@ final personForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.LocalDate"
+      "javaType" : "java.time.LocalDate",
+      "fldSpec" : null
     },
     "totalYearsWorkExperience" : {
       "fldName" : "totalYearsWorkExperience",
@@ -1389,7 +1576,8 @@ final personForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "Double"
+      "javaType" : "Double",
+      "fldSpec" : null
     }
   }
 };
@@ -1410,7 +1598,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "resourceId" : {
       "fldName" : "resourceId",
@@ -1421,7 +1610,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "noteName" : {
       "fldName" : "noteName",
@@ -1432,7 +1622,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -1443,7 +1634,8 @@ final noteDataForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -1454,7 +1646,8 @@ final noteDataForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "noteId" : {
       "fldName" : "noteId",
@@ -1465,7 +1658,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "acl" : {
       "fldName" : "acl",
@@ -1476,7 +1670,8 @@ final noteDataForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "Multimap<String, String>",
-      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "fldSpec" : null
     },
     "moreInfoItemId" : {
       "fldName" : "moreInfoItemId",
@@ -1487,7 +1682,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tag2" : {
       "fldName" : "tag2",
@@ -1498,7 +1694,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "evict" : {
       "fldName" : "evict",
@@ -1509,7 +1706,8 @@ final noteDataForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "bool",
-      "javaType" : "Boolean"
+      "javaType" : "Boolean",
+      "fldSpec" : null
     },
     "tag3" : {
       "fldName" : "tag3",
@@ -1520,7 +1718,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "labels" : {
       "fldName" : "labels",
@@ -1531,7 +1730,8 @@ final noteDataForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "Multimap<String, String>",
-      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "fldSpec" : null
     },
     "noteDateTime" : {
       "fldName" : "noteDateTime",
@@ -1542,7 +1742,8 @@ final noteDataForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "moreInfoItemName" : {
       "fldName" : "moreInfoItemName",
@@ -1553,7 +1754,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -1564,7 +1766,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "noteInfo" : {
       "fldName" : "noteInfo",
@@ -1575,7 +1778,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "moreInfoUrl" : {
       "fldName" : "moreInfoUrl",
@@ -1586,7 +1790,12 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : {
+        "name" : "urlSpec",
+        "mandatory" : false,
+        "sels" : null
+      }
     },
     "moreTags" : {
       "fldName" : "moreTags",
@@ -1597,7 +1806,8 @@ final noteDataForm = {
       "defaultValue" : "<String>[]",
       "morph" : null,
       "dartType" : "List<String?>",
-      "javaType" : "com.bluecc.hubs.stub.Strings"
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
     },
     "noteParty" : {
       "fldName" : "noteParty",
@@ -1608,7 +1818,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "resourceType" : {
       "fldName" : "resourceType",
@@ -1619,7 +1830,8 @@ final noteDataForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     }
   }
 };
@@ -1636,11 +1848,12 @@ final partyForm = {
       "fldType" : "numeric",
       "fldTpl" : "fldWithSpec",
       "domainType" : "integerField",
-      "caption" : "Color",
+      "caption" : "颜色",
       "defaultValue" : "Colors.grey",
       "morph" : null,
       "dartType" : "Color",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "placeId" : {
       "fldName" : "placeId",
@@ -1651,18 +1864,20 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "icon" : {
       "fldName" : "icon",
       "fldType" : "numeric",
       "fldTpl" : "fldWithSpec",
       "domainType" : "integerField",
-      "caption" : "Icon",
+      "caption" : "图标",
       "defaultValue" : "Icons.account_circle",
       "morph" : null,
       "dartType" : "IconData",
-      "javaType" : "Long"
+      "javaType" : "Long",
+      "fldSpec" : null
     },
     "description" : {
       "fldName" : "description",
@@ -1673,7 +1888,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "acl" : {
       "fldName" : "acl",
@@ -1684,7 +1900,8 @@ final partyForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "Multimap<String, String>",
-      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "fldSpec" : null
     },
     "evict" : {
       "fldName" : "evict",
@@ -1695,7 +1912,20 @@ final partyForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "bool",
-      "javaType" : "Boolean"
+      "javaType" : "Boolean",
+      "fldSpec" : null
+    },
+    "noteIds" : {
+      "fldName" : "noteIds",
+      "fldType" : "strings",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringsField",
+      "caption" : "Note Ids",
+      "defaultValue" : "<String>[]",
+      "morph" : "",
+      "dartType" : "List<String?>",
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
     },
     "partyTypeId" : {
       "fldName" : "partyTypeId",
@@ -1706,7 +1936,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "lastModifiedByUserLogin" : {
       "fldName" : "lastModifiedByUserLogin",
@@ -1717,7 +1948,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "dataSourceId" : {
       "fldName" : "dataSourceId",
@@ -1728,7 +1960,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "preferredCurrencyUomId" : {
       "fldName" : "preferredCurrencyUomId",
@@ -1739,7 +1972,20 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
+    },
+    "nickname" : {
+      "fldName" : "nickname",
+      "fldType" : "value",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "呢称",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "partyId" : {
       "fldName" : "partyId",
@@ -1750,7 +1996,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "createdByUserLogin" : {
       "fldName" : "createdByUserLogin",
@@ -1761,18 +2008,20 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "email" : {
       "fldName" : "email",
       "fldType" : "email",
       "fldTpl" : "fldWithSpec",
       "domainType" : "stringField",
-      "caption" : "Email",
+      "caption" : "电子邮件",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tag1" : {
       "fldName" : "tag1",
@@ -1783,7 +2032,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "image" : {
       "fldName" : "image",
@@ -1794,7 +2044,8 @@ final partyForm = {
       "defaultValue" : "<String>[]",
       "morph" : null,
       "dartType" : "List<String?>",
-      "javaType" : "com.bluecc.hubs.stub.Strings"
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
     },
     "lastModifiedDate" : {
       "fldName" : "lastModifiedDate",
@@ -1805,7 +2056,8 @@ final partyForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -1816,7 +2068,8 @@ final partyForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "externalId" : {
       "fldName" : "externalId",
@@ -1827,7 +2080,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -1838,7 +2092,8 @@ final partyForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "telephone" : {
       "fldName" : "telephone",
@@ -1849,7 +2104,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "isUnread" : {
       "fldName" : "isUnread",
@@ -1860,7 +2116,8 @@ final partyForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "tag2" : {
       "fldName" : "tag2",
@@ -1871,7 +2128,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "url" : {
       "fldName" : "url",
@@ -1882,7 +2140,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tag3" : {
       "fldName" : "tag3",
@@ -1893,7 +2152,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "labels" : {
       "fldName" : "labels",
@@ -1904,7 +2164,20 @@ final partyForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "Multimap<String, String>",
-      "javaType" : "com.bluecc.hubs.stub.StringMultimap"
+      "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "fldSpec" : null
+    },
+    "accountId" : {
+      "fldName" : "accountId",
+      "fldType" : "value",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Account Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "createdDate" : {
       "fldName" : "createdDate",
@@ -1915,7 +2188,20 @@ final partyForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
+    },
+    "phoneNumber" : {
+      "fldName" : "phoneNumber",
+      "fldType" : "json-object",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "structField",
+      "caption" : "Phone Number",
+      "defaultValue" : "{}",
+      "morph" : "",
+      "dartType" : "Map<String, dynamic>",
+      "javaType" : "com.google.protobuf.Struct",
+      "fldSpec" : null
     },
     "statusId" : {
       "fldName" : "statusId",
@@ -1926,7 +2212,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -1937,7 +2224,32 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
+    },
+    "name" : {
+      "fldName" : "name",
+      "fldType" : "value",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "stringField",
+      "caption" : "名称",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "fldSpec" : null
+    },
+    "location" : {
+      "fldName" : "location",
+      "fldType" : "json-object",
+      "fldTpl" : "fldWithSpec",
+      "domainType" : "structField",
+      "caption" : "Location",
+      "defaultValue" : "{}",
+      "morph" : "",
+      "dartType" : "Map<String, dynamic>",
+      "javaType" : "com.google.protobuf.Struct",
+      "fldSpec" : null
     },
     "moreTags" : {
       "fldName" : "moreTags",
@@ -1948,7 +2260,8 @@ final partyForm = {
       "defaultValue" : "<String>[]",
       "morph" : null,
       "dartType" : "List<String?>",
-      "javaType" : "com.bluecc.hubs.stub.Strings"
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "fldSpec" : null
     },
     "defaultLoginId" : {
       "fldName" : "defaultLoginId",
@@ -1959,7 +2272,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "sameAs" : {
       "fldName" : "sameAs",
@@ -1970,7 +2284,8 @@ final partyForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     }
   }
 };
@@ -1991,7 +2306,8 @@ final partyTypeForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "parentTypeId" : {
       "fldName" : "parentTypeId",
@@ -2002,7 +2318,8 @@ final partyTypeForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "hasTable" : {
       "fldName" : "hasTable",
@@ -2013,7 +2330,8 @@ final partyTypeForm = {
       "defaultValue" : null,
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "Character"
+      "javaType" : "Character",
+      "fldSpec" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -2024,7 +2342,8 @@ final partyTypeForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -2035,7 +2354,8 @@ final partyTypeForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "description" : {
       "fldName" : "description",
@@ -2046,7 +2366,8 @@ final partyTypeForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -2057,7 +2378,8 @@ final partyTypeForm = {
       "defaultValue" : "DateTime.now()",
       "morph" : null,
       "dartType" : "DateTime",
-      "javaType" : "java.time.OffsetDateTime"
+      "javaType" : "java.time.OffsetDateTime",
+      "fldSpec" : null
     }
   }
 };
@@ -2078,7 +2400,8 @@ final productTile = {
         "defaultValue" : "DateTime.now()",
         "morph" : null,
         "dartType" : "DateTime",
-        "javaType" : "java.time.OffsetDateTime"
+        "javaType" : "java.time.OffsetDateTime",
+        "fldSpec" : null
       }
     },
     "image" : {
@@ -2092,7 +2415,8 @@ final productTile = {
         "defaultValue" : "<String>[]",
         "morph" : null,
         "dartType" : "List<String?>",
-        "javaType" : "com.bluecc.hubs.stub.Strings"
+        "javaType" : "com.bluecc.hubs.stub.Strings",
+        "fldSpec" : null
       }
     },
     "color" : {
@@ -2102,11 +2426,12 @@ final productTile = {
         "fldType" : "numeric",
         "fldTpl" : "fldWithSpec",
         "domainType" : "integerField",
-        "caption" : "Color",
+        "caption" : "颜色",
         "defaultValue" : "Colors.grey",
         "morph" : null,
         "dartType" : "Color",
-        "javaType" : "Long"
+        "javaType" : "Long",
+        "fldSpec" : null
       }
     },
     "subtitle" : {
@@ -2114,13 +2439,18 @@ final productTile = {
       "fld" : {
         "fldName" : "description",
         "fldType" : "description",
-        "fldTpl" : "fldWithSpec",
+        "fldTpl" : "descriptionControl",
         "domainType" : "stringField",
         "caption" : "描述",
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : {
+          "name" : "descriptionControl",
+          "mandatory" : false,
+          "sels" : null
+        }
       }
     },
     "icon" : {
@@ -2130,11 +2460,12 @@ final productTile = {
         "fldType" : "numeric",
         "fldTpl" : "fldWithSpec",
         "domainType" : "integerField",
-        "caption" : "Icon",
+        "caption" : "图标",
         "defaultValue" : "Icons.account_circle",
         "morph" : null,
         "dartType" : "IconData",
-        "javaType" : "Long"
+        "javaType" : "Long",
+        "fldSpec" : null
       }
     },
     "title" : {
@@ -2142,13 +2473,18 @@ final productTile = {
       "fld" : {
         "fldName" : "productName",
         "fldType" : "name",
-        "fldTpl" : "fldWithSpec",
+        "fldTpl" : "nameControl",
         "domainType" : "stringField",
         "caption" : "Product Name",
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : {
+          "name" : "nameControl",
+          "mandatory" : false,
+          "sels" : null
+        }
       }
     },
     "url" : {
@@ -2162,7 +2498,8 @@ final productTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     }
   },
@@ -2193,7 +2530,8 @@ final personTile = {
         "defaultValue" : "DateTime.now()",
         "morph" : null,
         "dartType" : "DateTime",
-        "javaType" : "java.time.LocalDate"
+        "javaType" : "java.time.LocalDate",
+        "fldSpec" : null
       }
     },
     "subtitle" : {
@@ -2207,7 +2545,8 @@ final personTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     },
     "title" : {
@@ -2221,7 +2560,12 @@ final personTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : {
+          "name" : "lastNameEdit",
+          "mandatory" : false,
+          "sels" : null
+        }
       }
     }
   },
@@ -2248,7 +2592,8 @@ final noteDataTile = {
         "defaultValue" : "DateTime.now()",
         "morph" : null,
         "dartType" : "DateTime",
-        "javaType" : "java.time.OffsetDateTime"
+        "javaType" : "java.time.OffsetDateTime",
+        "fldSpec" : null
       }
     },
     "subtitle" : {
@@ -2262,7 +2607,8 @@ final noteDataTile = {
         "defaultValue" : "DateTime.now()",
         "morph" : null,
         "dartType" : "DateTime",
-        "javaType" : "java.time.OffsetDateTime"
+        "javaType" : "java.time.OffsetDateTime",
+        "fldSpec" : null
       }
     },
     "title" : {
@@ -2276,7 +2622,8 @@ final noteDataTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     }
   },
@@ -2303,7 +2650,8 @@ final partyTile = {
         "defaultValue" : "DateTime.now()",
         "morph" : null,
         "dartType" : "DateTime",
-        "javaType" : "java.time.OffsetDateTime"
+        "javaType" : "java.time.OffsetDateTime",
+        "fldSpec" : null
       }
     },
     "image" : {
@@ -2317,7 +2665,8 @@ final partyTile = {
         "defaultValue" : "<String>[]",
         "morph" : null,
         "dartType" : "List<String?>",
-        "javaType" : "com.bluecc.hubs.stub.Strings"
+        "javaType" : "com.bluecc.hubs.stub.Strings",
+        "fldSpec" : null
       }
     },
     "color" : {
@@ -2327,11 +2676,12 @@ final partyTile = {
         "fldType" : "numeric",
         "fldTpl" : "fldWithSpec",
         "domainType" : "integerField",
-        "caption" : "Color",
+        "caption" : "颜色",
         "defaultValue" : "Colors.grey",
         "morph" : null,
         "dartType" : "Color",
-        "javaType" : "Long"
+        "javaType" : "Long",
+        "fldSpec" : null
       }
     },
     "subtitle" : {
@@ -2345,7 +2695,8 @@ final partyTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     },
     "icon" : {
@@ -2355,11 +2706,12 @@ final partyTile = {
         "fldType" : "numeric",
         "fldTpl" : "fldWithSpec",
         "domainType" : "integerField",
-        "caption" : "Icon",
+        "caption" : "图标",
         "defaultValue" : "Icons.account_circle",
         "morph" : null,
         "dartType" : "IconData",
-        "javaType" : "Long"
+        "javaType" : "Long",
+        "fldSpec" : null
       }
     },
     "title" : {
@@ -2373,7 +2725,8 @@ final partyTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     },
     "url" : {
@@ -2387,7 +2740,8 @@ final partyTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     },
     "status" : {
@@ -2401,7 +2755,8 @@ final partyTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     }
   },
@@ -2433,7 +2788,8 @@ final partyTypeTile = {
         "defaultValue" : "DateTime.now()",
         "morph" : null,
         "dartType" : "DateTime",
-        "javaType" : "java.time.OffsetDateTime"
+        "javaType" : "java.time.OffsetDateTime",
+        "fldSpec" : null
       }
     },
     "subtitle" : {
@@ -2447,7 +2803,8 @@ final partyTypeTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     },
     "title" : {
@@ -2461,7 +2818,8 @@ final partyTypeTile = {
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
-        "javaType" : "String"
+        "javaType" : "String",
+        "fldSpec" : null
       }
     }
   },

@@ -22,7 +22,8 @@ final makeTestRecForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "stringFld" : {
       "fldName" : "stringFld",
@@ -33,7 +34,8 @@ final makeTestRecForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "numMap" : {
       "fldName" : "numMap",
@@ -44,7 +46,8 @@ final makeTestRecForm = {
       "defaultValue" : "{}",
       "morph" : null,
       "dartType" : "Map<String, double>",
-      "javaType" : "com.bluecc.hubs.stub.DecimalMap"
+      "javaType" : "com.bluecc.hubs.stub.DecimalMap",
+      "fldSpec" : null
     },
     "nums" : {
       "fldName" : "nums",
@@ -55,7 +58,8 @@ final makeTestRecForm = {
       "defaultValue" : "<double>[]",
       "morph" : null,
       "dartType" : "List<double?>",
-      "javaType" : "com.bluecc.hubs.stub.Decimals"
+      "javaType" : "com.bluecc.hubs.stub.Decimals",
+      "fldSpec" : null
     }
   }
 };
@@ -76,7 +80,8 @@ final setTitleAndContentForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "title" : {
       "fldName" : "title",
@@ -87,7 +92,8 @@ final setTitleAndContentForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     }
   }
 };
@@ -108,7 +114,8 @@ final makeSomeRecsForm = {
       "defaultValue" : "0",
       "morph" : null,
       "dartType" : "int",
-      "javaType" : "Integer"
+      "javaType" : "Integer",
+      "fldSpec" : null
     }
   }
 };
@@ -129,7 +136,8 @@ final postCommentForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     },
     "subject" : {
       "fldName" : "subject",
@@ -140,7 +148,8 @@ final postCommentForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "review" : {
       "fldName" : "review",
@@ -151,7 +160,8 @@ final postCommentForm = {
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
-      "javaType" : "String"
+      "javaType" : "String",
+      "fldSpec" : null
     },
     "rating" : {
       "fldName" : "rating",
@@ -162,7 +172,8 @@ final postCommentForm = {
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
-      "javaType" : "java.math.BigDecimal"
+      "javaType" : "java.math.BigDecimal",
+      "fldSpec" : null
     }
   }
 };

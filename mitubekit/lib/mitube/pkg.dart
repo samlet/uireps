@@ -10,6 +10,7 @@ export 'recs.dart';
 export 'acts.dart';
 export 'srvs.dart';
 export 'props.dart';
+export 'sels.dart';
 
 // shared
 export 'package:xcsmachine/formmetas.dart';

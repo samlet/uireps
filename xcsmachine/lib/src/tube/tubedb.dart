@@ -4,6 +4,9 @@ import 'package:sembast/sembast_io.dart';
 
 import 'tubedi.dart';
 import 'tubeprofile.dart';
+import 'package:logging/logging.dart';
+
+final _logger = Logger('TubeDb');
 
 enum StoreType {
   ents, // protoEnt
@@ -74,7 +77,10 @@ void registerDb() {
     var path = profile.dataDir;
     var tubeDb = TubeDb(dbDir: path, name: 'tubes');
     await tubeDb.init();
-    await tubeDb.clearAllStores(); // clear all data
+    if(profile.cleanupDb) {
+      _logger.info('clear all stores.');
+      await tubeDb.clearAllStores(); // clear all data
+    }
     return tubeDb;
   });
 }

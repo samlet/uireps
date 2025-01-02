@@ -112,6 +112,9 @@ FieldUiMeta _$FieldUiMetaFromJson(Map<String, dynamic> json) => FieldUiMeta(
       morph: json['morph'] as String?,
       dartType: json['dartType'] as String?,
       javaType: json['javaType'] as String?,
+      fldSpec: json['fldSpec'] == null
+          ? null
+          : FldSpec.fromJson(json['fldSpec'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
@@ -125,6 +128,7 @@ Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
       if (instance.morph case final value?) 'morph': value,
       if (instance.dartType case final value?) 'dartType': value,
       if (instance.javaType case final value?) 'javaType': value,
+      if (instance.fldSpec?.toJson() case final value?) 'fldSpec': value,
     };
 
 FieldTileMeta _$FieldTileMetaFromJson(Map<String, dynamic> json) =>
@@ -222,4 +226,40 @@ Map<String, dynamic> _$FldPropToJson(FldProp instance) => <String, dynamic>{
       if (instance.alias case final value?) 'alias': value,
       if (instance.sels case final value?) 'sels': value,
       if (instance.params case final value?) 'params': value,
+    };
+
+FldSpec _$FldSpecFromJson(Map<String, dynamic> json) => FldSpec(
+      name: json['name'] as String?,
+      mandatory: json['mandatory'] as bool?,
+      sels: json['sels'] as String?,
+    );
+
+Map<String, dynamic> _$FldSpecToJson(FldSpec instance) => <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.mandatory case final value?) 'mandatory': value,
+      if (instance.sels case final value?) 'sels': value,
+    };
+
+SelsRec _$SelsRecFromJson(Map<String, dynamic> json) => SelsRec(
+      selsAlias: json['selsAlias'] as String?,
+      sels: (json['sels'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+    );
+
+Map<String, dynamic> _$SelsRecToJson(SelsRec instance) => <String, dynamic>{
+      if (instance.selsAlias case final value?) 'selsAlias': value,
+      if (instance.sels case final value?) 'sels': value,
+    };
+
+SelItem _$SelItemFromJson(Map<String, dynamic> json) => SelItem(
+      key: json['key'] as String?,
+      description: json['description'] as String?,
+      parentTypeId: json['parentTypeId'] as String?,
+    );
+
+Map<String, dynamic> _$SelItemToJson(SelItem instance) => <String, dynamic>{
+      if (instance.key case final value?) 'key': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.parentTypeId case final value?) 'parentTypeId': value,
     };

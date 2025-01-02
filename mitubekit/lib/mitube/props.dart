@@ -5,7 +5,7 @@ const entProps = [ {
     "flds" : {
       "partyTypeId" : {
         "alias" : "partyTypes",
-        "sels" : "EcommSln:partyRootTypes",
+        "sels" : "EcommSln:allPartyTypes",
         "params" : null
       }
     }

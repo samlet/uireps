@@ -65,6 +65,7 @@ TubeDelegator createDelegator(Dio dio) {
       enttilesMap: tube.enttilesMap,
       entProps: tube.entProps,
       actletsMap: tube.actletsMap,
+      selsRaw: tube.sels,
       dispatcher: tubeDisp);
   return tubeDel;
 }

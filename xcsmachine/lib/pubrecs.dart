@@ -21,28 +21,38 @@ class FoldRegion{
   Map<String, dynamic> toJson() => _$FoldRegionToJson(this);
 }
 
-// -- ProtoEnt -- 
+// -- FullName -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ProtoEnt{
-  String? regionId;
-  String? entType;
-  String? key;
-  int? lastTs;
-  @BytesConverter()
-  Uint8List? data;
-  ProtoEnt({
-    this.regionId,
-    this.entType,
-    this.key,
-    this.lastTs,
-    this.data,
+class FullName{
+  String? pkg;
+  String? name;
+  FullName({
+    this.pkg,
+    this.name,
   });
 
-  factory ProtoEnt.fromJson(Map<String, dynamic> json) =>
-      _$ProtoEntFromJson(json);
+  factory FullName.fromJson(Map<String, dynamic> json) =>
+      _$FullNameFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ProtoEntToJson(this);
+  Map<String, dynamic> toJson() => _$FullNameToJson(this);
+}
+
+// -- NamedDataset -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class NamedDataset{
+  String? name;
+  List<Map<String, dynamic>>? rows;
+  NamedDataset({
+    this.name,
+    this.rows,
+  });
+
+  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
+      _$NamedDatasetFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
 }
 
 // -- BundleJoint -- 
@@ -90,38 +100,28 @@ class BundleJoint{
   Map<String, dynamic> toJson() => _$BundleJointToJson(this);
 }
 
-// -- NamedDataset -- 
+// -- ProtoEnt -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NamedDataset{
-  String? name;
-  List<Map<String, dynamic>>? rows;
-  NamedDataset({
-    this.name,
-    this.rows,
+class ProtoEnt{
+  String? regionId;
+  String? entType;
+  String? key;
+  int? lastTs;
+  @BytesConverter()
+  Uint8List? data;
+  ProtoEnt({
+    this.regionId,
+    this.entType,
+    this.key,
+    this.lastTs,
+    this.data,
   });
 
-  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
-      _$NamedDatasetFromJson(json);
+  factory ProtoEnt.fromJson(Map<String, dynamic> json) =>
+      _$ProtoEntFromJson(json);
 
-  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
-}
-
-// -- FullName -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class FullName{
-  String? pkg;
-  String? name;
-  FullName({
-    this.pkg,
-    this.name,
-  });
-
-  factory FullName.fromJson(Map<String, dynamic> json) =>
-      _$FullNameFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FullNameToJson(this);
+  Map<String, dynamic> toJson() => _$ProtoEntToJson(this);
 }
 
 // -- OptSels -- 
@@ -139,6 +139,25 @@ class OptSels{
       _$OptSelsFromJson(json);
 
   Map<String, dynamic> toJson() => _$OptSelsToJson(this);
+}
+
+// -- OptSel -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class OptSel{
+  String? assemblerId;
+  List<String>? optIds;
+  Map<String, String?>? variantProds;
+  OptSel({
+    this.assemblerId,
+    this.optIds,
+    this.variantProds,
+  });
+
+  factory OptSel.fromJson(Map<String, dynamic> json) =>
+      _$OptSelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelToJson(this);
 }
 
 // -- ContactProfile -- 
@@ -162,25 +181,6 @@ class ContactProfile{
       _$ContactProfileFromJson(json);
 
   Map<String, dynamic> toJson() => _$ContactProfileToJson(this);
-}
-
-// -- OptSel -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class OptSel{
-  String? assemblerId;
-  List<String>? optIds;
-  Map<String, String?>? variantProds;
-  OptSel({
-    this.assemblerId,
-    this.optIds,
-    this.variantProds,
-  });
-
-  factory OptSel.fromJson(Map<String, dynamic> json) =>
-      _$OptSelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelToJson(this);
 }
 
 

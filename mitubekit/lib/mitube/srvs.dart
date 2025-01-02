@@ -481,6 +481,26 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "CommonSln:allTblNames" : {
+      "methodKey" : "CommonSln:allTblNames",
+      "alias" : "allTblNames",
+      "name" : "allTblNames",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "commonSln",
+        "name" : "allTblNames",
+        "bundleName" : "CommonSln",
+        "callType" : "slab"
+      },
+      "parameters" : [ ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "user:getNotes" : {
       "methodKey" : "user:getNotes",
       "alias" : "getNotes",
@@ -1801,6 +1821,34 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "CommonSln:getElementsByEnt" : {
+      "methodKey" : "CommonSln:getElementsByEnt",
+      "alias" : "getElementsByEnt",
+      "name" : "getElementsByEnt",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "commonSln",
+        "name" : "getElementsByEnt",
+        "bundleName" : "CommonSln",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "entName",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "ent_name"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, (el)=>el)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "user:getAccountId" : {
       "methodKey" : "user:getAccountId",
       "alias" : "getAccountId",
@@ -3056,6 +3104,34 @@ const srvMetas = {
       "result" : {
         "returnVoid" : false,
         "conv" : "convList(resp, ProtoEnt.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "CommonSln:getElements" : {
+      "methodKey" : "CommonSln:getElements",
+      "alias" : "getElements",
+      "name" : "getElements",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "commonSln",
+        "name" : "getElements",
+        "bundleName" : "CommonSln",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "tblName",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "tbl_name"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, (el)=>el)",
         "elType" : "",
         "elName" : "",
         "elIdFld" : ""

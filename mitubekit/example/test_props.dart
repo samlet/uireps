@@ -7,8 +7,11 @@ Future<void> main(List<String> arguments) async {
 
   // prop by path
   var path = r'$.Party.flds.partyTypeId';
+  print('for path: $path ==>');
   tube.FldProp? fldProp = tubeDel.fldProp(path);
-  print('prop as type: ${fldProp?.toJson()}');
+  var fldMeta=tubeDel.entFldMeta(path);
+  print('.. prop as type: ${fldProp?.toJson()}');
+  print('.. fld: ${fldMeta.toJson()}');
 
   // prop by alias
   var fldSels=tubeDel.fldSels('productTypes');

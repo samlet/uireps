@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'mitube/desktop.dart';
-import 'mitube/pkg.dart' as tube;
+import '../platform/desktop.dart';
+import '../mitube/pkg.dart' as tube;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
