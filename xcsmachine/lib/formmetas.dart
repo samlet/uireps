@@ -132,6 +132,7 @@ class FieldUiMeta{
   String? morph;
   String? dartType;
   String? javaType;
+  String? enumType;
   FldSpec? fldSpec;
   FieldUiMeta({
     this.fldName,
@@ -143,6 +144,7 @@ class FieldUiMeta{
     this.morph,
     this.dartType,
     this.javaType,
+    this.enumType,
     this.fldSpec,
   });
 
@@ -323,5 +325,41 @@ class SelItem{
   Map<String, dynamic> toJson() => _$SelItemToJson(this);
 }
 
+// -- EnumRec -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class EnumRec{
+  String? name;
+  List<EnumItem>? items;
+  EnumRec({
+    this.name,
+    this.items,
+  });
 
-// total classes: 15
+  factory EnumRec.fromJson(Map<String, dynamic> json) =>
+      _$EnumRecFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EnumRecToJson(this);
+}
+
+// -- EnumItem -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class EnumItem{
+  int? ordinal;
+  String? name;
+  String? label;
+  EnumItem({
+    this.ordinal,
+    this.name,
+    this.label,
+  });
+
+  factory EnumItem.fromJson(Map<String, dynamic> json) =>
+      _$EnumItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EnumItemToJson(this);
+}
+
+
+// total classes: 17

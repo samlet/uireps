@@ -11,6 +11,7 @@ export 'acts.dart';
 export 'srvs.dart';
 export 'props.dart';
 export 'sels.dart';
+export 'enums.dart';
 
 // shared
 export 'package:xcsmachine/formmetas.dart';

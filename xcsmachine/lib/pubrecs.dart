@@ -4,57 +4,6 @@ import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/pubrecs.dart';
 part 'pubrecs.g.dart';
 
-// -- FoldRegion -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class FoldRegion{
-  String? regionId;
-  String? ent;
-  FoldRegion({
-    this.regionId,
-    this.ent,
-  });
-
-  factory FoldRegion.fromJson(Map<String, dynamic> json) =>
-      _$FoldRegionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FoldRegionToJson(this);
-}
-
-// -- FullName -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class FullName{
-  String? pkg;
-  String? name;
-  FullName({
-    this.pkg,
-    this.name,
-  });
-
-  factory FullName.fromJson(Map<String, dynamic> json) =>
-      _$FullNameFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FullNameToJson(this);
-}
-
-// -- NamedDataset -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class NamedDataset{
-  String? name;
-  List<Map<String, dynamic>>? rows;
-  NamedDataset({
-    this.name,
-    this.rows,
-  });
-
-  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
-      _$NamedDatasetFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
-}
-
 // -- BundleJoint -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -100,6 +49,57 @@ class BundleJoint{
   Map<String, dynamic> toJson() => _$BundleJointToJson(this);
 }
 
+// -- NamedDataset -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class NamedDataset{
+  String? name;
+  List<Map<String, dynamic>>? rows;
+  NamedDataset({
+    this.name,
+    this.rows,
+  });
+
+  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
+      _$NamedDatasetFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
+}
+
+// -- FullName -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FullName{
+  String? pkg;
+  String? name;
+  FullName({
+    this.pkg,
+    this.name,
+  });
+
+  factory FullName.fromJson(Map<String, dynamic> json) =>
+      _$FullNameFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FullNameToJson(this);
+}
+
+// -- FoldRegion -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FoldRegion{
+  String? regionId;
+  String? ent;
+  FoldRegion({
+    this.regionId,
+    this.ent,
+  });
+
+  factory FoldRegion.fromJson(Map<String, dynamic> json) =>
+      _$FoldRegionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FoldRegionToJson(this);
+}
+
 // -- ProtoEnt -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -124,23 +124,6 @@ class ProtoEnt{
   Map<String, dynamic> toJson() => _$ProtoEntToJson(this);
 }
 
-// -- OptSels -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class OptSels{
-  String? productId;
-  List<OptSel>? sels;
-  OptSels({
-    this.productId,
-    this.sels,
-  });
-
-  factory OptSels.fromJson(Map<String, dynamic> json) =>
-      _$OptSelsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelsToJson(this);
-}
-
 // -- OptSel -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -158,6 +141,23 @@ class OptSel{
       _$OptSelFromJson(json);
 
   Map<String, dynamic> toJson() => _$OptSelToJson(this);
+}
+
+// -- OptSels -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class OptSels{
+  String? productId;
+  List<OptSel>? sels;
+  OptSels({
+    this.productId,
+    this.sels,
+  });
+
+  factory OptSels.fromJson(Map<String, dynamic> json) =>
+      _$OptSelsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelsToJson(this);
 }
 
 // -- ContactProfile -- 

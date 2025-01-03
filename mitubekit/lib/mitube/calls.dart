@@ -243,23 +243,6 @@ class DateTimeRange{
   Map<String, dynamic> toJson() => _$DateTimeRangeToJson(this);
 }
 
-// -- PageLimit -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class PageLimit{
-  int? page;
-  int? pageSize;
-  PageLimit({
-    this.page,
-    this.pageSize,
-  });
-
-  factory PageLimit.fromJson(Map<String, dynamic> json) =>
-      _$PageLimitFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
-}
-
 // -- FullId -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -275,6 +258,23 @@ class FullId{
       _$FullIdFromJson(json);
 
   Map<String, dynamic> toJson() => _$FullIdToJson(this);
+}
+
+// -- PageLimit -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class PageLimit{
+  int? page;
+  int? pageSize;
+  PageLimit({
+    this.page,
+    this.pageSize,
+  });
+
+  factory PageLimit.fromJson(Map<String, dynamic> json) =>
+      _$PageLimitFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
 }
 
 // -- UserObj -- 

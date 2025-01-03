@@ -112,6 +112,7 @@ FieldUiMeta _$FieldUiMetaFromJson(Map<String, dynamic> json) => FieldUiMeta(
       morph: json['morph'] as String?,
       dartType: json['dartType'] as String?,
       javaType: json['javaType'] as String?,
+      enumType: json['enumType'] as String?,
       fldSpec: json['fldSpec'] == null
           ? null
           : FldSpec.fromJson(json['fldSpec'] as Map<String, dynamic>),
@@ -128,6 +129,7 @@ Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
       if (instance.morph case final value?) 'morph': value,
       if (instance.dartType case final value?) 'dartType': value,
       if (instance.javaType case final value?) 'javaType': value,
+      if (instance.enumType case final value?) 'enumType': value,
       if (instance.fldSpec?.toJson() case final value?) 'fldSpec': value,
     };
 
@@ -262,4 +264,29 @@ Map<String, dynamic> _$SelItemToJson(SelItem instance) => <String, dynamic>{
       if (instance.key case final value?) 'key': value,
       if (instance.description case final value?) 'description': value,
       if (instance.parentTypeId case final value?) 'parentTypeId': value,
+    };
+
+EnumRec _$EnumRecFromJson(Map<String, dynamic> json) => EnumRec(
+      name: json['name'] as String?,
+      items: (json['items'] as List<dynamic>?)
+          ?.map((e) => EnumItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$EnumRecToJson(EnumRec instance) => <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.items?.map((e) => e.toJson()).toList() case final value?)
+        'items': value,
+    };
+
+EnumItem _$EnumItemFromJson(Map<String, dynamic> json) => EnumItem(
+      ordinal: (json['ordinal'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      label: json['label'] as String?,
+    );
+
+Map<String, dynamic> _$EnumItemToJson(EnumItem instance) => <String, dynamic>{
+      if (instance.ordinal case final value?) 'ordinal': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.label case final value?) 'label': value,
     };

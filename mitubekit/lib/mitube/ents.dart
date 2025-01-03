@@ -27,6 +27,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "originGeoId" : {
@@ -39,6 +40,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "detailScreen" : {
@@ -51,6 +53,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "requireInventory" : {
@@ -63,6 +66,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "quantityUomId" : {
@@ -75,6 +79,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "acl" : {
@@ -87,6 +92,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "mediumImageUrl" : {
@@ -99,6 +105,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productName" : {
@@ -111,6 +118,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "nameControl",
         "mandatory" : false,
@@ -127,6 +135,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "shippingHeight" : {
@@ -139,6 +148,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "evict" : {
@@ -151,6 +161,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "bool",
       "javaType" : "Boolean",
+      "enumType" : null,
       "fldSpec" : null
     },
     "originalImageUrl" : {
@@ -163,6 +174,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "inShippingBox" : {
@@ -175,6 +187,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "detailImageUrl" : {
@@ -187,6 +200,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "supportDiscontinuationDate" : {
@@ -199,6 +213,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productWidth" : {
@@ -211,6 +226,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "includeInPromotions" : {
@@ -223,6 +239,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "configId" : {
@@ -235,6 +252,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "price" : {
@@ -247,6 +265,7 @@ final productForm = {
       "morph" : "",
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "billOfMaterialLevel" : {
@@ -259,6 +278,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "int",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lotIdFilledIn" : {
@@ -271,6 +291,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productRating" : {
@@ -283,6 +304,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdByUserLogin" : {
@@ -295,6 +317,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "jointers" : {
@@ -307,6 +330,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "Map<String, String>",
       "javaType" : "com.bluecc.hubs.proto.StringMap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "image" : {
@@ -319,6 +343,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "brandName" : {
@@ -331,6 +356,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "requireAmount" : {
@@ -343,6 +369,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productId" : {
@@ -355,6 +382,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "smallImageUrl" : {
@@ -367,6 +395,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "taxable" : {
@@ -379,6 +408,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "primaryProductCategoryId" : {
@@ -391,6 +421,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "salesDiscontinuationDate" : {
@@ -403,6 +434,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdTxStamp" : {
@@ -415,6 +447,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
@@ -427,6 +460,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "labels" : {
@@ -439,6 +473,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "salesDiscWhenNotAvail" : {
@@ -451,6 +486,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "returnable" : {
@@ -463,6 +499,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "weightUomId" : {
@@ -475,6 +512,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "typeListControl",
         "mandatory" : false,
@@ -491,6 +529,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "priceDetailText" : {
@@ -503,6 +542,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "reserv2ndPPPerc" : {
@@ -515,6 +555,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "widthUomId" : {
@@ -527,6 +568,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "typeListControl",
         "mandatory" : false,
@@ -543,6 +585,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "diameterUomId" : {
@@ -555,6 +598,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "autoCreateKeywords" : {
@@ -567,6 +611,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "color" : {
@@ -579,6 +624,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "Color",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "amountUomTypeId" : {
@@ -591,6 +637,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productDiameter" : {
@@ -603,6 +650,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "ratingTypeEnum" : {
@@ -615,6 +663,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "icon" : {
@@ -627,6 +676,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "IconData",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "description" : {
@@ -639,6 +689,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "descriptionControl",
         "mandatory" : false,
@@ -655,6 +706,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "reservNthPPPerc" : {
@@ -667,6 +719,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "quantityIncluded" : {
@@ -679,6 +732,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "heightUomId" : {
@@ -691,6 +745,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "internalName" : {
@@ -703,6 +758,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastModifiedByUserLogin" : {
@@ -715,6 +771,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "virtualVariantMethodEnum" : {
@@ -727,6 +784,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "shippingWeight" : {
@@ -739,6 +797,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "shippingWidth" : {
@@ -751,6 +810,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "shippingDepth" : {
@@ -763,6 +823,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "reservMaxPersons" : {
@@ -775,6 +836,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "fixedAmount" : {
@@ -787,6 +849,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "prices" : {
@@ -799,6 +862,7 @@ final productForm = {
       "morph" : "",
       "dartType" : "Map<String, double>",
       "javaType" : "com.bluecc.hubs.stub.DecimalMap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "inventoryItemTypeId" : {
@@ -811,6 +875,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "piecesIncluded" : {
@@ -823,6 +888,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "int",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productDepth" : {
@@ -835,6 +901,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag1" : {
@@ -847,6 +914,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "facilityId" : {
@@ -859,6 +927,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "comments" : {
@@ -871,6 +940,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "releaseDate" : {
@@ -883,6 +953,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productHeight" : {
@@ -895,6 +966,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastModifiedDate" : {
@@ -907,6 +979,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "defaultShipmentBoxTypeId" : {
@@ -919,6 +992,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "orderDecimalQuantity" : {
@@ -931,6 +1005,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "inventoryMessage" : {
@@ -943,6 +1018,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productWeight" : {
@@ -955,6 +1031,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "depthUomId" : {
@@ -967,6 +1044,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "productTypeId" : {
@@ -979,6 +1057,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "typeListControl",
         "mandatory" : false,
@@ -995,6 +1074,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "url" : {
@@ -1007,6 +1087,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag3" : {
@@ -1019,6 +1100,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdDate" : {
@@ -1031,6 +1113,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "cats" : {
@@ -1043,6 +1126,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "isVariant" : {
@@ -1055,6 +1139,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "largeImageUrl" : {
@@ -1067,6 +1152,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tenantId" : {
@@ -1079,6 +1165,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "requirementMethodEnumId" : {
@@ -1091,6 +1178,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "moreTags" : {
@@ -1103,6 +1191,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "listPrice" : {
@@ -1115,6 +1204,7 @@ final productForm = {
       "morph" : "",
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
       "fldSpec" : null
     },
     "resourceType" : {
@@ -1127,6 +1217,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "sameAs" : {
@@ -1139,6 +1230,7 @@ final productForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     }
   }
@@ -1161,6 +1253,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "int",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastName" : {
@@ -1173,6 +1266,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "lastNameEdit",
         "mandatory" : false,
@@ -1189,6 +1283,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "gender" : {
@@ -1201,6 +1296,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "employmentStatusEnumId" : {
@@ -1213,6 +1309,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "socialSecurityNumber" : {
@@ -1225,6 +1322,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "suffix" : {
@@ -1237,6 +1335,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "mothersMaidenName" : {
@@ -1249,6 +1348,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "middleNameLocal" : {
@@ -1261,6 +1361,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "existingCustomer" : {
@@ -1273,6 +1374,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "residenceStatusEnumId" : {
@@ -1285,6 +1387,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "maritalStatusEnumId" : {
@@ -1297,6 +1400,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "nickname" : {
@@ -1309,6 +1413,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "partyId" : {
@@ -1321,6 +1426,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "memberId" : {
@@ -1333,6 +1439,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "height" : {
@@ -1345,6 +1452,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "Double",
+      "enumType" : null,
       "fldSpec" : null
     },
     "passportNumber" : {
@@ -1357,6 +1465,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastNameLocal" : {
@@ -1369,6 +1478,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "comments" : {
@@ -1381,6 +1491,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "monthsWithEmployer" : {
@@ -1393,6 +1504,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "int",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdTxStamp" : {
@@ -1405,6 +1517,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "weight" : {
@@ -1417,6 +1530,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "Double",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
@@ -1429,6 +1543,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "birthDate" : {
@@ -1441,6 +1556,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.LocalDate",
+      "enumType" : null,
       "fldSpec" : null
     },
     "otherLocal" : {
@@ -1453,6 +1569,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "firstName" : {
@@ -1465,6 +1582,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "firstNameEdit",
         "mandatory" : false,
@@ -1481,6 +1599,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tenantId" : {
@@ -1493,6 +1612,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "middleName" : {
@@ -1505,6 +1625,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "firstNameLocal" : {
@@ -1517,6 +1638,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "passportExpireDate" : {
@@ -1529,6 +1651,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.LocalDate",
+      "enumType" : null,
       "fldSpec" : null
     },
     "salutation" : {
@@ -1541,6 +1664,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "personalTitle" : {
@@ -1553,6 +1677,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "deceasedDate" : {
@@ -1565,6 +1690,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.LocalDate",
+      "enumType" : null,
       "fldSpec" : null
     },
     "totalYearsWorkExperience" : {
@@ -1577,6 +1703,7 @@ final personForm = {
       "morph" : null,
       "dartType" : "double",
       "javaType" : "Double",
+      "enumType" : null,
       "fldSpec" : null
     }
   }
@@ -1599,6 +1726,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "resourceId" : {
@@ -1611,6 +1739,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "noteName" : {
@@ -1623,6 +1752,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdTxStamp" : {
@@ -1635,6 +1765,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
@@ -1647,6 +1778,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "noteId" : {
@@ -1659,6 +1791,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "acl" : {
@@ -1671,6 +1804,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "moreInfoItemId" : {
@@ -1683,6 +1817,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag2" : {
@@ -1695,6 +1830,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "evict" : {
@@ -1707,6 +1843,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "bool",
       "javaType" : "Boolean",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag3" : {
@@ -1719,6 +1856,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "labels" : {
@@ -1731,6 +1869,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "noteDateTime" : {
@@ -1743,6 +1882,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "moreInfoItemName" : {
@@ -1755,6 +1895,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tenantId" : {
@@ -1767,6 +1908,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "noteInfo" : {
@@ -1779,6 +1921,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "moreInfoUrl" : {
@@ -1791,6 +1934,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : {
         "name" : "urlSpec",
         "mandatory" : false,
@@ -1807,6 +1951,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "noteParty" : {
@@ -1819,6 +1964,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "resourceType" : {
@@ -1831,6 +1977,7 @@ final noteDataForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     }
   }
@@ -1853,6 +2000,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "Color",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "placeId" : {
@@ -1865,6 +2013,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "icon" : {
@@ -1877,6 +2026,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "IconData",
       "javaType" : "Long",
+      "enumType" : null,
       "fldSpec" : null
     },
     "description" : {
@@ -1889,6 +2039,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "acl" : {
@@ -1901,6 +2052,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "evict" : {
@@ -1913,6 +2065,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "bool",
       "javaType" : "Boolean",
+      "enumType" : null,
       "fldSpec" : null
     },
     "noteIds" : {
@@ -1925,6 +2078,7 @@ final partyForm = {
       "morph" : "",
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "partyTypeId" : {
@@ -1937,6 +2091,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastModifiedByUserLogin" : {
@@ -1949,6 +2104,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "dataSourceId" : {
@@ -1961,6 +2117,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "preferredCurrencyUomId" : {
@@ -1973,6 +2130,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "nickname" : {
@@ -1985,6 +2143,7 @@ final partyForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "partyId" : {
@@ -1997,6 +2156,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdByUserLogin" : {
@@ -2009,6 +2169,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "email" : {
@@ -2021,6 +2182,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag1" : {
@@ -2033,6 +2195,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "image" : {
@@ -2045,6 +2208,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastModifiedDate" : {
@@ -2057,6 +2221,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdTxStamp" : {
@@ -2069,6 +2234,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "externalId" : {
@@ -2081,6 +2247,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
@@ -2093,6 +2260,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "telephone" : {
@@ -2105,6 +2273,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "isUnread" : {
@@ -2117,6 +2286,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag2" : {
@@ -2129,6 +2299,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "url" : {
@@ -2141,6 +2312,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tag3" : {
@@ -2153,6 +2325,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "labels" : {
@@ -2165,6 +2338,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
+      "enumType" : null,
       "fldSpec" : null
     },
     "accountId" : {
@@ -2177,6 +2351,7 @@ final partyForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdDate" : {
@@ -2189,6 +2364,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "phoneNumber" : {
@@ -2201,6 +2377,7 @@ final partyForm = {
       "morph" : "",
       "dartType" : "Map<String, dynamic>",
       "javaType" : "com.google.protobuf.Struct",
+      "enumType" : null,
       "fldSpec" : null
     },
     "statusId" : {
@@ -2213,6 +2390,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tenantId" : {
@@ -2225,6 +2403,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "name" : {
@@ -2237,6 +2416,7 @@ final partyForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "location" : {
@@ -2249,6 +2429,7 @@ final partyForm = {
       "morph" : "",
       "dartType" : "Map<String, dynamic>",
       "javaType" : "com.google.protobuf.Struct",
+      "enumType" : null,
       "fldSpec" : null
     },
     "moreTags" : {
@@ -2261,6 +2442,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
       "fldSpec" : null
     },
     "defaultLoginId" : {
@@ -2273,6 +2455,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "sameAs" : {
@@ -2285,6 +2468,7 @@ final partyForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     }
   }
@@ -2307,6 +2491,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "parentTypeId" : {
@@ -2319,6 +2504,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "hasTable" : {
@@ -2331,6 +2517,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "Character",
+      "enumType" : null,
       "fldSpec" : null
     },
     "createdTxStamp" : {
@@ -2343,6 +2530,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     },
     "tenantId" : {
@@ -2355,6 +2543,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "description" : {
@@ -2367,6 +2556,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
       "fldSpec" : null
     },
     "lastUpdatedTxStamp" : {
@@ -2379,6 +2569,7 @@ final partyTypeForm = {
       "morph" : null,
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
+      "enumType" : null,
       "fldSpec" : null
     }
   }
@@ -2401,6 +2592,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2416,6 +2608,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "List<String?>",
         "javaType" : "com.bluecc.hubs.stub.Strings",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2431,6 +2624,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "Color",
         "javaType" : "Long",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2446,6 +2640,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : {
           "name" : "descriptionControl",
           "mandatory" : false,
@@ -2465,6 +2660,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "IconData",
         "javaType" : "Long",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2480,6 +2676,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : {
           "name" : "nameControl",
           "mandatory" : false,
@@ -2499,6 +2696,7 @@ final productTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     }
@@ -2531,6 +2729,7 @@ final personTile = {
         "morph" : null,
         "dartType" : "DateTime",
         "javaType" : "java.time.LocalDate",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2546,6 +2745,7 @@ final personTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2561,6 +2761,7 @@ final personTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : {
           "name" : "lastNameEdit",
           "mandatory" : false,
@@ -2593,6 +2794,7 @@ final noteDataTile = {
         "morph" : null,
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2608,6 +2810,7 @@ final noteDataTile = {
         "morph" : null,
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2623,6 +2826,7 @@ final noteDataTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     }
@@ -2651,6 +2855,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2666,6 +2871,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "List<String?>",
         "javaType" : "com.bluecc.hubs.stub.Strings",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2681,6 +2887,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "Color",
         "javaType" : "Long",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2696,6 +2903,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2711,6 +2919,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "IconData",
         "javaType" : "Long",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2726,6 +2935,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2741,6 +2951,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2756,6 +2967,7 @@ final partyTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     }
@@ -2789,6 +3001,7 @@ final partyTypeTile = {
         "morph" : null,
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2804,6 +3017,7 @@ final partyTypeTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     },
@@ -2819,6 +3033,7 @@ final partyTypeTile = {
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
+        "enumType" : null,
         "fldSpec" : null
       }
     }

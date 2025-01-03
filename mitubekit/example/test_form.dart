@@ -16,6 +16,10 @@ Future<void> main(List<String> arguments) async {
   for (var value in items!) {
     print('\t- ${value.toJson()}');
   }
+  // fld: productName: Product Name
+  // 	- {key: ASSET_USAGE, description: Fixed Asset Usage}
+  // 	- {key: RAW_MATERIAL, description: Raw Material, parentTypeId: GOOD}
+  // 	- {key: GOOD, description: Good}
 }
 
 void testSelItems(FormDescr frm, TubeDelegator tubeDel) {

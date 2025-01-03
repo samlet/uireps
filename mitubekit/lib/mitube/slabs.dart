@@ -339,6 +339,87 @@ class SlabRepository implements SlabsBase {
     return TestRec.fromJson(resp);
   }
    
+  // Mutation: Auth:quickRegister
+  Future<ExtractedToken> quickRegister() async { 
+    var resp = await performCall(dio, {
+      "module": 'auth',
+      "action": "quickRegister",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    }, callOpt: callOpt);
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation: Auth:register
+  Future<ExtractedToken> register({
+    
+    required String loginId,
+    required String passwd,
+    String? regionId='default',
+    required String tenantId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'auth',
+      "action": "register",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "loginId": loginId,
+      "passwd": passwd,
+      if(regionId!=null) "regionId": regionId,
+      "tenantId": tenantId, 
+    }, callOpt: callOpt);
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Mutation: Auth:login
+  Future<ExtractedToken> login({
+    
+    required String loginId,
+    required String passwd, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'auth',
+      "action": "login",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "loginId": loginId,
+      "passwd": passwd, 
+    }, callOpt: callOpt);
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
+  // Query: Auth:generateToken
+  Future<ExtractedToken> generateToken({
+    
+    String? regionId='default',
+    required String loginId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'auth',
+      "action": "generateToken",
+      "bundleName" : "Auth",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      if(regionId!=null) "regionId": regionId,
+      "loginId": loginId, 
+    }, callOpt: callOpt);
+    
+    return ExtractedToken()..mergeFromProto3Json(resp);
+  }
+   
   // Query: note:viewContent
   Future<NoteContent> viewContent({required String id}) async { 
     var resp = await performCall(dio, {

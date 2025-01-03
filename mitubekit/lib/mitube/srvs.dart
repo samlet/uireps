@@ -1517,6 +1517,58 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "Auth:register" : {
+      "methodKey" : "Auth:register",
+      "alias" : "register",
+      "name" : "register",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "auth",
+        "name" : "register",
+        "bundleName" : "Auth",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "loginId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "login_id"
+      }, {
+        "name" : "passwd",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "passwd"
+      }, {
+        "name" : "regionId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "region_id"
+      }, {
+        "name" : "tenantId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "tenant_id"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ExtractedToken()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "PortalManager:removeEnt" : {
       "methodKey" : "PortalManager:removeEnt",
       "alias" : "removeEnt",
@@ -2773,6 +2825,42 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "Auth:login" : {
+      "methodKey" : "Auth:login",
+      "alias" : "login",
+      "name" : "login",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "auth",
+        "name" : "login",
+        "bundleName" : "Auth",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "loginId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "login_id"
+      }, {
+        "name" : "passwd",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "passwd"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ExtractedToken()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "CommonSln:getUomTypes" : {
       "methodKey" : "CommonSln:getUomTypes",
       "alias" : "getUomTypes",
@@ -3045,6 +3133,26 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "Auth:quickRegister" : {
+      "methodKey" : "Auth:quickRegister",
+      "alias" : "quickRegister",
+      "name" : "quickRegister",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "auth",
+        "name" : "quickRegister",
+        "bundleName" : "Auth",
+        "callType" : "slab"
+      },
+      "parameters" : [ ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ExtractedToken()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "user:setDefaultPayMeth" : {
       "methodKey" : "user:setDefaultPayMeth",
       "alias" : "setDefaultPayMeth",
@@ -3180,6 +3288,42 @@ const srvMetas = {
       "result" : {
         "returnVoid" : false,
         "conv" : "Strings()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "Auth:generateToken" : {
+      "methodKey" : "Auth:generateToken",
+      "alias" : "generateToken",
+      "name" : "generateToken",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "auth",
+        "name" : "generateToken",
+        "bundleName" : "Auth",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "regionId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "region_id"
+      }, {
+        "name" : "loginId",
+        "dartType" : "String",
+        "fldType" : "value",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "login_id"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "ExtractedToken()..mergeFromProto3Json(resp)",
         "elType" : "",
         "elName" : "",
         "elIdFld" : ""

@@ -48,6 +48,10 @@ class TubeDelegator {
   final List<Map<String, Object>> selsRaw;
   late Map<String, List<Map<String, dynamic>>> selsMap;
 
+  /// From enums
+  final List<Map<String, Object>> enumRecs;
+  late Map<String, EnumRec> enumRecMap;
+
   TubeDelegator(
       {required this.srvMetas,
       required this.recletsMap,
@@ -57,7 +61,8 @@ class TubeDelegator {
       required this.dispatcher,
       required this.entProps,
       required this.actletsMap,
-      required this.selsRaw}) {
+      required this.selsRaw,
+      required this.enumRecs}) {
     callModel = SrvMetas.fromJson(srvMetas);
     serviceModels =
         callModel.srvs!.entries.map((el) => MapEntry(el.key, ServiceModel(el.value))).toMap();
@@ -75,6 +80,8 @@ class TubeDelegator {
         .map((el) => SelsRec.fromJson(el))
         .map((el) => MapEntry(el.selsAlias!, el.sels!))
         .toMap();
+    this.enumRecMap =
+        enumRecs.map((el) => EnumRec.fromJson(el)).map((el) => MapEntry(el.name!, el)).toMap();
   }
 
   static Map<String, FormDescr> extractForm(Map<String, Map<String, Object>> lets) {
@@ -117,13 +124,13 @@ class TubeDelegator {
     return allSels[selAlias];
   }
 
-  List<Map<String, dynamic>>? fldSelItemRecs(String selAlias){
+  List<Map<String, dynamic>>? fldSelItemRecs(String selAlias) {
     return selsMap[selAlias];
   }
 
-  List<SelItem>? fldSelItems(String selAlias){
-    var rs=fldSelItemRecs(selAlias);
-    return rs?.map((el)=>SelItem.fromJson(el)).toList();
+  List<SelItem>? fldSelItems(String selAlias) {
+    var rs = fldSelItemRecs(selAlias);
+    return rs?.map((el) => SelItem.fromJson(el)).toList();
   }
 
   FldProp? fldProp(String propPath) {
@@ -135,10 +142,14 @@ class TubeDelegator {
     return null;
   }
 
-  List<SelItem>? selItemsOfFld(FieldUiMeta fld){
-    var fldSela=fld.fldSpec?.sels;
-    if(fldSela!=null){
-      var items=fldSelItems(fldSela);
+  EnumRec? enumRec(String enumName){
+    return enumRecMap[enumName];
+  }
+
+  List<SelItem>? selItemsOfFld(FieldUiMeta fld) {
+    var fldSela = fld.fldSpec?.sels;
+    if (fldSela != null) {
+      var items = fldSelItems(fldSela);
       return items;
     }
     return null;
