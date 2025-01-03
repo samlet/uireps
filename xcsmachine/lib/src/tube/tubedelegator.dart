@@ -133,6 +133,7 @@ class TubeDelegator {
     return rs?.map((el) => SelItem.fromJson(el)).toList();
   }
 
+  /// Get fldProp by json-path
   FldProp? fldProp(String propPath) {
     var fldMap = JsonPath(propPath).readValues(props).firstOrNull;
     if (fldMap != null) {
@@ -142,15 +143,26 @@ class TubeDelegator {
     return null;
   }
 
+  /// Get enum items.
   EnumRec? enumRec(String enumName){
     return enumRecMap[enumName];
   }
 
+  /// 获取字段的选项列表.
+  /// 选项列表类SelItem提取了选项数据(map形式)的常规字段, 即key/description/parentTypeId.
   List<SelItem>? selItemsOfFld(FieldUiMeta fld) {
     var fldSela = fld.fldSpec?.sels;
     if (fldSela != null) {
       var items = fldSelItems(fldSela);
       return items;
+    }
+    return null;
+  }
+
+  /// Get enum items for field.
+  EnumRec? enumRecOfFld(FieldUiMeta fld){
+    if(fld.enumType!=null){
+      return enumRec(fld.enumType!);
     }
     return null;
   }

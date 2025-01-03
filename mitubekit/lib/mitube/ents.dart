@@ -1259,7 +1259,7 @@ final personForm = {
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameEdit",
+      "fldTpl" : "lastNameSpec",
       "domainType" : "stringField",
       "caption" : "姓",
       "defaultValue" : "''",
@@ -1268,7 +1268,7 @@ final personForm = {
       "javaType" : "String",
       "enumType" : null,
       "fldSpec" : {
-        "name" : "lastNameEdit",
+        "name" : "lastNameSpec",
         "mandatory" : false,
         "sels" : null
       }
@@ -1575,7 +1575,7 @@ final personForm = {
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameEdit",
+      "fldTpl" : "firstNameSpec",
       "domainType" : "stringField",
       "caption" : "名",
       "defaultValue" : "''",
@@ -1584,7 +1584,7 @@ final personForm = {
       "javaType" : "String",
       "enumType" : null,
       "fldSpec" : {
-        "name" : "firstNameEdit",
+        "name" : "firstNameSpec",
         "mandatory" : false,
         "sels" : null
       }
@@ -2754,7 +2754,7 @@ final personTile = {
       "fld" : {
         "fldName" : "lastName",
         "fldType" : "name",
-        "fldTpl" : "lastNameEdit",
+        "fldTpl" : "lastNameSpec",
         "domainType" : "stringField",
         "caption" : "姓",
         "defaultValue" : "''",
@@ -2763,7 +2763,7 @@ final personTile = {
         "javaType" : "String",
         "enumType" : null,
         "fldSpec" : {
-          "name" : "lastNameEdit",
+          "name" : "lastNameSpec",
           "mandatory" : false,
           "sels" : null
         }

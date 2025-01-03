@@ -12,9 +12,9 @@ Future<void> main(List<String> arguments) async {
 
   // testSelItems(frm, tubeDel);
   // get sels-items from field.
-  var items=tubeDel.selItemsOfFld(frm.fld('productTypeId')!);
+  List<SelItem>? items=tubeDel.selItemsOfFld(frm.fld('productTypeId')!);
   for (var value in items!) {
-    print('\t- ${value.toJson()}');
+    print('\t- ${value.key} => ${value.toJson()}');
   }
   // fld: productName: Product Name
   // 	- {key: ASSET_USAGE, description: Fixed Asset Usage}
@@ -30,7 +30,7 @@ void testSelItems(FormDescr frm, TubeDelegator tubeDel) {
   var fldSela=prodTypeFld?.fldSpec?.sels;
   if(fldSela!=null){
     print('fld has sels $fldSela');
-    var items=tubeDel.fldSelItems(fldSela);
+    List<SelItem>? items=tubeDel.fldSelItems(fldSela);
     for (var value in items!) {
       print('\t- ${value.toJson()}');
     }

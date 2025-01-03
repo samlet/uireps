@@ -253,11 +253,11 @@ class SlabRepository implements SlabsBase {
     return convList(resp, (el)=>el);
   }
    
-  // Query: EcommSln:productRootTypes
-  Future<List<String>> productRootTypes() async { 
+  // Query: EcommSln:partyRootTypes
+  Future<List<String>> partyRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "productRootTypes",
+      "action": "partyRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -267,11 +267,11 @@ class SlabRepository implements SlabsBase {
     return convScalars(resp, (e)=> e.toString());
   }
    
-  // Query: EcommSln:partyRootTypes
-  Future<List<String>> partyRootTypes() async { 
+  // Query: EcommSln:productRootTypes
+  Future<List<String>> productRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "partyRootTypes",
+      "action": "productRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,

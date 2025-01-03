@@ -9,12 +9,12 @@ Future<void> main(List<String> arguments) async {
   var path = r'$.Party.flds.partyTypeId';
   print('for path: $path ==>');
   tube.FldProp? fldProp = tubeDel.fldProp(path);
-  var fldMeta=tubeDel.entFldMeta(path);
+  tube.FieldUiMeta fldMeta=tubeDel.entFldMeta(path);
   print('.. prop as type: ${fldProp?.toJson()}');
   print('.. fld: ${fldMeta.toJson()}');
 
   // prop by alias
-  var fldSels=tubeDel.fldSels('productTypes');
+  tube.FldSels? fldSels=tubeDel.fldSels('productTypes');
   print('productTypes.sels (${fldSels?.ent}) -> ${fldSels?.fld.sels}');
 
   // ent fld

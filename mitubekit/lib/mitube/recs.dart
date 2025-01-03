@@ -1,6 +1,6 @@
 import 'package:xcsmachine/util.dart';
 
-final reclets = [configuratorAndDetailForm, signupForm, skuInfoForm, configuratorForm, protoEntForm, noteContentForm, shelfForm, configItemForm, userInfoForm, configOptForm, spuInfoForm, testRecForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
+final reclets = [configuratorAndDetailForm, signupForm, skuInfoForm, configuratorForm, protoEntForm, shelfForm, noteContentForm, configItemForm, userInfoForm, configOptForm, spuInfoForm, testRecForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
 
 final rectiles = [noteContentTile, userObjTile];
 
@@ -411,55 +411,6 @@ final protoEntForm = {
   }
 };
 
-final noteContentForm = {
-  "formKey" : "NoteContent",
-  "formName" : "NoteContent",
-  "alias" : "noteContent",
-  "caption" : "便笺内容",
-  "locale" : "zh",
-  "flds" : {
-    "title" : {
-      "fldName" : "title",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "标题",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "fldSpec" : null
-    },
-    "body" : {
-      "fldName" : "body",
-      "fldType" : "value",
-      "fldTpl" : "commentProp",
-      "domainType" : "stringField",
-      "caption" : "内容",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "fldSpec" : null
-    },
-    "key" : {
-      "fldName" : "key",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Key",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "fldSpec" : null
-    }
-  }
-};
-
 final shelfForm = {
   "formKey" : "Shelf",
   "formName" : "Shelf",
@@ -499,6 +450,55 @@ final shelfForm = {
       "fldTpl" : "valueProp",
       "domainType" : "stringField",
       "caption" : "Store Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "fldSpec" : null
+    }
+  }
+};
+
+final noteContentForm = {
+  "formKey" : "NoteContent",
+  "formName" : "NoteContent",
+  "alias" : "noteContent",
+  "caption" : "便笺内容",
+  "locale" : "zh",
+  "flds" : {
+    "title" : {
+      "fldName" : "title",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "标题",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "fldSpec" : null
+    },
+    "body" : {
+      "fldName" : "body",
+      "fldType" : "value",
+      "fldTpl" : "commentProp",
+      "domainType" : "stringField",
+      "caption" : "内容",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "fldSpec" : null
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
       "defaultValue" : "''",
       "morph" : "",
       "dartType" : "String",

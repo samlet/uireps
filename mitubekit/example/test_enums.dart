@@ -6,10 +6,10 @@ Future<void> main(List<String> arguments) async {
   await setupApp();
   var tubeDel = locator<TubeDelegator>();
   // testEnums();
-  var value = tubeDel.enumRec('Gender')!;
+  EnumRec value = tubeDel.enumRec('Gender')!;
   print('- ${value.name}: ${value.items?.map((el) => el.label).toList()}');
 
-  var enumType=tubeDel.recForm('HelloPojo')?.fld('gender')?.enumType;
+  String? enumType=tubeDel.recForm('HelloPojo')?.fld('gender')?.enumType;
   print('gender type: $enumType');
 }
 
