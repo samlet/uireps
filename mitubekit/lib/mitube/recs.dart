@@ -1,6 +1,6 @@
 import 'package:xcsmachine/util.dart';
 
-final reclets = [configuratorAndDetailForm, signupForm, skuInfoForm, configuratorForm, protoEntForm, shelfForm, noteContentForm, configItemForm, userInfoForm, configOptForm, testRecForm, spuInfoForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
+final reclets = [configuratorAndDetailForm, signupForm, skuInfoForm, configuratorForm, protoEntForm, noteContentForm, shelfForm, configItemForm, userInfoForm, configOptForm, spuInfoForm, testRecForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
 
 final rectiles = [noteContentTile, userObjTile];
 
@@ -507,67 +507,6 @@ final protoEntForm = {
   }
 };
 
-final shelfForm = {
-  "formKey" : "Shelf",
-  "formName" : "Shelf",
-  "alias" : "shelf",
-  "caption" : "Shelf",
-  "locale" : "zh",
-  "keyFld" : "storeId",
-  "labelSubmit" : "Submit",
-  "labelReset" : "Reset",
-  "flds" : {
-    "facilityId" : {
-      "fldName" : "facilityId",
-      "fldType" : "id",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "stringField",
-      "caption" : "Facility Id",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "goods" : {
-      "fldName" : "goods",
-      "fldType" : "json-array",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "listField",
-      "caption" : "Goods",
-      "defaultValue" : "<Commodity>[]",
-      "morph" : "Commodity",
-      "dartType" : "List<Commodity>",
-      "javaType" : "com.google.protobuf.ListValue",
-      "enumType" : null,
-      "collection" : true,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "storeId" : {
-      "fldName" : "storeId",
-      "fldType" : "id",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "stringField",
-      "caption" : "Store Id",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    }
-  }
-};
-
 final noteContentForm = {
   "formKey" : "NoteContent",
   "formName" : "NoteContent",
@@ -616,6 +555,67 @@ final noteContentForm = {
       "fldTpl" : "valueProp",
       "domainType" : "stringField",
       "caption" : "Key",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
+final shelfForm = {
+  "formKey" : "Shelf",
+  "formName" : "Shelf",
+  "alias" : "shelf",
+  "caption" : "Shelf",
+  "locale" : "zh",
+  "keyFld" : "storeId",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "flds" : {
+    "facilityId" : {
+      "fldName" : "facilityId",
+      "fldType" : "id",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Facility Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "goods" : {
+      "fldName" : "goods",
+      "fldType" : "json-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Goods",
+      "defaultValue" : "<Commodity>[]",
+      "morph" : "Commodity",
+      "dartType" : "List<Commodity>",
+      "javaType" : "com.google.protobuf.ListValue",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "storeId" : {
+      "fldName" : "storeId",
+      "fldType" : "id",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Store Id",
       "defaultValue" : "''",
       "morph" : "",
       "dartType" : "String",
@@ -1148,115 +1148,6 @@ final configOptForm = {
   }
 };
 
-final testRecForm = {
-  "formKey" : "TestRec",
-  "formName" : "TestRec",
-  "alias" : "testRec",
-  "caption" : "Test Rec",
-  "locale" : "zh",
-  "keyFld" : "stringFld",
-  "labelSubmit" : "Submit",
-  "labelReset" : "Reset",
-  "flds" : {
-    "numFld" : {
-      "fldName" : "numFld",
-      "fldType" : "fixed-point",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "decimalField",
-      "caption" : "Num Fld",
-      "defaultValue" : "0.0",
-      "morph" : "",
-      "dartType" : "double",
-      "javaType" : "java.math.BigDecimal",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "stringFld" : {
-      "fldName" : "stringFld",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "String Fld",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "tag" : {
-      "fldName" : "tag",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Tag",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "boolFld" : {
-      "fldName" : "boolFld",
-      "fldType" : "boolean",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "boolField",
-      "caption" : "Bool Fld",
-      "defaultValue" : null,
-      "morph" : "",
-      "dartType" : "bool",
-      "javaType" : "Boolean",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "numMap" : {
-      "fldName" : "numMap",
-      "fldType" : "decimal-map",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "structField",
-      "caption" : "Num Map",
-      "defaultValue" : "{}",
-      "morph" : "",
-      "dartType" : "Map<String, double>",
-      "javaType" : "com.bluecc.hubs.stub.DecimalMap",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "nums" : {
-      "fldName" : "nums",
-      "fldType" : "decimals",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "listField",
-      "caption" : "Nums",
-      "defaultValue" : "<double>[]",
-      "morph" : "",
-      "dartType" : "List<double?>",
-      "javaType" : "com.bluecc.hubs.stub.Decimals",
-      "enumType" : null,
-      "collection" : true,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    }
-  }
-};
-
 final spuInfoForm = {
   "formKey" : "SpuInfo",
   "formName" : "SpuInfo",
@@ -1366,6 +1257,115 @@ final spuInfoForm = {
   }
 };
 
+final testRecForm = {
+  "formKey" : "TestRec",
+  "formName" : "TestRec",
+  "alias" : "testRec",
+  "caption" : "Test Rec",
+  "locale" : "zh",
+  "keyFld" : "stringFld",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "flds" : {
+    "numFld" : {
+      "fldName" : "numFld",
+      "fldType" : "fixed-point",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "decimalField",
+      "caption" : "Num Fld",
+      "defaultValue" : "0.0",
+      "morph" : "",
+      "dartType" : "double",
+      "javaType" : "java.math.BigDecimal",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "stringFld" : {
+      "fldName" : "stringFld",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "String Fld",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "tag" : {
+      "fldName" : "tag",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Tag",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "boolFld" : {
+      "fldName" : "boolFld",
+      "fldType" : "boolean",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "boolField",
+      "caption" : "Bool Fld",
+      "defaultValue" : null,
+      "morph" : "",
+      "dartType" : "bool",
+      "javaType" : "Boolean",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "numMap" : {
+      "fldName" : "numMap",
+      "fldType" : "decimal-map",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "structField",
+      "caption" : "Num Map",
+      "defaultValue" : "{}",
+      "morph" : "",
+      "dartType" : "Map<String, double>",
+      "javaType" : "com.bluecc.hubs.stub.DecimalMap",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "nums" : {
+      "fldName" : "nums",
+      "fldType" : "decimals",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Nums",
+      "defaultValue" : "<double>[]",
+      "morph" : "",
+      "dartType" : "List<double?>",
+      "javaType" : "com.bluecc.hubs.stub.Decimals",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
 final helloPojoForm = {
   "formKey" : "HelloPojo",
   "formName" : "HelloPojo",
@@ -1456,6 +1456,22 @@ final helloPojoForm = {
       "binders" : null,
       "slider" : null
     },
+    "favLangs" : {
+      "fldName" : "favLangs",
+      "fldType" : "json-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Fav Langs",
+      "defaultValue" : "<ProgrammingLanguage>[]",
+      "morph" : "ProgrammingLanguage",
+      "dartType" : "List<ProgrammingLanguage>",
+      "javaType" : "com.google.protobuf.ListValue",
+      "enumType" : "ProgrammingLanguage",
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
     "acceptTerms" : {
       "fldName" : "acceptTerms",
       "fldType" : "boolean",
@@ -1517,7 +1533,7 @@ final helloPojoForm = {
       "fldType" : "boolean",
       "fldTpl" : "propWithSpec",
       "domainType" : "boolField",
-      "caption" : "Employed",
+      "caption" : "是否在职?",
       "defaultValue" : null,
       "morph" : "",
       "dartType" : "bool",

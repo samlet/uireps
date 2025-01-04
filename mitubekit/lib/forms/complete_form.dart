@@ -5,7 +5,9 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:mitubekit/mitube/pkg.dart';
 import 'package:xcsmachine/formmetas.dart';
-import 'package:xcsmachine/src/tube/tubedelegator.dart';
+
+// import 'package:xcsmachine/src/tube/tubedelegator.dart';
+// import 'package:xcsmachine/util.dart';
 
 class CompleteForm extends StatefulWidget {
   const CompleteForm({super.key, required this.formDesc});
@@ -18,6 +20,8 @@ class CompleteForm extends StatefulWidget {
   }
 }
 
+void _onChanged(dynamic val) => debugPrint('ctl-val(${val.runtimeType}): ${val.toString()}');
+
 class _CompleteFormState extends State<CompleteForm> {
   bool autoValidate = true;
   bool readOnly = false;
@@ -28,7 +32,7 @@ class _CompleteFormState extends State<CompleteForm> {
 
   var genderOptions = ['Male', 'Female', 'Other'];
 
-  void _onChanged(dynamic val) => debugPrint(val.toString());
+  // void _onChanged(dynamic val) => debugPrint(val.toString());
 
   @override
   Widget build(BuildContext context) {
@@ -43,258 +47,31 @@ class _CompleteFormState extends State<CompleteForm> {
               debugPrint(_formKey.currentState!.value.toString());
             },
             autovalidateMode: AutovalidateMode.disabled,
-            initialValue: const {
+            initialValue: {
               'movie_rating': 5,
-              'bestLanguage': 'Dart',
+              'birthday': DateTime.parse('2000-01-17 21:03:00.000'),
+              'bestLanguage': 'dart',
               'age': '13',
-              'gender': 'Male',
-              'languages_filter': ['Dart']
+              'gender': 'female',
+              'languagesFilter': ['dart'],
+              'favLangs': ['kotlin', 'java']
             },
             skipDisabled: true,
             child: Column(
               children: <Widget>[
                 const SizedBox(height: 15),
                 DateTimeControl(formKey: _formKey, fldMeta: widget.formDesc.fld('birthday')!),
-                FormBuilderDateRangePicker(
-                  name: 'date_range',
-                  firstDate: DateTime(1970),
-                  lastDate: DateTime(2030),
-                  format: DateFormat('yyyy-MM-dd'),
-                  onChanged: _onChanged,
-                  decoration: InputDecoration(
-                    labelText: 'Date Range',
-                    helperText: 'Helper text',
-                    hintText: 'Hint text',
-                    suffixIcon: IconButton(
-                      icon: const Icon(Icons.close),
-                      onPressed: () {
-                        _formKey.currentState!.fields['date_range']?.didChange(null);
-                      },
-                    ),
-                  ),
-                ),
-                FormBuilderSlider(
-                  name: 'slider',
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.min(6),
-                  ]),
-                  onChanged: _onChanged,
-                  min: 0.0,
-                  max: 10.0,
-                  initialValue: 7.0,
-                  divisions: 20,
-                  activeColor: Colors.red,
-                  inactiveColor: Colors.pink[100],
-                  decoration: const InputDecoration(
-                    labelText: 'Number of things',
-                  ),
-                ),
-                FormBuilderRangeSlider(
-                  name: 'range_slider',
-                  onChanged: _onChanged,
-                  min: 0.0,
-                  max: 100.0,
-                  initialValue: const RangeValues(4, 7),
-                  divisions: 20,
-                  maxValueWidget: (max) => TextButton(
-                    onPressed: () {
-                      _formKey.currentState?.patchValue(
-                        {'range_slider': const RangeValues(4, 100)},
-                      );
-                    },
-                    child: Text(max),
-                  ),
-                  activeColor: Colors.red,
-                  inactiveColor: Colors.pink[100],
-                  decoration: const InputDecoration(labelText: 'Price Range'),
-                ),
-                FormBuilderCheckbox(
-                  name: 'accept_terms',
-                  initialValue: false,
-                  onChanged: _onChanged,
-                  title: RichText(
-                    text: const TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'I have read and agree to the ',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: 'Terms and Conditions',
-                          style: TextStyle(color: Colors.blue),
-                          // Flutter doesn't allow a button inside a button
-                          // https://github.com/flutter/flutter/issues/31437#issuecomment-492411086
-                          /*
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              print('launch url');
-                            },
-                          */
-                        ),
-                      ],
-                    ),
-                  ),
-                  validator: FormBuilderValidators.equal(
-                    true,
-                    errorText: 'You must accept terms and conditions to continue',
-                  ),
-                ),
-                // FormBuilderTextField(
-                //   autovalidateMode: AutovalidateMode.always,
-                //   name: 'age',
-                //   decoration: InputDecoration(
-                //     labelText: 'Age',
-                //     suffixIcon: _ageHasError
-                //         ? const Icon(Icons.error, color: Colors.red)
-                //         : const Icon(Icons.check, color: Colors.green),
-                //   ),
-                //   onChanged: (val) {
-                //     setState(() {
-                //       _ageHasError = !(_formKey.currentState?.fields['age']?.validate() ?? false);
-                //     });
-                //   },
-                //   // valueTransformer: (text) => num.tryParse(text),
-                //   validator: FormBuilderValidators.compose([
-                //     FormBuilderValidators.required(),
-                //     FormBuilderValidators.numeric(),
-                //     FormBuilderValidators.max(70),
-                //   ]),
-                //   // initialValue: '12',
-                //   keyboardType: TextInputType.number,
-                //   textInputAction: TextInputAction.next,
-                // ),
+                DateRangeControl(formKey: _formKey, fldMeta: widget.formDesc.fld('dateRange')!),
+                SliderControl(fldMeta: widget.formDesc.fld('numberOfThings')!),
+                RangeSliderControl(formKey: _formKey, fldMeta: widget.formDesc.fld('priceRange')!),
+                AcceptTermsRichControl(fldMeta: widget.formDesc.fld('acceptTerms')!),
                 NumberInputControl(formKey: _formKey, fldMeta: widget.formDesc.fld('age')!),
-                FormBuilderDropdown<String>(
-                  name: 'gender',
-                  decoration: InputDecoration(
-                    labelText: 'Gender',
-                    suffix: _genderHasError ? const Icon(Icons.error) : const Icon(Icons.check),
-                    hintText: 'Select Gender',
-                  ),
-                  validator: FormBuilderValidators.compose([FormBuilderValidators.required()]),
-                  items: genderOptions
-                      .map((gender) => DropdownMenuItem(
-                            alignment: AlignmentDirectional.center,
-                            value: gender,
-                            child: Text(gender),
-                          ))
-                      .toList(),
-                  onChanged: (val) {
-                    setState(() {
-                      _genderHasError =
-                          !(_formKey.currentState?.fields['gender']?.validate() ?? false);
-                    });
-                  },
-                  valueTransformer: (val) => val?.toString(),
-                ),
-                FormBuilderRadioGroup<String>(
-                  decoration: const InputDecoration(
-                    labelText: 'My chosen language',
-                  ),
-                  initialValue: null,
-                  name: 'bestLanguage',
-                  onChanged: _onChanged,
-                  validator: FormBuilderValidators.compose([FormBuilderValidators.required()]),
-                  options: ['Dart', 'Kotlin', 'Java', 'Swift', 'Objective-C']
-                      .map((lang) => FormBuilderFieldOption(
-                            value: lang,
-                            child: Text(lang),
-                          ))
-                      .toList(growable: false),
-                  controlAffinity: ControlAffinity.trailing,
-                ),
-                FormBuilderSwitch(
-                  title: const Text('I Accept the terms and conditions'),
-                  name: 'accept_terms_switch',
-                  initialValue: true,
-                  onChanged: _onChanged,
-                ),
-                FormBuilderCheckboxGroup<String>(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: const InputDecoration(labelText: 'The language of my people'),
-                  name: 'languages',
-                  // initialValue: const ['Dart'],
-                  options: const [
-                    FormBuilderFieldOption(value: 'Dart'),
-                    FormBuilderFieldOption(value: 'Kotlin'),
-                    FormBuilderFieldOption(value: 'Java'),
-                    FormBuilderFieldOption(value: 'Swift'),
-                    FormBuilderFieldOption(value: 'Objective-C'),
-                  ],
-                  onChanged: _onChanged,
-                  separator: const VerticalDivider(
-                    width: 10,
-                    thickness: 5,
-                    color: Colors.red,
-                  ),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.minLength(1),
-                    FormBuilderValidators.maxLength(3),
-                  ]),
-                ),
-                FormBuilderFilterChip<String>(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: const InputDecoration(labelText: 'The language of my people'),
-                  name: 'languages_filter',
-                  selectedColor: Colors.red,
-                  options: const [
-                    FormBuilderChipOption(
-                      value: 'Dart',
-                      avatar: CircleAvatar(child: Text('D')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Kotlin',
-                      avatar: CircleAvatar(child: Text('K')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Java',
-                      avatar: CircleAvatar(child: Text('J')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Swift',
-                      avatar: CircleAvatar(child: Text('S')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Objective-C',
-                      avatar: CircleAvatar(child: Text('O')),
-                    ),
-                  ],
-                  onChanged: _onChanged,
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.minLength(1),
-                    FormBuilderValidators.maxLength(3),
-                  ]),
-                ),
-                FormBuilderChoiceChip<String>(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: const InputDecoration(
-                      labelText: 'Ok, if I had to choose one language, it would be:'),
-                  name: 'languages_choice',
-                  initialValue: 'Dart',
-                  options: const [
-                    FormBuilderChipOption(
-                      value: 'Dart',
-                      avatar: CircleAvatar(child: Text('D')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Kotlin',
-                      avatar: CircleAvatar(child: Text('K')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Java',
-                      avatar: CircleAvatar(child: Text('J')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Swift',
-                      avatar: CircleAvatar(child: Text('S')),
-                    ),
-                    FormBuilderChipOption(
-                      value: 'Objective-C',
-                      avatar: CircleAvatar(child: Text('O')),
-                    ),
-                  ],
-                  onChanged: _onChanged,
-                ),
+                EnumsDropdownControl(formKey: _formKey, fldMeta: widget.formDesc.fld('gender')!),
+                EnumsRadioGroupControl(fldMeta: widget.formDesc.fld('bestLanguage')!),
+                SwitchControl(fldMeta: widget.formDesc.fld('employed')!),
+                EnumsCheckGroupControl(fldMeta: widget.formDesc.fld('languagesFilter')!),
+                FilterChipControl(fldMeta: widget.formDesc.fld('favLangs')!),
+                ChoiceChipControl(fldMeta: widget.formDesc.fld('myChosenLanguage')!),
               ],
             ),
           ),
@@ -308,10 +85,11 @@ class _CompleteFormState extends State<CompleteForm> {
                         debugPrint(_formKey.currentState?.value.toString());
                       } else {
                         debugPrint(_formKey.currentState?.value.toString());
+                        // prettyPrint(_formKey.currentState?.value);
                         debugPrint('validation failed');
                       }
                     },
-                    child: const Text('Submit')),
+                    child: Text(widget.formDesc.labelSubmit)),
               ),
               const SizedBox(width: 20),
               Expanded(
@@ -320,13 +98,338 @@ class _CompleteFormState extends State<CompleteForm> {
                     _formKey.currentState?.reset();
                   },
                   // color: Theme.of(context).colorScheme.secondary,
-                  child: const Text('Reset'),
+                  child: Text(widget.formDesc.labelReset),
                 ),
               ),
             ],
           ),
         ],
       ),
+    );
+  }
+}
+
+class ChoiceChipControl extends StatelessWidget {
+  const ChoiceChipControl({
+    super.key, required this.fldMeta,
+  });
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    var opts=buildFldEnumChipOpts(fldMeta);
+    return FormBuilderChoiceChip<String>(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+          labelText: fldMeta.caption!),
+      name: fldMeta.name,
+      initialValue: opts!.first.value,
+      options: opts,
+      onChanged: _onChanged,
+    );
+  }
+}
+
+class FilterChipControl extends StatelessWidget {
+  const FilterChipControl({
+    super.key, required this.fldMeta,
+  });
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderFilterChip<String>(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(labelText: fldMeta.caption!),
+      name: fldMeta.name,
+      selectedColor: Colors.red,
+      options: buildFldEnumChipOpts(fldMeta)!,
+      onChanged: _onChanged,
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.minLength(1),
+        FormBuilderValidators.maxLength(3),
+      ]),
+    );
+  }
+}
+
+class EnumsCheckGroupControl extends StatelessWidget {
+  const EnumsCheckGroupControl({
+    super.key,
+    required this.fldMeta,
+  });
+
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderCheckboxGroup<String>(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(labelText: fldMeta.caption!),
+      name: fldMeta.name,
+      // initialValue: const ['Dart'],
+      options: buildFldEnumOpts(fldMeta)!,
+      onChanged: _onChanged,
+      separator: const VerticalDivider(
+        width: 10,
+        thickness: 5,
+        color: Colors.red,
+      ),
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.minLength(1),
+        FormBuilderValidators.maxLength(3),
+      ]),
+    );
+  }
+}
+
+class SwitchControl extends StatelessWidget {
+  const SwitchControl({
+    super.key,
+    required this.fldMeta,
+  });
+
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderSwitch(
+      title: Text(fldMeta.caption!),
+      name: fldMeta.name,
+      initialValue: true,
+      onChanged: _onChanged,
+    );
+  }
+}
+
+class AcceptTermsRichControl extends StatelessWidget {
+  const AcceptTermsRichControl({
+    super.key,
+    required this.fldMeta,
+  });
+
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderCheckbox(
+      name: fldMeta.name,
+      initialValue: false,
+      onChanged: _onChanged,
+      title: RichText(
+        text: const TextSpan(
+          children: [
+            TextSpan(
+              text: 'I have read and agree to the ',
+              style: TextStyle(color: Colors.black),
+            ),
+            TextSpan(
+              text: 'Terms and Conditions',
+              style: TextStyle(color: Colors.blue),
+              // Flutter doesn't allow a button inside a button
+              // https://github.com/flutter/flutter/issues/31437#issuecomment-492411086
+              /*
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  print('launch url');
+                },
+              */
+            ),
+          ],
+        ),
+      ),
+      validator: FormBuilderValidators.equal(
+        true,
+        errorText: 'You must accept terms and conditions to continue',
+      ),
+    );
+  }
+}
+
+class RangeSliderControl extends StatelessWidget {
+  const RangeSliderControl({
+    super.key,
+    required GlobalKey<FormBuilderState> formKey,
+    required this.fldMeta,
+  }) : _formKey = formKey;
+
+  final GlobalKey<FormBuilderState> _formKey;
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderRangeSlider(
+      name: fldMeta.name,
+      onChanged: _onChanged,
+      min: 0.0,
+      max: 100.0,
+      initialValue: const RangeValues(4, 7),
+      divisions: 20,
+      maxValueWidget: (max) => TextButton(
+        onPressed: () {
+          _formKey.currentState?.patchValue(
+            {fldMeta.name: const RangeValues(4, 100)},
+          );
+        },
+        child: Text(max),
+      ),
+      activeColor: Colors.red,
+      inactiveColor: Colors.pink[100],
+      decoration: InputDecoration(labelText: fldMeta.caption!),
+    );
+  }
+}
+
+class DateRangeControl extends StatelessWidget {
+  const DateRangeControl({
+    super.key,
+    required GlobalKey<FormBuilderState> formKey,
+    required this.fldMeta,
+  }) : _formKey = formKey;
+
+  final GlobalKey<FormBuilderState> _formKey;
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderDateRangePicker(
+      name: fldMeta.name,
+      firstDate: DateTime(1970),
+      lastDate: DateTime(2030),
+      format: DateFormat('yyyy-MM-dd'),
+      onChanged: _onChanged,
+      decoration: InputDecoration(
+        labelText: fldMeta.caption!,
+        helperText: fldMeta.caption!,
+        hintText: fldMeta.caption!,
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            _formKey.currentState!.fields[fldMeta.name]?.didChange(null);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class SliderControl extends StatelessWidget {
+  const SliderControl({
+    super.key,
+    required this.fldMeta,
+  });
+
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderSlider(
+      name: fldMeta.name,
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.min(6),
+      ]),
+      onChanged: _onChanged,
+      min: 0.0,
+      max: 10.0,
+      initialValue: 7.0,
+      divisions: 20,
+      activeColor: Colors.red,
+      inactiveColor: Colors.pink[100],
+      decoration: InputDecoration(
+        labelText: fldMeta.caption!,
+      ),
+    );
+  }
+}
+
+class EnumsRadioGroupControl extends StatelessWidget {
+  const EnumsRadioGroupControl({
+    super.key,
+    required this.fldMeta,
+  });
+
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    List<FormBuilderFieldOption<String>>? opts = buildFldEnumOpts(fldMeta);
+    return FormBuilderRadioGroup<String>(
+      decoration: InputDecoration(
+        labelText: fldMeta.caption!,
+      ),
+      initialValue: null,
+      name: fldMeta.name,
+      onChanged: _onChanged,
+      validator: FormBuilderValidators.compose([FormBuilderValidators.required()]),
+      options: opts ?? [],
+      controlAffinity: ControlAffinity.trailing,
+    );
+  }
+}
+
+List<FormBuilderFieldOption<String>>? buildFldEnumOpts(FieldUiMeta fldMeta) {
+  var tubeDel = locator<TubeDelegator>();
+  EnumRec value = tubeDel.enumRec(fldMeta.enumType!)!;
+  var items = value.items?.map((el) => el.label).toList();
+  print('items: $items');
+  var opts = value.items
+      ?.map((el) => FormBuilderFieldOption(
+            value: el.name!,
+            child: Text(el.label!),
+          ))
+      .toList();
+  return opts;
+}
+
+List<FormBuilderChipOption<String>>? buildFldEnumChipOpts(FieldUiMeta fldMeta) {
+  var tubeDel = locator<TubeDelegator>();
+  EnumRec value = tubeDel.enumRec(fldMeta.enumType!)!;
+  var items = value.items?.map((el) => el.label).toList();
+  print('items: $items');
+  var opts = value.items
+      ?.map((el) => FormBuilderChipOption(
+            value: el.name!,
+            avatar: CircleAvatar(child: Text(el.label![0])),
+            child: Text(el.label!),
+          ))
+      .toList();
+  return opts;
+}
+
+class EnumsDropdownControl extends HookWidget {
+  const EnumsDropdownControl({super.key, required this.formKey, required this.fldMeta});
+
+  final GlobalKey<FormBuilderState> formKey;
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    var tubeDel = locator<TubeDelegator>();
+    EnumRec value = tubeDel.enumRec(fldMeta.enumType!)!;
+    var items = value.items?.map((el) => el.label).toList();
+    print('items: $items');
+    var opts = value.items
+        ?.map((el) => DropdownMenuItem(
+              alignment: AlignmentDirectional.center,
+              value: el.name!,
+              child: Text(el.label!),
+            ))
+        .toList();
+
+    final genderHasError = useState(false);
+    return FormBuilderDropdown<String>(
+      name: fldMeta.name,
+      decoration: InputDecoration(
+        labelText: fldMeta.caption!,
+        suffix: genderHasError.value ? const Icon(Icons.error) : const Icon(Icons.check),
+        hintText: 'Select Gender',
+      ),
+      validator: FormBuilderValidators.compose([FormBuilderValidators.required()]),
+      items: opts!,
+      onChanged: (val) {
+        genderHasError.value = !(formKey.currentState?.fields[fldMeta.name]?.validate() ?? false);
+      },
+      valueTransformer: (val) => val?.toString(),
     );
   }
 }
@@ -381,8 +484,9 @@ class DateTimeControl extends StatelessWidget {
     return FormBuilderDateTimePicker(
       name: fldMeta.name,
       initialEntryMode: DatePickerEntryMode.calendar,
-      initialValue: DateTime.now(),
+      // initialValue: DateTime.now(),
       inputType: InputType.both,
+      onChanged: _onChanged,
       decoration: InputDecoration(
         labelText: fldMeta.caption!,
         suffixIcon: IconButton(

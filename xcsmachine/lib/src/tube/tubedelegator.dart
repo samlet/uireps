@@ -252,6 +252,8 @@ class FormDescr {
   }
 
   Set<String> get fldNames => flds.keys.toSet();
+  String get labelSubmit => formMeta.labelSubmit!;
+  String get labelReset => formMeta.labelReset!;
 }
 
 class TileDescr {

@@ -21,4 +21,3 @@ extension FldUiEx on FieldUiMeta {
   String? get defaultBinder =>
       binders?.where((el) => el.kind == 'required' && el.role == 'default').firstOrNull?.target;
 }
-
