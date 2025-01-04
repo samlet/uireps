@@ -26,7 +26,7 @@ class TubeDelegator {
   late Map<String, TileDescr> entTileMap;
 
   /// From acts
-  final Map<String, Map<String, Object>> actletsMap;
+  final Map<String, Map<String, Object?>> actletsMap;
   late Map<String, FormDescr> actFormMap;
 
   /// Dynamic service dispatcher
@@ -91,7 +91,7 @@ class TubeDelegator {
         .toMap();
   }
 
-  static Map<String, FormDescr> extractFormWithKey(Map<String, Map<String, Object>> lets) {
+  static Map<String, FormDescr> extractFormWithKey(Map<String, Map<String, Object?>> lets) {
     return lets.values
         .map((el) => FormMeta.fromJson(el))
         .map((el) => MapEntry(el.formKey!, FormDescr(el)))
@@ -177,6 +177,10 @@ class TubeDelegator {
 
   FormDescr? recForm(String recName) {
     return recFormMap[recName];
+  }
+
+  String formCaption(String recName){
+    return recForm(recName)!.formMeta.caption!;
   }
 
   FormDescr? actForm(String formKey) {

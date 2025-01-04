@@ -16,6 +16,9 @@ final productForm = {
   "alias" : "product",
   "caption" : "Product",
   "locale" : "zh",
+  "keyFld" : "productId",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "resourceId" : {
       "fldName" : "resourceId",
@@ -28,7 +31,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "originGeoId" : {
       "fldName" : "originGeoId",
@@ -41,7 +47,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "detailScreen" : {
       "fldName" : "detailScreen",
@@ -54,7 +63,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "requireInventory" : {
       "fldName" : "requireInventory",
@@ -67,7 +79,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "quantityUomId" : {
       "fldName" : "quantityUomId",
@@ -80,7 +95,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "acl" : {
       "fldName" : "acl",
@@ -93,7 +111,10 @@ final productForm = {
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "mediumImageUrl" : {
       "fldName" : "mediumImageUrl",
@@ -106,24 +127,30 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productName" : {
       "fldName" : "productName",
       "fldType" : "name",
       "fldTpl" : "nameControl",
       "domainType" : "stringField",
-      "caption" : "Product Name",
+      "caption" : "产品名称",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
         "name" : "nameControl",
         "mandatory" : false,
         "sels" : null
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "introductionDate" : {
       "fldName" : "introductionDate",
@@ -136,7 +163,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "shippingHeight" : {
       "fldName" : "shippingHeight",
@@ -149,7 +179,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "evict" : {
       "fldName" : "evict",
@@ -162,7 +195,10 @@ final productForm = {
       "dartType" : "bool",
       "javaType" : "Boolean",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "originalImageUrl" : {
       "fldName" : "originalImageUrl",
@@ -175,7 +211,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "inShippingBox" : {
       "fldName" : "inShippingBox",
@@ -188,7 +227,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "detailImageUrl" : {
       "fldName" : "detailImageUrl",
@@ -201,7 +243,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "supportDiscontinuationDate" : {
       "fldName" : "supportDiscontinuationDate",
@@ -214,7 +259,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productWidth" : {
       "fldName" : "productWidth",
@@ -227,7 +275,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "includeInPromotions" : {
       "fldName" : "includeInPromotions",
@@ -240,7 +291,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "configId" : {
       "fldName" : "configId",
@@ -253,7 +307,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "price" : {
       "fldName" : "price",
@@ -266,7 +323,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "billOfMaterialLevel" : {
       "fldName" : "billOfMaterialLevel",
@@ -279,7 +339,10 @@ final productForm = {
       "dartType" : "int",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lotIdFilledIn" : {
       "fldName" : "lotIdFilledIn",
@@ -292,7 +355,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productRating" : {
       "fldName" : "productRating",
@@ -305,7 +371,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdByUserLogin" : {
       "fldName" : "createdByUserLogin",
@@ -318,7 +387,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "jointers" : {
       "fldName" : "jointers",
@@ -331,7 +403,10 @@ final productForm = {
       "dartType" : "Map<String, String>",
       "javaType" : "com.bluecc.hubs.proto.StringMap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "image" : {
       "fldName" : "image",
@@ -344,7 +419,10 @@ final productForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "brandName" : {
       "fldName" : "brandName",
@@ -357,7 +435,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "requireAmount" : {
       "fldName" : "requireAmount",
@@ -370,7 +451,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productId" : {
       "fldName" : "productId",
@@ -383,7 +467,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "smallImageUrl" : {
       "fldName" : "smallImageUrl",
@@ -396,7 +483,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "taxable" : {
       "fldName" : "taxable",
@@ -409,7 +499,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "primaryProductCategoryId" : {
       "fldName" : "primaryProductCategoryId",
@@ -422,7 +515,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "salesDiscontinuationDate" : {
       "fldName" : "salesDiscontinuationDate",
@@ -435,7 +531,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -448,7 +547,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -461,7 +563,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "labels" : {
       "fldName" : "labels",
@@ -474,7 +579,10 @@ final productForm = {
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "salesDiscWhenNotAvail" : {
       "fldName" : "salesDiscWhenNotAvail",
@@ -487,7 +595,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "returnable" : {
       "fldName" : "returnable",
@@ -500,7 +611,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "weightUomId" : {
       "fldName" : "weightUomId",
@@ -513,11 +627,14 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
         "name" : "typeListControl",
         "mandatory" : false,
         "sels" : "weightTypes"
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "isVirtual" : {
       "fldName" : "isVirtual",
@@ -530,7 +647,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "priceDetailText" : {
       "fldName" : "priceDetailText",
@@ -543,7 +663,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "reserv2ndPPPerc" : {
       "fldName" : "reserv2ndPPPerc",
@@ -556,7 +679,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "widthUomId" : {
       "fldName" : "widthUomId",
@@ -569,11 +695,14 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
         "name" : "typeListControl",
         "mandatory" : false,
         "sels" : "widthTypes"
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "longDescription" : {
       "fldName" : "longDescription",
@@ -586,7 +715,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "diameterUomId" : {
       "fldName" : "diameterUomId",
@@ -599,7 +731,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "autoCreateKeywords" : {
       "fldName" : "autoCreateKeywords",
@@ -612,7 +747,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "color" : {
       "fldName" : "color",
@@ -625,7 +763,10 @@ final productForm = {
       "dartType" : "Color",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "amountUomTypeId" : {
       "fldName" : "amountUomTypeId",
@@ -638,7 +779,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productDiameter" : {
       "fldName" : "productDiameter",
@@ -651,7 +795,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "ratingTypeEnum" : {
       "fldName" : "ratingTypeEnum",
@@ -664,7 +811,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "icon" : {
       "fldName" : "icon",
@@ -677,7 +827,10 @@ final productForm = {
       "dartType" : "IconData",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "description" : {
       "fldName" : "description",
@@ -690,11 +843,14 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
         "name" : "descriptionControl",
         "mandatory" : false,
         "sels" : null
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "chargeShipping" : {
       "fldName" : "chargeShipping",
@@ -707,7 +863,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "reservNthPPPerc" : {
       "fldName" : "reservNthPPPerc",
@@ -720,7 +879,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "quantityIncluded" : {
       "fldName" : "quantityIncluded",
@@ -733,7 +895,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "heightUomId" : {
       "fldName" : "heightUomId",
@@ -746,7 +911,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "internalName" : {
       "fldName" : "internalName",
@@ -759,7 +927,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastModifiedByUserLogin" : {
       "fldName" : "lastModifiedByUserLogin",
@@ -772,7 +943,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "virtualVariantMethodEnum" : {
       "fldName" : "virtualVariantMethodEnum",
@@ -785,7 +959,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "shippingWeight" : {
       "fldName" : "shippingWeight",
@@ -798,7 +975,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "shippingWidth" : {
       "fldName" : "shippingWidth",
@@ -811,7 +991,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "shippingDepth" : {
       "fldName" : "shippingDepth",
@@ -824,7 +1007,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "reservMaxPersons" : {
       "fldName" : "reservMaxPersons",
@@ -837,7 +1023,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "fixedAmount" : {
       "fldName" : "fixedAmount",
@@ -850,7 +1039,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "prices" : {
       "fldName" : "prices",
@@ -863,7 +1055,10 @@ final productForm = {
       "dartType" : "Map<String, double>",
       "javaType" : "com.bluecc.hubs.stub.DecimalMap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "inventoryItemTypeId" : {
       "fldName" : "inventoryItemTypeId",
@@ -876,7 +1071,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "piecesIncluded" : {
       "fldName" : "piecesIncluded",
@@ -889,7 +1087,10 @@ final productForm = {
       "dartType" : "int",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productDepth" : {
       "fldName" : "productDepth",
@@ -902,7 +1103,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag1" : {
       "fldName" : "tag1",
@@ -915,7 +1119,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "facilityId" : {
       "fldName" : "facilityId",
@@ -928,7 +1135,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "comments" : {
       "fldName" : "comments",
@@ -941,7 +1151,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "releaseDate" : {
       "fldName" : "releaseDate",
@@ -954,7 +1167,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productHeight" : {
       "fldName" : "productHeight",
@@ -967,7 +1183,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastModifiedDate" : {
       "fldName" : "lastModifiedDate",
@@ -980,7 +1199,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "defaultShipmentBoxTypeId" : {
       "fldName" : "defaultShipmentBoxTypeId",
@@ -993,7 +1215,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "orderDecimalQuantity" : {
       "fldName" : "orderDecimalQuantity",
@@ -1006,7 +1231,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "inventoryMessage" : {
       "fldName" : "inventoryMessage",
@@ -1019,7 +1247,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productWeight" : {
       "fldName" : "productWeight",
@@ -1032,7 +1263,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "depthUomId" : {
       "fldName" : "depthUomId",
@@ -1045,24 +1279,30 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "productTypeId" : {
       "fldName" : "productTypeId",
       "fldType" : "id",
       "fldTpl" : "typeListControl",
       "domainType" : "idenField",
-      "caption" : "Product Type Id",
+      "caption" : "产品类型ID",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
         "name" : "typeListControl",
         "mandatory" : false,
         "sels" : "productTypes"
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "tag2" : {
       "fldName" : "tag2",
@@ -1075,7 +1315,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "url" : {
       "fldName" : "url",
@@ -1088,7 +1331,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag3" : {
       "fldName" : "tag3",
@@ -1101,7 +1347,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdDate" : {
       "fldName" : "createdDate",
@@ -1114,7 +1363,10 @@ final productForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "cats" : {
       "fldName" : "cats",
@@ -1127,7 +1379,10 @@ final productForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "isVariant" : {
       "fldName" : "isVariant",
@@ -1140,7 +1395,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "largeImageUrl" : {
       "fldName" : "largeImageUrl",
@@ -1153,7 +1411,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -1166,7 +1427,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "requirementMethodEnumId" : {
       "fldName" : "requirementMethodEnumId",
@@ -1179,7 +1443,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "moreTags" : {
       "fldName" : "moreTags",
@@ -1192,7 +1459,10 @@ final productForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "listPrice" : {
       "fldName" : "listPrice",
@@ -1205,7 +1475,10 @@ final productForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "resourceType" : {
       "fldName" : "resourceType",
@@ -1218,7 +1491,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "sameAs" : {
       "fldName" : "sameAs",
@@ -1231,7 +1507,10 @@ final productForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -1242,6 +1521,9 @@ final personForm = {
   "alias" : "person",
   "caption" : "人员",
   "locale" : "zh",
+  "keyFld" : "partyId",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "yearsWithEmployer" : {
       "fldName" : "yearsWithEmployer",
@@ -1254,12 +1536,15 @@ final personForm = {
       "dartType" : "int",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameSpec",
+      "fldTpl" : "lastNameEdit",
       "domainType" : "stringField",
       "caption" : "姓",
       "defaultValue" : "''",
@@ -1267,11 +1552,14 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
-        "name" : "lastNameSpec",
+        "name" : "lastNameEdit",
         "mandatory" : false,
         "sels" : null
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "occupation" : {
       "fldName" : "occupation",
@@ -1284,7 +1572,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "gender" : {
       "fldName" : "gender",
@@ -1297,7 +1588,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "employmentStatusEnumId" : {
       "fldName" : "employmentStatusEnumId",
@@ -1310,7 +1604,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "socialSecurityNumber" : {
       "fldName" : "socialSecurityNumber",
@@ -1323,7 +1620,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "suffix" : {
       "fldName" : "suffix",
@@ -1336,7 +1636,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "mothersMaidenName" : {
       "fldName" : "mothersMaidenName",
@@ -1349,7 +1652,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "middleNameLocal" : {
       "fldName" : "middleNameLocal",
@@ -1362,7 +1668,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "existingCustomer" : {
       "fldName" : "existingCustomer",
@@ -1375,7 +1684,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "residenceStatusEnumId" : {
       "fldName" : "residenceStatusEnumId",
@@ -1388,7 +1700,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "maritalStatusEnumId" : {
       "fldName" : "maritalStatusEnumId",
@@ -1401,7 +1716,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "nickname" : {
       "fldName" : "nickname",
@@ -1414,7 +1732,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "partyId" : {
       "fldName" : "partyId",
@@ -1427,7 +1748,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "memberId" : {
       "fldName" : "memberId",
@@ -1440,7 +1764,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "height" : {
       "fldName" : "height",
@@ -1453,7 +1780,10 @@ final personForm = {
       "dartType" : "double",
       "javaType" : "Double",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "passportNumber" : {
       "fldName" : "passportNumber",
@@ -1466,7 +1796,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastNameLocal" : {
       "fldName" : "lastNameLocal",
@@ -1479,7 +1812,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "comments" : {
       "fldName" : "comments",
@@ -1492,7 +1828,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "monthsWithEmployer" : {
       "fldName" : "monthsWithEmployer",
@@ -1505,7 +1844,10 @@ final personForm = {
       "dartType" : "int",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -1518,7 +1860,10 @@ final personForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "weight" : {
       "fldName" : "weight",
@@ -1531,7 +1876,10 @@ final personForm = {
       "dartType" : "double",
       "javaType" : "Double",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -1544,7 +1892,10 @@ final personForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "birthDate" : {
       "fldName" : "birthDate",
@@ -1557,7 +1908,10 @@ final personForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.LocalDate",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "otherLocal" : {
       "fldName" : "otherLocal",
@@ -1570,12 +1924,15 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameSpec",
+      "fldTpl" : "firstNameEdit",
       "domainType" : "stringField",
       "caption" : "名",
       "defaultValue" : "''",
@@ -1583,11 +1940,14 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
-        "name" : "firstNameSpec",
+        "name" : "firstNameEdit",
         "mandatory" : false,
         "sels" : null
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "cardId" : {
       "fldName" : "cardId",
@@ -1600,7 +1960,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -1613,7 +1976,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "middleName" : {
       "fldName" : "middleName",
@@ -1626,7 +1992,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "firstNameLocal" : {
       "fldName" : "firstNameLocal",
@@ -1639,7 +2008,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "passportExpireDate" : {
       "fldName" : "passportExpireDate",
@@ -1652,7 +2024,10 @@ final personForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.LocalDate",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "salutation" : {
       "fldName" : "salutation",
@@ -1665,7 +2040,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "personalTitle" : {
       "fldName" : "personalTitle",
@@ -1678,7 +2056,10 @@ final personForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "deceasedDate" : {
       "fldName" : "deceasedDate",
@@ -1691,7 +2072,10 @@ final personForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.LocalDate",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "totalYearsWorkExperience" : {
       "fldName" : "totalYearsWorkExperience",
@@ -1704,7 +2088,10 @@ final personForm = {
       "dartType" : "double",
       "javaType" : "Double",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -1715,6 +2102,9 @@ final noteDataForm = {
   "alias" : "noteData",
   "caption" : "Note Data",
   "locale" : "zh",
+  "keyFld" : "noteId",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "tag1" : {
       "fldName" : "tag1",
@@ -1727,7 +2117,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "resourceId" : {
       "fldName" : "resourceId",
@@ -1740,7 +2133,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "noteName" : {
       "fldName" : "noteName",
@@ -1753,7 +2149,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -1766,7 +2165,10 @@ final noteDataForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -1779,7 +2181,10 @@ final noteDataForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "noteId" : {
       "fldName" : "noteId",
@@ -1792,7 +2197,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "acl" : {
       "fldName" : "acl",
@@ -1805,7 +2213,10 @@ final noteDataForm = {
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "moreInfoItemId" : {
       "fldName" : "moreInfoItemId",
@@ -1818,7 +2229,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag2" : {
       "fldName" : "tag2",
@@ -1831,7 +2245,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "evict" : {
       "fldName" : "evict",
@@ -1844,7 +2261,10 @@ final noteDataForm = {
       "dartType" : "bool",
       "javaType" : "Boolean",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag3" : {
       "fldName" : "tag3",
@@ -1857,7 +2277,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "labels" : {
       "fldName" : "labels",
@@ -1870,7 +2293,10 @@ final noteDataForm = {
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "noteDateTime" : {
       "fldName" : "noteDateTime",
@@ -1883,7 +2309,10 @@ final noteDataForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "moreInfoItemName" : {
       "fldName" : "moreInfoItemName",
@@ -1896,7 +2325,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -1909,7 +2341,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "noteInfo" : {
       "fldName" : "noteInfo",
@@ -1922,7 +2357,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "moreInfoUrl" : {
       "fldName" : "moreInfoUrl",
@@ -1935,11 +2373,14 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
+      "collection" : false,
       "fldSpec" : {
         "name" : "urlSpec",
         "mandatory" : false,
         "sels" : null
-      }
+      },
+      "binders" : null,
+      "slider" : null
     },
     "moreTags" : {
       "fldName" : "moreTags",
@@ -1952,7 +2393,10 @@ final noteDataForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "noteParty" : {
       "fldName" : "noteParty",
@@ -1965,7 +2409,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "resourceType" : {
       "fldName" : "resourceType",
@@ -1978,7 +2425,10 @@ final noteDataForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -1989,6 +2439,9 @@ final partyForm = {
   "alias" : "party",
   "caption" : "Party",
   "locale" : "zh",
+  "keyFld" : "partyId",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "color" : {
       "fldName" : "color",
@@ -2001,7 +2454,10 @@ final partyForm = {
       "dartType" : "Color",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "placeId" : {
       "fldName" : "placeId",
@@ -2014,7 +2470,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "icon" : {
       "fldName" : "icon",
@@ -2027,7 +2486,10 @@ final partyForm = {
       "dartType" : "IconData",
       "javaType" : "Long",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "description" : {
       "fldName" : "description",
@@ -2040,7 +2502,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "acl" : {
       "fldName" : "acl",
@@ -2053,7 +2518,10 @@ final partyForm = {
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "evict" : {
       "fldName" : "evict",
@@ -2066,7 +2534,10 @@ final partyForm = {
       "dartType" : "bool",
       "javaType" : "Boolean",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "noteIds" : {
       "fldName" : "noteIds",
@@ -2079,7 +2550,10 @@ final partyForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "partyTypeId" : {
       "fldName" : "partyTypeId",
@@ -2092,7 +2566,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastModifiedByUserLogin" : {
       "fldName" : "lastModifiedByUserLogin",
@@ -2105,7 +2582,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "dataSourceId" : {
       "fldName" : "dataSourceId",
@@ -2118,7 +2598,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "preferredCurrencyUomId" : {
       "fldName" : "preferredCurrencyUomId",
@@ -2131,7 +2614,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "nickname" : {
       "fldName" : "nickname",
@@ -2144,7 +2630,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "partyId" : {
       "fldName" : "partyId",
@@ -2157,7 +2646,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdByUserLogin" : {
       "fldName" : "createdByUserLogin",
@@ -2170,7 +2662,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "email" : {
       "fldName" : "email",
@@ -2183,7 +2678,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag1" : {
       "fldName" : "tag1",
@@ -2196,7 +2694,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "image" : {
       "fldName" : "image",
@@ -2209,7 +2710,10 @@ final partyForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastModifiedDate" : {
       "fldName" : "lastModifiedDate",
@@ -2222,7 +2726,10 @@ final partyForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -2235,7 +2742,10 @@ final partyForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "externalId" : {
       "fldName" : "externalId",
@@ -2248,7 +2758,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -2261,7 +2774,10 @@ final partyForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "telephone" : {
       "fldName" : "telephone",
@@ -2274,7 +2790,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "isUnread" : {
       "fldName" : "isUnread",
@@ -2287,7 +2806,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag2" : {
       "fldName" : "tag2",
@@ -2300,7 +2822,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "url" : {
       "fldName" : "url",
@@ -2313,7 +2838,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tag3" : {
       "fldName" : "tag3",
@@ -2326,7 +2854,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "labels" : {
       "fldName" : "labels",
@@ -2339,7 +2870,10 @@ final partyForm = {
       "dartType" : "Multimap<String, String>",
       "javaType" : "com.bluecc.hubs.stub.StringMultimap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "accountId" : {
       "fldName" : "accountId",
@@ -2352,7 +2886,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdDate" : {
       "fldName" : "createdDate",
@@ -2365,7 +2902,10 @@ final partyForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "phoneNumber" : {
       "fldName" : "phoneNumber",
@@ -2378,7 +2918,10 @@ final partyForm = {
       "dartType" : "Map<String, dynamic>",
       "javaType" : "com.google.protobuf.Struct",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "statusId" : {
       "fldName" : "statusId",
@@ -2391,7 +2934,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -2404,7 +2950,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "name" : {
       "fldName" : "name",
@@ -2417,7 +2966,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "location" : {
       "fldName" : "location",
@@ -2430,7 +2982,10 @@ final partyForm = {
       "dartType" : "Map<String, dynamic>",
       "javaType" : "com.google.protobuf.Struct",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "moreTags" : {
       "fldName" : "moreTags",
@@ -2443,7 +2998,10 @@ final partyForm = {
       "dartType" : "List<String?>",
       "javaType" : "com.bluecc.hubs.stub.Strings",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "defaultLoginId" : {
       "fldName" : "defaultLoginId",
@@ -2456,7 +3014,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "sameAs" : {
       "fldName" : "sameAs",
@@ -2469,7 +3030,10 @@ final partyForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -2480,6 +3044,9 @@ final partyTypeForm = {
   "alias" : "partyType",
   "caption" : "Party Type",
   "locale" : "zh",
+  "keyFld" : "partyTypeId",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "partyTypeId" : {
       "fldName" : "partyTypeId",
@@ -2492,7 +3059,10 @@ final partyTypeForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "parentTypeId" : {
       "fldName" : "parentTypeId",
@@ -2505,7 +3075,10 @@ final partyTypeForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "hasTable" : {
       "fldName" : "hasTable",
@@ -2518,7 +3091,10 @@ final partyTypeForm = {
       "dartType" : "String",
       "javaType" : "Character",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "createdTxStamp" : {
       "fldName" : "createdTxStamp",
@@ -2531,7 +3107,10 @@ final partyTypeForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "tenantId" : {
       "fldName" : "tenantId",
@@ -2544,7 +3123,10 @@ final partyTypeForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "description" : {
       "fldName" : "description",
@@ -2557,7 +3139,10 @@ final partyTypeForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "lastUpdatedTxStamp" : {
       "fldName" : "lastUpdatedTxStamp",
@@ -2570,7 +3155,10 @@ final partyTypeForm = {
       "dartType" : "DateTime",
       "javaType" : "java.time.OffsetDateTime",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -2593,7 +3181,10 @@ final productTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "image" : {
@@ -2609,7 +3200,10 @@ final productTile = {
         "dartType" : "List<String?>",
         "javaType" : "com.bluecc.hubs.stub.Strings",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : true,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "color" : {
@@ -2625,7 +3219,10 @@ final productTile = {
         "dartType" : "Color",
         "javaType" : "Long",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "subtitle" : {
@@ -2641,11 +3238,14 @@ final productTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
+        "collection" : false,
         "fldSpec" : {
           "name" : "descriptionControl",
           "mandatory" : false,
           "sels" : null
-        }
+        },
+        "binders" : null,
+        "slider" : null
       }
     },
     "icon" : {
@@ -2661,7 +3261,10 @@ final productTile = {
         "dartType" : "IconData",
         "javaType" : "Long",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "title" : {
@@ -2671,17 +3274,20 @@ final productTile = {
         "fldType" : "name",
         "fldTpl" : "nameControl",
         "domainType" : "stringField",
-        "caption" : "Product Name",
+        "caption" : "产品名称",
         "defaultValue" : "''",
         "morph" : null,
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
+        "collection" : false,
         "fldSpec" : {
           "name" : "nameControl",
           "mandatory" : false,
           "sels" : null
-        }
+        },
+        "binders" : null,
+        "slider" : null
       }
     },
     "url" : {
@@ -2697,7 +3303,10 @@ final productTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     }
   },
@@ -2730,7 +3339,10 @@ final personTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.LocalDate",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "subtitle" : {
@@ -2746,7 +3358,10 @@ final personTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "title" : {
@@ -2754,7 +3369,7 @@ final personTile = {
       "fld" : {
         "fldName" : "lastName",
         "fldType" : "name",
-        "fldTpl" : "lastNameSpec",
+        "fldTpl" : "lastNameEdit",
         "domainType" : "stringField",
         "caption" : "姓",
         "defaultValue" : "''",
@@ -2762,11 +3377,14 @@ final personTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
+        "collection" : false,
         "fldSpec" : {
-          "name" : "lastNameSpec",
+          "name" : "lastNameEdit",
           "mandatory" : false,
           "sels" : null
-        }
+        },
+        "binders" : null,
+        "slider" : null
       }
     }
   },
@@ -2795,7 +3413,10 @@ final noteDataTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "subtitle" : {
@@ -2811,7 +3432,10 @@ final noteDataTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "title" : {
@@ -2827,7 +3451,10 @@ final noteDataTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     }
   },
@@ -2856,7 +3483,10 @@ final partyTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "image" : {
@@ -2872,7 +3502,10 @@ final partyTile = {
         "dartType" : "List<String?>",
         "javaType" : "com.bluecc.hubs.stub.Strings",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : true,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "color" : {
@@ -2888,7 +3521,10 @@ final partyTile = {
         "dartType" : "Color",
         "javaType" : "Long",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "subtitle" : {
@@ -2904,7 +3540,10 @@ final partyTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "icon" : {
@@ -2920,7 +3559,10 @@ final partyTile = {
         "dartType" : "IconData",
         "javaType" : "Long",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "title" : {
@@ -2936,7 +3578,10 @@ final partyTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "url" : {
@@ -2952,7 +3597,10 @@ final partyTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "status" : {
@@ -2968,7 +3616,10 @@ final partyTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     }
   },
@@ -3002,7 +3653,10 @@ final partyTypeTile = {
         "dartType" : "DateTime",
         "javaType" : "java.time.OffsetDateTime",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "subtitle" : {
@@ -3018,7 +3672,10 @@ final partyTypeTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     },
     "title" : {
@@ -3034,7 +3691,10 @@ final partyTypeTile = {
         "dartType" : "String",
         "javaType" : "String",
         "enumType" : null,
-        "fldSpec" : null
+        "collection" : false,
+        "fldSpec" : null,
+        "binders" : null,
+        "slider" : null
       }
     }
   },

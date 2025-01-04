@@ -1,6 +1,35 @@
 /// list<EnumRec>
 const enumRecs = [ {
+  "name" : "ProgrammingLanguage",
+  "label" : "Programming Language",
+  "items" : [ {
+    "ordinal" : 0,
+    "name" : "dart",
+    "label" : "Dart"
+  }, {
+    "ordinal" : 1,
+    "name" : "kotlin",
+    "label" : "Kotlin"
+  }, {
+    "ordinal" : 2,
+    "name" : "java",
+    "label" : "Java"
+  }, {
+    "ordinal" : 3,
+    "name" : "swift",
+    "label" : "Swift"
+  }, {
+    "ordinal" : 4,
+    "name" : "objectiveC",
+    "label" : "Objective C"
+  }, {
+    "ordinal" : 5,
+    "name" : "python",
+    "label" : "Python"
+  } ]
+}, {
   "name" : "Gender",
+  "label" : "Gender",
   "items" : [ {
     "ordinal" : 0,
     "name" : "unknown",
@@ -16,6 +45,7 @@ const enumRecs = [ {
   } ]
 }, {
   "name" : "InvoAction",
+  "label" : "Invo Action",
   "items" : [ {
     "ordinal" : 0,
     "name" : "CREATE",

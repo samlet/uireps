@@ -116,6 +116,12 @@ FieldUiMeta _$FieldUiMetaFromJson(Map<String, dynamic> json) => FieldUiMeta(
       fldSpec: json['fldSpec'] == null
           ? null
           : FldSpec.fromJson(json['fldSpec'] as Map<String, dynamic>),
+      binders: (json['binders'] as List<dynamic>?)
+          ?.map((e) => FldBinderInfo.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      slider: json['slider'] == null
+          ? null
+          : FieldSliderMeta.fromJson(json['slider'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
@@ -131,6 +137,9 @@ Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
       if (instance.javaType case final value?) 'javaType': value,
       if (instance.enumType case final value?) 'enumType': value,
       if (instance.fldSpec?.toJson() case final value?) 'fldSpec': value,
+      if (instance.binders?.map((e) => e.toJson()).toList() case final value?)
+        'binders': value,
+      if (instance.slider?.toJson() case final value?) 'slider': value,
     };
 
 FieldTileMeta _$FieldTileMetaFromJson(Map<String, dynamic> json) =>
@@ -153,6 +162,9 @@ FormMeta _$FormMetaFromJson(Map<String, dynamic> json) => FormMeta(
       alias: json['alias'] as String?,
       caption: json['caption'] as String?,
       locale: json['locale'] as String?,
+      keyFld: json['keyFld'] as String?,
+      labelSubmit: json['labelSubmit'] as String?,
+      labelReset: json['labelReset'] as String?,
       flds: (json['flds'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, FieldUiMeta.fromJson(e as Map<String, dynamic>)),
       ),
@@ -164,6 +176,9 @@ Map<String, dynamic> _$FormMetaToJson(FormMeta instance) => <String, dynamic>{
       if (instance.alias case final value?) 'alias': value,
       if (instance.caption case final value?) 'caption': value,
       if (instance.locale case final value?) 'locale': value,
+      if (instance.keyFld case final value?) 'keyFld': value,
+      if (instance.labelSubmit case final value?) 'labelSubmit': value,
+      if (instance.labelReset case final value?) 'labelReset': value,
       if (instance.flds?.map((k, e) => MapEntry(k, e.toJson()))
           case final value?)
         'flds': value,
@@ -268,6 +283,7 @@ Map<String, dynamic> _$SelItemToJson(SelItem instance) => <String, dynamic>{
 
 EnumRec _$EnumRecFromJson(Map<String, dynamic> json) => EnumRec(
       name: json['name'] as String?,
+      label: json['label'] as String?,
       items: (json['items'] as List<dynamic>?)
           ?.map((e) => EnumItem.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -275,6 +291,7 @@ EnumRec _$EnumRecFromJson(Map<String, dynamic> json) => EnumRec(
 
 Map<String, dynamic> _$EnumRecToJson(EnumRec instance) => <String, dynamic>{
       if (instance.name case final value?) 'name': value,
+      if (instance.label case final value?) 'label': value,
       if (instance.items?.map((e) => e.toJson()).toList() case final value?)
         'items': value,
     };
@@ -289,4 +306,32 @@ Map<String, dynamic> _$EnumItemToJson(EnumItem instance) => <String, dynamic>{
       if (instance.ordinal case final value?) 'ordinal': value,
       if (instance.name case final value?) 'name': value,
       if (instance.label case final value?) 'label': value,
+    };
+
+FldBinderInfo _$FldBinderInfoFromJson(Map<String, dynamic> json) =>
+    FldBinderInfo(
+      kind: json['kind'] as String?,
+      role: json['role'] as String?,
+      target: json['target'] as String?,
+    );
+
+Map<String, dynamic> _$FldBinderInfoToJson(FldBinderInfo instance) =>
+    <String, dynamic>{
+      if (instance.kind case final value?) 'kind': value,
+      if (instance.role case final value?) 'role': value,
+      if (instance.target case final value?) 'target': value,
+    };
+
+FieldSliderMeta _$FieldSliderMetaFromJson(Map<String, dynamic> json) =>
+    FieldSliderMeta(
+      min: (json['min'] as num?)?.toDouble(),
+      max: (json['max'] as num?)?.toDouble(),
+      divisions: (json['divisions'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$FieldSliderMetaToJson(FieldSliderMeta instance) =>
+    <String, dynamic>{
+      if (instance.min case final value?) 'min': value,
+      if (instance.max case final value?) 'max': value,
+      if (instance.divisions case final value?) 'divisions': value,
     };

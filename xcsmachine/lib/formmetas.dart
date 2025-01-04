@@ -133,7 +133,10 @@ class FieldUiMeta{
   String? dartType;
   String? javaType;
   String? enumType;
+  bool? collection;
   FldSpec? fldSpec;
+  List<FldBinderInfo>? binders;
+  FieldSliderMeta? slider;
   FieldUiMeta({
     this.fldName,
     this.fldType,
@@ -145,7 +148,10 @@ class FieldUiMeta{
     this.dartType,
     this.javaType,
     this.enumType,
+    this.collection,
     this.fldSpec,
+    this.binders,
+    this.slider,
   });
 
   factory FieldUiMeta.fromJson(Map<String, dynamic> json) =>
@@ -180,6 +186,9 @@ class FormMeta{
   String? alias;
   String? caption;
   String? locale;
+  String? keyFld;
+  String? labelSubmit;
+  String? labelReset;
   Map<String, FieldUiMeta>? flds;
   FormMeta({
     this.formKey,
@@ -187,6 +196,9 @@ class FormMeta{
     this.alias,
     this.caption,
     this.locale,
+    this.keyFld,
+    this.labelSubmit,
+    this.labelReset,
     this.flds,
   });
 
@@ -330,9 +342,11 @@ class SelItem{
 @OffsetDateTimeConverter()
 class EnumRec{
   String? name;
+  String? label;
   List<EnumItem>? items;
   EnumRec({
     this.name,
+    this.label,
     this.items,
   });
 
@@ -361,5 +375,43 @@ class EnumItem{
   Map<String, dynamic> toJson() => _$EnumItemToJson(this);
 }
 
+// -- FldBinderInfo -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FldBinderInfo{
+  String? kind;
+  String? role;
+  String? target;
+  FldBinderInfo({
+    this.kind,
+    this.role,
+    this.target,
+  });
 
-// total classes: 17
+  factory FldBinderInfo.fromJson(Map<String, dynamic> json) =>
+      _$FldBinderInfoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FldBinderInfoToJson(this);
+}
+
+// -- FieldSliderMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+class FieldSliderMeta{
+  double? min;
+  double? max;
+  int? divisions;
+  FieldSliderMeta({
+    this.min,
+    this.max,
+    this.divisions,
+  });
+
+  factory FieldSliderMeta.fromJson(Map<String, dynamic> json) =>
+      _$FieldSliderMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FieldSliderMetaToJson(this);
+}
+
+
+// total classes: 19

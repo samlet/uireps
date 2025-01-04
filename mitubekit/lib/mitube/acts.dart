@@ -12,6 +12,9 @@ final setTitleAndContentForm = {
   "alias" : "setTitleAndContent",
   "caption" : "Set Title And Content",
   "locale" : "zh",
+  "keyFld" : null,
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "cnt" : {
       "fldName" : "cnt",
@@ -24,7 +27,10 @@ final setTitleAndContentForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "title" : {
       "fldName" : "title",
@@ -37,7 +43,10 @@ final setTitleAndContentForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -48,6 +57,9 @@ final makeTestRecForm = {
   "alias" : "makeTestRec",
   "caption" : "Make Test Rec",
   "locale" : "zh",
+  "keyFld" : null,
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "numFld" : {
       "fldName" : "numFld",
@@ -60,7 +72,10 @@ final makeTestRecForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "stringFld" : {
       "fldName" : "stringFld",
@@ -73,7 +88,10 @@ final makeTestRecForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "numMap" : {
       "fldName" : "numMap",
@@ -86,7 +104,10 @@ final makeTestRecForm = {
       "dartType" : "Map<String, double>",
       "javaType" : "com.bluecc.hubs.stub.DecimalMap",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "nums" : {
       "fldName" : "nums",
@@ -99,7 +120,10 @@ final makeTestRecForm = {
       "dartType" : "List<double?>",
       "javaType" : "com.bluecc.hubs.stub.Decimals",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -110,6 +134,9 @@ final makeSomeRecsForm = {
   "alias" : "makeSomeRecs",
   "caption" : "Make Some Recs",
   "locale" : "zh",
+  "keyFld" : null,
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "total" : {
       "fldName" : "total",
@@ -122,7 +149,10 @@ final makeSomeRecsForm = {
       "dartType" : "int",
       "javaType" : "Integer",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
@@ -133,6 +163,9 @@ final postCommentForm = {
   "alias" : "postComment",
   "caption" : "发表评论",
   "locale" : "zh",
+  "keyFld" : null,
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
   "flds" : {
     "reward" : {
       "fldName" : "reward",
@@ -145,7 +178,10 @@ final postCommentForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "subject" : {
       "fldName" : "subject",
@@ -158,7 +194,10 @@ final postCommentForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "review" : {
       "fldName" : "review",
@@ -171,7 +210,10 @@ final postCommentForm = {
       "dartType" : "String",
       "javaType" : "String",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     },
     "rating" : {
       "fldName" : "rating",
@@ -184,7 +226,10 @@ final postCommentForm = {
       "dartType" : "double",
       "javaType" : "java.math.BigDecimal",
       "enumType" : null,
-      "fldSpec" : null
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
     }
   }
 };
