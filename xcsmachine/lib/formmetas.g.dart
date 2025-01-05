@@ -113,6 +113,7 @@ FieldUiMeta _$FieldUiMetaFromJson(Map<String, dynamic> json) => FieldUiMeta(
       dartType: json['dartType'] as String?,
       javaType: json['javaType'] as String?,
       enumType: json['enumType'] as String?,
+      collection: json['collection'] as bool?,
       fldSpec: json['fldSpec'] == null
           ? null
           : FldSpec.fromJson(json['fldSpec'] as Map<String, dynamic>),
@@ -136,6 +137,7 @@ Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
       if (instance.dartType case final value?) 'dartType': value,
       if (instance.javaType case final value?) 'javaType': value,
       if (instance.enumType case final value?) 'enumType': value,
+      if (instance.collection case final value?) 'collection': value,
       if (instance.fldSpec?.toJson() case final value?) 'fldSpec': value,
       if (instance.binders?.map((e) => e.toJson()).toList() case final value?)
         'binders': value,
@@ -272,12 +274,14 @@ Map<String, dynamic> _$SelsRecToJson(SelsRec instance) => <String, dynamic>{
 SelItem _$SelItemFromJson(Map<String, dynamic> json) => SelItem(
       key: json['key'] as String?,
       description: json['description'] as String?,
+      label: json['label'] as String?,
       parentTypeId: json['parentTypeId'] as String?,
     );
 
 Map<String, dynamic> _$SelItemToJson(SelItem instance) => <String, dynamic>{
       if (instance.key case final value?) 'key': value,
       if (instance.description case final value?) 'description': value,
+      if (instance.label case final value?) 'label': value,
       if (instance.parentTypeId case final value?) 'parentTypeId': value,
     };
 

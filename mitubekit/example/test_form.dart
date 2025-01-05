@@ -12,7 +12,9 @@ Future<void> main(List<String> arguments) async {
 
   // testSelItems(frm, tubeDel);
   // get sels-items from field.
-  List<SelItem>? items=tubeDel.selItemsOfFld(frm.fld('productTypeId')!);
+  var fldName='productTypeId';
+  print('items of $fldName ->');
+  List<SelItem>? items=tubeDel.selItemsOfFld(frm.fld(fldName)!);
   for (var value in items!) {
     print('\t- ${value.key} => ${value.toJson()}');
   }

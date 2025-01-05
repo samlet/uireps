@@ -324,10 +324,12 @@ class SelsRec{
 class SelItem{
   String? key;
   String? description;
+  String? label;
   String? parentTypeId;
   SelItem({
     this.key,
     this.description,
+    this.label,
     this.parentTypeId,
   });
 

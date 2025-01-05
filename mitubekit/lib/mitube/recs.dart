@@ -1648,6 +1648,26 @@ final helloPojoForm = {
       } ],
       "slider" : null
     },
+    "targetUser" : {
+      "fldName" : "targetUser",
+      "fldType" : "strings",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringsField",
+      "caption" : "目标用户",
+      "defaultValue" : "<String>[]",
+      "morph" : "",
+      "dartType" : "List<String?>",
+      "javaType" : "com.bluecc.hubs.stub.Strings",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : {
+        "name" : "typeListControl",
+        "mandatory" : false,
+        "sels" : "partyTypes"
+      },
+      "binders" : null,
+      "slider" : null
+    },
     "priceRange" : {
       "fldName" : "priceRange",
       "fldType" : "json-object",

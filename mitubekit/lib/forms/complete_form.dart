@@ -66,12 +66,15 @@ class _CompleteFormState extends State<CompleteForm> {
                 RangeSliderControl(formKey: _formKey, fldMeta: widget.formDesc.fld('priceRange')!),
                 AcceptTermsRichControl(fldMeta: widget.formDesc.fld('acceptTerms')!),
                 NumberInputControl(formKey: _formKey, fldMeta: widget.formDesc.fld('age')!),
-                EnumsDropdownControl(formKey: _formKey, fldMeta: widget.formDesc.fld('gender')!),
+                DropdownControl(formKey: _formKey, fldMeta: widget.formDesc.fld('gender')!),
+                DropdownControl(formKey: _formKey, fldMeta: widget.formDesc.fld('widthUomId')!),
                 EnumsRadioGroupControl(fldMeta: widget.formDesc.fld('bestLanguage')!),
                 SwitchControl(fldMeta: widget.formDesc.fld('employed')!),
                 EnumsCheckGroupControl(fldMeta: widget.formDesc.fld('languagesFilter')!),
                 FilterChipControl(fldMeta: widget.formDesc.fld('favLangs')!),
+                FilterChipControl(fldMeta: widget.formDesc.fld('targetUser')!),
                 ChoiceChipControl(fldMeta: widget.formDesc.fld('myChosenLanguage')!),
+                ChoiceChipControl(fldMeta: widget.formDesc.fld('productTypeId')!),
               ],
             ),
           ),
@@ -111,17 +114,18 @@ class _CompleteFormState extends State<CompleteForm> {
 
 class ChoiceChipControl extends StatelessWidget {
   const ChoiceChipControl({
-    super.key, required this.fldMeta,
+    super.key,
+    required this.fldMeta,
   });
+
   final FieldUiMeta fldMeta;
 
   @override
   Widget build(BuildContext context) {
-    var opts=buildFldEnumChipOpts(fldMeta);
+    List<FormBuilderChipOption<String>>? opts = buildFldChipOpts(fldMeta);
     return FormBuilderChoiceChip<String>(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration: InputDecoration(
-          labelText: fldMeta.caption!),
+      decoration: InputDecoration(labelText: fldMeta.caption!),
       name: fldMeta.name,
       initialValue: opts!.first.value,
       options: opts,
@@ -130,10 +134,22 @@ class ChoiceChipControl extends StatelessWidget {
   }
 }
 
+List<FormBuilderChipOption<String>>? buildFldChipOpts(FieldUiMeta fldMeta) {
+  List<FormBuilderChipOption<String>>? opts;
+  if (fldMeta.hasEnum) {
+    opts = buildFldEnumChipOpts(fldMeta);
+  } else {
+    opts = buildFldSelsChipOpts(fldMeta);
+  }
+  return opts;
+}
+
 class FilterChipControl extends StatelessWidget {
   const FilterChipControl({
-    super.key, required this.fldMeta,
+    super.key,
+    required this.fldMeta,
   });
+
   final FieldUiMeta fldMeta;
 
   @override
@@ -143,7 +159,7 @@ class FilterChipControl extends StatelessWidget {
       decoration: InputDecoration(labelText: fldMeta.caption!),
       name: fldMeta.name,
       selectedColor: Colors.red,
-      options: buildFldEnumChipOpts(fldMeta)!,
+      options: buildFldChipOpts(fldMeta)!,
       onChanged: _onChanged,
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.minLength(1),
@@ -396,25 +412,30 @@ List<FormBuilderChipOption<String>>? buildFldEnumChipOpts(FieldUiMeta fldMeta) {
   return opts;
 }
 
-class EnumsDropdownControl extends HookWidget {
-  const EnumsDropdownControl({super.key, required this.formKey, required this.fldMeta});
+List<FormBuilderChipOption<String>>? buildFldSelsChipOpts(FieldUiMeta fldMeta) {
+  var tubeDel = locator<TubeDelegator>();
+  var value = tubeDel.selItemsOfFld(fldMeta)!;
+  var items = value.map((el) => el.description).toList();
+  print('items: $items');
+  var opts = value
+      .map((el) => FormBuilderChipOption(
+            value: el.key!,
+            avatar: CircleAvatar(child: Text(el.description![0])),
+            child: Text(el.label!),
+          ))
+      .toList();
+  return opts;
+}
+
+class DropdownControl extends HookWidget {
+  const DropdownControl({super.key, required this.formKey, required this.fldMeta});
 
   final GlobalKey<FormBuilderState> formKey;
   final FieldUiMeta fldMeta;
 
   @override
   Widget build(BuildContext context) {
-    var tubeDel = locator<TubeDelegator>();
-    EnumRec value = tubeDel.enumRec(fldMeta.enumType!)!;
-    var items = value.items?.map((el) => el.label).toList();
-    print('items: $items');
-    var opts = value.items
-        ?.map((el) => DropdownMenuItem(
-              alignment: AlignmentDirectional.center,
-              value: el.name!,
-              child: Text(el.label!),
-            ))
-        .toList();
+    List<DropdownMenuItem<String>>? opts = buildDropdownOpts(fldMeta);
 
     final genderHasError = useState(false);
     return FormBuilderDropdown<String>(
@@ -432,6 +453,42 @@ class EnumsDropdownControl extends HookWidget {
       valueTransformer: (val) => val?.toString(),
     );
   }
+}
+
+List<DropdownMenuItem<String>>? buildDropdownOpts(FieldUiMeta fldMeta) {
+  if(fldMeta.hasEnum){
+    return buildDropdownOptsForEnums(fldMeta);
+  }else{
+    return buildDropdownOptsForSels(fldMeta);
+  }
+}
+
+List<DropdownMenuItem<String>>? buildDropdownOptsForEnums(FieldUiMeta fldMeta) {
+  var tubeDel = locator<TubeDelegator>();
+  EnumRec value = tubeDel.enumRec(fldMeta.enumType!)!;
+  var items = value.items?.map((el) => el.label).toList();
+  print('items: $items');
+  var opts = value.items
+      ?.map((el) => DropdownMenuItem(
+            alignment: AlignmentDirectional.center,
+            value: el.name!,
+            child: Text(el.label!),
+          ))
+      .toList();
+  return opts;
+}
+
+List<DropdownMenuItem<String>>? buildDropdownOptsForSels(FieldUiMeta fldMeta) {
+  var tubeDel = locator<TubeDelegator>();
+  var value = tubeDel.selItemsOfFld(fldMeta)!;
+  var opts = value
+      .map((el) => DropdownMenuItem(
+            alignment: AlignmentDirectional.center,
+            value: el.key!,
+            child: Text(el.label!),
+          ))
+      .toList();
+  return opts;
 }
 
 class NumberInputControl extends HookWidget {
