@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/pubrecs.dart';
@@ -7,10 +9,11 @@ part 'calls.g.dart';
 // -- ResultSort -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultSort{
-  String? fld;
-  String? orderBy;
-  ResultSort({
+@immutable
+class ResultSort extends Equatable {
+  final String? fld;
+  final String? orderBy;
+  const ResultSort({
     this.fld,
     this.orderBy,
   });
@@ -19,19 +22,22 @@ class ResultSort{
       _$ResultSortFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResultSortToJson(this);
+  @override
+  List<Object?> get props => [fld, orderBy];
 }
 
 // -- QueryRequest -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class QueryRequest{
-  String? bundleName;
-  String? entName;
-  String? regionId;
-  Match? match;
-  ResultLimit? limit;
-  List<ResultSort>? orderBy;
-  QueryRequest({
+@immutable
+class QueryRequest extends Equatable {
+  final String? bundleName;
+  final String? entName;
+  final String? regionId;
+  final Match? match;
+  final ResultLimit? limit;
+  final List<ResultSort>? orderBy;
+  const QueryRequest({
     this.bundleName,
     this.entName,
     this.regionId,
@@ -44,16 +50,19 @@ class QueryRequest{
       _$QueryRequestFromJson(json);
 
   Map<String, dynamic> toJson() => _$QueryRequestToJson(this);
+  @override
+  List<Object?> get props => [bundleName, entName, regionId, match, limit, orderBy];
 }
 
 // -- NoteContent -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NoteContent{
-  String? key;
-  String? title;
-  String? body;
-  NoteContent({
+@immutable
+class NoteContent extends Equatable {
+  final String? key;
+  final String? title;
+  final String? body;
+  const NoteContent({
     this.key,
     this.title,
     this.body,
@@ -63,16 +72,19 @@ class NoteContent{
       _$NoteContentFromJson(json);
 
   Map<String, dynamic> toJson() => _$NoteContentToJson(this);
+  @override
+  List<Object?> get props => [key, title, body];
 }
 
 // -- ResultProtosWithMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultProtosWithMeta{
-  List<ProtoEnt>? ents;
-  int? start;
-  int? total;
-  ResultProtosWithMeta({
+@immutable
+class ResultProtosWithMeta extends Equatable {
+  final List<ProtoEnt>? ents;
+  final int? start;
+  final int? total;
+  const ResultProtosWithMeta({
     this.ents,
     this.start,
     this.total,
@@ -82,15 +94,18 @@ class ResultProtosWithMeta{
       _$ResultProtosWithMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResultProtosWithMetaToJson(this);
+  @override
+  List<Object?> get props => [ents, start, total];
 }
 
 // -- ResultLimit -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class ResultLimit{
-  int? startIndex;
-  int? limit;
-  ResultLimit({
+@immutable
+class ResultLimit extends Equatable {
+  final int? startIndex;
+  final int? limit;
+  const ResultLimit({
     this.startIndex,
     this.limit,
   });
@@ -99,16 +114,19 @@ class ResultLimit{
       _$ResultLimitFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResultLimitToJson(this);
+  @override
+  List<Object?> get props => [startIndex, limit];
 }
 
 // -- Match -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class Match{
-  List<MatchTerm>? terms;
-  List<NumberRange>? numberRanges;
-  List<DateTimeRange>? periods;
-  Match({
+@immutable
+class Match extends Equatable {
+  final List<MatchTerm>? terms;
+  final List<NumberRange>? numberRanges;
+  final List<DateTimeRange>? periods;
+  const Match({
     this.terms,
     this.numberRanges,
     this.periods,
@@ -118,16 +136,19 @@ class Match{
       _$MatchFromJson(json);
 
   Map<String, dynamic> toJson() => _$MatchToJson(this);
+  @override
+  List<Object?> get props => [terms, numberRanges, periods];
 }
 
 // -- NumberRange -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class NumberRange{
-  String? field;
-  int? from;
-  int? to;
-  NumberRange({
+@immutable
+class NumberRange extends Equatable {
+  final String? field;
+  final int? from;
+  final int? to;
+  const NumberRange({
     this.field,
     this.from,
     this.to,
@@ -137,19 +158,22 @@ class NumberRange{
       _$NumberRangeFromJson(json);
 
   Map<String, dynamic> toJson() => _$NumberRangeToJson(this);
+  @override
+  List<Object?> get props => [field, from, to];
 }
 
 // -- TestRec -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class TestRec{
-  String? stringFld;
-  double? numFld;
-  bool? boolFld;
-  String? tag;
-  Map<String, double>? numMap;
-  List<double>? nums;
-  TestRec({
+@immutable
+class TestRec extends Equatable {
+  final String? stringFld;
+  final double? numFld;
+  final bool? boolFld;
+  final String? tag;
+  final Map<String, double>? numMap;
+  final List<double>? nums;
+  const TestRec({
     this.stringFld,
     this.numFld,
     this.boolFld,
@@ -162,15 +186,18 @@ class TestRec{
       _$TestRecFromJson(json);
 
   Map<String, dynamic> toJson() => _$TestRecToJson(this);
+  @override
+  List<Object?> get props => [stringFld, numFld, boolFld, tag, numMap, nums];
 }
 
 // -- TenantKey -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class TenantKey{
-  String? regionId;
-  String? tenantId;
-  TenantKey({
+@immutable
+class TenantKey extends Equatable {
+  final String? regionId;
+  final String? tenantId;
+  const TenantKey({
     this.regionId,
     this.tenantId,
   });
@@ -179,19 +206,22 @@ class TenantKey{
       _$TenantKeyFromJson(json);
 
   Map<String, dynamic> toJson() => _$TenantKeyToJson(this);
+  @override
+  List<Object?> get props => [regionId, tenantId];
 }
 
 // -- PaginatedEntBytes -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class PaginatedEntBytes{
-  String? ent;
-  int? page;
+@immutable
+class PaginatedEntBytes extends Equatable {
+  final String? ent;
+  final int? page;
   @BytesConverter()
-  Uint8List? rsb;
-  int? totalPages;
-  int? totalResults;
-  PaginatedEntBytes({
+  final Uint8List? rsb;
+  final int? totalPages;
+  final int? totalResults;
+  const PaginatedEntBytes({
     this.ent,
     this.page,
     this.rsb,
@@ -203,16 +233,19 @@ class PaginatedEntBytes{
       _$PaginatedEntBytesFromJson(json);
 
   Map<String, dynamic> toJson() => _$PaginatedEntBytesToJson(this);
+  @override
+  List<Object?> get props => [ent, page, rsb, totalPages, totalResults];
 }
 
 // -- MatchTerm -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class MatchTerm{
-  String? field;
-  String? op;
-  Object? value;
-  MatchTerm({
+@immutable
+class MatchTerm extends Equatable {
+  final String? field;
+  final String? op;
+  final Object? value;
+  const MatchTerm({
     this.field,
     this.op,
     this.value,
@@ -222,16 +255,19 @@ class MatchTerm{
       _$MatchTermFromJson(json);
 
   Map<String, dynamic> toJson() => _$MatchTermToJson(this);
+  @override
+  List<Object?> get props => [field, op, value];
 }
 
 // -- DateTimeRange -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class DateTimeRange{
-  String? field;
-  DateTime? from;
-  DateTime? to;
-  DateTimeRange({
+@immutable
+class DateTimeRange extends Equatable {
+  final String? field;
+  final DateTime? from;
+  final DateTime? to;
+  const DateTimeRange({
     this.field,
     this.from,
     this.to,
@@ -241,32 +277,18 @@ class DateTimeRange{
       _$DateTimeRangeFromJson(json);
 
   Map<String, dynamic> toJson() => _$DateTimeRangeToJson(this);
-}
-
-// -- FullId -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-class FullId{
-  String? regionId;
-  String? id;
-  FullId({
-    this.regionId,
-    this.id,
-  });
-
-  factory FullId.fromJson(Map<String, dynamic> json) =>
-      _$FullIdFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FullIdToJson(this);
+  @override
+  List<Object?> get props => [field, from, to];
 }
 
 // -- PageLimit -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class PageLimit{
-  int? page;
-  int? pageSize;
-  PageLimit({
+@immutable
+class PageLimit extends Equatable {
+  final int? page;
+  final int? pageSize;
+  const PageLimit({
     this.page,
     this.pageSize,
   });
@@ -275,24 +297,47 @@ class PageLimit{
       _$PageLimitFromJson(json);
 
   Map<String, dynamic> toJson() => _$PageLimitToJson(this);
+  @override
+  List<Object?> get props => [page, pageSize];
+}
+
+// -- FullId -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class FullId extends Equatable {
+  final String? regionId;
+  final String? id;
+  const FullId({
+    this.regionId,
+    this.id,
+  });
+
+  factory FullId.fromJson(Map<String, dynamic> json) =>
+      _$FullIdFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FullIdToJson(this);
+  @override
+  List<Object?> get props => [regionId, id];
 }
 
 // -- UserObj -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class UserObj{
-  String? partyId;
-  String? lastName;
-  String? firstName;
-  String? name;
-  String? nickname;
-  String? gender;
-  DateTime? birthDate;
-  String? createdByUserLogin;
-  String? email;
-  int? icon;
-  int? color;
-  UserObj({
+@immutable
+class UserObj extends Equatable {
+  final String? partyId;
+  final String? lastName;
+  final String? firstName;
+  final String? name;
+  final String? nickname;
+  final String? gender;
+  final DateTime? birthDate;
+  final String? createdByUserLogin;
+  final String? email;
+  final int? icon;
+  final int? color;
+  const UserObj({
     this.partyId,
     this.lastName,
     this.firstName,
@@ -310,6 +355,8 @@ class UserObj{
       _$UserObjFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserObjToJson(this);
+  @override
+  List<Object?> get props => [partyId, lastName, firstName, name, nickname, gender, birthDate, createdByUserLogin, email, icon, color];
 }
 
 

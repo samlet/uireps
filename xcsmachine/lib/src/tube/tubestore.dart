@@ -21,6 +21,13 @@ class TubeStoreDelegator {
     await pullOras(prefetch.bis);
   }
 
+  /// Cleanup and preload.
+  Future<void> reload() async{
+    await tubeDb.clearAllStores();
+    await preload();
+  }
+
+  /// Pull mirrors data(via FoldDelegator) into ents-tbl.
   Future<void> pullEnts(List<FoldRegion> fetchEnts) async {
     for (var ent in fetchEnts) {
       _logger.info('pull ent ${ent.ent} ...');
@@ -30,6 +37,7 @@ class TubeStoreDelegator {
     }
   }
 
+  /// Pull assets(via preloader) into types-tbl.
   Future<void> pullAssets() async {
     _logger.info('pull all assets ...');
     List<NamedDataset> ds = await slab.pullAllAssets();
@@ -41,6 +49,7 @@ class TubeStoreDelegator {
     }
   }
 
+  /// Pull bundle-oras-data into oras-tbl.
   Future<void> pullOras(List<FullName> bis) async {
     for (var bi in bis) {
       _logger.info('pull bi ${bi.name} ...');
@@ -50,6 +59,7 @@ class TubeStoreDelegator {
     }
   }
 
+  /// Query available person via oras-tbl.
   Future<List<RecordSnapshot<int, Map<String, Object?>>>> availablePersons() async {
     var cond = [Filter.equals('partyTypeId', 'PERSON'), Filter.equals('statusId', 'PARTY_ENABLED')];
     var finder =

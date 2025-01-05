@@ -45,6 +45,7 @@ class TubeDb {
   }
 
   Future<void> clearAllStores() async {
+    _logger.info("clear all stores");
     for (var storeType in StoreType.values) {
       await clearAll(storeType);
     }

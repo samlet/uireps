@@ -49,6 +49,7 @@ void registerCachedSlabs() {
   locator.registerLazySingleton<Dio>(() {
     return cachedDio(samletToken);
   }, instanceName: 'cachedSlab');
+
   locator.registerLazySingleton(() {
     Dio dio = locator<Dio>(instanceName: 'cachedSlab');
     return CachedSlab(dio: dio);
@@ -62,15 +63,22 @@ void registerDio() {
 }
 
 void registerDelegator() {
+  SrvMetas srvMods = SrvMetas.fromJson(tube.srvMetas);
   locator.registerLazySingleton<TubeDisp>(() {
     Dio dio = locator<Dio>(instanceName: 'slab');
-    SrvMetas srvMods = SrvMetas.fromJson(tube.srvMetas);
     var tubeDisp = TubeDisp(dio, callMetas: srvMods);
     return tubeDisp;
   });
 
+  locator.registerLazySingleton<TubeDisp>(() {
+    Dio dio = locator<Dio>(instanceName: 'cachedSlab');
+    var tubeDisp = TubeDisp(dio, callMetas: srvMods, callOpt: CallOpt(callMode: CallMode.get));
+    return tubeDisp;
+  }, instanceName: 'cachedDisp');
+
   locator.registerLazySingleton<TubeDelegator>(() {
     var tubeDisp = locator<TubeDisp>();
+    var cachedDisp = locator<TubeDisp>(instanceName: 'cachedDisp');
     TubeDelegator tubeDel = TubeDelegator(
         srvMetas: tube.srvMetas,
         recletsMap: tube.recletsMap,
@@ -81,7 +89,8 @@ void registerDelegator() {
         actletsMap: tube.actletsMap,
         selsRaw: tube.sels,
         enumRecs: tube.enumRecs,
-        dispatcher: tubeDisp);
+        dispatcher: tubeDisp,
+        cachedDispatcher: cachedDisp);
     return tubeDel;
   });
 }
@@ -120,9 +129,9 @@ Future<void> setupComps() async {
 /// Start app with logger.
 Future<void> setupApp({AppProfile? appProfile}) async {
   initLogger();
-  if(appProfile!=null){
+  if (appProfile != null) {
     locator.registerSingleton(appProfile);
-  }else{
+  } else {
     registerAppProfile();
   }
   await setupComps();
@@ -137,15 +146,14 @@ Future<void> setupApp({AppProfile? appProfile}) async {
 Future<void> startApp({AppProfile? appProfile}) async {
   await tube.setupApp(appProfile: appProfile);
 
-  var profile=locator<AppProfile>();
-  if(!profile.offline) {
+  var profile = locator<AppProfile>();
+  if (!profile.offline) {
     var storeDel = locator<TubeStoreDelegator>();
     await storeDel.preload();
     var rs = await storeDel.availablePersons();
     _logger.info('total users: ${rs.length}');
   }
 
-  var appName=profile.appName;
+  var appName = profile.appName;
   _logger.info('tube-app [$appName] started.');
 }
-

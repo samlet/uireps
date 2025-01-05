@@ -9,6 +9,7 @@ Future<void> main(List<String> arguments) async {
   print('form names: ${frm.fldNames}');
   FieldUiMeta? fld = frm.fld('productName');
   print('fld: ${fld?.fldName}: ${fld?.caption}');
+  print(fld);
 
   // testSelItems(frm, tubeDel);
   // get sels-items from field.

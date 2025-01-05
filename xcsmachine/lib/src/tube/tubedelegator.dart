@@ -31,6 +31,7 @@ class TubeDelegator {
 
   /// Dynamic service dispatcher
   final TubeDisp dispatcher;
+  late TubeDisp cachedDispatcher;
 
   /// From srvs
   late SrvMetas callModel;
@@ -59,10 +60,12 @@ class TubeDelegator {
       required this.entletsMap,
       required this.enttilesMap,
       required this.dispatcher,
+      TubeDisp? cachedDispatcher,
       required this.entProps,
       required this.actletsMap,
       required this.selsRaw,
       required this.enumRecs}) {
+    this.cachedDispatcher = cachedDispatcher ?? dispatcher;
     callModel = SrvMetas.fromJson(srvMetas);
     serviceModels =
         callModel.srvs!.entries.map((el) => MapEntry(el.key, ServiceModel(el.value))).toMap();
@@ -105,15 +108,16 @@ class TubeDelegator {
         .toMap();
   }
 
-  Future<Object> invoke(String methodKey, Map<String, Object?>? inputParams) async {
-    return await dispatcher.invoke(methodKey, inputParams ?? {});
+  Future<Object> invoke(String methodKey, Map<String, Object?>? inputParams, {bool cached=false}) async {
+    var disp=cached?cachedDispatcher:dispatcher;
+    return await disp.invoke(methodKey, inputParams ?? {});
   }
 
-  Future<List> invokeSelection(String alias) async {
+  Future<List> invokeSelection(String alias, {bool cached=false}) async {
     FldSels? fldSels = allSels[alias];
     if (fldSels != null) {
       _logger.info('invoke selection $alias: ${fldSels.fld.sels}, params: ${fldSels.fld.params}');
-      var recs = await invoke(fldSels.fld.sels!, fldSels.fld.params) as List;
+      var recs = await invoke(fldSels.fld.sels!, fldSels.fld.params, cached: cached) as List;
       _logger.info('total result: ${recs.length}');
       return recs;
     }
@@ -144,7 +148,7 @@ class TubeDelegator {
   }
 
   /// Get enum items.
-  EnumRec? enumRec(String enumName){
+  EnumRec? enumRec(String enumName) {
     return enumRecMap[enumName];
   }
 
@@ -160,8 +164,8 @@ class TubeDelegator {
   }
 
   /// Get enum items for field.
-  EnumRec? enumRecOfFld(FieldUiMeta fld){
-    if(fld.enumType!=null){
+  EnumRec? enumRecOfFld(FieldUiMeta fld) {
+    if (fld.enumType != null) {
       return enumRec(fld.enumType!);
     }
     return null;
@@ -179,7 +183,7 @@ class TubeDelegator {
     return recFormMap[recName];
   }
 
-  String formCaption(String recName){
+  String formCaption(String recName) {
     return recForm(recName)!.formMeta.caption!;
   }
 
@@ -252,7 +256,9 @@ class FormDescr {
   }
 
   Set<String> get fldNames => flds.keys.toSet();
+
   String get labelSubmit => formMeta.labelSubmit!;
+
   String get labelReset => formMeta.labelReset!;
 }
 

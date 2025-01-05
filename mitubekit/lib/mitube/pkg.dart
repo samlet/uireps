@@ -3,6 +3,7 @@
 export 'calls.dart';
 export 'slabs.dart';
 export 'comps.dart';
+export 'helper.dart';
 
 // metas
 export 'ents.dart';

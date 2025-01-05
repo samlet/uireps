@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
 import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/pubrecs.dart';
@@ -7,12 +9,13 @@ part 'formmetas.g.dart';
 // -- SrvCtxMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvCtxMeta{
-  String? moduleName;
-  String? name;
-  String? bundleName;
-  String? callType;
-  SrvCtxMeta({
+@immutable
+class SrvCtxMeta extends Equatable {
+  final String? moduleName;
+  final String? name;
+  final String? bundleName;
+  final String? callType;
+  const SrvCtxMeta({
     this.moduleName,
     this.name,
     this.bundleName,
@@ -23,20 +26,23 @@ class SrvCtxMeta{
       _$SrvCtxMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$SrvCtxMetaToJson(this);
+  @override
+  List<Object?> get props => [moduleName, name, bundleName, callType];
 }
 
 // -- SrvParamMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvParamMeta{
-  String? name;
-  String? dartType;
-  String? fldType;
-  String? fldGroup;
-  bool? optional;
-  String? conv;
-  String? protoName;
-  SrvParamMeta({
+@immutable
+class SrvParamMeta extends Equatable {
+  final String? name;
+  final String? dartType;
+  final String? fldType;
+  final String? fldGroup;
+  final bool? optional;
+  final String? conv;
+  final String? protoName;
+  const SrvParamMeta({
     this.name,
     this.dartType,
     this.fldType,
@@ -50,20 +56,23 @@ class SrvParamMeta{
       _$SrvParamMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$SrvParamMetaToJson(this);
+  @override
+  List<Object?> get props => [name, dartType, fldType, fldGroup, optional, conv, protoName];
 }
 
 // -- SrvMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvMeta{
-  String? methodKey;
-  String? alias;
-  String? name;
-  bool? selection;
-  SrvCtxMeta? ctx;
-  List<SrvParamMeta>? parameters;
-  SrvResultMeta? result;
-  SrvMeta({
+@immutable
+class SrvMeta extends Equatable {
+  final String? methodKey;
+  final String? alias;
+  final String? name;
+  final bool? selection;
+  final SrvCtxMeta? ctx;
+  final List<SrvParamMeta>? parameters;
+  final SrvResultMeta? result;
+  const SrvMeta({
     this.methodKey,
     this.alias,
     this.name,
@@ -77,15 +86,18 @@ class SrvMeta{
       _$SrvMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$SrvMetaToJson(this);
+  @override
+  List<Object?> get props => [methodKey, alias, name, selection, ctx, parameters, result];
 }
 
 // -- SrvMetas -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvMetas{
-  String? modName;
-  Map<String, SrvMeta>? srvs;
-  SrvMetas({
+@immutable
+class SrvMetas extends Equatable {
+  final String? modName;
+  final Map<String, SrvMeta>? srvs;
+  const SrvMetas({
     this.modName,
     this.srvs,
   });
@@ -94,18 +106,21 @@ class SrvMetas{
       _$SrvMetasFromJson(json);
 
   Map<String, dynamic> toJson() => _$SrvMetasToJson(this);
+  @override
+  List<Object?> get props => [modName, srvs];
 }
 
 // -- SrvResultMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SrvResultMeta{
-  bool? returnVoid;
-  String? conv;
-  String? elType;
-  String? elName;
-  String? elIdFld;
-  SrvResultMeta({
+@immutable
+class SrvResultMeta extends Equatable {
+  final bool? returnVoid;
+  final String? conv;
+  final String? elType;
+  final String? elName;
+  final String? elIdFld;
+  const SrvResultMeta({
     this.returnVoid,
     this.conv,
     this.elType,
@@ -117,27 +132,30 @@ class SrvResultMeta{
       _$SrvResultMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$SrvResultMetaToJson(this);
+  @override
+  List<Object?> get props => [returnVoid, conv, elType, elName, elIdFld];
 }
 
 // -- FieldUiMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FieldUiMeta{
-  String? fldName;
-  String? fldType;
-  String? fldTpl;
-  String? domainType;
-  String? caption;
-  String? defaultValue;
-  String? morph;
-  String? dartType;
-  String? javaType;
-  String? enumType;
-  bool? collection;
-  FldSpec? fldSpec;
-  List<FldBinderInfo>? binders;
-  FieldSliderMeta? slider;
-  FieldUiMeta({
+@immutable
+class FieldUiMeta extends Equatable {
+  final String? fldName;
+  final String? fldType;
+  final String? fldTpl;
+  final String? domainType;
+  final String? caption;
+  final String? defaultValue;
+  final String? morph;
+  final String? dartType;
+  final String? javaType;
+  final String? enumType;
+  final bool? collection;
+  final FldSpec? fldSpec;
+  final List<FldBinderInfo>? binders;
+  final FieldSliderMeta? slider;
+  const FieldUiMeta({
     this.fldName,
     this.fldType,
     this.fldTpl,
@@ -158,15 +176,18 @@ class FieldUiMeta{
       _$FieldUiMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$FieldUiMetaToJson(this);
+  @override
+  List<Object?> get props => [fldName, fldType, fldTpl, domainType, caption, defaultValue, morph, dartType, javaType, enumType, collection, fldSpec, binders, slider];
 }
 
 // -- FieldTileMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FieldTileMeta{
-  String? loc;
-  FieldUiMeta? fld;
-  FieldTileMeta({
+@immutable
+class FieldTileMeta extends Equatable {
+  final String? loc;
+  final FieldUiMeta? fld;
+  const FieldTileMeta({
     this.loc,
     this.fld,
   });
@@ -175,22 +196,25 @@ class FieldTileMeta{
       _$FieldTileMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$FieldTileMetaToJson(this);
+  @override
+  List<Object?> get props => [loc, fld];
 }
 
 // -- FormMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FormMeta{
-  String? formKey;
-  String? formName;
-  String? alias;
-  String? caption;
-  String? locale;
-  String? keyFld;
-  String? labelSubmit;
-  String? labelReset;
-  Map<String, FieldUiMeta>? flds;
-  FormMeta({
+@immutable
+class FormMeta extends Equatable {
+  final String? formKey;
+  final String? formName;
+  final String? alias;
+  final String? caption;
+  final String? locale;
+  final String? keyFld;
+  final String? labelSubmit;
+  final String? labelReset;
+  final Map<String, FieldUiMeta>? flds;
+  const FormMeta({
     this.formKey,
     this.formName,
     this.alias,
@@ -206,18 +230,21 @@ class FormMeta{
       _$FormMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$FormMetaToJson(this);
+  @override
+  List<Object?> get props => [formKey, formName, alias, caption, locale, keyFld, labelSubmit, labelReset, flds];
 }
 
 // -- TileMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class TileMeta{
-  String? tileName;
-  String? alias;
-  bool? available;
-  Map<String, FieldTileMeta>? flds;
-  Map<String, String?>? locs;
-  TileMeta({
+@immutable
+class TileMeta extends Equatable {
+  final String? tileName;
+  final String? alias;
+  final bool? available;
+  final Map<String, FieldTileMeta>? flds;
+  final Map<String, String?>? locs;
+  const TileMeta({
     this.tileName,
     this.alias,
     this.available,
@@ -229,15 +256,18 @@ class TileMeta{
       _$TileMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$TileMetaToJson(this);
+  @override
+  List<Object?> get props => [tileName, alias, available, flds, locs];
 }
 
 // -- EntInfo -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class EntInfo{
-  String? name;
-  EntProp? entProp;
-  EntInfo({
+@immutable
+class EntInfo extends Equatable {
+  final String? name;
+  final EntProp? entProp;
+  const EntInfo({
     this.name,
     this.entProp,
   });
@@ -246,14 +276,17 @@ class EntInfo{
       _$EntInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$EntInfoToJson(this);
+  @override
+  List<Object?> get props => [name, entProp];
 }
 
 // -- EntProp -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class EntProp{
-  Map<String, FldProp>? flds;
-  EntProp({
+@immutable
+class EntProp extends Equatable {
+  final Map<String, FldProp>? flds;
+  const EntProp({
     this.flds,
   });
 
@@ -261,16 +294,19 @@ class EntProp{
       _$EntPropFromJson(json);
 
   Map<String, dynamic> toJson() => _$EntPropToJson(this);
+  @override
+  List<Object?> get props => [flds];
 }
 
 // -- FldProp -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FldProp{
-  String? alias;
-  String? sels;
-  Map<String, String?>? params;
-  FldProp({
+@immutable
+class FldProp extends Equatable {
+  final String? alias;
+  final String? sels;
+  final Map<String, String?>? params;
+  const FldProp({
     this.alias,
     this.sels,
     this.params,
@@ -280,16 +316,19 @@ class FldProp{
       _$FldPropFromJson(json);
 
   Map<String, dynamic> toJson() => _$FldPropToJson(this);
+  @override
+  List<Object?> get props => [alias, sels, params];
 }
 
 // -- FldSpec -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FldSpec{
-  String? name;
-  bool? mandatory;
-  String? sels;
-  FldSpec({
+@immutable
+class FldSpec extends Equatable {
+  final String? name;
+  final bool? mandatory;
+  final String? sels;
+  const FldSpec({
     this.name,
     this.mandatory,
     this.sels,
@@ -299,15 +338,18 @@ class FldSpec{
       _$FldSpecFromJson(json);
 
   Map<String, dynamic> toJson() => _$FldSpecToJson(this);
+  @override
+  List<Object?> get props => [name, mandatory, sels];
 }
 
 // -- SelsRec -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SelsRec{
-  String? selsAlias;
-  List<Map<String, dynamic>>? sels;
-  SelsRec({
+@immutable
+class SelsRec extends Equatable {
+  final String? selsAlias;
+  final List<Map<String, dynamic>>? sels;
+  const SelsRec({
     this.selsAlias,
     this.sels,
   });
@@ -316,17 +358,20 @@ class SelsRec{
       _$SelsRecFromJson(json);
 
   Map<String, dynamic> toJson() => _$SelsRecToJson(this);
+  @override
+  List<Object?> get props => [selsAlias, sels];
 }
 
 // -- SelItem -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class SelItem{
-  String? key;
-  String? description;
-  String? label;
-  String? parentTypeId;
-  SelItem({
+@immutable
+class SelItem extends Equatable {
+  final String? key;
+  final String? description;
+  final String? label;
+  final String? parentTypeId;
+  const SelItem({
     this.key,
     this.description,
     this.label,
@@ -337,16 +382,19 @@ class SelItem{
       _$SelItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$SelItemToJson(this);
+  @override
+  List<Object?> get props => [key, description, label, parentTypeId];
 }
 
 // -- EnumRec -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class EnumRec{
-  String? name;
-  String? label;
-  List<EnumItem>? items;
-  EnumRec({
+@immutable
+class EnumRec extends Equatable {
+  final String? name;
+  final String? label;
+  final List<EnumItem>? items;
+  const EnumRec({
     this.name,
     this.label,
     this.items,
@@ -356,16 +404,19 @@ class EnumRec{
       _$EnumRecFromJson(json);
 
   Map<String, dynamic> toJson() => _$EnumRecToJson(this);
+  @override
+  List<Object?> get props => [name, label, items];
 }
 
 // -- EnumItem -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class EnumItem{
-  int? ordinal;
-  String? name;
-  String? label;
-  EnumItem({
+@immutable
+class EnumItem extends Equatable {
+  final int? ordinal;
+  final String? name;
+  final String? label;
+  const EnumItem({
     this.ordinal,
     this.name,
     this.label,
@@ -375,16 +426,19 @@ class EnumItem{
       _$EnumItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$EnumItemToJson(this);
+  @override
+  List<Object?> get props => [ordinal, name, label];
 }
 
 // -- FldBinderInfo -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FldBinderInfo{
-  String? kind;
-  String? role;
-  String? target;
-  FldBinderInfo({
+@immutable
+class FldBinderInfo extends Equatable {
+  final String? kind;
+  final String? role;
+  final String? target;
+  const FldBinderInfo({
     this.kind,
     this.role,
     this.target,
@@ -394,16 +448,19 @@ class FldBinderInfo{
       _$FldBinderInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$FldBinderInfoToJson(this);
+  @override
+  List<Object?> get props => [kind, role, target];
 }
 
 // -- FieldSliderMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
-class FieldSliderMeta{
-  double? min;
-  double? max;
-  int? divisions;
-  FieldSliderMeta({
+@immutable
+class FieldSliderMeta extends Equatable {
+  final double? min;
+  final double? max;
+  final int? divisions;
+  const FieldSliderMeta({
     this.min,
     this.max,
     this.divisions,
@@ -413,6 +470,8 @@ class FieldSliderMeta{
       _$FieldSliderMetaFromJson(json);
 
   Map<String, dynamic> toJson() => _$FieldSliderMetaToJson(this);
+  @override
+  List<Object?> get props => [min, max, divisions];
 }
 
 

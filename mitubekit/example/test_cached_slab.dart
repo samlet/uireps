@@ -14,9 +14,9 @@ Future<void> main(List<String> arguments) async {
   // var dio = cachedDio(samletToken);
   // var cachedSlabs = CachedSlab(dio: dio);
   registerCachedSlabs();
-  var cachedSlabs=locator<CachedSlab>();
+  var cachedSlab = locator<CachedSlab>();
   try {
-    var partyTypes = await cachedSlabs.slabs.allPartyTypes();
+    var partyTypes = await cachedSlab.slabs.allPartyTypes();
     for (var value in partyTypes) {
       print('- $value');
       print('- rawProto: ${value['rawBytes']}');
@@ -26,9 +26,17 @@ Future<void> main(List<String> arguments) async {
 
     // call again
     print("---> call again.");
-    partyTypes = await cachedSlabs.slabs.allPartyTypes();
+    partyTypes = await cachedSlab.slabs.allPartyTypes();
     print('<--- call again done.');
+
+    // query uom
+    List<Map<String, dynamic>> uomEls =
+        await cachedSlab.slabs.getUomTypes(uomTypeId: 'WEIGHT_MEASURE');
+    for (var el in uomEls) {
+      print('- $el');
+    }
   } on DioException catch (ex, s) {
     errDioProc(ex, s);
   }
 }
+
