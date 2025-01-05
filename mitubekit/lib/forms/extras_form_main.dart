@@ -7,10 +7,22 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:xcsmachine/formmetas.dart';
 
-void main() {
+import '../platform/desktop.dart';
+import '../mitube/pkg.dart' as tube;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var appProf = await desktopProfile();
+  await tube.startApp(appProfile: appProf);
+
   runApp(const MyApp());
 }
+
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -40,9 +52,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 void _onChanged(dynamic val) {
-  if(val is Uint8List){
+  if (val is Uint8List) {
     debugPrint(base64Encode(val).substring(0, 20));
-  }else {
+  } else {
     debugPrint(val.toString());
   }
 }
@@ -73,15 +85,14 @@ class MyHomePageState extends State<MyHomePage> {
                   asyncItems: (filter) async {
                     await Future.delayed(const Duration(seconds: 1));
                     return allCountries
-                        .where((element) => element
-                            .toLowerCase()
-                            .contains(filter.toLowerCase()))
+                        .where((element) => element.toLowerCase().contains(filter.toLowerCase()))
                         .toList();
                   },
                   decoration: const InputDecoration(
                     labelText: 'Searchable Dropdown Online',
                   ),
                 ),
+                PartyTypeSelector(),
                 FormBuilderSearchableDropdown<String>(
                   popupProps: const PopupProps.menu(showSearchBox: true),
                   dropdownSearchDecoration: const InputDecoration(
@@ -91,8 +102,7 @@ class MyHomePageState extends State<MyHomePage> {
                   name: 'searchable_dropdown_offline',
                   items: allCountries,
                   onChanged: _onChanged,
-                  decoration: const InputDecoration(
-                      labelText: 'Searchable Dropdown Offline'),
+                  decoration: const InputDecoration(labelText: 'Searchable Dropdown Offline'),
                   filterFn: (country, filter) =>
                       country.toLowerCase().contains(filter.toLowerCase()),
                 ),
@@ -124,8 +134,7 @@ class MyHomePageState extends State<MyHomePage> {
                         ..sort((a, b) => a
                             .toLowerCase()
                             .indexOf(lowercaseQuery)
-                            .compareTo(
-                                b.toLowerCase().indexOf(lowercaseQuery)));
+                            .compareTo(b.toLowerCase().indexOf(lowercaseQuery)));
                     } else {
                       return allCountries;
                     }
@@ -164,8 +173,7 @@ class MyHomePageState extends State<MyHomePage> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState?.saveAndValidate() ??
-                              false) {
+                          if (_formKey.currentState?.saveAndValidate() ?? false) {
                             // debugPrint(_formKey.currentState?.value.toString());
                             printStates();
                           } else {
@@ -198,9 +206,44 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   void printStates() {
-    var map=HashMap.from(_formKey.currentState?.value??{});
+    var map = HashMap.from(_formKey.currentState?.value ?? {});
     map.remove('signature');
-    debugPrint('=>'+map.toString());
+    debugPrint('=>' + map.toString());
+  }
+}
+
+class PartyTypeSelector extends StatelessWidget {
+  const PartyTypeSelector({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderSearchableDropdown<SelItem>(
+      name: 'searchable_parties',
+      onChanged: _onChanged,
+      itemAsString: (el) => '${el.label} (${el.key})',
+      compareFn: (k1, k2) => k1.key == k2.key,
+      asyncItems: (filter) async {
+        // await Future.delayed(const Duration(seconds: 1));
+        var tubeDel = tube.locator<tube.TubeDelegator>();
+        List pts = await tubeDel.invokeSelection('partyTypes', cached: true);
+
+        var items = pts
+            .map((el) => SelItem(key: el['partyTypeId'], label: el['description']))
+            .toList();
+        for (var value in items) {
+          debugPrint('- $value');
+        }
+        return items
+            .where((element) =>
+                element.label!.toLowerCase().contains(filter.toLowerCase()))
+            .toList();
+      },
+      decoration: const InputDecoration(
+        labelText: 'Searchable Parties',
+      ),
+    );
   }
 }
 
@@ -214,9 +257,7 @@ class Contact {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Contact &&
-          runtimeType == other.runtimeType &&
-          name == other.name;
+      other is Contact && runtimeType == other.runtimeType && name == other.name;
 
   @override
   int get hashCode => name.hashCode;
