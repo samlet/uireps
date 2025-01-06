@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
-import 'package:xcsmachine/pubrecs.dart';
+import 'package:xcsmachine/tubepubs.dart';
 part 'calls.g.dart';
 
 // -- ResultSort -- 
@@ -281,26 +281,6 @@ class DateTimeRange extends Equatable {
   List<Object?> get props => [field, from, to];
 }
 
-// -- PageLimit -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class PageLimit extends Equatable {
-  final int? page;
-  final int? pageSize;
-  const PageLimit({
-    this.page,
-    this.pageSize,
-  });
-
-  factory PageLimit.fromJson(Map<String, dynamic> json) =>
-      _$PageLimitFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
-  @override
-  List<Object?> get props => [page, pageSize];
-}
-
 // -- FullId -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -321,11 +301,31 @@ class FullId extends Equatable {
   List<Object?> get props => [regionId, id];
 }
 
+// -- PageLimit -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PageLimit extends Equatable {
+  final int? page;
+  final int? pageSize;
+  const PageLimit({
+    this.page,
+    this.pageSize,
+  });
+
+  factory PageLimit.fromJson(Map<String, dynamic> json) =>
+      _$PageLimitFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
+  @override
+  List<Object?> get props => [page, pageSize];
+}
+
 // -- UserObj -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class UserObj extends Equatable {
+class UserObj extends Equatable implements IPresentElement{
   final String? partyId;
   final String? lastName;
   final String? firstName;
@@ -335,8 +335,11 @@ class UserObj extends Equatable {
   final DateTime? birthDate;
   final String? createdByUserLogin;
   final String? email;
+  final double? balance;
   final int? icon;
   final int? color;
+  @JsonKey(toJson: stringMultimapToJson, fromJson: stringMultimapFromJson)
+  final Multimap<String, String>? labels;
   const UserObj({
     this.partyId,
     this.lastName,
@@ -347,8 +350,10 @@ class UserObj extends Equatable {
     this.birthDate,
     this.createdByUserLogin,
     this.email,
+    this.balance,
     this.icon,
     this.color,
+    this.labels,
   });
 
   factory UserObj.fromJson(Map<String, dynamic> json) =>
@@ -356,7 +361,7 @@ class UserObj extends Equatable {
 
   Map<String, dynamic> toJson() => _$UserObjToJson(this);
   @override
-  List<Object?> get props => [partyId, lastName, firstName, name, nickname, gender, birthDate, createdByUserLogin, email, icon, color];
+  List<Object?> get props => [partyId, lastName, firstName, name, nickname, gender, birthDate, createdByUserLogin, email, balance, icon, color, labels];
 }
 
 

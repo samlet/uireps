@@ -17,21 +17,27 @@ Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) =>
       if (instance.ent case final value?) 'ent': value,
     };
 
-ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
-      regionId: json['regionId'] as String?,
-      entType: json['entType'] as String?,
-      key: json['key'] as String?,
-      lastTs: (json['lastTs'] as num?)?.toInt(),
-      data: const BytesConverter().fromJson(json['data'] as String?),
+FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
+      pkg: json['pkg'] as String?,
+      name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
-      if (instance.regionId case final value?) 'regionId': value,
-      if (instance.entType case final value?) 'entType': value,
-      if (instance.key case final value?) 'key': value,
-      if (instance.lastTs case final value?) 'lastTs': value,
-      if (const BytesConverter().toJson(instance.data) case final value?)
-        'data': value,
+Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
+      if (instance.pkg case final value?) 'pkg': value,
+      if (instance.name case final value?) 'name': value,
+    };
+
+NamedDataset _$NamedDatasetFromJson(Map<String, dynamic> json) => NamedDataset(
+      name: json['name'] as String?,
+      rows: (json['rows'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
+    );
+
+Map<String, dynamic> _$NamedDatasetToJson(NamedDataset instance) =>
+    <String, dynamic>{
+      if (instance.name case final value?) 'name': value,
+      if (instance.rows case final value?) 'rows': value,
     };
 
 BundleJoint _$BundleJointFromJson(Map<String, dynamic> json) => BundleJoint(
@@ -102,27 +108,21 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
-NamedDataset _$NamedDatasetFromJson(Map<String, dynamic> json) => NamedDataset(
-      name: json['name'] as String?,
-      rows: (json['rows'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>)
-          .toList(),
+ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
+      regionId: json['regionId'] as String?,
+      entType: json['entType'] as String?,
+      key: json['key'] as String?,
+      lastTs: (json['lastTs'] as num?)?.toInt(),
+      data: const BytesConverter().fromJson(json['data'] as String?),
     );
 
-Map<String, dynamic> _$NamedDatasetToJson(NamedDataset instance) =>
-    <String, dynamic>{
-      if (instance.name case final value?) 'name': value,
-      if (instance.rows case final value?) 'rows': value,
-    };
-
-FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
-      pkg: json['pkg'] as String?,
-      name: json['name'] as String?,
-    );
-
-Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
-      if (instance.pkg case final value?) 'pkg': value,
-      if (instance.name case final value?) 'name': value,
+Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.entType case final value?) 'entType': value,
+      if (instance.key case final value?) 'key': value,
+      if (instance.lastTs case final value?) 'lastTs': value,
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
     };
 
 OptSels _$OptSelsFromJson(Map<String, dynamic> json) => OptSels(
@@ -136,6 +136,21 @@ Map<String, dynamic> _$OptSelsToJson(OptSels instance) => <String, dynamic>{
       if (instance.productId case final value?) 'productId': value,
       if (instance.sels?.map((e) => e.toJson()).toList() case final value?)
         'sels': value,
+    };
+
+OptSel _$OptSelFromJson(Map<String, dynamic> json) => OptSel(
+      assemblerId: json['assemblerId'] as String?,
+      optIds:
+          (json['optIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      variantProds: (json['variantProds'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String?),
+      ),
+    );
+
+Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
+      if (instance.assemblerId case final value?) 'assemblerId': value,
+      if (instance.optIds case final value?) 'optIds': value,
+      if (instance.variantProds case final value?) 'variantProds': value,
     };
 
 ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
@@ -154,19 +169,4 @@ Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
       if (instance.placeId case final value?) 'placeId': value,
       if (instance.placeType case final value?) 'placeType': value,
       if (instance.note case final value?) 'note': value,
-    };
-
-OptSel _$OptSelFromJson(Map<String, dynamic> json) => OptSel(
-      assemblerId: json['assemblerId'] as String?,
-      optIds:
-          (json['optIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      variantProds: (json['variantProds'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String?),
-      ),
-    );
-
-Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
-      if (instance.assemblerId case final value?) 'assemblerId': value,
-      if (instance.optIds case final value?) 'optIds': value,
-      if (instance.variantProds case final value?) 'variantProds': value,
     };

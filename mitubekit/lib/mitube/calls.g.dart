@@ -249,8 +249,10 @@ UserObj _$UserObjFromJson(Map<String, dynamic> json) => UserObj(
           json['birthDate'], const OffsetDateTimeConverter().fromJson),
       createdByUserLogin: json['createdByUserLogin'] as String?,
       email: json['email'] as String?,
+      balance: (json['balance'] as num?)?.toDouble(),
       icon: (json['icon'] as num?)?.toInt(),
       color: (json['color'] as num?)?.toInt(),
+      labels: stringMultimapFromJson(json['labels'] as Map<String, dynamic>?),
     );
 
 Map<String, dynamic> _$UserObjToJson(UserObj instance) => <String, dynamic>{
@@ -267,6 +269,8 @@ Map<String, dynamic> _$UserObjToJson(UserObj instance) => <String, dynamic>{
       if (instance.createdByUserLogin case final value?)
         'createdByUserLogin': value,
       if (instance.email case final value?) 'email': value,
+      if (instance.balance case final value?) 'balance': value,
       if (instance.icon case final value?) 'icon': value,
       if (instance.color case final value?) 'color': value,
+      'labels': stringMultimapToJson(instance.labels),
     };

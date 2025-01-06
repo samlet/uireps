@@ -7,7 +7,7 @@ FieldUiMeta getFormFldMeta(String fldPath, Map<String, dynamic> metasMap) {
   return fld;
 }
 
-FieldTileMeta? getTileFldMeta(String fldPath, Map<String, Map<String, Object>> metasMap) {
+FieldTileMeta? getTileFldMeta(String fldPath, Map<String, Map<String, Object?>> metasMap) {
   var fldMap = JsonPath(fldPath).readValues(metasMap).firstOrNull;
   if (fldMap != null) {
     return FieldTileMeta.fromJson(fldMap as Map<String, dynamic>);

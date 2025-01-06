@@ -108,6 +108,7 @@ FieldUiMeta _$FieldUiMetaFromJson(Map<String, dynamic> json) => FieldUiMeta(
       fldTpl: json['fldTpl'] as String?,
       domainType: json['domainType'] as String?,
       caption: json['caption'] as String?,
+      hint: json['hint'] as String?,
       defaultValue: json['defaultValue'] as String?,
       morph: json['morph'] as String?,
       dartType: json['dartType'] as String?,
@@ -132,6 +133,7 @@ Map<String, dynamic> _$FieldUiMetaToJson(FieldUiMeta instance) =>
       if (instance.fldTpl case final value?) 'fldTpl': value,
       if (instance.domainType case final value?) 'domainType': value,
       if (instance.caption case final value?) 'caption': value,
+      if (instance.hint case final value?) 'hint': value,
       if (instance.defaultValue case final value?) 'defaultValue': value,
       if (instance.morph case final value?) 'morph': value,
       if (instance.dartType case final value?) 'dartType': value,
@@ -167,6 +169,7 @@ FormMeta _$FormMetaFromJson(Map<String, dynamic> json) => FormMeta(
       keyFld: json['keyFld'] as String?,
       labelSubmit: json['labelSubmit'] as String?,
       labelReset: json['labelReset'] as String?,
+      profile: json['profile'] as Map<String, dynamic>?,
       flds: (json['flds'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, FieldUiMeta.fromJson(e as Map<String, dynamic>)),
       ),
@@ -181,6 +184,7 @@ Map<String, dynamic> _$FormMetaToJson(FormMeta instance) => <String, dynamic>{
       if (instance.keyFld case final value?) 'keyFld': value,
       if (instance.labelSubmit case final value?) 'labelSubmit': value,
       if (instance.labelReset case final value?) 'labelReset': value,
+      if (instance.profile case final value?) 'profile': value,
       if (instance.flds?.map((k, e) => MapEntry(k, e.toJson()))
           case final value?)
         'flds': value,

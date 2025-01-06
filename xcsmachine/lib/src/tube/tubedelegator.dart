@@ -13,15 +13,15 @@ final _logger = Logger('TubeDelegator');
 
 class TubeDelegator {
   /// From recs
-  final Map<String, Map<String, Object>> recletsMap;
-  final Map<String, Map<String, Object>> rectilesMap;
+  final Map<String, Map<String, Object?>> recletsMap;
+  final Map<String, Map<String, Object?>> rectilesMap;
   late Map<String, FormDescr> recFormMap;
   late Map<String, TileDescr> recTileMap;
 
   /// From ents
   /// Key is alias, varName format.
-  final Map<String, Map<String, Object>> entletsMap;
-  final Map<String, Map<String, Object>> enttilesMap;
+  final Map<String, Map<String, Object?>> entletsMap;
+  final Map<String, Map<String, Object?>> enttilesMap;
   late Map<String, FormDescr> entFormMap;
   late Map<String, TileDescr> entTileMap;
 
@@ -87,7 +87,11 @@ class TubeDelegator {
         enumRecs.map((el) => EnumRec.fromJson(el)).map((el) => MapEntry(el.name!, el)).toMap();
   }
 
-  static Map<String, FormDescr> extractForm(Map<String, Map<String, Object>> lets) {
+  List<FormDescr> allActionForms(){
+    return List.from(actFormMap.values);
+  }
+
+  static Map<String, FormDescr> extractForm(Map<String, Map<String, Object?>> lets) {
     return lets.values
         .map((el) => FormMeta.fromJson(el))
         .map((el) => MapEntry(el.formName!, FormDescr(el)))
@@ -101,7 +105,7 @@ class TubeDelegator {
         .toMap();
   }
 
-  static Map<String, TileDescr> extractTile(Map<String, Map<String, Object>> lets) {
+  static Map<String, TileDescr> extractTile(Map<String, Map<String, Object?>> lets) {
     return lets.values
         .map((el) => TileMeta.fromJson(el))
         .map((el) => MapEntry(el.tileName!, TileDescr(el)))
@@ -254,6 +258,9 @@ class FormDescr {
   FieldUiMeta? fld(String name) {
     return flds[name];
   }
+
+  String get name => formMeta.formName!;
+  String get key => formMeta.formKey!;
 
   Set<String> get fldNames => flds.keys.toSet();
 

@@ -41,6 +41,8 @@ dependencies:
   form_builder_extra_fields: ^11.1.0
   equatable: ^2.0.7
   meta: ^1.15.0
+  quiver: ^3.2.1
+  events_emitter: ^0.0.7
 
 dev_dependencies:
   flutter_test:

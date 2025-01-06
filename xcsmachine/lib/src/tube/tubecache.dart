@@ -18,7 +18,7 @@ class TubeCache{
     return await memCache.get(key);
   }
 
-  Future<void> cacheAll(Map<String, Map<String, Object>> els) async{
+  Future<void> cacheAll(Map<String, Map<String, Object?>> els) async{
     for (var el in els.entries) {
       await memCache.put(el.key, el.value);
     }

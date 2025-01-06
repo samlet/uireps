@@ -5,7 +5,32 @@ import 'package:xcsmachine/xcsapi.dart';
 import 'package:xcsmachine/tubepubs.dart';
 import 'package:xcsproto/xcsproto.dart';
 
-
+/// PortalManager:pullAllOras(q): [pullAllOras]
+/// PortalManager:storeEnt(m): [storeEnt]
+/// PortalManager:listAsEnts(q): [listAsEnts]
+/// PortalManager:removeEnt(m): [removeEnt]
+/// FoldDelegator:queryPage(q): [queryPage]
+/// FoldDelegator:queryAsEnts(q): [queryAsEnts]
+/// FoldDelegator:pullEnt(q): [pullEnt]
+/// CommonSln:pullAllAssets(q): [pullAllAssets]
+/// CommonSln:getUomTypes(q): [getUomTypes]
+/// EcommSln:getSuppliers(q): [getSuppliers]
+/// EcommSln:getSupplyProducts(q): [getSupplyProducts]
+/// EcommSln:allPartyTypes(q): [allPartyTypes]
+/// EcommSln:partyRootTypes(q): [partyRootTypes]
+/// EcommSln:productRootTypes(q): [productRootTypes]
+/// EcommSln:allProductTypes(q): [allProductTypes]
+/// fixtures:makeSomeRecs(q): [makeSomeRecs]
+/// fixtures:makeTestRec(q): [makeTestRec]
+/// Auth:quickRegister(m): [quickRegister]
+/// Auth:register(m): [register]
+/// Auth:login(m): [login]
+/// Auth:generateToken(q): [generateToken]
+/// note:viewContent(q): [viewContent]
+/// note:setTitleAndContent(m): [setTitleAndContent]
+/// post:postComment(m): [postComment]
+/// user:fetch(q): [fetchUser]
+/// UserPalOnChain:fetchAllUsers(q): [fetchAllUsers]
 class SlabRepository implements SlabsBase {
   SlabRepository(this.dio, {
     this.regionOrNs='default',
@@ -253,11 +278,11 @@ class SlabRepository implements SlabsBase {
     return convList(resp, (el)=>el);
   }
    
-  // Query: EcommSln:productRootTypes
-  Future<List<String>> productRootTypes() async { 
+  // Query: EcommSln:partyRootTypes
+  Future<List<String>> partyRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "productRootTypes",
+      "action": "partyRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -267,11 +292,11 @@ class SlabRepository implements SlabsBase {
     return convScalars(resp, (e)=> e.toString());
   }
    
-  // Query: EcommSln:partyRootTypes
-  Future<List<String>> partyRootTypes() async { 
+  // Query: EcommSln:productRootTypes
+  Future<List<String>> productRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "partyRootTypes",
+      "action": "productRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -497,6 +522,20 @@ class SlabRepository implements SlabsBase {
     }, callOpt: callOpt);
     
     return UserObj.fromJson(resp);
+  }
+   
+  // Query: UserPalOnChain:fetchAllUsers
+  Future<List<UserObj>> fetchAllUsers() async { 
+    var resp = await performCall(dio, {
+      "module": 'userPalOnChain',
+      "action": "fetchAllUsers",
+      "bundleName" : "UserPalOnChain",
+      "call-type": "chain",
+      "regionId": regionOrNs,
+    }, { 
+    }, callOpt: callOpt);
+    
+    return convList(resp, UserObj.fromJson);
   }
   
 }

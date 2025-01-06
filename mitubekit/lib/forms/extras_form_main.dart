@@ -7,6 +7,9 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+
+import 'signup_form.dart';
+import '../shared/common_ui.dart';
 import 'package:xcsmachine/formmetas.dart';
 
 import '../platform/desktop.dart';
@@ -39,13 +42,13 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: const [Locale('en')],
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  MyHomePage({super.key});
 
   @override
   MyHomePageState createState() => MyHomePageState();
@@ -54,6 +57,9 @@ class MyHomePage extends StatefulWidget {
 void _onChanged(dynamic val) {
   if (val is Uint8List) {
     debugPrint(base64Encode(val).substring(0, 20));
+  } else if(val is Color){
+    int colorVal=ColorUtils.colorToInt(val);
+    debugPrint('color: ${colorVal}, #${val.colorHexString}');
   } else {
     debugPrint(val.toString());
   }
@@ -64,6 +70,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    tube.FormDescr formDesc=tube.locator<tube.TubeDelegator>().recForm('HelloPojo')!;
     return Scaffold(
       appBar: AppBar(title: const Text('Extra Fields Example')),
       body: SingleChildScrollView(
@@ -92,7 +99,10 @@ class MyHomePageState extends State<MyHomePage> {
                     labelText: 'Searchable Dropdown Online',
                   ),
                 ),
+
+                NameControl(fldMeta: formDesc.fld('name')!),
                 PartyTypeSelector(),
+
                 FormBuilderSearchableDropdown<String>(
                   popupProps: const PopupProps.menu(showSearchBox: true),
                   dropdownSearchDecoration: const InputDecoration(
@@ -107,9 +117,11 @@ class MyHomePageState extends State<MyHomePage> {
                       country.toLowerCase().contains(filter.toLowerCase()),
                 ),
                 const SizedBox(height: 15),
+                // data type: Color
                 FormBuilderColorPickerField(
                   name: 'color_picker',
                   initialValue: Colors.yellow,
+                  onChanged: _onChanged,
                   // readOnly: true,
                   colorPickerType: ColorPickerType.materialPicker,
                   decoration: const InputDecoration(labelText: 'Color Picker'),
@@ -140,6 +152,7 @@ class MyHomePageState extends State<MyHomePage> {
                     }
                   },
                 ),
+                // present with FieldSlider, min/max, step=(max-min)/divisions
                 FormBuilderTouchSpin(
                   decoration: const InputDecoration(labelText: 'TouchSpin'),
                   name: 'touch_spin',
@@ -150,6 +163,7 @@ class MyHomePageState extends State<MyHomePage> {
                   subtractIcon: const Icon(Icons.arrow_left),
                   onChanged: _onChanged,
                 ),
+                // present with FieldSlider, minRating/maxRating
                 FormBuilderRatingBar(
                   decoration: const InputDecoration(labelText: 'Rating Bar'),
                   name: 'rate',

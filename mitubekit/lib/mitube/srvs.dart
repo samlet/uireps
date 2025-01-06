@@ -717,6 +717,26 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "UserPalOnChain:fetchAllUsers" : {
+      "methodKey" : "UserPalOnChain:fetchAllUsers",
+      "alias" : "fetchAllUsers",
+      "name" : "fetchAllUsers",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "userPalOnChain",
+        "name" : "fetchAllUsers",
+        "bundleName" : "UserPalOnChain",
+        "callType" : "chain"
+      },
+      "parameters" : [ ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, UserObj.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "user:getTelData" : {
       "methodKey" : "user:getTelData",
       "alias" : "getTelData",
@@ -1770,7 +1790,7 @@ const srvMetas = {
       },
       "parameters" : [ {
         "name" : "input",
-        "dartType" : "Map<String, List<String>>",
+        "dartType" : "Multimap<String, String>",
         "fldType" : "string-multimap",
         "fldGroup" : "multimap",
         "optional" : false,

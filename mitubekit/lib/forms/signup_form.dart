@@ -24,6 +24,8 @@ class _SignupFormState extends State<SignupForm> {
           children: [
             NameControl(fldMeta: widget.formDesc.fld('name')!),
             const SizedBox(height: 10),
+            NameControlWithBorder(fldMeta: widget.formDesc.fld('holderName')!),
+            const SizedBox(height: 10),
             EmailControl(fldMeta: widget.formDesc.fld('email')!),
             const SizedBox(height: 10),
             PasswordControl(fldMeta: widget.formDesc.fld('password')!),
@@ -165,6 +167,33 @@ class NameControl extends StatelessWidget {
     return FormBuilderTextField(
       name: fldMeta.name,
       decoration: InputDecoration(labelText: fldMeta.caption),
+      // inputFormatters: [],
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.required(),
+      ]),
+    );
+  }
+}
+
+class NameControlWithBorder extends StatelessWidget {
+  const NameControlWithBorder({super.key, required this.fldMeta});
+
+  final tube.FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilderTextField(
+      name: fldMeta.name,
+      decoration: InputDecoration(
+          labelText: fldMeta.caption!,
+          hintText: fldMeta.hint!,
+          filled: true,
+          border: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15)
+      ),
+      // inputFormatters: [],
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(),
       ]),

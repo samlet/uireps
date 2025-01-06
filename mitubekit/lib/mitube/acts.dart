@@ -15,6 +15,11 @@ final setTitleAndContentForm = {
   "keyFld" : null,
   "labelSubmit" : "Submit",
   "labelReset" : "Reset",
+  "profile" : {
+    "moduleName" : "noteCo",
+    "palletSymbol" : "note",
+    "palletName" : "NoteCo"
+  },
   "flds" : {
     "cnt" : {
       "fldName" : "cnt",
@@ -22,6 +27,7 @@ final setTitleAndContentForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "stringField",
       "caption" : "内容",
+      "hint" : "内容",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
@@ -38,6 +44,7 @@ final setTitleAndContentForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "stringField",
       "caption" : "标题",
+      "hint" : "标题",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
@@ -60,6 +67,11 @@ final makeTestRecForm = {
   "keyFld" : null,
   "labelSubmit" : "Submit",
   "labelReset" : "Reset",
+  "profile" : {
+    "moduleName" : "fixtureObjects",
+    "palletSymbol" : "fixtures",
+    "palletName" : "FixtureObjects"
+  },
   "flds" : {
     "numFld" : {
       "fldName" : "numFld",
@@ -67,6 +79,7 @@ final makeTestRecForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "decimalField",
       "caption" : "Num Fld",
+      "hint" : "Num Fld",
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
@@ -83,6 +96,7 @@ final makeTestRecForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "stringField",
       "caption" : "String Fld",
+      "hint" : "String Fld",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
@@ -99,6 +113,7 @@ final makeTestRecForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "structField",
       "caption" : "Num Map",
+      "hint" : "Num Map",
       "defaultValue" : "{}",
       "morph" : null,
       "dartType" : "Map<String, double>",
@@ -115,6 +130,7 @@ final makeTestRecForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "listField",
       "caption" : "Nums",
+      "hint" : "Nums",
       "defaultValue" : "<double>[]",
       "morph" : null,
       "dartType" : "List<double?>",
@@ -137,6 +153,11 @@ final makeSomeRecsForm = {
   "keyFld" : null,
   "labelSubmit" : "Submit",
   "labelReset" : "Reset",
+  "profile" : {
+    "moduleName" : "fixtureObjects",
+    "palletSymbol" : "fixtures",
+    "palletName" : "FixtureObjects"
+  },
   "flds" : {
     "total" : {
       "fldName" : "total",
@@ -144,6 +165,7 @@ final makeSomeRecsForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "floatField",
       "caption" : "Total",
+      "hint" : "Total",
       "defaultValue" : "0",
       "morph" : null,
       "dartType" : "int",
@@ -166,6 +188,11 @@ final postCommentForm = {
   "keyFld" : null,
   "labelSubmit" : "Submit",
   "labelReset" : "Reset",
+  "profile" : {
+    "moduleName" : "postPal",
+    "palletSymbol" : "post",
+    "palletName" : "PostPal"
+  },
   "flds" : {
     "reward" : {
       "fldName" : "reward",
@@ -173,6 +200,7 @@ final postCommentForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "decimalField",
       "caption" : "Reward",
+      "hint" : "Reward",
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",
@@ -189,6 +217,7 @@ final postCommentForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "stringField",
       "caption" : "主题",
+      "hint" : "主题",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
@@ -205,6 +234,7 @@ final postCommentForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "stringField",
       "caption" : "评论",
+      "hint" : "评论",
       "defaultValue" : "''",
       "morph" : null,
       "dartType" : "String",
@@ -221,6 +251,7 @@ final postCommentForm = {
       "fldTpl" : "paraWithSpec",
       "domainType" : "decimalField",
       "caption" : "Rating",
+      "hint" : "Rating",
       "defaultValue" : "0.0",
       "morph" : null,
       "dartType" : "double",

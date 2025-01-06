@@ -16,3 +16,7 @@ abstract class SlabsBase {
   });
 }
 
+abstract class IPresentElement{
+  int? get icon;
+  int? get color;
+}

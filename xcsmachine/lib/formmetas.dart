@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
-import 'package:xcsmachine/pubrecs.dart';
+import 'package:xcsmachine/tubepubs.dart';
 part 'formmetas.g.dart';
 
 // -- SrvCtxMeta -- 
@@ -146,6 +146,7 @@ class FieldUiMeta extends Equatable {
   final String? fldTpl;
   final String? domainType;
   final String? caption;
+  final String? hint;
   final String? defaultValue;
   final String? morph;
   final String? dartType;
@@ -161,6 +162,7 @@ class FieldUiMeta extends Equatable {
     this.fldTpl,
     this.domainType,
     this.caption,
+    this.hint,
     this.defaultValue,
     this.morph,
     this.dartType,
@@ -177,7 +179,7 @@ class FieldUiMeta extends Equatable {
 
   Map<String, dynamic> toJson() => _$FieldUiMetaToJson(this);
   @override
-  List<Object?> get props => [fldName, fldType, fldTpl, domainType, caption, defaultValue, morph, dartType, javaType, enumType, collection, fldSpec, binders, slider];
+  List<Object?> get props => [fldName, fldType, fldTpl, domainType, caption, hint, defaultValue, morph, dartType, javaType, enumType, collection, fldSpec, binders, slider];
 }
 
 // -- FieldTileMeta -- 
@@ -213,6 +215,7 @@ class FormMeta extends Equatable {
   final String? keyFld;
   final String? labelSubmit;
   final String? labelReset;
+  final Map<String, Object?>? profile;
   final Map<String, FieldUiMeta>? flds;
   const FormMeta({
     this.formKey,
@@ -223,6 +226,7 @@ class FormMeta extends Equatable {
     this.keyFld,
     this.labelSubmit,
     this.labelReset,
+    this.profile,
     this.flds,
   });
 
@@ -231,7 +235,7 @@ class FormMeta extends Equatable {
 
   Map<String, dynamic> toJson() => _$FormMetaToJson(this);
   @override
-  List<Object?> get props => [formKey, formName, alias, caption, locale, keyFld, labelSubmit, labelReset, flds];
+  List<Object?> get props => [formKey, formName, alias, caption, locale, keyFld, labelSubmit, labelReset, profile, flds];
 }
 
 // -- TileMeta -- 

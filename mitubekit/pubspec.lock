@@ -310,6 +310,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.1"
+  events_emitter:
+    dependency: "direct main"
+    description:
+      name: events_emitter
+      sha256: "8e1825bdc3befb2742e1e3d11b84baca73db2e557d69cf9e0b6d12a5f82907d3"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -947,7 +955,7 @@ packages:
     source: hosted
     version: "1.4.0"
   quiver:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: quiver
       sha256: ea0b925899e64ecdfbf9c7becb60d5b50e706ade44a85b2363be2a22d88117d2
