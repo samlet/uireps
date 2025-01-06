@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:intl/intl.dart';
+import '../shared/shared.dart';
 import 'package:mitubekit/mitube/pkg.dart';
 import 'package:xcsmachine/formmetas.dart';
 
@@ -66,6 +67,12 @@ class _CompleteFormState extends State<CompleteForm> {
                 RangeSliderControl(formKey: _formKey, fldMeta: widget.formDesc.fld('priceRange')!),
                 AcceptTermsRichControl(fldMeta: widget.formDesc.fld('acceptTerms')!),
                 NumberInputControl(formKey: _formKey, fldMeta: widget.formDesc.fld('age')!),
+                Container(
+                    // padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.all(20),
+                    child: CurrencyInputControl(
+                        formKey: _formKey, fldMeta: widget.formDesc.fld('salary')!)),
+                // const SizedBox(height: 20,),
                 DropdownControl(formKey: _formKey, fldMeta: widget.formDesc.fld('gender')!),
                 DropdownControl(formKey: _formKey, fldMeta: widget.formDesc.fld('widthUomId')!),
                 EnumsRadioGroupControl(fldMeta: widget.formDesc.fld('bestLanguage')!),
@@ -456,9 +463,9 @@ class DropdownControl extends HookWidget {
 }
 
 List<DropdownMenuItem<String>>? buildDropdownOpts(FieldUiMeta fldMeta) {
-  if(fldMeta.hasEnum){
+  if (fldMeta.hasEnum) {
     return buildDropdownOptsForEnums(fldMeta);
-  }else{
+  } else {
     return buildDropdownOptsForSels(fldMeta);
   }
 }
@@ -522,6 +529,55 @@ class NumberInputControl extends HookWidget {
       // initialValue: '12',
       keyboardType: TextInputType.number,
       textInputAction: TextInputAction.next,
+    );
+  }
+}
+
+class CurrencyInputControl extends HookWidget {
+  const CurrencyInputControl({super.key, required this.formKey, required this.fldMeta});
+
+  final GlobalKey<FormBuilderState> formKey;
+  final FieldUiMeta fldMeta;
+
+  @override
+  Widget build(BuildContext context) {
+    final ageHasError = useState(false);
+    return FormBuilderTextField(
+      autovalidateMode: AutovalidateMode.always,
+      name: fldMeta.name,
+      decoration: InputDecoration(
+        labelText: fldMeta.caption!,
+        hintText: fldMeta.hint!,
+        filled: true,
+        border: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+        prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text(r'$', style: TextStyle(fontFamily: context.monoFontFamily))),
+        prefixIconConstraints: const BoxConstraints(minWidth: 40, minHeight: 0),
+        suffixIcon: ageHasError.value
+            ? const Icon(Icons.error, color: Colors.red)
+            : const Icon(Icons.check, color: Colors.green),
+      ),
+      onChanged: (val) {
+        var err = !(formKey.currentState?.fields[fldMeta.name]?.validate() ?? false);
+        ageHasError.value = err;
+      },
+      // valueTransformer: (text) => num.tryParse(text),
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.required(),
+        FormBuilderValidators.numeric(),
+        FormBuilderValidators.max(70),
+      ]),
+      // initialValue: '12',
+      keyboardType: TextInputType.number,
+      textInputAction: TextInputAction.next,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,4}')),
+      ],
+      style: TextStyle(fontFamily: context.monoFontFamily),
     );
   }
 }
