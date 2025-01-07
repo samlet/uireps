@@ -1,6 +1,6 @@
 import 'package:xcsmachine/util.dart';
 
-final reclets = [configuratorAndDetailForm, signupForm, palletEntryForm, skuInfoForm, configuratorForm, protoEntForm, metaEntryForm, noteContentForm, shelfForm, configItemForm, userInfoForm, configOptForm, spuInfoForm, testRecForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
+final reclets = [configuratorAndDetailForm, signupForm, palletEntryForm, skuInfoForm, configuratorForm, protoEntForm, noteContentForm, metaEntryForm, shelfForm, configItemForm, userInfoForm, configOptForm, testRecForm, spuInfoForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
 
 final rectiles = [noteContentTile, userObjTile];
 
@@ -315,6 +315,23 @@ final palletEntryForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "totalActions" : {
+      "fldName" : "totalActions",
+      "fldType" : "integer",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "floatField",
+      "caption" : "Total Actions",
+      "hint" : "Total Actions",
+      "defaultValue" : "0",
+      "morph" : "",
+      "dartType" : "int",
+      "javaType" : "Integer",
       "enumType" : null,
       "collection" : false,
       "fldSpec" : null,
@@ -740,6 +757,71 @@ final protoEntForm = {
   }
 };
 
+final noteContentForm = {
+  "formKey" : "NoteContent",
+  "formName" : "NoteContent",
+  "alias" : "noteContent",
+  "caption" : "便笺内容",
+  "locale" : "zh",
+  "keyFld" : "key",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "profile" : null,
+  "flds" : {
+    "title" : {
+      "fldName" : "title",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "标题",
+      "hint" : "标题",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "body" : {
+      "fldName" : "body",
+      "fldType" : "value",
+      "fldTpl" : "commentProp",
+      "domainType" : "stringField",
+      "caption" : "内容",
+      "hint" : "内容",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
+      "hint" : "Key",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
 final metaEntryForm = {
   "formKey" : "MetaEntry",
   "formName" : "MetaEntry",
@@ -911,71 +993,6 @@ final metaEntryForm = {
       "domainType" : "stringField",
       "caption" : "Full Flat Message Type",
       "hint" : "Full Flat Message Type",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    }
-  }
-};
-
-final noteContentForm = {
-  "formKey" : "NoteContent",
-  "formName" : "NoteContent",
-  "alias" : "noteContent",
-  "caption" : "便笺内容",
-  "locale" : "zh",
-  "keyFld" : "key",
-  "labelSubmit" : "Submit",
-  "labelReset" : "Reset",
-  "profile" : null,
-  "flds" : {
-    "title" : {
-      "fldName" : "title",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "标题",
-      "hint" : "标题",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "body" : {
-      "fldName" : "body",
-      "fldType" : "value",
-      "fldTpl" : "commentProp",
-      "domainType" : "stringField",
-      "caption" : "内容",
-      "hint" : "内容",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "key" : {
-      "fldName" : "key",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Key",
-      "hint" : "Key",
       "defaultValue" : "''",
       "morph" : "",
       "dartType" : "String",
@@ -1606,122 +1623,6 @@ final configOptForm = {
   }
 };
 
-final spuInfoForm = {
-  "formKey" : "SpuInfo",
-  "formName" : "SpuInfo",
-  "alias" : "spuInfo",
-  "caption" : "Spu Info",
-  "locale" : "zh",
-  "keyFld" : "id",
-  "labelSubmit" : "Submit",
-  "labelReset" : "Reset",
-  "profile" : null,
-  "flds" : {
-    "serialVersionUID" : {
-      "fldName" : "serialVersionUID",
-      "fldType" : "numeric",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "integerField",
-      "caption" : "Serial Version UID",
-      "hint" : "Serial Version UID",
-      "defaultValue" : "0",
-      "morph" : "",
-      "dartType" : "int",
-      "javaType" : "Long",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "spuName" : {
-      "fldName" : "spuName",
-      "fldType" : "name",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "stringField",
-      "caption" : "Spu Name",
-      "hint" : "Spu Name",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "tmId" : {
-      "fldName" : "tmId",
-      "fldType" : "numeric",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "integerField",
-      "caption" : "Tm Id",
-      "hint" : "Tm Id",
-      "defaultValue" : "0",
-      "morph" : "",
-      "dartType" : "int",
-      "javaType" : "Long",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "category3Id" : {
-      "fldName" : "category3Id",
-      "fldType" : "numeric",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "integerField",
-      "caption" : "Category3 Id",
-      "hint" : "Category3 Id",
-      "defaultValue" : "0",
-      "morph" : "",
-      "dartType" : "int",
-      "javaType" : "Long",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "description" : {
-      "fldName" : "description",
-      "fldType" : "description",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "stringField",
-      "caption" : "描述",
-      "hint" : "描述",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "id" : {
-      "fldName" : "id",
-      "fldType" : "id",
-      "fldTpl" : "propWithSpec",
-      "domainType" : "stringField",
-      "caption" : "Id",
-      "hint" : "Id",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    }
-  }
-};
-
 final testRecForm = {
   "formKey" : "TestRec",
   "formName" : "TestRec",
@@ -1831,6 +1732,122 @@ final testRecForm = {
       "javaType" : "com.bluecc.hubs.stub.Decimals",
       "enumType" : null,
       "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
+final spuInfoForm = {
+  "formKey" : "SpuInfo",
+  "formName" : "SpuInfo",
+  "alias" : "spuInfo",
+  "caption" : "Spu Info",
+  "locale" : "zh",
+  "keyFld" : "id",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "profile" : null,
+  "flds" : {
+    "serialVersionUID" : {
+      "fldName" : "serialVersionUID",
+      "fldType" : "numeric",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "integerField",
+      "caption" : "Serial Version UID",
+      "hint" : "Serial Version UID",
+      "defaultValue" : "0",
+      "morph" : "",
+      "dartType" : "int",
+      "javaType" : "Long",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "spuName" : {
+      "fldName" : "spuName",
+      "fldType" : "name",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Spu Name",
+      "hint" : "Spu Name",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "tmId" : {
+      "fldName" : "tmId",
+      "fldType" : "numeric",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "integerField",
+      "caption" : "Tm Id",
+      "hint" : "Tm Id",
+      "defaultValue" : "0",
+      "morph" : "",
+      "dartType" : "int",
+      "javaType" : "Long",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "category3Id" : {
+      "fldName" : "category3Id",
+      "fldType" : "numeric",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "integerField",
+      "caption" : "Category3 Id",
+      "hint" : "Category3 Id",
+      "defaultValue" : "0",
+      "morph" : "",
+      "dartType" : "int",
+      "javaType" : "Long",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "description" : {
+      "fldName" : "description",
+      "fldType" : "description",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "描述",
+      "hint" : "描述",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "id" : {
+      "fldName" : "id",
+      "fldType" : "id",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "Id",
+      "hint" : "Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
       "fldSpec" : null,
       "binders" : null,
       "slider" : null

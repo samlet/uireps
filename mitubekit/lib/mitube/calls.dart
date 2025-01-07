@@ -26,6 +26,28 @@ class ResultSort extends Equatable {
   List<Object?> get props => [fld, orderBy];
 }
 
+// -- PalMetas -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PalMetas extends Equatable {
+  final List<PalletEntry>? entries;
+  final int? start;
+  final int? total;
+  const PalMetas({
+    this.entries,
+    this.start,
+    this.total,
+  });
+
+  factory PalMetas.fromJson(Map<String, dynamic> json) =>
+      _$PalMetasFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PalMetasToJson(this);
+  @override
+  List<Object?> get props => [entries, start, total];
+}
+
 // -- PalletEntry -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -42,6 +64,7 @@ class PalletEntry extends Equatable {
   final String? flatMessageType;
   final String? fullFlatMessageType;
   final String? callType;
+  final int? totalActions;
   const PalletEntry({
     this.palletName,
     this.palletFullName,
@@ -54,6 +77,7 @@ class PalletEntry extends Equatable {
     this.flatMessageType,
     this.fullFlatMessageType,
     this.callType,
+    this.totalActions,
   });
 
   factory PalletEntry.fromJson(Map<String, dynamic> json) =>
@@ -61,7 +85,7 @@ class PalletEntry extends Equatable {
 
   Map<String, dynamic> toJson() => _$PalletEntryToJson(this);
   @override
-  List<Object?> get props => [palletName, palletFullName, palletSymbol, palletVar, bundleName, mainEnt, syncName, fullSyncName, flatMessageType, fullFlatMessageType, callType];
+  List<Object?> get props => [palletName, palletFullName, palletSymbol, palletVar, bundleName, mainEnt, syncName, fullSyncName, flatMessageType, fullFlatMessageType, callType, totalActions];
 }
 
 // -- QueryRequest -- 
@@ -172,6 +196,26 @@ class MetaEntry extends Equatable {
   List<Object?> get props => [entityName, flatMessageType, fullFlatMessageType, bundleName, syncName, fullSyncName, syncNs, packageName, plugName, fields];
 }
 
+// -- PaginatedPalMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PaginatedPalMeta extends Equatable {
+  final List<PalletEntry>? entries;
+  final PageMeta? meta;
+  const PaginatedPalMeta({
+    this.entries,
+    this.meta,
+  });
+
+  factory PaginatedPalMeta.fromJson(Map<String, dynamic> json) =>
+      _$PaginatedPalMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedPalMetaToJson(this);
+  @override
+  List<Object?> get props => [entries, meta];
+}
+
 // -- ResultProtosWithMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -192,26 +236,6 @@ class ResultProtosWithMeta extends Equatable {
   Map<String, dynamic> toJson() => _$ResultProtosWithMetaToJson(this);
   @override
   List<Object?> get props => [ents, start, total];
-}
-
-// -- PaginatedPalMeta -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class PaginatedPalMeta extends Equatable {
-  final List<PalletEntry>? entries;
-  final PageMeta? meta;
-  const PaginatedPalMeta({
-    this.entries,
-    this.meta,
-  });
-
-  factory PaginatedPalMeta.fromJson(Map<String, dynamic> json) =>
-      _$PaginatedPalMetaFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PaginatedPalMetaToJson(this);
-  @override
-  List<Object?> get props => [entries, meta];
 }
 
 // -- ResultLimit -- 
@@ -417,26 +441,6 @@ class DateTimeRange extends Equatable {
   List<Object?> get props => [field, from, to];
 }
 
-// -- FullId -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class FullId extends Equatable {
-  final String? regionId;
-  final String? id;
-  const FullId({
-    this.regionId,
-    this.id,
-  });
-
-  factory FullId.fromJson(Map<String, dynamic> json) =>
-      _$FullIdFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FullIdToJson(this);
-  @override
-  List<Object?> get props => [regionId, id];
-}
-
 // -- PageLimit -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -455,6 +459,26 @@ class PageLimit extends Equatable {
   Map<String, dynamic> toJson() => _$PageLimitToJson(this);
   @override
   List<Object?> get props => [page, pageSize];
+}
+
+// -- FullId -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class FullId extends Equatable {
+  final String? regionId;
+  final String? id;
+  const FullId({
+    this.regionId,
+    this.id,
+  });
+
+  factory FullId.fromJson(Map<String, dynamic> json) =>
+      _$FullIdFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FullIdToJson(this);
+  @override
+  List<Object?> get props => [regionId, id];
 }
 
 // -- UserObj -- 
@@ -501,4 +525,4 @@ class UserObj extends Equatable implements IPresentElement{
 }
 
 
-// total classes: 20
+// total classes: 21

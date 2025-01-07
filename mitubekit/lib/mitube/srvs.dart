@@ -2833,6 +2833,50 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "MetaDb:queryPalMeta" : {
+      "methodKey" : "MetaDb:queryPalMeta",
+      "alias" : "queryPalMeta",
+      "name" : "queryPalMeta",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "metaDb",
+        "name" : "queryPalMeta",
+        "bundleName" : "MetaDb",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "match",
+        "dartType" : "Match",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "match"
+      }, {
+        "name" : "limit",
+        "dartType" : "ResultLimit",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "limit"
+      }, {
+        "name" : "orderBy",
+        "dartType" : "List<ResultSort>",
+        "fldType" : "json-array",
+        "fldGroup" : "array",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "order_by"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PalMetas.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "note:hasSlotValue" : {
       "methodKey" : "note:hasSlotValue",
       "alias" : "hasSlotValue",
@@ -3592,6 +3636,42 @@ const srvMetas = {
       "result" : {
         "returnVoid" : false,
         "conv" : "PostalAddressFlatData()..mergeFromProto3Json(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "MetaDb:queryPallets" : {
+      "methodKey" : "MetaDb:queryPallets",
+      "alias" : "queryPallets",
+      "name" : "queryPallets",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "metaDb",
+        "name" : "queryPallets",
+        "bundleName" : "MetaDb",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "limit",
+        "dartType" : "int",
+        "fldType" : "integer",
+        "fldGroup" : "measure",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "limit"
+      }, {
+        "name" : "offset",
+        "dartType" : "int",
+        "fldType" : "integer",
+        "fldGroup" : "measure",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "offset"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PalMetas.fromJson(resp)",
         "elType" : "",
         "elName" : "",
         "elIdFld" : ""

@@ -17,6 +17,21 @@ Map<String, dynamic> _$ResultSortToJson(ResultSort instance) =>
       if (instance.orderBy case final value?) 'orderBy': value,
     };
 
+PalMetas _$PalMetasFromJson(Map<String, dynamic> json) => PalMetas(
+      entries: (json['entries'] as List<dynamic>?)
+          ?.map((e) => PalletEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      start: (json['start'] as num?)?.toInt(),
+      total: (json['total'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PalMetasToJson(PalMetas instance) => <String, dynamic>{
+      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
+        'entries': value,
+      if (instance.start case final value?) 'start': value,
+      if (instance.total case final value?) 'total': value,
+    };
+
 PalletEntry _$PalletEntryFromJson(Map<String, dynamic> json) => PalletEntry(
       palletName: json['palletName'] as String?,
       palletFullName: json['palletFullName'] as String?,
@@ -29,6 +44,7 @@ PalletEntry _$PalletEntryFromJson(Map<String, dynamic> json) => PalletEntry(
       flatMessageType: json['flatMessageType'] as String?,
       fullFlatMessageType: json['fullFlatMessageType'] as String?,
       callType: json['callType'] as String?,
+      totalActions: (json['totalActions'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$PalletEntryToJson(PalletEntry instance) =>
@@ -45,6 +61,7 @@ Map<String, dynamic> _$PalletEntryToJson(PalletEntry instance) =>
       if (instance.fullFlatMessageType case final value?)
         'fullFlatMessageType': value,
       if (instance.callType case final value?) 'callType': value,
+      if (instance.totalActions case final value?) 'totalActions': value,
     };
 
 QueryRequest _$QueryRequestFromJson(Map<String, dynamic> json) => QueryRequest(
@@ -126,6 +143,23 @@ Map<String, dynamic> _$MetaEntryToJson(MetaEntry instance) => <String, dynamic>{
       if (instance.fields case final value?) 'fields': value,
     };
 
+PaginatedPalMeta _$PaginatedPalMetaFromJson(Map<String, dynamic> json) =>
+    PaginatedPalMeta(
+      entries: (json['entries'] as List<dynamic>?)
+          ?.map((e) => PalletEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      meta: json['meta'] == null
+          ? null
+          : PageMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$PaginatedPalMetaToJson(PaginatedPalMeta instance) =>
+    <String, dynamic>{
+      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
+        'entries': value,
+      if (instance.meta?.toJson() case final value?) 'meta': value,
+    };
+
 ResultProtosWithMeta _$ResultProtosWithMetaFromJson(
         Map<String, dynamic> json) =>
     ResultProtosWithMeta(
@@ -143,23 +177,6 @@ Map<String, dynamic> _$ResultProtosWithMetaToJson(
         'ents': value,
       if (instance.start case final value?) 'start': value,
       if (instance.total case final value?) 'total': value,
-    };
-
-PaginatedPalMeta _$PaginatedPalMetaFromJson(Map<String, dynamic> json) =>
-    PaginatedPalMeta(
-      entries: (json['entries'] as List<dynamic>?)
-          ?.map((e) => PalletEntry.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      meta: json['meta'] == null
-          ? null
-          : PageMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$PaginatedPalMetaToJson(PaginatedPalMeta instance) =>
-    <String, dynamic>{
-      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
-        'entries': value,
-      if (instance.meta?.toJson() case final value?) 'meta': value,
     };
 
 ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
@@ -322,16 +339,6 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
-FullId _$FullIdFromJson(Map<String, dynamic> json) => FullId(
-      regionId: json['regionId'] as String?,
-      id: json['id'] as String?,
-    );
-
-Map<String, dynamic> _$FullIdToJson(FullId instance) => <String, dynamic>{
-      if (instance.regionId case final value?) 'regionId': value,
-      if (instance.id case final value?) 'id': value,
-    };
-
 PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
       page: (json['page'] as num?)?.toInt(),
       pageSize: (json['pageSize'] as num?)?.toInt(),
@@ -340,6 +347,16 @@ PageLimit _$PageLimitFromJson(Map<String, dynamic> json) => PageLimit(
 Map<String, dynamic> _$PageLimitToJson(PageLimit instance) => <String, dynamic>{
       if (instance.page case final value?) 'page': value,
       if (instance.pageSize case final value?) 'pageSize': value,
+    };
+
+FullId _$FullIdFromJson(Map<String, dynamic> json) => FullId(
+      regionId: json['regionId'] as String?,
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$FullIdToJson(FullId instance) => <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.id case final value?) 'id': value,
     };
 
 UserObj _$UserObjFromJson(Map<String, dynamic> json) => UserObj(

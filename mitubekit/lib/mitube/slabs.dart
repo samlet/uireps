@@ -31,8 +31,10 @@ import 'package:xcsproto/xcsproto.dart';
 /// post:postComment(m): [postComment]
 /// user:fetch(q): [fetchUser]
 /// UserPalOnChain:fetchAllUsers(q): [fetchAllUsers]
+/// MetaDb:queryPalMeta(q): [queryPalMeta]
 /// MetaDb:queryPagedEntMeta(q): [queryPagedEntMeta]
 /// MetaDb:queryPagedPalMeta(q): [queryPagedPalMeta]
+/// MetaDb:queryPallets(q): [queryPallets]
 class SlabRepository implements SlabsBase {
   SlabRepository(this.dio, {
     this.regionOrNs='default',
@@ -540,6 +542,29 @@ class SlabRepository implements SlabsBase {
     return convList(resp, UserObj.fromJson);
   }
    
+  // Query: MetaDb:queryPalMeta
+  Future<PalMetas> queryPalMeta({
+    
+    required Match match,
+    ResultLimit? limit,
+    List<ResultSort>? orderBy, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'metaDb',
+      "action": "queryPalMeta",
+      "bundleName" : "MetaDb",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "match": match,
+      if(limit!=null) "limit": limit,
+      if(orderBy!=null) "orderBy": orderBy, 
+    }, callOpt: callOpt);
+    
+    return PalMetas.fromJson(resp);
+  }
+   
   // Query: MetaDb:queryPagedEntMeta
   Future<PaginatedEntMeta> queryPagedEntMeta({
     
@@ -584,6 +609,27 @@ class SlabRepository implements SlabsBase {
     }, callOpt: callOpt);
     
     return PaginatedPalMeta.fromJson(resp);
+  }
+   
+  // Query: MetaDb:queryPallets
+  Future<PalMetas> queryPallets({
+    
+    required int limit,
+    required int offset, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'metaDb',
+      "action": "queryPallets",
+      "bundleName" : "MetaDb",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "limit": limit,
+      "offset": offset, 
+    }, callOpt: callOpt);
+    
+    return PalMetas.fromJson(resp);
   }
   
 }

@@ -30,8 +30,6 @@ extension PresentElementEx on IPresentElement {
       icon == null ? defaultIconData : IconData(icon!, fontFamily: 'MaterialIcons');
 }
 
-
-
 extension BuildContextEntension<T> on BuildContext {
   ThemeData get theme => Theme.of(this);
   String? get monoFontFamily => "Manrope";
