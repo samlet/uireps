@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../platform/desktop.dart';
 import '../mitube/pkg.dart' as tube;
+import '../shared/window_util.dart';
 import 'pallets_screen.dart';
 import 'users2_screen.dart';
 
@@ -8,7 +9,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   var appProf=await desktopProfile();
   await tube.startApp(appProfile: appProf);
-
+  setupWindow();
   runApp(const MyApp());
 }
 
