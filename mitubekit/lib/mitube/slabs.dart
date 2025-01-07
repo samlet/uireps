@@ -31,6 +31,8 @@ import 'package:xcsproto/xcsproto.dart';
 /// post:postComment(m): [postComment]
 /// user:fetch(q): [fetchUser]
 /// UserPalOnChain:fetchAllUsers(q): [fetchAllUsers]
+/// MetaDb:queryPagedEntMeta(q): [queryPagedEntMeta]
+/// MetaDb:queryPagedPalMeta(q): [queryPagedPalMeta]
 class SlabRepository implements SlabsBase {
   SlabRepository(this.dio, {
     this.regionOrNs='default',
@@ -536,6 +538,52 @@ class SlabRepository implements SlabsBase {
     }, callOpt: callOpt);
     
     return convList(resp, UserObj.fromJson);
+  }
+   
+  // Query: MetaDb:queryPagedEntMeta
+  Future<PaginatedEntMeta> queryPagedEntMeta({
+    
+    required Match match,
+    PageLimit? pageLimit,
+    List<ResultSort>? orderBy, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'metaDb',
+      "action": "queryPagedEntMeta",
+      "bundleName" : "MetaDb",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "match": match,
+      if(pageLimit!=null) "pageLimit": pageLimit,
+      if(orderBy!=null) "orderBy": orderBy, 
+    }, callOpt: callOpt);
+    
+    return PaginatedEntMeta.fromJson(resp);
+  }
+   
+  // Query: MetaDb:queryPagedPalMeta
+  Future<PaginatedPalMeta> queryPagedPalMeta({
+    
+    required Match match,
+    PageLimit? pageLimit,
+    List<ResultSort>? orderBy, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'metaDb',
+      "action": "queryPagedPalMeta",
+      "bundleName" : "MetaDb",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "match": match,
+      if(pageLimit!=null) "pageLimit": pageLimit,
+      if(orderBy!=null) "orderBy": orderBy, 
+    }, callOpt: callOpt);
+    
+    return PaginatedPalMeta.fromJson(resp);
   }
   
 }

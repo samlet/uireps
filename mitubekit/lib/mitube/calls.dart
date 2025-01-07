@@ -26,6 +26,44 @@ class ResultSort extends Equatable {
   List<Object?> get props => [fld, orderBy];
 }
 
+// -- PalletEntry -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PalletEntry extends Equatable {
+  final String? palletName;
+  final String? palletFullName;
+  final String? palletSymbol;
+  final String? palletVar;
+  final String? bundleName;
+  final String? mainEnt;
+  final String? syncName;
+  final String? fullSyncName;
+  final String? flatMessageType;
+  final String? fullFlatMessageType;
+  final String? callType;
+  const PalletEntry({
+    this.palletName,
+    this.palletFullName,
+    this.palletSymbol,
+    this.palletVar,
+    this.bundleName,
+    this.mainEnt,
+    this.syncName,
+    this.fullSyncName,
+    this.flatMessageType,
+    this.fullFlatMessageType,
+    this.callType,
+  });
+
+  factory PalletEntry.fromJson(Map<String, dynamic> json) =>
+      _$PalletEntryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PalletEntryToJson(this);
+  @override
+  List<Object?> get props => [palletName, palletFullName, palletSymbol, palletVar, bundleName, mainEnt, syncName, fullSyncName, flatMessageType, fullFlatMessageType, callType];
+}
+
 // -- QueryRequest -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -54,6 +92,28 @@ class QueryRequest extends Equatable {
   List<Object?> get props => [bundleName, entName, regionId, match, limit, orderBy];
 }
 
+// -- PageMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PageMeta extends Equatable {
+  final int? page;
+  final int? totalPages;
+  final int? totalResults;
+  const PageMeta({
+    this.page,
+    this.totalPages,
+    this.totalResults,
+  });
+
+  factory PageMeta.fromJson(Map<String, dynamic> json) =>
+      _$PageMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageMetaToJson(this);
+  @override
+  List<Object?> get props => [page, totalPages, totalResults];
+}
+
 // -- NoteContent -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -76,6 +136,42 @@ class NoteContent extends Equatable {
   List<Object?> get props => [key, title, body];
 }
 
+// -- MetaEntry -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class MetaEntry extends Equatable {
+  final String? entityName;
+  final String? flatMessageType;
+  final String? fullFlatMessageType;
+  final String? bundleName;
+  final String? syncName;
+  final String? fullSyncName;
+  final String? syncNs;
+  final String? packageName;
+  final String? plugName;
+  final List<String>? fields;
+  const MetaEntry({
+    this.entityName,
+    this.flatMessageType,
+    this.fullFlatMessageType,
+    this.bundleName,
+    this.syncName,
+    this.fullSyncName,
+    this.syncNs,
+    this.packageName,
+    this.plugName,
+    this.fields,
+  });
+
+  factory MetaEntry.fromJson(Map<String, dynamic> json) =>
+      _$MetaEntryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MetaEntryToJson(this);
+  @override
+  List<Object?> get props => [entityName, flatMessageType, fullFlatMessageType, bundleName, syncName, fullSyncName, syncNs, packageName, plugName, fields];
+}
+
 // -- ResultProtosWithMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -96,6 +192,26 @@ class ResultProtosWithMeta extends Equatable {
   Map<String, dynamic> toJson() => _$ResultProtosWithMetaToJson(this);
   @override
   List<Object?> get props => [ents, start, total];
+}
+
+// -- PaginatedPalMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PaginatedPalMeta extends Equatable {
+  final List<PalletEntry>? entries;
+  final PageMeta? meta;
+  const PaginatedPalMeta({
+    this.entries,
+    this.meta,
+  });
+
+  factory PaginatedPalMeta.fromJson(Map<String, dynamic> json) =>
+      _$PaginatedPalMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedPalMetaToJson(this);
+  @override
+  List<Object?> get props => [entries, meta];
 }
 
 // -- ResultLimit -- 
@@ -188,6 +304,26 @@ class TestRec extends Equatable {
   Map<String, dynamic> toJson() => _$TestRecToJson(this);
   @override
   List<Object?> get props => [stringFld, numFld, boolFld, tag, numMap, nums];
+}
+
+// -- PaginatedEntMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PaginatedEntMeta extends Equatable {
+  final List<MetaEntry>? entries;
+  final PageMeta? meta;
+  const PaginatedEntMeta({
+    this.entries,
+    this.meta,
+  });
+
+  factory PaginatedEntMeta.fromJson(Map<String, dynamic> json) =>
+      _$PaginatedEntMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedEntMetaToJson(this);
+  @override
+  List<Object?> get props => [entries, meta];
 }
 
 // -- TenantKey -- 
@@ -365,4 +501,4 @@ class UserObj extends Equatable implements IPresentElement{
 }
 
 
-// total classes: 15
+// total classes: 20

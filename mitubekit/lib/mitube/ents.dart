@@ -1639,7 +1639,7 @@ final personForm = {
     "lastName" : {
       "fldName" : "lastName",
       "fldType" : "name",
-      "fldTpl" : "lastNameSpec",
+      "fldTpl" : "lastNameEdit",
       "domainType" : "stringField",
       "caption" : "姓",
       "hint" : "姓",
@@ -1650,7 +1650,7 @@ final personForm = {
       "enumType" : null,
       "collection" : false,
       "fldSpec" : {
-        "name" : "lastNameSpec",
+        "name" : "lastNameEdit",
         "mandatory" : false,
         "sels" : null
       },
@@ -2051,7 +2051,7 @@ final personForm = {
     "firstName" : {
       "fldName" : "firstName",
       "fldType" : "name",
-      "fldTpl" : "firstNameSpec",
+      "fldTpl" : "firstNameEdit",
       "domainType" : "stringField",
       "caption" : "名",
       "hint" : "名",
@@ -2062,7 +2062,7 @@ final personForm = {
       "enumType" : null,
       "collection" : false,
       "fldSpec" : {
-        "name" : "firstNameSpec",
+        "name" : "firstNameEdit",
         "mandatory" : false,
         "sels" : null
       },
@@ -3574,7 +3574,7 @@ final personTile = {
       "fld" : {
         "fldName" : "lastName",
         "fldType" : "name",
-        "fldTpl" : "lastNameSpec",
+        "fldTpl" : "lastNameEdit",
         "domainType" : "stringField",
         "caption" : "姓",
         "hint" : "姓",
@@ -3585,7 +3585,7 @@ final personTile = {
         "enumType" : null,
         "collection" : false,
         "fldSpec" : {
-          "name" : "lastNameSpec",
+          "name" : "lastNameEdit",
           "mandatory" : false,
           "sels" : null
         },

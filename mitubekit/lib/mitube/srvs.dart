@@ -1961,6 +1961,50 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "MetaDb:queryPagedEntMeta" : {
+      "methodKey" : "MetaDb:queryPagedEntMeta",
+      "alias" : "queryPagedEntMeta",
+      "name" : "queryPagedEntMeta",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "metaDb",
+        "name" : "queryPagedEntMeta",
+        "bundleName" : "MetaDb",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "match",
+        "dartType" : "Match",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "match"
+      }, {
+        "name" : "pageLimit",
+        "dartType" : "PageLimit",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "page_limit"
+      }, {
+        "name" : "orderBy",
+        "dartType" : "List<ResultSort>",
+        "fldType" : "json-array",
+        "fldGroup" : "array",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "order_by"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PaginatedEntMeta.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "post:unlike" : {
       "methodKey" : "post:unlike",
       "alias" : "unlike",
@@ -2088,6 +2132,50 @@ const srvMetas = {
       "result" : {
         "returnVoid" : false,
         "conv" : "Location.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "MetaDb:queryPagedPalMeta" : {
+      "methodKey" : "MetaDb:queryPagedPalMeta",
+      "alias" : "queryPagedPalMeta",
+      "name" : "queryPagedPalMeta",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "metaDb",
+        "name" : "queryPagedPalMeta",
+        "bundleName" : "MetaDb",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "match",
+        "dartType" : "Match",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "match"
+      }, {
+        "name" : "pageLimit",
+        "dartType" : "PageLimit",
+        "fldType" : "json-object",
+        "fldGroup" : "map",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "page_limit"
+      }, {
+        "name" : "orderBy",
+        "dartType" : "List<ResultSort>",
+        "fldType" : "json-array",
+        "fldGroup" : "array",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "order_by"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "PaginatedPalMeta.fromJson(resp)",
         "elType" : "",
         "elName" : "",
         "elIdFld" : ""

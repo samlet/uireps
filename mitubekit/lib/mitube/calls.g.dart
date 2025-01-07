@@ -17,6 +17,36 @@ Map<String, dynamic> _$ResultSortToJson(ResultSort instance) =>
       if (instance.orderBy case final value?) 'orderBy': value,
     };
 
+PalletEntry _$PalletEntryFromJson(Map<String, dynamic> json) => PalletEntry(
+      palletName: json['palletName'] as String?,
+      palletFullName: json['palletFullName'] as String?,
+      palletSymbol: json['palletSymbol'] as String?,
+      palletVar: json['palletVar'] as String?,
+      bundleName: json['bundleName'] as String?,
+      mainEnt: json['mainEnt'] as String?,
+      syncName: json['syncName'] as String?,
+      fullSyncName: json['fullSyncName'] as String?,
+      flatMessageType: json['flatMessageType'] as String?,
+      fullFlatMessageType: json['fullFlatMessageType'] as String?,
+      callType: json['callType'] as String?,
+    );
+
+Map<String, dynamic> _$PalletEntryToJson(PalletEntry instance) =>
+    <String, dynamic>{
+      if (instance.palletName case final value?) 'palletName': value,
+      if (instance.palletFullName case final value?) 'palletFullName': value,
+      if (instance.palletSymbol case final value?) 'palletSymbol': value,
+      if (instance.palletVar case final value?) 'palletVar': value,
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.mainEnt case final value?) 'mainEnt': value,
+      if (instance.syncName case final value?) 'syncName': value,
+      if (instance.fullSyncName case final value?) 'fullSyncName': value,
+      if (instance.flatMessageType case final value?) 'flatMessageType': value,
+      if (instance.fullFlatMessageType case final value?)
+        'fullFlatMessageType': value,
+      if (instance.callType case final value?) 'callType': value,
+    };
+
 QueryRequest _$QueryRequestFromJson(Map<String, dynamic> json) => QueryRequest(
       bundleName: json['bundleName'] as String?,
       entName: json['entName'] as String?,
@@ -43,6 +73,18 @@ Map<String, dynamic> _$QueryRequestToJson(QueryRequest instance) =>
         'orderBy': value,
     };
 
+PageMeta _$PageMetaFromJson(Map<String, dynamic> json) => PageMeta(
+      page: (json['page'] as num?)?.toInt(),
+      totalPages: (json['totalPages'] as num?)?.toInt(),
+      totalResults: (json['totalResults'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PageMetaToJson(PageMeta instance) => <String, dynamic>{
+      if (instance.page case final value?) 'page': value,
+      if (instance.totalPages case final value?) 'totalPages': value,
+      if (instance.totalResults case final value?) 'totalResults': value,
+    };
+
 NoteContent _$NoteContentFromJson(Map<String, dynamic> json) => NoteContent(
       key: json['key'] as String?,
       title: json['title'] as String?,
@@ -54,6 +96,34 @@ Map<String, dynamic> _$NoteContentToJson(NoteContent instance) =>
       if (instance.key case final value?) 'key': value,
       if (instance.title case final value?) 'title': value,
       if (instance.body case final value?) 'body': value,
+    };
+
+MetaEntry _$MetaEntryFromJson(Map<String, dynamic> json) => MetaEntry(
+      entityName: json['entityName'] as String?,
+      flatMessageType: json['flatMessageType'] as String?,
+      fullFlatMessageType: json['fullFlatMessageType'] as String?,
+      bundleName: json['bundleName'] as String?,
+      syncName: json['syncName'] as String?,
+      fullSyncName: json['fullSyncName'] as String?,
+      syncNs: json['syncNs'] as String?,
+      packageName: json['packageName'] as String?,
+      plugName: json['plugName'] as String?,
+      fields:
+          (json['fields'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$MetaEntryToJson(MetaEntry instance) => <String, dynamic>{
+      if (instance.entityName case final value?) 'entityName': value,
+      if (instance.flatMessageType case final value?) 'flatMessageType': value,
+      if (instance.fullFlatMessageType case final value?)
+        'fullFlatMessageType': value,
+      if (instance.bundleName case final value?) 'bundleName': value,
+      if (instance.syncName case final value?) 'syncName': value,
+      if (instance.fullSyncName case final value?) 'fullSyncName': value,
+      if (instance.syncNs case final value?) 'syncNs': value,
+      if (instance.packageName case final value?) 'packageName': value,
+      if (instance.plugName case final value?) 'plugName': value,
+      if (instance.fields case final value?) 'fields': value,
     };
 
 ResultProtosWithMeta _$ResultProtosWithMetaFromJson(
@@ -73,6 +143,23 @@ Map<String, dynamic> _$ResultProtosWithMetaToJson(
         'ents': value,
       if (instance.start case final value?) 'start': value,
       if (instance.total case final value?) 'total': value,
+    };
+
+PaginatedPalMeta _$PaginatedPalMetaFromJson(Map<String, dynamic> json) =>
+    PaginatedPalMeta(
+      entries: (json['entries'] as List<dynamic>?)
+          ?.map((e) => PalletEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      meta: json['meta'] == null
+          ? null
+          : PageMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$PaginatedPalMetaToJson(PaginatedPalMeta instance) =>
+    <String, dynamic>{
+      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
+        'entries': value,
+      if (instance.meta?.toJson() case final value?) 'meta': value,
     };
 
 ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(
@@ -141,6 +228,23 @@ Map<String, dynamic> _$TestRecToJson(TestRec instance) => <String, dynamic>{
       if (instance.tag case final value?) 'tag': value,
       if (instance.numMap case final value?) 'numMap': value,
       if (instance.nums case final value?) 'nums': value,
+    };
+
+PaginatedEntMeta _$PaginatedEntMetaFromJson(Map<String, dynamic> json) =>
+    PaginatedEntMeta(
+      entries: (json['entries'] as List<dynamic>?)
+          ?.map((e) => MetaEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      meta: json['meta'] == null
+          ? null
+          : PageMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$PaginatedEntMetaToJson(PaginatedEntMeta instance) =>
+    <String, dynamic>{
+      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
+        'entries': value,
+      if (instance.meta?.toJson() case final value?) 'meta': value,
     };
 
 TenantKey _$TenantKeyFromJson(Map<String, dynamic> json) => TenantKey(
