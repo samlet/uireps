@@ -115,6 +115,8 @@ extension PalletEntryEx on tube.PalletEntry {
   IconData get icon => (palPresents[callType!] as Map)['icon'] as IconData;
 }
 
+// --- Pallet Tile ---
+
 class PalletListItem extends StatelessWidget {
   final tube.PalletEntry pallet;
   final VoidCallback onTap;

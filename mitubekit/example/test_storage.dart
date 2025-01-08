@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:sembast/sembast.dart';
@@ -132,10 +133,30 @@ Future<void> testTubeDb() async{
   final path = Directory.systemTemp.path+'_ent';
   var tubeDb=TubeDb(dbDir: path, name: 'ents');
   await tubeDb.init();
+  await tubeDb.clearAllStores(); // clear all data
 
-  await tubeDb.put(StoreType.recs, {'kind': 'cat', 'brand': 'bmw'});
   var finder = Finder(filter: Filter.equals('brand', 'bmw'), sortOrders: [SortOrder('name')]);
+  // Track query changes
+  // var store=tubeDb.store(StoreType.recs);
+  // var db=tubeDb.db;
+  // var query = store.query(finder: finder);
+  // var subscription = query.onSnapshots(db).listen((snapshots) {
+  var subscription = tubeDb.watch(StoreType.recs, finder).listen((snapshots) {
+    // snapshots always contains the list of records matching the query
+    print('=> change list');
+    for (var value in snapshots) {
+      print('\t* ${value.key}: ${value.value}');
+    }
+  });
+
+  await tubeDb.put(StoreType.recs, {'kind': 'car', 'brand': 'bmw'});
+  await tubeDb.put(StoreType.recs, {'kind': 'car', 'brand': 'tesla'});
+  await tubeDb.put(StoreType.recs, {'kind': 'car', 'brand': 'bmw', 'salesChannel': 'specialty store'});
   var records=await tubeDb.find(StoreType.recs, finder);
-  print('find recs(${records.length}): ${records[0].value}');
+  print('find recs(${records.length}) for [bmw]: ${records[0].value}');
+
+  // cancel subscription. Important! not doing this might lead to
+  // memory leaks
+  unawaited(subscription.cancel());
 }
 

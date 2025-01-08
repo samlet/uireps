@@ -69,6 +69,13 @@ class TubeDb {
       StoreType storeType, Finder? finder) async {
     return await store(storeType).find(db, finder: finder);
   }
+
+  Stream<List<RecordSnapshot<int, Map<String, Object?>>>> watch(StoreType storeType, Finder finder){
+    var tbl=store(storeType);
+    var query = tbl.query(finder: finder);
+    var subscription = query.onSnapshots(db);
+    return subscription;
+  }
 }
 
 
