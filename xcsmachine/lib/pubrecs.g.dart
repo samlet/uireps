@@ -6,27 +6,6 @@ part of 'pubrecs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FoldRegion _$FoldRegionFromJson(Map<String, dynamic> json) => FoldRegion(
-      regionId: json['regionId'] as String?,
-      ent: json['ent'] as String?,
-    );
-
-Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) =>
-    <String, dynamic>{
-      if (instance.regionId case final value?) 'regionId': value,
-      if (instance.ent case final value?) 'ent': value,
-    };
-
-FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
-      pkg: json['pkg'] as String?,
-      name: json['name'] as String?,
-    );
-
-Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
-      if (instance.pkg case final value?) 'pkg': value,
-      if (instance.name case final value?) 'name': value,
-    };
-
 NamedDataset _$NamedDatasetFromJson(Map<String, dynamic> json) => NamedDataset(
       name: json['name'] as String?,
       rows: (json['rows'] as List<dynamic>?)
@@ -108,6 +87,42 @@ Json? _$JsonConverterToJson<Json, Value>(
 ) =>
     value == null ? null : toJson(value);
 
+FoldRegion _$FoldRegionFromJson(Map<String, dynamic> json) => FoldRegion(
+      regionId: json['regionId'] as String?,
+      ent: json['ent'] as String?,
+    );
+
+Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) =>
+    <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.ent case final value?) 'ent': value,
+    };
+
+FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
+      pkg: json['pkg'] as String?,
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
+      if (instance.pkg case final value?) 'pkg': value,
+      if (instance.name case final value?) 'name': value,
+    };
+
+Broadcast _$BroadcastFromJson(Map<String, dynamic> json) => Broadcast(
+      subject: json['subject'] as String?,
+      sender: json['sender'] as String?,
+      headers: stringMultimapFromJson(json['headers'] as Map<String, dynamic>?),
+      data: const BytesConverter().fromJson(json['data'] as String?),
+    );
+
+Map<String, dynamic> _$BroadcastToJson(Broadcast instance) => <String, dynamic>{
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.sender case final value?) 'sender': value,
+      'headers': stringMultimapToJson(instance.headers),
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
+    };
+
 ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
       regionId: json['regionId'] as String?,
       entType: json['entType'] as String?,
@@ -123,6 +138,24 @@ Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
       if (instance.lastTs case final value?) 'lastTs': value,
       if (const BytesConverter().toJson(instance.data) case final value?)
         'data': value,
+    };
+
+ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
+    ContactProfile(
+      telephone: json['telephone'] as String?,
+      email: json['email'] as String?,
+      placeId: json['placeId'] as String?,
+      placeType: json['placeType'] as String?,
+      note: json['note'] as String?,
+    );
+
+Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
+    <String, dynamic>{
+      if (instance.telephone case final value?) 'telephone': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.placeId case final value?) 'placeId': value,
+      if (instance.placeType case final value?) 'placeType': value,
+      if (instance.note case final value?) 'note': value,
     };
 
 OptSels _$OptSelsFromJson(Map<String, dynamic> json) => OptSels(
@@ -151,22 +184,4 @@ Map<String, dynamic> _$OptSelToJson(OptSel instance) => <String, dynamic>{
       if (instance.assemblerId case final value?) 'assemblerId': value,
       if (instance.optIds case final value?) 'optIds': value,
       if (instance.variantProds case final value?) 'variantProds': value,
-    };
-
-ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>
-    ContactProfile(
-      telephone: json['telephone'] as String?,
-      email: json['email'] as String?,
-      placeId: json['placeId'] as String?,
-      placeType: json['placeType'] as String?,
-      note: json['note'] as String?,
-    );
-
-Map<String, dynamic> _$ContactProfileToJson(ContactProfile instance) =>
-    <String, dynamic>{
-      if (instance.telephone case final value?) 'telephone': value,
-      if (instance.email case final value?) 'email': value,
-      if (instance.placeId case final value?) 'placeId': value,
-      if (instance.placeType case final value?) 'placeType': value,
-      if (instance.note case final value?) 'note': value,
     };

@@ -14,7 +14,7 @@ Future<void> main(List<String> arguments) async {
           orderBy: [tube.ResultSort(fld: 'palletName', orderBy: 'asc')]);
       print(
           'page meta: ${rs.meta?.toJson()}, => ${rs.total}, reach-end: ${rs.reachEnd}');
-      for (var value in rs.entries!) {
+      for (tube.PalletEntry value in rs.entries!) {
         print('- ${value.palletName} - ${value.bundleName}, ${value.callType}');
         print('\t\t${value.toJson()}');
       }

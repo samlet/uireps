@@ -17,8 +17,8 @@ import 'package:xcsproto/xcsproto.dart';
 /// EcommSln:getSuppliers(q): [getSuppliers]
 /// EcommSln:getSupplyProducts(q): [getSupplyProducts]
 /// EcommSln:allPartyTypes(q): [allPartyTypes]
-/// EcommSln:partyRootTypes(q): [partyRootTypes]
 /// EcommSln:productRootTypes(q): [productRootTypes]
+/// EcommSln:partyRootTypes(q): [partyRootTypes]
 /// EcommSln:allProductTypes(q): [allProductTypes]
 /// fixtures:makeSomeRecs(q): [makeSomeRecs]
 /// fixtures:makeTestRec(q): [makeTestRec]
@@ -282,11 +282,11 @@ class SlabRepository implements SlabsBase {
     return convList(resp, (el)=>el);
   }
    
-  // Query: EcommSln:partyRootTypes
-  Future<List<String>> partyRootTypes() async { 
+  // Query: EcommSln:productRootTypes
+  Future<List<String>> productRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "partyRootTypes",
+      "action": "productRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,
@@ -296,11 +296,11 @@ class SlabRepository implements SlabsBase {
     return convScalars(resp, (e)=> e.toString());
   }
    
-  // Query: EcommSln:productRootTypes
-  Future<List<String>> productRootTypes() async { 
+  // Query: EcommSln:partyRootTypes
+  Future<List<String>> partyRootTypes() async { 
     var resp = await performCall(dio, {
       "module": 'ecommSln',
-      "action": "productRootTypes",
+      "action": "partyRootTypes",
       "bundleName" : "EcommSln",
       "call-type": "slab",
       "regionId": regionOrNs,

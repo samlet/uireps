@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:quiver/collection.dart';
 import 'dart:typed_data';
 import 'package:xcsmachine/util.dart';
 import 'package:xcsmachine/tubepubs.dart';

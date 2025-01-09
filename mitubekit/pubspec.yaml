@@ -43,6 +43,7 @@ dependencies:
   meta: ^1.15.0
   quiver: ^3.2.1
   events_emitter: ^0.0.7
+  dart_nats: ^0.6.5
 
   window_size:
     #    git:
