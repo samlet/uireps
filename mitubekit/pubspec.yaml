@@ -45,12 +45,27 @@ dependencies:
   events_emitter: ^0.0.7
   dart_nats: ^0.6.5
 
+  riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  freezed_annotation: ^2.4.4
+
+  flutter_svg: ^2.0.10+1
+  form_field_validator: ^1.1.0
+  cached_network_image: ^3.2.0
+
   window_size:
     #    git:
     #      url: https://github.com/google/flutter-desktop-embedding.git
     #      path: plugins/window_size
     path: ../flutter-desktop-embedding/plugins/window_size
+  clickup_fading_scroll:
+    git:
+      url: https://github.com/clickup/clickup_fading_scroll.git
   timeago: ^3.7.0
+  ficonsax: ^0.0.3
+
+  action_slider: ^0.7.0
+  modal_bottom_sheet: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +74,34 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   build_runner: ^2.1.4
   json_serializable: ^6.3.0
+  riverpod_generator: ^2.6.3
+  riverpod_lint: ^2.6.3
+  freezed: ^2.5.8
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/tesla.png
+    - assets/charging.png
+    - assets/charging_station.png
+    - assets/number_plate.png
+    - assets/profile.png
+    # folder
+    - assets/icons/
+    # scenaries list
+    - assets/scenary/scenary0.png
+    - assets/scenary/scenary1.png
+    - assets/scenary/scenary2.png
+    - assets/scenary/scenary3.png
+    - assets/scenary/scenary4.png
+    - assets/scenary/scenary5.png
+    - assets/scenary/scenary6.png
+    - assets/scenary/scenary7.png
+    - assets/scenary/scenary8.png
+    - assets/scenary/scenary9.png
+    - assets/scenary/scenary10.png
+    - assets/scenary/scenary11.png
+    - assets/scenary/scenary12.png
+    - assets/scenary/scenary13.png
+    - assets/scenary/scenary14.png
+    - assets/scenary/scenary15.png

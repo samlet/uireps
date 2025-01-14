@@ -35,6 +35,9 @@ import 'package:xcsproto/xcsproto.dart';
 /// MetaDb:queryPagedEntMeta(q): [queryPagedEntMeta]
 /// MetaDb:queryPagedPalMeta(q): [queryPagedPalMeta]
 /// MetaDb:queryPallets(q): [queryPallets]
+/// RepoManager:freshReadProject(q): [freshReadProject]
+/// RepoManager:getAllTypeNames(q): [getAllTypeNames]
+/// RepoManager:getRepoAsRecView(q): [getRepoAsRecView]
 class SlabRepository implements SlabsBase {
   SlabRepository(this.dio, {
     this.regionOrNs='default',
@@ -630,6 +633,53 @@ class SlabRepository implements SlabsBase {
     }, callOpt: callOpt);
     
     return PalMetas.fromJson(resp);
+  }
+   
+  // Query: RepoManager:freshReadProject
+  Future<SolutionMeta> freshReadProject() async { 
+    var resp = await performCall(dio, {
+      "module": 'repoManager',
+      "action": "freshReadProject",
+      "bundleName" : "RepoManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    }, callOpt: callOpt);
+    
+    return SolutionMeta.fromJson(resp);
+  }
+   
+  // Query: RepoManager:getAllTypeNames
+  Future<List<String>> getAllTypeNames() async { 
+    var resp = await performCall(dio, {
+      "module": 'repoManager',
+      "action": "getAllTypeNames",
+      "bundleName" : "RepoManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, { 
+    }, callOpt: callOpt);
+    
+    return convScalars(resp, (e)=> e.toString());
+  }
+   
+  // Query: RepoManager:getRepoAsRecView
+  Future<RecView> getRepoAsRecView({
+    
+    required String typeName, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'repoManager',
+      "action": "getRepoAsRecView",
+      "bundleName" : "RepoManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "typeName": typeName, 
+    }, callOpt: callOpt);
+    
+    return RecView.fromJson(resp);
   }
   
 }

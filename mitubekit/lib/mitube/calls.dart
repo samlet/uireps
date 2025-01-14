@@ -27,6 +27,34 @@ class ResultSort extends Equatable {
   List<Object?> get props => [fld, orderBy];
 }
 
+// -- RecView -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class RecView extends Equatable {
+  final String? key;
+  final RecHeader? header;
+  final RecScores? scores;
+  final RecTags? tags;
+  final List<RecAsset>? assets;
+  final List<RecSheet>? sheets;
+  const RecView({
+    this.key,
+    this.header,
+    this.scores,
+    this.tags,
+    this.assets,
+    this.sheets,
+  });
+
+  factory RecView.fromJson(Map<String, dynamic> json) =>
+      _$RecViewFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecViewToJson(this);
+  @override
+  List<Object?> get props => [key, header, scores, tags, assets, sheets];
+}
+
 // -- PalMetas -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -47,6 +75,400 @@ class PalMetas extends Equatable {
   Map<String, dynamic> toJson() => _$PalMetasToJson(this);
   @override
   List<Object?> get props => [entries, start, total];
+}
+
+// -- SourceInfo -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SourceInfo extends Equatable {
+  final String? name;
+  final String? fullName;
+  final String? title;
+  final String? description;
+  final String? parentName;
+  final String? elementType;
+  final String? path;
+  final List<String>? annos;
+  final List<String>? plainComments;
+  final List<String>? implNames;
+  final List<String>? baseNames;
+  final bool? isMut;
+  final bool? isExport;
+  const SourceInfo({
+    this.name,
+    this.fullName,
+    this.title,
+    this.description,
+    this.parentName,
+    this.elementType,
+    this.path,
+    this.annos,
+    this.plainComments,
+    this.implNames,
+    this.baseNames,
+    this.isMut,
+    this.isExport,
+  });
+
+  factory SourceInfo.fromJson(Map<String, dynamic> json) =>
+      _$SourceInfoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SourceInfoToJson(this);
+  @override
+  List<Object?> get props => [name, fullName, title, description, parentName, elementType, path, annos, plainComments, implNames, baseNames, isMut, isExport];
+}
+
+// -- SourceLogs -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SourceLogs extends Equatable {
+  final String? path;
+  final String? name;
+  final List<SourceCommit>? commits;
+  const SourceLogs({
+    this.path,
+    this.name,
+    this.commits,
+  });
+
+  factory SourceLogs.fromJson(Map<String, dynamic> json) =>
+      _$SourceLogsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SourceLogsToJson(this);
+  @override
+  List<Object?> get props => [path, name, commits];
+}
+
+// -- PageMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PageMeta extends Equatable {
+  final int? page;
+  final int? totalPages;
+  final int? totalResults;
+  const PageMeta({
+    this.page,
+    this.totalPages,
+    this.totalResults,
+  });
+
+  factory PageMeta.fromJson(Map<String, dynamic> json) =>
+      _$PageMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageMetaToJson(this);
+  @override
+  List<Object?> get props => [page, totalPages, totalResults];
+}
+
+// -- NoteContent -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class NoteContent extends Equatable {
+  final String? key;
+  final String? title;
+  final String? body;
+  const NoteContent({
+    this.key,
+    this.title,
+    this.body,
+  });
+
+  factory NoteContent.fromJson(Map<String, dynamic> json) =>
+      _$NoteContentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NoteContentToJson(this);
+  @override
+  List<Object?> get props => [key, title, body];
+}
+
+// -- SolutionSrcMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SolutionSrcMeta extends Equatable {
+  final String? solutionDir;
+  final String? projName;
+  final List<TypeInfo>? typeInfos;
+  const SolutionSrcMeta({
+    this.solutionDir,
+    this.projName,
+    this.typeInfos,
+  });
+
+  factory SolutionSrcMeta.fromJson(Map<String, dynamic> json) =>
+      _$SolutionSrcMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SolutionSrcMetaToJson(this);
+  @override
+  List<Object?> get props => [solutionDir, projName, typeInfos];
+}
+
+// -- SourceCommit -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SourceCommit extends Equatable {
+  final String? name;
+  final String? author;
+  final String? email;
+  final String? abbrev;
+  final DateTime? date;
+  final int? commitTime;
+  final String? message;
+  const SourceCommit({
+    this.name,
+    this.author,
+    this.email,
+    this.abbrev,
+    this.date,
+    this.commitTime,
+    this.message,
+  });
+
+  factory SourceCommit.fromJson(Map<String, dynamic> json) =>
+      _$SourceCommitFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SourceCommitToJson(this);
+  @override
+  List<Object?> get props => [name, author, email, abbrev, date, commitTime, message];
+}
+
+// -- MetaEntry -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class MetaEntry extends Equatable {
+  final String? entityName;
+  final String? flatMessageType;
+  final String? fullFlatMessageType;
+  final String? bundleName;
+  final String? syncName;
+  final String? fullSyncName;
+  final String? syncNs;
+  final String? packageName;
+  final String? plugName;
+  final List<String>? fields;
+  const MetaEntry({
+    this.entityName,
+    this.flatMessageType,
+    this.fullFlatMessageType,
+    this.bundleName,
+    this.syncName,
+    this.fullSyncName,
+    this.syncNs,
+    this.packageName,
+    this.plugName,
+    this.fields,
+  });
+
+  factory MetaEntry.fromJson(Map<String, dynamic> json) =>
+      _$MetaEntryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MetaEntryToJson(this);
+  @override
+  List<Object?> get props => [entityName, flatMessageType, fullFlatMessageType, bundleName, syncName, fullSyncName, syncNs, packageName, plugName, fields];
+}
+
+// -- Match -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class Match extends Equatable {
+  final List<MatchTerm>? terms;
+  final List<NumberRange>? numberRanges;
+  final List<DateTimeRange>? periods;
+  const Match({
+    this.terms,
+    this.numberRanges,
+    this.periods,
+  });
+
+  factory Match.fromJson(Map<String, dynamic> json) =>
+      _$MatchFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MatchToJson(this);
+  @override
+  List<Object?> get props => [terms, numberRanges, periods];
+}
+
+// -- RecAsset -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class RecAsset extends Equatable {
+  final String? name;
+  final String? assetType;
+  final String? assetKind;
+  final String? data;
+  const RecAsset({
+    this.name,
+    this.assetType,
+    this.assetKind,
+    this.data,
+  });
+
+  factory RecAsset.fromJson(Map<String, dynamic> json) =>
+      _$RecAssetFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecAssetToJson(this);
+  @override
+  List<Object?> get props => [name, assetType, assetKind, data];
+}
+
+// -- TestRec -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class TestRec extends Equatable {
+  final String? stringFld;
+  final double? numFld;
+  final bool? boolFld;
+  final String? tag;
+  final Map<String, double>? numMap;
+  final List<double>? nums;
+  const TestRec({
+    this.stringFld,
+    this.numFld,
+    this.boolFld,
+    this.tag,
+    this.numMap,
+    this.nums,
+  });
+
+  factory TestRec.fromJson(Map<String, dynamic> json) =>
+      _$TestRecFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TestRecToJson(this);
+  @override
+  List<Object?> get props => [stringFld, numFld, boolFld, tag, numMap, nums];
+}
+
+// -- SolutionRepoMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SolutionRepoMeta extends Equatable {
+  final String? solutionDir;
+  final List<SourceLogs>? repoInfos;
+  const SolutionRepoMeta({
+    this.solutionDir,
+    this.repoInfos,
+  });
+
+  factory SolutionRepoMeta.fromJson(Map<String, dynamic> json) =>
+      _$SolutionRepoMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SolutionRepoMetaToJson(this);
+  @override
+  List<Object?> get props => [solutionDir, repoInfos];
+}
+
+// -- PaginatedEntMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PaginatedEntMeta extends Equatable {
+  final List<MetaEntry>? entries;
+  final PageMeta? meta;
+  const PaginatedEntMeta({
+    this.entries,
+    this.meta,
+  });
+
+  factory PaginatedEntMeta.fromJson(Map<String, dynamic> json) =>
+      _$PaginatedEntMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PaginatedEntMetaToJson(this);
+  @override
+  List<Object?> get props => [entries, meta];
+}
+
+// -- RecTags -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class RecTags extends Equatable {
+  final List<Tag>? tags;
+  const RecTags({
+    this.tags,
+  });
+
+  factory RecTags.fromJson(Map<String, dynamic> json) =>
+      _$RecTagsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecTagsToJson(this);
+  @override
+  List<Object?> get props => [tags];
+}
+
+// -- RecField -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class RecField extends Equatable {
+  final String? name;
+  final Object? value;
+  final String? fldType;
+  final String? link;
+  const RecField({
+    this.name,
+    this.value,
+    this.fldType,
+    this.link,
+  });
+
+  factory RecField.fromJson(Map<String, dynamic> json) =>
+      _$RecFieldFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecFieldToJson(this);
+  @override
+  List<Object?> get props => [name, value, fldType, link];
+}
+
+// -- DateTimeRange -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class DateTimeRange extends Equatable {
+  final String? field;
+  final DateTime? from;
+  final DateTime? to;
+  const DateTimeRange({
+    this.field,
+    this.from,
+    this.to,
+  });
+
+  factory DateTimeRange.fromJson(Map<String, dynamic> json) =>
+      _$DateTimeRangeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DateTimeRangeToJson(this);
+  @override
+  List<Object?> get props => [field, from, to];
+}
+
+// -- PageLimit -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PageLimit extends Equatable {
+  final int? page;
+  final int? pageSize;
+  const PageLimit({
+    this.page,
+    this.pageSize,
+  });
+
+  factory PageLimit.fromJson(Map<String, dynamic> json) =>
+      _$PageLimitFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
+  @override
+  List<Object?> get props => [page, pageSize];
 }
 
 // -- PalletEntry -- 
@@ -117,84 +539,46 @@ class QueryRequest extends Equatable {
   List<Object?> get props => [bundleName, entName, regionId, match, limit, orderBy];
 }
 
-// -- PageMeta -- 
+// -- RecScores -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class PageMeta extends Equatable {
-  final int? page;
-  final int? totalPages;
-  final int? totalResults;
-  const PageMeta({
-    this.page,
-    this.totalPages,
-    this.totalResults,
+class RecScores extends Equatable {
+  final List<ScoreItem>? scores;
+  const RecScores({
+    this.scores,
   });
 
-  factory PageMeta.fromJson(Map<String, dynamic> json) =>
-      _$PageMetaFromJson(json);
+  factory RecScores.fromJson(Map<String, dynamic> json) =>
+      _$RecScoresFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PageMetaToJson(this);
+  Map<String, dynamic> toJson() => _$RecScoresToJson(this);
   @override
-  List<Object?> get props => [page, totalPages, totalResults];
+  List<Object?> get props => [scores];
 }
 
-// -- NoteContent -- 
+// -- RecSheet -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class NoteContent extends Equatable {
-  final String? key;
-  final String? title;
-  final String? body;
-  const NoteContent({
-    this.key,
-    this.title,
-    this.body,
+class RecSheet extends Equatable {
+  final String? name;
+  final String? assetKind;
+  final String? fldType;
+  final List<RecField>? rows;
+  const RecSheet({
+    this.name,
+    this.assetKind,
+    this.fldType,
+    this.rows,
   });
 
-  factory NoteContent.fromJson(Map<String, dynamic> json) =>
-      _$NoteContentFromJson(json);
+  factory RecSheet.fromJson(Map<String, dynamic> json) =>
+      _$RecSheetFromJson(json);
 
-  Map<String, dynamic> toJson() => _$NoteContentToJson(this);
+  Map<String, dynamic> toJson() => _$RecSheetToJson(this);
   @override
-  List<Object?> get props => [key, title, body];
-}
-
-// -- MetaEntry -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class MetaEntry extends Equatable {
-  final String? entityName;
-  final String? flatMessageType;
-  final String? fullFlatMessageType;
-  final String? bundleName;
-  final String? syncName;
-  final String? fullSyncName;
-  final String? syncNs;
-  final String? packageName;
-  final String? plugName;
-  final List<String>? fields;
-  const MetaEntry({
-    this.entityName,
-    this.flatMessageType,
-    this.fullFlatMessageType,
-    this.bundleName,
-    this.syncName,
-    this.fullSyncName,
-    this.syncNs,
-    this.packageName,
-    this.plugName,
-    this.fields,
-  });
-
-  factory MetaEntry.fromJson(Map<String, dynamic> json) =>
-      _$MetaEntryFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MetaEntryToJson(this);
-  @override
-  List<Object?> get props => [entityName, flatMessageType, fullFlatMessageType, bundleName, syncName, fullSyncName, syncNs, packageName, plugName, fields];
+  List<Object?> get props => [name, assetKind, fldType, rows];
 }
 
 // -- PaginatedPalMeta -- 
@@ -215,6 +599,26 @@ class PaginatedPalMeta extends Equatable {
   Map<String, dynamic> toJson() => _$PaginatedPalMetaToJson(this);
   @override
   List<Object?> get props => [entries, meta];
+}
+
+// -- SolutionMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SolutionMeta extends Equatable {
+  final SolutionSrcMeta? src;
+  final SolutionRepoMeta? repo;
+  const SolutionMeta({
+    this.src,
+    this.repo,
+  });
+
+  factory SolutionMeta.fromJson(Map<String, dynamic> json) =>
+      _$SolutionMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SolutionMetaToJson(this);
+  @override
+  List<Object?> get props => [src, repo];
 }
 
 // -- ResultProtosWithMeta -- 
@@ -259,26 +663,28 @@ class ResultLimit extends Equatable {
   List<Object?> get props => [startIndex, limit];
 }
 
-// -- Match -- 
+// -- TypeInfo -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class Match extends Equatable {
-  final List<MatchTerm>? terms;
-  final List<NumberRange>? numberRanges;
-  final List<DateTimeRange>? periods;
-  const Match({
-    this.terms,
-    this.numberRanges,
-    this.periods,
+class TypeInfo extends Equatable {
+  final String? name;
+  final String? path;
+  final SourceInfo? classEl;
+  final List<SourceInfo>? methods;
+  const TypeInfo({
+    this.name,
+    this.path,
+    this.classEl,
+    this.methods,
   });
 
-  factory Match.fromJson(Map<String, dynamic> json) =>
-      _$MatchFromJson(json);
+  factory TypeInfo.fromJson(Map<String, dynamic> json) =>
+      _$TypeInfoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MatchToJson(this);
+  Map<String, dynamic> toJson() => _$TypeInfoToJson(this);
   @override
-  List<Object?> get props => [terms, numberRanges, periods];
+  List<Object?> get props => [name, path, classEl, methods];
 }
 
 // -- NumberRange -- 
@@ -303,54 +709,6 @@ class NumberRange extends Equatable {
   List<Object?> get props => [field, from, to];
 }
 
-// -- TestRec -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class TestRec extends Equatable {
-  final String? stringFld;
-  final double? numFld;
-  final bool? boolFld;
-  final String? tag;
-  final Map<String, double>? numMap;
-  final List<double>? nums;
-  const TestRec({
-    this.stringFld,
-    this.numFld,
-    this.boolFld,
-    this.tag,
-    this.numMap,
-    this.nums,
-  });
-
-  factory TestRec.fromJson(Map<String, dynamic> json) =>
-      _$TestRecFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TestRecToJson(this);
-  @override
-  List<Object?> get props => [stringFld, numFld, boolFld, tag, numMap, nums];
-}
-
-// -- PaginatedEntMeta -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class PaginatedEntMeta extends Equatable {
-  final List<MetaEntry>? entries;
-  final PageMeta? meta;
-  const PaginatedEntMeta({
-    this.entries,
-    this.meta,
-  });
-
-  factory PaginatedEntMeta.fromJson(Map<String, dynamic> json) =>
-      _$PaginatedEntMetaFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PaginatedEntMetaToJson(this);
-  @override
-  List<Object?> get props => [entries, meta];
-}
-
 // -- TenantKey -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -369,6 +727,52 @@ class TenantKey extends Equatable {
   Map<String, dynamic> toJson() => _$TenantKeyToJson(this);
   @override
   List<Object?> get props => [regionId, tenantId];
+}
+
+// -- ScoreItem -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class ScoreItem extends Equatable {
+  final String? title;
+  final double? stat;
+  const ScoreItem({
+    this.title,
+    this.stat,
+  });
+
+  factory ScoreItem.fromJson(Map<String, dynamic> json) =>
+      _$ScoreItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ScoreItemToJson(this);
+  @override
+  List<Object?> get props => [title, stat];
+}
+
+// -- RecHeader -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class RecHeader extends Equatable {
+  final String? name;
+  final String? description;
+  final String? party;
+  final DateTime? date;
+  final String? version;
+  const RecHeader({
+    this.name,
+    this.description,
+    this.party,
+    this.date,
+    this.version,
+  });
+
+  factory RecHeader.fromJson(Map<String, dynamic> json) =>
+      _$RecHeaderFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecHeaderToJson(this);
+  @override
+  List<Object?> get props => [name, description, party, date, version];
 }
 
 // -- PaginatedEntBytes -- 
@@ -420,46 +824,26 @@ class MatchTerm extends Equatable {
   List<Object?> get props => [field, op, value];
 }
 
-// -- DateTimeRange -- 
+// -- Tag -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class DateTimeRange extends Equatable {
-  final String? field;
-  final DateTime? from;
-  final DateTime? to;
-  const DateTimeRange({
-    this.field,
-    this.from,
-    this.to,
+class Tag extends Equatable {
+  final String? name;
+  final String? group;
+  final bool? compact;
+  const Tag({
+    this.name,
+    this.group,
+    this.compact,
   });
 
-  factory DateTimeRange.fromJson(Map<String, dynamic> json) =>
-      _$DateTimeRangeFromJson(json);
+  factory Tag.fromJson(Map<String, dynamic> json) =>
+      _$TagFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DateTimeRangeToJson(this);
+  Map<String, dynamic> toJson() => _$TagToJson(this);
   @override
-  List<Object?> get props => [field, from, to];
-}
-
-// -- PageLimit -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class PageLimit extends Equatable {
-  final int? page;
-  final int? pageSize;
-  const PageLimit({
-    this.page,
-    this.pageSize,
-  });
-
-  factory PageLimit.fromJson(Map<String, dynamic> json) =>
-      _$PageLimitFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PageLimitToJson(this);
-  @override
-  List<Object?> get props => [page, pageSize];
+  List<Object?> get props => [name, group, compact];
 }
 
 // -- FullId -- 
@@ -526,4 +910,4 @@ class UserObj extends Equatable implements IPresentElement{
 }
 
 
-// total classes: 21
+// total classes: 37

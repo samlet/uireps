@@ -1,6 +1,6 @@
 import 'package:xcsmachine/util.dart';
 
-final reclets = [configuratorAndDetailForm, signupForm, palletEntryForm, skuInfoForm, configuratorForm, protoEntForm, noteContentForm, shelfForm, metaEntryForm, configItemForm, userInfoForm, configOptForm, spuInfoForm, testRecForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
+final reclets = [configuratorAndDetailForm, recViewForm, signupForm, palletEntryForm, skuInfoForm, sourceLogsForm, configuratorForm, protoEntForm, shelfForm, noteContentForm, metaEntryForm, configItemForm, userInfoForm, typeInfoForm, configOptForm, spuInfoForm, testRecForm, helloPojoForm, commodityForm, fullIdForm, userObjForm]; 
 
 final rectiles = [noteContentTile, userObjTile];
 
@@ -83,6 +83,122 @@ final configuratorAndDetailForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
+final recViewForm = {
+  "formKey" : "RecView",
+  "formName" : "RecView",
+  "alias" : "recView",
+  "caption" : "Rec View",
+  "locale" : "zh",
+  "keyFld" : "key",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "profile" : null,
+  "flds" : {
+    "sheets" : {
+      "fldName" : "sheets",
+      "fldType" : "json-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Sheets",
+      "hint" : "Sheets",
+      "defaultValue" : "<RecSheet>[]",
+      "morph" : "RecSheet",
+      "dartType" : "List<RecSheet>",
+      "javaType" : "com.google.protobuf.ListValue",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "assets" : {
+      "fldName" : "assets",
+      "fldType" : "json-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Assets",
+      "hint" : "Assets",
+      "defaultValue" : "<RecAsset>[]",
+      "morph" : "RecAsset",
+      "dartType" : "List<RecAsset>",
+      "javaType" : "com.google.protobuf.ListValue",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "scores" : {
+      "fldName" : "scores",
+      "fldType" : "json-object",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "structField",
+      "caption" : "Scores",
+      "hint" : "Scores",
+      "defaultValue" : null,
+      "morph" : "RecScores",
+      "dartType" : "RecScores",
+      "javaType" : "com.google.protobuf.Struct",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "header" : {
+      "fldName" : "header",
+      "fldType" : "json-object",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "structField",
+      "caption" : "Header",
+      "hint" : "Header",
+      "defaultValue" : null,
+      "morph" : "RecHeader",
+      "dartType" : "RecHeader",
+      "javaType" : "com.google.protobuf.Struct",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
+      "hint" : "Key",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "tags" : {
+      "fldName" : "tags",
+      "fldType" : "json-object",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "structField",
+      "caption" : "Tags",
+      "hint" : "Tags",
+      "defaultValue" : null,
+      "morph" : "RecTags",
+      "dartType" : "RecTags",
+      "javaType" : "com.google.protobuf.Struct",
       "enumType" : null,
       "collection" : false,
       "fldSpec" : null,
@@ -610,6 +726,71 @@ final skuInfoForm = {
   }
 };
 
+final sourceLogsForm = {
+  "formKey" : "SourceLogs",
+  "formName" : "SourceLogs",
+  "alias" : "sourceLogs",
+  "caption" : "Source Logs",
+  "locale" : "zh",
+  "keyFld" : "path",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "profile" : null,
+  "flds" : {
+    "path" : {
+      "fldName" : "path",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Path",
+      "hint" : "Path",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "name" : {
+      "fldName" : "name",
+      "fldType" : "name",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "名称",
+      "hint" : "名称",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "commits" : {
+      "fldName" : "commits",
+      "fldType" : "json-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Commits",
+      "hint" : "Commits",
+      "defaultValue" : "<SourceCommit>[]",
+      "morph" : "SourceCommit",
+      "dartType" : "List<SourceCommit>",
+      "javaType" : "com.google.protobuf.ListValue",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
 final configuratorForm = {
   "formKey" : "Configurator",
   "formName" : "Configurator",
@@ -757,71 +938,6 @@ final protoEntForm = {
   }
 };
 
-final noteContentForm = {
-  "formKey" : "NoteContent",
-  "formName" : "NoteContent",
-  "alias" : "noteContent",
-  "caption" : "便笺内容",
-  "locale" : "zh",
-  "keyFld" : "key",
-  "labelSubmit" : "Submit",
-  "labelReset" : "Reset",
-  "profile" : null,
-  "flds" : {
-    "title" : {
-      "fldName" : "title",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "标题",
-      "hint" : "标题",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "body" : {
-      "fldName" : "body",
-      "fldType" : "value",
-      "fldTpl" : "commentProp",
-      "domainType" : "stringField",
-      "caption" : "内容",
-      "hint" : "内容",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    },
-    "key" : {
-      "fldName" : "key",
-      "fldType" : "value",
-      "fldTpl" : "valueProp",
-      "domainType" : "stringField",
-      "caption" : "Key",
-      "hint" : "Key",
-      "defaultValue" : "''",
-      "morph" : "",
-      "dartType" : "String",
-      "javaType" : "String",
-      "enumType" : null,
-      "collection" : false,
-      "fldSpec" : null,
-      "binders" : null,
-      "slider" : null
-    }
-  }
-};
-
 final shelfForm = {
   "formKey" : "Shelf",
   "formName" : "Shelf",
@@ -874,6 +990,71 @@ final shelfForm = {
       "domainType" : "stringField",
       "caption" : "Store Id",
       "hint" : "Store Id",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
+final noteContentForm = {
+  "formKey" : "NoteContent",
+  "formName" : "NoteContent",
+  "alias" : "noteContent",
+  "caption" : "便笺内容",
+  "locale" : "zh",
+  "keyFld" : "key",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "profile" : null,
+  "flds" : {
+    "title" : {
+      "fldName" : "title",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "标题",
+      "hint" : "标题",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "body" : {
+      "fldName" : "body",
+      "fldType" : "value",
+      "fldTpl" : "commentProp",
+      "domainType" : "stringField",
+      "caption" : "内容",
+      "hint" : "内容",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "key" : {
+      "fldName" : "key",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Key",
+      "hint" : "Key",
       "defaultValue" : "''",
       "morph" : "",
       "dartType" : "String",
@@ -1498,6 +1679,88 @@ final userInfoForm = {
       "morph" : "",
       "dartType" : "String",
       "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    }
+  }
+};
+
+final typeInfoForm = {
+  "formKey" : "TypeInfo",
+  "formName" : "TypeInfo",
+  "alias" : "typeInfo",
+  "caption" : "Type Info",
+  "locale" : "zh",
+  "keyFld" : "path",
+  "labelSubmit" : "Submit",
+  "labelReset" : "Reset",
+  "profile" : null,
+  "flds" : {
+    "path" : {
+      "fldName" : "path",
+      "fldType" : "value",
+      "fldTpl" : "valueProp",
+      "domainType" : "stringField",
+      "caption" : "Path",
+      "hint" : "Path",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "methods" : {
+      "fldName" : "methods",
+      "fldType" : "json-array",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "listField",
+      "caption" : "Methods",
+      "hint" : "Methods",
+      "defaultValue" : "<SourceInfo>[]",
+      "morph" : "SourceInfo",
+      "dartType" : "List<SourceInfo>",
+      "javaType" : "com.google.protobuf.ListValue",
+      "enumType" : null,
+      "collection" : true,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "name" : {
+      "fldName" : "name",
+      "fldType" : "name",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "stringField",
+      "caption" : "名称",
+      "hint" : "名称",
+      "defaultValue" : "''",
+      "morph" : "",
+      "dartType" : "String",
+      "javaType" : "String",
+      "enumType" : null,
+      "collection" : false,
+      "fldSpec" : null,
+      "binders" : null,
+      "slider" : null
+    },
+    "classEl" : {
+      "fldName" : "classEl",
+      "fldType" : "json-object",
+      "fldTpl" : "propWithSpec",
+      "domainType" : "structField",
+      "caption" : "Class El",
+      "hint" : "Class El",
+      "defaultValue" : null,
+      "morph" : "SourceInfo",
+      "dartType" : "SourceInfo",
+      "javaType" : "com.google.protobuf.Struct",
       "enumType" : null,
       "collection" : false,
       "fldSpec" : null,

@@ -7,51 +7,24 @@ import 'package:xcsmachine/util.dart';
 import 'src/tube/tubepubs.dart';
 part 'pubrecs.g.dart';
 
-// -- ProtoEnt -- 
+// -- FoldRegion -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class ProtoEnt extends Equatable {
+class FoldRegion extends Equatable {
   final String? regionId;
-  final String? entType;
-  final String? key;
-  final int? lastTs;
-  @BytesConverter()
-  final Uint8List? data;
-  const ProtoEnt({
+  final String? ent;
+  const FoldRegion({
     this.regionId,
-    this.entType,
-    this.key,
-    this.lastTs,
-    this.data,
+    this.ent,
   });
 
-  factory ProtoEnt.fromJson(Map<String, dynamic> json) =>
-      _$ProtoEntFromJson(json);
+  factory FoldRegion.fromJson(Map<String, dynamic> json) =>
+      _$FoldRegionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ProtoEntToJson(this);
+  Map<String, dynamic> toJson() => _$FoldRegionToJson(this);
   @override
-  List<Object?> get props => [regionId, entType, key, lastTs, data];
-}
-
-// -- NamedDataset -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class NamedDataset extends Equatable {
-  final String? name;
-  final List<Map<String, dynamic>>? rows;
-  const NamedDataset({
-    this.name,
-    this.rows,
-  });
-
-  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
-      _$NamedDatasetFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
-  @override
-  List<Object?> get props => [name, rows];
+  List<Object?> get props => [regionId, ent];
 }
 
 // -- BundleJoint -- 
@@ -102,44 +75,51 @@ class BundleJoint extends Equatable {
   List<Object?> get props => [id, from, to, fromRole, toRole, fromType, toType, fromDate, thruDate, statusId, relationshipName, comments, lastUpdatedTxStamp, createdTxStamp, regionId, tenantId];
 }
 
-// -- FoldRegion -- 
+// -- NamedDataset -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class FoldRegion extends Equatable {
-  final String? regionId;
-  final String? ent;
-  const FoldRegion({
-    this.regionId,
-    this.ent,
+class NamedDataset extends Equatable {
+  final String? name;
+  final List<Map<String, dynamic>>? rows;
+  const NamedDataset({
+    this.name,
+    this.rows,
   });
 
-  factory FoldRegion.fromJson(Map<String, dynamic> json) =>
-      _$FoldRegionFromJson(json);
+  factory NamedDataset.fromJson(Map<String, dynamic> json) =>
+      _$NamedDatasetFromJson(json);
 
-  Map<String, dynamic> toJson() => _$FoldRegionToJson(this);
+  Map<String, dynamic> toJson() => _$NamedDatasetToJson(this);
   @override
-  List<Object?> get props => [regionId, ent];
+  List<Object?> get props => [name, rows];
 }
 
-// -- FullName -- 
+// -- ProtoEnt -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
 @immutable
-class FullName extends Equatable {
-  final String? pkg;
-  final String? name;
-  const FullName({
-    this.pkg,
-    this.name,
+class ProtoEnt extends Equatable {
+  final String? regionId;
+  final String? entType;
+  final String? key;
+  final int? lastTs;
+  @BytesConverter()
+  final Uint8List? data;
+  const ProtoEnt({
+    this.regionId,
+    this.entType,
+    this.key,
+    this.lastTs,
+    this.data,
   });
 
-  factory FullName.fromJson(Map<String, dynamic> json) =>
-      _$FullNameFromJson(json);
+  factory ProtoEnt.fromJson(Map<String, dynamic> json) =>
+      _$ProtoEntFromJson(json);
 
-  Map<String, dynamic> toJson() => _$FullNameToJson(this);
+  Map<String, dynamic> toJson() => _$ProtoEntToJson(this);
   @override
-  List<Object?> get props => [pkg, name];
+  List<Object?> get props => [regionId, entType, key, lastTs, data];
 }
 
 // -- Broadcast -- 
@@ -168,6 +148,26 @@ class Broadcast extends Equatable {
   List<Object?> get props => [subject, sender, headers, data];
 }
 
+// -- FullName -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class FullName extends Equatable {
+  final String? pkg;
+  final String? name;
+  const FullName({
+    this.pkg,
+    this.name,
+  });
+
+  factory FullName.fromJson(Map<String, dynamic> json) =>
+      _$FullNameFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FullNameToJson(this);
+  @override
+  List<Object?> get props => [pkg, name];
+}
+
 // -- OptSel -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -188,6 +188,26 @@ class OptSel extends Equatable {
   Map<String, dynamic> toJson() => _$OptSelToJson(this);
   @override
   List<Object?> get props => [assemblerId, optIds, variantProds];
+}
+
+// -- OptSels -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class OptSels extends Equatable {
+  final String? productId;
+  final List<OptSel>? sels;
+  const OptSels({
+    this.productId,
+    this.sels,
+  });
+
+  factory OptSels.fromJson(Map<String, dynamic> json) =>
+      _$OptSelsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OptSelsToJson(this);
+  @override
+  List<Object?> get props => [productId, sels];
 }
 
 // -- ContactProfile -- 
@@ -214,26 +234,6 @@ class ContactProfile extends Equatable {
   Map<String, dynamic> toJson() => _$ContactProfileToJson(this);
   @override
   List<Object?> get props => [telephone, email, placeId, placeType, note];
-}
-
-// -- OptSels -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class OptSels extends Equatable {
-  final String? productId;
-  final List<OptSel>? sels;
-  const OptSels({
-    this.productId,
-    this.sels,
-  });
-
-  factory OptSels.fromJson(Map<String, dynamic> json) =>
-      _$OptSelsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OptSelsToJson(this);
-  @override
-  List<Object?> get props => [productId, sels];
 }
 
 

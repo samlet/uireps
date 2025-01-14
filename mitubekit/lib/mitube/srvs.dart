@@ -1589,6 +1589,26 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "RepoManager:getAllTypeNames" : {
+      "methodKey" : "RepoManager:getAllTypeNames",
+      "alias" : "getAllTypeNames",
+      "name" : "getAllTypeNames",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "repoManager",
+        "name" : "getAllTypeNames",
+        "bundleName" : "RepoManager",
+        "callType" : "slab"
+      },
+      "parameters" : [ ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convScalars(resp, (e)=> e.toString())",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "PortalManager:removeEnt" : {
       "methodKey" : "PortalManager:removeEnt",
       "alias" : "removeEnt",
@@ -3153,6 +3173,34 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "RepoManager:getRepoAsRecView" : {
+      "methodKey" : "RepoManager:getRepoAsRecView",
+      "alias" : "getRepoAsRecView",
+      "name" : "getRepoAsRecView",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "repoManager",
+        "name" : "getRepoAsRecView",
+        "bundleName" : "RepoManager",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "typeName",
+        "dartType" : "String",
+        "fldType" : "name",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "type_name"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "RecView.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "note:setTitleAndContent" : {
       "methodKey" : "note:setTitleAndContent",
       "alias" : "setTitleAndContent",
@@ -3672,6 +3720,26 @@ const srvMetas = {
       "result" : {
         "returnVoid" : false,
         "conv" : "PalMetas.fromJson(resp)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "RepoManager:freshReadProject" : {
+      "methodKey" : "RepoManager:freshReadProject",
+      "alias" : "freshReadProject",
+      "name" : "freshReadProject",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "repoManager",
+        "name" : "freshReadProject",
+        "bundleName" : "RepoManager",
+        "callType" : "slab"
+      },
+      "parameters" : [ ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "SolutionMeta.fromJson(resp)",
         "elType" : "",
         "elName" : "",
         "elIdFld" : ""

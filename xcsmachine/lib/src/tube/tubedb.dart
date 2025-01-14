@@ -86,7 +86,6 @@ void registerDb() {
     var tubeDb = TubeDb(dbDir: path, name: 'tubes');
     await tubeDb.init();
     if(profile.cleanupDb) {
-      _logger.info('clear all stores.');
       await tubeDb.clearAllStores(); // clear all data
     }
     return tubeDb;
