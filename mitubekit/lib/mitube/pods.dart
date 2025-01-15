@@ -155,6 +155,22 @@ Future<List<Map<String, dynamic>>> pullAllOras(Ref ref, {
 }
   
 @riverpod
+Future<List<ProtoEnt>> pullTenantEnts(Ref ref, {
+  
+    required String bundleName,
+    String? regionId='default',
+    required String tenantId, 
+
+}) async {  
+  var pod=ref.watch(slabRepoProvider);
+  return await pod.pullTenantEnts(
+      bundleName: bundleName,
+      regionId: regionId,
+      tenantId: tenantId,
+  );
+}
+  
+@riverpod
 Future<List<ProtoEnt>> listAsEnts(Ref ref, {
   
     required QueryRequest qr, 
@@ -163,6 +179,22 @@ Future<List<ProtoEnt>> listAsEnts(Ref ref, {
   var pod=ref.watch(slabRepoProvider);
   return await pod.listAsEnts(
       qr: qr,
+  );
+}
+  
+@riverpod
+Future<List<ProtoEnt>> pullTenantBlues(Ref ref, {
+  
+    required String bundleName,
+    String? regionId='default',
+    required String tenantId, 
+
+}) async {  
+  var pod=ref.watch(slabRepoProvider);
+  return await pod.pullTenantBlues(
+      bundleName: bundleName,
+      regionId: regionId,
+      tenantId: tenantId,
   );
 }
   

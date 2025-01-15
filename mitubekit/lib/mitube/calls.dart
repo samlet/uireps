@@ -27,6 +27,28 @@ class ResultSort extends Equatable {
   List<Object?> get props => [fld, orderBy];
 }
 
+// -- PalMetas -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class PalMetas extends Equatable {
+  final List<PalletEntry>? entries;
+  final int? start;
+  final int? total;
+  const PalMetas({
+    this.entries,
+    this.start,
+    this.total,
+  });
+
+  factory PalMetas.fromJson(Map<String, dynamic> json) =>
+      _$PalMetasFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PalMetasToJson(this);
+  @override
+  List<Object?> get props => [entries, start, total];
+}
+
 // -- RecView -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -53,28 +75,6 @@ class RecView extends Equatable {
   Map<String, dynamic> toJson() => _$RecViewToJson(this);
   @override
   List<Object?> get props => [key, header, scores, tags, assets, sheets];
-}
-
-// -- PalMetas -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class PalMetas extends Equatable {
-  final List<PalletEntry>? entries;
-  final int? start;
-  final int? total;
-  const PalMetas({
-    this.entries,
-    this.start,
-    this.total,
-  });
-
-  factory PalMetas.fromJson(Map<String, dynamic> json) =>
-      _$PalMetasFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PalMetasToJson(this);
-  @override
-  List<Object?> get props => [entries, start, total];
 }
 
 // -- SourceInfo -- 
@@ -601,26 +601,6 @@ class PaginatedPalMeta extends Equatable {
   List<Object?> get props => [entries, meta];
 }
 
-// -- SolutionMeta -- 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
-@OffsetDateTimeConverter()
-@immutable
-class SolutionMeta extends Equatable {
-  final SolutionSrcMeta? src;
-  final SolutionRepoMeta? repo;
-  const SolutionMeta({
-    this.src,
-    this.repo,
-  });
-
-  factory SolutionMeta.fromJson(Map<String, dynamic> json) =>
-      _$SolutionMetaFromJson(json);
-
-  Map<String, dynamic> toJson() => _$SolutionMetaToJson(this);
-  @override
-  List<Object?> get props => [src, repo];
-}
-
 // -- ResultProtosWithMeta -- 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 @OffsetDateTimeConverter()
@@ -641,6 +621,26 @@ class ResultProtosWithMeta extends Equatable {
   Map<String, dynamic> toJson() => _$ResultProtosWithMetaToJson(this);
   @override
   List<Object?> get props => [ents, start, total];
+}
+
+// -- SolutionMeta -- 
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@OffsetDateTimeConverter()
+@immutable
+class SolutionMeta extends Equatable {
+  final SolutionSrcMeta? src;
+  final SolutionRepoMeta? repo;
+  const SolutionMeta({
+    this.src,
+    this.repo,
+  });
+
+  factory SolutionMeta.fromJson(Map<String, dynamic> json) =>
+      _$SolutionMetaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SolutionMetaToJson(this);
+  @override
+  List<Object?> get props => [src, repo];
 }
 
 // -- ResultLimit -- 

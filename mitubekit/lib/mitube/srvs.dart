@@ -105,6 +105,50 @@ const srvMetas = {
         "elIdFld" : ""
       }
     },
+    "PortalManager:pullTenantEnts" : {
+      "methodKey" : "PortalManager:pullTenantEnts",
+      "alias" : "pullTenantEnts",
+      "name" : "pullTenantEnts",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "portalManager",
+        "name" : "pullTenantEnts",
+        "bundleName" : "PortalManager",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "bundleName",
+        "dartType" : "String",
+        "fldType" : "name",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "bundle_name"
+      }, {
+        "name" : "regionId",
+        "dartType" : "String",
+        "fldType" : "id",
+        "fldGroup" : "identity",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "region_id"
+      }, {
+        "name" : "tenantId",
+        "dartType" : "String",
+        "fldType" : "id",
+        "fldGroup" : "identity",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "tenant_id"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, ProtoEnt.fromJson)",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
     "user:wallet" : {
       "methodKey" : "user:wallet",
       "alias" : "wallet",
@@ -3232,6 +3276,50 @@ const srvMetas = {
       "result" : {
         "returnVoid" : true,
         "conv" : "",
+        "elType" : "",
+        "elName" : "",
+        "elIdFld" : ""
+      }
+    },
+    "PortalManager:pullTenantBlues" : {
+      "methodKey" : "PortalManager:pullTenantBlues",
+      "alias" : "pullTenantBlues",
+      "name" : "pullTenantBlues",
+      "selection" : false,
+      "ctx" : {
+        "moduleName" : "portalManager",
+        "name" : "pullTenantBlues",
+        "bundleName" : "PortalManager",
+        "callType" : "slab"
+      },
+      "parameters" : [ {
+        "name" : "bundleName",
+        "dartType" : "String",
+        "fldType" : "name",
+        "fldGroup" : "describe",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "bundle_name"
+      }, {
+        "name" : "regionId",
+        "dartType" : "String",
+        "fldType" : "id",
+        "fldGroup" : "identity",
+        "optional" : true,
+        "conv" : "",
+        "protoName" : "region_id"
+      }, {
+        "name" : "tenantId",
+        "dartType" : "String",
+        "fldType" : "id",
+        "fldGroup" : "identity",
+        "optional" : false,
+        "conv" : "",
+        "protoName" : "tenant_id"
+      } ],
+      "result" : {
+        "returnVoid" : false,
+        "conv" : "convList(resp, ProtoEnt.fromJson)",
         "elType" : "",
         "elName" : "",
         "elIdFld" : ""

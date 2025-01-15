@@ -194,6 +194,170 @@ class _PullAllOrasProviderElement
   String? get regionId => (origin as PullAllOrasProvider).regionId;
 }
 
+String _$pullTenantEntsHash() => r'2bd3dfa551ddaf6a0422a2bd29aa3b95a170decd';
+
+/// See also [pullTenantEnts].
+@ProviderFor(pullTenantEnts)
+const pullTenantEntsProvider = PullTenantEntsFamily();
+
+/// See also [pullTenantEnts].
+class PullTenantEntsFamily extends Family<AsyncValue<List<ProtoEnt>>> {
+  /// See also [pullTenantEnts].
+  const PullTenantEntsFamily();
+
+  /// See also [pullTenantEnts].
+  PullTenantEntsProvider call({
+    required String bundleName,
+    String? regionId = 'default',
+    required String tenantId,
+  }) {
+    return PullTenantEntsProvider(
+      bundleName: bundleName,
+      regionId: regionId,
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  PullTenantEntsProvider getProviderOverride(
+    covariant PullTenantEntsProvider provider,
+  ) {
+    return call(
+      bundleName: provider.bundleName,
+      regionId: provider.regionId,
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'pullTenantEntsProvider';
+}
+
+/// See also [pullTenantEnts].
+class PullTenantEntsProvider extends AutoDisposeFutureProvider<List<ProtoEnt>> {
+  /// See also [pullTenantEnts].
+  PullTenantEntsProvider({
+    required String bundleName,
+    String? regionId = 'default',
+    required String tenantId,
+  }) : this._internal(
+          (ref) => pullTenantEnts(
+            ref as PullTenantEntsRef,
+            bundleName: bundleName,
+            regionId: regionId,
+            tenantId: tenantId,
+          ),
+          from: pullTenantEntsProvider,
+          name: r'pullTenantEntsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$pullTenantEntsHash,
+          dependencies: PullTenantEntsFamily._dependencies,
+          allTransitiveDependencies:
+              PullTenantEntsFamily._allTransitiveDependencies,
+          bundleName: bundleName,
+          regionId: regionId,
+          tenantId: tenantId,
+        );
+
+  PullTenantEntsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.bundleName,
+    required this.regionId,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String bundleName;
+  final String? regionId;
+  final String tenantId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ProtoEnt>> Function(PullTenantEntsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PullTenantEntsProvider._internal(
+        (ref) => create(ref as PullTenantEntsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        bundleName: bundleName,
+        regionId: regionId,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ProtoEnt>> createElement() {
+    return _PullTenantEntsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PullTenantEntsProvider &&
+        other.bundleName == bundleName &&
+        other.regionId == regionId &&
+        other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PullTenantEntsRef on AutoDisposeFutureProviderRef<List<ProtoEnt>> {
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _PullTenantEntsProviderElement
+    extends AutoDisposeFutureProviderElement<List<ProtoEnt>>
+    with PullTenantEntsRef {
+  _PullTenantEntsProviderElement(super.provider);
+
+  @override
+  String get bundleName => (origin as PullTenantEntsProvider).bundleName;
+  @override
+  String? get regionId => (origin as PullTenantEntsProvider).regionId;
+  @override
+  String get tenantId => (origin as PullTenantEntsProvider).tenantId;
+}
+
 String _$listAsEntsHash() => r'2f780ede1e6a1b38c48d2824a0e700e3fb45a4d1';
 
 /// See also [listAsEnts].
@@ -323,6 +487,171 @@ class _ListAsEntsProviderElement
 
   @override
   QueryRequest get qr => (origin as ListAsEntsProvider).qr;
+}
+
+String _$pullTenantBluesHash() => r'9a006de7b0c8c6a89cb6f008c26265966c8b49f3';
+
+/// See also [pullTenantBlues].
+@ProviderFor(pullTenantBlues)
+const pullTenantBluesProvider = PullTenantBluesFamily();
+
+/// See also [pullTenantBlues].
+class PullTenantBluesFamily extends Family<AsyncValue<List<ProtoEnt>>> {
+  /// See also [pullTenantBlues].
+  const PullTenantBluesFamily();
+
+  /// See also [pullTenantBlues].
+  PullTenantBluesProvider call({
+    required String bundleName,
+    String? regionId = 'default',
+    required String tenantId,
+  }) {
+    return PullTenantBluesProvider(
+      bundleName: bundleName,
+      regionId: regionId,
+      tenantId: tenantId,
+    );
+  }
+
+  @override
+  PullTenantBluesProvider getProviderOverride(
+    covariant PullTenantBluesProvider provider,
+  ) {
+    return call(
+      bundleName: provider.bundleName,
+      regionId: provider.regionId,
+      tenantId: provider.tenantId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'pullTenantBluesProvider';
+}
+
+/// See also [pullTenantBlues].
+class PullTenantBluesProvider
+    extends AutoDisposeFutureProvider<List<ProtoEnt>> {
+  /// See also [pullTenantBlues].
+  PullTenantBluesProvider({
+    required String bundleName,
+    String? regionId = 'default',
+    required String tenantId,
+  }) : this._internal(
+          (ref) => pullTenantBlues(
+            ref as PullTenantBluesRef,
+            bundleName: bundleName,
+            regionId: regionId,
+            tenantId: tenantId,
+          ),
+          from: pullTenantBluesProvider,
+          name: r'pullTenantBluesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$pullTenantBluesHash,
+          dependencies: PullTenantBluesFamily._dependencies,
+          allTransitiveDependencies:
+              PullTenantBluesFamily._allTransitiveDependencies,
+          bundleName: bundleName,
+          regionId: regionId,
+          tenantId: tenantId,
+        );
+
+  PullTenantBluesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.bundleName,
+    required this.regionId,
+    required this.tenantId,
+  }) : super.internal();
+
+  final String bundleName;
+  final String? regionId;
+  final String tenantId;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<ProtoEnt>> Function(PullTenantBluesRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: PullTenantBluesProvider._internal(
+        (ref) => create(ref as PullTenantBluesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        bundleName: bundleName,
+        regionId: regionId,
+        tenantId: tenantId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<ProtoEnt>> createElement() {
+    return _PullTenantBluesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is PullTenantBluesProvider &&
+        other.bundleName == bundleName &&
+        other.regionId == regionId &&
+        other.tenantId == tenantId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, bundleName.hashCode);
+    hash = _SystemHash.combine(hash, regionId.hashCode);
+    hash = _SystemHash.combine(hash, tenantId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin PullTenantBluesRef on AutoDisposeFutureProviderRef<List<ProtoEnt>> {
+  /// The parameter `bundleName` of this provider.
+  String get bundleName;
+
+  /// The parameter `regionId` of this provider.
+  String? get regionId;
+
+  /// The parameter `tenantId` of this provider.
+  String get tenantId;
+}
+
+class _PullTenantBluesProviderElement
+    extends AutoDisposeFutureProviderElement<List<ProtoEnt>>
+    with PullTenantBluesRef {
+  _PullTenantBluesProviderElement(super.provider);
+
+  @override
+  String get bundleName => (origin as PullTenantBluesProvider).bundleName;
+  @override
+  String? get regionId => (origin as PullTenantBluesProvider).regionId;
+  @override
+  String get tenantId => (origin as PullTenantBluesProvider).tenantId;
 }
 
 String _$queryPageHash() => r'44bc3a262bbacb23cc7ca5e5b1fb4c70ec57ddf8';
@@ -1199,23 +1528,6 @@ final allPartyTypesProvider =
 // ignore: unused_element
 typedef AllPartyTypesRef
     = AutoDisposeFutureProviderRef<List<Map<String, dynamic>>>;
-String _$partyRootTypesHash() => r'3e2c6ee3462c6490fa7dd3dcb227d602919310d4';
-
-/// See also [partyRootTypes].
-@ProviderFor(partyRootTypes)
-final partyRootTypesProvider = AutoDisposeFutureProvider<List<String>>.internal(
-  partyRootTypes,
-  name: r'partyRootTypesProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$partyRootTypesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef PartyRootTypesRef = AutoDisposeFutureProviderRef<List<String>>;
 String _$productRootTypesHash() => r'd870bb10bdbdf428ed730cd27db609aedea3701a';
 
 /// See also [productRootTypes].
@@ -1234,6 +1546,23 @@ final productRootTypesProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ProductRootTypesRef = AutoDisposeFutureProviderRef<List<String>>;
+String _$partyRootTypesHash() => r'3e2c6ee3462c6490fa7dd3dcb227d602919310d4';
+
+/// See also [partyRootTypes].
+@ProviderFor(partyRootTypes)
+final partyRootTypesProvider = AutoDisposeFutureProvider<List<String>>.internal(
+  partyRootTypes,
+  name: r'partyRootTypesProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$partyRootTypesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef PartyRootTypesRef = AutoDisposeFutureProviderRef<List<String>>;
 String _$allProductTypesHash() => r'd68547d68395f33bb559fb1932442cfe821227d3';
 
 /// See also [allProductTypes].

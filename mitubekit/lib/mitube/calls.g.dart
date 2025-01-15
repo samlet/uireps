@@ -17,6 +17,21 @@ Map<String, dynamic> _$ResultSortToJson(ResultSort instance) =>
       if (instance.orderBy case final value?) 'orderBy': value,
     };
 
+PalMetas _$PalMetasFromJson(Map<String, dynamic> json) => PalMetas(
+      entries: (json['entries'] as List<dynamic>?)
+          ?.map((e) => PalletEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      start: (json['start'] as num?)?.toInt(),
+      total: (json['total'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PalMetasToJson(PalMetas instance) => <String, dynamic>{
+      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
+        'entries': value,
+      if (instance.start case final value?) 'start': value,
+      if (instance.total case final value?) 'total': value,
+    };
+
 RecView _$RecViewFromJson(Map<String, dynamic> json) => RecView(
       key: json['key'] as String?,
       header: json['header'] == null
@@ -45,21 +60,6 @@ Map<String, dynamic> _$RecViewToJson(RecView instance) => <String, dynamic>{
         'assets': value,
       if (instance.sheets?.map((e) => e.toJson()).toList() case final value?)
         'sheets': value,
-    };
-
-PalMetas _$PalMetasFromJson(Map<String, dynamic> json) => PalMetas(
-      entries: (json['entries'] as List<dynamic>?)
-          ?.map((e) => PalletEntry.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      start: (json['start'] as num?)?.toInt(),
-      total: (json['total'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$PalMetasToJson(PalMetas instance) => <String, dynamic>{
-      if (instance.entries?.map((e) => e.toJson()).toList() case final value?)
-        'entries': value,
-      if (instance.start case final value?) 'start': value,
-      if (instance.total case final value?) 'total': value,
     };
 
 SourceInfo _$SourceInfoFromJson(Map<String, dynamic> json) => SourceInfo(
@@ -475,21 +475,6 @@ Map<String, dynamic> _$PaginatedPalMetaToJson(PaginatedPalMeta instance) =>
       if (instance.meta?.toJson() case final value?) 'meta': value,
     };
 
-SolutionMeta _$SolutionMetaFromJson(Map<String, dynamic> json) => SolutionMeta(
-      src: json['src'] == null
-          ? null
-          : SolutionSrcMeta.fromJson(json['src'] as Map<String, dynamic>),
-      repo: json['repo'] == null
-          ? null
-          : SolutionRepoMeta.fromJson(json['repo'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$SolutionMetaToJson(SolutionMeta instance) =>
-    <String, dynamic>{
-      if (instance.src?.toJson() case final value?) 'src': value,
-      if (instance.repo?.toJson() case final value?) 'repo': value,
-    };
-
 ResultProtosWithMeta _$ResultProtosWithMetaFromJson(
         Map<String, dynamic> json) =>
     ResultProtosWithMeta(
@@ -507,6 +492,21 @@ Map<String, dynamic> _$ResultProtosWithMetaToJson(
         'ents': value,
       if (instance.start case final value?) 'start': value,
       if (instance.total case final value?) 'total': value,
+    };
+
+SolutionMeta _$SolutionMetaFromJson(Map<String, dynamic> json) => SolutionMeta(
+      src: json['src'] == null
+          ? null
+          : SolutionSrcMeta.fromJson(json['src'] as Map<String, dynamic>),
+      repo: json['repo'] == null
+          ? null
+          : SolutionRepoMeta.fromJson(json['repo'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SolutionMetaToJson(SolutionMeta instance) =>
+    <String, dynamic>{
+      if (instance.src?.toJson() case final value?) 'src': value,
+      if (instance.repo?.toJson() case final value?) 'repo': value,
     };
 
 ResultLimit _$ResultLimitFromJson(Map<String, dynamic> json) => ResultLimit(

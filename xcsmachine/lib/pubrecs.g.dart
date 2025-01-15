@@ -6,6 +6,52 @@ part of 'pubrecs.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
+      pkg: json['pkg'] as String?,
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
+      if (instance.pkg case final value?) 'pkg': value,
+      if (instance.name case final value?) 'name': value,
+    };
+
+Broadcast _$BroadcastFromJson(Map<String, dynamic> json) => Broadcast(
+      subject: json['subject'] as String?,
+      sender: json['sender'] as String?,
+      headers: stringMultimapFromJson(json['headers'] as Map<String, dynamic>?),
+      data: const BytesConverter().fromJson(json['data'] as String?),
+    );
+
+Map<String, dynamic> _$BroadcastToJson(Broadcast instance) => <String, dynamic>{
+      if (instance.subject case final value?) 'subject': value,
+      if (instance.sender case final value?) 'sender': value,
+      'headers': stringMultimapToJson(instance.headers),
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
+    };
+
+ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
+      regionId: json['regionId'] as String?,
+      entType: json['entType'] as String?,
+      key: json['key'] as String?,
+      lastTs: (json['lastTs'] as num?)?.toInt(),
+      data: const BytesConverter().fromJson(json['data'] as String?),
+      flatKeys: json['flatKeys'] as Map<String, dynamic>?,
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
+      if (instance.regionId case final value?) 'regionId': value,
+      if (instance.entType case final value?) 'entType': value,
+      if (instance.key case final value?) 'key': value,
+      if (instance.lastTs case final value?) 'lastTs': value,
+      if (const BytesConverter().toJson(instance.data) case final value?)
+        'data': value,
+      if (instance.flatKeys case final value?) 'flatKeys': value,
+      if (instance.tags case final value?) 'tags': value,
+    };
+
 NamedDataset _$NamedDatasetFromJson(Map<String, dynamic> json) => NamedDataset(
       name: json['name'] as String?,
       rows: (json['rows'] as List<dynamic>?)
@@ -96,48 +142,6 @@ Map<String, dynamic> _$FoldRegionToJson(FoldRegion instance) =>
     <String, dynamic>{
       if (instance.regionId case final value?) 'regionId': value,
       if (instance.ent case final value?) 'ent': value,
-    };
-
-FullName _$FullNameFromJson(Map<String, dynamic> json) => FullName(
-      pkg: json['pkg'] as String?,
-      name: json['name'] as String?,
-    );
-
-Map<String, dynamic> _$FullNameToJson(FullName instance) => <String, dynamic>{
-      if (instance.pkg case final value?) 'pkg': value,
-      if (instance.name case final value?) 'name': value,
-    };
-
-Broadcast _$BroadcastFromJson(Map<String, dynamic> json) => Broadcast(
-      subject: json['subject'] as String?,
-      sender: json['sender'] as String?,
-      headers: stringMultimapFromJson(json['headers'] as Map<String, dynamic>?),
-      data: const BytesConverter().fromJson(json['data'] as String?),
-    );
-
-Map<String, dynamic> _$BroadcastToJson(Broadcast instance) => <String, dynamic>{
-      if (instance.subject case final value?) 'subject': value,
-      if (instance.sender case final value?) 'sender': value,
-      'headers': stringMultimapToJson(instance.headers),
-      if (const BytesConverter().toJson(instance.data) case final value?)
-        'data': value,
-    };
-
-ProtoEnt _$ProtoEntFromJson(Map<String, dynamic> json) => ProtoEnt(
-      regionId: json['regionId'] as String?,
-      entType: json['entType'] as String?,
-      key: json['key'] as String?,
-      lastTs: (json['lastTs'] as num?)?.toInt(),
-      data: const BytesConverter().fromJson(json['data'] as String?),
-    );
-
-Map<String, dynamic> _$ProtoEntToJson(ProtoEnt instance) => <String, dynamic>{
-      if (instance.regionId case final value?) 'regionId': value,
-      if (instance.entType case final value?) 'entType': value,
-      if (instance.key case final value?) 'key': value,
-      if (instance.lastTs case final value?) 'lastTs': value,
-      if (const BytesConverter().toJson(instance.data) case final value?)
-        'data': value,
     };
 
 ContactProfile _$ContactProfileFromJson(Map<String, dynamic> json) =>

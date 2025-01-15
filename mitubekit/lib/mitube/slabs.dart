@@ -7,7 +7,9 @@ import 'package:xcsproto/xcsproto.dart';
 
 /// PortalManager:pullAllOras(q): [pullAllOras]
 /// PortalManager:storeEnt(m): [storeEnt]
+/// PortalManager:pullTenantEnts(q): [pullTenantEnts]
 /// PortalManager:listAsEnts(q): [listAsEnts]
+/// PortalManager:pullTenantBlues(q): [pullTenantBlues]
 /// PortalManager:removeEnt(m): [removeEnt]
 /// FoldDelegator:queryPage(q): [queryPage]
 /// FoldDelegator:queryAsEnts(q): [queryAsEnts]
@@ -93,6 +95,29 @@ class SlabRepository implements SlabsBase {
     return Response()..mergeFromProto3Json(resp);
   }
    
+  // Query: PortalManager:pullTenantEnts
+  Future<List<ProtoEnt>> pullTenantEnts({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String tenantId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'portalManager',
+      "action": "pullTenantEnts",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "tenantId": tenantId, 
+    }, callOpt: callOpt);
+    
+    return convList(resp, ProtoEnt.fromJson);
+  }
+   
   // Query: PortalManager:listAsEnts
   Future<List<ProtoEnt>> listAsEnts({
     
@@ -107,6 +132,29 @@ class SlabRepository implements SlabsBase {
       "regionId": regionOrNs,
     }, {
       "qr": qr, 
+    }, callOpt: callOpt);
+    
+    return convList(resp, ProtoEnt.fromJson);
+  }
+   
+  // Query: PortalManager:pullTenantBlues
+  Future<List<ProtoEnt>> pullTenantBlues({
+    
+    required String bundleName,
+    String? regionId='default',
+    required String tenantId, 
+
+  }) async { 
+    var resp = await performCall(dio, {
+      "module": 'portalManager',
+      "action": "pullTenantBlues",
+      "bundleName" : "PortalManager",
+      "call-type": "slab",
+      "regionId": regionOrNs,
+    }, {
+      "bundleName": bundleName,
+      if(regionId!=null) "regionId": regionId,
+      "tenantId": tenantId, 
     }, callOpt: callOpt);
     
     return convList(resp, ProtoEnt.fromJson);
